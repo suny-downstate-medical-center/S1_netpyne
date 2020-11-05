@@ -47,8 +47,8 @@ cfg.rootFolder = os.getcwd()
 
 cfg.importCellMod = 'pkl_after' # 'pkl_after'(only for celldiversity) -  'pkl_before' or 'BBPtemplate' (both)  
 cfg.celldiversity = True 
-cfg.poptypeNumber = 6 # max 55
-cfg.celltypeNumber = 14 # max 207
+cfg.poptypeNumber = 55 # max 55
+cfg.celltypeNumber = 207 # max 207
 #------------------------------------------------------------------------------  
 # Load 55 Morphological Names and Cell pop numbers -> L1:6 L23:10 L4:12 L5:13 L6:14
 # Load 207 Morpho-electrical Names used to import the cells from 'cell_data/' -> L1:14 L23:43 L4:46 L5:52 L6:52
@@ -119,12 +119,10 @@ cfg.cellsrec = 1
 if cfg.cellsrec == 0:  cfg.recordCells = allpops # record all cells
 elif cfg.cellsrec == 1: cfg.recordCells = [(pop,0) for pop in allpops] # record one cell of each pop
 
-# cfg.recordTraces = {'V_soma': {'sec':'soma', 'loc':0.5, 'var':'v'}}  ## Dict with traces to record
+cfg.recordTraces = {'V_soma': {'sec':'soma', 'loc':0.5, 'var':'v'}}  ## Dict with traces to record
 cfg.recordStim = False			
 cfg.recordTime = False  		
 cfg.recordStep = 0.1            
-
-
 
 #------------------------------------------------------------------------------
 # Saving
@@ -135,21 +133,17 @@ cfg.saveFolder = '../data/'+cfg.simLabel
 # cfg.filename =                	## Set file output name
 cfg.savePickle = False         	## Save pkl file
 cfg.saveJson = True	           	## Save json file
-cfg.saveDataInclude = ['simData'] ## 'simData' , 'simConfig', 'netParams'
+cfg.saveDataInclude = ['netParams'] ## 'simData' , 'simConfig', 'netParams'
 cfg.backupCfgFile = None 		##  
 cfg.gatherOnlySimData = False	##  
-cfg.saveCellSecs = False	#True			##  
-cfg.saveCellConns = False	#True			##  
+cfg.saveCellSecs = False			##  False	#
+cfg.saveCellConns = True			##  False	#
 
 #------------------------------------------------------------------------------
 # Analysis and plotting 
 #------------------------------------------------------------------------------
-# cfg.analysis['plotRaster'] = {'include': allpops, 'timeRange': [175,cfg.duration-75], 'saveFig': True, 'showFig': False, 'labels': 'overlay', 'popRates': True, 'orderInverse': True, 'figSize': (18,12), 'fontSize':8, 'lw': 1, 'markerSize':2, 'marker': '.', 'dpi': 300} 
-# cfg.analysis['plotTraces'] = {'include': cfg.recordCells, 'timeRange': [175,cfg.duration-75], 'oneFigPer': 'trace', 'overlay': False, 'saveFig': True, 'showFig': False, 'fontSize':2, 'figSize':(18,12)} 
 cfg.analysis['plotRaster'] = {'include': allpops, 'saveFig': True, 'showFig': False, 'labels': None, 'popRates': True, 'orderInverse': True, 
 							'timeRange': [200,cfg.duration-100], 'figSize': (18,12), 'labels': 'legend', 'popRates': True, 'fontSize':9, 'lw': 1, 'markerSize':1, 'marker': '.', 'dpi': 300} 
-# cfg.analysis['plotSpikeHist'] = {'include': allpops, 'timeRange':[200,cfg.duration-100], 'yaxis':'rate', 'binSize':5, 'graphType':'bar','saveFig': True, 'showFig': False, 'figSize': (18,12), 'dpi': 300, 'steps': ':'} 
-
 #------------------------------------------------------------------------------
 # Synapses
 #------------------------------------------------------------------------------
@@ -164,7 +158,7 @@ cfg.scale = 1.0
 cfg.sizeY = 2082.0
 cfg.sizeX = 420.0 # r = 210 um and hexagonal side length = 230.9 um
 cfg.sizeZ = 420.0
-cfg.scaleDensity = 0.25
+cfg.scaleDensity = 1.0
 # cfg.correctBorderThreshold = 150.0
 
 #------------------------------------------------------------------------------
@@ -172,10 +166,10 @@ cfg.scaleDensity = 0.25
 #------------------------------------------------------------------------------
 cfg.addConn = 1
 
-cfg.synWeightFractionEE = [1.0, 1.0] # E -> E/I AMPA to NMDA ratio
-cfg.synWeightFractionII = [1.0, 1.0]  # I -> E/I GABAA to GABAB ratio
-cfg.EEGain = 1.0
-cfg.IIGain = 1.0
+cfg.synWeightFractionEE = [0.001, 0.001] # E -> E/I AMPA to NMDA ratio
+cfg.synWeightFractionII = [0.001, 0.001]  # I -> E/I GABAA to GABAB ratio
+cfg.EEGain = 0.001
+cfg.IIGain = 0.001
 #------------------------------------------------------------------------------
 # Subcellular distribution
 #------------------------------------------------------------------------------

@@ -63,9 +63,9 @@ layer = {'1':[0.0, 0.079], '2': [0.079,0.151], '3': [0.151,0.320], '23': [0.079,
 # General connectivity parameters
 #------------------------------------------------------------------------------
 netParams.defaultThreshold = -10.0 # spike threshold, 10 mV is NetCon default, lower it for all cells
-# netParams.defaultDelay = 2.0 # default conn delay (ms)
+# netParams.defaultDelay = 2.0 # default conn delay (ms) (M1)
 # netParams.propVelocity = 500.0 # propagation velocity (um/ms) (M1)
-netParams.defaultDelay = 0.0 # default conn delay (ms)
+netParams.defaultDelay = 2.0 # default conn delay (ms)
 netParams.propVelocity = 300.0 #  300 μm/ms (Stuart et al., 1997)
 
 #------------------------------------------------------------------------------
@@ -130,6 +130,7 @@ for popName in cfg.popParamLabels:
 		netParams.popParams[popName] = {'cellType': popName, 'cellModel': 'HH_full', 'ynormRange': layer[layernumber], 'numCells': int(cfg.scaleDensity*cfg.popNumber[popName]+0.5), 'diversity': cfg.celldiversity}
 
 ## Cell property rules
+# cfg.reducedtest = True
 cellnumber = 0    
 if cfg.celldiversity:
     for cellName in cfg.cellParamLabels:
@@ -167,8 +168,8 @@ if cfg.celldiversity:
             # cellRule['secLists']['spiny'] = [sec for sec in cellRule['secLists']['all'] if sec not in nonSpiny]
 
             # if cfg.reducedtest:
-                # cellRule['secs'] = {}
-                # cellRule['secs']['soma'] = netParams.cellParams[cellMe]['secs']['soma']   
+            #     cellRule['secs'] = {}
+            #     cellRule['secs']['soma'] = netParams.cellParams[cellMe]['secs']['soma']   
                 # cellRule['secs']['dend_0'] = netParams.cellParams[cellMe]['secs']['dend_0']   
                 # cellRule['secs']['dend_1'] = netParams.cellParams[cellMe]['secs']['dend_1']    
                 # cellRule['secs']['axon_0']  = netParams.cellParams[cellMe]['secs']['axon_0']   
@@ -235,13 +236,14 @@ if cfg.addConn:
     for pre in Epops:
         for post in Epops+Ipops:
             prob = '%f * exp(-dist_2D/%f)' % (a0mat[pre][post], lmat[pre][post])
+            # prob = '%f * 0.001 * exp(-dist_2D/%f)' % (a0mat[pre][post], lmat[pre][post])
             
             netParams.connParams['EE_'+pre+'_'+post] = { 
                 'preConds': {'pop': pre}, 
                 'postConds': {'pop': post},
                 'synMech': ESynMech,
                 'probability': prob,
-                'weight': wmat[pre][post] * cfg.EEGain, 
+                'weight': gsyn[pre][post] * cfg.EEGain, 
                 'synMechWeightFactor': cfg.synWeightFractionEE,
                 'delay': 'defaultDelay+dist_3D/propVelocity',
                 'synsPerConn': 1,
@@ -252,13 +254,14 @@ if cfg.addConn:
     for pre in Ipops:
         for post in Epops+Ipops:
             prob = '%f * exp(-dist_2D/%f)' % (a0mat[pre][post], lmat[pre][post])
+            # prob = '%f * 0.001 * exp(-dist_2D/%f)' % (a0mat[pre][post], lmat[pre][post])
             
             netParams.connParams['II_'+pre+'_'+post] = { 
                 'preConds': {'pop': pre}, 
                 'postConds': {'pop': post},
                 'synMech': ISynMech,
                 'probability': prob,
-                'weight': wmat[pre][post] * cfg.IIGain, 
+                'weight': gsyn[pre][post] * cfg.IIGain, 
                 'synMechWeightFactor': cfg.synWeightFractionII,
                 'delay': 'defaultDelay+dist_3D/propVelocity',
                 'synsPerConn': 1,
