@@ -1,0 +1,25 @@
+{
+    "connMatrix": [
+        [
+            2.549475218657817,
+            2.6358547636449896
+        ],
+        [
+            2.5269825707053477,
+            0.0
+        ]
+    ],
+    "feature": "delay",
+    "groupBy": "pop",
+    "includePost": [
+        "L1_DAC",
+        "L1_DLAC"
+    ],
+    "includePre": [
+        "L1_DAC",
+        "L1_DLAC"
+    ],
+    "saveData": "../data/v1_batch0/v1_batch0_0_0_pop_delay_matrix.json",
+    "saveFig": true,
+    "showFig": true
+}

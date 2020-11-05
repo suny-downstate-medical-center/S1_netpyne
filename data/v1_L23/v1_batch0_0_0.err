@@ -1,0 +1,28 @@
+Invalid MIT-MAGIC-COOKIE-1 keyNEURON -- VERSION 7.8.1-1-gda13bb7c HEAD (da13bb7c) 2020-07-22
+Duke, Yale, and the BlueBrain Project -- Copyright 1984-2019
+See http://neuron.yale.edu/neuron/credits
+
+Additional mechanisms from files
+ mod//ar_traub.mod mod//cadad.mod mod//CaDynamics_E2.mod mod//cadyn.mod mod//cagk.mod mod//Ca_HVA.mod mod//cal_mh.mod mod//cal_mig.mod mod//Ca_LVAst.mod mod//Ca.mod mod//cancr.mod mod//canin.mod mod//can_mig.mod mod//catcb.mod mod//cat_mig.mod mod//cat_traub.mod mod//ch_CavL.mod mod//ch_CavN.mod mod//ch_KCaS.mod mod//ch_Kdrfastngf.mod mod//ch_KvAngf.mod mod//ch_KvCaB.mod mod//ch_leak.mod mod//ch_Navngf.mod mod//gabab.mod mod//h_BS.mod mod//HCN1.mod mod//h_harnett.mod mod//hin.mod mod//h_kole.mod mod//h_migliore.mod mod//ican_sidi.mod mod//iccr.mod mod//IC.mod mod//iconc_Ca.mod mod//Ih.mod mod//ikscr.mod mod//IKsin.mod mod//Im.mod mod//kap_BS.mod mod//kapcb.mod mod//kapin.mod mod//kBK.mod mod//kca.mod mod//kctin.mod mod//kdmc_BS.mod mod//kdr_BS.mod mod//kdrcr.mod mod//kdrin.mod mod//KdShu2007.mod mod//km.mod mod//K_Pst.mod mod//K_Tst.mod mod//kv.mod mod//MyExp2SynBB.mod mod//my_exp2syn.mod mod//MyExp2SynNMDABB.mod mod//nafcr.mod mod//nafx.mod mod//Nap_Et2.mod mod//nap_sidi.mod mod//NaTa_t.mod mod//NaTs2_t.mod mod//nax_BS.mod mod//naz.mod mod//Nca.mod mod//ProbAMPANMDA_EMS.mod mod//ProbGABAAB_EMS.mod mod//savedist.mod mod//SK_E2.mod mod//SKv3_1.mod mod//StochKv_deterministic.mod mod//StochKv_det.mod mod//StochKv.mod mod//vecstim.mod
+Notice: compartCell_L23_BP_HH_full_6.dend_0(0) had previously been connected to parent compartCell_L23_BP_HH_full_6.soma(0.5)
+Notice: compartCell_L23_BP_HH_full_6.dend_1(0) had previously been connected to parent compartCell_L23_BP_HH_full_6.dend_0(1)
+Notice: compartCell_L23_BP_HH_full_6.dend_2(0) had previously been connected to parent compartCell_L23_BP_HH_full_6.dend_0(1)
+Notice: compartCell_L23_BP_HH_full_6.dend_3(0) had previously been connected to parent compartCell_L23_BP_HH_full_6.dend_2(1)
+Notice: compartCell_L23_BP_HH_full_6.dend_4(0) had previously been connected to parent compartCell_L23_BP_HH_full_6.dend_2(1)
+Notice: compartCell_L23_BP_HH_full_6.dend_5(0) had previously been connected to parent compartCell_L23_BP_HH_full_6.soma(0.5)
+Notice: compartCell_L23_BP_HH_full_6.dend_6(0) had previously been connected to parent compartCell_L23_BP_HH_full_6.dend_5(1)
+Notice: compartCell_L23_BP_HH_full_6.dend_7(0) had previously been connected to parent compartCell_L23_BP_HH_full_6.dend_5(1)
+Notice: compartCell_L23_BP_HH_full_6.dend_8(0) had previously been connected to parent compartCell_L23_BP_HH_full_6.dend_7(1)
+Notice: compartCell_L23_BP_HH_full_6.dend_9(0) had previously been connected to parent compartCell_L23_BP_HH_full_6.dend_7(1)
+Notice: compartCell_L23_BP_HH_full_6.dend_10(0) had previously been connected to parent compartCell_L23_BP_HH_full_6.dend_9(1)
+Notice: compartCell_L23_BP_HH_full_6.dend_11(0) had previously been connected to parent compartCell_L23_BP_HH_full_6.dend_9(1)
+Notice: compartCell_L23_BP_HH_full_6.axon_0(0) had previously been connected to parent compartCell_L23_BP_HH_full_6.soma(1)
+Notice: compartCell_L23_BP_HH_full_6.axon_1(0) had previously been connected to parent compartCell_L23_BP_HH_full_6.axon_0(1)
+>>> >>> >>> >>> >>> 
+
+>>> 
+
+
+
+>>> 
+>>> 

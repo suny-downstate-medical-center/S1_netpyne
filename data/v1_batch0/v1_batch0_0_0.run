@@ -1,0 +1,482 @@
+numprocs=8
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v1_batch0/v1_batch0_0_0_cfg.json ... 
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v1_batch0/v1_batch0_0_0_cfg.json ... 
+Loading simConfig...
+Loading simConfig...
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v1_batch0/v1_batch0_0_0_cfg.json ... 
+Loading simConfig...
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v1_batch0/v1_batch0_0_0_cfg.json ... 
+Loading simConfig...
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v1_batch0/v1_batch0_0_0_cfg.json ... 
+Loading simConfig...
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v1_batch0/v1_batch0_0_0_cfg.json ... 
+Loading simConfig...
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v1_batch0/v1_batch0_0_0_cfg.json ... 
+Loading simConfig...
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v1_batch0/v1_batch0_0_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v1_batch0/v1_batch0_netParams.py
+Importing netParams from ../data/v1_batch0/v1_batch0_netParams.py
+Importing netParams from ../data/v1_batch0/v1_batch0_netParams.py
+Importing netParams from ../data/v1_batch0/v1_batch0_netParams.py
+Importing netParams from ../data/v1_batch0/v1_batch0_netParams.py
+
+Start time:  2020-11-05 14:46:18.452232
+Importing netParams from ../data/v1_batch0/v1_batch0_netParams.py
+Importing netParams from ../data/v1_batch0/v1_batch0_netParams.py
+Importing netParams from ../data/v1_batch0/v1_batch0_netParams.py
+
+Creating network of 2 cell populations on 8 hosts...
+  Number of cells on node 4: 10 
+  Number of cells on node 1: 11 
+  Number of cells on node 2: 10 
+  Number of cells on node 0: 11 
+  Number of cells on node 6: 10 
+  Number of cells on node 5: 10 
+  Number of cells on node 3: 10 
+  Number of cells on node 7: 10 
+  Done; cell creation time = 0.26 s.
+Making connections...
+  Number of connections on node 5: 8 
+  Number of synaptic contacts on node 5: 16 
+  Number of connections on node 3: 5 
+  Number of synaptic contacts on node 3: 10 
+  Number of connections on node 4: 11 
+  Number of synaptic contacts on node 4: 22 
+  Number of connections on node 2: 10 
+  Number of synaptic contacts on node 2: 20 
+  Number of connections on node 7: 9 
+  Number of synaptic contacts on node 7: 18 
+  Number of connections on node 6: 10 
+  Number of synaptic contacts on node 6: 20 
+  Number of connections on node 1: 7 
+  Number of synaptic contacts on node 1: 14 
+  Number of connections on node 0: 6 
+  Number of synaptic contacts on node 0: 12 
+  Done; cell connection time = 0.09 s.
+Adding stims...
+  Number of stims on node 5: 20 
+  Number of stims on node 4: 20 
+  Number of stims on node 3: 20 
+  Number of stims on node 6: 20 
+  Number of stims on node 7: 20 
+  Number of stims on node 2: 20 
+  Number of stims on node 0: 22 
+  Number of stims on node 1: 22 
+  Done; cell stims creation time = 0.01 s.
+Recording 0 traces of 0 types on node 3
+Recording 0 traces of 0 types on node 7
+Recording 0 traces of 0 types on node 6
+Recording 0 traces of 0 types on node 1
+Recording 0 traces of 0 types on node 5
+Recording 0 traces of 0 types on node 4
+Recording 1 traces of 1 types on node 2
+Recording 1 traces of 1 types on node 0
+0.0s
+
+Running simulation for 700.0 ms...
+0.1s
+0.2s
+0.3s
+0.4s
+0.5s
+0.6s
+0.7s
+  Done; run time = 27.98 s; real-time ratio: 0.03.
+
+Gathering data...
+Plotting connectivity matrix...
+Plotting connectivity matrix...
+  Done; gather time = 0.02 s.
+
+Analyzing...
+Plotting connectivity matrix...
+Plotting connectivity matrix...
+Plotting connectivity matrix...
+Plotting connectivity matrix...
+  There was an exception in plotConn(): 
+    'Network' object has no attribute 'allCells' 
+    (<class 'AttributeError'>, AttributeError("'Network' object has no attribute 'allCells'"), <traceback object at 0x7fc1886afb90>)
+Plotting connectivity matrix...
+  There was an exception in plotConn(): 
+    'Network' object has no attribute 'allCells' 
+    (<class 'AttributeError'>, AttributeError("'Network' object has no attribute 'allCells'"), <traceback object at 0x7f5c69b3bfa0>)  There was an exception in plotConn(): 
+    'Network' object has no attribute 'allCells' 
+    (<class 'AttributeError'>, AttributeError("'Network' object has no attribute 'allCells'"), <traceback object at 0x7f46bf2feb90>)
+  There was an exception in plotConn(): 
+    'Network' object has no attribute 'allCells' 
+    (<class 'AttributeError'>, AttributeError("'Network' object has no attribute 'allCells'"), <traceback object at 0x7f9175f58e10>)
+  There was an exception in plotConn(): 
+    'Network' object has no attribute 'allCells' 
+    (<class 'AttributeError'>, AttributeError("'Network' object has no attribute 'allCells'"), <traceback object at 0x7f030f2040a0>)
+Plotting connectivity matrix...
+  There was an exception in plotConn(): 
+    'Network' object has no attribute 'allCells' 
+    (<class 'AttributeError'>, AttributeError("'Network' object has no attribute 'allCells'"), <traceback object at 0x7f1543b0ceb0>)
+Plotting connectivity matrix...
+Plotting connectivity matrix...
+  There was an exception in plotConn(): 
+    'Network' object has no attribute 'allCells' 
+    (<class 'AttributeError'>, AttributeError("'Network' object has no attribute 'allCells'"), <traceback object at 0x7f9175f58370>)
+  There was an exception in plotConn(): 
+    'Network' object has no attribute 'allCells' 
+    (<class 'AttributeError'>, AttributeError("'Network' object has no attribute 'allCells'"), <traceback object at 0x7f030f204190>)
+Plotting connectivity matrix...
+  There was an exception in plotConn(): 
+    'Network' object has no attribute 'allCells' 
+    (<class 'AttributeError'>, AttributeError("'Network' object has no attribute 'allCells'"), <traceback object at 0x7f1543b0cbe0>)
+Plotting connectivity matrix...
+  Cells: 82
+
+Plotting connectivity matrix...
+  There was an exception in plotConn(): 
+    'Network' object has no attribute 'allCells' 
+    (<class 'AttributeError'>, AttributeError("'Network' object has no attribute 'allCells'"), <traceback object at 0x7f5c69b3bfa0>)
+Plotting connectivity matrix...
+Plotting connectivity matrix...
+  There was an exception in plotConn(): 
+    'Network' object has no attribute 'allCells' 
+    (<class 'AttributeError'>, AttributeError("'Network' object has no attribute 'allCells'"), <traceback object at 0x7f46bf2feeb0>)
+Plotting connectivity matrix...
+  There was an exception in plotConn(): 
+    'Network' object has no attribute 'allCells' 
+    (<class 'AttributeError'>, AttributeError("'Network' object has no attribute 'allCells'"), <traceback object at 0x7f46bf2feb90>)
+Plotting connectivity matrix...
+  There was an exception in plotConn(): 
+    'Network' object has no attribute 'allCells' 
+    (<class 'AttributeError'>, AttributeError("'Network' object has no attribute 'allCells'"), <traceback object at 0x7fc1886af2d0>)
+Plotting connectivity matrix...
+  There was an exception in plotConn(): 
+    'Network' object has no attribute 'allCells' 
+    (<class 'AttributeError'>, AttributeError("'Network' object has no attribute 'allCells'"), <traceback object at 0x7fc1886afb90>)
+  There was an exception in plotConn(): 
+    'Network' object has no attribute 'allCells' 
+    (<class 'AttributeError'>, AttributeError("'Network' object has no attribute 'allCells'"), <traceback object at 0x7f1543b0ceb0>)
+  Connections: 66 (0.80 per cell)
+  Synaptic contacts: 132 (1.61 per cell)
+  Spikes: 2699 (47.02 Hz)
+  There was an exception in plotConn(): 
+    'Network' object has no attribute 'allCells' 
+    (<class 'AttributeError'>, AttributeError("'Network' object has no attribute 'allCells'"), <traceback object at 0x7f5c69b3bfa0>)
+Plotting connectivity matrix...
+  There was an exception in plotConn(): 
+    'Network' object has no attribute 'allCells' 
+    (<class 'AttributeError'>, AttributeError("'Network' object has no attribute 'allCells'"), <traceback object at 0x7f030f2040a0>)
+Plotting connectivity matrix...
+Plotting connectivity matrix...
+  There was an exception in plotConn(): 
+    'Network' object has no attribute 'allCells' 
+    (<class 'AttributeError'>, AttributeError("'Network' object has no attribute 'allCells'"), <traceback object at 0x7fc1886af2d0>)
+  There was an exception in plotConn(): 
+    'Network' object has no attribute 'allCells' 
+    (<class 'AttributeError'>, AttributeError("'Network' object has no attribute 'allCells'"), <traceback object at 0x7f030f204190>)
+Plotting connectivity matrix...
+  Simulated time: 0.7 s; 8 workers
+  Run time: 27.98 s
+Plotting connectivity matrix...
+  There was an exception in plotConn(): 
+    'Network' object has no attribute 'allCells' 
+    (<class 'AttributeError'>, AttributeError("'Network' object has no attribute 'allCells'"), <traceback object at 0x7f46bf2feeb0>)
+Plotting connectivity matrix...
+Plotting connectivity matrix...
+  There was an exception in plotConn(): 
+    'Network' object has no attribute 'allCells' 
+    (<class 'AttributeError'>, AttributeError("'Network' object has no attribute 'allCells'"), <traceback object at 0x7f1543b0cbe0>)
+  There was an exception in plotConn(): 
+    'Network' object has no attribute 'allCells' 
+    (<class 'AttributeError'>, AttributeError("'Network' object has no attribute 'allCells'"), <traceback object at 0x7f5c69b3bfa0>)
+Plotting connectivity matrix...
+  There was an exception in plotConn(): 
+    'Network' object has no attribute 'allCells' 
+    (<class 'AttributeError'>, AttributeError("'Network' object has no attribute 'allCells'"), <traceback object at 0x7f46bf2feb90>)
+  There was an exception in plotConn(): 
+    'Network' object has no attribute 'allCells' 
+    (<class 'AttributeError'>, AttributeError("'Network' object has no attribute 'allCells'"), <traceback object at 0x7f030f2040a0>)
+Plotting connectivity matrix...
+Plotting connectivity matrix...
+  There was an exception in plotConn(): 
+    'Network' object has no attribute 'allCells' 
+    (<class 'AttributeError'>, AttributeError("'Network' object has no attribute 'allCells'"), <traceback object at 0x7f1543b0ceb0>)
+Plotting connectivity matrix...
+  There was an exception in plotConn(): 
+    'Network' object has no attribute 'allCells' 
+    (<class 'AttributeError'>, AttributeError("'Network' object has no attribute 'allCells'"), <traceback object at 0x7f46bf2feeb0>)
+Plotting connectivity matrix...
+  There was an exception in plotConn(): 
+    'Network' object has no attribute 'allCells' 
+    (<class 'AttributeError'>, AttributeError("'Network' object has no attribute 'allCells'"), <traceback object at 0x7fc1886afb90>)
+Plotting connectivity matrix...
+Plotting connectivity matrix...
+  There was an exception in plotConn(): 
+    'Network' object has no attribute 'allCells' 
+    (<class 'AttributeError'>, AttributeError("'Network' object has no attribute 'allCells'"), <traceback object at 0x7f5c69b3bfa0>)
+Plotting connectivity matrix...
+  There was an exception in plotConn(): 
+    'Network' object has no attribute 'allCells' 
+    (<class 'AttributeError'>, AttributeError("'Network' object has no attribute 'allCells'"), <traceback object at 0x7f030f204190>)
+  There was an exception in plotConn(): 
+    'Network' object has no attribute 'allCells' 
+    (<class 'AttributeError'>, AttributeError("'Network' object has no attribute 'allCells'"), <traceback object at 0x7fc1886af2d0>)
+  There was an exception in plotConn(): 
+    'Network' object has no attribute 'allCells' 
+    (<class 'AttributeError'>, AttributeError("'Network' object has no attribute 'allCells'"), <traceback object at 0x7f46bf2feb90>)
+Plotting connectivity matrix...
+  There was an exception in plotConn(): 
+    'Network' object has no attribute 'allCells' 
+    (<class 'AttributeError'>, AttributeError("'Network' object has no attribute 'allCells'"), <traceback object at 0x7f5c69b3bfa0>)  There was an exception in plotConn(): 
+    'Network' object has no attribute 'allCells' 
+    (<class 'AttributeError'>, AttributeError("'Network' object has no attribute 'allCells'"), <traceback object at 0x7f1543b0cbe0>)
+Plotting connectivity matrix...
+  There was an exception in plotConn(): 
+    'Network' object has no attribute 'allCells' 
+    (<class 'AttributeError'>, AttributeError("'Network' object has no attribute 'allCells'"), <traceback object at 0x7f030f2040a0>)Plotting connectivity matrix...
+Plotting connectivity matrix...
+
+Plotting connectivity matrix...
+
+Plotting connectivity matrix...
+Plotting connectivity matrix...
+  There was an exception in plotConn(): 
+    'Network' object has no attribute 'allCells' 
+    (<class 'AttributeError'>, AttributeError("'Network' object has no attribute 'allCells'"), <traceback object at 0x7f030f204190>)
+  There was an exception in plotConn(): 
+    'Network' object has no attribute 'allCells' 
+    (<class 'AttributeError'>, AttributeError("'Network' object has no attribute 'allCells'"), <traceback object at 0x7f5c69b3bfa0>)  There was an exception in plotConn(): 
+    'Network' object has no attribute 'allCells' 
+    (<class 'AttributeError'>, AttributeError("'Network' object has no attribute 'allCells'"), <traceback object at 0x7fc1886afb90>)
+  There was an exception in plotConn(): 
+    'Network' object has no attribute 'allCells' 
+    (<class 'AttributeError'>, AttributeError("'Network' object has no attribute 'allCells'"), <traceback object at 0x7f46bf2feeb0>)
+  There was an exception in plotConn(): 
+    'Network' object has no attribute 'allCells' 
+    (<class 'AttributeError'>, AttributeError("'Network' object has no attribute 'allCells'"), <traceback object at 0x7f1543b0ceb0>)
+Plotting connectivity matrix...
+Plotting connectivity matrix...
+Plotting 2D representation of network cell locations and connections...
+Plotting 2D representation of network cell locations and connections...
+
+Plotting connectivity matrix...
+  There was an exception in plotConn(): 
+    'Network' object has no attribute 'allCells' 
+    (<class 'AttributeError'>, AttributeError("'Network' object has no attribute 'allCells'"), <traceback object at 0x7f1543b0cbe0>)
+Plotting 2D representation of network cell locations and connections...
+  There was an exception in plotConn(): 
+    'Network' object has no attribute 'allCells' 
+    (<class 'AttributeError'>, AttributeError("'Network' object has no attribute 'allCells'"), <traceback object at 0x7f5c69b3bfa0>)
+  There was an exception in plotConn(): 
+    'Network' object has no attribute 'allCells' 
+    (<class 'AttributeError'>, AttributeError("'Network' object has no attribute 'allCells'"), <traceback object at 0x7fc1886af2d0>)
+  There was an exception in plotConn(): 
+    'Network' object has no attribute 'allCells' 
+    (<class 'AttributeError'>, AttributeError("'Network' object has no attribute 'allCells'"), <traceback object at 0x7f7909d82140>)
+Plotting 2D representation of network cell locations and connections...
+Plotting 2D representation of network cell locations and connections...
+Plotting connectivity matrix...
+  There was an exception in plotConn(): 
+    'Network' object has no attribute 'allCells' 
+    (<class 'AttributeError'>, AttributeError("'Network' object has no attribute 'allCells'"), <traceback object at 0x7f7909d82b90>)
+Plotting connectivity matrix...
+  There was an exception in plotConn(): 
+    'Network' object has no attribute 'allCells' 
+    (<class 'AttributeError'>, AttributeError("'Network' object has no attribute 'allCells'"), <traceback object at 0x7f7909d82140>)
+Plotting connectivity matrix...
+  There was an exception in plotConn(): 
+    'Network' object has no attribute 'allCells' 
+    (<class 'AttributeError'>, AttributeError("'Network' object has no attribute 'allCells'"), <traceback object at 0x7f7909d82b90>)
+Plotting connectivity matrix...
+  There was an exception in plotConn(): 
+    'Network' object has no attribute 'allCells' 
+    (<class 'AttributeError'>, AttributeError("'Network' object has no attribute 'allCells'"), <traceback object at 0x7f7909d82140>)
+Plotting connectivity matrix...
+  There was an exception in plotConn(): 
+    'Network' object has no attribute 'allCells' 
+    (<class 'AttributeError'>, AttributeError("'Network' object has no attribute 'allCells'"), <traceback object at 0x7f7909d82b90>)
+Plotting connectivity matrix...
+  There was an exception in plotConn(): 
+    'Network' object has no attribute 'allCells' 
+    (<class 'AttributeError'>, AttributeError("'Network' object has no attribute 'allCells'"), <traceback object at 0x7f7909d82140>)
+Plotting connectivity matrix...
+  There was an exception in plot2Dnet(): 
+    'Network' object has no attribute 'allCells' 
+    (<class 'AttributeError'>, AttributeError("'Network' object has no attribute 'allCells'"), <traceback object at 0x7f030ef5feb0>)
+  There was an exception in plot2Dnet(): 
+    'Network' object has no attribute 'allCells' 
+    (<class 'AttributeError'>, AttributeError("'Network' object has no attribute 'allCells'"), <traceback object at 0x7f1543d73320>)Plotting 2D representation of network cell locations and connections...
+  There was an exception in plotConn(): 
+    'Network' object has no attribute 'allCells' 
+    (<class 'AttributeError'>, AttributeError("'Network' object has no attribute 'allCells'"), <traceback object at 0x7f7909d82b90>)
+Plotting 2D representation of network cell locations and connections...
+  There was an exception in plot2Dnet(): 
+    'Network' object has no attribute 'allCells' 
+    (<class 'AttributeError'>, AttributeError("'Network' object has no attribute 'allCells'"), <traceback object at 0x7fc1886af5f0>)
+  There was an exception in plot2Dnet(): 
+    'Network' object has no attribute 'allCells' 
+    (<class 'AttributeError'>, AttributeError("'Network' object has no attribute 'allCells'"), <traceback object at 0x7f5c69b3b640>)
+Plotting 2D representation of network cell locations and connections...
+Plotting 2D representation of network cell locations and connections...
+
+Plotting 2D representation of network cell locations and connections...
+  There was an exception in plot2Dnet(): 
+    'Network' object has no attribute 'allCells' 
+    (<class 'AttributeError'>, AttributeError("'Network' object has no attribute 'allCells'"), <traceback object at 0x7f46bf2fef50>)
+Plotting 2D representation of network cell locations and connections...
+  There was an exception in plot2Dnet(): 
+    'Network' object has no attribute 'allCells' 
+    (<class 'AttributeError'>, AttributeError("'Network' object has no attribute 'allCells'"), <traceback object at 0x7f030f82f960>)  There was an exception in plot2Dnet(): 
+    'Network' object has no attribute 'allCells' 
+    (<class 'AttributeError'>, AttributeError("'Network' object has no attribute 'allCells'"), <traceback object at 0x7f5c6a374230>)
+  There was an exception in plot2Dnet(): 
+    'Network' object has no attribute 'allCells' 
+    (<class 'AttributeError'>, AttributeError("'Network' object has no attribute 'allCells'"), <traceback object at 0x7fc1888d1e60>)
+Plotting raster...
+Plotting raster...
+  There was an exception in plot2Dnet(): 
+    'Network' object has no attribute 'allCells' 
+    (<class 'AttributeError'>, AttributeError("'Network' object has no attribute 'allCells'"), <traceback object at 0x7f1543d9cf00>)
+  There was an exception in plotRaster(): 
+    'Network' object has no attribute 'allCells' 
+    (<class 'AttributeError'>, AttributeError("'Network' object has no attribute 'allCells'"), <traceback object at 0x7fc1888d1d70>)
+  There was an exception in plotRaster(): 
+    'Network' object has no attribute 'allCells' 
+    (<class 'AttributeError'>, AttributeError("'Network' object has no attribute 'allCells'"), <traceback object at 0x7f5c6a374320>)
+Plotting raster...
+  There was an exception in plotRaster(): 
+    'Network' object has no attribute 'allCells' 
+    (<class 'AttributeError'>, AttributeError("'Network' object has no attribute 'allCells'"), <traceback object at 0x7f1543d9cf00>)
+Plotting raster...
+
+  There was an exception in plot2Dnet(): 
+    'Network' object has no attribute 'allCells' 
+    (<class 'AttributeError'>, AttributeError("'Network' object has no attribute 'allCells'"), <traceback object at 0x7f46bfe69aa0>)  There was an exception in plotRaster(): 
+    'Network' object has no attribute 'allCells' 
+    (<class 'AttributeError'>, AttributeError("'Network' object has no attribute 'allCells'"), <traceback object at 0x7f030f82fc30>)
+
+  There was an exception in plot2Dnet(): 
+    'Network' object has no attribute 'allCells' 
+    (<class 'AttributeError'>, AttributeError("'Network' object has no attribute 'allCells'"), <traceback object at 0x7f790a1947d0>)Plotting raster...
+
+Plotting 2D representation of network cell locations and connections...
+  There was an exception in plotRaster(): 
+    'Network' object has no attribute 'allCells' 
+    (<class 'AttributeError'>, AttributeError("'Network' object has no attribute 'allCells'"), <traceback object at 0x7f46bfe69780>)
+Plotting recorded cell traces ... trace
+Plotting recorded cell traces ... trace
+  There was an exception in plotTraces(): 
+    'Network' object has no attribute 'allCells' 
+    (<class 'AttributeError'>, AttributeError("'Network' object has no attribute 'allCells'"), <traceback object at 0x7f5c6a1d2be0>)
+Plotting recorded cell traces ... trace
+  There was an exception in plotTraces(): 
+    'Network' object has no attribute 'allCells' 
+    (<class 'AttributeError'>, AttributeError("'Network' object has no attribute 'allCells'"), <traceback object at 0x7fc18855ceb0>)
+Plotting recorded cell traces ... trace
+  There was an exception in plotTraces(): 
+    'Network' object has no attribute 'allCells' 
+    (<class 'AttributeError'>, AttributeError("'Network' object has no attribute 'allCells'"), <traceback object at 0x7f030f82f460>)  There was an exception in plotTraces(): 
+    'Network' object has no attribute 'allCells' 
+    (<class 'AttributeError'>, AttributeError("'Network' object has no attribute 'allCells'"), <traceback object at 0x7f1543d9c410>)
+
+Plotting recorded cell traces ... trace
+  There was an exception in plot2Dnet(): 
+    'Network' object has no attribute 'allCells' 
+    (<class 'AttributeError'>, AttributeError("'Network' object has no attribute 'allCells'"), <traceback object at 0x7f7909d4da50>)  There was an exception in plotTraces(): 
+    'Network' object has no attribute 'allCells' 
+    (<class 'AttributeError'>, AttributeError("'Network' object has no attribute 'allCells'"), <traceback object at 0x7f46bfbe3b40>)
+
+Plotting raster...
+  There was an exception in plotRaster(): 
+    'Network' object has no attribute 'allCells' 
+    (<class 'AttributeError'>, AttributeError("'Network' object has no attribute 'allCells'"), <traceback object at 0x7f7909d4d960>)
+Plotting recorded cell traces ... trace
+   L1_DAC : 48.719 Hz
+  There was an exception in plotTraces(): 
+    'Network' object has no attribute 'allCells' 
+    (<class 'AttributeError'>, AttributeError("'Network' object has no attribute 'allCells'"), <traceback object at 0x7f7909d4d320>)
+   L1_DLAC : 42.917 Hz
+Plotting connectivity matrix...
+  There was an exception in plotConn(): 
+    'Network' object has no attribute 'allCells' 
+    (<class 'AttributeError'>, AttributeError("'Network' object has no attribute 'allCells'"), <traceback object at 0x7f9175f58e10>)
+Plotting connectivity matrix...
+  There was an exception in plotConn(): 
+    'Network' object has no attribute 'allCells' 
+    (<class 'AttributeError'>, AttributeError("'Network' object has no attribute 'allCells'"), <traceback object at 0x7f9175f58370>)
+Plotting connectivity matrix...
+  There was an exception in plotConn(): 
+    'Network' object has no attribute 'allCells' 
+    (<class 'AttributeError'>, AttributeError("'Network' object has no attribute 'allCells'"), <traceback object at 0x7f9175f58e10>)
+Plotting connectivity matrix...
+  There was an exception in plotConn(): 
+    'Network' object has no attribute 'allCells' 
+    (<class 'AttributeError'>, AttributeError("'Network' object has no attribute 'allCells'"), <traceback object at 0x7f9175f58370>)
+Plotting connectivity matrix...
+  There was an exception in plotConn(): 
+    'Network' object has no attribute 'allCells' 
+    (<class 'AttributeError'>, AttributeError("'Network' object has no attribute 'allCells'"), <traceback object at 0x7f9175f58e10>)
+Plotting connectivity matrix...
+  There was an exception in plotConn(): 
+    'Network' object has no attribute 'allCells' 
+    (<class 'AttributeError'>, AttributeError("'Network' object has no attribute 'allCells'"), <traceback object at 0x7f9175f58370>)
+Plotting 2D representation of network cell locations and connections...
+  There was an exception in plot2Dnet(): 
+    'Network' object has no attribute 'allCells' 
+    (<class 'AttributeError'>, AttributeError("'Network' object has no attribute 'allCells'"), <traceback object at 0x7f9175b45410>)
+Plotting 2D representation of network cell locations and connections...
+  There was an exception in plot2Dnet(): 
+    'Network' object has no attribute 'allCells' 
+    (<class 'AttributeError'>, AttributeError("'Network' object has no attribute 'allCells'"), <traceback object at 0x7f917609ed70>)
+Plotting raster...
+  There was an exception in plotRaster(): 
+    'Network' object has no attribute 'allCells' 
+    (<class 'AttributeError'>, AttributeError("'Network' object has no attribute 'allCells'"), <traceback object at 0x7f917609efa0>)
+Plotting recorded cell traces ... trace
+  There was an exception in plotTraces(): 
+    'Network' object has no attribute 'allCells' 
+    (<class 'AttributeError'>, AttributeError("'Network' object has no attribute 'allCells'"), <traceback object at 0x7f9175eb0960>)
+Saving output as ../data/v1_batch0/v1_batch0_0_0.json  ... 
+Finished saving!
+  Done; saving time = 0.45 s.
+Plotting raster...
+  Done; plotting time = 1.09 s
+
+Total time = 30.07 s
+
+End time:  2020-11-05 14:46:48.522590
+Plotting connectivity matrix...
+Saving figure data as ../data/v1_batch0/v1_batch0_0_0_pop_probability_matrix.json ... 
+Plotting connectivity matrix...
+  Conn matrix with groupBy="cell" only supports features= "weight", "delay" or "numConns"
+  Error calculating connMatrix in plotConn()
+Plotting connectivity matrix...
+Saving figure data as ../data/v1_batch0/v1_batch0_0_0_pop_weight_matrix.json ... 
+Plotting connectivity matrix...
+Saving figure data as ../data/v1_batch0/v1_batch0_0_0_cell_weight_matrix.json ... 
+Plotting connectivity matrix...
+Saving figure data as ../data/v1_batch0/v1_batch0_0_0_pop_delay_matrix.json ... 
+Plotting connectivity matrix...
+Saving figure data as ../data/v1_batch0/v1_batch0_0_0_cell_delay_matrix.json ... 
+Plotting connectivity matrix...
+Saving figure data as ../data/v1_batch0/v1_batch0_0_0_pop_numConns_matrix.json ... 
+Plotting connectivity matrix...
+Saving figure data as ../data/v1_batch0/v1_batch0_0_0_cell_numConns_matrix.json ... 
+Plotting 2D representation of network cell locations and connections...
+Saving figure data as ../data/v1_batch0/v1_batch0_0_0_xy.json ... 
+Plotting 2D representation of network cell locations and connections...
+Saving figure data as ../data/v1_batch0/v1_batch0_0_0_xz.json ... 
+Plotting raster...
+Plotting recorded cell traces ... trace

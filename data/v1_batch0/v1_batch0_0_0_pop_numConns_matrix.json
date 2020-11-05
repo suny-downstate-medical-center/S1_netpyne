@@ -1,0 +1,25 @@
+{
+    "connMatrix": [
+        [
+            58.0,
+            18.0
+        ],
+        [
+            56.0,
+            0.0
+        ]
+    ],
+    "feature": "numConns",
+    "groupBy": "pop",
+    "includePost": [
+        "L1_DAC",
+        "L1_DLAC"
+    ],
+    "includePre": [
+        "L1_DAC",
+        "L1_DLAC"
+    ],
+    "saveData": "../data/v1_batch0/v1_batch0_0_0_pop_numConns_matrix.json",
+    "saveFig": true,
+    "showFig": true
+}

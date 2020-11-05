@@ -236,7 +236,6 @@ if cfg.addConn:
     for pre in Epops:
         for post in Epops+Ipops:
             prob = '%f * exp(-dist_2D/%f)' % (a0mat[pre][post], lmat[pre][post])
-            # prob = '%f * 0.001 * exp(-dist_2D/%f)' % (a0mat[pre][post], lmat[pre][post])
             
             netParams.connParams['EE_'+pre+'_'+post] = { 
                 'preConds': {'pop': pre}, 
@@ -254,7 +253,6 @@ if cfg.addConn:
     for pre in Ipops:
         for post in Epops+Ipops:
             prob = '%f * exp(-dist_2D/%f)' % (a0mat[pre][post], lmat[pre][post])
-            # prob = '%f * 0.001 * exp(-dist_2D/%f)' % (a0mat[pre][post], lmat[pre][post])
             
             netParams.connParams['II_'+pre+'_'+post] = { 
                 'preConds': {'pop': pre}, 
