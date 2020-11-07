@@ -47,8 +47,8 @@ cfg.rootFolder = os.getcwd()
 
 cfg.importCellMod = 'pkl_after' # 'pkl_after'(only for celldiversity) -  'pkl_before' or 'BBPtemplate' (both)  
 cfg.celldiversity = True 
-cfg.poptypeNumber = 2 # max 55
-cfg.celltypeNumber = 3 # max 207
+cfg.poptypeNumber = 55 # max 55
+cfg.celltypeNumber = 207 # max 207
 #------------------------------------------------------------------------------  
 # Load 55 Morphological Names and Cell pop numbers -> L1:6 L23:10 L4:12 L5:13 L6:14
 # Load 207 Morpho-electrical Names used to import the cells from 'cell_data/' -> L1:14 L23:43 L4:46 L5:52 L6:52
@@ -142,7 +142,7 @@ cfg.saveCellConns = True			##  False	#
 #------------------------------------------------------------------------------
 # Analysis and plotting 
 #------------------------------------------------------------------------------
-cfg.analysis['plotRaster'] = {'include': allpops, 'saveFig': True, 'showFig': False, 'labels': None, 'popRates': True, 'orderInverse': True, 
+cfg.analysis['plotRaster'] = {'include': allpops, 'saveFig': True, 'showFig': False, 'orderInverse': True, 
 							'timeRange': [200,cfg.duration-100], 'figSize': (18,12), 'labels': 'legend', 'popRates': True, 'fontSize':9, 'lw': 1, 'markerSize':1, 'marker': '.', 'dpi': 300} 
 #------------------------------------------------------------------------------
 # Synapses
@@ -158,7 +158,7 @@ cfg.scale = 1.0
 cfg.sizeY = 2082.0
 cfg.sizeX = 420.0 # r = 210 um and hexagonal side length = 230.9 um
 cfg.sizeZ = 420.0
-cfg.scaleDensity = 1.0
+cfg.scaleDensity = 0.25
 # cfg.correctBorderThreshold = 150.0
 
 #------------------------------------------------------------------------------

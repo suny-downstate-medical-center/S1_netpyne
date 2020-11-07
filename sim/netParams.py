@@ -231,27 +231,27 @@ a0mat = connData['a0mat']
  
 
 #------------------------------------------------------------------------------
-## E -> E/I
-if cfg.addConn:
-    for pre in Epops:
-        for post in Epops+Ipops:
-            prob = '%f * exp(-dist_2D/%f)' % (a0mat[pre][post], lmat[pre][post])
+## E -> I
+# if cfg.addConn:
+#     for pre in Epops:
+#         for post in Ipops:
+#             prob = '%f * exp(-dist_2D/%f)' % (a0mat[pre][post], lmat[pre][post])
             
-            netParams.connParams['EE_'+pre+'_'+post] = { 
-                'preConds': {'pop': pre}, 
-                'postConds': {'pop': post},
-                'synMech': ESynMech,
-                'probability': prob,
-                'weight': gsyn[pre][post] * cfg.EEGain, 
-                'synMechWeightFactor': cfg.synWeightFractionEE,
-                'delay': 'defaultDelay+dist_3D/propVelocity',
-                'synsPerConn': 1,
-                'sec': 'all'}     
+#             netParams.connParams['EE_'+pre+'_'+post] = { 
+#                 'preConds': {'pop': pre}, 
+#                 'postConds': {'pop': post},
+#                 'synMech': ESynMech,
+#                 'probability': prob,
+#                 'weight': gsyn[pre][post] * cfg.EEGain, 
+#                 'synMechWeightFactor': cfg.synWeightFractionEE,
+#                 'delay': 'defaultDelay+dist_3D/propVelocity',
+#                 'synsPerConn': 1,
+#                 'sec': 'all'}     
 #------------------------------------------------------------------------------           
-## I -> E/I
+## I -> I
 if cfg.addConn:
     for pre in Ipops:
-        for post in Epops+Ipops:
+        for post in Ipops:
             prob = '%f * exp(-dist_2D/%f)' % (a0mat[pre][post], lmat[pre][post])
             
             netParams.connParams['II_'+pre+'_'+post] = { 

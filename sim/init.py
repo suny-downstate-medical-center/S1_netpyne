@@ -32,8 +32,8 @@ sim.analysis.plotData()         			# plot spike raster etc
 
 # features = ['probability','weight','delay','numConns','convergence','divergence']
 features = ['probability','weight','delay','numConns']
-groups =['pop','cell']
-# groups =['pop']
+# groups =['pop','cell']
+groups =['pop']
 for feat in features:
     for group in groups:
         sim.analysis.plotConn(includePre=cfg.popParamLabels, includePost=cfg.popParamLabels, feature=feat, groupBy=group, figSize=(24,24), saveFig=True, orderBy='gid', graphType='matrix', fontSize=20, saveData='../data/'+cfg.simLabel[0:9]+'/'+cfg.simLabel + '_' + group + '_' + feat+ '_matrix.json')
