@@ -182,30 +182,9 @@ if cfg.celldiversity:
 
             cellnumber=cellnumber+1  	
             
-
 #------------------------------------------------------------------------------
 # Synaptic mechanism parameters
 #------------------------------------------------------------------------------
-# TABLE -  S6
-# ConnectionType gsynM gsynStd t_riseM t_riseStd t_decayM t_decayStd 
-# L23_PC:L23_PC 0.68 0.46 0.2 0.1 1.7 0.14 
-# L4_exc:L4_exc 0.68 0.45 0.2 0.1 1.7 0.14 
-# L4_SS:L23_PC 0.19 0.2 0.1 1.7 0.14 
-# L5_TTPC:L5_TTPC 1.5 0.12 0.2 0.1 1.7 0.14 1.05 
-# L5_STPC:L5_STPC 0.8 0.53 0.2 0.1 1.7 0.14 
-# exc:exc 0.72 0.5 0.2 0.1 1.7 0.14
-# L5_TTPC:L5_MC 0.11 0.08 0.2 0.1 1.7 0.14
-# L5_PC:L5_ChC 0.72 0.5 0.2 0.1 1.7 0.14
-# L5_BC:L5_ChC 0.72 0.5 0.2 0.1 1.7 0.14
-# exc:inh 0.43 0.28 0.2 0.1 1.7 0.14
-# L5_MC:L5_TTPC 0.75 0.32 0.2 0.1 8.3 2.2
-# L23_NBC:L23_ChC 0.91 0.61 0.2 0.1 8.3 2.2
-# L23_LBC:L23_ChC 0.91 0.61 0.2 0.1 8.3 2.2
-# L23_NBC:L23_PC 0.91 0.61 0.2 0.1 8.3 2.2
-# L23_LBC:L23_PC 0.91 0.61 0.2 0.1 8.3 2.2
-# inh:exc 0.83 0.2 0.2 0.1 8.3 2.2   
-# inh:inh 0.83 0.55 0.2 0.1 8.3 2.2
-
 ### mods from M1 detailed
 netParams.synMechParams['AMPA'] = {'mod':'MyExp2SynBB', 'tau1': 0.2, 'tau2': 1.74, 'e': 0}
 netParams.synMechParams['NMDA'] = {'mod': 'MyExp2SynNMDABB', 'tau1NMDA': 0.29, 'tau2NMDA': 43, 'e': 0}
@@ -218,18 +197,30 @@ ISynMech = ['GABAA', 'GABAB']
 #------------------------------------------------------------------------------
 # Local connectivity parameters
 #------------------------------------------------------------------------------
-
 ## load data from conn pre-processing file
 with open('conn/conn.pkl', 'rb') as fileObj: connData = pickle.load(fileObj)
+
 pmat = connData['pmat']
 lmat = connData['lmat']
-wmat = connData['wmat']
-connDataSource = connData['connDataSource']
-epsp = connData['epsp']
-gsyn = connData['gsyn']
 a0mat = connData['a0mat']
- 
-
+d0 = connData['d0']
+pmat25um = connData['pmat25um']
+pmat50um = connData['pmat50um']
+pmat75um = connData['pmat75um']
+pmat100um = connData['pmat100um']
+pmat125um = connData['pmat125um']
+pmat150um = connData['pmat150um']
+pmat175um = connData['pmat175um']
+pmat200um = connData['pmat200um']
+pmat225um = connData['pmat225um']
+connNumber = connData['connNumber']
+synperconnNumber = connData['synperconnNumber']
+synperconnNumberStd = connData['synperconnNumberStd']
+decay = connData['decay']
+decayStd  = connData['decayStd']
+gsyn = connData['gsyn']
+gsynStd = connData['gsynStd']
+connDataSource = connData['connDataSource']
 #------------------------------------------------------------------------------
 ## E -> I
 # if cfg.addConn:
@@ -252,7 +243,11 @@ a0mat = connData['a0mat']
 if cfg.addConn:
     for pre in Ipops:
         for post in Ipops:
-            prob = '%f * exp(-dist_2D/%f)' % (a0mat[pre][post], lmat[pre][post])
+
+            if lmat[pre][post] > 15.0 and lmat[pre][post] < 9000.0:
+                prob = '%f * exp(-dist_2D/%f)' % (a0mat[pre][post], lmat[pre][post])
+            else:
+                prob = pmat[pre][post]
             
             netParams.connParams['II_'+pre+'_'+post] = { 
                 'preConds': {'pop': pre}, 
@@ -292,4 +287,5 @@ netParams.description = """
 - Code based: M1 net, 6 layers, 7 cell types - v103
 - v0 - insert cell diversity
 - v1 - insert connection rules
+- v2 - insert phys conn parameters
 """
