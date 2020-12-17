@@ -65,7 +65,7 @@ layer = {'1':[0.0, 0.079], '2': [0.079,0.151], '3': [0.151,0.320], '23': [0.079,
 netParams.defaultThreshold = -10.0 # spike threshold, 10 mV is NetCon default, lower it for all cells
 # netParams.defaultDelay = 2.0 # default conn delay (ms) (M1)
 # netParams.propVelocity = 500.0 # propagation velocity (um/ms) (M1)
-netParams.defaultDelay = 2.0 # default conn delay (ms)
+netParams.defaultDelay = 0.1 # default conn delay (ms)
 netParams.propVelocity = 300.0 #  300 μm/ms (Stuart et al., 1997)
 
 #------------------------------------------------------------------------------
@@ -191,6 +191,9 @@ netParams.synMechParams['NMDA'] = {'mod': 'MyExp2SynNMDABB', 'tau1NMDA': 0.29, '
 netParams.synMechParams['GABAA'] = {'mod':'MyExp2SynBB', 'tau1': 0.2, 'tau2': 8.3, 'e': -80}
 netParams.synMechParams['GABAB'] = {'mod':'MyExp2SynBB', 'tau1': 3.5, 'tau2': 260.9, 'e': -93} 
 
+# netParams.synMechParams['AMPA'] = {'mod':'MyExp2SynBB', 'tau1': 0.2, 'tau2': decay[pre][post], 'e': 0}
+# netParams.synMechParams['GABAA'] = {'mod':'MyExp2SynBB', 'tau1': 0.2, 'tau2': decay[pre][post], 'e': -80}
+
 ESynMech = ['AMPA', 'NMDA']
 ISynMech = ['GABAA', 'GABAB']
 
@@ -222,44 +225,48 @@ gsyn = connData['gsyn']
 gsynStd = connData['gsynStd']
 connDataSource = connData['connDataSource']
 #------------------------------------------------------------------------------
-## E -> I
-# if cfg.addConn:
-#     for pre in Epops:
-#         for post in Ipops:
-#             prob = '%f * exp(-dist_2D/%f)' % (a0mat[pre][post], lmat[pre][post])
-            
-#             netParams.connParams['EE_'+pre+'_'+post] = { 
-#                 'preConds': {'pop': pre}, 
-#                 'postConds': {'pop': post},
-#                 'synMech': ESynMech,
-#                 'probability': prob,
-#                 'weight': gsyn[pre][post] * cfg.EEGain, 
-#                 'synMechWeightFactor': cfg.synWeightFractionEE,
-#                 'delay': 'defaultDelay+dist_3D/propVelocity',
-#                 'synsPerConn': 1,
-#                 'sec': 'all'}     
-#------------------------------------------------------------------------------           
+if cfg.addConn:      
 ## I -> I
-if cfg.addConn:
     for pre in Ipops:
         for post in Ipops:
+            if synperconnNumber[pre][post] > 0:
 
-            if lmat[pre][post] > 15.0 and lmat[pre][post] < 9000.0:
-                prob = '%f * exp(-dist_2D/%f)' % (a0mat[pre][post], lmat[pre][post])
-            else:
-                prob = pmat[pre][post]
-            
-            netParams.connParams['II_'+pre+'_'+post] = { 
-                'preConds': {'pop': pre}, 
-                'postConds': {'pop': post},
-                'synMech': ISynMech,
-                'probability': prob,
-                'weight': gsyn[pre][post] * cfg.IIGain, 
-                'synMechWeightFactor': cfg.synWeightFractionII,
-                'delay': 'defaultDelay+dist_3D/propVelocity',
-                'synsPerConn': 1,
-                'sec': 'all'}   
-    
+                if float(lmat[pre][post]) > 15.0 and float(lmat[pre][post]) < 9999.9:
+                    prob = '%f * exp(-dist_2D/%f)' % (float(a0mat[pre][post]), float(lmat[pre][post]))
+                else:
+                    prob = float(pmat[pre][post])
+
+                netParams.connParams['II_'+pre+'_'+post] = { 
+                    'preConds': {'pop': pre}, 
+                    'postConds': {'pop': post},
+                    'synMech': ISynMech,
+                    'probability': prob,
+                    'weight': gsyn[pre][post] * cfg.IIGain, 
+                    'synMechWeightFactor': cfg.synWeightFractionII,
+                    'delay': 'defaultDelay+dist_3D/propVelocity',
+                    'synsPerConn': int(synperconnNumber[pre][post]+0.5),
+                    'sec': 'all'}           
+## E -> E
+    # for pre in Epops:
+    #     for post in Epops:
+    #         if synperconnNumber[pre][post] > 0:
+
+    #             if float(lmat[pre][post]) > 15.0 and float(lmat[pre][post]) < 9999.9:
+    #                 prob = '%f * exp(-dist_2D/%f)' % (float(a0mat[pre][post]), float(lmat[pre][post]))
+    #             else:
+    #                 prob = float(pmat[pre][post])
+
+    #             netParams.connParams['EE_'+pre+'_'+post] = { 
+    #                 'preConds': {'pop': pre}, 
+    #                 'postConds': {'pop': post},
+    #                 'synMech': ESynMech,
+    #                 'probability': prob,
+    #                 'weight': gsyn[pre][post] * cfg.EEGain, 
+    #                 'synMechWeightFactor': cfg.synWeightFractionEE,
+    #                 'delay': 'defaultDelay+dist_3D/propVelocity',
+    #                 'synsPerConn': int(synperconnNumber[pre][post]+0.5),
+    #                 'sec': 'all'}    
+#------------------------------------------------------------------------------    
 #------------------------------------------------------------------------------
 # Current inputs (IClamp)
 #------------------------------------------------------------------------------
