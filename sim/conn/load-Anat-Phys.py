@@ -368,6 +368,16 @@ if connDataSource['I->E/I'] ==  'BBP_S1':
                 pmat200um[pre][post] = 0
                 pmat225um[pre][post] = 0
 
+                gsyn[pre][post] = 0
+                gsynStd[pre][post] = 0
+                if pre in Epops:
+                    decay[pre][post] = 1.7
+                else:
+                    decay[pre][post] = 8.3
+                decayStd[pre][post] = 0
+                synperconnNumber[pre][post] = 0
+                synperconnNumberStd[pre][post] = 0          
+                
                 # ~ print(proj,pmat[pre][post],wmat[pre][post],epsp[pre][post],gsyn[pre][post],lmat[pre][post],a0mat[pre][post])
 # --------------------------------------------------
 # Save data to pkl file
@@ -376,7 +386,7 @@ savePickle = 1
 if savePickle:
     import pickle
     with open('conn.pkl', 'wb') as f:
-        pickle.dump({'pmat': pmat, 'lmat': lmat, 'a0mat': a0mat, 'd0': d0, 'pmat25um': pmat25um, 'pmat50um': pmat50um, 'pmat75um': pmat75um, 'pmat100um': pmat100um, 'pmat125um': pmat125um, 'pmat150um': pmat150um, 'pmat175um': pmat175um, 'pmat200um': pmat200um, 'pmat225um': pmat225um, 'connNumber': connNumber, 'synperconnNumber': synperconnNumber, 'synperconnNumberStd': synperconnNumberStd, 'decay': decay , 'decayStd ': decayStd , 'gsyn': gsyn, 'gsynStd': gsynStd, 'connDataSource': connDataSource}, f)
+        pickle.dump({'pmat': pmat, 'lmat': lmat, 'a0mat': a0mat, 'd0': d0, 'pmat25um': pmat25um, 'pmat50um': pmat50um, 'pmat75um': pmat75um, 'pmat100um': pmat100um, 'pmat125um': pmat125um, 'pmat150um': pmat150um, 'pmat175um': pmat175um, 'pmat200um': pmat200um, 'pmat225um': pmat225um, 'connNumber': connNumber, 'synperconnNumber': synperconnNumber, 'synperconnNumberStd': synperconnNumberStd, 'decay': decay , 'decayStd': decayStd , 'gsyn': gsyn, 'gsynStd': gsynStd, 'connDataSource': connDataSource}, f)
 
 # --------------------------------------------------
 # FROM CELL PAPER 2015:
