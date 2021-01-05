@@ -104,9 +104,6 @@ def inportpathways(MCnumber):
 
             prob2D = []
             d2D = []
-            # Netinfo = {}
-
-
             poplocation2 = f.get('populations/{s}/locations'.format(s=mtype_map[m]))
             poplocation2 = np.array(poplocation2)
 
@@ -116,128 +113,211 @@ def inportpathways(MCnumber):
             nn, mm = matrix2.shape
 
             n0 = 0
-            n1 = 0
-            n2 = 0
-            n3 = 0
-            n4 = 0
-            n5 = 0
-            n6 = 0
-            n7 = 0
-            n8 = 0
-            n9 = 0
+            nfull = 0
+            n25 = 0
+            n50 = 0
+            n75 = 0
+            n100 = 0
+            n125 = 0
+            n150 = 0
+            n175 = 0
+            n200 = 0
+            n225 = 0
+            n250 = 0
+            n275 = 0
+            n300 = 0
+            n325 = 0
+            n350 = 0
+            n375 = 0
+
             for i in range(0,nn):
                 for j in range(0,mm):
-                    if matrix2[i,j] > 0:
+                    if matrix2[i,j] > 0: # if connected
                         Dist_2D = np.sqrt((poplocation[i,0] - poplocation2[j,0])**2 + (poplocation[i,2] - poplocation2[j,2])**2)
-                        n9 = n9 + 1
+                        nfull = nfull + 1
                         if Dist_2D < 25.0:
                             n0 = n0 + 1 
-                        if Dist_2D < 50.0:
-                            n1 = n1 + 1 
-                        if Dist_2D < 75.0:
-                            n2 = n2 + 1 
-                        if Dist_2D < 100.0:
-                            n3 = n3 + 1 
-                        if Dist_2D < 125.0:
-                            n4 = n4 + 1 
-                        if Dist_2D < 150.0:
-                            n5 = n5 + 1 
-                        if Dist_2D < 175.0:
-                            n6 = n6 + 1 
-                        if Dist_2D < 200.0:
-                            n7 = n7 + 1 
-                        if Dist_2D < 225.0:
-                            n8 = n8 + 1 
-            m0 = n0      
-            m1 = n1      
-            m2 = n2
-            m3 = n3    
-            m4 = n4
-            m5 = n5    
-            m6 = n6
-            m7 = n7    
-            m8 = n8
-            m9 = n9   
+                        if Dist_2D < 50.0: # 50 +- 25 um
+                            n25 = n25 + 1 
+                        if Dist_2D > 25.0 and Dist_2D < 75.0: # 50 +- 25 um
+                            n50 = n50 + 1 
+                        if Dist_2D > 50.0 and Dist_2D < 100.0: # 75 +- 25 um
+                            n75 = n75 + 1 
+                        if Dist_2D > 75.0 and Dist_2D < 125.0: # 100 
+                            n100 = n100 + 1 
+                        if Dist_2D > 100.0 and Dist_2D < 150.0: # 125 
+                            n125 = n125 + 1 
+                        if Dist_2D > 125.0 and Dist_2D < 175.0: # 150
+                            n150 = n150 + 1 
+                        if Dist_2D > 150.0 and Dist_2D < 200.0: # 175 
+                            n175 = n175 + 1 
+                        if Dist_2D > 175.0 and Dist_2D < 225.0: # 200 
+                            n200 = n200 + 1 
+                        if Dist_2D > 200.0 and Dist_2D < 250.0: # 225 
+                            n225 = n225 + 1 
+                        if Dist_2D > 225.0 and Dist_2D < 275.0: # 250
+                            n250 = n250 + 1 
+                        if Dist_2D > 250.0 and Dist_2D < 300.0: # 275 +- 25 um
+                            n275 = n275 + 1 
+                        if Dist_2D > 275.0 and Dist_2D < 325.0: # 300 
+                            n300 = n300 + 1 
+                        if Dist_2D > 300.0 and Dist_2D < 350.0: # 325 
+                            n325 = n325 + 1 
+                        if Dist_2D > 325.0 and Dist_2D < 375.0: # 350
+                            n350 = n350 + 1 
+                        if Dist_2D > 350.0 and Dist_2D < 400.0: # 375 +- 25 um
+                            n375 = n375 + 1 
 
+            m0 = n0
+            mfull =  nfull
+            m25 = n25
+            m50 = n50
+            m75 = n75
+            m100 = n100
+            m125 = n125
+            m150 = n150
+            m175 = n175
+            m200 = n200
+            m225 = n225
+            m250 = n250
+            m275 = n275
+            m300 = n300
+            m325 = n325
+            m350 = n350
+            m375 = n375
+            
             n0 = 0
-            n1 = 0
-            n2 = 0
-            n3 = 0
-            n4 = 0
-            n5 = 0
-            n6 = 0
-            n7 = 0
-            n8 = 0
-            n9 = 0
+            nfull = 0
+            n25 = 0
+            n50 = 0
+            n75 = 0
+            n100 = 0
+            n125 = 0
+            n150 = 0
+            n175 = 0
+            n200 = 0
+            n225 = 0
+            n250 = 0
+            n275 = 0
+            n300 = 0
+            n325 = 0
+            n350 = 0
+            n375 = 0
+
             for i in range(0,nn):
                 for j in range(0,mm):
-                    if matrix2[i,j] > -10:
+                    if matrix2[i,j] > -10: # all connections
                         Dist_2D = np.sqrt((poplocation[i,0] - poplocation2[j,0])**2 + (poplocation[i,2] - poplocation2[j,2])**2)
-                        n9 = n9 + 1
+                        nfull = nfull + 1
                         if Dist_2D < 25.0:
                             n0 = n0 + 1 
-                        if Dist_2D < 50.0:
-                            n1 = n1 + 1 
-                        if Dist_2D < 75.0:
-                            n2 = n2 + 1 
-                        if Dist_2D < 100.0:
-                            n3 = n3 + 1 
-                        if Dist_2D < 125.0:
-                            n4 = n4 + 1 
-                        if Dist_2D < 150.0:
-                            n5 = n5 + 1 
-                        if Dist_2D < 175.0:
-                            n6 = n6 + 1 
-                        if Dist_2D < 200.0:
-                            n7 = n7 + 1 
-                        if Dist_2D < 225.0:
-                            n8 = n8 + 1 
+                        if Dist_2D < 50.0: # 50 +- 25 um
+                            n25 = n25 + 1 
+                        if Dist_2D > 25.0 and Dist_2D < 75.0: # 50 +- 25 um
+                            n50 = n50 + 1 
+                        if Dist_2D > 50.0 and Dist_2D < 100.0: # 75 +- 25 um
+                            n75 = n75 + 1 
+                        if Dist_2D > 75.0 and Dist_2D < 125.0: # 100 
+                            n100 = n100 + 1 
+                        if Dist_2D > 100.0 and Dist_2D < 150.0: # 125 
+                            n125 = n125 + 1 
+                        if Dist_2D > 125.0 and Dist_2D < 175.0: # 150
+                            n150 = n150 + 1 
+                        if Dist_2D > 150.0 and Dist_2D < 200.0: # 175 
+                            n175 = n175 + 1 
+                        if Dist_2D > 175.0 and Dist_2D < 225.0: # 200 
+                            n200 = n200 + 1 
+                        if Dist_2D > 200.0 and Dist_2D < 250.0: # 225 
+                            n225 = n225 + 1 
+                        if Dist_2D > 225.0 and Dist_2D < 275.0: # 250
+                            n250 = n250 + 1 
+                        if Dist_2D > 250.0 and Dist_2D < 300.0: # 275 +- 25 um
+                            n275 = n275 + 1 
+                        if Dist_2D > 275.0 and Dist_2D < 325.0: # 300 
+                            n300 = n300 + 1 
+                        if Dist_2D > 300.0 and Dist_2D < 350.0: # 325 
+                            n325 = n325 + 1 
+                        if Dist_2D > 325.0 and Dist_2D < 375.0: # 350
+                            n350 = n350 + 1 
+                        if Dist_2D > 350.0 and Dist_2D < 400.0: # 375 +- 25 um
+                            n375 = n375 + 1 
 
-            if n0 > 0:
-                prob2D.append(m0/n0)
+
+            if n25 > 0:
+                prob2D.append(m25/n25)
             else:            
                 prob2D.append(0)
 
-            if n1 > 0:
-                prob2D.append(m1/n1)
+            if n50 > 0:
+                prob2D.append(m50/n50)
             else:            
                 prob2D.append(0)
                 
-            if n2 > 0:
-                prob2D.append(m2/n2)   
+            if n75 > 0:
+                prob2D.append(m75/n75)   
             else:            
                 prob2D.append(0)
                 
-            if n3 > 0:     
-                prob2D.append(m3/n3)
+            if n100 > 0:     
+                prob2D.append(m100/n100)
             else:            
                 prob2D.append(0)
                 
-            if n4 > 0:
-                prob2D.append(m4/n4)
+            if n125 > 0:
+                prob2D.append(m125/n125)
             else:            
                 prob2D.append(0)
                 
-            if n5 > 0:
-                prob2D.append(m5/n5)
+            if n150 > 0:
+                prob2D.append(m150/n150)
             else:            
                 prob2D.append(0)
                 
-            if n6 > 0:
-                prob2D.append(m6/n6)
+            if n175 > 0:
+                prob2D.append(m175/n175)
             else:            
                 prob2D.append(0)
                 
-            if n7 > 0:
-                prob2D.append(m7/n7)
+            if n200 > 0:
+                prob2D.append(m200/n200)
             else:            
                 prob2D.append(0)
                 
-            if n8 > 0:
-                prob2D.append(m8/n8)   
+            if n225 > 0:
+                prob2D.append(m225/n225)   
             else:            
                 prob2D.append(0)             
                         
+            if n250 > 0:
+                prob2D.append(m250/n250)   
+            else:            
+                prob2D.append(0)             
+                      
+            if n275 > 0:
+                prob2D.append(m275/n275)   
+            else:            
+                prob2D.append(0)         
+                
+            if n300 > 0:
+                prob2D.append(m300/n300)
+            else:            
+                prob2D.append(0)
+                
+            if n325 > 0:
+                prob2D.append(m325/n325)   
+            else:            
+                prob2D.append(0)             
+                        
+            if n350 > 0:
+                prob2D.append(m350/n350)   
+            else:            
+                prob2D.append(0)             
+                      
+            if n375 > 0:
+                prob2D.append(m375/n375)   
+            else:            
+                prob2D.append(0)        
+                      
             d2D.append(25)
             d2D.append(50) 
             d2D.append(75)     
@@ -246,68 +326,90 @@ def inportpathways(MCnumber):
             d2D.append(150)
             d2D.append(175)    
             d2D.append(200)      
-            d2D.append(225)
+            d2D.append(225) 
+            d2D.append(250)      
+            d2D.append(275)
+            d2D.append(300)      
+            d2D.append(325) 
+            d2D.append(350)      
+            d2D.append(375)
 
-            if m6 > 0: # minimum 3 points
+            if mfull > 0: # 
 
                 x = d2D
                 y = prob2D
                 
                 if max(y) == y[0]: # 25 um 
                     starts = 0
+                elif max(y[1:]) == y[1]:
+                    starts = 1 # 50 um 
+                elif max(y[2:]) == y[2]:
+                    starts = 2 # 75 um 
                 elif max(y[3:]) == y[3]:
                     starts = 3 # 100 um 
                 elif max(y[4:]) == y[4]:
                     starts = 4 # 125 um 
-                else:
+                elif max(y[5:]) == y[5]:
                     starts = 5 # 150 um 
+                elif max(y[6:]) == y[6]:
+                    starts = 6 # 175 um 
+                else:
+                    starts = 7 # 200 um 
 
-                x = d2D[starts:]
-                y = prob2D[starts:]
+                ends = 15
+                if y[14] == 0: # 375 um 
+                    ends = ends - 1
+                    if y[13] == 0: # 350 um 
+                        ends = ends - 1
+                        if y[12] == 0: # 325 um 
+                            ends = ends - 1
+                            if y[11] == 0: # 300 um 
+                                ends = ends - 1
+                                if y[10] == 0: # 275 um 
+                                    ends = ends - 1
+                                    if y[9] == 0: # 250 um 
+                                        ends = ends - 1
+                                        if y[8] == 0: # 225 um 
+                                            ends = ends - 1
+                                            if y[7] == 0: # 200 um 
+                                                ends = ends - 1
+                                                if y[6] == 0: # 175 um 
+                                                    ends = ends - 1
+                                                    if y[5] == 0: # 150 um 
+                                                        ends = ends - 1
+                                                        if y[4] == 0: # 125 um 
+                                                            ends = ends - 1
 
-                if m0 == 0:
-                    if starts > 0:
-                        starts = starts - 1
-                    x = d2D[1+starts:]
-                    y = prob2D[1+starts:]
-                if m1 == 0:
-                    if starts > 0:
-                        starts = starts - 1
-                    x = d2D[2+starts:]
-                    y = prob2D[2+starts:]
-                if m2 == 0:
-                    if starts > 0:
-                        starts = starts - 1
-                    x = d2D[3+starts:]
-                    y = prob2D[3+starts:]
-                if m3 == 0:
-                    if starts > 0:
-                        starts = starts - 1
-                    x = d2D[4+starts:]
-                    y = prob2D[4+starts:]
-                if m4 == 0:
-                    x = d2D[5:]
-                    y = prob2D[5:]
-                if m5 == 0:
-                    x = d2D[6:]
-                    y = prob2D[6:]
+                if ends-starts > 6:
+                    x = d2D[starts:ends]
+                    y = prob2D[starts:ends]
 
-                pars, cov = curve_fit(f=exponential, xdata=x, ydata=y, p0=[0, 0], bounds=(-np.inf, np.inf))
+                    if min(y) > 0:
+                        pars, cov = curve_fit(f=exponential, xdata=x, ydata=y, p0=[0, 0], bounds=(-np.inf, np.inf))
 
-                xx = np.linspace(0, 250, 11)
-                yy = exponential(xx, *pars)
-                prob100 = yy[4]
+                        xx = np.linspace(0, 400, 17)
+                        yy = exponential(xx, *pars)
+                        prob100 = yy[4]
+                    else:
+                        pars = {}
+                        pars[0] = mfull/nfull
+                        pars[1] = 0.0001 #shape = 10000 ~ linear
+                        prob100 = pars[0]
 
-            else:
-                x = d2D
-                y = prob2D
+                else:
+                    x = d2D
+                    y = prob2D
 
-                pars = {}
-                pars[0] = m9/n9
-                pars[1] = 0.0001 #shape = 10000 ~ linear
-                prob100 = pars[0]
+                    pars = {}
+                    pars[0] = mfull/nfull
+                    pars[1] = 0.0001 #shape = 10000 ~ linear
+                    prob100 = pars[0]
 
-            print('%d %d %d %.3f %.3f %.3f %.2f %.3f %d %.3f %.3f %.3f %.3f %.3f %.3f %.3f %.3f %.3f %.3f %s %s' % (n,m,m9,(m9/mm),(m9/nn),100*pars[0],1.0/pars[1],100*prob100,x[0],100*prob2D[0],100*prob2D[1],100*prob2D[2],100*prob2D[3],100*prob2D[4],100*prob2D[5],100*prob2D[6],100*prob2D[7],100*prob2D[8],100*m9/n9,mtype_map[n],mtype_map[m]))
+                # if n0 > 0:
+                #     print('%d %d %d %.3f %.3f %.2f %.2f %.1f %d %.3f %.3f %.3f %.3f %.3f %.3f %.3f %.3f %.3f %.3f %.3f %.3f %s %s' % (n,m,mfull,(mfull/mm),(mfull/nn),100*(mfull/nfull),100*pars[0],1.0/pars[1],x[0],100*(m0/n0),100*prob2D[0],100*prob2D[1],100*prob2D[2],100*prob2D[3],100*prob2D[4],100*prob2D[5],100*prob2D[6],100*prob2D[7],100*prob2D[8],100*prob2D[9],100*prob2D[10],mtype_map[n],mtype_map[m]))
+                # else:
+                #     print('%d %d %d %.3f %.3f %.2f %.2f %.1f %d %.3f %.3f %.3f %.3f %.3f %.3f %.3f %.3f %.3f %.3f %.3f %.3f %s %s' % (n,m,mfull,(mfull/mm),(mfull/nn),100*(mfull/nfull),100*pars[0],1.0/pars[1],x[0],100*n0,100*prob2D[0],100*prob2D[1],100*prob2D[2],100*prob2D[3],100*prob2D[4],100*prob2D[5],100*prob2D[6],100*prob2D[7],100*prob2D[8],100*prob2D[9],100*prob2D[10],mtype_map[n],mtype_map[m]))
+
 
             # print("\n",mtype_map[n],mtype_map[m],m3,n3)
             # print("connection_probability %.3f" % (100*m3/n3))
@@ -315,17 +417,16 @@ def inportpathways(MCnumber):
             # print("number_of_convergent_neuron_mean %.3f" % (m9/mm))
             # print("number_of_divergent_neuron_mean %.3f" % (m9/nn))
 
-            if m9 > 0:                
+            if mfull > 0:                
                 proj = '%s:%s' % (mtype_map[n],mtype_map[m])
                 Netinfo[proj] = {}
-                Netinfo[proj]['connections_total'] = m9
-                Netinfo[proj]['number_of_convergent_neuron_mean'] = '%.5f' % (m9/mm)
-                Netinfo[proj]['number_of_divergent_neuron_mean'] = '%.5f' % (m9/nn)    
-                Netinfo[proj]['connection_probability_full'] = '%.5f' % (m9/n9) 
+                Netinfo[proj]['connections_total'] = mfull
+                Netinfo[proj]['number_of_convergent_neuron_mean'] = '%.5f' % (mfull/mm)
+                Netinfo[proj]['number_of_divergent_neuron_mean'] = '%.5f' % (mfull/nn)    
+                Netinfo[proj]['connection_probability_full'] = '%.5f' % (mfull/nfull) 
                 Netinfo[proj]['dist2D_0'] = x[0]       
                 Netinfo[proj]['A0'] = '%.5f' % pars[0]
                 Netinfo[proj]['shape'] = '%.2f' % (1.0/pars[1])
-                Netinfo[proj]['connection_probability_fit_100um'] = '%.5f' % prob100    
                 Netinfo[proj]['connection_probability_25um'] = '%.5f' % prob2D[0]
                 Netinfo[proj]['connection_probability_50um'] = '%.5f' % prob2D[1]
                 Netinfo[proj]['connection_probability_75um'] = '%.5f' % prob2D[2]
@@ -335,18 +436,23 @@ def inportpathways(MCnumber):
                 Netinfo[proj]['connection_probability_175um'] = '%.5f' % prob2D[6]
                 Netinfo[proj]['connection_probability_200um'] = '%.5f' % prob2D[7]
                 Netinfo[proj]['connection_probability_225um'] = '%.5f' % prob2D[8]
-
-                # print(Netinfo)
-                # with open(rootFolder2+'Netconnections_' + MCName + '_' + proj + '.json', 'w') as outfile:
-                #     json.dump(Netinfo, outfile)
-
+                Netinfo[proj]['connection_probability_250um'] = '%.5f' % prob2D[9]
+                Netinfo[proj]['connection_probability_275um'] = '%.5f' % prob2D[10]
+                Netinfo[proj]['connection_probability_300um'] = '%.5f' % prob2D[11]
+                Netinfo[proj]['connection_probability_325um'] = '%.5f' % prob2D[12]
+                Netinfo[proj]['connection_probability_350um'] = '%.5f' % prob2D[13]
+                Netinfo[proj]['connection_probability_375um'] = '%.5f' % prob2D[14]
+                if n0 > 0:
+                    Netinfo[proj]['connection_probability_less_25um'] = '%.5f' % (m0/n0)    
+                else:
+                    Netinfo[proj]['connection_probability_less_25um'] = '%.5f' % 0.0    
 
                 # plot probs
                 if plotdata:
                     fontsiz=18
                     figSize = (12,8)
                     fig = plt.figure(figsize=figSize)  # Open a new figure
-                    fig.suptitle('%s -> (A0=%.3f, Shape=%.1f, d>%d, NC=%d)' % (proj,pars[0],1.0/pars[1],x[0],m9), fontsize=18, fontweight='bold')
+                    fig.suptitle('%s -> (A0=%.3f, Shape=%.1f, %d<d<%d, NC=%d)' % (proj,pars[0],1.0/pars[1],x[0],x[-1],mfull), fontsize=18, fontweight='bold')
                     
                     plt.subplot(1, 1, 1)
                     plt.ylabel('Prob2D', fontsize=fontsiz)
@@ -354,13 +460,14 @@ def inportpathways(MCnumber):
                     plt.plot(x, y, 'b-o', label='used') 
                     plt.plot(xx, yy, 'r-', label='fit') 
                     plt.xlabel('distance (um)', fontsize=fontsiz)
-                    plt.xlim(0, 250)
+                    plt.xlim(0, 400)
                     # ~ plt.ylim(ylim)
                     plt.grid(True)
                     plt.legend(loc='upper right', bbox_to_anchor=(1.1, 1.0))
                     # plt.ion()
                     plt.tight_layout()
                     plt.savefig(rootFolder2+'Figures/prob_dist2D_%s.png' % proj)
+                    plt.close(fig)
 
     # # print(Netinfo)
     with open(rootFolder2+'Netconnections_' + MCName + '.json', 'w') as outfile:
