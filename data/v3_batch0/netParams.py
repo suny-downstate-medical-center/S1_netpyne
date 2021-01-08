@@ -267,7 +267,7 @@ if cfg.addConn:
                     'weight': gsyn[pre][post] * cfg.IIGain, 
                     'synMechWeightFactor': cfg.synWeightFractionII,
                     'delay': 'defaultDelay+dist_3D/propVelocity',
-                    'synsPerConn': 1, #int(synperconnNumber[pre][post]+0.5)
+                    'synsPerConn': int(synperconnNumber[pre][post]+0.5),
                     'sec': 'all'}       
 
 ## I -> E
@@ -301,7 +301,7 @@ if cfg.addConn:
                     'weight': gsyn[pre][post] * cfg.IEGain, 
                     'synMechWeightFactor': cfg.synWeightFractionIE,
                     'delay': 'defaultDelay+dist_3D/propVelocity',
-                    'synsPerConn': 1, #int(synperconnNumber[pre][post]+0.5)
+                    'synsPerConn': int(synperconnNumber[pre][post]+0.5),
                     'sec': 'all'}     
 #------------------------------------------------------------------------------   
 ## E -> E
@@ -335,7 +335,7 @@ if cfg.addConn:
                     'weight': gsyn[pre][post] * cfg.EEGain, 
                     'synMechWeightFactor': cfg.synWeightFractionEE,
                     'delay': 'defaultDelay+dist_3D/propVelocity',
-                    'synsPerConn': 1, #int(synperconnNumber[pre][post]+0.5)
+                    'synsPerConn': int(synperconnNumber[pre][post]+0.5),
                     'sec': 'all'}    
 
 # ## E -> I
@@ -369,7 +369,7 @@ if cfg.addConn:
                     'weight': gsyn[pre][post] * cfg.EIGain, 
                     'synMechWeightFactor': cfg.synWeightFractionEI,
                     'delay': 'defaultDelay+dist_3D/propVelocity',
-                    'synsPerConn': 1, #int(synperconnNumber[pre][post]+0.5)
+                    'synsPerConn': int(synperconnNumber[pre][post]+0.5),
                     'sec': 'all'}    
 #------------------------------------------------------------------------------    
 #------------------------------------------------------------------------------

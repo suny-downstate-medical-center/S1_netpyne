@@ -23,9 +23,9 @@ cfg = specs.SimConfig()
 #------------------------------------------------------------------------------
 # Run parameters
 #------------------------------------------------------------------------------
-cfg.duration = 7.0*1e0 ## Duration of the sim, in ms  
+cfg.duration = 7.0*1e2 ## Duration of the sim, in ms  
 cfg.dt = 0.05
-cfg.seeds = {'conn': 3333, 'stim': 3333, 'loc': 3333} 
+cfg.seeds = {'conn': 1333, 'stim': 1333, 'loc': 1333} 
 cfg.hParams = {'celsius': 34, 'v_init': -65}  
 cfg.verbose = False
 cfg.createNEURONObj = True
@@ -47,8 +47,8 @@ cfg.rootFolder = os.getcwd()
 
 cfg.importCellMod = 'pkl_after' # 'pkl_after'(only for celldiversity) -  'pkl_before' or 'BBPtemplate' (both)  
 cfg.celldiversity = True 
-cfg.poptypeNumber = 14 # max 55
-cfg.celltypeNumber = 53 # max 207
+cfg.poptypeNumber = 6 # max 55
+cfg.celltypeNumber = 14 # max 207
 #------------------------------------------------------------------------------  
 # Load 55 Morphological Names and Cell pop numbers -> L1:6 L23:10 L4:12 L5:13 L6:14
 # Load 207 Morpho-electrical Names used to import the cells from 'cell_data/' -> L1:14 L23:43 L4:46 L5:52 L6:52
@@ -128,22 +128,22 @@ cfg.recordStep = 0.1
 # Saving
 #------------------------------------------------------------------------------
 
-cfg.simLabel = 'v3_batch0'
+cfg.simLabel = 'v4_batch0'
 cfg.saveFolder = '../data/'+cfg.simLabel
 # cfg.filename =                	## Set file output name
 cfg.savePickle = False         	## Save pkl file
 cfg.saveJson = True	           	## Save json file
-cfg.saveDataInclude = ['netParams'] ## 'simData' , 'simConfig', 'netParams'
+cfg.saveDataInclude = ['simData' , 'simConfig', 'netParams'] ## 'simData' , 'simConfig', 'netParams'
 cfg.backupCfgFile = None 		##  
 cfg.gatherOnlySimData = False	##  
-cfg.saveCellSecs = False			##  False	#
-cfg.saveCellConns = True			##  False	#
+cfg.saveCellSecs = False			
+cfg.saveCellConns = True	
 
 #------------------------------------------------------------------------------
 # Analysis and plotting 
 #------------------------------------------------------------------------------
-# cfg.analysis['plotRaster'] = {'include': allpops, 'saveFig': True, 'showFig': False, 'orderInverse': True, 
-# 							'timeRange': [200,cfg.duration-100], 'figSize': (18,12), 'labels': 'legend', 'popRates': True, 'fontSize':9, 'lw': 1, 'markerSize':1, 'marker': '.', 'dpi': 300} 
+cfg.analysis['plotRaster'] = {'include': allpops, 'saveFig': True, 'showFig': False, 'orderInverse': True, 
+							'timeRange': [200,cfg.duration-100], 'figSize': (18,12), 'labels': 'legend', 'popRates': True, 'fontSize':9, 'lw': 1, 'markerSize':1, 'marker': '.', 'dpi': 300} 
 #------------------------------------------------------------------------------
 # Synapses
 #------------------------------------------------------------------------------
@@ -181,7 +181,7 @@ cfg.IEGain = 1.0
 #------------------------------------------------------------------------------
 # Current inputs 
 #------------------------------------------------------------------------------
-cfg.addIClamp = 0
+cfg.addIClamp = 1
  
 cfg.IClamp = []
 popNames = cfg.popParamLabels

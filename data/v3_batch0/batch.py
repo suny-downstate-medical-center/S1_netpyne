@@ -16,7 +16,7 @@ def custom():
     params = specs.ODict()
     
     # params[('seeds', 'conn')] =  [2033] 
-    params[('seeds', 'conn')] =  [2201, 2202, 2203, 2204] 
+    params[('seeds', 'conn')] =  [1201, 1202, 1203, 1204] 
     # params[('importCellMod')] = ['BBPtemplate','pkl_before','pkl_after']
 
     b = Batch(params=params, netParamsFile='netParams.py', cfgFile='cfg.py')
@@ -34,7 +34,7 @@ def setRunCfg(b, type='mpi_bulletin'):
 
     elif type=='mpi_direct':
         b.runCfg = {'type': 'mpi_direct',
-            'cores': 2,
+            'cores': 4,
             'script': 'init.py',
             'mpiCommand': 'mpiexec --use-hwthread-cpus', # i7
             'skip': True}
@@ -57,7 +57,7 @@ def setRunCfg(b, type='mpi_bulletin'):
 if __name__ == '__main__': 
     b = custom() #
 
-    b.batchLabel = 'v3_batch1'  
+    b.batchLabel = 'v4_batch1'  
     b.saveFolder = '../data/'+b.batchLabel
     b.method = 'grid'
     setRunCfg(b, 'mpi_direct')     # setRunCfg(b, 'mpi_bulletin')
