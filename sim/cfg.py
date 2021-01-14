@@ -47,8 +47,8 @@ cfg.rootFolder = os.getcwd()
 
 cfg.importCellMod = 'pkl_after' # 'pkl_after'(only for celldiversity) -  'pkl_before' or 'BBPtemplate' (both)  
 cfg.celldiversity = True 
-cfg.poptypeNumber = 6 # max 55
-cfg.celltypeNumber = 14 # max 207
+cfg.poptypeNumber = 14 # max 55
+cfg.celltypeNumber = 54 # max 207
 #------------------------------------------------------------------------------  
 # Load 55 Morphological Names and Cell pop numbers -> L1:6 L23:10 L4:12 L5:13 L6:14
 # Load 207 Morpho-electrical Names used to import the cells from 'cell_data/' -> L1:14 L23:43 L4:46 L5:52 L6:52
