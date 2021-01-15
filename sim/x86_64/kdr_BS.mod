@@ -1,1 +1,0 @@
-../mod//kdr_BS.mod
