@@ -23,7 +23,7 @@ cfg = specs.SimConfig()
 #------------------------------------------------------------------------------
 # Run parameters
 #------------------------------------------------------------------------------
-cfg.duration = 2.0*1e3 ## Duration of the sim, in ms  
+cfg.duration = 7.0*1e2 ## Duration of the sim, in ms  
 cfg.dt = 0.05
 cfg.seeds = {'conn': 1333, 'stim': 1333, 'loc': 1333} 
 cfg.hParams = {'celsius': 34, 'v_init': -65}  
@@ -131,23 +131,22 @@ cfg.recordStep = 0.1
 cfg.simLabel = 'v4_batch0'
 cfg.saveFolder = '../data/'+cfg.simLabel
 # cfg.filename =                	## Set file output name
-cfg.savePickle = True         	## Save pkl file
+cfg.savePickle = False         	## Save pkl file
 cfg.saveJson = True	           	## Save json file
-cfg.saveDataInclude = ['simData'] #, 'simConfig', 'netParams', 'net']
+cfg.saveDataInclude = ['simData'] ## 'simData' , 'simConfig', 'netParams'
 cfg.backupCfgFile = None 		##  
-cfg.gatherOnlySimData = True	##  
+cfg.gatherOnlySimData = False	##  
 cfg.saveCellSecs = False			
-cfg.saveCellConns = False	
+cfg.saveCellConns = True	
 
 #------------------------------------------------------------------------------
 # Analysis and plotting 
 #------------------------------------------------------------------------------
 cfg.analysis['plotRaster'] = {'include': allpops, 'saveFig': True, 'showFig': False, 'orderInverse': True, 
-							'timeRange': [0,cfg.duration], 'figSize': (18,12), 'labels': 'legend', 'popRates': True, 'fontSize':9, 'lw': 1, 'markerSize':1, 'marker': '.', 'dpi': 300} 
-
+							'timeRange': [200,cfg.duration-100], 'figSize': (18,12), 'labels': 'legend', 'popRates': True, 'fontSize':9, 'lw': 1, 'markerSize':1, 'marker': '.', 'dpi': 300} 
 # cfg.analysis['plotConn'] = {'includePre': cfg.popParamLabels, 'includePost': cfg.popParamLabels, 'feature': 'numConns', 'groupBy': 'pop', 
 #     'figSize': (24,24), 'saveFig': True, 'orderBy': 'gid', 'graphType': 'matrix', 'fontSize': 20, 
-#     'saveData': 'pop_numConns_matrix_b2.json'}
+#     'saveData': 'pop_numConns_matrix.json'}
 #------------------------------------------------------------------------------
 # Synapses
 #------------------------------------------------------------------------------
@@ -162,7 +161,7 @@ cfg.scale = 1.0 # not implemented yet - reduce size
 cfg.sizeY = 2082.0
 cfg.sizeX = 420.0 # r = 210 um and hexagonal side length = 230.9 um
 cfg.sizeZ = 420.0
-cfg.scaleDensity = 0.25 # cell number
+cfg.scaleDensity = 0.1 # cell number
 # cfg.correctBorderThreshold = 150.0
 
 #------------------------------------------------------------------------------
@@ -191,9 +190,9 @@ cfg.IClamp = []
 popNames = cfg.popParamLabels
 cfg.IClampnumber = 0
 for popName in popNames:
-    cfg.IClamp.append({'pop': popName, 'sec': 'soma', 'loc': 0.5, 'start': 100, 'dur': 200, 'amp': 0.15})
+    cfg.IClamp.append({'pop': popName, 'sec': 'soma', 'loc': 0.5, 'start': 200, 'dur': 400, 'amp': 0.15})
     cfg.IClampnumber=cfg.IClampnumber+1
-    cfg.IClamp.append({'pop': popName, 'sec': 'soma', 'loc': 0.5, 'start': 0, 'dur': 300, 'amp': -0.05})
+    cfg.IClamp.append({'pop': popName, 'sec': 'soma', 'loc': 0.5, 'start': 0, 'dur': 700, 'amp': -0.05})
     cfg.IClampnumber=cfg.IClampnumber+1
 
 #------------------------------------------------------------------------------

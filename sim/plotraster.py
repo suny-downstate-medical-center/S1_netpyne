@@ -2,34 +2,50 @@ import matplotlib.pyplot as plt
 import numpy as np
 import json
 
+from netpyne import sim
+
+
+cfg, netParams = sim.readCmdLineArgs()
+sim.initialize(
+    simConfig = cfg, 	
+    netParams = netParams)
+
+
 data = {}
-data['true'] = {}
-data['false'] = {}
+data['RP'] = {}
+data['Vt'] = {}
 
-with open('../data/v0_batch2/v0_batch2_0_0.json', 'r') as f:
-	data['true'] = json.load(f) 
+for Node in range(4):
+    with open('../data/v4_batch0/v4_batch0_0' + str(Node) + '.json', 'r') as f:
+        data['RP'] = json.load(f) 
+    gid = data['RP']['simData']['spkid']
+    t = data['RP']['simData']['spkt']
+    plt.scatter(t ,gid, c='tab:blue', s=16, marker='o',
+                alpha=1.0, edgecolors='none')
 
-with open('../data/v0_batch3/v0_batch3_0_0.json', 'r') as f:
-	data['false'] = json.load(f) 
+plt.xlabel('t', fontsize=15)
+plt.ylabel('gid', fontsize=15)
 
-gid1 = data['true']['simData'][ 'spkid']
-t1 = data['true']['simData']['spkt']
 
-gid2 = data['false']['simData'][ 'spkid']
-t2 = data['false']['simData']['spkt']
+data = {}
+data['RP'] = {}
+data['Vt'] = {}
 
-# ~ gid1 = gid1[0:100000]
-# ~ gid2 = gid2[0:100000]
+for Node in range(4):
+    with open('../data/v4_batch0/v4_batch0_0' + str(Node) + '.json', 'r') as f:
+        data['Vt'] = json.load(f) 
 
-fig, ax = plt.subplots()
-ax.scatter(t1 ,gid1, c='tab:blue', s=16, label='True', marker='o',
-               alpha=1.0, edgecolors='none')
-ax.scatter(t2 ,gid2, c='tab:red', s=8, label='False', marker='o',
-               alpha=1.0, edgecolors='none')
+    cellgid = 0
+    for popName in cfg.popParamLabels:
+        if int(netParams.popParams[popName]['numCells']) > 0:
+            # print('cell_%s' % (cellgid))
+            cellgid = cellgid + int(netParams.popParams[popName]['numCells'])
 
-ax.legend()
+            cellName  = 'cell_%s' % (cellgid)
+            if cellName in data['Vt']['simData']['V_soma']:
+                Vt = data['Vt']['simData']['V_soma'][cellName]
+                print(netParams.popParams[popName]['cellType'],netParams.popParams[popName]['numCells'])
 
-ax.set_xlabel('t', fontsize=15)
-ax.set_ylabel('gid', fontsize=15)
+    # print(cfg.recordCells)
 
-plt.show()
+# plt.show()
