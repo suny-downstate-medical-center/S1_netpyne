@@ -142,8 +142,8 @@ cfg.saveCellConns = False
 #------------------------------------------------------------------------------
 # Analysis and plotting 
 #------------------------------------------------------------------------------
-cfg.analysis['plotRaster'] = {'include': allpops, 'saveFig': True, 'showFig': False, 'orderInverse': True, 
-							'timeRange': [0,cfg.duration], 'figSize': (18,12), 'labels': 'legend', 'popRates': True, 'fontSize':9, 'lw': 1, 'markerSize':1, 'marker': '.', 'dpi': 300} 
+# cfg.analysis['plotRaster'] = {'include': allpops, 'saveFig': True, 'showFig': False, 'orderInverse': True, 
+							# 'timeRange': [0,cfg.duration], 'figSize': (18,12), 'labels': 'legend', 'popRates': True, 'fontSize':9, 'lw': 1, 'markerSize':1, 'marker': '.', 'dpi': 300} 
 
 # cfg.analysis['plotConn'] = {'includePre': cfg.popParamLabels, 'includePost': cfg.popParamLabels, 'feature': 'numConns', 'groupBy': 'pop', 
 #     'figSize': (24,24), 'saveFig': True, 'orderBy': 'gid', 'graphType': 'matrix', 'fontSize': 20, 
@@ -162,7 +162,7 @@ cfg.scale = 1.0 # not implemented yet - reduce size
 cfg.sizeY = 2082.0
 cfg.sizeX = 420.0 # r = 210 um and hexagonal side length = 230.9 um
 cfg.sizeZ = 420.0
-cfg.scaleDensity = 0.25 # cell number
+cfg.scaleDensity = 1.0 # cell number
 # cfg.correctBorderThreshold = 150.0
 
 #------------------------------------------------------------------------------

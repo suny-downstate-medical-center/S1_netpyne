@@ -1,0 +1,162 @@
+numprocs=2
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v1_batch2/v1_batch2_0_0_cfg.json ... 
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v1_batch2/v1_batch2_0_0_cfg.json ... 
+Loading simConfig...
+Loading simConfig...
+Importing netParams from ../data/v1_batch2/v1_batch2_netParams.py
+
+Start time:  2020-11-07 02:25:21.541967
+Importing netParams from ../data/v1_batch2/v1_batch2_netParams.py
+
+Creating network of 55 cell populations on 2 hosts...
+  Number of cells on node 0: 3923 
+  Done; cell creation time = 149.28 s.
+Making connections...
+  Number of cells on node 1: 3922 
+  Number of connections on node 0: 5063 
+  Number of synaptic contacts on node 0: 10126 
+  Number of connections on node 1: 5175 
+  Number of synaptic contacts on node 1: 10350 
+  Done; cell connection time = 24.62 s.
+Adding stims...
+  Number of stims on node 0: 7846 
+  Number of stims on node 1: 7844 
+  Done; cell stims creation time = 0.78 s.
+Recording 30 traces of 1 types on node 0
+Recording 25 traces of 1 types on node 1
+0.0s
+
+Running simulation for 700.0 ms...
+0.1s
+0.2s
+0.3s
+0.4s
+0.5s
+0.6s
+0.7s
+  Done; run time = 9739.45 s; real-time ratio: 0.00.
+
+Gathering data...
+  Done; gather time = 3.96 s.
+
+Analyzing...
+Plotting connectivity matrix...
+  There was an exception in plotConn(): 
+    'Network' object has no attribute 'allCells' 
+    (<class 'AttributeError'>, AttributeError("'Network' object has no attribute 'allCells'"), <traceback object at 0x7f799425a1e0>)
+Plotting connectivity matrix...
+  There was an exception in plotConn(): 
+    'Network' object has no attribute 'allCells' 
+    (<class 'AttributeError'>, AttributeError("'Network' object has no attribute 'allCells'"), <traceback object at 0x7f79937740f0>)
+Plotting connectivity matrix...
+  There was an exception in plotConn(): 
+    'Network' object has no attribute 'allCells' 
+    (<class 'AttributeError'>, AttributeError("'Network' object has no attribute 'allCells'"), <traceback object at 0x7f799425a1e0>)
+Plotting connectivity matrix...
+  There was an exception in plotConn(): 
+    'Network' object has no attribute 'allCells' 
+    (<class 'AttributeError'>, AttributeError("'Network' object has no attribute 'allCells'"), <traceback object at 0x7f79937740f0>)
+Plotting 2D representation of network cell locations and connections...
+  There was an exception in plot2Dnet(): 
+    'Network' object has no attribute 'allCells' 
+    (<class 'AttributeError'>, AttributeError("'Network' object has no attribute 'allCells'"), <traceback object at 0x7f799493db40>)
+Plotting 2D representation of network cell locations and connections...
+  There was an exception in plot2Dnet(): 
+    'Network' object has no attribute 'allCells' 
+    (<class 'AttributeError'>, AttributeError("'Network' object has no attribute 'allCells'"), <traceback object at 0x7f799497ce60>)
+Plotting raster...
+  There was an exception in plotRaster(): 
+    'Network' object has no attribute 'allCells' 
+    (<class 'AttributeError'>, AttributeError("'Network' object has no attribute 'allCells'"), <traceback object at 0x7f799497cc30>)
+Plotting recorded cell traces ... trace
+  There was an exception in plotTraces(): 
+    'Network' object has no attribute 'allCells' 
+    (<class 'AttributeError'>, AttributeError("'Network' object has no attribute 'allCells'"), <traceback object at 0x7f799497c5f0>)
+  Cells: 7845
+  Connections: 10238 (1.31 per cell)
+  Synaptic contacts: 20476 (2.61 per cell)
+  Spikes: 44195 (8.05 Hz)
+  Simulated time: 0.7 s; 2 workers
+  Run time: 9739.45 s
+   L1_DAC : 48.381 Hz
+   L1_DLAC : 43.333 Hz
+   L1_HAC : 40.994 Hz
+   L1_NGC-DA : 44.603 Hz
+   L1_NGC-SA : 45.275 Hz
+   L1_SLAC : 44.000 Hz
+   L23_BP : 33.878 Hz
+   L23_BTC : 22.967 Hz
+   L23_ChC : 24.095 Hz
+   L23_DBC : 33.084 Hz
+   L23_LBC : 29.386 Hz
+   L23_MC : 9.208 Hz
+   L23_NBC : 26.098 Hz
+   L23_NGC : 36.429 Hz
+   L23_PC : 4.001 Hz
+   L23_SBC : 40.442 Hz
+   L4_BP : 5.714 Hz
+   L4_BTC : 23.143 Hz
+   L4_ChC : 23.571 Hz
+   L4_DBC : 13.429 Hz
+   L4_LBC : 28.065 Hz
+   L4_MC : 11.905 Hz
+   L4_NBC : 32.321 Hz
+   L4_NGC : 42.857 Hz
+   L4_PC : 6.287 Hz
+   L4_SBC : 36.952 Hz
+   L4_SP : 5.995 Hz
+   L4_SS : 5.434 Hz
+   L5_BP : 40.000 Hz
+   L5_BTC : 13.158 Hz
+   L5_ChC : 24.571 Hz
+   L5_DBC : 13.810 Hz
+   L5_LBC : 27.493 Hz
+   L5_MC : 12.323 Hz
+   L5_NBC : 23.286 Hz
+   L5_NGC : 53.571 Hz
+   L5_SBC : 35.000 Hz
+   L5_STPC : 6.259 Hz
+   L5_TTPC1 : 3.142 Hz
+   L5_TTPC2 : 2.857 Hz
+   L5_UTPC : 8.272 Hz
+   L6_BPC : 6.285 Hz
+   L6_BP : 38.333 Hz
+   L6_BTC : 9.184 Hz
+   L6_ChC : 18.571 Hz
+   L6_DBC : 10.000 Hz
+   L6_IPC : 6.571 Hz
+   L6_LBC : 22.377 Hz
+   L6_MC : 9.065 Hz
+   L6_NBC : 20.571 Hz
+   L6_NGC : 48.929 Hz
+   L6_SBC : 33.613 Hz
+   L6_TPC_L1 : 5.428 Hz
+   L6_TPC_L4 : 6.000 Hz
+   L6_UTPC : 5.714 Hz
+Saving output as ../data/v1_batch2/v1_batch2_0_0.json  ... 
+Finished saving!
+  Done; saving time = 24.39 s.
+Plotting raster...
+  Done; plotting time = 21.32 s
+
+Total time = 9969.94 s
+
+End time:  2020-11-07 05:11:31.484330
+Plotting connectivity matrix...
+Saving figure data as ../data/v1_batch2/v1_batch2_0_0_pop_probability_matrix.json ... 
+Plotting connectivity matrix...
+Saving figure data as ../data/v1_batch2/v1_batch2_0_0_pop_weight_matrix.json ... 
+Plotting connectivity matrix...
+Saving figure data as ../data/v1_batch2/v1_batch2_0_0_pop_delay_matrix.json ... 
+Plotting connectivity matrix...
+Saving figure data as ../data/v1_batch2/v1_batch2_0_0_pop_numConns_matrix.json ... 
+Plotting 2D representation of network cell locations and connections...
+Saving figure data as ../data/v1_batch2/v1_batch2_0_0_xy.json ... 
+Plotting 2D representation of network cell locations and connections...
+Saving figure data as ../data/v1_batch2/v1_batch2_0_0_xz.json ... 
+Plotting raster...
+Plotting recorded cell traces ... trace
