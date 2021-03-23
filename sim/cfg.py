@@ -7,7 +7,6 @@ This file has sim configs as well as specification for parameterized values in n
 Contributors: salvadordura@gmail.com, fernandodasilvaborges@gmail.com
 """
 
-
 from netpyne import specs
 import pickle
 import os
@@ -23,7 +22,7 @@ cfg = specs.SimConfig()
 #------------------------------------------------------------------------------
 # Run parameters
 #------------------------------------------------------------------------------
-cfg.duration = 2.0*1e3 ## Duration of the sim, in ms  
+cfg.duration = 5.0*1e2 ## Duration of the sim, in ms  
 cfg.dt = 0.05
 cfg.seeds = {'conn': 1333, 'stim': 1333, 'loc': 1333} 
 cfg.hParams = {'celsius': 34, 'v_init': -65}  
@@ -45,7 +44,7 @@ cfg.checkErrors = False
 #------------------------------------------------------------------------------
 cfg.rootFolder = os.getcwd()
 
-cfg.importCellMod = 'pkl_after' # 'pkl_after'(only for celldiversity) -  'pkl_before' or 'BBPtemplate' (both)  
+cfg.importCellMod = 'pkl_after' #'pkl_before' or 'BBPtemplate'
 cfg.celldiversity = True 
 cfg.poptypeNumber = 55 # max 55
 cfg.celltypeNumber = 207 # max 207
@@ -71,53 +70,19 @@ for line in mtype_content.split('\n')[:-1]:
 	if mtype not in popParam:
 		popParam.append(mtype)
 	cellParam.append(metype)
-#------------------------------------------------------------------------------
-if cfg.celldiversity == True:
-    cfg.popParamLabels = popParam[0:cfg.poptypeNumber] # to debug
-    cfg.cellParamLabels = cellParam[0:cfg.celltypeNumber] # to debug
-else:   
-    folder = os.listdir('%s/cell_data/' % (cfg.rootFolder))
-    folder = sorted([d for d in folder if os.path.isdir('%s/cell_data/%s' % (cfg.rootFolder, d))])
-    folder = folder[0:5*int(cfg.celltypeNumber)] ## partial load to debug
-    
-    popfinal = []
-    cfg.popNumber = {}
-    for popName in folder:
-        cellName = popName[:-2]
-        if cfg.cellNumber[cellName] < 5:
-            if int(popName[-1]) > cfg.cellNumber[cellName]: # if there are less the 5 cells select only from 1 to 4
-                cfg.popNumber[popName] = 0
-            else:
-                cfg.popNumber[popName] = 1
-                popfinal.append(popName)
-        elif cfg.cellNumber[cellName] == 5:
-            cfg.popNumber[popName] = 1     
-            popfinal.append(popName)
-        else:
-            intMEtype = int(cfg.cellNumber[cellName]/5)
-            restMEtype = cfg.cellNumber[cellName] - 5*intMEtype
-            if restMEtype == 0:
-                cfg.popNumber[popName] = intMEtype
-            else:
-                if int(popName[-1]) > restMEtype:
-                    cfg.popNumber[popName] = intMEtype
-                else:
-                    cfg.popNumber[popName] = intMEtype + 1
-            popfinal.append(popName)
 
-    cfg.cellParamLabels = popfinal
-    cfg.popParamLabels = cfg.cellParamLabels
 
-    if cfg.importCellMod == 'pkl_after':
-        cfg.importCellMod = 'pkl_before'
+cfg.popParamLabels = popParam[0:cfg.poptypeNumber] # to debug
+cfg.cellParamLabels = cellParam[0:cfg.celltypeNumber] # to debug
+
 #------------------------------------------------------------------------------
 # Recording 
 #------------------------------------------------------------------------------
 
-allpops = cfg.popParamLabels
+cfg.allpops = cfg.popParamLabels
 cfg.cellsrec = 1
-if cfg.cellsrec == 0:  cfg.recordCells = allpops # record all cells
-elif cfg.cellsrec == 1: cfg.recordCells = [(pop,0) for pop in allpops] # record one cell of each pop
+if cfg.cellsrec == 0:  cfg.recordCells = cfg.allpops # record all cells
+elif cfg.cellsrec == 1: cfg.recordCells = [(pop,0) for pop in cfg.allpops] # record one cell of each pop
 
 cfg.recordTraces = {'V_soma': {'sec':'soma', 'loc':0.5, 'var':'v'}}  ## Dict with traces to record
 cfg.recordStim = False			
@@ -131,23 +96,23 @@ cfg.recordStep = 0.1
 cfg.simLabel = 'v4_batch0'
 cfg.saveFolder = '../data/'+cfg.simLabel
 # cfg.filename =                	## Set file output name
-cfg.savePickle = True         	## Save pkl file
+cfg.savePickle = False         	## Save pkl file
 cfg.saveJson = True	           	## Save json file
-cfg.saveDataInclude = ['simData'] #, 'simConfig', 'netParams', 'net']
+cfg.saveDataInclude = ['simData'] ## 'simData' , 'simConfig', 'netParams'
 cfg.backupCfgFile = None 		##  
-cfg.gatherOnlySimData = True	##  
+cfg.gatherOnlySimData = False	##  
 cfg.saveCellSecs = False			
-cfg.saveCellConns = False	
+cfg.saveCellConns = True	
 
 #------------------------------------------------------------------------------
 # Analysis and plotting 
 #------------------------------------------------------------------------------
-# cfg.analysis['plotRaster'] = {'include': allpops, 'saveFig': True, 'showFig': False, 'orderInverse': True, 
+# cfg.analysis['plotRaster'] = {'include': cfg.allpops, 'saveFig': True, 'showFig': False, 'orderInverse': True, 
 							# 'timeRange': [0,cfg.duration], 'figSize': (18,12), 'labels': 'legend', 'popRates': True, 'fontSize':9, 'lw': 1, 'markerSize':1, 'marker': '.', 'dpi': 300} 
-
 # cfg.analysis['plotConn'] = {'includePre': cfg.popParamLabels, 'includePost': cfg.popParamLabels, 'feature': 'numConns', 'groupBy': 'pop', 
-#     'figSize': (24,24), 'saveFig': True, 'orderBy': 'gid', 'graphType': 'matrix', 'fontSize': 20, 
-#     'saveData': 'pop_numConns_matrix_b2.json'}
+    # 'figSize': (24,24), 'saveFig': True, 'orderBy': 'gid', 'graphType': 'matrix', 'fontSize': 20}
+# cfg.analysis['plotTraces'] = {'include': [(pop, 0) for pop in cfg.allpops], 'oneFigPer': 'cell', 'overlay': True, 'timeRange': [0,cfg.duration], 'ylim': [-100,40], 'saveFig': True, 'showFig': False, 'figSize':(12,4)}
+
 #------------------------------------------------------------------------------
 # Synapses
 #------------------------------------------------------------------------------
@@ -162,13 +127,16 @@ cfg.scale = 1.0 # not implemented yet - reduce size
 cfg.sizeY = 2082.0
 cfg.sizeX = 420.0 # r = 210 um and hexagonal side length = 230.9 um
 cfg.sizeZ = 420.0
-cfg.scaleDensity = 1.0 # cell number
-# cfg.correctBorderThreshold = 150.0
+cfg.scaleDensity = 0.1 # cell number
 
+#------------------------------------------------------------------------------
+# Quantal Synanpses
+#------------------------------------------------------------------------------
+cfg.addQuantalSyn = 1
 #------------------------------------------------------------------------------
 # Connectivity
 #------------------------------------------------------------------------------
-cfg.addConn = 1
+cfg.addConn = 0
 
 cfg.synWeightFractionEE = [1.0, 1.0] # E -> E AMPA to NMDA ratio
 cfg.synWeightFractionEI = [1.0, 1.0] # E -> I AMPA to NMDA ratio
@@ -185,21 +153,36 @@ cfg.IEGain = 1.0
 #------------------------------------------------------------------------------
 # Current inputs 
 #------------------------------------------------------------------------------
-cfg.addIClamp = 1
+cfg.addIClamp = 0
  
 cfg.IClamp = []
 popNames = cfg.popParamLabels
 cfg.IClampnumber = 0
 for popName in popNames:
-    cfg.IClamp.append({'pop': popName, 'sec': 'soma', 'loc': 0.5, 'start': 100, 'dur': 200, 'amp': 0.15})
+    cfg.IClamp.append({'pop': popName, 'sec': 'soma', 'loc': 0.5, 'start': 100, 'dur': 100, 'amp': 0.12})
     cfg.IClampnumber=cfg.IClampnumber+1
-    cfg.IClamp.append({'pop': popName, 'sec': 'soma', 'loc': 0.5, 'start': 0, 'dur': 300, 'amp': -0.05})
+    cfg.IClamp.append({'pop': popName, 'sec': 'soma', 'loc': 0.5, 'start': 0, 'dur': 150, 'amp': -0.02})
     cfg.IClampnumber=cfg.IClampnumber+1
 
 #------------------------------------------------------------------------------
-# NetStim inputs 
+# Long range inputs
 #------------------------------------------------------------------------------
-## Attempt to add Background Noise inputs 
-cfg.addNetStim = 0
-cfg.weightLong = {'S1': 0.5, 'S2': 0.5}  # corresponds to unitary connection somatic EPSP (mV)
+cfg.addLongConn = 0 
+cfg.numCellsLong = 1000 # num of cells per population
+cfg.noiseLong = 1.0  # firing rate random noise
+cfg.delayLong = 5.0  # (ms)
+cfg.weightLong = 0.5  # corresponds to unitary connection somatic EPSP (mV)
+cfg.startLong = 0  # start at 0 ms
+cfg.ratesLong = {'S1': [0,5], 'S2': [0,5]}
 
+
+# #------------------------------------------------------------------------------
+# # NetStim inputs 
+# #------------------------------------------------------------------------------
+# cfg.addNetStim = 1
+
+# cfg.NetStim1 = {'pop': cfg.allpops, 'ynorm':[0,1], 'sec': 'soma', 'loc': 0.5, 'synMech': ['AMPA'], 'synMechWeightFactor': [1.0],
+# 				'start': 0, 'interval': 1000.0/10.0, 'noise': 1.0, 'number': 1000.0, 'weight': 1.0, 'delay': '0.5'}
+
+# cfg.NetStim2 = {'pop': cfg.allpops, 'ynorm':[0,1], 'sec': 'soma', 'loc': 0.5, 'synMech': ['GABAA'], 'synMechWeightFactor': [1.0],
+# 				'start': 0, 'interval': 1000.0/10.0, 'noise': 1.0, 'number': 1000.0, 'weight': 1.0, 'delay': '0.5'}

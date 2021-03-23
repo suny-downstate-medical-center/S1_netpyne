@@ -15,8 +15,8 @@ import numpy as np
 def custom():
     params = specs.ODict()
     
-    params[('seeds', 'conn')] =  [2033] 
-    # params[('seeds', 'conn')] =  [2201, 2202, 2203, 2204] 
+    params[('seeds', 'conn')] =  [1000] 
+    # params[('seeds', 'conn')] =  [2201, 2202] 
     # params[('importCellMod')] = ['BBPtemplate','pkl_before','pkl_after']
 
     b = Batch(params=params, netParamsFile='netParams.py', cfgFile='cfg.py')
@@ -34,20 +34,20 @@ def setRunCfg(b, type='mpi_bulletin'):
 
     elif type=='mpi_direct':
         b.runCfg = {'type': 'mpi_direct',
-            'cores': 200,
+            'cores': 8,
             'script': 'init.py',
-            'mpiCommand': 'mpiexec', 
+            'mpiCommand': 'mpiexec --use-hwthread-cpus', # i7
             'skip': True}
 
     elif type=='hpc_slurm_gcp':
-        b.runCfg = {'type': 'hpc_slurm', 
+        b.runCfg = {'type': 'hpc_slurm',
             'allocation': 'default',
-            'walltime': '24:00:00', 
+            'walltime': '24:00:00',
             'nodes': 1,
-            'coresPerNode': 96,
-            'email': 'salvadordura@gmail.com',
-            'folder': '/home/ext_salvadordura_gmail_com/m1/sim/', 
-            'script': 'init.py', 
+            'coresPerNode': 8,
+            'email': 'fernandodasilvaborges@gmail.com',
+            'folder': '/home/ext_fernandodasilvaborges_gmail_/S1_netpyne/sim/',
+            'script': 'init.py',
             'mpiCommand': 'mpirun',
             'skipCustom': '_raster.png'}
 

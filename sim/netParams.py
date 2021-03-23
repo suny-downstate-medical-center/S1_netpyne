@@ -56,17 +56,12 @@ for popName in cfg.popParamLabels:
 layer = {'1':[0.0, 0.079], '2': [0.079,0.151], '3': [0.151,0.320], '23': [0.079,0.320], '4':[0.320,0.412], '5': [0.412,0.664], '6': [0.664,1.0], 
 'longS1': [2.2,2.3], 'longS2': [2.3,2.4]}  # normalized layer boundaries
 
-# netParams.correctBorder = {'threshold': [cfg.correctBorderThreshold, cfg.correctBorderThreshold, cfg.correctBorderThreshold], 
-#                         'yborders': [layer['1'][0], layer['2'][0], layer['6'][0], layer['6'][1]]}  # correct conn border effect
-
 #------------------------------------------------------------------------------
 # General connectivity parameters
 #------------------------------------------------------------------------------
 netParams.defaultThreshold = -10.0 # spike threshold, 10 mV is NetCon default, lower it for all cells
-# netParams.defaultDelay = 2.0 # default conn delay (ms) (M1)
-# netParams.propVelocity = 500.0 # propagation velocity (um/ms) (M1)
-netParams.defaultDelay = 0.1 # default conn delay (ms)
-netParams.propVelocity = 300.0 #  300 μm/ms (Stuart et al., 1997)
+netParams.defaultDelay = 0.1 # default conn delay (ms) (M1 = 2.0)
+netParams.propVelocity = 300.0 #  300 μm/ms (Stuart et al., 1997) (M1 = 500.0)
 
 #------------------------------------------------------------------------------
 # Cell parameters  # L1 70  L23 215  L4 230 L5 260  L6 260  = 1035
@@ -162,10 +157,16 @@ if cfg.celldiversity:
             cellRule['secLists'] = netParams.cellParams[cellMe]['secLists']                 
             cellRule['secLists']['all'][0] = 'soma' # replace 'soma_0'
             cellRule['secLists']['somatic'][0]  = 'soma' # replace 'soma_0'
+                                  
+            cellRule['secLists']['spiny'] = {}
+            cellRule['secLists']['spinyEE'] = {}
 
-            # nonSpiny = ['axon_0', 'axon_1']
+            nonSpiny = ['axon_0', 'axon_1']
             # netParams.addCellParamsSecList(label=cellMe, secListName='spiny')  # section
-            # cellRule['secLists']['spiny'] = [sec for sec in cellRule['secLists']['all'] if sec not in nonSpiny]
+            cellRule['secLists']['spiny'] = [sec for sec in cellRule['secLists']['all'] if sec not in nonSpiny]
+            nonSpinyEE = ['axon_0', 'axon_1', 'soma']
+            # netParams.addCellParamsSecList(label=cellMe, secListName='spinyEE')  # section
+            cellRule['secLists']['spinyEE'] = [sec for sec in cellRule['secLists']['all'] if sec not in nonSpinyEE]
 
             # if cfg.reducedtest:
             #     cellRule['secs'] = {}
@@ -186,13 +187,10 @@ if cfg.celldiversity:
 # Synaptic mechanism parameters
 #------------------------------------------------------------------------------
 ### mods from M1 detailed
-netParams.synMechParams['AMPA'] = {'mod':'MyExp2SynBB', 'tau1': 0.2, 'tau2': 1.74, 'e': 0}
+netParams.synMechParams['AMPA'] = {'mod':'MyExp2SynBB', 'tau1': 0.2, 'tau2': 1.74, 'e': 0}    #, 'tau2': decay[pre][post]
 netParams.synMechParams['NMDA'] = {'mod': 'MyExp2SynNMDABB', 'tau1NMDA': 0.29, 'tau2NMDA': 43, 'e': 0}
 netParams.synMechParams['GABAA'] = {'mod':'MyExp2SynBB', 'tau1': 0.2, 'tau2': 8.3, 'e': -80}
 netParams.synMechParams['GABAB'] = {'mod':'MyExp2SynBB', 'tau1': 3.5, 'tau2': 260.9, 'e': -93} 
-
-# netParams.synMechParams['AMPA'] = {'mod':'MyExp2SynBB', 'tau1': 0.2, 'tau2': decay[pre][post], 'e': 0}
-# netParams.synMechParams['GABAA'] = {'mod':'MyExp2SynBB', 'tau1': 0.2, 'tau2': decay[pre][post], 'e': -80}
 
 ESynMech = ['AMPA', 'NMDA']
 ISynMech = ['GABAA', 'GABAB']
@@ -227,6 +225,7 @@ pmat[300] = connData['pmat300um']
 pmat[325] = connData['pmat325um']
 pmat[350] = connData['pmat350um']
 pmat[375] = connData['pmat375um']
+
 synperconnNumber = connData['synperconnNumber']
 synperconnNumberStd = connData['synperconnNumberStd']
 decay = connData['decay']
@@ -268,7 +267,7 @@ if cfg.addConn:
                     'synMechWeightFactor': cfg.synWeightFractionII,
                     'delay': 'defaultDelay+dist_3D/propVelocity',
                     'synsPerConn': int(synperconnNumber[pre][post]+0.5),
-                    'sec': 'all'}       
+                    'sec': 'spiny'}       
 
 ## I -> E
     for pre in Ipops:
@@ -302,7 +301,7 @@ if cfg.addConn:
                     'synMechWeightFactor': cfg.synWeightFractionIE,
                     'delay': 'defaultDelay+dist_3D/propVelocity',
                     'synsPerConn': int(synperconnNumber[pre][post]+0.5),
-                    'sec': 'all'}     
+                    'sec': 'spiny'}     
 #------------------------------------------------------------------------------   
 ## E -> E
     for pre in Epops:
@@ -336,7 +335,7 @@ if cfg.addConn:
                     'synMechWeightFactor': cfg.synWeightFractionEE,
                     'delay': 'defaultDelay+dist_3D/propVelocity',
                     'synsPerConn': int(synperconnNumber[pre][post]+0.5),
-                    'sec': 'all'}    
+                    'sec': 'spinyEE'}    
 
 # ## E -> I
     for pre in Epops:
@@ -370,7 +369,7 @@ if cfg.addConn:
                     'synMechWeightFactor': cfg.synWeightFractionEI,
                     'delay': 'defaultDelay+dist_3D/propVelocity',
                     'synsPerConn': int(synperconnNumber[pre][post]+0.5),
-                    'sec': 'all'}    
+                    'sec': 'spiny'}    
 #------------------------------------------------------------------------------    
 #------------------------------------------------------------------------------
 # Current inputs (IClamp)
@@ -392,6 +391,66 @@ if cfg.addIClamp:
             'conds': {'pop': pop},
             'sec': sec, 
             'loc': loc}
+
+
+#------------------------------------------------------------------------------
+# NetStim inputs to simulate quantal synapses
+#------------------------------------------------------------------------------
+if cfg.addQuantalSyn:      
+    ii = 0
+    for post in Ipops + Epops:
+        ii = ii + 1
+        jj = 0
+        for pre in Ipops + Epops:
+            jj = jj + 1
+            if float(connNumber[pre][post]) > 0:
+                synTotal = float(connNumber[pre][post])*int(synperconnNumber[pre][post]+0.5)            
+                synperNeuron = float(synTotal/cfg.popNumber[post])
+                netParams.stimSourceParams['quantalS_' + pre + '->' + post] = {'type': 'NetStim', 'rate': synperNeuron, 'noise': 0.0}
+                
+                # print('%d %d %.3f %s' % (jj, ii, synperNeuron, 'quantalS_' + pre + '->' + post))
+    #------------------------------------------------------------------------------
+    for post in Ipops:
+        for pre in Epops:
+            if float(connNumber[pre][post]) > 0:
+                netParams.stimTargetParams['quantalT_' + pre + '->' + post] = {
+                    'source': 'quantalS_' + pre + '->' + post, 
+                    'conds': {'cellType': post}, 
+                    'ynorm':[0,1], 
+                    'sec': 'soma', 
+                    'loc': 0.5, 
+                    'synMechWeightFactor': [1.0],
+                    'weight': 0.001, 
+                    'delay': 0.5, 
+                    'synMech': 'AMPA'}
+
+    for post in Epops:
+        for pre in Epops:
+            if float(connNumber[pre][post]) > 0:
+                netParams.stimTargetParams['quantalT_' + pre + '->' + post] = {
+                    'source': 'quantalS_' + pre + '->' + post, 
+                    'conds': {'cellType': post}, 
+                    'ynorm':[0,1], 
+                    'sec': 'soma', 
+                    'loc': 0.5, 
+                    'synMechWeightFactor': [1.0],
+                    'weight': 0.001, 
+                    'delay': 0.5, 
+                    'synMech': 'AMPA'}
+
+    for post in Ipops + Epops:
+        for pre in Ipops:
+            if float(connNumber[pre][post]) > 0:
+                netParams.stimTargetParams['quantalT_' + pre + '->' + post] = {
+                    'source': 'quantalS_' + pre + '->' + post, 
+                    'conds': {'cellType': post}, 
+                    'ynorm':[0,1], 
+                    'sec': 'soma', 
+                    'loc': 0.5, 
+                    'synMechWeightFactor': [1.0],
+                    'weight': 0.001, 
+                    'delay': 0.5, 
+                    'synMech': 'GABAA'}
 #------------------------------------------------------------------------------
 # Description
 #------------------------------------------------------------------------------
