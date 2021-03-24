@@ -401,12 +401,24 @@ if cfg.addQuantalSyn:
     for post in Ipops + Epops:
         ii = ii + 1
         jj = 0
-        for pre in Ipops + Epops:
+        for pre in Ipops:
             jj = jj + 1
             if float(connNumber[pre][post]) > 0:
                 synTotal = float(connNumber[pre][post])*int(synperconnNumber[pre][post]+0.5)            
                 synperNeuron = float(synTotal/cfg.popNumber[post])
+                ratespontaneous = 0.5
+                synperNeuron = synperNeuron*ratespontaneous
                 netParams.stimSourceParams['quantalS_' + pre + '->' + post] = {'type': 'NetStim', 'rate': synperNeuron, 'noise': 0.0}
+
+        for pre in Epops:
+            jj = jj + 1
+            if float(connNumber[pre][post]) > 0:
+                synTotal = float(connNumber[pre][post])*int(synperconnNumber[pre][post]+0.5)
+                synperNeuron = float(synTotal/cfg.popNumber[post])
+                ratespontaneous = 0.1
+                synperNeuron = synperNeuron*ratespontaneous
+                netParams.stimSourceParams['quantalS_' + pre + '->' + post] = {'type': 'NetStim', 'rate': synperNeuron, 'noise': 0.0}
+
                 
                 # print('%d %d %.3f %s' % (jj, ii, synperNeuron, 'quantalS_' + pre + '->' + post))
     #------------------------------------------------------------------------------
@@ -420,7 +432,7 @@ if cfg.addQuantalSyn:
                     'sec': 'soma', 
                     'loc': 0.5, 
                     'synMechWeightFactor': [1.0],
-                    'weight': 0.001, 
+                    'weight': 0.001 * gsyn[pre][post], 
                     'delay': 0.5, 
                     'synMech': 'AMPA'}
 
@@ -434,7 +446,7 @@ if cfg.addQuantalSyn:
                     'sec': 'soma', 
                     'loc': 0.5, 
                     'synMechWeightFactor': [1.0],
-                    'weight': 0.001, 
+                    'weight': 0.001 * gsyn[pre][post], 
                     'delay': 0.5, 
                     'synMech': 'AMPA'}
 
@@ -448,7 +460,7 @@ if cfg.addQuantalSyn:
                     'sec': 'soma', 
                     'loc': 0.5, 
                     'synMechWeightFactor': [1.0],
-                    'weight': 0.001, 
+                    'weight': 0.001 * gsyn[pre][post], 
                     'delay': 0.5, 
                     'synMech': 'GABAA'}
 #------------------------------------------------------------------------------

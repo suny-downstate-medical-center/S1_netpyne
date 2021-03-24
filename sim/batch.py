@@ -34,9 +34,9 @@ def setRunCfg(b, type='mpi_bulletin'):
 
     elif type=='mpi_direct':
         b.runCfg = {'type': 'mpi_direct',
-            'cores': 8,
+            'cores': 80,
             'script': 'init.py',
-            'mpiCommand': 'mpiexec --use-hwthread-cpus', # i7
+            'mpiCommand': 'mpiexec',
             'skip': True}
 
     elif type=='hpc_slurm_gcp':

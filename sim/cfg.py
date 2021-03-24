@@ -127,7 +127,7 @@ cfg.scale = 1.0 # not implemented yet - reduce size
 cfg.sizeY = 2082.0
 cfg.sizeX = 420.0 # r = 210 um and hexagonal side length = 230.9 um
 cfg.sizeZ = 420.0
-cfg.scaleDensity = 0.1 # cell number
+cfg.scaleDensity = 1.0 # cell number
 
 #------------------------------------------------------------------------------
 # Quantal Synanpses
