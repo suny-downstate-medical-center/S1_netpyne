@@ -56,29 +56,9 @@ for line in mtype_map_content.split('\n')[:-1]:
 data = {}
 data['BBP_S1'] = {}
 
-with open('Netconnections_mc2.json', 'r') as f:
+with open('Netconnections_mean.json', 'r') as f:
     data['BBP_S1']['connProb'] = json.load(f) 
-
-# proj = '%s:%s' % (mtype_map[n],mtype_map[m])
-# Netinfo[proj] = {}
-# Netinfo[proj]['connections_total'] = m9
-# Netinfo[proj]['number_of_convergent_neuron_mean'] = '%.5f' % (m9/mm)
-# Netinfo[proj]['number_of_divergent_neuron_mean'] = '%.5f' % (m9/nn)    
-# Netinfo[proj]['connection_probability_full'] = '%.5f' % (m9/n9) 
-# Netinfo[proj]['dist2D_0'] = x[0]       
-# Netinfo[proj]['A0'] = '%.5f' % pars[0]
-# Netinfo[proj]['shape'] = '%.2f' % (1.0/pars[1])
-# Netinfo[proj]['connection_probability_fit_100um'] = '%.5f' % prob100    
-# Netinfo[proj]['connection_probability_25um'] = '%.5f' % prob2D[0]
-# Netinfo[proj]['connection_probability_50um'] = '%.5f' % prob2D[1]
-# Netinfo[proj]['connection_probability_75um'] = '%.5f' % prob2D[2]
-# Netinfo[proj]['connection_probability_100um'] = '%.5f' % prob2D[3]
-# Netinfo[proj]['connection_probability_125um'] = '%.5f' % prob2D[4]
-# Netinfo[proj]['connection_probability_150um'] = '%.5f' % prob2D[5]
-# Netinfo[proj]['connection_probability_175um'] = '%.5f' % prob2D[6]
-# Netinfo[proj]['connection_probability_200um'] = '%.5f' % prob2D[7]
-# Netinfo[proj]['connection_probability_225um'] = '%.5f' % prob2D[8]
-  
+ 
 # --------------------------------------------------
 # Set source of conn data
 connDataSource = {}
@@ -89,10 +69,16 @@ connDataSource['I->E/I'] = 'BBP_S1'
 # initialize prob and weight matrices
 # format: pmat[presynaptic_pop][postsynaptic_pop] 
 pmat = {}  # probability of connection matrix full mc2
+connNumber = {}        # ~ "total_conn_count"
+
 lmat = {}  # length constant (lambda) for exp decaying prob conn (um) matrix
 a0mat = {} # probability of connection matrix dist 2D  = 0 um
-d0 = {} #  matrix min to fit exp dist 2D [25,...,150]
-pmat25um = {} # probability of connection matrix dist 2D < 25um
+d0 = {} #  matrix min to fit exp dist 2D [12.5,25,...,150]
+
+dfinal = {} #  matrix max to fit exp dist 2D [125,...,375]
+
+pmat12um = {} # probability of connection matrix dist 2D -> 12.5um +- 12.5um
+pmat25um = {} # probability of connection matrix dist 2D -> 25um +- 25um
 pmat50um = {}
 pmat75um = {}
 pmat100um = {}
@@ -101,8 +87,12 @@ pmat150um = {}
 pmat175um = {}
 pmat200um = {}
 pmat225um = {}
-
-connNumber = {}        # ~ "total_conn_count"
+pmat250um = {}
+pmat275um = {}
+pmat300um = {}
+pmat325um = {}
+pmat350um = {}
+pmat375um = {} # probability of connection matrix dist 2D -> 375um +- 25um
 
 synperconnNumber = {}        # ~ "mean_number_of_synapse_per_connection"
 synperconnNumberStd = {}        # ~ "number_of_synapse_per_connection_std"   
@@ -115,9 +105,15 @@ decayStd = {}       # ~ "decay_std"
 
 for p in Epops + Ipops:
     pmat[p] = {}
+    connNumber[p] = {}  
+
     lmat[p] = {}
     a0mat[p] = {}  
     d0[p] = {}
+
+    dfinal[p] = {}
+
+    pmat12um[p] = {}
     pmat25um[p] = {}
     pmat50um[p] = {}
     pmat75um[p] = {}
@@ -127,7 +123,13 @@ for p in Epops + Ipops:
     pmat175um[p] = {}
     pmat200um[p] = {}
     pmat225um[p] = {}
-    connNumber[p] = {}  
+    pmat250um[p] = {}
+    pmat275um[p] = {}
+    pmat300um[p] = {}
+    pmat325um[p] = {}
+    pmat350um[p] = {}
+    pmat375um[p] = {}
+    
     
     synperconnNumber[p] = {}
     synperconnNumberStd[p] = {}
@@ -307,8 +309,8 @@ for line in synNumber_content.split('\n')[:-1]:
     synperconnNumberT[pre][post] = synperconnNumberT[pre][post] + tauType[int(number)]
     synperconnNumberN[pre][post] = synperconnNumberN[pre][post] + 1
 
-for pre in Epops+Ipops:
-    for post in Epops+Ipops:
+for pre in popParamLabels:
+    for post in popParamLabels:
         proj = '%s:%s' % (pre, post)
         if proj in data['BBP_S1']['connProb']:
             if decay[pre][post] == 0:
@@ -323,6 +325,9 @@ for pre in Epops+Ipops:
                     post2 =  str(post[0:2]) + 'i'
 
                 decay[pre][post] = synperconnNumberT[pre2][post2]/synperconnNumberN[pre2][post2] #mean of Layer-Type:Layer-Type projections
+
+                # print('%s:%s %.2f %.1f %.1f' % (pre, post,float(gsyn[pre][post]),float(decay[pre][post]),float(synperconnNumber[pre][post])))
+
 # ----------------------------------------------------------------------------------------------------
 # start with base data from BBP_S1
 # if connDataSource['E->E/I'] == 'BBP_S1': 
@@ -331,33 +336,45 @@ if connDataSource['I->E/I'] ==  'BBP_S1':
         for post in popParamLabels:
             proj = '%s:%s' % (pre, post)
             if proj in data['BBP_S1']['connProb']:
-                pmat[pre][post] = data['BBP_S1']['connProb'][proj]['connection_probability_full']
+                pmat[pre][post] = data['BBP_S1']['connProb'][proj]['conn_prob_full']
+                connNumber[pre][post] = data['BBP_S1']['connProb'][proj]['conn_total']
+
                 lmat[pre][post] = data['BBP_S1']['connProb'][proj]['shape']
                 a0mat[pre][post] = data['BBP_S1']['connProb'][proj]['A0']
+                d0[pre][post] = data['BBP_S1']['connProb'][proj]['d_init']
 
-                connNumber[pre][post] = data['BBP_S1']['connProb'][proj]['connections_total']
+                dfinal[pre][post] = data['BBP_S1']['connProb'][proj]['d_final']
 
-                d0[pre][post] = data['BBP_S1']['connProb'][proj]['dist2D_0']
-                pmat25um[pre][post] = data['BBP_S1']['connProb'][proj]['connection_probability_25um'] 
-                pmat50um[pre][post] = data['BBP_S1']['connProb'][proj]['connection_probability_50um'] 
-                pmat75um[pre][post] = data['BBP_S1']['connProb'][proj]['connection_probability_75um'] 
-                pmat100um[pre][post] = data['BBP_S1']['connProb'][proj]['connection_probability_100um']
-                pmat125um[pre][post] = data['BBP_S1']['connProb'][proj]['connection_probability_125um']
-                pmat150um[pre][post] = data['BBP_S1']['connProb'][proj]['connection_probability_150um']
-                pmat175um[pre][post] = data['BBP_S1']['connProb'][proj]['connection_probability_175um']
-                pmat200um[pre][post] = data['BBP_S1']['connProb'][proj]['connection_probability_200um']
-                pmat225um[pre][post] = data['BBP_S1']['connProb'][proj]['connection_probability_225um']
+                pmat12um[pre][post] = data['BBP_S1']['connProb'][proj]['conn_prob_12.5um'] 
+                pmat25um[pre][post] = data['BBP_S1']['connProb'][proj]['conn_prob_25um'] 
+                pmat50um[pre][post] = data['BBP_S1']['connProb'][proj]['conn_prob_50um'] 
+                pmat75um[pre][post] = data['BBP_S1']['connProb'][proj]['conn_prob_75um'] 
+                pmat100um[pre][post] = data['BBP_S1']['connProb'][proj]['conn_prob_100um']
+                pmat125um[pre][post] = data['BBP_S1']['connProb'][proj]['conn_prob_125um']
+                pmat150um[pre][post] = data['BBP_S1']['connProb'][proj]['conn_prob_150um']
+                pmat175um[pre][post] = data['BBP_S1']['connProb'][proj]['conn_prob_175um']
+                pmat200um[pre][post] = data['BBP_S1']['connProb'][proj]['conn_prob_200um']
+                pmat225um[pre][post] = data['BBP_S1']['connProb'][proj]['conn_prob_225um']
+                pmat250um[pre][post] = data['BBP_S1']['connProb'][proj]['conn_prob_250um']
+                pmat275um[pre][post] = data['BBP_S1']['connProb'][proj]['conn_prob_275um']
+                pmat300um[pre][post] = data['BBP_S1']['connProb'][proj]['conn_prob_300um']
+                pmat325um[pre][post] = data['BBP_S1']['connProb'][proj]['conn_prob_325um']
+                pmat350um[pre][post] = data['BBP_S1']['connProb'][proj]['conn_prob_350um']
+                pmat375um[pre][post] = data['BBP_S1']['connProb'][proj]['conn_prob_375um']
 
-                print(proj,gsyn[pre][post],gsynStd[pre][post],decay[pre][post],decayStd[pre][post],synperconnNumber[pre][post],synperconnNumberStd[pre][post])          
-                print(proj,connNumber[pre][post],pmat[pre][post],lmat[pre][post],a0mat[pre][post],d0[pre][post],pmat25um[pre][post],pmat50um[pre][post],pmat75um[pre][post],pmat100um[pre][post],pmat125um[pre][post],pmat150um[pre][post],pmat175um[pre][post],pmat200um[pre][post],pmat225um[pre][post])
+                print('%s %.5f %.3f %.1f %.1f %.4f %.2f %.4f %.1f ' % (proj,float(gsyn[pre][post]),float(decay[pre][post]),float(synperconnNumber[pre][post]),float(connNumber[pre][post]),float(pmat[pre][post]),float(lmat[pre][post]),float(a0mat[pre][post]),float(d0[pre][post])))
             else:
                 pmat[pre][post] = 0
                 lmat[pre][post] = 0
-                a0mat[pre][post] = 0
-
                 connNumber[pre][post] = 0
 
                 d0[pre][post] = 0
+                a0mat[pre][post] = 0                
+                lmat[pre][post] = 0
+
+                dfinal[pre][post] = 0
+
+                pmat12um[pre][post] = 0
                 pmat25um[pre][post] = 0
                 pmat50um[pre][post] = 0
                 pmat75um[pre][post] = 0
@@ -367,6 +384,12 @@ if connDataSource['I->E/I'] ==  'BBP_S1':
                 pmat175um[pre][post] = 0
                 pmat200um[pre][post] = 0
                 pmat225um[pre][post] = 0
+                pmat250um[pre][post] = 0
+                pmat275um[pre][post] = 0
+                pmat300um[pre][post] = 0
+                pmat325um[pre][post] = 0
+                pmat350um[pre][post] = 0
+                pmat375um[pre][post] = 0
 
                 gsyn[pre][post] = 0
                 gsynStd[pre][post] = 0
@@ -386,7 +409,13 @@ savePickle = 1
 if savePickle:
     import pickle
     with open('conn.pkl', 'wb') as f:
-        pickle.dump({'pmat': pmat, 'lmat': lmat, 'a0mat': a0mat, 'd0': d0, 'pmat25um': pmat25um, 'pmat50um': pmat50um, 'pmat75um': pmat75um, 'pmat100um': pmat100um, 'pmat125um': pmat125um, 'pmat150um': pmat150um, 'pmat175um': pmat175um, 'pmat200um': pmat200um, 'pmat225um': pmat225um, 'connNumber': connNumber, 'synperconnNumber': synperconnNumber, 'synperconnNumberStd': synperconnNumberStd, 'decay': decay , 'decayStd': decayStd , 'gsyn': gsyn, 'gsynStd': gsynStd, 'connDataSource': connDataSource}, f)
+        pickle.dump({'pmat': pmat, 'lmat': lmat, 'a0mat': a0mat, 'd0': d0, 
+        'dfinal': dfinal, 'pmat12um': pmat12um, 'pmat25um': pmat25um, 'pmat50um': pmat50um, 'pmat75um': pmat75um, 'pmat100um': pmat100um, 
+        'pmat125um': pmat125um, 'pmat150um': pmat150um, 'pmat175um': pmat175um, 'pmat200um': pmat200um, 'pmat225um': pmat225um,  
+        'pmat250um': pmat250um, 'pmat275um': pmat275um, 'pmat300um': pmat300um, 'pmat325um': pmat325um, 'pmat350um': pmat350um, 
+        'pmat375um': pmat375um,'connNumber': connNumber, 'synperconnNumber': synperconnNumber, 
+        'synperconnNumberStd': synperconnNumberStd, 'decay': decay , 'decayStd': decayStd , 'gsyn': gsyn, 'gsynStd': gsynStd, 
+        'connDataSource': connDataSource}, f)
 
 # --------------------------------------------------
 # FROM CELL PAPER 2015:

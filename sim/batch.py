@@ -15,9 +15,9 @@ import numpy as np
 def custom():
     params = specs.ODict()
     
-    params[('seeds', 'conn')] =  [1000] 
-    # params[('seeds', 'conn')] =  [2201, 2202] 
-    # params[('importCellMod')] = ['BBPtemplate','pkl_before','pkl_after']
+    params[('seeds', 'conn')] =  [1234]
+
+    # params[('rateStimI')] = [9.0]
 
     b = Batch(params=params, netParamsFile='netParams.py', cfgFile='cfg.py')
 
@@ -34,22 +34,22 @@ def setRunCfg(b, type='mpi_bulletin'):
 
     elif type=='mpi_direct':
         b.runCfg = {'type': 'mpi_direct',
-            'cores': 80,
+            'cores': 4,
             'script': 'init.py',
             'mpiCommand': 'mpiexec',
             'skip': True}
 
     elif type=='hpc_slurm_gcp':
-        b.runCfg = {'type': 'hpc_slurm',
+        b.runCfg = {'type': 'hpc_slurm', 
             'allocation': 'default',
-            'walltime': '24:00:00',
+            'walltime': '24:00:00', 
             'nodes': 1,
-            'coresPerNode': 8,
+            'coresPerNode': 80,
             'email': 'fernandodasilvaborges@gmail.com',
-            'folder': '/home/ext_fernandodasilvaborges_gmail_/S1_netpyne/sim/',
-            'script': 'init.py',
+            'folder': '/home/ext_fernandodasilvaborges_gmail_/S1_mouse/sim/', 
+            'script': 'init.py', 
             'mpiCommand': 'mpirun',
-            'skipCustom': '_raster.png'}
+            'skipCustom': '_raster_gid.png'}
 
 # ----------------------------------------------------------------------------------------------
 # Main code
@@ -57,8 +57,8 @@ def setRunCfg(b, type='mpi_bulletin'):
 if __name__ == '__main__': 
     b = custom() #
 
-    b.batchLabel = 'v4_batch0'  
+    b.batchLabel = 'v5_batch0'  
     b.saveFolder = '../data/'+b.batchLabel
     b.method = 'grid'
-    setRunCfg(b, 'mpi_direct')     # setRunCfg(b, 'mpi_bulletin')
+    setRunCfg(b, 'mpi_direct')
     b.run() # run batch
