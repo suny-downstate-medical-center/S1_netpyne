@@ -5,9 +5,11 @@ import os
 import sys
 from matplotlib import pyplot as plt
 
-rootFolder = '/home/fernando/S1detailed/'
-os.chdir(rootFolder)
+# rootFolder = '/home/fernando/S1_BBP/'
+rootFolder = os.getcwd()
+print(rootFolder)
 folder = os.listdir('cell_data/')
+folder = sorted(folder)
 
 savedata = 1 # Save Netpyne and BBP soma_voltage
 
@@ -262,9 +264,11 @@ def compareTraces(cellnumber):
     timeRange = [0, timesimulation]
     recordStep = 0.1
     # ~ ylim = [-100, 40]
-    figSize = (15,10)
+    figSize = (12,12)
     fig = plt.figure(figsize=figSize)  # Open a new figure
-     
+
+    fig.suptitle('%s' % (cellName), fontsize=15, fontweight='bold')
+                    
     t = np.arange(timeRange[0], timeRange[1]+recordStep, recordStep) 
      
     for c in range(0,4):
@@ -280,15 +284,14 @@ def compareTraces(cellnumber):
         plt.xlim(0, timesimulation)
         # ~ plt.ylim(ylim)
         plt.grid(True)
-        plt.legend(loc='upper right', bbox_to_anchor=(1.15, 1.0))
+        plt.legend(loc='upper right', bbox_to_anchor=(0.20, 0.7))
     plt.ion()
     plt.tight_layout()
     # ~ plt.savefig(outFolder+'/comparison_traces_soma_voltage_4steps_%s.png' % cellName)
     # ~ print ("Figure Saved in %s/comparison_traces_soma_voltage_4steps_%s.png" % (outFolder,cellName))
-    plt.savefig(rootFolder+'Figures-comparation/comparison_traces_soma_voltage_4steps_%s.png' % cellName)
+    plt.savefig(rootFolder+'/Figures-comparation/comparison_traces_soma_voltage_4steps_%s.png' % cellName)
     print ("Figure Saved in %s/comparison_traces_soma_voltage_4steps_%s.png" % (rootFolder,cellName))
-    print ("https://bbp.epfl.ch/nmc-portal/microcircuit#/metype/%s/details" % cellName[:-5])
-    
+    print ("https://bbp.epfl.ch/nmc-portal/microcircuit.html#/metype/%s/details" % cellName[:-5])
     # ~ plt.show()
 if __name__ == '__main__':
     if len(sys.argv) == 1:
@@ -297,7 +300,7 @@ if __name__ == '__main__':
         print ("Comparing BBP and Netpyne Traces of:")
         cellnumber = int(sys.argv[1])
         cellName = folder[cellnumber]
-        outFolder = rootFolder+'cell_data/'+folder[cellnumber]
+        outFolder = rootFolder+'/cell_data/'+folder[cellnumber]
         cellTemplateName = loadTemplateName(cellnumber)
         print ("CellNumber = %d" % cellnumber)
         print ("CellName = %s" % cellName)
@@ -313,9 +316,9 @@ if __name__ == '__main__':
         delaystim = 700
         timesimulation = 3000
         
-        durationstim = 400
-        delaystim = 200
-        timesimulation = 700
+        # durationstim = 400
+        # delaystim = 200
+        # timesimulation = 700
         
         compareTraces(cellnumber)             
         
