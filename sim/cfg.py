@@ -22,7 +22,7 @@ cfg = specs.SimConfig()
 #------------------------------------------------------------------------------
 # Run parameters
 #------------------------------------------------------------------------------
-cfg.duration = 2.0*1e2 ## Duration of the sim, in ms  
+cfg.duration = 2.0*1e3 ## Duration of the sim, in ms  
 cfg.dt = 0.025
 cfg.seeds = {'conn': 4321, 'stim': 4321, 'loc': 4321} 
 cfg.hParams = {'celsius': 34, 'v_init': -65}  
@@ -50,7 +50,7 @@ cfg.poptypeNumber = 61 # max 55 + 6
 cfg.celltypeNumber = 213 # max 207 + 6
 
 # TO DEBUG - import and simulate only the Cell soma (to study only the Net)
-cfg.reducedtest = True    
+cfg.reducedtest = False    
 # TO DEBUG - Create only 5 Cells for each MEtype in S1
 cfg.oneCellperMEtypeS1 = False 
 # TO DEBUG - Create only one Cell per MEtype (~1000 S1 cells + 6 Th cells)
@@ -185,7 +185,7 @@ cfg.saveDataInclude = ['simConfig', 'simData'] ## , 'simConfig', 'netParams'
 cfg.backupCfgFile = None 		##  
 cfg.gatherOnlySimData = False	##  
 cfg.saveCellSecs = False			
-cfg.saveCellConns = True	
+cfg.saveCellConns = False	
 
 #------------------------------------------------------------------------------
 # Analysis and plotting 
@@ -196,7 +196,7 @@ cfg.analysis['plotTraces'] = {'include': cfg.recordCells, 'oneFigPer': 'cell', '
 
 # cfg.analysis['plot2Dfiring']={'saveFig': True, 'figSize': (24,24), 'fontSize':16}
 
-cfg.analysis['plotConn'] = {'includePre': cfg.allpops, 'includePost': cfg.allpops, 'feature': 'numConns', 'groupBy': 'pop', 'figSize': (24,24), 'saveFig': True, 'orderBy': 'gid', 'graphType': 'matrix', 'saveData':'../data/v5_batch0/v5_batch0_matrix_numConn.json', 'fontSize': 18}
+# cfg.analysis['plotConn'] = {'includePre': cfg.allpops, 'includePost': cfg.allpops, 'feature': 'numConns', 'groupBy': 'pop', 'figSize': (24,24), 'saveFig': True, 'orderBy': 'gid', 'graphType': 'matrix', 'saveData':'../data/v5_batch0/v5_batch0_matrix_numConn.json', 'fontSize': 18}
 
 # cfg.analysis['plotConn'] = {'includePre': ['L5_TTPC2', 'L5_LBC', 'L6_TPC_L4', 'L6_LBC', 'ss_RTN_o', 'ss_RTN_m', 'ss_RTN_i', 'VPL_sTC', 'VPM_sTC', 'POm_sTC_s1'], 'includePost': ['L5_TTPC2', 'L5_LBC', 'L6_TPC_L4', 'L6_LBC', 'ss_RTN_o', 'ss_RTN_m', 'ss_RTN_i', 'VPL_sTC', 'VPM_sTC', 'POm_sTC_s1'], 'feature': 'convergence', 'groupBy': 'pop', 'figSize': (24,24), 'saveFig': True, 'orderBy': 'gid', 'graphType': 'matrix', 'fontSize': 18}
 
@@ -217,14 +217,14 @@ cfg.scaleDensity = 1.0 # Number of cells = 31346
 #------------------------------------------------------------------------------
 # Spontaneous synapses + background - data from Rat
 #------------------------------------------------------------------------------
-cfg.addStimSynS1 = False
+cfg.addStimSynS1 = True
 cfg.rateStimE = 6.0
 cfg.rateStimI = 9.0
 #------------------------------------------------------------------------------
 # Connectivity2
 #------------------------------------------------------------------------------
 ##S1
-cfg.addConn = False
+cfg.addConn = True
 
 cfg.synWeightFractionEE = [1.0, 1.0] # E -> E AMPA to NMDA ratio
 cfg.synWeightFractionEI = [1.0, 1.0] # E -> I AMPA to NMDA ratio
