@@ -1,7 +1,7 @@
 # Grace project file
 #
 @version 50125
-@page size 1045, 477
+@page size 1039, 492
 @page scroll 5%
 @page inout 5%
 @link page off
@@ -114,7 +114,7 @@
 @timestamp rot 0
 @timestamp font 0
 @timestamp char size 1.000000
-@timestamp def "Wed Jun 30 18:44:43 2021"
+@timestamp def "Sat Jul  3 15:38:31 2021"
 @r0 off
 @link r0 to g0
 @r0 type above
@@ -164,7 +164,7 @@
 @    world 0, 0, 270, 3000
 @    stack world 0, 0, 0, 0
 @    znorm 1
-@    view 0.152499, 0.090551, 2.130053, 0.977778
+@    view 0.160514, 0.088283, 2.073836, 0.977778
 @    title ""
 @    title font 0
 @    title size 1.500000
@@ -186,8 +186,9 @@
 @    xaxis  bar linewidth 1.0
 @    xaxis  label "conn path"
 @    xaxis  label layout para
-@    xaxis  label place auto
-@    xaxis  label char size 1.500000
+@    xaxis  label place spec
+@    xaxis  label place 0.000000, 0.060000
+@    xaxis  label char size 2.250000
 @    xaxis  label font 0
 @    xaxis  label color 1
 @    xaxis  label place normal
@@ -223,7 +224,7 @@
 @    xaxis  ticklabel start 0.000000
 @    xaxis  ticklabel stop type auto
 @    xaxis  ticklabel stop 0.000000
-@    xaxis  ticklabel char size 1.250000
+@    xaxis  ticklabel char size 1.500000
 @    xaxis  ticklabel font 0
 @    xaxis  ticklabel color 1
 @    xaxis  tick place both
@@ -238,7 +239,7 @@
 @    yaxis  label "# of conn"
 @    yaxis  label layout para
 @    yaxis  label place auto
-@    yaxis  label char size 1.500000
+@    yaxis  label char size 2.500000
 @    yaxis  label font 0
 @    yaxis  label color 1
 @    yaxis  label place normal
@@ -274,7 +275,7 @@
 @    yaxis  ticklabel start 0.000000
 @    yaxis  ticklabel stop type auto
 @    yaxis  ticklabel stop 0.000000
-@    yaxis  ticklabel char size 1.250000
+@    yaxis  ticklabel char size 1.500000
 @    yaxis  ticklabel font 0
 @    yaxis  ticklabel color 1
 @    yaxis  tick place both
@@ -283,7 +284,7 @@
 @    altyaxis  off
 @    legend on
 @    legend loctype view
-@    legend 0.251385871108, 0.96
+@    legend 0.242322309, 0.96
 @    legend box color 1
 @    legend box pattern 1
 @    legend box linewidth 1.0
@@ -291,7 +292,7 @@
 @    legend box fill color 0
 @    legend box fill pattern 1
 @    legend font 0
-@    legend char size 1.250000
+@    legend char size 2.250000
 @    legend color 1
 @    legend length 4
 @    legend vgap 1
@@ -661,7 +662,7 @@
 @    world 0, 1, 200, 10000
 @    stack world 0, 0, 0, 0
 @    znorm 1
-@    view 0.124871, 0.512418, 2.104330, 0.725490
+@    view 0.120369, 0.512418, 2.028460, 0.725490
 @    title ""
 @    title font 0
 @    title size 1.500000
@@ -680,7 +681,7 @@
 @    altyaxis  off
 @    legend on
 @    legend loctype view
-@    legend 1.42462696464, 0.8
+@    legend 1.37326291974, 0.8
 @    legend box color 1
 @    legend box pattern 1
 @    legend box linewidth 1.0
@@ -715,7 +716,7 @@
 @    world 0, -50, 200, 300
 @    stack world 0, 0, 0, 0
 @    znorm 1
-@    view 0.123228, 0.073203, 2.104330, 0.458824
+@    view 0.118785, 0.073203, 2.028460, 0.458824
 @    title ""
 @    title font 0
 @    title size 1.500000
@@ -734,7 +735,7 @@
 @    altyaxis  off
 @    legend on
 @    legend loctype view
-@    legend 0.188539403607, 0.4
+@    legend 0.181741731913, 0.4
 @    legend box color 1
 @    legend box pattern 1
 @    legend box linewidth 1.0
@@ -769,7 +770,7 @@
 @    world 0, 3, 300, 3000
 @    stack world 0, 0, 0, 0
 @    znorm 1
-@    view 0.111727, 0.669281, 2.104330, 0.793464
+@    view 0.107699, 0.669281, 2.028460, 0.793464
 @    title ""
 @    title font 0
 @    title size 1.500000
@@ -788,7 +789,7 @@
 @    altyaxis  off
 @    legend on
 @    legend loctype view
-@    legend 0.251385871475, 0.96
+@    legend 0.242322309217, 0.96
 @    legend box color 1
 @    legend box pattern 1
 @    legend box linewidth 1.0
@@ -823,7 +824,7 @@
 @    world -46.3876699, -31.897096, 95.3039928, 281.563062
 @    stack world 0, 0, 0, 0
 @    znorm 1
-@    view 1.421958, 0.387097, 2.068302, 0.950664
+@    view 1.370690, 0.387097, 2.036918, 0.945425
 @    title ""
 @    title font 0
 @    title size 1.500000
@@ -846,7 +847,7 @@
 @    xaxis  label "diff in %"
 @    xaxis  label layout para
 @    xaxis  label place auto
-@    xaxis  label char size 1.500000
+@    xaxis  label char size 2.250000
 @    xaxis  label font 0
 @    xaxis  label color 1
 @    xaxis  label place normal
@@ -882,7 +883,7 @@
 @    xaxis  ticklabel start 0.000000
 @    xaxis  ticklabel stop type auto
 @    xaxis  ticklabel stop 0.000000
-@    xaxis  ticklabel char size 1.250000
+@    xaxis  ticklabel char size 1.500000
 @    xaxis  ticklabel font 0
 @    xaxis  ticklabel color 1
 @    xaxis  tick place both
@@ -897,7 +898,7 @@
 @    yaxis  label "diff in #"
 @    yaxis  label layout para
 @    yaxis  label place auto
-@    yaxis  label char size 1.500000
+@    yaxis  label char size 2.250000
 @    yaxis  label font 0
 @    yaxis  label color 1
 @    yaxis  label place normal
@@ -933,7 +934,7 @@
 @    yaxis  ticklabel start 0.000000
 @    yaxis  ticklabel stop type auto
 @    yaxis  ticklabel stop 0.000000
-@    yaxis  ticklabel char size 1.250000
+@    yaxis  ticklabel char size 1.500000
 @    yaxis  ticklabel font 0
 @    yaxis  ticklabel color 1
 @    yaxis  tick place both
@@ -942,7 +943,7 @@
 @    altyaxis  off
 @    legend on
 @    legend loctype view
-@    legend 0.188539404024, 0.4
+@    legend 0.181741732315, 0.4
 @    legend box color 1
 @    legend box pattern 1
 @    legend box linewidth 1.0
@@ -966,19 +967,19 @@
 @    s0 hidden false
 @    s0 type xy
 @    s0 symbol 1
-@    s0 symbol size 0.750000
+@    s0 symbol size 1.000000
 @    s0 symbol color 1
 @    s0 symbol pattern 1
 @    s0 symbol fill color 7
 @    s0 symbol fill pattern 1
-@    s0 symbol linewidth 1.0
+@    s0 symbol linewidth 2.0
 @    s0 symbol linestyle 1
 @    s0 symbol char 65
 @    s0 symbol char font 0
 @    s0 symbol skip 0
 @    s0 line type 0
 @    s0 line linestyle 1
-@    s0 line linewidth 2.0
+@    s0 line linewidth 3.0
 @    s0 line color 1
 @    s0 line pattern 1
 @    s0 baseline type 0

@@ -1,0 +1,155 @@
+numprocs=4
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v5_batch3/v5_batch3_0_cfg.json ... 
+Loading simConfig...
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v5_batch3/v5_batch3_0_cfg.json ... 
+Loading simConfig...
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v5_batch3/v5_batch3_0_cfg.json ... 
+Loading simConfig...
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v5_batch3/v5_batch3_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v5_batch3/v5_batch3_netParams.py
+
+Start time:  2021-07-03 15:21:29.135110
+Importing netParams from ../data/v5_batch3/v5_batch3_netParams.py
+Importing netParams from ../data/v5_batch3/v5_batch3_netParams.py
+Importing netParams from ../data/v5_batch3/v5_batch3_netParams.py
+
+Creating network of 61 cell populations on 4 hosts...
+  Number of cells on node 1: 2049 
+  Number of cells on node 0: 2049 
+  Number of cells on node 3: 2048 
+  Number of cells on node 2: 2049 
+  Done; cell creation time = 12.54 s.
+Making connections...
+  Number of connections on node 0: 32765 
+  Number of synaptic contacts on node 0: 37415 
+  Number of connections on node 1: 32773 
+  Number of synaptic contacts on node 1: 37469 
+  Number of connections on node 2: 32855 
+  Number of synaptic contacts on node 2: 37409 
+  Number of connections on node 3: 32462 
+  Number of synaptic contacts on node 3: 37049 
+  Done; cell connection time = 220.24 s.
+  Number of stims on node 1: 0 
+  Number of stims on node 2: 0 
+  Number of stims on node 0: 0 
+  Number of stims on node 3: 0 
+  Done; cell stims creation time = 0.00 s.
+Recording 238 traces of 1 types on node 2
+Recording 240 traces of 1 types on node 0
+Recording 243 traces of 1 types on node 1
+Recording 238 traces of 1 types on node 3
+0.0s
+
+Running simulation for 2000.0 ms...
+0.1s
+0.2s
+0.3s
+0.4s
+0.5s
+0.6s
+0.7s
+0.8s
+0.9s
+1.0s
+1.1s
+1.2s
+1.3s
+1.4s
+1.5s
+1.6s
+1.7s
+1.8s
+1.9s
+2.0s
+  Done; run time = 639.05 s; real-time ratio: 0.00.
+
+Gathering data...
+  Done; gather time = 1.90 s.
+
+Analyzing...
+  Cells: 8195
+  Connections: 0 (0.00 per cell)
+  Spikes: 58552 (3.57 Hz)
+  Simulated time: 2.0 s; 4 workers
+  Run time: 639.05 s
+   L1_DAC : 0.000 Hz
+   L1_DLAC : 0.000 Hz
+   L1_HAC : 0.000 Hz
+   L1_NGC-DA : 0.000 Hz
+   L1_NGC-SA : 0.000 Hz
+   L1_SLAC : 0.000 Hz
+   L23_BP : 0.000 Hz
+   L23_BTC : 0.000 Hz
+   L23_ChC : 0.000 Hz
+   L23_DBC : 0.000 Hz
+   L23_LBC : 0.000 Hz
+   L23_MC : 0.000 Hz
+   L23_NBC : 0.000 Hz
+   L23_NGC : 0.000 Hz
+   L23_PC : 0.000 Hz
+   L23_SBC : 0.000 Hz
+   L4_BP : 0.000 Hz
+   L4_BTC : 0.000 Hz
+   L4_ChC : 0.000 Hz
+   L4_DBC : 0.000 Hz
+   L4_LBC : 0.000 Hz
+   L4_MC : 0.000 Hz
+   L4_NBC : 0.000 Hz
+   L4_NGC : 0.000 Hz
+   L4_PC : 0.000 Hz
+   L4_SBC : 0.000 Hz
+   L4_SP : 0.000 Hz
+   L4_SS : 0.000 Hz
+   L5_BP : 0.000 Hz
+   L5_BTC : 0.000 Hz
+   L5_ChC : 0.000 Hz
+   L5_DBC : 0.000 Hz
+   L5_LBC : 0.000 Hz
+   L5_MC : 0.000 Hz
+   L5_NBC : 0.000 Hz
+   L5_NGC : 0.000 Hz
+   L5_SBC : 0.000 Hz
+   L5_STPC : 0.000 Hz
+   L5_TTPC1 : 0.000 Hz
+   L5_TTPC2 : 0.000 Hz
+   L5_UTPC : 0.000 Hz
+   L6_BPC : 0.000 Hz
+   L6_BP : 0.000 Hz
+   L6_BTC : 0.000 Hz
+   L6_ChC : 0.000 Hz
+   L6_DBC : 0.000 Hz
+   L6_IPC : 0.000 Hz
+   L6_LBC : 0.000 Hz
+   L6_MC : 0.000 Hz
+   L6_NBC : 0.000 Hz
+   L6_NGC : 0.000 Hz
+   L6_SBC : 0.000 Hz
+   L6_TPC_L1 : 0.000 Hz
+   L6_TPC_L4 : 0.000 Hz
+   L6_UTPC : 0.000 Hz
+   ss_RTN_o : 4.574 Hz
+   ss_RTN_m : 4.880 Hz
+   ss_RTN_i : 9.174 Hz
+   VPL_sTC : 0.514 Hz
+   VPM_sTC : 0.519 Hz
+   POm_sTC_s1 : 5.170 Hz
+Saving output as ../data/v5_batch3/v5_batch3_0.json  ... 
+Finished saving!
+  Done; saving time = 24.44 s.
+Plotting 2D representation of network cell locations and connections...
+Plotting raster...
+Plotting recorded cell traces ... cell
+  Done; plotting time = 143.40 s
+
+Total time = 1085.70 s
+
+End time:  2021-07-03 15:39:34.831365

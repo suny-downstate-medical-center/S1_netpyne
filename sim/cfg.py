@@ -22,7 +22,7 @@ cfg = specs.SimConfig()
 #------------------------------------------------------------------------------
 # Run parameters
 #------------------------------------------------------------------------------
-cfg.duration = 2.0*1e3 ## Duration of the sim, in ms  
+cfg.duration = 5.0*1e2 ## Duration of the sim, in ms  
 cfg.dt = 0.025
 cfg.seeds = {'conn': 4321, 'stim': 4321, 'loc': 4321} 
 cfg.hParams = {'celsius': 34, 'v_init': -65}  
@@ -36,7 +36,6 @@ cfg.printRunTime = 0.1
 
 cfg.includeParamsLabel = False
 cfg.printPopAvgRates = True
-
 cfg.checkErrors = False
 
 #------------------------------------------------------------------------------
@@ -45,7 +44,6 @@ cfg.checkErrors = False
 cfg.rootFolder = os.getcwd()
 
 cfg.importCellMod = 'pkl' # or 'BBPtemplate'
-cfg.celldiversity = True 
 cfg.poptypeNumber = 61 # max 55 + 6
 cfg.celltypeNumber = 213 # max 207 + 6
 
@@ -192,6 +190,8 @@ cfg.saveCellConns = False
 #------------------------------------------------------------------------------
 cfg.analysis['plotRaster'] = {'include': cfg.allpops, 'saveFig': True, 'showFig': False, 'orderInverse': True, 'timeRange': [0,cfg.duration], 'figSize': (36,18), 'labels': 'legend', 'popRates': True, 'fontSize':12, 'lw': 1, 'markerSize':2, 'marker': '.', 'dpi': 300} 
 
+cfg.analysis['plot2Dnet']   = {'include': cfg.allpops, 'saveFig': True, 'showConns': False, 'figSize': (24,24), 'fontSize':16}   # Plot 2D cells xy
+
 cfg.analysis['plotTraces'] = {'include': cfg.recordCells, 'oneFigPer': 'cell', 'overlay': True, 'timeRange': [0,cfg.duration], 'ylim': [-100,50], 'saveFig': True, 'showFig': False, 'figSize':(12,4)}
 
 # cfg.analysis['plot2Dfiring']={'saveFig': True, 'figSize': (24,24), 'fontSize':16}
@@ -224,7 +224,7 @@ cfg.rateStimI = 9.0
 # Connectivity2
 #------------------------------------------------------------------------------
 ##S1
-cfg.addConn = True
+cfg.addConn = False
 
 cfg.synWeightFractionEE = [1.0, 1.0] # E -> E AMPA to NMDA ratio
 cfg.synWeightFractionEI = [1.0, 1.0] # E -> I AMPA to NMDA ratio
@@ -242,20 +242,21 @@ cfg.connect_RTN_RTN     = True
 cfg.connect_TC_RTN      = True
 cfg.connect_RTN_TC      = True
 
-# parameters tuned in (simDate = '2021_04_16' / simCode = 'jv019' - 'stabilizing the Firing rates of the model')
+cfg.yConnFactor             = 10 # y-tolerance form connection distance based on the x and z-plane radial tolerances (1=100%; 2=50%; 5=20%; 10=10%)
+
 # I'm using scaleConnWeight = 0.001 # weight conversion factor (from nS to uS)
 # from uS to nS -> '1000*' is used!
+cfg.intraThalamicGain = 1.0 
 
-cfg.yConnFactor             = 10 # y-tolerance form connection distance based on the x and z-plane radial tolerances (1=100%; 2=50%; 5=20%; 10=10%)
-cfg.connProb_RTN_RTN        = 1.0 #None 
 cfg.connWeight_RTN_RTN      = 1000.0*2.0 # optimized to increase synchrony in (simDate = '2021_04_30' / simCode = 't_allpops_012') - old value: 0.5
-cfg.connProb_TC_RTN         = 0.75 #None
 cfg.connWeight_TC_RTN       = 1000.0*1.5 #0.5
-cfg.connProb_RTN_TC         = 0.75 #None
 cfg.connWeight_RTN_TC       = 1000.0*0.25 # optimized to increase synchrony in (simDate = '2021_04_30' / simCode = 't_allpops_013') - old value: 0.83
 
+cfg.connProb_RTN_RTN        = 0.5 #2021-06-23 - test
+cfg.connProb_TC_RTN         = 1 #2021-06-23 - test
+cfg.connProb_RTN_TC         = 1 #2021-06-23 - test
+
 cfg.divergenceHO = 10
-cfg.connLenghtConst = 200
 
 #------------------------------------------------------------------------------
 # Gentet and Ulrich (2004) corticoreticular EPSPs = 2.4 ± 0.1 mV
@@ -264,10 +265,10 @@ cfg.connLenghtConst = 200
 # 						   corticothalamic < 2.4 ± 0.1 mV
 #------------------------------------------------------------------------------
 ## Th->S1
-cfg.connect_Th_S1 = True
+cfg.connect_Th_S1 = False
 cfg.TC_S1 = {}
-cfg.TC_S1['VPL_sTC'] = False
-cfg.TC_S1['VPM_sTC'] = False
+cfg.TC_S1['VPL_sTC'] = True
+cfg.TC_S1['VPM_sTC'] = True
 cfg.TC_S1['POm_sTC_s1'] = True
 
 cfg.frac_Th_S1 = 1.0
@@ -309,6 +310,58 @@ for popName in cfg.thalamocorticalconnections:
 #------------------------------------------------------------------------------
 # NetStim inputs 
 #------------------------------------------------------------------------------
-## Attempt to add Background Noise inputs 
-cfg.addNetStim = 0
-cfg.weightLong = {'S1': 0.5, 'S2': 0.5} 
+cfg.addNetStim=False
+if cfg.addNetStim:
+    
+    cfg.numStims    = 100
+    cfg.netWeight   = 0.005
+    cfg.startStimTime = 0
+    cfg.interStimInterval=0.1
+
+    cfg.NetStim1    = { 'pop':              'VPM_sTC', 
+                        'ynorm':            [0,1], 
+                        'sec':              'soma', 
+                        'loc':              0.5, 
+                        'synMech':          ['AMPA_Th'], 
+                        'synMechWeightFactor': [1.0],
+                        'start':            cfg.startStimTime, 
+                        'interval':         cfg.interStimInterval, 
+                        'noise':            1, 
+                        'number':           cfg.numStims, 
+                        'weight':           cfg.netWeight, 
+                        'delay':            0}
+
+#------------------------------------------------------------------------------
+# Targeted NetStim inputs 
+#------------------------------------------------------------------------------
+cfg.addTargetedNetStim=False
+if cfg.addTargetedNetStim:
+    
+    cfg.startStimTime=None
+    cfg.stimPop = None
+    cfg.netWeight           = 20
+    # cfg.startStimTime1      = 2000
+    cfg.numStims            = 15
+    cfg.interStimInterval   = 75 #125#1000/5
+
+    cfg.numOfTargetCells=100
+
+    cfg.TargetedNetStim1= { 
+                        'pop':              'VPL_sTC', 
+                        # 'pop':              cfg.stimPop, 
+                        'ynorm':            [0,1], 
+                        'sec':              'soma', 
+                        'loc':              0.5, 
+                        'synMech':          ['AMPA_Th'], 
+                        'synMechWeightFactor': [1.0],
+                        'start':            1500, 
+                        'interval':         cfg.interStimInterval, 
+                        'noise':            1, 
+                        'number':           cfg.numStims, 
+                        'weight':           cfg.netWeight, 
+                        'delay':            0,
+                        # 'targetCells':      [0]
+                        # 'targetCells':      list(range(0,10,1))
+                        'targetCells':      list(range(0,cfg.numOfTargetCells,1))
+                        # 'targetCells':      [0,50,500,900]
+                        }
