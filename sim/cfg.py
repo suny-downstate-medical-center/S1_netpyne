@@ -151,7 +151,7 @@ cfg.allpops = cfg.popParamLabels
 cfg.cellsrec = 2
 if cfg.cellsrec == 0:  cfg.recordCells = cfg.allpops # record all cells
 elif cfg.cellsrec == 1: cfg.recordCells = [(pop,0) for pop in cfg.allpops] # record one cell of each pop
-elif cfg.cellsrec == 2: # record one cell of each cellMEtype (cfg.celldiversity = True)
+elif cfg.cellsrec == 2: # record from one to five cells of each cellMEtype
 	cfg.recordCells = []
 	cellNumberLabel = 0 
 	for metype in cfg.cellParamLabels:
@@ -160,7 +160,7 @@ elif cfg.cellsrec == 2: # record one cell of each cellMEtype (cfg.celldiversity 
 				for numberME in range(cfg.cellNumber[metype]):
 					cfg.recordCells.append((cfg.popLabel[metype],cellNumberLabel+numberME))
 			else:
-				for numberME in range(5):
+				for numberME in range(0,cfg.cellNumber[metype],int(cfg.cellNumber[metype]/4.5)):
 					cfg.recordCells.append((cfg.popLabel[metype],cellNumberLabel+numberME))
 			cellNumberLabel = cellNumberLabel + cfg.cellNumber[metype]
 			if cellNumberLabel == cfg.popNumber[cfg.popLabel[metype]]:
@@ -224,7 +224,7 @@ cfg.rateStimI = 9.0
 # Connectivity2
 #------------------------------------------------------------------------------
 ##S1
-cfg.addConn = False
+cfg.addConn = True
 
 cfg.synWeightFractionEE = [1.0, 1.0] # E -> E AMPA to NMDA ratio
 cfg.synWeightFractionEI = [1.0, 1.0] # E -> I AMPA to NMDA ratio
@@ -237,7 +237,7 @@ cfg.IEGain = 1.0
 
 #------------------------------------------------------------------------------
 ##Th
-cfg.connectTh = False
+cfg.connectTh = True
 cfg.connect_RTN_RTN     = True
 cfg.connect_TC_RTN      = True
 cfg.connect_RTN_TC      = True
