@@ -22,7 +22,7 @@ cfg = specs.SimConfig()
 #------------------------------------------------------------------------------
 # Run parameters
 #------------------------------------------------------------------------------
-cfg.duration = 5.0*1e2 ## Duration of the sim, in ms  
+cfg.duration = 2.0*1e3 ## Duration of the sim, in ms  
 cfg.dt = 0.025
 cfg.seeds = {'conn': 4321, 'stim': 4321, 'loc': 4321} 
 cfg.hParams = {'celsius': 34, 'v_init': -65}  
@@ -103,12 +103,12 @@ if cfg.oneCellperMEtypeS1:
 
 cfg.thalamicpops = ['ss_RTN_o', 'ss_RTN_m', 'ss_RTN_i', 'VPL_sTC', 'VPM_sTC', 'POm_sTC_s1']
 
-cfg.cellNumber['ss_RTN_o'] = int(382 * (210**2/150**2))
-cfg.cellNumber['ss_RTN_m'] = int(382 * (210**2/150**2))
-cfg.cellNumber['ss_RTN_i'] = int(765 * (210**2/150**2))
-cfg.cellNumber['VPL_sTC'] = int(656 * (210**2/150**2))
-cfg.cellNumber['VPM_sTC'] = int(839 * (210**2/150**2))
-cfg.cellNumber['POm_sTC_s1'] = int(685 * (210**2/150**2))
+cfg.cellNumber['ss_RTN_o'] = 5 #int(382 * (210**2/150**2))
+cfg.cellNumber['ss_RTN_m'] = 5 #int(382 * (210**2/150**2))
+cfg.cellNumber['ss_RTN_i'] = 5 #int(765 * (210**2/150**2))
+cfg.cellNumber['VPL_sTC'] = 5 #int(656 * (210**2/150**2))
+cfg.cellNumber['VPM_sTC'] = 5 #int(839 * (210**2/150**2))
+cfg.cellNumber['POm_sTC_s1'] = 5 #int(685 * (210**2/150**2))
 
 for mtype in cfg.thalamicpops: # No diversity
 	metype = mtype
@@ -237,7 +237,7 @@ cfg.IEGain = 1.0
 
 #------------------------------------------------------------------------------
 ##Th
-cfg.connectTh = True
+cfg.connectTh = False
 cfg.connect_RTN_RTN     = True
 cfg.connect_TC_RTN      = True
 cfg.connect_RTN_TC      = True
