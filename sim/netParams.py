@@ -170,26 +170,9 @@ for cellName in cfg.S1cells:
 
         #-----------------------------------------------------------------------------------#
         if cfg.reducedtest:
+            # only soma to test the net
             cellRule['secs'] = {}
             cellRule['secs']['soma'] = netParams.cellParams[cellMe]['secs']['soma']
-            # cellRule['secs']['dend_0'] = netParams.cellParams[cellMe]['secs']['dend_0']
-            # cellRule['secs']['axon_0']  = netParams.cellParams[cellMe]['secs']['axon_0']
-            # cellRule['secs']['axon_1'] = netParams.cellParams[cellMe]['secs']['axon_1']
-            
-            # if 'apic_0' in cellRule['secLists']['apical']:
-            #     cellRule['secs']['apic_0']  = netParams.cellParams[cellMe]['secs']['apic_0']
-            #     cellRule['secLists']['spiny'] = ['soma','dend_0','apic_0']
-            #     cellRule['secLists']['spinyEE'] = ['dend_0','apic_0']
-            #     cellRule['secLists']['all'] = ['soma','dend_0','apic_0','axon_0', 'axon_1']
-            #     cellRule['secLists']['apical'] = ['apic_0']
-            #     cellRule['secLists']['basal'] = ['dend_0']
-            # else:
-            #     cellRule['secLists']['spiny'] = ['soma','dend_0']
-            #     cellRule['secLists']['spinyEE'] = ['dend_0']
-            #     cellRule['secLists']['all'] = ['soma','dend_0','axon_0', 'axon_1']
-            #     cellRule['secLists']['basal'] = ['dend_0']    
-
-            # only soma to test the net
             cellRule['secLists']['spiny'] = ['soma']
             cellRule['secLists']['spinyEE'] = ['soma']
             cellRule['secLists']['all'] = ['soma']
@@ -258,7 +241,7 @@ synperconnNumber = connData['synperconnNumber']
 connNumber = connData['connNumber']
 decay = connData['decay']
 gsyn = connData['gsyn']
-use = connData['use']
+# use = connData['use']
 
 # print(netParams.connParams)
 

@@ -46,7 +46,7 @@ def setRunCfg(b, type='mpi_bulletin'):
             'nodes': 1,
             'coresPerNode': 80,
             'email': 'fernandodasilvaborges@gmail.com',
-            'folder': '/home/ext_fernandodasilvaborges_gmail_/S1_mouse/sim/', 
+            'folder': '/home/ext_fernandodasilvaborges_gmail_/S1_netpyne/sim/', 
             'script': 'init.py', 
             'mpiCommand': 'mpirun',
             'skipCustom': '_raster_gid.png'}
