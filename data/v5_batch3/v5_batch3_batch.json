@@ -1,0 +1,35 @@
+{
+    "batch": {
+        "batchLabel": "v5_batch3",
+        "cfgFile": "cfg.py",
+        "evolCfg": {
+            "fitnessFunc": "removed"
+        },
+        "initCfg": {},
+        "method": "grid",
+        "netParamsFile": "netParams.py",
+        "params": [
+            {
+                "label": "rateStimI",
+                "values": [
+                    12.0
+                ]
+            },
+            {
+                "label": "rateStimE",
+                "values": [
+                    12.0
+                ]
+            }
+        ],
+        "runCfg": {
+            "cores": 80,
+            "mpiCommand": "mpiexec --use-hwthread-cpus",
+            "script": "init.py",
+            "skip": true,
+            "type": "mpi_direct"
+        },
+        "saveFolder": "../data/v5_batch3",
+        "seed": null
+    }
+}

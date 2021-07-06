@@ -249,8 +249,8 @@ gsyn = connData['gsyn']
 # S1 Local connectivity parameters 
 #------------------------------------------------------------------------------
 if cfg.addConn:     
-## E -> E ## part 1 - decrease mem use to create the net 
-    for pre in Epops[0:2]:
+## E -> E
+    for pre in Epops:
         for post in Epops:
             if float(connNumber[pre][post]) > 0:        
 
@@ -398,40 +398,7 @@ if cfg.addConn:
                     'delay': 'defaultDelay+dist_3D/propVelocity',
                     'synsPerConn': int(synperconnNumber[pre][post]+0.5),
                     'sec': 'spiny'}     
-## E -> E ## part 2 - decrease mem use to create the net 
-    for pre in Epops[2:]:
-        for post in Epops:
-            if float(connNumber[pre][post]) > 0:        
-
-                if int(float(d0[pre][post])) < 25:    #d0==12.5 -> single exponential fit
-                    linear = 0
-                    angular = 0
-                    prob = '%s * exp(-dist_2D/%s)*(dist_2D<%s)' % (a0mat[pre][post],lmat[pre][post],dfinal[pre][post])                     
-                elif int(float(d0[pre][post])) == 25:    #d0==25 -> exponential fit when dist_2D>25, else prob[0um:25um] = pmat[12.5]
-                    linear = float(pmat[12.5][pre][post])
-                    angular = 0
-                    prob = '%s * exp(-dist_2D/%s)*(dist_2D<%s) if dist_2D > %s else %f * dist_2D + %f' % (a0mat[pre][post],lmat[pre][post],dfinal[pre][post],d0[pre][post],angular,linear)
-                else:    #d0>25 -> exponential fit when dist_2D>d0, else prob[0um:d0] = linear interpolation [25:d0]
-                    d01 = int(float(d0[pre][post]))
-                    y1 = float(pmat[25][pre][post])
-                    y2 = float(pmat[d01][pre][post])
-                    x1 = 25
-                    x2 = d01                   
-                    angular = (y2 - y1)/(x2 - x1)
-                    linear = y2 - x2*angular
-                    prob = '%s * exp(-dist_2D/%s)*(dist_2D<%s) if dist_2D > %s else %f * dist_2D + %f' % (a0mat[pre][post],lmat[pre][post],dfinal[pre][post],d0[pre][post],angular,linear)
-
-                netParams.connParams['EE_'+pre+'_'+post] = { 
-                    'preConds': {'pop': pre}, 
-                    'postConds': {'pop': post},
-                    'synMech': ESynMech,
-                    'probability': prob, 
-                    'weight': gsyn[pre][post] * cfg.EEGain, 
-                    'synMechWeightFactor': cfg.synWeightFractionEE,
-                    'delay': 'defaultDelay+dist_3D/propVelocity',
-                    'synsPerConn': int(synperconnNumber[pre][post]+0.5),
-                    'sec': 'spinyEE'}  
-                   
+                                       
 #------------------------------------------------------------------------------
 # NetStim inputs to simulate Spontaneous synapses + background in S1 neurons - data from Rat
 #------------------------------------------------------------------------------
