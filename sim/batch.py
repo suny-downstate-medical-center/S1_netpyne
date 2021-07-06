@@ -17,8 +17,8 @@ def custom():
     
     # params[('seeds', 'conn')] =  [1234]
 
-    params[('rateStimI')] = [12.0]
-    params[('rateStimE')] = [12.0]
+    params[('rateStimI')] = [9.0]
+    params[('rateStimE')] = [9.0]
 
     b = Batch(params=params, netParamsFile='netParams.py', cfgFile='cfg.py')
 
@@ -61,5 +61,5 @@ if __name__ == '__main__':
     b.batchLabel = 'v5_batch4'  
     b.saveFolder = '../data/'+b.batchLabel
     b.method = 'grid'
-    setRunCfg(b, 'mpi_direct')
+    setRunCfg(b, 'hpc_slurm_gcp')
     b.run() # run batch
