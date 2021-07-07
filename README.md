@@ -1,2 +1,2 @@
-# S1_mouse
+# S1_Rat
 netpyne code
