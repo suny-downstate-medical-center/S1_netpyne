@@ -556,8 +556,11 @@ if cfg.connectTh:
                     pmat[pre][post]=cfg.connProb_RTN_TC
                     wmat[pre][post]=cfg.connWeight_RTN_TC
 
-                    l = cmat[pre][post]/4
-                    y_thresh    = cmat[pre][post]/5
+                    # l = cmat[pre][post]/4
+                    # y_thresh    = cmat[pre][post]/5
+
+                    l = cmat[pre][post] ## Fernando changed to increase the FO conn 
+                    y_thresh    = cmat[pre][post]/2 ## Fernando changed to increase the FO conn 
 
                     syn = NGFSynMech_Th    # GABA A and GABA B
                     synWeightFactor = [0.6,0.4]

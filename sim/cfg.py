@@ -103,12 +103,12 @@ if cfg.oneCellperMEtypeS1:
 
 cfg.thalamicpops = ['ss_RTN_o', 'ss_RTN_m', 'ss_RTN_i', 'VPL_sTC', 'VPM_sTC', 'POm_sTC_s1']
 
-cfg.cellNumber['ss_RTN_o'] = 5 #int(382 * (210**2/150**2))
-cfg.cellNumber['ss_RTN_m'] = 5 #int(382 * (210**2/150**2))
-cfg.cellNumber['ss_RTN_i'] = 5 #int(765 * (210**2/150**2))
-cfg.cellNumber['VPL_sTC'] = 5 #int(656 * (210**2/150**2))
-cfg.cellNumber['VPM_sTC'] = 5 #int(839 * (210**2/150**2))
-cfg.cellNumber['POm_sTC_s1'] = 5 #int(685 * (210**2/150**2))
+cfg.cellNumber['ss_RTN_o'] = int(382 * (210**2/150**2))
+cfg.cellNumber['ss_RTN_m'] = int(382 * (210**2/150**2))
+cfg.cellNumber['ss_RTN_i'] = int(765 * (210**2/150**2))
+cfg.cellNumber['VPL_sTC'] = int(656 * (210**2/150**2))
+cfg.cellNumber['VPM_sTC'] = int(839 * (210**2/150**2))
+cfg.cellNumber['POm_sTC_s1'] = int(685 * (210**2/150**2))
 
 for mtype in cfg.thalamicpops: # No diversity
 	metype = mtype
@@ -237,7 +237,7 @@ cfg.IEGain = 1.0
 
 #------------------------------------------------------------------------------
 ##Th
-cfg.connectTh = False
+cfg.connectTh = True
 cfg.connect_RTN_RTN     = True
 cfg.connect_TC_RTN      = True
 cfg.connect_RTN_TC      = True
@@ -287,24 +287,14 @@ cfg.connWeight_S1_TC       = 250.0
 #------------------------------------------------------------------------------
 # Current inputs 
 #------------------------------------------------------------------------------
-cfg.addIClamp = False
+cfg.addIClamp = True
  
 cfg.IClamp = []
 cfg.IClampnumber = 0
 
-cfg.thalamocorticalconnections =  ['VPL_sTC'] # decrease the transient
+cfg.thalamocorticalconnections =  ['VPL_sTC', 'VPM_sTC', 'POm_sTC_s1'] # decrease the transient
 for popName in cfg.thalamocorticalconnections:
-    cfg.IClamp.append({'pop': popName, 'sec': 'soma', 'loc': 0.5, 'start': 0, 'dur': 25, 'amp': -20.0}) #pA
-    cfg.IClampnumber=cfg.IClampnumber+1
-
-cfg.thalamocorticalconnections =  ['VPM_sTC'] # decrease the transient
-for popName in cfg.thalamocorticalconnections:
-    cfg.IClamp.append({'pop': popName, 'sec': 'soma', 'loc': 0.5, 'start': 0, 'dur': 50, 'amp': -10.0}) #pA
-    cfg.IClampnumber=cfg.IClampnumber+1
-
-cfg.thalamocorticalconnections =  ['POm_sTC_s1'] # decrease the transient
-for popName in cfg.thalamocorticalconnections:
-    cfg.IClamp.append({'pop': popName, 'sec': 'soma', 'loc': 0.5, 'start': 0, 'dur': 75, 'amp': -2.0}) #pA
+    cfg.IClamp.append({'pop': popName, 'sec': 'soma', 'loc': 0.5, 'start': 0, 'dur': 25, 'amp': 2.0}) #pA
     cfg.IClampnumber=cfg.IClampnumber+1
 
 #------------------------------------------------------------------------------
