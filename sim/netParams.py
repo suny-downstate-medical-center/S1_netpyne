@@ -250,38 +250,38 @@ gsyn = connData['gsyn']
 #------------------------------------------------------------------------------
 if cfg.addConn:     
 ## E -> E
-    for pre in Epops:
-        for post in Epops:
-            if float(connNumber[pre][post]) > 0:        
+    # for pre in Epops:
+    #     for post in Epops:
+    #         if float(connNumber[pre][post]) > 0:        
 
-                if int(float(d0[pre][post])) < 25:    #d0==12.5 -> single exponential fit
-                    linear = 0
-                    angular = 0
-                    prob = '%s * exp(-dist_2D/%s)*(dist_2D<%s)' % (a0mat[pre][post],lmat[pre][post],dfinal[pre][post])                     
-                elif int(float(d0[pre][post])) == 25:    #d0==25 -> exponential fit when dist_2D>25, else prob[0um:25um] = pmat[12.5]
-                    linear = float(pmat[12.5][pre][post])
-                    angular = 0
-                    prob = '%s * exp(-dist_2D/%s)*(dist_2D<%s) if dist_2D > %s else %f * dist_2D + %f' % (a0mat[pre][post],lmat[pre][post],dfinal[pre][post],d0[pre][post],angular,linear)
-                else:    #d0>25 -> exponential fit when dist_2D>d0, else prob[0um:d0] = linear interpolation [25:d0]
-                    d01 = int(float(d0[pre][post]))
-                    y1 = float(pmat[25][pre][post])
-                    y2 = float(pmat[d01][pre][post])
-                    x1 = 25
-                    x2 = d01                   
-                    angular = (y2 - y1)/(x2 - x1)
-                    linear = y2 - x2*angular
-                    prob = '%s * exp(-dist_2D/%s)*(dist_2D<%s) if dist_2D > %s else %f * dist_2D + %f' % (a0mat[pre][post],lmat[pre][post],dfinal[pre][post],d0[pre][post],angular,linear)
+    #             if int(float(d0[pre][post])) < 25:    #d0==12.5 -> single exponential fit
+    #                 linear = 0
+    #                 angular = 0
+    #                 prob = '%s * exp(-dist_2D/%s)*(dist_2D<%s)' % (a0mat[pre][post],lmat[pre][post],dfinal[pre][post])                     
+    #             elif int(float(d0[pre][post])) == 25:    #d0==25 -> exponential fit when dist_2D>25, else prob[0um:25um] = pmat[12.5]
+    #                 linear = float(pmat[12.5][pre][post])
+    #                 angular = 0
+    #                 prob = '%s * exp(-dist_2D/%s)*(dist_2D<%s) if dist_2D > %s else %f * dist_2D + %f' % (a0mat[pre][post],lmat[pre][post],dfinal[pre][post],d0[pre][post],angular,linear)
+    #             else:    #d0>25 -> exponential fit when dist_2D>d0, else prob[0um:d0] = linear interpolation [25:d0]
+    #                 d01 = int(float(d0[pre][post]))
+    #                 y1 = float(pmat[25][pre][post])
+    #                 y2 = float(pmat[d01][pre][post])
+    #                 x1 = 25
+    #                 x2 = d01                   
+    #                 angular = (y2 - y1)/(x2 - x1)
+    #                 linear = y2 - x2*angular
+    #                 prob = '%s * exp(-dist_2D/%s)*(dist_2D<%s) if dist_2D > %s else %f * dist_2D + %f' % (a0mat[pre][post],lmat[pre][post],dfinal[pre][post],d0[pre][post],angular,linear)
 
-                netParams.connParams['EE_'+pre+'_'+post] = { 
-                    'preConds': {'pop': pre}, 
-                    'postConds': {'pop': post},
-                    'synMech': ESynMech,
-                    'probability': prob, 
-                    'weight': gsyn[pre][post] * cfg.EEGain, 
-                    'synMechWeightFactor': cfg.synWeightFractionEE,
-                    'delay': 'defaultDelay+dist_3D/propVelocity',
-                    'synsPerConn': int(synperconnNumber[pre][post]+0.5),
-                    'sec': 'spinyEE'}    
+    #             netParams.connParams['EE_'+pre+'_'+post] = { 
+    #                 'preConds': {'pop': pre}, 
+    #                 'postConds': {'pop': post},
+    #                 'synMech': ESynMech,
+    #                 'probability': prob, 
+    #                 'weight': gsyn[pre][post] * cfg.EEGain, 
+    #                 'synMechWeightFactor': cfg.synWeightFractionEE,
+    #                 'delay': 'defaultDelay+dist_3D/propVelocity',
+    #                 'synsPerConn': int(synperconnNumber[pre][post]+0.5),
+    #                 'sec': 'spinyEE'}    
 # ## E -> I
     for pre in Epops:
         for post in Ipops:
