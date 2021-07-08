@@ -17,8 +17,8 @@ def custom():
     
     # params[('seeds', 'conn')] =  [1234]
 
-    params[('rateStimI')] = [15.0]
-    params[('rateStimE')] = [15.0]
+    params[('rateStimI')] = [9.0]
+    params[('rateStimE')] = [9.0]
 
     b = Batch(params=params, netParamsFile='netParams.py', cfgFile='cfg.py')
 
@@ -45,7 +45,7 @@ def setRunCfg(b, type='mpi_bulletin'):
             'allocation': 'default',
             'walltime': '24:00:00', 
             'nodes': 1,
-            'coresPerNode': 80,
+            'coresPerNode': 40,
             'email': 'fernandodasilvaborges@gmail.com',
             'folder': '/home/ext_fernandodasilvaborges_gmail_/S1_netpyne/sim/', 
             'script': 'init.py', 
