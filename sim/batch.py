@@ -17,8 +17,8 @@ def custom():
     
     # params[('seeds', 'conn')] =  [1234]
 
-    params[('rateStimI')] = [9.0]
-    params[('rateStimE')] = [9.0]
+    params[('rateStimI')] = [5.0]
+    params[('rateStimE')] = [15.0]
 
     b = Batch(params=params, netParamsFile='netParams.py', cfgFile='cfg.py')
 
@@ -58,8 +58,8 @@ def setRunCfg(b, type='mpi_bulletin'):
 if __name__ == '__main__': 
     b = custom() #
 
-    b.batchLabel = 'v5_batch5'  
+    b.batchLabel = 'v5_batch6'  
     b.saveFolder = '../data/'+b.batchLabel
     b.method = 'grid'
-    setRunCfg(b, 'hpc_slurm_gcp')
+    setRunCfg(b, 'mpi_direct')
     b.run() # run batch

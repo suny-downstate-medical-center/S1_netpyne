@@ -101,15 +101,14 @@ if cfg.oneCellperMEtypeS1:
 #------------------------------------------------------------------------------  
 # Thalamic Cells
 
-# cfg.thalamicpops = ['ss_RTN_o', 'ss_RTN_m', 'ss_RTN_i', 'VPL_sTC', 'VPM_sTC', 'POm_sTC_s1']
-cfg.thalamicpops = []
+cfg.thalamicpops = ['ss_RTN_o', 'ss_RTN_m', 'ss_RTN_i', 'VPL_sTC', 'VPM_sTC', 'POm_sTC_s1']
 
-# cfg.cellNumber['ss_RTN_o'] = int(382 * (210**2/150**2))
-# cfg.cellNumber['ss_RTN_m'] = int(382 * (210**2/150**2))
-# cfg.cellNumber['ss_RTN_i'] = int(765 * (210**2/150**2))
-# cfg.cellNumber['VPL_sTC'] = int(656 * (210**2/150**2))
-# cfg.cellNumber['VPM_sTC'] = int(839 * (210**2/150**2))
-# cfg.cellNumber['POm_sTC_s1'] = int(685 * (210**2/150**2))
+cfg.cellNumber['ss_RTN_o'] = int(382 * (210**2/150**2))
+cfg.cellNumber['ss_RTN_m'] = int(382 * (210**2/150**2))
+cfg.cellNumber['ss_RTN_i'] = int(765 * (210**2/150**2))
+cfg.cellNumber['VPL_sTC'] = int(656 * (210**2/150**2))
+cfg.cellNumber['VPM_sTC'] = int(839 * (210**2/150**2))
+cfg.cellNumber['POm_sTC_s1'] = int(685 * (210**2/150**2))
 
 for mtype in cfg.thalamicpops: # No diversity
 	metype = mtype
@@ -238,7 +237,7 @@ cfg.IEGain = 1.0
 
 #------------------------------------------------------------------------------
 ##Th
-cfg.connectTh = False
+cfg.connectTh = True
 cfg.connect_RTN_RTN     = True
 cfg.connect_TC_RTN      = True
 cfg.connect_RTN_TC      = True
@@ -288,7 +287,7 @@ cfg.connWeight_S1_TC       = 250.0
 #------------------------------------------------------------------------------
 # Current inputs 
 #------------------------------------------------------------------------------
-cfg.addIClamp = False
+cfg.addIClamp = True
  
 cfg.IClamp = []
 cfg.IClampnumber = 0

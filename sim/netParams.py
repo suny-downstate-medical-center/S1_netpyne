@@ -248,75 +248,7 @@ gsyn = connData['gsyn']
 #------------------------------------------------------------------------------
 # S1 Local connectivity parameters 
 #------------------------------------------------------------------------------
-if cfg.addConn:     
-# E -> E
-    for pre in Epops:
-        for post in Epops:
-            if float(connNumber[pre][post]) > 0:        
-
-                if int(float(d0[pre][post])) < 25:    #d0==12.5 -> single exponential fit
-                    linear = 0
-                    angular = 0
-                    prob = '%s * exp(-dist_2D/%s)*(dist_2D<%s)' % (a0mat[pre][post],lmat[pre][post],dfinal[pre][post])                     
-                elif int(float(d0[pre][post])) == 25:    #d0==25 -> exponential fit when dist_2D>25, else prob[0um:25um] = pmat[12.5]
-                    linear = float(pmat[12.5][pre][post])
-                    angular = 0
-                    prob = '%s * exp(-dist_2D/%s)*(dist_2D<%s) if dist_2D > %s else %f * dist_2D + %f' % (a0mat[pre][post],lmat[pre][post],dfinal[pre][post],d0[pre][post],angular,linear)
-                else:    #d0>25 -> exponential fit when dist_2D>d0, else prob[0um:d0] = linear interpolation [25:d0]
-                    d01 = int(float(d0[pre][post]))
-                    y1 = float(pmat[25][pre][post])
-                    y2 = float(pmat[d01][pre][post])
-                    x1 = 25
-                    x2 = d01                   
-                    angular = (y2 - y1)/(x2 - x1)
-                    linear = y2 - x2*angular
-                    prob = '%s * exp(-dist_2D/%s)*(dist_2D<%s) if dist_2D > %s else %f * dist_2D + %f' % (a0mat[pre][post],lmat[pre][post],dfinal[pre][post],d0[pre][post],angular,linear)
-
-                netParams.connParams['EE_'+pre+'_'+post] = { 
-                    'preConds': {'pop': pre}, 
-                    'postConds': {'pop': post},
-                    'synMech': ESynMech,
-                    'probability': prob, 
-                    'weight': gsyn[pre][post] * cfg.EEGain, 
-                    'synMechWeightFactor': cfg.synWeightFractionEE,
-                    'delay': 'defaultDelay+dist_3D/propVelocity',
-                    'synsPerConn': int(synperconnNumber[pre][post]+0.5),
-                    'sec': 'spinyEE'}    
-# ## E -> I
-    for pre in Epops:
-        for post in Ipops:
-            if float(connNumber[pre][post]) > 0:        
-
-                if int(float(d0[pre][post])) < 25:    #d0==12.5 -> single exponential fit
-                    linear = 0
-                    angular = 0
-                    prob = '%s * exp(-dist_2D/%s)*(dist_2D<%s)' % (a0mat[pre][post],lmat[pre][post],dfinal[pre][post])                     
-                elif int(float(d0[pre][post])) == 25:    #d0==25 -> exponential fit when dist_2D>25, else prob[0um:25um] = pmat[12.5]
-                    linear = float(pmat[12.5][pre][post])
-                    angular = 0
-                    prob = '%s * exp(-dist_2D/%s)*(dist_2D<%s) if dist_2D > %s else %f * dist_2D + %f' % (a0mat[pre][post],lmat[pre][post],dfinal[pre][post],d0[pre][post],angular,linear)
-                else:    #d0>25 -> exponential fit when dist_2D>d0, else prob[0um:d0] = linear interpolation [25:d0]
-                    d01 = int(float(d0[pre][post]))
-                    y1 = float(pmat[25][pre][post])
-                    y2 = float(pmat[d01][pre][post])
-                    x1 = 25
-                    x2 = d01                   
-                    angular = (y2 - y1)/(x2 - x1)
-                    linear = y2 - x2*angular
-                    prob = '%s * exp(-dist_2D/%s)*(dist_2D<%s) if dist_2D > %s else %f * dist_2D + %f' % (a0mat[pre][post],lmat[pre][post],dfinal[pre][post],d0[pre][post],angular,linear)
-
-                netParams.connParams['EI_'+pre+'_'+post] = { 
-                    'preConds': {'pop': pre}, 
-                    'postConds': {'pop': post},
-                    'synMech': ESynMech,
-                    'probability': prob, 
-                    'weight': gsyn[pre][post] * cfg.EIGain, 
-                    'synMechWeightFactor': cfg.synWeightFractionEI,
-                    'delay': 'defaultDelay+dist_3D/propVelocity',
-                    'synsPerConn': int(synperconnNumber[pre][post]+0.5),
-                    'sec': 'spiny'}   
-
-#------------------------------------------------------------------------------   
+if cfg.addConn:   
 # I -> I
     for pre in Ipops:
         for post in Ipops:
@@ -398,7 +330,75 @@ if cfg.addConn:
                     'delay': 'defaultDelay+dist_3D/propVelocity',
                     'synsPerConn': int(synperconnNumber[pre][post]+0.5),
                     'sec': 'spiny'}     
-                                       
+ 
+# ## E -> I
+    for pre in Epops:
+        for post in Ipops:
+            if float(connNumber[pre][post]) > 0:        
+
+                if int(float(d0[pre][post])) < 25:    #d0==12.5 -> single exponential fit
+                    linear = 0
+                    angular = 0
+                    prob = '%s * exp(-dist_2D/%s)*(dist_2D<%s)' % (a0mat[pre][post],lmat[pre][post],dfinal[pre][post])                     
+                elif int(float(d0[pre][post])) == 25:    #d0==25 -> exponential fit when dist_2D>25, else prob[0um:25um] = pmat[12.5]
+                    linear = float(pmat[12.5][pre][post])
+                    angular = 0
+                    prob = '%s * exp(-dist_2D/%s)*(dist_2D<%s) if dist_2D > %s else %f * dist_2D + %f' % (a0mat[pre][post],lmat[pre][post],dfinal[pre][post],d0[pre][post],angular,linear)
+                else:    #d0>25 -> exponential fit when dist_2D>d0, else prob[0um:d0] = linear interpolation [25:d0]
+                    d01 = int(float(d0[pre][post]))
+                    y1 = float(pmat[25][pre][post])
+                    y2 = float(pmat[d01][pre][post])
+                    x1 = 25
+                    x2 = d01                   
+                    angular = (y2 - y1)/(x2 - x1)
+                    linear = y2 - x2*angular
+                    prob = '%s * exp(-dist_2D/%s)*(dist_2D<%s) if dist_2D > %s else %f * dist_2D + %f' % (a0mat[pre][post],lmat[pre][post],dfinal[pre][post],d0[pre][post],angular,linear)
+
+                netParams.connParams['EI_'+pre+'_'+post] = { 
+                    'preConds': {'pop': pre}, 
+                    'postConds': {'pop': post},
+                    'synMech': ESynMech,
+                    'probability': prob, 
+                    'weight': gsyn[pre][post] * cfg.EIGain, 
+                    'synMechWeightFactor': cfg.synWeightFractionEI,
+                    'delay': 'defaultDelay+dist_3D/propVelocity',
+                    'synsPerConn': int(synperconnNumber[pre][post]+0.5),
+                    'sec': 'spiny'}     
+  
+# E -> E
+    for pre in Epops:
+        for post in Epops:
+            if float(connNumber[pre][post]) > 0:        
+
+                if int(float(d0[pre][post])) < 25:    #d0==12.5 -> single exponential fit
+                    linear = 0
+                    angular = 0
+                    prob = '%s * exp(-dist_2D/%s)*(dist_2D<%s)' % (a0mat[pre][post],lmat[pre][post],dfinal[pre][post])                     
+                elif int(float(d0[pre][post])) == 25:    #d0==25 -> exponential fit when dist_2D>25, else prob[0um:25um] = pmat[12.5]
+                    linear = float(pmat[12.5][pre][post])
+                    angular = 0
+                    prob = '%s * exp(-dist_2D/%s)*(dist_2D<%s) if dist_2D > %s else %f * dist_2D + %f' % (a0mat[pre][post],lmat[pre][post],dfinal[pre][post],d0[pre][post],angular,linear)
+                else:    #d0>25 -> exponential fit when dist_2D>d0, else prob[0um:d0] = linear interpolation [25:d0]
+                    d01 = int(float(d0[pre][post]))
+                    y1 = float(pmat[25][pre][post])
+                    y2 = float(pmat[d01][pre][post])
+                    x1 = 25
+                    x2 = d01                   
+                    angular = (y2 - y1)/(x2 - x1)
+                    linear = y2 - x2*angular
+                    prob = '%s * exp(-dist_2D/%s)*(dist_2D<%s) if dist_2D > %s else %f * dist_2D + %f' % (a0mat[pre][post],lmat[pre][post],dfinal[pre][post],d0[pre][post],angular,linear)
+
+                netParams.connParams['EE_'+pre+'_'+post] = { 
+                    'preConds': {'pop': pre}, 
+                    'postConds': {'pop': post},
+                    'synMech': ESynMech,
+                    'probability': prob, 
+                    'weight': gsyn[pre][post] * cfg.EEGain, 
+                    'synMechWeightFactor': cfg.synWeightFractionEE,
+                    'delay': 'defaultDelay+dist_3D/propVelocity',
+                    'synsPerConn': int(synperconnNumber[pre][post]+0.5),
+                    'sec': 'spinyEE'}                       
+
 #------------------------------------------------------------------------------
 # NetStim inputs to simulate Spontaneous synapses + background in S1 neurons - data from Rat
 #------------------------------------------------------------------------------
@@ -471,9 +471,22 @@ if cfg.connectTh:
     ## load data from conn pre-processing file
     with open('conn/conn_Th.pkl', 'rb') as fileObj: connData = pickle.load(fileObj)
     pmat = connData['pmat']
-    lmat = connData['lmat']
     wmat = connData['wmat']
     cmat = connData['cmat']
+    
+    #rtn_radius= 264.63  # (V) (Lam, 2006) footprint for each pop in the respective innervation site    
+    # # somatosensory RTN interconnectivity
+    # cmat['ss_RTN_o']['ss_RTN_o']= rtn_radius    # (V) (Lam, 2006) footprint for each pop in the respective innervation site
+    # cmat['ss_RTN_m']['ss_RTN_m']= rtn_radius    # (V) (Lam, 2006) footprint for each pop in the respective innervation site
+    # cmat['ss_RTN_i']['ss_RTN_i']= rtn_radius    # (V) (Lam, 2006) footprint for each pop in the respective innervation site                    
+    #  # somatosensory thalamus to somatosensory-RTN   2021-06-18
+    # cmat['VPL_sTC']['ss_RTN_o']     = 97.67     # (V) (Lam, 2011) footprint for each pop in the respective innervation site https://paperpile.com/app/p/e191cdf9-7e7f-0e38-862b-fa59e7016436 (Figure 9C + Table1)
+    # cmat['VPM_sTC']['ss_RTN_m']     = 103.57    # (V) (Lam, 2011) footprint for each pop in the respective innervation site https://paperpile.com/app/p/e191cdf9-7e7f-0e38-862b-fa59e7016436 (Figure 9C + Table1)
+    # cmat['POm_sTC_s1']['ss_RTN_i']  = 149.31    # (V) (Lam, 2011) footprint for each pop in the respective innervation site https://paperpile.com/app/p/e191cdf9-7e7f-0e38-862b-fa59e7016436 (Figure 9C + Table1)
+    # # somatosensory-RTN to somatosensory thalamus
+    # cmat['ss_RTN_o']['VPL_sTC']     = 64.33     # (V) (Lam, 2007) footprint for each pop in the respective innervation site https://paperpile.com/app/p/3ed17f44-4bbf-0d10-9e4a-10028cc20724 (TEXT: "The difference in footprint areas was statistically significant [the ventral posterior lateral nucleus vs. the posterior nucleus, 0.013+-0.013 and 0.033+-0.024 (SD) mm2, respectively; Wilcoxon signed-rank test, P<0.005].")
+    # cmat['ss_RTN_m']['VPM_sTC']     = 64.33     # (E) (Lam, 2007) footprint for each pop in the respective innervation site https://paperpile.com/app/p/3ed17f44-4bbf-0d10-9e4a-10028cc20724 (TEXT: "The difference in footprint areas was statistically significant [the ventral posterior lateral nucleus vs. the posterior nucleus, 0.013+-0.013 and 0.033+-0.024 (SD) mm2, respectively; Wilcoxon signed-rank test, P<0.005].")
+    # cmat['ss_RTN_i']['POm_sTC_s1']  = 102.49    # (V) (Lam, 2007) footprint for each pop in the respective innervation site https://paperpile.com/app/p/3ed17f44-4bbf-0d10-9e4a-10028cc20724 (TEXT: "The difference in footprint areas was statistically significant [the ventral posterior lateral nucleus vs. the posterior nucleus, 0.013+-0.013 and 0.033+-0.024 (SD) mm2, respectively; Wilcoxon signed-rank test, P<0.005].")
     
     pops_TC     = ['VPL_sTC','VPM_sTC', 'POm_sTC_s1']
     pops_RTN    = ['ss_RTN_o', 'ss_RTN_m', 'ss_RTN_i']
@@ -489,7 +502,7 @@ if cfg.connectTh:
                     pmat[pre][post]=cfg.connProb_RTN_RTN
                     wmat[pre][post]=cfg.connWeight_RTN_RTN
 
-                    l = cmat[pre][post]/4
+                    l = cmat[pre][post]/4 
                     syn = PVSynMech_Th # only GABA A
                     synWeightFactor = [1.0]
                     netParams.connParams['thal_'+pre+'_'+post] = { 
@@ -557,10 +570,8 @@ if cfg.connectTh:
                     wmat[pre][post]=cfg.connWeight_RTN_TC
 
                     # l = cmat[pre][post]/4
-                    # y_thresh    = cmat[pre][post]/5
-
-                    l = cmat[pre][post] ## Fernando changed to increase the FO conn 
-                    y_thresh    = cmat[pre][post]/2 ## Fernando changed to increase the FO conn 
+                    l = cmat[pre][post]/1 ## Fernando changed to increase the FO conn 
+                    y_thresh    = cmat[pre][post]/5
 
                     syn = NGFSynMech_Th    # GABA A and GABA B
                     synWeightFactor = [0.6,0.4]
@@ -643,8 +654,6 @@ if cfg.connect_S1_Th:
 
     ## load data from conn pre-processing file
     with open('conn/conn_Th.pkl', 'rb') as fileObj: connData = pickle.load(fileObj)
-    pmat = connData['pmat']
-    lmat = connData['lmat']
     wmat = connData['wmat']
     cmat = connData['cmat']
     
