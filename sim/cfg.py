@@ -173,7 +173,7 @@ cfg.recordStep = 0.1
 #------------------------------------------------------------------------------
 # Saving
 #------------------------------------------------------------------------------
-cfg.simLabel = 'v5_batch0'
+cfg.simLabel = 'v5_batch10'
 cfg.saveFolder = '../data/'+cfg.simLabel
 # cfg.filename =                	## Set file output name
 cfg.savePickle = False         	## Save pkl file
@@ -210,13 +210,13 @@ cfg.scaleDensity = 1.0 # Number of cells = 31346
 # Spontaneous synapses + background - data from Rat
 #------------------------------------------------------------------------------
 cfg.addStimSynS1 = True
-cfg.rateStimE = 6.0
+cfg.rateStimE = 9.0
 cfg.rateStimI = 9.0
 #------------------------------------------------------------------------------
 # Connectivity2
 #------------------------------------------------------------------------------
 ##S1
-cfg.addConn = True
+cfg.addConn = False
 
 cfg.synWeightFractionEE = [1.0, 1.0] # E -> E AMPA to NMDA ratio
 cfg.synWeightFractionEI = [1.0, 1.0] # E -> I AMPA to NMDA ratio
