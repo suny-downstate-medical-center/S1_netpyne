@@ -1,0 +1,391 @@
+numprocs=40
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+  Number of cells on node 13: 784 
+  Number of connections on node 13: 200636 
+  Number of synaptic contacts on node 13: 1920038 
+  Number of stims on node 13: 7840 
+Recording 20 traces of 1 types on node 13
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+  Number of cells on node 14: 784 
+  Number of connections on node 14: 201384 
+  Number of synaptic contacts on node 14: 1935218 
+  Number of stims on node 14: 7840 
+Recording 29 traces of 1 types on node 14
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+  Number of cells on node 17: 784 
+  Number of connections on node 17: 201948 
+  Number of synaptic contacts on node 17: 1934772 
+  Number of stims on node 17: 7840 
+Recording 25 traces of 1 types on node 17
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+  Number of cells on node 16: 784 
+  Number of connections on node 16: 200636 
+  Number of synaptic contacts on node 16: 1918994 
+  Number of stims on node 16: 7840 
+Recording 29 traces of 1 types on node 16
+>>> >>> >>> >>> 
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+  Number of cells on node 15: 784 
+  Number of connections on node 15: 200249 
+  Number of synaptic contacts on node 15: 1916410 
+  Number of stims on node 15: 7840 
+Recording 26 traces of 1 types on node 15
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+  Number of cells on node 8: 784 
+  Number of connections on node 8: 200812 
+  Number of synaptic contacts on node 8: 1928454 
+  Number of stims on node 8: 7840 
+Recording 22 traces of 1 types on node 8
+>>> >>> 
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+  Number of cells on node 23: 784 
+  Number of connections on node 23: 202570 
+  Number of synaptic contacts on node 23: 1935342 
+  Number of stims on node 23: 7840 
+Recording 23 traces of 1 types on node 23
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+  Number of cells on node 22: 784 
+  Number of connections on node 22: 197983 
+  Number of synaptic contacts on node 22: 1896792 
+  Number of stims on node 22: 7840 
+Recording 31 traces of 1 types on node 22
+>>> 
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+  Number of cells on node 19: 784 
+  Number of connections on node 19: 201465 
+  Number of synaptic contacts on node 19: 1925036 
+  Number of stims on node 19: 7840 
+Recording 18 traces of 1 types on node 19
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+  Number of cells on node 20: 784 
+  Number of connections on node 20: 199556 
+  Number of synaptic contacts on node 20: 1907780 
+  Number of stims on node 20: 7840 
+Recording 29 traces of 1 types on node 20
+>>> 
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+  Number of cells on node 11: 784 
+  Number of connections on node 11: 202007 
+  Number of synaptic contacts on node 11: 1930570 
+  Number of stims on node 11: 7840 
+Recording 32 traces of 1 types on node 11
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+  Number of cells on node 10: 784 
+  Number of connections on node 10: 199319 
+  Number of synaptic contacts on node 10: 1914312 
+  Number of stims on node 10: 7840 
+Recording 21 traces of 1 types on node 10
+>>> >>> >>> 
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+  Number of cells on node 36: 783 
+  Number of connections on node 36: 203639 
+  Number of synaptic contacts on node 36: 1954670 
+  Number of stims on node 36: 7830 
+Recording 24 traces of 1 types on node 36
+>>> 
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+  Number of cells on node 31: 783 
+  Number of connections on node 31: 197100 
+  Number of synaptic contacts on node 31: 1883816 
+  Number of stims on node 31: 7830 
+Recording 25 traces of 1 types on node 31
+>>> 
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+  Number of cells on node 3: 784 
+  Number of connections on node 3: 199706 
+  Number of synaptic contacts on node 3: 1911084 
+  Number of stims on node 3: 7840 
+Recording 23 traces of 1 types on node 3
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+  Number of cells on node 25: 784 
+  Number of connections on node 25: 200432 
+  Number of synaptic contacts on node 25: 1919494 
+  Number of stims on node 25: 7840 
+Recording 19 traces of 1 types on node 25
+>>> 
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+  Number of cells on node 5: 784 
+  Number of connections on node 5: 199306 
+  Number of synaptic contacts on node 5: 1910812 
+  Number of stims on node 5: 7840 
+Recording 31 traces of 1 types on node 5
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+  Number of cells on node 27: 783 
+  Number of connections on node 27: 202359 
+  Number of synaptic contacts on node 27: 1937900 
+  Number of stims on node 27: 7830 
+Recording 30 traces of 1 types on node 27
+>>> >>> 
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+  Number of cells on node 1: 784 
+  Number of connections on node 1: 201221 
+  Number of synaptic contacts on node 1: 1929050 
+  Number of stims on node 1: 7840 
+Recording 14 traces of 1 types on node 1
+>>> >>> 
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+  Number of cells on node 12: 784 
+  Number of connections on node 12: 201249 
+  Number of synaptic contacts on node 12: 1925888 
+  Number of stims on node 12: 7840 
+Recording 28 traces of 1 types on node 12
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+  Number of cells on node 35: 783 
+  Number of connections on node 35: 201309 
+  Number of synaptic contacts on node 35: 1925314 
+  Number of stims on node 35: 7830 
+Recording 25 traces of 1 types on node 35
+>>> >>> 
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+  Number of cells on node 9: 784 
+  Number of connections on node 9: 200380 
+  Number of synaptic contacts on node 9: 1922566 
+  Number of stims on node 9: 7840 
+Recording 28 traces of 1 types on node 9
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+  Number of cells on node 21: 784 
+  Number of connections on node 21: 201404 
+  Number of synaptic contacts on node 21: 1919950 
+  Number of stims on node 21: 7840 
+Recording 21 traces of 1 types on node 21
+>>> 
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+  Number of cells on node 32: 783 
+  Number of connections on node 32: 198432 
+  Number of synaptic contacts on node 32: 1895724 
+  Number of stims on node 32: 7830 
+Recording 27 traces of 1 types on node 32
+>>> >>> 
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+  Number of cells on node 6: 784 
+  Number of connections on node 6: 198174 
+  Number of synaptic contacts on node 6: 1908054 
+  Number of stims on node 6: 7840 
+Recording 25 traces of 1 types on node 6
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+  Number of cells on node 18: 784 
+  Number of connections on node 18: 201457 
+  Number of synaptic contacts on node 18: 1919392 
+  Number of stims on node 18: 7840 
+Recording 28 traces of 1 types on node 18
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+  Number of cells on node 34: 783 
+  Number of connections on node 34: 200922 
+  Number of synaptic contacts on node 34: 1922200 
+  Number of stims on node 34: 7830 
+Recording 23 traces of 1 types on node 34
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+  Number of cells on node 38: 783 
+  Number of connections on node 38: 199965 
+  Number of synaptic contacts on node 38: 1914588 
+  Number of stims on node 38: 7830 
+Recording 26 traces of 1 types on node 38
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+  Number of cells on node 28: 783 
+  Number of connections on node 28: 201350 
+  Number of synaptic contacts on node 28: 1918098 
+  Number of stims on node 28: 7830 
+Recording 26 traces of 1 types on node 28
+>>> >>> >>> >>> >>> >>> 
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+  Number of cells on node 4: 784 
+  Number of connections on node 4: 201465 
+  Number of synaptic contacts on node 4: 1933172 
+  Number of stims on node 4: 7840 
+Recording 24 traces of 1 types on node 4
+>>> 
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+  Number of cells on node 7: 784 
+  Number of connections on node 7: 202537 
+  Number of synaptic contacts on node 7: 1940032 
+  Number of stims on node 7: 7840 
+Recording 15 traces of 1 types on node 7
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+  Number of cells on node 37: 783 
+  Number of connections on node 37: 204225 
+  Number of synaptic contacts on node 37: 1960576 
+  Number of stims on node 37: 7830 
+Recording 19 traces of 1 types on node 37
+>>> >>> 
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+  Number of cells on node 33: 783 
+  Number of connections on node 33: 202248 
+  Number of synaptic contacts on node 33: 1947434 
+  Number of stims on node 33: 7830 
+Recording 25 traces of 1 types on node 33
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+  Number of cells on node 26: 783 
+  Number of connections on node 26: 198632 
+  Number of synaptic contacts on node 26: 1904544 
+  Number of stims on node 26: 7830 
+Recording 28 traces of 1 types on node 26
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+  Number of cells on node 2: 784 
+  Number of connections on node 2: 200581 
+  Number of synaptic contacts on node 2: 1921554 
+  Number of stims on node 2: 7840 
+Recording 28 traces of 1 types on node 2
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+  Number of cells on node 39: 783 
+  Number of connections on node 39: 200237 
+  Number of synaptic contacts on node 39: 1912862 
+  Number of stims on node 39: 7830 
+Recording 16 traces of 1 types on node 39
+>>> 
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+  Number of cells on node 30: 783 
+  Number of connections on node 30: 200533 
+  Number of synaptic contacts on node 30: 1925928 
+  Number of stims on node 30: 7830 
+Recording 26 traces of 1 types on node 30
+>>> >>> >>> >>> 
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+  Number of cells on node 29: 783 
+  Number of connections on node 29: 199515 
+  Number of synaptic contacts on node 29: 1908606 
+  Number of stims on node 29: 7830 
+Recording 23 traces of 1 types on node 29
+>>> 
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+  Number of cells on node 24: 784 
+  Number of connections on node 24: 203329 
+  Number of synaptic contacts on node 24: 1951538 
+  Number of stims on node 24: 7840 
+Recording 26 traces of 1 types on node 24
+>>> 
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+
+Start time:  2021-07-13 02:41:18.635840
+
+Creating network of 55 cell populations on 40 hosts...
+  Number of cells on node 0: 784 
+  Done; cell creation time = 23.73 s.
+Making connections...
+  Number of connections on node 0: 201881 
+  Number of synaptic contacts on node 0: 1937356 
+  Done; cell connection time = 8543.94 s.
+Adding stims...
+  Number of stims on node 0: 7840 
+  Done; cell stims creation time = 4.98 s.
+Recording 29 traces of 1 types on node 0
+0.0s
+
+Running simulation for 2000.0 ms...
+0.1s
+0.2s
+0.3s
+0.4s
+0.5s
+0.6s
+0.7s
+0.8s
+0.9s
+1.0s
+1.1s
+1.2s
+1.3s
+1.4s
+1.5s
+1.6s
+1.7s
+1.8s
+1.9s
+2.0s
+  Done; run time = 46354.29 s; real-time ratio: 0.00.
+  psolve time = 46349.63 s
+
+Gathering data...
+  Done; gather time = 11.59 s.
+
+Analyzing...
+  Cells: 31346
+  Connections: 0 (0.00 per cell)
+  Spikes: 59749 (0.95 Hz)
+  Simulated time: 2.0 s; 40 workers
+  Run time: 46354.29 s
+   L1_DAC : 0.000 Hz
+   L1_DLAC : 0.000 Hz
+   L1_HAC : 0.000 Hz
+   L1_NGC-DA : 0.007 Hz
+   L1_NGC-SA : 0.029 Hz
+   L1_SLAC : 0.000 Hz
+   L23_BP : 0.179 Hz
+   L23_BTC : 0.058 Hz
+   L23_ChC : 0.352 Hz
+   L23_DBC : 0.037 Hz
+   L23_LBC : 0.690 Hz
+   L23_MC : 0.000 Hz
+   L23_NBC : 0.257 Hz
+   L23_NGC : 0.045 Hz
+   L23_PC : 0.096 Hz
+   L23_SBC : 0.819 Hz
+   L4_BP : 1.688 Hz
+   L4_BTC : 0.625 Hz
+   L4_ChC : 1.562 Hz
+   L4_DBC : 0.463 Hz
+   L4_LBC : 2.385 Hz
+   L4_MC : 0.004 Hz
+   L4_NBC : 3.844 Hz
+   L4_NGC : 0.083 Hz
+   L4_PC : 0.478 Hz
+   L4_SBC : 3.325 Hz
+   L4_SP : 0.730 Hz
+   L4_SS : 0.833 Hz
+   L5_BP : 4.059 Hz
+   L5_BTC : 0.829 Hz
+   L5_ChC : 5.079 Hz
+   L5_DBC : 0.823 Hz
+   L5_LBC : 5.283 Hz
+   L5_MC : 0.056 Hz
+   L5_NBC : 5.749 Hz
+   L5_NGC : 7.562 Hz
+   L5_SBC : 6.240 Hz
+   L5_STPC : 0.702 Hz
+   L5_TTPC1 : 0.867 Hz
+   L5_TTPC2 : 0.800 Hz
+   L5_UTPC : 0.889 Hz
+   L6_BPC : 0.744 Hz
+   L6_BP : 3.564 Hz
+   L6_BTC : 2.907 Hz
+   L6_ChC : 4.031 Hz
+   L6_DBC : 2.097 Hz
+   L6_IPC : 1.442 Hz
+   L6_LBC : 6.097 Hz
+   L6_MC : 0.107 Hz
+   L6_NBC : 5.543 Hz
+   L6_NGC : 7.059 Hz
+   L6_SBC : 5.201 Hz
+   L6_TPC_L1 : 0.998 Hz
+   L6_TPC_L4 : 1.369 Hz
+   L6_UTPC : 1.379 Hz
+Saving output as ../data/v5_batch11/v5_batch11.json  ... 
+Finished saving!
+  Done; saving time = 26.02 s.
+Plotting raster...
+Plotting recorded cell traces ... cell
+  Done; plotting time = 178.79 s
+
+Total time = 55167.84 s
+
+End time:  2021-07-13 18:00:46.473439
+>>> 
