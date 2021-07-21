@@ -44,8 +44,8 @@ cfg.checkErrors = False
 cfg.rootFolder = os.getcwd()
 
 cfg.importCellMod = 'pkl' # or 'BBPtemplate'
-cfg.poptypeNumber = 61 # max 55 + 6
-cfg.celltypeNumber = 213 # max 207 + 6
+cfg.poptypeNumber = 55 # max 55 + 6
+cfg.celltypeNumber = 207 # max 207 + 6
 
 # TO DEBUG - import and simulate only the Cell soma (to study only the Net)
 cfg.reducedtest = False    
@@ -100,23 +100,24 @@ if cfg.oneCellperMEtypeS1:
 
 #------------------------------------------------------------------------------  
 # Thalamic Cells
+cfg.thalamicpops = []
 
-cfg.thalamicpops = ['ss_RTN_o', 'ss_RTN_m', 'ss_RTN_i', 'VPL_sTC', 'VPM_sTC', 'POm_sTC_s1']
+# cfg.thalamicpops = ['ss_RTN_o', 'ss_RTN_m', 'ss_RTN_i', 'VPL_sTC', 'VPM_sTC', 'POm_sTC_s1']
 
-cfg.cellNumber['ss_RTN_o'] = int(382 * (210**2/150**2))
-cfg.cellNumber['ss_RTN_m'] = int(382 * (210**2/150**2))
-cfg.cellNumber['ss_RTN_i'] = int(765 * (210**2/150**2))
-cfg.cellNumber['VPL_sTC'] = int(656 * (210**2/150**2))
-cfg.cellNumber['VPM_sTC'] = int(839 * (210**2/150**2))
-cfg.cellNumber['POm_sTC_s1'] = int(685 * (210**2/150**2))
+# cfg.cellNumber['ss_RTN_o'] = int(382 * (210**2/150**2))
+# cfg.cellNumber['ss_RTN_m'] = int(382 * (210**2/150**2))
+# cfg.cellNumber['ss_RTN_i'] = int(765 * (210**2/150**2))
+# cfg.cellNumber['VPL_sTC'] = int(656 * (210**2/150**2))
+# cfg.cellNumber['VPM_sTC'] = int(839 * (210**2/150**2))
+# cfg.cellNumber['POm_sTC_s1'] = int(685 * (210**2/150**2))
 
-for mtype in cfg.thalamicpops: # No diversity
-	metype = mtype
-	popParam.append(mtype)
-	cfg.popLabel[metype] = mtype
-	cellParam.append(metype)
+# for mtype in cfg.thalamicpops: # No diversity
+# 	metype = mtype
+# 	popParam.append(mtype)
+# 	cfg.popLabel[metype] = mtype
+# 	cellParam.append(metype)
 
-	cfg.popNumber[mtype] = cfg.cellNumber[metype]
+# 	cfg.popNumber[mtype] = cfg.cellNumber[metype]
 
 #------------------------------------------------------------------------------  
 cfg.popParamLabels = popParam[0:cfg.poptypeNumber] # to debug
@@ -173,7 +174,7 @@ cfg.recordStep = 0.1
 #------------------------------------------------------------------------------
 # Saving
 #------------------------------------------------------------------------------
-cfg.simLabel = 'v5_batch10'
+cfg.simLabel = 'v5_batch12'
 cfg.saveFolder = '../data/'+cfg.simLabel
 # cfg.filename =                	## Set file output name
 cfg.savePickle = False         	## Save pkl file
@@ -212,11 +213,12 @@ cfg.scaleDensity = 1.0 # Number of cells = 31346
 cfg.addStimSynS1 = True
 cfg.rateStimE = 9.0
 cfg.rateStimI = 9.0
+
 #------------------------------------------------------------------------------
-# Connectivity2
+# Connectivity
 #------------------------------------------------------------------------------
-##S1
-cfg.addConn = False
+## S1->S1
+cfg.addConn = True
 
 cfg.synWeightFractionEE = [1.0, 1.0] # E -> E AMPA to NMDA ratio
 cfg.synWeightFractionEI = [1.0, 1.0] # E -> I AMPA to NMDA ratio
@@ -228,8 +230,8 @@ cfg.IIGain = 1.0
 cfg.IEGain = 1.0
 
 #------------------------------------------------------------------------------
-##Th
-cfg.connectTh = True
+## Th->Th 
+cfg.connectTh = False
 cfg.connect_RTN_RTN     = True
 cfg.connect_TC_RTN      = True
 cfg.connect_RTN_TC      = True
@@ -279,7 +281,7 @@ cfg.connWeight_S1_TC       = 250.0
 #------------------------------------------------------------------------------
 # Current inputs 
 #------------------------------------------------------------------------------
-cfg.addIClamp = True
+cfg.addIClamp = False
  
 cfg.IClamp = []
 cfg.IClampnumber = 0

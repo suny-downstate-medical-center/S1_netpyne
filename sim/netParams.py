@@ -184,12 +184,12 @@ for cellName in cfg.S1cells:
 ## Th cell property rules
 # JSON FILES FROM A1 WITH UPDATED DYNAMICS
 #     # # --- VL - Exc --- #
-netParams.loadCellParamsRule(label='sTC_cell', fileName='cells/sTC_jv_00.json')  # Load cellParams for each of the above cell subtype
-netParams.cellParams['sTC_cell']['conds']={}
+# netParams.loadCellParamsRule(label='sTC_cell', fileName='cells/sTC_jv_00.json')  # Load cellParams for each of the above cell subtype
+# netParams.cellParams['sTC_cell']['conds']={}
 
 #     # --- RTN - Inh --- #
-netParams.loadCellParamsRule(label='sRE_cell', fileName='cells/sRE_jv_00.json')  # Load cellParams for each of the above cell subtype
-netParams.cellParams['sRE_cell']['conds']={}
+# netParams.loadCellParamsRule(label='sRE_cell', fileName='cells/sRE_jv_00.json')  # Load cellParams for each of the above cell subtype
+# netParams.cellParams['sRE_cell']['conds']={}
 
 #------------------------------------------------------------------------------
 # Synaptic mechanism parameters  - mods from M1 detailed
@@ -208,14 +208,14 @@ ISynMech6 = ['GABAA6', 'GABAB']
 ISynMech10 = ['GABAA10', 'GABAB']
 
 ## Th
-netParams.synMechParams['NMDA_Th']             = {'mod': 'MyExp2SynNMDABB',    'tau1NMDA': 15, 'tau2NMDA': 150,                'e': 0}
-netParams.synMechParams['AMPA_Th']             = {'mod': 'MyExp2SynBB',        'tau1': 0.05,   'tau2': 5.3, 'e': 0}
-netParams.synMechParams['GABAB_Th']            = {'mod': 'MyExp2SynBB',        'tau1': 3.5,    'tau2': 260.9,                  'e': -93} 
-netParams.synMechParams['GABAA_Th']            = {'mod': 'MyExp2SynBB',        'tau1': 0.07,   'tau2': 18.2,                   'e': -80}
+# netParams.synMechParams['NMDA_Th']             = {'mod': 'MyExp2SynNMDABB',    'tau1NMDA': 15, 'tau2NMDA': 150,                'e': 0}
+# netParams.synMechParams['AMPA_Th']             = {'mod': 'MyExp2SynBB',        'tau1': 0.05,   'tau2': 5.3, 'e': 0}
+# netParams.synMechParams['GABAB_Th']            = {'mod': 'MyExp2SynBB',        'tau1': 3.5,    'tau2': 260.9,                  'e': -93} 
+# netParams.synMechParams['GABAA_Th']            = {'mod': 'MyExp2SynBB',        'tau1': 0.07,   'tau2': 18.2,                   'e': -80}
 
-ESynMech_Th    = ['AMPA_Th', 'NMDA_Th']
-PVSynMech_Th   = ['GABAA_Th']
-NGFSynMech_Th  = ['GABAA_Th', 'GABAB_Th']
+# ESynMech_Th    = ['AMPA_Th', 'NMDA_Th']
+# PVSynMech_Th   = ['GABAA_Th']
+# NGFSynMech_Th  = ['GABAA_Th', 'GABAB_Th']
 
 #------------------------------------------------------------------------------
 # load data from S1 conn pre-processing file 

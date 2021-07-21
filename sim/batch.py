@@ -17,8 +17,8 @@ def custom():
     
     # params[('seeds', 'conn')] =  [1234]
 
-    params[('rateStimI')] = [5.0]
-    params[('rateStimE')] = [15.0]
+    params[('rateStimI')] = [9.0]
+    params[('rateStimE')] = [9.0]
 
     b = Batch(params=params, netParamsFile='netParams.py', cfgFile='cfg.py')
 
@@ -43,7 +43,7 @@ def setRunCfg(b, type='mpi_bulletin'):
     elif type=='hpc_slurm_gcp':
         b.runCfg = {'type': 'hpc_slurm', 
             'allocation': 'default',
-            'walltime': '24:00:00', 
+            'walltime': '72:00:00', 
             'nodes': 1,
             'coresPerNode': 40,
             'email': 'fernandodasilvaborges@gmail.com',
@@ -58,8 +58,8 @@ def setRunCfg(b, type='mpi_bulletin'):
 if __name__ == '__main__': 
     b = custom() #
 
-    b.batchLabel = 'v5_batch10'  
+    b.batchLabel = 'v5_batch12'  
     b.saveFolder = '../data/'+b.batchLabel
     b.method = 'grid'
-    setRunCfg(b, 'mpi_direct')
+    setRunCfg(b, 'hpc_slurm_gcp')
     b.run() # run batch
