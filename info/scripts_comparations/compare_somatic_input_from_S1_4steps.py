@@ -5,8 +5,9 @@ import os
 import sys
 from matplotlib import pyplot as plt
 
-# rootFolder = '/home/fernando/S1_BBP/'
-rootFolder = os.getcwd()
+rootFolder = '/home/fernando/S1_netpyne/sim/'
+# rootFolder = os.getcwd()
+os.chdir(rootFolder)
 print(rootFolder)
 folder = os.listdir('cell_data/')
 folder = sorted(folder)
@@ -283,14 +284,14 @@ def compareTraces(cellnumber):
         plt.xlabel('Time (ms)', fontsize=fontsiz)
         plt.xlim(0, timesimulation)
         # ~ plt.ylim(ylim)
-        plt.grid(True)
+        plt.grid(False)
         plt.legend(loc='upper right', bbox_to_anchor=(0.20, 0.7))
     plt.ion()
     plt.tight_layout()
-    # ~ plt.savefig(outFolder+'/comparison_traces_soma_voltage_4steps_%s.png' % cellName)
-    # ~ print ("Figure Saved in %s/comparison_traces_soma_voltage_4steps_%s.png" % (outFolder,cellName))
-    plt.savefig(rootFolder+'/Figures-comparation/comparison_traces_soma_voltage_4steps_%s.png' % cellName)
-    print ("Figure Saved in %s/comparison_traces_soma_voltage_4steps_%s.png" % (rootFolder,cellName))
+    os.chdir(rootFolder)
+    os.chdir('../info/scripts_comparations/')
+    plt.savefig('Figures-comparation/0_120_130_140_reobase/comparison_traces_soma_voltage_4steps_exp_%s.png' % cellName)
+    print ("Figure Saved in /Figures-comparation/0_120_130_140_reobase/comparison_traces_soma_voltage_4steps_exp_%s.png" % (cellName))
     print ("https://bbp.epfl.ch/nmc-portal/microcircuit.html#/metype/%s/details" % cellName[:-5])
     # ~ plt.show()
 if __name__ == '__main__':
