@@ -170,8 +170,7 @@ def compareTraces(cellnumber):
     neuron.h.run()
 
     figSize = (15,10)
-    fig = plt.figure(figsize=figSize)  # Open a new figure    
-    fig.suptitle('%s' % folder[cellnumber], fontsize=22, fontweight='bold')
+    fig = plt.figure(figsize=figSize)  # Open a new figure
     fontsiz=18
 
     plt.subplot(3, 1, 1)
@@ -179,7 +178,6 @@ def compareTraces(cellnumber):
     plt.plot(time1,soma_voltage, linewidth=2.0, color='blue', label='BBP')
     plt.plot(time,voltage, linewidth=3.0, color='red', label='BBPdet')
     plt.xlim(0, timesimulation)
-    plt.ylim(-90, 50)
     plt.grid(True)
     plt.legend(loc='upper right', bbox_to_anchor=(1.1, 1.0))
 
@@ -188,7 +186,6 @@ def compareTraces(cellnumber):
     plt.plot(time,StochKvgk*1e2, linewidth=2.0, color='blue', label='BBP')
     plt.plot(time,StochKvgion*1e6, linewidth=3.0, color='red', label='BBPdet')
     plt.xlim(0, timesimulation)
-    plt.ylim(-25, 250)
     plt.grid(True)
     plt.legend(loc='upper right', bbox_to_anchor=(1.1, 1.0))
 
@@ -197,14 +194,13 @@ def compareTraces(cellnumber):
     plt.plot(time,StochKvN1/N, linewidth=2.0, color='blue', label='BBP')
     plt.plot(time,StochKvn_q, linewidth=3.0, color='red', label='BBPdet')
     plt.xlim(0, timesimulation)
-    plt.ylim(-0.05, 1.05)
     plt.grid(True)
     plt.legend(loc='upper right', bbox_to_anchor=(1.1, 1.0))
     plt.xlabel('Time (ms)', fontsize=fontsiz)
 
     plt.ion()
     plt.tight_layout()
-    plt.savefig(rootFolder+'Figures-comparation/comparison_InputSynActives+step3_%s.png' % folder[cellnumber])
+    plt.savefig(rootFolder+'Figures-comparation/comparison_InputSynActives_%s.png' % folder[cellnumber])
     
 if __name__ == '__main__':
     if len(sys.argv) == 1:
