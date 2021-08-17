@@ -1,0 +1,40 @@
+numprocs=2
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v6_batch0/v6_batch0_2_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v6_batch0/v6_batch0_netParams.py
+  Number of cells on node 1: 464 
+  Number of connections on node 1: 1172 
+  Number of synaptic contacts on node 1: 26406 
+Plotting connectivity matrix...
+  There was an exception in plotConn(): 
+    'Network' object has no attribute 'allCells' 
+    (<class 'AttributeError'>, AttributeError("'Network' object has no attribute 'allCells'"), <traceback object at 0x7f0710b97e40>)
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v6_batch0/v6_batch0_2_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v6_batch0/v6_batch0_netParams.py
+
+Start time:  2021-08-17 00:53:43.376622
+
+Creating network of 55 cell populations on 2 hosts...
+  Number of cells on node 0: 465 
+  Done; cell creation time = 3.39 s.
+Making connections...
+  Number of connections on node 0: 1137 
+  Number of synaptic contacts on node 0: 25490 
+  Done; cell connection time = 15.51 s.
+
+Gathering data...
+  Done; gather time = 1.21 s.
+
+Analyzing...
+  Cells: 929
+  Connections: 2309 (2.49 per cell)
+  Synaptic contacts: 51896 (55.86 per cell)
+Plotting connectivity matrix...
+Saving figure data as ../data/v6_batch0/v6_batch0_2_pop_numConns_matrix.json ... 
+[mpiexec@fernando-Nitro5] Sending Ctrl-C to processes as requested
+[mpiexec@fernando-Nitro5] Press Ctrl-C again to force abort

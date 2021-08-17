@@ -1,0 +1,4957 @@
+{
+    "simConfig": {
+        "EEGain": 1.0,
+        "EIGain": 1.0,
+        "IClamp": [
+            {
+                "amp": 2.0,
+                "dur": 25,
+                "loc": 0.5,
+                "pop": "VPL_sTC",
+                "sec": "soma",
+                "start": 0
+            },
+            {
+                "amp": 2.0,
+                "dur": 25,
+                "loc": 0.5,
+                "pop": "VPM_sTC",
+                "sec": "soma",
+                "start": 0
+            },
+            {
+                "amp": 2.0,
+                "dur": 25,
+                "loc": 0.5,
+                "pop": "POm_sTC_s1",
+                "sec": "soma",
+                "start": 0
+            }
+        ],
+        "IClampnumber": 3,
+        "IEGain": 1.0,
+        "IIGain": 1.0,
+        "S1cells": [
+            "L1_DAC_bNAC219",
+            "L1_DAC_cNAC187",
+            "L1_DLAC_cNAC187",
+            "L1_HAC_bNAC219",
+            "L1_HAC_cIR216",
+            "L1_HAC_cNAC187",
+            "L1_NGC-DA_bNAC219",
+            "L1_NGC-DA_cACint209",
+            "L1_NGC-DA_cNAC187",
+            "L1_NGC-DA_cSTUT189",
+            "L1_NGC-SA_cNAC187",
+            "L1_SLAC_bNAC219",
+            "L1_SLAC_cACint209",
+            "L1_SLAC_cNAC187",
+            "L23_BP_bAC217",
+            "L23_BP_bIR215",
+            "L23_BP_bNAC219",
+            "L23_BP_cACint209",
+            "L23_BP_cNAC187",
+            "L23_BP_dSTUT214",
+            "L23_BTC_bAC217",
+            "L23_BTC_bIR215",
+            "L23_BTC_bNAC219",
+            "L23_BTC_cACint209",
+            "L23_BTC_cNAC187",
+            "L23_ChC_cACint209",
+            "L23_ChC_cNAC187",
+            "L23_ChC_dNAC222",
+            "L23_DBC_bAC217",
+            "L23_DBC_bIR215",
+            "L23_DBC_bNAC219",
+            "L23_DBC_cACint209",
+            "L23_LBC_bAC217",
+            "L23_LBC_bNAC219",
+            "L23_LBC_cACint209",
+            "L23_LBC_cNAC187",
+            "L23_LBC_cSTUT189",
+            "L23_LBC_dNAC222",
+            "L23_MC_bAC217",
+            "L23_MC_bNAC219",
+            "L23_MC_cACint209",
+            "L23_MC_cNAC187",
+            "L23_MC_dNAC222",
+            "L23_NBC_bAC217",
+            "L23_NBC_bNAC219",
+            "L23_NBC_cACint209",
+            "L23_NBC_cIR216",
+            "L23_NBC_cNAC187",
+            "L23_NBC_dNAC222",
+            "L23_NGC_bNAC219",
+            "L23_NGC_cACint209",
+            "L23_NGC_cNAC187",
+            "L23_NGC_cSTUT189",
+            "L23_PC_cADpyr229",
+            "L23_SBC_bNAC219",
+            "L23_SBC_cACint209",
+            "L23_SBC_dNAC222",
+            "L4_BP_bAC217",
+            "L4_BP_bIR215",
+            "L4_BP_bNAC219",
+            "L4_BP_cACint209",
+            "L4_BP_cNAC187",
+            "L4_BP_dSTUT214",
+            "L4_BTC_bAC217",
+            "L4_BTC_bIR215",
+            "L4_BTC_bSTUT213",
+            "L4_BTC_cACint209",
+            "L4_BTC_cNAC187",
+            "L4_BTC_dNAC222",
+            "L4_ChC_cACint209",
+            "L4_ChC_cNAC187",
+            "L4_ChC_dNAC222",
+            "L4_DBC_bAC217",
+            "L4_DBC_bIR215",
+            "L4_DBC_bNAC219",
+            "L4_DBC_bSTUT213",
+            "L4_DBC_cACint209",
+            "L4_DBC_cIR216",
+            "L4_DBC_cNAC187",
+            "L4_LBC_cACint209",
+            "L4_LBC_cNAC187",
+            "L4_LBC_cSTUT189",
+            "L4_LBC_dNAC222",
+            "L4_LBC_dSTUT214",
+            "L4_MC_bAC217",
+            "L4_MC_bNAC219",
+            "L4_MC_cACint209",
+            "L4_MC_cNAC187",
+            "L4_MC_dNAC222",
+            "L4_NBC_cACint209",
+            "L4_NBC_cIR216",
+            "L4_NBC_cNAC187",
+            "L4_NBC_dNAC222",
+            "L4_NGC_bNAC219",
+            "L4_NGC_cACint209",
+            "L4_NGC_cNAC187",
+            "L4_NGC_cSTUT189",
+            "L4_PC_cADpyr230",
+            "L4_SBC_bNAC219",
+            "L4_SBC_cACint209",
+            "L4_SBC_dNAC222",
+            "L4_SP_cADpyr230",
+            "L4_SS_cADpyr230",
+            "L5_BP_bAC217",
+            "L5_BP_bIR215",
+            "L5_BP_bNAC219",
+            "L5_BP_cACint209",
+            "L5_BP_cNAC187",
+            "L5_BP_dSTUT214",
+            "L5_BTC_bAC217",
+            "L5_BTC_cACint209",
+            "L5_BTC_cNAC187",
+            "L5_ChC_cACint209",
+            "L5_ChC_cNAC187",
+            "L5_ChC_dNAC222",
+            "L5_DBC_bAC217",
+            "L5_DBC_bIR215",
+            "L5_DBC_bNAC219",
+            "L5_DBC_bSTUT213",
+            "L5_DBC_cACint209",
+            "L5_DBC_cIR216",
+            "L5_DBC_cNAC187",
+            "L5_LBC_bAC217",
+            "L5_LBC_cACint209",
+            "L5_LBC_cIR216",
+            "L5_LBC_cNAC187",
+            "L5_LBC_cSTUT189",
+            "L5_LBC_dNAC222",
+            "L5_LBC_dSTUT214",
+            "L5_MC_bAC217",
+            "L5_MC_bIR215",
+            "L5_MC_bSTUT213",
+            "L5_MC_cACint209",
+            "L5_MC_cNAC187",
+            "L5_MC_cSTUT189",
+            "L5_MC_dNAC222",
+            "L5_NBC_bAC217",
+            "L5_NBC_bIR215",
+            "L5_NBC_bSTUT213",
+            "L5_NBC_cACint209",
+            "L5_NBC_cIR216",
+            "L5_NBC_cNAC187",
+            "L5_NBC_cSTUT189",
+            "L5_NBC_dSTUT214",
+            "L5_NGC_bNAC219",
+            "L5_NGC_cACint209",
+            "L5_NGC_cNAC187",
+            "L5_NGC_cSTUT189",
+            "L5_SBC_bNAC219",
+            "L5_SBC_cACint209",
+            "L5_SBC_dNAC222",
+            "L5_STPC_cADpyr232",
+            "L5_TTPC1_cADpyr232",
+            "L5_TTPC2_cADpyr232",
+            "L5_UTPC_cADpyr232",
+            "L6_BPC_cADpyr231",
+            "L6_BP_bAC217",
+            "L6_BP_bIR215",
+            "L6_BP_bNAC219",
+            "L6_BP_cACint209",
+            "L6_BP_cNAC187",
+            "L6_BP_dSTUT214",
+            "L6_BTC_bAC217",
+            "L6_BTC_cACint209",
+            "L6_BTC_cNAC187",
+            "L6_ChC_cACint209",
+            "L6_ChC_cNAC187",
+            "L6_ChC_dNAC222",
+            "L6_DBC_bAC217",
+            "L6_DBC_bIR215",
+            "L6_DBC_bNAC219",
+            "L6_DBC_bSTUT213",
+            "L6_DBC_cACint209",
+            "L6_DBC_cIR216",
+            "L6_DBC_cNAC187",
+            "L6_IPC_cADpyr231",
+            "L6_LBC_bAC217",
+            "L6_LBC_bIR215",
+            "L6_LBC_bNAC219",
+            "L6_LBC_bSTUT213",
+            "L6_LBC_cNAC187",
+            "L6_LBC_cSTUT189",
+            "L6_MC_bAC217",
+            "L6_MC_bIR215",
+            "L6_MC_bNAC219",
+            "L6_MC_bSTUT213",
+            "L6_MC_cACint209",
+            "L6_MC_cIR216",
+            "L6_MC_cNAC187",
+            "L6_NBC_bAC217",
+            "L6_NBC_bIR215",
+            "L6_NBC_bSTUT213",
+            "L6_NBC_cACint209",
+            "L6_NBC_cIR216",
+            "L6_NBC_cNAC187",
+            "L6_NBC_cSTUT189",
+            "L6_NBC_dSTUT214",
+            "L6_NGC_bNAC219",
+            "L6_NGC_cACint209",
+            "L6_NGC_cNAC187",
+            "L6_NGC_cSTUT189",
+            "L6_SBC_bNAC219",
+            "L6_SBC_cACint209",
+            "L6_SBC_dNAC222",
+            "L6_TPC_L1_cADpyr231",
+            "L6_TPC_L4_cADpyr231",
+            "L6_UTPC_cADpyr231"
+        ],
+        "S1pops": [
+            "L1_DAC",
+            "L1_DLAC",
+            "L1_HAC",
+            "L1_NGC-DA",
+            "L1_NGC-SA",
+            "L1_SLAC",
+            "L23_BP",
+            "L23_BTC",
+            "L23_ChC",
+            "L23_DBC",
+            "L23_LBC",
+            "L23_MC",
+            "L23_NBC",
+            "L23_NGC",
+            "L23_PC",
+            "L23_SBC",
+            "L4_BP",
+            "L4_BTC",
+            "L4_ChC",
+            "L4_DBC",
+            "L4_LBC",
+            "L4_MC",
+            "L4_NBC",
+            "L4_NGC",
+            "L4_PC",
+            "L4_SBC",
+            "L4_SP",
+            "L4_SS",
+            "L5_BP",
+            "L5_BTC",
+            "L5_ChC",
+            "L5_DBC",
+            "L5_LBC",
+            "L5_MC",
+            "L5_NBC",
+            "L5_NGC",
+            "L5_SBC",
+            "L5_STPC",
+            "L5_TTPC1",
+            "L5_TTPC2",
+            "L5_UTPC",
+            "L6_BPC",
+            "L6_BP",
+            "L6_BTC",
+            "L6_ChC",
+            "L6_DBC",
+            "L6_IPC",
+            "L6_LBC",
+            "L6_MC",
+            "L6_NBC",
+            "L6_NGC",
+            "L6_SBC",
+            "L6_TPC_L1",
+            "L6_TPC_L4",
+            "L6_UTPC"
+        ],
+        "TC_S1": {
+            "POm_sTC_s1": true,
+            "VPL_sTC": true,
+            "VPM_sTC": true
+        },
+        "addConn": true,
+        "addIClamp": false,
+        "addNetStim": false,
+        "addStimSynS1": true,
+        "addSynMechs": true,
+        "addTargetedNetStim": false,
+        "allowConnsWithWeight0": true,
+        "allowSelfConns": false,
+        "allpops": [
+            "L1_DAC",
+            "L1_DLAC",
+            "L1_HAC",
+            "L1_NGC-DA",
+            "L1_NGC-SA",
+            "L1_SLAC",
+            "L23_BP",
+            "L23_BTC",
+            "L23_ChC",
+            "L23_DBC",
+            "L23_LBC",
+            "L23_MC",
+            "L23_NBC",
+            "L23_NGC",
+            "L23_PC",
+            "L23_SBC",
+            "L4_BP",
+            "L4_BTC",
+            "L4_ChC",
+            "L4_DBC",
+            "L4_LBC",
+            "L4_MC",
+            "L4_NBC",
+            "L4_NGC",
+            "L4_PC",
+            "L4_SBC",
+            "L4_SP",
+            "L4_SS",
+            "L5_BP",
+            "L5_BTC",
+            "L5_ChC",
+            "L5_DBC",
+            "L5_LBC",
+            "L5_MC",
+            "L5_NBC",
+            "L5_NGC",
+            "L5_SBC",
+            "L5_STPC",
+            "L5_TTPC1",
+            "L5_TTPC2",
+            "L5_UTPC",
+            "L6_BPC",
+            "L6_BP",
+            "L6_BTC",
+            "L6_ChC",
+            "L6_DBC",
+            "L6_IPC",
+            "L6_LBC",
+            "L6_MC",
+            "L6_NBC",
+            "L6_NGC",
+            "L6_SBC",
+            "L6_TPC_L1",
+            "L6_TPC_L4",
+            "L6_UTPC"
+        ],
+        "analysis": {},
+        "backupCfgFile": null,
+        "cache_efficient": true,
+        "cellNumber": {
+            "L1_DAC_bNAC219": 5,
+            "L1_DAC_cNAC187": 5,
+            "L1_DLAC_cNAC187": 5,
+            "L1_HAC_bNAC219": 5,
+            "L1_HAC_cIR216": 5,
+            "L1_HAC_cNAC187": 5,
+            "L1_NGC-DA_bNAC219": 5,
+            "L1_NGC-DA_cACint209": 5,
+            "L1_NGC-DA_cNAC187": 5,
+            "L1_NGC-DA_cSTUT189": 5,
+            "L1_NGC-SA_cNAC187": 5,
+            "L1_SLAC_bNAC219": 5,
+            "L1_SLAC_cACint209": 5,
+            "L1_SLAC_cNAC187": 5,
+            "L23_BP_bAC217": 3,
+            "L23_BP_bIR215": 4,
+            "L23_BP_bNAC219": 5,
+            "L23_BP_cACint209": 5,
+            "L23_BP_cNAC187": 4,
+            "L23_BP_dSTUT214": 3,
+            "L23_BTC_bAC217": 5,
+            "L23_BTC_bIR215": 5,
+            "L23_BTC_bNAC219": 5,
+            "L23_BTC_cACint209": 5,
+            "L23_BTC_cNAC187": 5,
+            "L23_ChC_cACint209": 5,
+            "L23_ChC_cNAC187": 5,
+            "L23_ChC_dNAC222": 5,
+            "L23_DBC_bAC217": 5,
+            "L23_DBC_bIR215": 5,
+            "L23_DBC_bNAC219": 5,
+            "L23_DBC_cACint209": 5,
+            "L23_LBC_bAC217": 5,
+            "L23_LBC_bNAC219": 5,
+            "L23_LBC_cACint209": 5,
+            "L23_LBC_cNAC187": 5,
+            "L23_LBC_cSTUT189": 5,
+            "L23_LBC_dNAC222": 5,
+            "L23_MC_bAC217": 5,
+            "L23_MC_bNAC219": 5,
+            "L23_MC_cACint209": 5,
+            "L23_MC_cNAC187": 5,
+            "L23_MC_dNAC222": 5,
+            "L23_NBC_bAC217": 5,
+            "L23_NBC_bNAC219": 5,
+            "L23_NBC_cACint209": 5,
+            "L23_NBC_cIR216": 5,
+            "L23_NBC_cNAC187": 5,
+            "L23_NBC_dNAC222": 5,
+            "L23_NGC_bNAC219": 5,
+            "L23_NGC_cACint209": 5,
+            "L23_NGC_cNAC187": 5,
+            "L23_NGC_cSTUT189": 5,
+            "L23_PC_cADpyr229": 5,
+            "L23_SBC_bNAC219": 5,
+            "L23_SBC_cACint209": 5,
+            "L23_SBC_dNAC222": 5,
+            "L4_BP_bAC217": 1,
+            "L4_BP_bIR215": 1,
+            "L4_BP_bNAC219": 2,
+            "L4_BP_cACint209": 2,
+            "L4_BP_cNAC187": 1,
+            "L4_BP_dSTUT214": 1,
+            "L4_BTC_bAC217": 2,
+            "L4_BTC_bIR215": 2,
+            "L4_BTC_bSTUT213": 2,
+            "L4_BTC_cACint209": 5,
+            "L4_BTC_cNAC187": 3,
+            "L4_BTC_dNAC222": 2,
+            "L4_ChC_cACint209": 3,
+            "L4_ChC_cNAC187": 3,
+            "L4_ChC_dNAC222": 2,
+            "L4_DBC_bAC217": 4,
+            "L4_DBC_bIR215": 5,
+            "L4_DBC_bNAC219": 4,
+            "L4_DBC_bSTUT213": 4,
+            "L4_DBC_cACint209": 4,
+            "L4_DBC_cIR216": 5,
+            "L4_DBC_cNAC187": 4,
+            "L4_LBC_cACint209": 5,
+            "L4_LBC_cNAC187": 5,
+            "L4_LBC_cSTUT189": 5,
+            "L4_LBC_dNAC222": 5,
+            "L4_LBC_dSTUT214": 5,
+            "L4_MC_bAC217": 5,
+            "L4_MC_bNAC219": 4,
+            "L4_MC_cACint209": 5,
+            "L4_MC_cNAC187": 5,
+            "L4_MC_dNAC222": 4,
+            "L4_NBC_cACint209": 5,
+            "L4_NBC_cIR216": 5,
+            "L4_NBC_cNAC187": 5,
+            "L4_NBC_dNAC222": 5,
+            "L4_NGC_bNAC219": 1,
+            "L4_NGC_cACint209": 1,
+            "L4_NGC_cNAC187": 3,
+            "L4_NGC_cSTUT189": 1,
+            "L4_PC_cADpyr230": 5,
+            "L4_SBC_bNAC219": 5,
+            "L4_SBC_cACint209": 5,
+            "L4_SBC_dNAC222": 5,
+            "L4_SP_cADpyr230": 5,
+            "L4_SS_cADpyr230": 5,
+            "L5_BP_bAC217": 3,
+            "L5_BP_bIR215": 5,
+            "L5_BP_bNAC219": 5,
+            "L5_BP_cACint209": 5,
+            "L5_BP_cNAC187": 5,
+            "L5_BP_dSTUT214": 3,
+            "L5_BTC_bAC217": 5,
+            "L5_BTC_cACint209": 5,
+            "L5_BTC_cNAC187": 5,
+            "L5_ChC_cACint209": 5,
+            "L5_ChC_cNAC187": 5,
+            "L5_ChC_dNAC222": 5,
+            "L5_DBC_bAC217": 5,
+            "L5_DBC_bIR215": 5,
+            "L5_DBC_bNAC219": 5,
+            "L5_DBC_bSTUT213": 5,
+            "L5_DBC_cACint209": 5,
+            "L5_DBC_cIR216": 5,
+            "L5_DBC_cNAC187": 5,
+            "L5_LBC_bAC217": 5,
+            "L5_LBC_cACint209": 5,
+            "L5_LBC_cIR216": 5,
+            "L5_LBC_cNAC187": 5,
+            "L5_LBC_cSTUT189": 5,
+            "L5_LBC_dNAC222": 5,
+            "L5_LBC_dSTUT214": 5,
+            "L5_MC_bAC217": 5,
+            "L5_MC_bIR215": 5,
+            "L5_MC_bSTUT213": 5,
+            "L5_MC_cACint209": 5,
+            "L5_MC_cNAC187": 5,
+            "L5_MC_cSTUT189": 5,
+            "L5_MC_dNAC222": 5,
+            "L5_NBC_bAC217": 5,
+            "L5_NBC_bIR215": 5,
+            "L5_NBC_bSTUT213": 5,
+            "L5_NBC_cACint209": 5,
+            "L5_NBC_cIR216": 5,
+            "L5_NBC_cNAC187": 5,
+            "L5_NBC_cSTUT189": 5,
+            "L5_NBC_dSTUT214": 5,
+            "L5_NGC_bNAC219": 1,
+            "L5_NGC_cACint209": 1,
+            "L5_NGC_cNAC187": 5,
+            "L5_NGC_cSTUT189": 1,
+            "L5_SBC_bNAC219": 5,
+            "L5_SBC_cACint209": 5,
+            "L5_SBC_dNAC222": 5,
+            "L5_STPC_cADpyr232": 5,
+            "L5_TTPC1_cADpyr232": 5,
+            "L5_TTPC2_cADpyr232": 5,
+            "L5_UTPC_cADpyr232": 5,
+            "L6_BPC_cADpyr231": 5,
+            "L6_BP_bAC217": 5,
+            "L6_BP_bIR215": 5,
+            "L6_BP_bNAC219": 5,
+            "L6_BP_cACint209": 5,
+            "L6_BP_cNAC187": 5,
+            "L6_BP_dSTUT214": 5,
+            "L6_BTC_bAC217": 5,
+            "L6_BTC_cACint209": 5,
+            "L6_BTC_cNAC187": 5,
+            "L6_ChC_cACint209": 5,
+            "L6_ChC_cNAC187": 5,
+            "L6_ChC_dNAC222": 4,
+            "L6_DBC_bAC217": 3,
+            "L6_DBC_bIR215": 5,
+            "L6_DBC_bNAC219": 3,
+            "L6_DBC_bSTUT213": 3,
+            "L6_DBC_cACint209": 3,
+            "L6_DBC_cIR216": 5,
+            "L6_DBC_cNAC187": 3,
+            "L6_IPC_cADpyr231": 5,
+            "L6_LBC_bAC217": 5,
+            "L6_LBC_bIR215": 5,
+            "L6_LBC_bNAC219": 5,
+            "L6_LBC_bSTUT213": 5,
+            "L6_LBC_cNAC187": 5,
+            "L6_LBC_cSTUT189": 5,
+            "L6_MC_bAC217": 5,
+            "L6_MC_bIR215": 5,
+            "L6_MC_bNAC219": 5,
+            "L6_MC_bSTUT213": 5,
+            "L6_MC_cACint209": 5,
+            "L6_MC_cIR216": 5,
+            "L6_MC_cNAC187": 5,
+            "L6_NBC_bAC217": 5,
+            "L6_NBC_bIR215": 5,
+            "L6_NBC_bSTUT213": 5,
+            "L6_NBC_cACint209": 5,
+            "L6_NBC_cIR216": 5,
+            "L6_NBC_cNAC187": 5,
+            "L6_NBC_cSTUT189": 5,
+            "L6_NBC_dSTUT214": 5,
+            "L6_NGC_bNAC219": 2,
+            "L6_NGC_cACint209": 2,
+            "L6_NGC_cNAC187": 5,
+            "L6_NGC_cSTUT189": 2,
+            "L6_SBC_bNAC219": 5,
+            "L6_SBC_cACint209": 5,
+            "L6_SBC_dNAC222": 5,
+            "L6_TPC_L1_cADpyr231": 5,
+            "L6_TPC_L4_cADpyr231": 5,
+            "L6_UTPC_cADpyr231": 5
+        },
+        "cellParamLabels": [
+            "L1_DAC_bNAC219",
+            "L1_DAC_cNAC187",
+            "L1_DLAC_cNAC187",
+            "L1_HAC_bNAC219",
+            "L1_HAC_cIR216",
+            "L1_HAC_cNAC187",
+            "L1_NGC-DA_bNAC219",
+            "L1_NGC-DA_cACint209",
+            "L1_NGC-DA_cNAC187",
+            "L1_NGC-DA_cSTUT189",
+            "L1_NGC-SA_cNAC187",
+            "L1_SLAC_bNAC219",
+            "L1_SLAC_cACint209",
+            "L1_SLAC_cNAC187",
+            "L23_BP_bAC217",
+            "L23_BP_bIR215",
+            "L23_BP_bNAC219",
+            "L23_BP_cACint209",
+            "L23_BP_cNAC187",
+            "L23_BP_dSTUT214",
+            "L23_BTC_bAC217",
+            "L23_BTC_bIR215",
+            "L23_BTC_bNAC219",
+            "L23_BTC_cACint209",
+            "L23_BTC_cNAC187",
+            "L23_ChC_cACint209",
+            "L23_ChC_cNAC187",
+            "L23_ChC_dNAC222",
+            "L23_DBC_bAC217",
+            "L23_DBC_bIR215",
+            "L23_DBC_bNAC219",
+            "L23_DBC_cACint209",
+            "L23_LBC_bAC217",
+            "L23_LBC_bNAC219",
+            "L23_LBC_cACint209",
+            "L23_LBC_cNAC187",
+            "L23_LBC_cSTUT189",
+            "L23_LBC_dNAC222",
+            "L23_MC_bAC217",
+            "L23_MC_bNAC219",
+            "L23_MC_cACint209",
+            "L23_MC_cNAC187",
+            "L23_MC_dNAC222",
+            "L23_NBC_bAC217",
+            "L23_NBC_bNAC219",
+            "L23_NBC_cACint209",
+            "L23_NBC_cIR216",
+            "L23_NBC_cNAC187",
+            "L23_NBC_dNAC222",
+            "L23_NGC_bNAC219",
+            "L23_NGC_cACint209",
+            "L23_NGC_cNAC187",
+            "L23_NGC_cSTUT189",
+            "L23_PC_cADpyr229",
+            "L23_SBC_bNAC219",
+            "L23_SBC_cACint209",
+            "L23_SBC_dNAC222",
+            "L4_BP_bAC217",
+            "L4_BP_bIR215",
+            "L4_BP_bNAC219",
+            "L4_BP_cACint209",
+            "L4_BP_cNAC187",
+            "L4_BP_dSTUT214",
+            "L4_BTC_bAC217",
+            "L4_BTC_bIR215",
+            "L4_BTC_bSTUT213",
+            "L4_BTC_cACint209",
+            "L4_BTC_cNAC187",
+            "L4_BTC_dNAC222",
+            "L4_ChC_cACint209",
+            "L4_ChC_cNAC187",
+            "L4_ChC_dNAC222",
+            "L4_DBC_bAC217",
+            "L4_DBC_bIR215",
+            "L4_DBC_bNAC219",
+            "L4_DBC_bSTUT213",
+            "L4_DBC_cACint209",
+            "L4_DBC_cIR216",
+            "L4_DBC_cNAC187",
+            "L4_LBC_cACint209",
+            "L4_LBC_cNAC187",
+            "L4_LBC_cSTUT189",
+            "L4_LBC_dNAC222",
+            "L4_LBC_dSTUT214",
+            "L4_MC_bAC217",
+            "L4_MC_bNAC219",
+            "L4_MC_cACint209",
+            "L4_MC_cNAC187",
+            "L4_MC_dNAC222",
+            "L4_NBC_cACint209",
+            "L4_NBC_cIR216",
+            "L4_NBC_cNAC187",
+            "L4_NBC_dNAC222",
+            "L4_NGC_bNAC219",
+            "L4_NGC_cACint209",
+            "L4_NGC_cNAC187",
+            "L4_NGC_cSTUT189",
+            "L4_PC_cADpyr230",
+            "L4_SBC_bNAC219",
+            "L4_SBC_cACint209",
+            "L4_SBC_dNAC222",
+            "L4_SP_cADpyr230",
+            "L4_SS_cADpyr230",
+            "L5_BP_bAC217",
+            "L5_BP_bIR215",
+            "L5_BP_bNAC219",
+            "L5_BP_cACint209",
+            "L5_BP_cNAC187",
+            "L5_BP_dSTUT214",
+            "L5_BTC_bAC217",
+            "L5_BTC_cACint209",
+            "L5_BTC_cNAC187",
+            "L5_ChC_cACint209",
+            "L5_ChC_cNAC187",
+            "L5_ChC_dNAC222",
+            "L5_DBC_bAC217",
+            "L5_DBC_bIR215",
+            "L5_DBC_bNAC219",
+            "L5_DBC_bSTUT213",
+            "L5_DBC_cACint209",
+            "L5_DBC_cIR216",
+            "L5_DBC_cNAC187",
+            "L5_LBC_bAC217",
+            "L5_LBC_cACint209",
+            "L5_LBC_cIR216",
+            "L5_LBC_cNAC187",
+            "L5_LBC_cSTUT189",
+            "L5_LBC_dNAC222",
+            "L5_LBC_dSTUT214",
+            "L5_MC_bAC217",
+            "L5_MC_bIR215",
+            "L5_MC_bSTUT213",
+            "L5_MC_cACint209",
+            "L5_MC_cNAC187",
+            "L5_MC_cSTUT189",
+            "L5_MC_dNAC222",
+            "L5_NBC_bAC217",
+            "L5_NBC_bIR215",
+            "L5_NBC_bSTUT213",
+            "L5_NBC_cACint209",
+            "L5_NBC_cIR216",
+            "L5_NBC_cNAC187",
+            "L5_NBC_cSTUT189",
+            "L5_NBC_dSTUT214",
+            "L5_NGC_bNAC219",
+            "L5_NGC_cACint209",
+            "L5_NGC_cNAC187",
+            "L5_NGC_cSTUT189",
+            "L5_SBC_bNAC219",
+            "L5_SBC_cACint209",
+            "L5_SBC_dNAC222",
+            "L5_STPC_cADpyr232",
+            "L5_TTPC1_cADpyr232",
+            "L5_TTPC2_cADpyr232",
+            "L5_UTPC_cADpyr232",
+            "L6_BPC_cADpyr231",
+            "L6_BP_bAC217",
+            "L6_BP_bIR215",
+            "L6_BP_bNAC219",
+            "L6_BP_cACint209",
+            "L6_BP_cNAC187",
+            "L6_BP_dSTUT214",
+            "L6_BTC_bAC217",
+            "L6_BTC_cACint209",
+            "L6_BTC_cNAC187",
+            "L6_ChC_cACint209",
+            "L6_ChC_cNAC187",
+            "L6_ChC_dNAC222",
+            "L6_DBC_bAC217",
+            "L6_DBC_bIR215",
+            "L6_DBC_bNAC219",
+            "L6_DBC_bSTUT213",
+            "L6_DBC_cACint209",
+            "L6_DBC_cIR216",
+            "L6_DBC_cNAC187",
+            "L6_IPC_cADpyr231",
+            "L6_LBC_bAC217",
+            "L6_LBC_bIR215",
+            "L6_LBC_bNAC219",
+            "L6_LBC_bSTUT213",
+            "L6_LBC_cNAC187",
+            "L6_LBC_cSTUT189",
+            "L6_MC_bAC217",
+            "L6_MC_bIR215",
+            "L6_MC_bNAC219",
+            "L6_MC_bSTUT213",
+            "L6_MC_cACint209",
+            "L6_MC_cIR216",
+            "L6_MC_cNAC187",
+            "L6_NBC_bAC217",
+            "L6_NBC_bIR215",
+            "L6_NBC_bSTUT213",
+            "L6_NBC_cACint209",
+            "L6_NBC_cIR216",
+            "L6_NBC_cNAC187",
+            "L6_NBC_cSTUT189",
+            "L6_NBC_dSTUT214",
+            "L6_NGC_bNAC219",
+            "L6_NGC_cACint209",
+            "L6_NGC_cNAC187",
+            "L6_NGC_cSTUT189",
+            "L6_SBC_bNAC219",
+            "L6_SBC_cACint209",
+            "L6_SBC_dNAC222",
+            "L6_TPC_L1_cADpyr231",
+            "L6_TPC_L4_cADpyr231",
+            "L6_UTPC_cADpyr231"
+        ],
+        "cellsrec": 2,
+        "celltypeNumber": 207,
+        "checkErrors": false,
+        "checkErrorsVerbose": false,
+        "compactConnFormat": false,
+        "connProb_RTN_RTN": 0.5,
+        "connProb_RTN_TC": 1,
+        "connProb_S1_RTN": 0.5,
+        "connProb_S1_TC": 0.5,
+        "connProb_TC_RTN": 1,
+        "connRandomSecFromList": true,
+        "connWeight_RTN_RTN": 2000.0,
+        "connWeight_RTN_TC": 250.0,
+        "connWeight_S1_RTN": 500.0,
+        "connWeight_S1_TC": 250.0,
+        "connWeight_TC_RTN": 1500.0,
+        "connectTh": false,
+        "connect_RTN_RTN": true,
+        "connect_RTN_TC": true,
+        "connect_S1_RTN": true,
+        "connect_S1_TC": true,
+        "connect_S1_Th": false,
+        "connect_TC_RTN": true,
+        "connect_Th_S1": false,
+        "createNEURONObj": true,
+        "createPyStruct": true,
+        "cvode_active": false,
+        "cvode_atol": 1e-06,
+        "distributeSynsUniformly": true,
+        "divergenceHO": 10,
+        "dt": 0.025,
+        "duration": 2000.0,
+        "filename": "model_output",
+        "frac_Th_S1": 1.0,
+        "gatherOnlySimData": false,
+        "hParams": {
+            "celsius": 34,
+            "v_init": -65
+        },
+        "importCellMod": "pkl",
+        "includeParamsLabel": false,
+        "intraThalamicGain": 1.0,
+        "invertedYCoord": true,
+        "meParamLabels": {},
+        "oneCellperMEtype": true,
+        "oneCellperMEtypeS1": true,
+        "oneSynPerNetcon": true,
+        "popLabel": {
+            "L1_DAC_bNAC219": "L1_DAC",
+            "L1_DAC_cNAC187": "L1_DAC",
+            "L1_DLAC_cNAC187": "L1_DLAC",
+            "L1_HAC_bNAC219": "L1_HAC",
+            "L1_HAC_cIR216": "L1_HAC",
+            "L1_HAC_cNAC187": "L1_HAC",
+            "L1_NGC-DA_bNAC219": "L1_NGC-DA",
+            "L1_NGC-DA_cACint209": "L1_NGC-DA",
+            "L1_NGC-DA_cNAC187": "L1_NGC-DA",
+            "L1_NGC-DA_cSTUT189": "L1_NGC-DA",
+            "L1_NGC-SA_cNAC187": "L1_NGC-SA",
+            "L1_SLAC_bNAC219": "L1_SLAC",
+            "L1_SLAC_cACint209": "L1_SLAC",
+            "L1_SLAC_cNAC187": "L1_SLAC",
+            "L23_BP_bAC217": "L23_BP",
+            "L23_BP_bIR215": "L23_BP",
+            "L23_BP_bNAC219": "L23_BP",
+            "L23_BP_cACint209": "L23_BP",
+            "L23_BP_cNAC187": "L23_BP",
+            "L23_BP_dSTUT214": "L23_BP",
+            "L23_BTC_bAC217": "L23_BTC",
+            "L23_BTC_bIR215": "L23_BTC",
+            "L23_BTC_bNAC219": "L23_BTC",
+            "L23_BTC_cACint209": "L23_BTC",
+            "L23_BTC_cNAC187": "L23_BTC",
+            "L23_ChC_cACint209": "L23_ChC",
+            "L23_ChC_cNAC187": "L23_ChC",
+            "L23_ChC_dNAC222": "L23_ChC",
+            "L23_DBC_bAC217": "L23_DBC",
+            "L23_DBC_bIR215": "L23_DBC",
+            "L23_DBC_bNAC219": "L23_DBC",
+            "L23_DBC_cACint209": "L23_DBC",
+            "L23_LBC_bAC217": "L23_LBC",
+            "L23_LBC_bNAC219": "L23_LBC",
+            "L23_LBC_cACint209": "L23_LBC",
+            "L23_LBC_cNAC187": "L23_LBC",
+            "L23_LBC_cSTUT189": "L23_LBC",
+            "L23_LBC_dNAC222": "L23_LBC",
+            "L23_MC_bAC217": "L23_MC",
+            "L23_MC_bNAC219": "L23_MC",
+            "L23_MC_cACint209": "L23_MC",
+            "L23_MC_cNAC187": "L23_MC",
+            "L23_MC_dNAC222": "L23_MC",
+            "L23_NBC_bAC217": "L23_NBC",
+            "L23_NBC_bNAC219": "L23_NBC",
+            "L23_NBC_cACint209": "L23_NBC",
+            "L23_NBC_cIR216": "L23_NBC",
+            "L23_NBC_cNAC187": "L23_NBC",
+            "L23_NBC_dNAC222": "L23_NBC",
+            "L23_NGC_bNAC219": "L23_NGC",
+            "L23_NGC_cACint209": "L23_NGC",
+            "L23_NGC_cNAC187": "L23_NGC",
+            "L23_NGC_cSTUT189": "L23_NGC",
+            "L23_PC_cADpyr229": "L23_PC",
+            "L23_SBC_bNAC219": "L23_SBC",
+            "L23_SBC_cACint209": "L23_SBC",
+            "L23_SBC_dNAC222": "L23_SBC",
+            "L4_BP_bAC217": "L4_BP",
+            "L4_BP_bIR215": "L4_BP",
+            "L4_BP_bNAC219": "L4_BP",
+            "L4_BP_cACint209": "L4_BP",
+            "L4_BP_cNAC187": "L4_BP",
+            "L4_BP_dSTUT214": "L4_BP",
+            "L4_BTC_bAC217": "L4_BTC",
+            "L4_BTC_bIR215": "L4_BTC",
+            "L4_BTC_bSTUT213": "L4_BTC",
+            "L4_BTC_cACint209": "L4_BTC",
+            "L4_BTC_cNAC187": "L4_BTC",
+            "L4_BTC_dNAC222": "L4_BTC",
+            "L4_ChC_cACint209": "L4_ChC",
+            "L4_ChC_cNAC187": "L4_ChC",
+            "L4_ChC_dNAC222": "L4_ChC",
+            "L4_DBC_bAC217": "L4_DBC",
+            "L4_DBC_bIR215": "L4_DBC",
+            "L4_DBC_bNAC219": "L4_DBC",
+            "L4_DBC_bSTUT213": "L4_DBC",
+            "L4_DBC_cACint209": "L4_DBC",
+            "L4_DBC_cIR216": "L4_DBC",
+            "L4_DBC_cNAC187": "L4_DBC",
+            "L4_LBC_cACint209": "L4_LBC",
+            "L4_LBC_cNAC187": "L4_LBC",
+            "L4_LBC_cSTUT189": "L4_LBC",
+            "L4_LBC_dNAC222": "L4_LBC",
+            "L4_LBC_dSTUT214": "L4_LBC",
+            "L4_MC_bAC217": "L4_MC",
+            "L4_MC_bNAC219": "L4_MC",
+            "L4_MC_cACint209": "L4_MC",
+            "L4_MC_cNAC187": "L4_MC",
+            "L4_MC_dNAC222": "L4_MC",
+            "L4_NBC_cACint209": "L4_NBC",
+            "L4_NBC_cIR216": "L4_NBC",
+            "L4_NBC_cNAC187": "L4_NBC",
+            "L4_NBC_dNAC222": "L4_NBC",
+            "L4_NGC_bNAC219": "L4_NGC",
+            "L4_NGC_cACint209": "L4_NGC",
+            "L4_NGC_cNAC187": "L4_NGC",
+            "L4_NGC_cSTUT189": "L4_NGC",
+            "L4_PC_cADpyr230": "L4_PC",
+            "L4_SBC_bNAC219": "L4_SBC",
+            "L4_SBC_cACint209": "L4_SBC",
+            "L4_SBC_dNAC222": "L4_SBC",
+            "L4_SP_cADpyr230": "L4_SP",
+            "L4_SS_cADpyr230": "L4_SS",
+            "L5_BP_bAC217": "L5_BP",
+            "L5_BP_bIR215": "L5_BP",
+            "L5_BP_bNAC219": "L5_BP",
+            "L5_BP_cACint209": "L5_BP",
+            "L5_BP_cNAC187": "L5_BP",
+            "L5_BP_dSTUT214": "L5_BP",
+            "L5_BTC_bAC217": "L5_BTC",
+            "L5_BTC_cACint209": "L5_BTC",
+            "L5_BTC_cNAC187": "L5_BTC",
+            "L5_ChC_cACint209": "L5_ChC",
+            "L5_ChC_cNAC187": "L5_ChC",
+            "L5_ChC_dNAC222": "L5_ChC",
+            "L5_DBC_bAC217": "L5_DBC",
+            "L5_DBC_bIR215": "L5_DBC",
+            "L5_DBC_bNAC219": "L5_DBC",
+            "L5_DBC_bSTUT213": "L5_DBC",
+            "L5_DBC_cACint209": "L5_DBC",
+            "L5_DBC_cIR216": "L5_DBC",
+            "L5_DBC_cNAC187": "L5_DBC",
+            "L5_LBC_bAC217": "L5_LBC",
+            "L5_LBC_cACint209": "L5_LBC",
+            "L5_LBC_cIR216": "L5_LBC",
+            "L5_LBC_cNAC187": "L5_LBC",
+            "L5_LBC_cSTUT189": "L5_LBC",
+            "L5_LBC_dNAC222": "L5_LBC",
+            "L5_LBC_dSTUT214": "L5_LBC",
+            "L5_MC_bAC217": "L5_MC",
+            "L5_MC_bIR215": "L5_MC",
+            "L5_MC_bSTUT213": "L5_MC",
+            "L5_MC_cACint209": "L5_MC",
+            "L5_MC_cNAC187": "L5_MC",
+            "L5_MC_cSTUT189": "L5_MC",
+            "L5_MC_dNAC222": "L5_MC",
+            "L5_NBC_bAC217": "L5_NBC",
+            "L5_NBC_bIR215": "L5_NBC",
+            "L5_NBC_bSTUT213": "L5_NBC",
+            "L5_NBC_cACint209": "L5_NBC",
+            "L5_NBC_cIR216": "L5_NBC",
+            "L5_NBC_cNAC187": "L5_NBC",
+            "L5_NBC_cSTUT189": "L5_NBC",
+            "L5_NBC_dSTUT214": "L5_NBC",
+            "L5_NGC_bNAC219": "L5_NGC",
+            "L5_NGC_cACint209": "L5_NGC",
+            "L5_NGC_cNAC187": "L5_NGC",
+            "L5_NGC_cSTUT189": "L5_NGC",
+            "L5_SBC_bNAC219": "L5_SBC",
+            "L5_SBC_cACint209": "L5_SBC",
+            "L5_SBC_dNAC222": "L5_SBC",
+            "L5_STPC_cADpyr232": "L5_STPC",
+            "L5_TTPC1_cADpyr232": "L5_TTPC1",
+            "L5_TTPC2_cADpyr232": "L5_TTPC2",
+            "L5_UTPC_cADpyr232": "L5_UTPC",
+            "L6_BPC_cADpyr231": "L6_BPC",
+            "L6_BP_bAC217": "L6_BP",
+            "L6_BP_bIR215": "L6_BP",
+            "L6_BP_bNAC219": "L6_BP",
+            "L6_BP_cACint209": "L6_BP",
+            "L6_BP_cNAC187": "L6_BP",
+            "L6_BP_dSTUT214": "L6_BP",
+            "L6_BTC_bAC217": "L6_BTC",
+            "L6_BTC_cACint209": "L6_BTC",
+            "L6_BTC_cNAC187": "L6_BTC",
+            "L6_ChC_cACint209": "L6_ChC",
+            "L6_ChC_cNAC187": "L6_ChC",
+            "L6_ChC_dNAC222": "L6_ChC",
+            "L6_DBC_bAC217": "L6_DBC",
+            "L6_DBC_bIR215": "L6_DBC",
+            "L6_DBC_bNAC219": "L6_DBC",
+            "L6_DBC_bSTUT213": "L6_DBC",
+            "L6_DBC_cACint209": "L6_DBC",
+            "L6_DBC_cIR216": "L6_DBC",
+            "L6_DBC_cNAC187": "L6_DBC",
+            "L6_IPC_cADpyr231": "L6_IPC",
+            "L6_LBC_bAC217": "L6_LBC",
+            "L6_LBC_bIR215": "L6_LBC",
+            "L6_LBC_bNAC219": "L6_LBC",
+            "L6_LBC_bSTUT213": "L6_LBC",
+            "L6_LBC_cNAC187": "L6_LBC",
+            "L6_LBC_cSTUT189": "L6_LBC",
+            "L6_MC_bAC217": "L6_MC",
+            "L6_MC_bIR215": "L6_MC",
+            "L6_MC_bNAC219": "L6_MC",
+            "L6_MC_bSTUT213": "L6_MC",
+            "L6_MC_cACint209": "L6_MC",
+            "L6_MC_cIR216": "L6_MC",
+            "L6_MC_cNAC187": "L6_MC",
+            "L6_NBC_bAC217": "L6_NBC",
+            "L6_NBC_bIR215": "L6_NBC",
+            "L6_NBC_bSTUT213": "L6_NBC",
+            "L6_NBC_cACint209": "L6_NBC",
+            "L6_NBC_cIR216": "L6_NBC",
+            "L6_NBC_cNAC187": "L6_NBC",
+            "L6_NBC_cSTUT189": "L6_NBC",
+            "L6_NBC_dSTUT214": "L6_NBC",
+            "L6_NGC_bNAC219": "L6_NGC",
+            "L6_NGC_cACint209": "L6_NGC",
+            "L6_NGC_cNAC187": "L6_NGC",
+            "L6_NGC_cSTUT189": "L6_NGC",
+            "L6_SBC_bNAC219": "L6_SBC",
+            "L6_SBC_cACint209": "L6_SBC",
+            "L6_SBC_dNAC222": "L6_SBC",
+            "L6_TPC_L1_cADpyr231": "L6_TPC_L1",
+            "L6_TPC_L4_cADpyr231": "L6_TPC_L4",
+            "L6_UTPC_cADpyr231": "L6_UTPC"
+        },
+        "popNumber": {
+            "L1_DAC": 10,
+            "L1_DLAC": 5,
+            "L1_HAC": 15,
+            "L1_NGC-DA": 20,
+            "L1_NGC-SA": 5,
+            "L1_SLAC": 15,
+            "L23_BP": 24,
+            "L23_BTC": 25,
+            "L23_ChC": 15,
+            "L23_DBC": 20,
+            "L23_LBC": 30,
+            "L23_MC": 25,
+            "L23_NBC": 30,
+            "L23_NGC": 20,
+            "L23_PC": 5,
+            "L23_SBC": 15,
+            "L4_BP": 8,
+            "L4_BTC": 16,
+            "L4_ChC": 8,
+            "L4_DBC": 30,
+            "L4_LBC": 25,
+            "L4_MC": 23,
+            "L4_NBC": 20,
+            "L4_NGC": 6,
+            "L4_PC": 5,
+            "L4_SBC": 15,
+            "L4_SP": 5,
+            "L4_SS": 5,
+            "L5_BP": 26,
+            "L5_BTC": 15,
+            "L5_ChC": 15,
+            "L5_DBC": 35,
+            "L5_LBC": 35,
+            "L5_MC": 35,
+            "L5_NBC": 40,
+            "L5_NGC": 8,
+            "L5_SBC": 15,
+            "L5_STPC": 5,
+            "L5_TTPC1": 5,
+            "L5_TTPC2": 5,
+            "L5_UTPC": 5,
+            "L6_BP": 30,
+            "L6_BPC": 5,
+            "L6_BTC": 15,
+            "L6_ChC": 14,
+            "L6_DBC": 25,
+            "L6_IPC": 5,
+            "L6_LBC": 30,
+            "L6_MC": 35,
+            "L6_NBC": 40,
+            "L6_NGC": 11,
+            "L6_SBC": 15,
+            "L6_TPC_L1": 5,
+            "L6_TPC_L4": 5,
+            "L6_UTPC": 5
+        },
+        "popParamLabels": [
+            "L1_DAC",
+            "L1_DLAC",
+            "L1_HAC",
+            "L1_NGC-DA",
+            "L1_NGC-SA",
+            "L1_SLAC",
+            "L23_BP",
+            "L23_BTC",
+            "L23_ChC",
+            "L23_DBC",
+            "L23_LBC",
+            "L23_MC",
+            "L23_NBC",
+            "L23_NGC",
+            "L23_PC",
+            "L23_SBC",
+            "L4_BP",
+            "L4_BTC",
+            "L4_ChC",
+            "L4_DBC",
+            "L4_LBC",
+            "L4_MC",
+            "L4_NBC",
+            "L4_NGC",
+            "L4_PC",
+            "L4_SBC",
+            "L4_SP",
+            "L4_SS",
+            "L5_BP",
+            "L5_BTC",
+            "L5_ChC",
+            "L5_DBC",
+            "L5_LBC",
+            "L5_MC",
+            "L5_NBC",
+            "L5_NGC",
+            "L5_SBC",
+            "L5_STPC",
+            "L5_TTPC1",
+            "L5_TTPC2",
+            "L5_UTPC",
+            "L6_BPC",
+            "L6_BP",
+            "L6_BTC",
+            "L6_ChC",
+            "L6_DBC",
+            "L6_IPC",
+            "L6_LBC",
+            "L6_MC",
+            "L6_NBC",
+            "L6_NGC",
+            "L6_SBC",
+            "L6_TPC_L1",
+            "L6_TPC_L4",
+            "L6_UTPC"
+        ],
+        "poptypeNumber": 55,
+        "printPopAvgRates": true,
+        "printRunTime": 0.1,
+        "printSynsAfterRule": false,
+        "pt3dRelativeToCellLocation": true,
+        "rand123GlobalIndex": null,
+        "rateStimE": 9.0,
+        "rateStimI": 9.0,
+        "recordCells": [
+            [
+                "L1_DAC",
+                0
+            ],
+            [
+                "L1_DAC",
+                1
+            ],
+            [
+                "L1_DAC",
+                2
+            ],
+            [
+                "L1_DAC",
+                3
+            ],
+            [
+                "L1_DAC",
+                4
+            ],
+            [
+                "L1_DAC",
+                5
+            ],
+            [
+                "L1_DAC",
+                6
+            ],
+            [
+                "L1_DAC",
+                7
+            ],
+            [
+                "L1_DAC",
+                8
+            ],
+            [
+                "L1_DAC",
+                9
+            ],
+            [
+                "L1_DLAC",
+                0
+            ],
+            [
+                "L1_DLAC",
+                1
+            ],
+            [
+                "L1_DLAC",
+                2
+            ],
+            [
+                "L1_DLAC",
+                3
+            ],
+            [
+                "L1_DLAC",
+                4
+            ],
+            [
+                "L1_HAC",
+                0
+            ],
+            [
+                "L1_HAC",
+                1
+            ],
+            [
+                "L1_HAC",
+                2
+            ],
+            [
+                "L1_HAC",
+                3
+            ],
+            [
+                "L1_HAC",
+                4
+            ],
+            [
+                "L1_HAC",
+                5
+            ],
+            [
+                "L1_HAC",
+                6
+            ],
+            [
+                "L1_HAC",
+                7
+            ],
+            [
+                "L1_HAC",
+                8
+            ],
+            [
+                "L1_HAC",
+                9
+            ],
+            [
+                "L1_HAC",
+                10
+            ],
+            [
+                "L1_HAC",
+                11
+            ],
+            [
+                "L1_HAC",
+                12
+            ],
+            [
+                "L1_HAC",
+                13
+            ],
+            [
+                "L1_HAC",
+                14
+            ],
+            [
+                "L1_NGC-DA",
+                0
+            ],
+            [
+                "L1_NGC-DA",
+                1
+            ],
+            [
+                "L1_NGC-DA",
+                2
+            ],
+            [
+                "L1_NGC-DA",
+                3
+            ],
+            [
+                "L1_NGC-DA",
+                4
+            ],
+            [
+                "L1_NGC-DA",
+                5
+            ],
+            [
+                "L1_NGC-DA",
+                6
+            ],
+            [
+                "L1_NGC-DA",
+                7
+            ],
+            [
+                "L1_NGC-DA",
+                8
+            ],
+            [
+                "L1_NGC-DA",
+                9
+            ],
+            [
+                "L1_NGC-DA",
+                10
+            ],
+            [
+                "L1_NGC-DA",
+                11
+            ],
+            [
+                "L1_NGC-DA",
+                12
+            ],
+            [
+                "L1_NGC-DA",
+                13
+            ],
+            [
+                "L1_NGC-DA",
+                14
+            ],
+            [
+                "L1_NGC-DA",
+                15
+            ],
+            [
+                "L1_NGC-DA",
+                16
+            ],
+            [
+                "L1_NGC-DA",
+                17
+            ],
+            [
+                "L1_NGC-DA",
+                18
+            ],
+            [
+                "L1_NGC-DA",
+                19
+            ],
+            [
+                "L1_NGC-SA",
+                0
+            ],
+            [
+                "L1_NGC-SA",
+                1
+            ],
+            [
+                "L1_NGC-SA",
+                2
+            ],
+            [
+                "L1_NGC-SA",
+                3
+            ],
+            [
+                "L1_NGC-SA",
+                4
+            ],
+            [
+                "L1_SLAC",
+                0
+            ],
+            [
+                "L1_SLAC",
+                1
+            ],
+            [
+                "L1_SLAC",
+                2
+            ],
+            [
+                "L1_SLAC",
+                3
+            ],
+            [
+                "L1_SLAC",
+                4
+            ],
+            [
+                "L1_SLAC",
+                5
+            ],
+            [
+                "L1_SLAC",
+                6
+            ],
+            [
+                "L1_SLAC",
+                7
+            ],
+            [
+                "L1_SLAC",
+                8
+            ],
+            [
+                "L1_SLAC",
+                9
+            ],
+            [
+                "L1_SLAC",
+                10
+            ],
+            [
+                "L1_SLAC",
+                11
+            ],
+            [
+                "L1_SLAC",
+                12
+            ],
+            [
+                "L1_SLAC",
+                13
+            ],
+            [
+                "L1_SLAC",
+                14
+            ],
+            [
+                "L23_BP",
+                0
+            ],
+            [
+                "L23_BP",
+                1
+            ],
+            [
+                "L23_BP",
+                2
+            ],
+            [
+                "L23_BP",
+                3
+            ],
+            [
+                "L23_BP",
+                4
+            ],
+            [
+                "L23_BP",
+                5
+            ],
+            [
+                "L23_BP",
+                6
+            ],
+            [
+                "L23_BP",
+                7
+            ],
+            [
+                "L23_BP",
+                8
+            ],
+            [
+                "L23_BP",
+                9
+            ],
+            [
+                "L23_BP",
+                10
+            ],
+            [
+                "L23_BP",
+                11
+            ],
+            [
+                "L23_BP",
+                12
+            ],
+            [
+                "L23_BP",
+                13
+            ],
+            [
+                "L23_BP",
+                14
+            ],
+            [
+                "L23_BP",
+                15
+            ],
+            [
+                "L23_BP",
+                16
+            ],
+            [
+                "L23_BP",
+                17
+            ],
+            [
+                "L23_BP",
+                18
+            ],
+            [
+                "L23_BP",
+                19
+            ],
+            [
+                "L23_BP",
+                20
+            ],
+            [
+                "L23_BP",
+                21
+            ],
+            [
+                "L23_BP",
+                22
+            ],
+            [
+                "L23_BP",
+                23
+            ],
+            [
+                "L23_BTC",
+                0
+            ],
+            [
+                "L23_BTC",
+                1
+            ],
+            [
+                "L23_BTC",
+                2
+            ],
+            [
+                "L23_BTC",
+                3
+            ],
+            [
+                "L23_BTC",
+                4
+            ],
+            [
+                "L23_BTC",
+                5
+            ],
+            [
+                "L23_BTC",
+                6
+            ],
+            [
+                "L23_BTC",
+                7
+            ],
+            [
+                "L23_BTC",
+                8
+            ],
+            [
+                "L23_BTC",
+                9
+            ],
+            [
+                "L23_BTC",
+                10
+            ],
+            [
+                "L23_BTC",
+                11
+            ],
+            [
+                "L23_BTC",
+                12
+            ],
+            [
+                "L23_BTC",
+                13
+            ],
+            [
+                "L23_BTC",
+                14
+            ],
+            [
+                "L23_BTC",
+                15
+            ],
+            [
+                "L23_BTC",
+                16
+            ],
+            [
+                "L23_BTC",
+                17
+            ],
+            [
+                "L23_BTC",
+                18
+            ],
+            [
+                "L23_BTC",
+                19
+            ],
+            [
+                "L23_BTC",
+                20
+            ],
+            [
+                "L23_BTC",
+                21
+            ],
+            [
+                "L23_BTC",
+                22
+            ],
+            [
+                "L23_BTC",
+                23
+            ],
+            [
+                "L23_BTC",
+                24
+            ],
+            [
+                "L23_ChC",
+                0
+            ],
+            [
+                "L23_ChC",
+                1
+            ],
+            [
+                "L23_ChC",
+                2
+            ],
+            [
+                "L23_ChC",
+                3
+            ],
+            [
+                "L23_ChC",
+                4
+            ],
+            [
+                "L23_ChC",
+                5
+            ],
+            [
+                "L23_ChC",
+                6
+            ],
+            [
+                "L23_ChC",
+                7
+            ],
+            [
+                "L23_ChC",
+                8
+            ],
+            [
+                "L23_ChC",
+                9
+            ],
+            [
+                "L23_ChC",
+                10
+            ],
+            [
+                "L23_ChC",
+                11
+            ],
+            [
+                "L23_ChC",
+                12
+            ],
+            [
+                "L23_ChC",
+                13
+            ],
+            [
+                "L23_ChC",
+                14
+            ],
+            [
+                "L23_DBC",
+                0
+            ],
+            [
+                "L23_DBC",
+                1
+            ],
+            [
+                "L23_DBC",
+                2
+            ],
+            [
+                "L23_DBC",
+                3
+            ],
+            [
+                "L23_DBC",
+                4
+            ],
+            [
+                "L23_DBC",
+                5
+            ],
+            [
+                "L23_DBC",
+                6
+            ],
+            [
+                "L23_DBC",
+                7
+            ],
+            [
+                "L23_DBC",
+                8
+            ],
+            [
+                "L23_DBC",
+                9
+            ],
+            [
+                "L23_DBC",
+                10
+            ],
+            [
+                "L23_DBC",
+                11
+            ],
+            [
+                "L23_DBC",
+                12
+            ],
+            [
+                "L23_DBC",
+                13
+            ],
+            [
+                "L23_DBC",
+                14
+            ],
+            [
+                "L23_DBC",
+                15
+            ],
+            [
+                "L23_DBC",
+                16
+            ],
+            [
+                "L23_DBC",
+                17
+            ],
+            [
+                "L23_DBC",
+                18
+            ],
+            [
+                "L23_DBC",
+                19
+            ],
+            [
+                "L23_LBC",
+                0
+            ],
+            [
+                "L23_LBC",
+                1
+            ],
+            [
+                "L23_LBC",
+                2
+            ],
+            [
+                "L23_LBC",
+                3
+            ],
+            [
+                "L23_LBC",
+                4
+            ],
+            [
+                "L23_LBC",
+                5
+            ],
+            [
+                "L23_LBC",
+                6
+            ],
+            [
+                "L23_LBC",
+                7
+            ],
+            [
+                "L23_LBC",
+                8
+            ],
+            [
+                "L23_LBC",
+                9
+            ],
+            [
+                "L23_LBC",
+                10
+            ],
+            [
+                "L23_LBC",
+                11
+            ],
+            [
+                "L23_LBC",
+                12
+            ],
+            [
+                "L23_LBC",
+                13
+            ],
+            [
+                "L23_LBC",
+                14
+            ],
+            [
+                "L23_LBC",
+                15
+            ],
+            [
+                "L23_LBC",
+                16
+            ],
+            [
+                "L23_LBC",
+                17
+            ],
+            [
+                "L23_LBC",
+                18
+            ],
+            [
+                "L23_LBC",
+                19
+            ],
+            [
+                "L23_LBC",
+                20
+            ],
+            [
+                "L23_LBC",
+                21
+            ],
+            [
+                "L23_LBC",
+                22
+            ],
+            [
+                "L23_LBC",
+                23
+            ],
+            [
+                "L23_LBC",
+                24
+            ],
+            [
+                "L23_LBC",
+                25
+            ],
+            [
+                "L23_LBC",
+                26
+            ],
+            [
+                "L23_LBC",
+                27
+            ],
+            [
+                "L23_LBC",
+                28
+            ],
+            [
+                "L23_LBC",
+                29
+            ],
+            [
+                "L23_MC",
+                0
+            ],
+            [
+                "L23_MC",
+                1
+            ],
+            [
+                "L23_MC",
+                2
+            ],
+            [
+                "L23_MC",
+                3
+            ],
+            [
+                "L23_MC",
+                4
+            ],
+            [
+                "L23_MC",
+                5
+            ],
+            [
+                "L23_MC",
+                6
+            ],
+            [
+                "L23_MC",
+                7
+            ],
+            [
+                "L23_MC",
+                8
+            ],
+            [
+                "L23_MC",
+                9
+            ],
+            [
+                "L23_MC",
+                10
+            ],
+            [
+                "L23_MC",
+                11
+            ],
+            [
+                "L23_MC",
+                12
+            ],
+            [
+                "L23_MC",
+                13
+            ],
+            [
+                "L23_MC",
+                14
+            ],
+            [
+                "L23_MC",
+                15
+            ],
+            [
+                "L23_MC",
+                16
+            ],
+            [
+                "L23_MC",
+                17
+            ],
+            [
+                "L23_MC",
+                18
+            ],
+            [
+                "L23_MC",
+                19
+            ],
+            [
+                "L23_MC",
+                20
+            ],
+            [
+                "L23_MC",
+                21
+            ],
+            [
+                "L23_MC",
+                22
+            ],
+            [
+                "L23_MC",
+                23
+            ],
+            [
+                "L23_MC",
+                24
+            ],
+            [
+                "L23_NBC",
+                0
+            ],
+            [
+                "L23_NBC",
+                1
+            ],
+            [
+                "L23_NBC",
+                2
+            ],
+            [
+                "L23_NBC",
+                3
+            ],
+            [
+                "L23_NBC",
+                4
+            ],
+            [
+                "L23_NBC",
+                5
+            ],
+            [
+                "L23_NBC",
+                6
+            ],
+            [
+                "L23_NBC",
+                7
+            ],
+            [
+                "L23_NBC",
+                8
+            ],
+            [
+                "L23_NBC",
+                9
+            ],
+            [
+                "L23_NBC",
+                10
+            ],
+            [
+                "L23_NBC",
+                11
+            ],
+            [
+                "L23_NBC",
+                12
+            ],
+            [
+                "L23_NBC",
+                13
+            ],
+            [
+                "L23_NBC",
+                14
+            ],
+            [
+                "L23_NBC",
+                15
+            ],
+            [
+                "L23_NBC",
+                16
+            ],
+            [
+                "L23_NBC",
+                17
+            ],
+            [
+                "L23_NBC",
+                18
+            ],
+            [
+                "L23_NBC",
+                19
+            ],
+            [
+                "L23_NBC",
+                20
+            ],
+            [
+                "L23_NBC",
+                21
+            ],
+            [
+                "L23_NBC",
+                22
+            ],
+            [
+                "L23_NBC",
+                23
+            ],
+            [
+                "L23_NBC",
+                24
+            ],
+            [
+                "L23_NBC",
+                25
+            ],
+            [
+                "L23_NBC",
+                26
+            ],
+            [
+                "L23_NBC",
+                27
+            ],
+            [
+                "L23_NBC",
+                28
+            ],
+            [
+                "L23_NBC",
+                29
+            ],
+            [
+                "L23_NGC",
+                0
+            ],
+            [
+                "L23_NGC",
+                1
+            ],
+            [
+                "L23_NGC",
+                2
+            ],
+            [
+                "L23_NGC",
+                3
+            ],
+            [
+                "L23_NGC",
+                4
+            ],
+            [
+                "L23_NGC",
+                5
+            ],
+            [
+                "L23_NGC",
+                6
+            ],
+            [
+                "L23_NGC",
+                7
+            ],
+            [
+                "L23_NGC",
+                8
+            ],
+            [
+                "L23_NGC",
+                9
+            ],
+            [
+                "L23_NGC",
+                10
+            ],
+            [
+                "L23_NGC",
+                11
+            ],
+            [
+                "L23_NGC",
+                12
+            ],
+            [
+                "L23_NGC",
+                13
+            ],
+            [
+                "L23_NGC",
+                14
+            ],
+            [
+                "L23_NGC",
+                15
+            ],
+            [
+                "L23_NGC",
+                16
+            ],
+            [
+                "L23_NGC",
+                17
+            ],
+            [
+                "L23_NGC",
+                18
+            ],
+            [
+                "L23_NGC",
+                19
+            ],
+            [
+                "L23_PC",
+                0
+            ],
+            [
+                "L23_PC",
+                1
+            ],
+            [
+                "L23_PC",
+                2
+            ],
+            [
+                "L23_PC",
+                3
+            ],
+            [
+                "L23_PC",
+                4
+            ],
+            [
+                "L23_SBC",
+                0
+            ],
+            [
+                "L23_SBC",
+                1
+            ],
+            [
+                "L23_SBC",
+                2
+            ],
+            [
+                "L23_SBC",
+                3
+            ],
+            [
+                "L23_SBC",
+                4
+            ],
+            [
+                "L23_SBC",
+                5
+            ],
+            [
+                "L23_SBC",
+                6
+            ],
+            [
+                "L23_SBC",
+                7
+            ],
+            [
+                "L23_SBC",
+                8
+            ],
+            [
+                "L23_SBC",
+                9
+            ],
+            [
+                "L23_SBC",
+                10
+            ],
+            [
+                "L23_SBC",
+                11
+            ],
+            [
+                "L23_SBC",
+                12
+            ],
+            [
+                "L23_SBC",
+                13
+            ],
+            [
+                "L23_SBC",
+                14
+            ],
+            [
+                "L4_BP",
+                0
+            ],
+            [
+                "L4_BP",
+                1
+            ],
+            [
+                "L4_BP",
+                2
+            ],
+            [
+                "L4_BP",
+                3
+            ],
+            [
+                "L4_BP",
+                4
+            ],
+            [
+                "L4_BP",
+                5
+            ],
+            [
+                "L4_BP",
+                6
+            ],
+            [
+                "L4_BP",
+                7
+            ],
+            [
+                "L4_BTC",
+                0
+            ],
+            [
+                "L4_BTC",
+                1
+            ],
+            [
+                "L4_BTC",
+                2
+            ],
+            [
+                "L4_BTC",
+                3
+            ],
+            [
+                "L4_BTC",
+                4
+            ],
+            [
+                "L4_BTC",
+                5
+            ],
+            [
+                "L4_BTC",
+                6
+            ],
+            [
+                "L4_BTC",
+                7
+            ],
+            [
+                "L4_BTC",
+                8
+            ],
+            [
+                "L4_BTC",
+                9
+            ],
+            [
+                "L4_BTC",
+                10
+            ],
+            [
+                "L4_BTC",
+                11
+            ],
+            [
+                "L4_BTC",
+                12
+            ],
+            [
+                "L4_BTC",
+                13
+            ],
+            [
+                "L4_BTC",
+                14
+            ],
+            [
+                "L4_BTC",
+                15
+            ],
+            [
+                "L4_ChC",
+                0
+            ],
+            [
+                "L4_ChC",
+                1
+            ],
+            [
+                "L4_ChC",
+                2
+            ],
+            [
+                "L4_ChC",
+                3
+            ],
+            [
+                "L4_ChC",
+                4
+            ],
+            [
+                "L4_ChC",
+                5
+            ],
+            [
+                "L4_ChC",
+                6
+            ],
+            [
+                "L4_ChC",
+                7
+            ],
+            [
+                "L4_DBC",
+                0
+            ],
+            [
+                "L4_DBC",
+                1
+            ],
+            [
+                "L4_DBC",
+                2
+            ],
+            [
+                "L4_DBC",
+                3
+            ],
+            [
+                "L4_DBC",
+                4
+            ],
+            [
+                "L4_DBC",
+                5
+            ],
+            [
+                "L4_DBC",
+                6
+            ],
+            [
+                "L4_DBC",
+                7
+            ],
+            [
+                "L4_DBC",
+                8
+            ],
+            [
+                "L4_DBC",
+                9
+            ],
+            [
+                "L4_DBC",
+                10
+            ],
+            [
+                "L4_DBC",
+                11
+            ],
+            [
+                "L4_DBC",
+                12
+            ],
+            [
+                "L4_DBC",
+                13
+            ],
+            [
+                "L4_DBC",
+                14
+            ],
+            [
+                "L4_DBC",
+                15
+            ],
+            [
+                "L4_DBC",
+                16
+            ],
+            [
+                "L4_DBC",
+                17
+            ],
+            [
+                "L4_DBC",
+                18
+            ],
+            [
+                "L4_DBC",
+                19
+            ],
+            [
+                "L4_DBC",
+                20
+            ],
+            [
+                "L4_DBC",
+                21
+            ],
+            [
+                "L4_DBC",
+                22
+            ],
+            [
+                "L4_DBC",
+                23
+            ],
+            [
+                "L4_DBC",
+                24
+            ],
+            [
+                "L4_DBC",
+                25
+            ],
+            [
+                "L4_DBC",
+                26
+            ],
+            [
+                "L4_DBC",
+                27
+            ],
+            [
+                "L4_DBC",
+                28
+            ],
+            [
+                "L4_DBC",
+                29
+            ],
+            [
+                "L4_LBC",
+                0
+            ],
+            [
+                "L4_LBC",
+                1
+            ],
+            [
+                "L4_LBC",
+                2
+            ],
+            [
+                "L4_LBC",
+                3
+            ],
+            [
+                "L4_LBC",
+                4
+            ],
+            [
+                "L4_LBC",
+                5
+            ],
+            [
+                "L4_LBC",
+                6
+            ],
+            [
+                "L4_LBC",
+                7
+            ],
+            [
+                "L4_LBC",
+                8
+            ],
+            [
+                "L4_LBC",
+                9
+            ],
+            [
+                "L4_LBC",
+                10
+            ],
+            [
+                "L4_LBC",
+                11
+            ],
+            [
+                "L4_LBC",
+                12
+            ],
+            [
+                "L4_LBC",
+                13
+            ],
+            [
+                "L4_LBC",
+                14
+            ],
+            [
+                "L4_LBC",
+                15
+            ],
+            [
+                "L4_LBC",
+                16
+            ],
+            [
+                "L4_LBC",
+                17
+            ],
+            [
+                "L4_LBC",
+                18
+            ],
+            [
+                "L4_LBC",
+                19
+            ],
+            [
+                "L4_LBC",
+                20
+            ],
+            [
+                "L4_LBC",
+                21
+            ],
+            [
+                "L4_LBC",
+                22
+            ],
+            [
+                "L4_LBC",
+                23
+            ],
+            [
+                "L4_LBC",
+                24
+            ],
+            [
+                "L4_MC",
+                0
+            ],
+            [
+                "L4_MC",
+                1
+            ],
+            [
+                "L4_MC",
+                2
+            ],
+            [
+                "L4_MC",
+                3
+            ],
+            [
+                "L4_MC",
+                4
+            ],
+            [
+                "L4_MC",
+                5
+            ],
+            [
+                "L4_MC",
+                6
+            ],
+            [
+                "L4_MC",
+                7
+            ],
+            [
+                "L4_MC",
+                8
+            ],
+            [
+                "L4_MC",
+                9
+            ],
+            [
+                "L4_MC",
+                10
+            ],
+            [
+                "L4_MC",
+                11
+            ],
+            [
+                "L4_MC",
+                12
+            ],
+            [
+                "L4_MC",
+                13
+            ],
+            [
+                "L4_MC",
+                14
+            ],
+            [
+                "L4_MC",
+                15
+            ],
+            [
+                "L4_MC",
+                16
+            ],
+            [
+                "L4_MC",
+                17
+            ],
+            [
+                "L4_MC",
+                18
+            ],
+            [
+                "L4_MC",
+                19
+            ],
+            [
+                "L4_MC",
+                20
+            ],
+            [
+                "L4_MC",
+                21
+            ],
+            [
+                "L4_MC",
+                22
+            ],
+            [
+                "L4_NBC",
+                0
+            ],
+            [
+                "L4_NBC",
+                1
+            ],
+            [
+                "L4_NBC",
+                2
+            ],
+            [
+                "L4_NBC",
+                3
+            ],
+            [
+                "L4_NBC",
+                4
+            ],
+            [
+                "L4_NBC",
+                5
+            ],
+            [
+                "L4_NBC",
+                6
+            ],
+            [
+                "L4_NBC",
+                7
+            ],
+            [
+                "L4_NBC",
+                8
+            ],
+            [
+                "L4_NBC",
+                9
+            ],
+            [
+                "L4_NBC",
+                10
+            ],
+            [
+                "L4_NBC",
+                11
+            ],
+            [
+                "L4_NBC",
+                12
+            ],
+            [
+                "L4_NBC",
+                13
+            ],
+            [
+                "L4_NBC",
+                14
+            ],
+            [
+                "L4_NBC",
+                15
+            ],
+            [
+                "L4_NBC",
+                16
+            ],
+            [
+                "L4_NBC",
+                17
+            ],
+            [
+                "L4_NBC",
+                18
+            ],
+            [
+                "L4_NBC",
+                19
+            ],
+            [
+                "L4_NGC",
+                0
+            ],
+            [
+                "L4_NGC",
+                1
+            ],
+            [
+                "L4_NGC",
+                2
+            ],
+            [
+                "L4_NGC",
+                3
+            ],
+            [
+                "L4_NGC",
+                4
+            ],
+            [
+                "L4_NGC",
+                5
+            ],
+            [
+                "L4_PC",
+                0
+            ],
+            [
+                "L4_PC",
+                1
+            ],
+            [
+                "L4_PC",
+                2
+            ],
+            [
+                "L4_PC",
+                3
+            ],
+            [
+                "L4_PC",
+                4
+            ],
+            [
+                "L4_SBC",
+                0
+            ],
+            [
+                "L4_SBC",
+                1
+            ],
+            [
+                "L4_SBC",
+                2
+            ],
+            [
+                "L4_SBC",
+                3
+            ],
+            [
+                "L4_SBC",
+                4
+            ],
+            [
+                "L4_SBC",
+                5
+            ],
+            [
+                "L4_SBC",
+                6
+            ],
+            [
+                "L4_SBC",
+                7
+            ],
+            [
+                "L4_SBC",
+                8
+            ],
+            [
+                "L4_SBC",
+                9
+            ],
+            [
+                "L4_SBC",
+                10
+            ],
+            [
+                "L4_SBC",
+                11
+            ],
+            [
+                "L4_SBC",
+                12
+            ],
+            [
+                "L4_SBC",
+                13
+            ],
+            [
+                "L4_SBC",
+                14
+            ],
+            [
+                "L4_SP",
+                0
+            ],
+            [
+                "L4_SP",
+                1
+            ],
+            [
+                "L4_SP",
+                2
+            ],
+            [
+                "L4_SP",
+                3
+            ],
+            [
+                "L4_SP",
+                4
+            ],
+            [
+                "L4_SS",
+                0
+            ],
+            [
+                "L4_SS",
+                1
+            ],
+            [
+                "L4_SS",
+                2
+            ],
+            [
+                "L4_SS",
+                3
+            ],
+            [
+                "L4_SS",
+                4
+            ],
+            [
+                "L5_BP",
+                0
+            ],
+            [
+                "L5_BP",
+                1
+            ],
+            [
+                "L5_BP",
+                2
+            ],
+            [
+                "L5_BP",
+                3
+            ],
+            [
+                "L5_BP",
+                4
+            ],
+            [
+                "L5_BP",
+                5
+            ],
+            [
+                "L5_BP",
+                6
+            ],
+            [
+                "L5_BP",
+                7
+            ],
+            [
+                "L5_BP",
+                8
+            ],
+            [
+                "L5_BP",
+                9
+            ],
+            [
+                "L5_BP",
+                10
+            ],
+            [
+                "L5_BP",
+                11
+            ],
+            [
+                "L5_BP",
+                12
+            ],
+            [
+                "L5_BP",
+                13
+            ],
+            [
+                "L5_BP",
+                14
+            ],
+            [
+                "L5_BP",
+                15
+            ],
+            [
+                "L5_BP",
+                16
+            ],
+            [
+                "L5_BP",
+                17
+            ],
+            [
+                "L5_BP",
+                18
+            ],
+            [
+                "L5_BP",
+                19
+            ],
+            [
+                "L5_BP",
+                20
+            ],
+            [
+                "L5_BP",
+                21
+            ],
+            [
+                "L5_BP",
+                22
+            ],
+            [
+                "L5_BP",
+                23
+            ],
+            [
+                "L5_BP",
+                24
+            ],
+            [
+                "L5_BP",
+                25
+            ],
+            [
+                "L5_BTC",
+                0
+            ],
+            [
+                "L5_BTC",
+                1
+            ],
+            [
+                "L5_BTC",
+                2
+            ],
+            [
+                "L5_BTC",
+                3
+            ],
+            [
+                "L5_BTC",
+                4
+            ],
+            [
+                "L5_BTC",
+                5
+            ],
+            [
+                "L5_BTC",
+                6
+            ],
+            [
+                "L5_BTC",
+                7
+            ],
+            [
+                "L5_BTC",
+                8
+            ],
+            [
+                "L5_BTC",
+                9
+            ],
+            [
+                "L5_BTC",
+                10
+            ],
+            [
+                "L5_BTC",
+                11
+            ],
+            [
+                "L5_BTC",
+                12
+            ],
+            [
+                "L5_BTC",
+                13
+            ],
+            [
+                "L5_BTC",
+                14
+            ],
+            [
+                "L5_ChC",
+                0
+            ],
+            [
+                "L5_ChC",
+                1
+            ],
+            [
+                "L5_ChC",
+                2
+            ],
+            [
+                "L5_ChC",
+                3
+            ],
+            [
+                "L5_ChC",
+                4
+            ],
+            [
+                "L5_ChC",
+                5
+            ],
+            [
+                "L5_ChC",
+                6
+            ],
+            [
+                "L5_ChC",
+                7
+            ],
+            [
+                "L5_ChC",
+                8
+            ],
+            [
+                "L5_ChC",
+                9
+            ],
+            [
+                "L5_ChC",
+                10
+            ],
+            [
+                "L5_ChC",
+                11
+            ],
+            [
+                "L5_ChC",
+                12
+            ],
+            [
+                "L5_ChC",
+                13
+            ],
+            [
+                "L5_ChC",
+                14
+            ],
+            [
+                "L5_DBC",
+                0
+            ],
+            [
+                "L5_DBC",
+                1
+            ],
+            [
+                "L5_DBC",
+                2
+            ],
+            [
+                "L5_DBC",
+                3
+            ],
+            [
+                "L5_DBC",
+                4
+            ],
+            [
+                "L5_DBC",
+                5
+            ],
+            [
+                "L5_DBC",
+                6
+            ],
+            [
+                "L5_DBC",
+                7
+            ],
+            [
+                "L5_DBC",
+                8
+            ],
+            [
+                "L5_DBC",
+                9
+            ],
+            [
+                "L5_DBC",
+                10
+            ],
+            [
+                "L5_DBC",
+                11
+            ],
+            [
+                "L5_DBC",
+                12
+            ],
+            [
+                "L5_DBC",
+                13
+            ],
+            [
+                "L5_DBC",
+                14
+            ],
+            [
+                "L5_DBC",
+                15
+            ],
+            [
+                "L5_DBC",
+                16
+            ],
+            [
+                "L5_DBC",
+                17
+            ],
+            [
+                "L5_DBC",
+                18
+            ],
+            [
+                "L5_DBC",
+                19
+            ],
+            [
+                "L5_DBC",
+                20
+            ],
+            [
+                "L5_DBC",
+                21
+            ],
+            [
+                "L5_DBC",
+                22
+            ],
+            [
+                "L5_DBC",
+                23
+            ],
+            [
+                "L5_DBC",
+                24
+            ],
+            [
+                "L5_DBC",
+                25
+            ],
+            [
+                "L5_DBC",
+                26
+            ],
+            [
+                "L5_DBC",
+                27
+            ],
+            [
+                "L5_DBC",
+                28
+            ],
+            [
+                "L5_DBC",
+                29
+            ],
+            [
+                "L5_DBC",
+                30
+            ],
+            [
+                "L5_DBC",
+                31
+            ],
+            [
+                "L5_DBC",
+                32
+            ],
+            [
+                "L5_DBC",
+                33
+            ],
+            [
+                "L5_DBC",
+                34
+            ],
+            [
+                "L5_LBC",
+                0
+            ],
+            [
+                "L5_LBC",
+                1
+            ],
+            [
+                "L5_LBC",
+                2
+            ],
+            [
+                "L5_LBC",
+                3
+            ],
+            [
+                "L5_LBC",
+                4
+            ],
+            [
+                "L5_LBC",
+                5
+            ],
+            [
+                "L5_LBC",
+                6
+            ],
+            [
+                "L5_LBC",
+                7
+            ],
+            [
+                "L5_LBC",
+                8
+            ],
+            [
+                "L5_LBC",
+                9
+            ],
+            [
+                "L5_LBC",
+                10
+            ],
+            [
+                "L5_LBC",
+                11
+            ],
+            [
+                "L5_LBC",
+                12
+            ],
+            [
+                "L5_LBC",
+                13
+            ],
+            [
+                "L5_LBC",
+                14
+            ],
+            [
+                "L5_LBC",
+                15
+            ],
+            [
+                "L5_LBC",
+                16
+            ],
+            [
+                "L5_LBC",
+                17
+            ],
+            [
+                "L5_LBC",
+                18
+            ],
+            [
+                "L5_LBC",
+                19
+            ],
+            [
+                "L5_LBC",
+                20
+            ],
+            [
+                "L5_LBC",
+                21
+            ],
+            [
+                "L5_LBC",
+                22
+            ],
+            [
+                "L5_LBC",
+                23
+            ],
+            [
+                "L5_LBC",
+                24
+            ],
+            [
+                "L5_LBC",
+                25
+            ],
+            [
+                "L5_LBC",
+                26
+            ],
+            [
+                "L5_LBC",
+                27
+            ],
+            [
+                "L5_LBC",
+                28
+            ],
+            [
+                "L5_LBC",
+                29
+            ],
+            [
+                "L5_LBC",
+                30
+            ],
+            [
+                "L5_LBC",
+                31
+            ],
+            [
+                "L5_LBC",
+                32
+            ],
+            [
+                "L5_LBC",
+                33
+            ],
+            [
+                "L5_LBC",
+                34
+            ],
+            [
+                "L5_MC",
+                0
+            ],
+            [
+                "L5_MC",
+                1
+            ],
+            [
+                "L5_MC",
+                2
+            ],
+            [
+                "L5_MC",
+                3
+            ],
+            [
+                "L5_MC",
+                4
+            ],
+            [
+                "L5_MC",
+                5
+            ],
+            [
+                "L5_MC",
+                6
+            ],
+            [
+                "L5_MC",
+                7
+            ],
+            [
+                "L5_MC",
+                8
+            ],
+            [
+                "L5_MC",
+                9
+            ],
+            [
+                "L5_MC",
+                10
+            ],
+            [
+                "L5_MC",
+                11
+            ],
+            [
+                "L5_MC",
+                12
+            ],
+            [
+                "L5_MC",
+                13
+            ],
+            [
+                "L5_MC",
+                14
+            ],
+            [
+                "L5_MC",
+                15
+            ],
+            [
+                "L5_MC",
+                16
+            ],
+            [
+                "L5_MC",
+                17
+            ],
+            [
+                "L5_MC",
+                18
+            ],
+            [
+                "L5_MC",
+                19
+            ],
+            [
+                "L5_MC",
+                20
+            ],
+            [
+                "L5_MC",
+                21
+            ],
+            [
+                "L5_MC",
+                22
+            ],
+            [
+                "L5_MC",
+                23
+            ],
+            [
+                "L5_MC",
+                24
+            ],
+            [
+                "L5_MC",
+                25
+            ],
+            [
+                "L5_MC",
+                26
+            ],
+            [
+                "L5_MC",
+                27
+            ],
+            [
+                "L5_MC",
+                28
+            ],
+            [
+                "L5_MC",
+                29
+            ],
+            [
+                "L5_MC",
+                30
+            ],
+            [
+                "L5_MC",
+                31
+            ],
+            [
+                "L5_MC",
+                32
+            ],
+            [
+                "L5_MC",
+                33
+            ],
+            [
+                "L5_MC",
+                34
+            ],
+            [
+                "L5_NBC",
+                0
+            ],
+            [
+                "L5_NBC",
+                1
+            ],
+            [
+                "L5_NBC",
+                2
+            ],
+            [
+                "L5_NBC",
+                3
+            ],
+            [
+                "L5_NBC",
+                4
+            ],
+            [
+                "L5_NBC",
+                5
+            ],
+            [
+                "L5_NBC",
+                6
+            ],
+            [
+                "L5_NBC",
+                7
+            ],
+            [
+                "L5_NBC",
+                8
+            ],
+            [
+                "L5_NBC",
+                9
+            ],
+            [
+                "L5_NBC",
+                10
+            ],
+            [
+                "L5_NBC",
+                11
+            ],
+            [
+                "L5_NBC",
+                12
+            ],
+            [
+                "L5_NBC",
+                13
+            ],
+            [
+                "L5_NBC",
+                14
+            ],
+            [
+                "L5_NBC",
+                15
+            ],
+            [
+                "L5_NBC",
+                16
+            ],
+            [
+                "L5_NBC",
+                17
+            ],
+            [
+                "L5_NBC",
+                18
+            ],
+            [
+                "L5_NBC",
+                19
+            ],
+            [
+                "L5_NBC",
+                20
+            ],
+            [
+                "L5_NBC",
+                21
+            ],
+            [
+                "L5_NBC",
+                22
+            ],
+            [
+                "L5_NBC",
+                23
+            ],
+            [
+                "L5_NBC",
+                24
+            ],
+            [
+                "L5_NBC",
+                25
+            ],
+            [
+                "L5_NBC",
+                26
+            ],
+            [
+                "L5_NBC",
+                27
+            ],
+            [
+                "L5_NBC",
+                28
+            ],
+            [
+                "L5_NBC",
+                29
+            ],
+            [
+                "L5_NBC",
+                30
+            ],
+            [
+                "L5_NBC",
+                31
+            ],
+            [
+                "L5_NBC",
+                32
+            ],
+            [
+                "L5_NBC",
+                33
+            ],
+            [
+                "L5_NBC",
+                34
+            ],
+            [
+                "L5_NBC",
+                35
+            ],
+            [
+                "L5_NBC",
+                36
+            ],
+            [
+                "L5_NBC",
+                37
+            ],
+            [
+                "L5_NBC",
+                38
+            ],
+            [
+                "L5_NBC",
+                39
+            ],
+            [
+                "L5_NGC",
+                0
+            ],
+            [
+                "L5_NGC",
+                1
+            ],
+            [
+                "L5_NGC",
+                2
+            ],
+            [
+                "L5_NGC",
+                3
+            ],
+            [
+                "L5_NGC",
+                4
+            ],
+            [
+                "L5_NGC",
+                5
+            ],
+            [
+                "L5_NGC",
+                6
+            ],
+            [
+                "L5_NGC",
+                7
+            ],
+            [
+                "L5_SBC",
+                0
+            ],
+            [
+                "L5_SBC",
+                1
+            ],
+            [
+                "L5_SBC",
+                2
+            ],
+            [
+                "L5_SBC",
+                3
+            ],
+            [
+                "L5_SBC",
+                4
+            ],
+            [
+                "L5_SBC",
+                5
+            ],
+            [
+                "L5_SBC",
+                6
+            ],
+            [
+                "L5_SBC",
+                7
+            ],
+            [
+                "L5_SBC",
+                8
+            ],
+            [
+                "L5_SBC",
+                9
+            ],
+            [
+                "L5_SBC",
+                10
+            ],
+            [
+                "L5_SBC",
+                11
+            ],
+            [
+                "L5_SBC",
+                12
+            ],
+            [
+                "L5_SBC",
+                13
+            ],
+            [
+                "L5_SBC",
+                14
+            ],
+            [
+                "L5_STPC",
+                0
+            ],
+            [
+                "L5_STPC",
+                1
+            ],
+            [
+                "L5_STPC",
+                2
+            ],
+            [
+                "L5_STPC",
+                3
+            ],
+            [
+                "L5_STPC",
+                4
+            ],
+            [
+                "L5_TTPC1",
+                0
+            ],
+            [
+                "L5_TTPC1",
+                1
+            ],
+            [
+                "L5_TTPC1",
+                2
+            ],
+            [
+                "L5_TTPC1",
+                3
+            ],
+            [
+                "L5_TTPC1",
+                4
+            ],
+            [
+                "L5_TTPC2",
+                0
+            ],
+            [
+                "L5_TTPC2",
+                1
+            ],
+            [
+                "L5_TTPC2",
+                2
+            ],
+            [
+                "L5_TTPC2",
+                3
+            ],
+            [
+                "L5_TTPC2",
+                4
+            ],
+            [
+                "L5_UTPC",
+                0
+            ],
+            [
+                "L5_UTPC",
+                1
+            ],
+            [
+                "L5_UTPC",
+                2
+            ],
+            [
+                "L5_UTPC",
+                3
+            ],
+            [
+                "L5_UTPC",
+                4
+            ],
+            [
+                "L6_BPC",
+                0
+            ],
+            [
+                "L6_BPC",
+                1
+            ],
+            [
+                "L6_BPC",
+                2
+            ],
+            [
+                "L6_BPC",
+                3
+            ],
+            [
+                "L6_BPC",
+                4
+            ],
+            [
+                "L6_BP",
+                0
+            ],
+            [
+                "L6_BP",
+                1
+            ],
+            [
+                "L6_BP",
+                2
+            ],
+            [
+                "L6_BP",
+                3
+            ],
+            [
+                "L6_BP",
+                4
+            ],
+            [
+                "L6_BP",
+                5
+            ],
+            [
+                "L6_BP",
+                6
+            ],
+            [
+                "L6_BP",
+                7
+            ],
+            [
+                "L6_BP",
+                8
+            ],
+            [
+                "L6_BP",
+                9
+            ],
+            [
+                "L6_BP",
+                10
+            ],
+            [
+                "L6_BP",
+                11
+            ],
+            [
+                "L6_BP",
+                12
+            ],
+            [
+                "L6_BP",
+                13
+            ],
+            [
+                "L6_BP",
+                14
+            ],
+            [
+                "L6_BP",
+                15
+            ],
+            [
+                "L6_BP",
+                16
+            ],
+            [
+                "L6_BP",
+                17
+            ],
+            [
+                "L6_BP",
+                18
+            ],
+            [
+                "L6_BP",
+                19
+            ],
+            [
+                "L6_BP",
+                20
+            ],
+            [
+                "L6_BP",
+                21
+            ],
+            [
+                "L6_BP",
+                22
+            ],
+            [
+                "L6_BP",
+                23
+            ],
+            [
+                "L6_BP",
+                24
+            ],
+            [
+                "L6_BP",
+                25
+            ],
+            [
+                "L6_BP",
+                26
+            ],
+            [
+                "L6_BP",
+                27
+            ],
+            [
+                "L6_BP",
+                28
+            ],
+            [
+                "L6_BP",
+                29
+            ],
+            [
+                "L6_BTC",
+                0
+            ],
+            [
+                "L6_BTC",
+                1
+            ],
+            [
+                "L6_BTC",
+                2
+            ],
+            [
+                "L6_BTC",
+                3
+            ],
+            [
+                "L6_BTC",
+                4
+            ],
+            [
+                "L6_BTC",
+                5
+            ],
+            [
+                "L6_BTC",
+                6
+            ],
+            [
+                "L6_BTC",
+                7
+            ],
+            [
+                "L6_BTC",
+                8
+            ],
+            [
+                "L6_BTC",
+                9
+            ],
+            [
+                "L6_BTC",
+                10
+            ],
+            [
+                "L6_BTC",
+                11
+            ],
+            [
+                "L6_BTC",
+                12
+            ],
+            [
+                "L6_BTC",
+                13
+            ],
+            [
+                "L6_BTC",
+                14
+            ],
+            [
+                "L6_ChC",
+                0
+            ],
+            [
+                "L6_ChC",
+                1
+            ],
+            [
+                "L6_ChC",
+                2
+            ],
+            [
+                "L6_ChC",
+                3
+            ],
+            [
+                "L6_ChC",
+                4
+            ],
+            [
+                "L6_ChC",
+                5
+            ],
+            [
+                "L6_ChC",
+                6
+            ],
+            [
+                "L6_ChC",
+                7
+            ],
+            [
+                "L6_ChC",
+                8
+            ],
+            [
+                "L6_ChC",
+                9
+            ],
+            [
+                "L6_ChC",
+                10
+            ],
+            [
+                "L6_ChC",
+                11
+            ],
+            [
+                "L6_ChC",
+                12
+            ],
+            [
+                "L6_ChC",
+                13
+            ],
+            [
+                "L6_DBC",
+                0
+            ],
+            [
+                "L6_DBC",
+                1
+            ],
+            [
+                "L6_DBC",
+                2
+            ],
+            [
+                "L6_DBC",
+                3
+            ],
+            [
+                "L6_DBC",
+                4
+            ],
+            [
+                "L6_DBC",
+                5
+            ],
+            [
+                "L6_DBC",
+                6
+            ],
+            [
+                "L6_DBC",
+                7
+            ],
+            [
+                "L6_DBC",
+                8
+            ],
+            [
+                "L6_DBC",
+                9
+            ],
+            [
+                "L6_DBC",
+                10
+            ],
+            [
+                "L6_DBC",
+                11
+            ],
+            [
+                "L6_DBC",
+                12
+            ],
+            [
+                "L6_DBC",
+                13
+            ],
+            [
+                "L6_DBC",
+                14
+            ],
+            [
+                "L6_DBC",
+                15
+            ],
+            [
+                "L6_DBC",
+                16
+            ],
+            [
+                "L6_DBC",
+                17
+            ],
+            [
+                "L6_DBC",
+                18
+            ],
+            [
+                "L6_DBC",
+                19
+            ],
+            [
+                "L6_DBC",
+                20
+            ],
+            [
+                "L6_DBC",
+                21
+            ],
+            [
+                "L6_DBC",
+                22
+            ],
+            [
+                "L6_DBC",
+                23
+            ],
+            [
+                "L6_DBC",
+                24
+            ],
+            [
+                "L6_IPC",
+                0
+            ],
+            [
+                "L6_IPC",
+                1
+            ],
+            [
+                "L6_IPC",
+                2
+            ],
+            [
+                "L6_IPC",
+                3
+            ],
+            [
+                "L6_IPC",
+                4
+            ],
+            [
+                "L6_LBC",
+                0
+            ],
+            [
+                "L6_LBC",
+                1
+            ],
+            [
+                "L6_LBC",
+                2
+            ],
+            [
+                "L6_LBC",
+                3
+            ],
+            [
+                "L6_LBC",
+                4
+            ],
+            [
+                "L6_LBC",
+                5
+            ],
+            [
+                "L6_LBC",
+                6
+            ],
+            [
+                "L6_LBC",
+                7
+            ],
+            [
+                "L6_LBC",
+                8
+            ],
+            [
+                "L6_LBC",
+                9
+            ],
+            [
+                "L6_LBC",
+                10
+            ],
+            [
+                "L6_LBC",
+                11
+            ],
+            [
+                "L6_LBC",
+                12
+            ],
+            [
+                "L6_LBC",
+                13
+            ],
+            [
+                "L6_LBC",
+                14
+            ],
+            [
+                "L6_LBC",
+                15
+            ],
+            [
+                "L6_LBC",
+                16
+            ],
+            [
+                "L6_LBC",
+                17
+            ],
+            [
+                "L6_LBC",
+                18
+            ],
+            [
+                "L6_LBC",
+                19
+            ],
+            [
+                "L6_LBC",
+                20
+            ],
+            [
+                "L6_LBC",
+                21
+            ],
+            [
+                "L6_LBC",
+                22
+            ],
+            [
+                "L6_LBC",
+                23
+            ],
+            [
+                "L6_LBC",
+                24
+            ],
+            [
+                "L6_LBC",
+                25
+            ],
+            [
+                "L6_LBC",
+                26
+            ],
+            [
+                "L6_LBC",
+                27
+            ],
+            [
+                "L6_LBC",
+                28
+            ],
+            [
+                "L6_LBC",
+                29
+            ],
+            [
+                "L6_MC",
+                0
+            ],
+            [
+                "L6_MC",
+                1
+            ],
+            [
+                "L6_MC",
+                2
+            ],
+            [
+                "L6_MC",
+                3
+            ],
+            [
+                "L6_MC",
+                4
+            ],
+            [
+                "L6_MC",
+                5
+            ],
+            [
+                "L6_MC",
+                6
+            ],
+            [
+                "L6_MC",
+                7
+            ],
+            [
+                "L6_MC",
+                8
+            ],
+            [
+                "L6_MC",
+                9
+            ],
+            [
+                "L6_MC",
+                10
+            ],
+            [
+                "L6_MC",
+                11
+            ],
+            [
+                "L6_MC",
+                12
+            ],
+            [
+                "L6_MC",
+                13
+            ],
+            [
+                "L6_MC",
+                14
+            ],
+            [
+                "L6_MC",
+                15
+            ],
+            [
+                "L6_MC",
+                16
+            ],
+            [
+                "L6_MC",
+                17
+            ],
+            [
+                "L6_MC",
+                18
+            ],
+            [
+                "L6_MC",
+                19
+            ],
+            [
+                "L6_MC",
+                20
+            ],
+            [
+                "L6_MC",
+                21
+            ],
+            [
+                "L6_MC",
+                22
+            ],
+            [
+                "L6_MC",
+                23
+            ],
+            [
+                "L6_MC",
+                24
+            ],
+            [
+                "L6_MC",
+                25
+            ],
+            [
+                "L6_MC",
+                26
+            ],
+            [
+                "L6_MC",
+                27
+            ],
+            [
+                "L6_MC",
+                28
+            ],
+            [
+                "L6_MC",
+                29
+            ],
+            [
+                "L6_MC",
+                30
+            ],
+            [
+                "L6_MC",
+                31
+            ],
+            [
+                "L6_MC",
+                32
+            ],
+            [
+                "L6_MC",
+                33
+            ],
+            [
+                "L6_MC",
+                34
+            ],
+            [
+                "L6_NBC",
+                0
+            ],
+            [
+                "L6_NBC",
+                1
+            ],
+            [
+                "L6_NBC",
+                2
+            ],
+            [
+                "L6_NBC",
+                3
+            ],
+            [
+                "L6_NBC",
+                4
+            ],
+            [
+                "L6_NBC",
+                5
+            ],
+            [
+                "L6_NBC",
+                6
+            ],
+            [
+                "L6_NBC",
+                7
+            ],
+            [
+                "L6_NBC",
+                8
+            ],
+            [
+                "L6_NBC",
+                9
+            ],
+            [
+                "L6_NBC",
+                10
+            ],
+            [
+                "L6_NBC",
+                11
+            ],
+            [
+                "L6_NBC",
+                12
+            ],
+            [
+                "L6_NBC",
+                13
+            ],
+            [
+                "L6_NBC",
+                14
+            ],
+            [
+                "L6_NBC",
+                15
+            ],
+            [
+                "L6_NBC",
+                16
+            ],
+            [
+                "L6_NBC",
+                17
+            ],
+            [
+                "L6_NBC",
+                18
+            ],
+            [
+                "L6_NBC",
+                19
+            ],
+            [
+                "L6_NBC",
+                20
+            ],
+            [
+                "L6_NBC",
+                21
+            ],
+            [
+                "L6_NBC",
+                22
+            ],
+            [
+                "L6_NBC",
+                23
+            ],
+            [
+                "L6_NBC",
+                24
+            ],
+            [
+                "L6_NBC",
+                25
+            ],
+            [
+                "L6_NBC",
+                26
+            ],
+            [
+                "L6_NBC",
+                27
+            ],
+            [
+                "L6_NBC",
+                28
+            ],
+            [
+                "L6_NBC",
+                29
+            ],
+            [
+                "L6_NBC",
+                30
+            ],
+            [
+                "L6_NBC",
+                31
+            ],
+            [
+                "L6_NBC",
+                32
+            ],
+            [
+                "L6_NBC",
+                33
+            ],
+            [
+                "L6_NBC",
+                34
+            ],
+            [
+                "L6_NBC",
+                35
+            ],
+            [
+                "L6_NBC",
+                36
+            ],
+            [
+                "L6_NBC",
+                37
+            ],
+            [
+                "L6_NBC",
+                38
+            ],
+            [
+                "L6_NBC",
+                39
+            ],
+            [
+                "L6_NGC",
+                0
+            ],
+            [
+                "L6_NGC",
+                1
+            ],
+            [
+                "L6_NGC",
+                2
+            ],
+            [
+                "L6_NGC",
+                3
+            ],
+            [
+                "L6_NGC",
+                4
+            ],
+            [
+                "L6_NGC",
+                5
+            ],
+            [
+                "L6_NGC",
+                6
+            ],
+            [
+                "L6_NGC",
+                7
+            ],
+            [
+                "L6_NGC",
+                8
+            ],
+            [
+                "L6_NGC",
+                9
+            ],
+            [
+                "L6_NGC",
+                10
+            ],
+            [
+                "L6_SBC",
+                0
+            ],
+            [
+                "L6_SBC",
+                1
+            ],
+            [
+                "L6_SBC",
+                2
+            ],
+            [
+                "L6_SBC",
+                3
+            ],
+            [
+                "L6_SBC",
+                4
+            ],
+            [
+                "L6_SBC",
+                5
+            ],
+            [
+                "L6_SBC",
+                6
+            ],
+            [
+                "L6_SBC",
+                7
+            ],
+            [
+                "L6_SBC",
+                8
+            ],
+            [
+                "L6_SBC",
+                9
+            ],
+            [
+                "L6_SBC",
+                10
+            ],
+            [
+                "L6_SBC",
+                11
+            ],
+            [
+                "L6_SBC",
+                12
+            ],
+            [
+                "L6_SBC",
+                13
+            ],
+            [
+                "L6_SBC",
+                14
+            ],
+            [
+                "L6_TPC_L1",
+                0
+            ],
+            [
+                "L6_TPC_L1",
+                1
+            ],
+            [
+                "L6_TPC_L1",
+                2
+            ],
+            [
+                "L6_TPC_L1",
+                3
+            ],
+            [
+                "L6_TPC_L1",
+                4
+            ],
+            [
+                "L6_TPC_L4",
+                0
+            ],
+            [
+                "L6_TPC_L4",
+                1
+            ],
+            [
+                "L6_TPC_L4",
+                2
+            ],
+            [
+                "L6_TPC_L4",
+                3
+            ],
+            [
+                "L6_TPC_L4",
+                4
+            ],
+            [
+                "L6_UTPC",
+                0
+            ],
+            [
+                "L6_UTPC",
+                1
+            ],
+            [
+                "L6_UTPC",
+                2
+            ],
+            [
+                "L6_UTPC",
+                3
+            ],
+            [
+                "L6_UTPC",
+                4
+            ]
+        ],
+        "recordCellsSpikes": -1,
+        "recordDipoles": false,
+        "recordLFP": [],
+        "recordStep": 0.1,
+        "recordStim": false,
+        "recordTime": false,
+        "recordTraces": {
+            "V_soma": {
+                "loc": 0.5,
+                "sec": "soma",
+                "var": "v"
+            }
+        },
+        "reducedtest": true,
+        "rootFolder": "/home/fernando/S1_netpyne/sim",
+        "saveCSV": false,
+        "saveCellConns": true,
+        "saveCellSecs": false,
+        "saveDat": false,
+        "saveDataInclude": [
+            "simConfig"
+        ],
+        "saveDpk": false,
+        "saveFolder": "../data/v6_batch0",
+        "saveHDF5": false,
+        "saveJson": true,
+        "saveLFPCells": false,
+        "saveMat": false,
+        "savePickle": false,
+        "saveTiming": false,
+        "scale": 1.0,
+        "scaleDensity": 1.0,
+        "seeds": {
+            "conn": 4321,
+            "loc": 4321,
+            "stim": 4321
+        },
+        "simLabel": "v6_batch0_0",
+        "sizeX": 420.0,
+        "sizeY": 2082.0,
+        "sizeZ": 420.0,
+        "synWeightFractionEE": [
+            1.0,
+            1.0
+        ],
+        "synWeightFractionEI": [
+            1.0,
+            1.0
+        ],
+        "synWeightFractionIE": [
+            1.0,
+            1.0
+        ],
+        "synWeightFractionII": [
+            1.0,
+            1.0
+        ],
+        "thalamicpops": [],
+        "thalamocorticalconnections": [
+            "VPL_sTC",
+            "VPM_sTC",
+            "POm_sTC_s1"
+        ],
+        "timestampFilename": false,
+        "timing": true,
+        "tstop": 1000.0,
+        "use_fast_imem": false,
+        "verbose": false,
+        "yConnFactor": 10
+    }
+}
