@@ -10,22 +10,22 @@ Importing netParams from ../data/v6_batch0/v6_batch0_netParams.py
 Plotting connectivity matrix...
   There was an exception in plotConn(): 
     'Network' object has no attribute 'allCells' 
-    (<class 'AttributeError'>, AttributeError("'Network' object has no attribute 'allCells'"), <traceback object at 0x7ff6eadf0bc0>)
+    (<class 'AttributeError'>, AttributeError("'Network' object has no attribute 'allCells'"), <traceback object at 0x7f02e2bf3640>)
 
 Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
 Loading file ../data/v6_batch0/v6_batch0_3_cfg.json ... 
 Loading simConfig...
 Importing netParams from ../data/v6_batch0/v6_batch0_netParams.py
 
-Start time:  2021-08-17 00:54:28.047141
+Start time:  2021-08-17 13:36:53.246294
 
 Creating network of 55 cell populations on 2 hosts...
   Number of cells on node 0: 465 
-  Done; cell creation time = 3.33 s.
+  Done; cell creation time = 3.14 s.
 Making connections...
   Number of connections on node 0: 1110 
   Number of synaptic contacts on node 0: 25180 
-  Done; cell connection time = 14.87 s.
+  Done; cell connection time = 14.64 s.
 
 Gathering data...
   Done; gather time = 0.88 s.

@@ -209,14 +209,14 @@ ISynMech6 = ['GABAA6', 'GABAB']
 ISynMech10 = ['GABAA10', 'GABAB']
 
 # Th
-# netParams.synMechParams['NMDA_Th']             = {'mod': 'MyExp2SynNMDABB',    'tau1NMDA': 15, 'tau2NMDA': 150,                'e': 0}
-# netParams.synMechParams['AMPA_Th']             = {'mod': 'MyExp2SynBB',        'tau1': 0.05,   'tau2': 5.3, 'e': 0}
-# netParams.synMechParams['GABAB_Th']            = {'mod': 'MyExp2SynBB',        'tau1': 3.5,    'tau2': 260.9,                  'e': -93} 
-# netParams.synMechParams['GABAA_Th']            = {'mod': 'MyExp2SynBB',        'tau1': 0.07,   'tau2': 18.2,                   'e': -80}
+netParams.synMechParams['NMDA_Th']             = {'mod': 'MyExp2SynNMDABB',    'tau1NMDA': 15, 'tau2NMDA': 150,                'e': 0}
+netParams.synMechParams['AMPA_Th']             = {'mod': 'MyExp2SynBB',        'tau1': 0.05,   'tau2': 5.3, 'e': 0}
+netParams.synMechParams['GABAB_Th']            = {'mod': 'MyExp2SynBB',        'tau1': 3.5,    'tau2': 260.9,                  'e': -93} 
+netParams.synMechParams['GABAA_Th']            = {'mod': 'MyExp2SynBB',        'tau1': 0.07,   'tau2': 18.2,                   'e': -80}
 
-# ESynMech_Th    = ['AMPA_Th', 'NMDA_Th']
-# PVSynMech_Th   = ['GABAA_Th']
-# NGFSynMech_Th  = ['GABAA_Th', 'GABAB_Th']
+ESynMech_Th    = ['AMPA_Th', 'NMDA_Th']
+PVSynMech_Th   = ['GABAA_Th']
+NGFSynMech_Th  = ['GABAA_Th', 'GABAB_Th']
 
 #------------------------------------------------------------------------------
 # load data from S1 conn pre-processing file 
@@ -747,8 +747,6 @@ if cfg.addNetStim:
 
         if synMech == ESynMech:
             wfrac = cfg.synWeightFractionEE
-        elif synMech == SOMESynMech:
-            wfrac = cfg.synWeightFractionSOME
         else:
             wfrac = [1.0]
 
@@ -787,8 +785,6 @@ if cfg.addTargetedNetStim:
 
         if synMech == ESynMech:
             wfrac = cfg.synWeightFractionEE
-        elif synMech == SOMESynMech:
-            wfrac = cfg.synWeightFractionSOME
         else:
             wfrac = [1.0]
 
