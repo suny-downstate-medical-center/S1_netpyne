@@ -37,4 +37,4 @@ features = ['numConns'] #,'convergence'
 groups =['pop']
 for feat in features:
    for group in groups:
-       sim.analysis.plotConn(includePre=cfg.popParamLabels, includePost=cfg.popParamLabels, feature=feat, groupBy=group, figSize=(24,24), saveFig=False, orderBy='gid', graphType='matrix', fontSize=18, saveData='../data/'+cfg.simLabel[0:9]+'/'+cfg.simLabel + '_' + group + '_' + feat+ '_matrix.json')
+       sim.analysis.plotConn(includePre=cfg.popParamLabels, includePost=cfg.popParamLabels, feature=feat, groupBy=group, figSize=(24,24), saveFig=True, orderBy='gid', graphType='matrix', fontSize=18, saveData='../data/'+cfg.simLabel[0:9]+'/'+cfg.simLabel + '_' + group + '_' + feat+ '_matrix.json')

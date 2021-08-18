@@ -56,6 +56,11 @@ for popName in cfg.S1pops:
     if popName not in Epops:
         Ipops.append(popName)
 
+Epops = []
+for popName in cfg.S1pops:
+    if popName not in Ipops:
+        Epops.append(popName)   
+
 layer = {'1':[0.0, 0.079], '2': [0.079,0.151], '3': [0.151,0.320], '23': [0.079,0.320], '4':[0.320,0.412], '5': [0.412,0.664], '6': [0.664,1.0], 
 'longS1': [2.2,2.3], 'longS2': [2.3,2.4]}  # normalized layer boundaries
 
@@ -250,10 +255,11 @@ gsyn = connData['gsyn']
 # S1 Local connectivity parameters 
 #------------------------------------------------------------------------------
 if cfg.addConn:   
+    
 # I -> I
     for pre in Ipops:
         for post in Ipops:
-            if float(connNumber[pre][post]) > 0:        
+            if float(connNumber[pre][post]) > 0 and pre in cfg.preNet:        
 
                 if int(float(d0[pre][post])) < 25:    #d0==12.5 -> single exponential fit
                     linear = 0
@@ -294,7 +300,7 @@ if cfg.addConn:
 ## I -> E
     for pre in Ipops:
         for post in Epops:
-            if float(connNumber[pre][post]) > 0:        
+            if float(connNumber[pre][post]) > 0 and pre in cfg.preNet:        
 
                 if int(float(d0[pre][post])) < 25:    #d0==12.5 -> single exponential fit
                     linear = 0
@@ -335,7 +341,7 @@ if cfg.addConn:
 # ## E -> I
     for pre in Epops:
         for post in Ipops:
-            if float(connNumber[pre][post]) > 0:        
+            if float(connNumber[pre][post]) > 0 and pre in cfg.preNet:        
 
                 if int(float(d0[pre][post])) < 25:    #d0==12.5 -> single exponential fit
                     linear = 0
@@ -369,7 +375,7 @@ if cfg.addConn:
 # E -> E
     for pre in Epops:
         for post in Epops:
-            if float(connNumber[pre][post]) > 0:        
+            if float(connNumber[pre][post]) > 0 and pre in cfg.preNet:        
 
                 if int(float(d0[pre][post])) < 25:    #d0==12.5 -> single exponential fit
                     linear = 0

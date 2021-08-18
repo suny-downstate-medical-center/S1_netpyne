@@ -52,9 +52,9 @@ cfg.celltypeNumber = 207 # max 207 + 6
 # TO DEBUG - import and simulate only the Cell soma (to study only the Net)
 cfg.reducedtest = True    
 # TO DEBUG - Create only 5 Cells for each MEtype in S1
-cfg.oneCellperMEtypeS1 = True 
+cfg.oneCellperMEtypeS1 = False 
 # TO DEBUG - Create only one Cell per MEtype (~1000 S1 cells + 6 Th cells)
-cfg.oneCellperMEtype = True 
+cfg.oneCellperMEtype = False 
 
 #------------------------------------------------------------------------------  
 # S1 Cells
@@ -82,6 +82,11 @@ for line in mtype_content.split('\n')[:-1]:
 
 cfg.S1pops = popParam[0:55]
 cfg.S1cells = cellParam[0:207]
+
+# TO DEBUG - connect only feel pre neurons with all post
+cfg.preNet_i = 0
+cfg.preNet_f = 10
+cfg.preNet = popParam[cfg.preNet_i:cfg.preNet_f]
 
 #------------------------------------------------------------------------------  
 # TO DEBUG - Create only one Cell per MEtype in S1 cells
