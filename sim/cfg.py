@@ -84,8 +84,8 @@ cfg.S1pops = popParam[0:55]
 cfg.S1cells = cellParam[0:207]
 
 # TO DEBUG - connect only feel pre neurons with all post
-cfg.preNet_i = 0
-cfg.preNet_f = 14
+cfg.preNet_i = 16
+cfg.preNet_f = 26
 cfg.preNet = popParam[cfg.preNet_i:cfg.preNet_f]
 
 #------------------------------------------------------------------------------  
@@ -181,7 +181,7 @@ cfg.recordStep = 0.1
 #------------------------------------------------------------------------------
 # Saving
 #------------------------------------------------------------------------------
-cfg.simLabel = 'v6_batch0'
+cfg.simLabel = 'v6_batch1b'
 cfg.saveFolder = '../data/'+cfg.simLabel
 # cfg.filename =                	## Set file output name
 cfg.savePickle = False         	## Save pkl file

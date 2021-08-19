@@ -45,7 +45,7 @@ def setRunCfg(b, type='mpi_bulletin'):
             'allocation': 'default',
             'walltime': '72:00:00', 
             'nodes': 1,
-            'coresPerNode': 40,
+            'coresPerNode': 10,
             'email': 'fernandodasilvaborges@gmail.com',
             'folder': '/home/ext_fernandodasilvaborges_gmail_/S1_netpyne/sim/', 
             'script': 'init.py', 
@@ -58,8 +58,8 @@ def setRunCfg(b, type='mpi_bulletin'):
 if __name__ == '__main__': 
     b = custom() #
 
-    b.batchLabel = 'v6_batch0'  
+    b.batchLabel = 'v6_batch2'  
     b.saveFolder = '../data/'+b.batchLabel
     b.method = 'grid'
-    setRunCfg(b, 'mpi_direct')
+    setRunCfg(b, 'hpc_slurm_gcp')
     b.run() # run batch
