@@ -85,7 +85,7 @@ cfg.S1cells = cellParam[0:207]
 
 # TO DEBUG - connect only feel pre neurons with all post
 cfg.preNet_i = 0
-cfg.preNet_f = 10
+cfg.preNet_f = 14
 cfg.preNet = popParam[cfg.preNet_i:cfg.preNet_f]
 
 #------------------------------------------------------------------------------  

@@ -15,7 +15,7 @@ import numpy as np
 def custom():
     params = specs.ODict()
     
-    params[('seeds', 'conn')] =  [4321, 4322, 4323, 4324, 4325, 4326, 4327]
+    params[('seeds', 'conn')] =  [4321, 4322, 4323, 4324, 4325, 4326, 4327] #
 
     # params[('rateStimI')] = [9.0]
     # params[('rateStimE')] = [9.0]
@@ -35,7 +35,7 @@ def setRunCfg(b, type='mpi_bulletin'):
 
     elif type=='mpi_direct':
         b.runCfg = {'type': 'mpi_direct',
-            'cores': 2,
+            'cores': 8,
             'script': 'init.py',
             'mpiCommand': 'mpiexec', # --use-hwthread-cpus
             'skip': True}
