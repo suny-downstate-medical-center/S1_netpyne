@@ -1,0 +1,62 @@
+numprocs=4
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v6_batchb/v6_batchb_0_cfg.json ... 
+Loading simConfig...
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v6_batchb/v6_batchb_0_cfg.json ... 
+Loading simConfig...
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v6_batchb/v6_batchb_0_cfg.json ... 
+Loading simConfig...
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v6_batchb/v6_batchb_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v6_batchb/v6_batchb_netParams.py
+
+Start time:  2021-08-19 21:34:27.585519
+Importing netParams from ../data/v6_batchb/v6_batchb_netParams.py
+Importing netParams from ../data/v6_batchb/v6_batchb_netParams.py
+Importing netParams from ../data/v6_batchb/v6_batchb_netParams.py
+
+Creating network of 55 cell populations on 4 hosts...
+  Number of cells on node 3: 7836 
+  Number of cells on node 0: 7837 
+  Done; cell creation time = 34.48 s.
+Making connections...
+  Number of cells on node 1: 7837 
+  Number of cells on node 2: 7836 
+  Number of connections on node 1: 229002 
+  Number of synaptic contacts on node 1: 1734470 
+  Number of connections on node 0: 229078 
+  Number of synaptic contacts on node 0: 1733790 
+  Number of connections on node 3: 228800 
+  Number of synaptic contacts on node 3: 1728950 
+  Number of connections on node 2: 227185 
+  Number of synaptic contacts on node 2: 1721952 
+  Done; cell connection time = 1677.70 s.
+
+Gathering data...
+  Done; gather time = 111.73 s.
+
+Analyzing...
+Plotting connectivity matrix...
+  There was an exception in plotConn(): 
+    'Network' object has no attribute 'allCells' 
+    (<class 'AttributeError'>, AttributeError("'Network' object has no attribute 'allCells'",), <traceback object at 0x7fca801e72c8>)
+Plotting connectivity matrix...
+  There was an exception in plotConn(): 
+    'Network' object has no attribute 'allCells' 
+    (<class 'AttributeError'>, AttributeError("'Network' object has no attribute 'allCells'",), <traceback object at 0x7f851ed97308>)
+Plotting connectivity matrix...
+  There was an exception in plotConn(): 
+    'Network' object has no attribute 'allCells' 
+    (<class 'AttributeError'>, AttributeError("'Network' object has no attribute 'allCells'",), <traceback object at 0x7f34a6437308>)
+  Cells: 31346
+  Connections: 914065 (29.16 per cell)
+  Synaptic contacts: 6919162 (220.74 per cell)
+Plotting connectivity matrix...
+Saving figure data as ../data/v6_batchb/v6_batchb_0_pop_numConns_matrix.json ... 

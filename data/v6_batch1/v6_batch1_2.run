@@ -1,0 +1,110 @@
+numprocs=8
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v6_batch1/v6_batch1_2_cfg.json ... 
+Loading simConfig...
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v6_batch1/v6_batch1_2_cfg.json ... 
+Loading simConfig...
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v6_batch1/v6_batch1_2_cfg.json ... 
+Loading simConfig...
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v6_batch1/v6_batch1_2_cfg.json ... 
+Loading simConfig...
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v6_batch1/v6_batch1_2_cfg.json ... 
+Loading simConfig...
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v6_batch1/v6_batch1_2_cfg.json ... 
+Loading simConfig...
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v6_batch1/v6_batch1_2_cfg.json ... 
+Loading simConfig...
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v6_batch1/v6_batch1_2_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v6_batch1/v6_batch1_netParams.py
+
+Start time:  2021-08-19 14:34:29.675911
+Importing netParams from ../data/v6_batch1/v6_batch1_netParams.py
+Importing netParams from ../data/v6_batch1/v6_batch1_netParams.py
+Importing netParams from ../data/v6_batch1/v6_batch1_netParams.py
+Importing netParams from ../data/v6_batch1/v6_batch1_netParams.py
+Importing netParams from ../data/v6_batch1/v6_batch1_netParams.py
+Importing netParams from ../data/v6_batch1/v6_batch1_netParams.py
+Importing netParams from ../data/v6_batch1/v6_batch1_netParams.py
+
+Creating network of 55 cell populations on 8 hosts...
+  Number of cells on node 0: 3919 
+  Done; cell creation time = 23.01 s.
+Making connections...
+  Number of cells on node 2: 3918 
+  Number of cells on node 3: 3918 
+  Number of cells on node 7: 3918 
+  Number of cells on node 4: 3918 
+  Number of cells on node 1: 3919 
+  Number of cells on node 5: 3918 
+  Number of cells on node 6: 3918 
+  Number of connections on node 6: 108059 
+  Number of synaptic contacts on node 6: 754542 
+  Number of connections on node 0: 108272 
+  Number of synaptic contacts on node 0: 758568 
+  Number of connections on node 2: 108511 
+  Number of synaptic contacts on node 2: 757928 
+  Number of connections on node 7: 109564 
+  Number of synaptic contacts on node 7: 763308 
+  Number of connections on node 5: 109024 
+  Number of synaptic contacts on node 5: 761536 
+  Number of connections on node 4: 109802 
+  Number of synaptic contacts on node 4: 767900 
+  Number of connections on node 3: 110106 
+  Number of synaptic contacts on node 3: 767110 
+  Number of connections on node 1: 108045 
+  Number of synaptic contacts on node 1: 755270 
+  Done; cell connection time = 1294.74 s.
+
+Gathering data...
+  Done; gather time = 87.55 s.
+
+Analyzing...
+Plotting connectivity matrix...
+  There was an exception in plotConn(): 
+    'Network' object has no attribute 'allCells' 
+    (<class 'AttributeError'>, AttributeError("'Network' object has no attribute 'allCells'",), <traceback object at 0x7f6cdad61308>)
+Plotting connectivity matrix...
+  There was an exception in plotConn(): 
+    'Network' object has no attribute 'allCells' 
+    (<class 'AttributeError'>, AttributeError("'Network' object has no attribute 'allCells'",), <traceback object at 0x7f0ca6ba6308>)
+Plotting connectivity matrix...
+  There was an exception in plotConn(): 
+    'Network' object has no attribute 'allCells' 
+    (<class 'AttributeError'>, AttributeError("'Network' object has no attribute 'allCells'",), <traceback object at 0x7f9781abf2c8>)
+Plotting connectivity matrix...
+  There was an exception in plotConn(): 
+    'Network' object has no attribute 'allCells' 
+    (<class 'AttributeError'>, AttributeError("'Network' object has no attribute 'allCells'",), <traceback object at 0x7f39235e92c8>)
+Plotting connectivity matrix...
+  There was an exception in plotConn(): 
+    'Network' object has no attribute 'allCells' 
+    (<class 'AttributeError'>, AttributeError("'Network' object has no attribute 'allCells'",), <traceback object at 0x7fe1f091e348>)
+Plotting connectivity matrix...
+  There was an exception in plotConn(): 
+    'Network' object has no attribute 'allCells' 
+    (<class 'AttributeError'>, AttributeError("'Network' object has no attribute 'allCells'",), <traceback object at 0x7f010074f2c8>)
+Plotting connectivity matrix...
+  There was an exception in plotConn(): 
+    'Network' object has no attribute 'allCells' 
+    (<class 'AttributeError'>, AttributeError("'Network' object has no attribute 'allCells'",), <traceback object at 0x7fd07b63c348>)
+  Cells: 31346
+  Connections: 871383 (27.80 per cell)
+  Synaptic contacts: 6086162 (194.16 per cell)
+Plotting connectivity matrix...
+Saving figure data as ../data/v6_batch1/v6_batch1_2_pop_numConns_matrix.json ... 
