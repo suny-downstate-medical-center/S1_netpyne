@@ -32,7 +32,7 @@ def runnetpyne(cellnumber):
     #------------------------------------------------------------------------------
     cfg.duration = 2.0*1e2 ## Duration of the sim, in ms  
     cfg.dt = 0.025
-    cfg.seeds = {'conn': 4321, 'stim': 4321, 'loc': 4321} 
+    cfg.seeds = {'conn': 4322, 'stim': 4322, 'loc': 4322} 
     cfg.hParams = {'celsius': 34, 'v_init': -65}  
     cfg.verbose = False
     cfg.createNEURONObj = True
@@ -311,8 +311,15 @@ def runnetpyne(cellnumber):
     connNumber = connData['connNumber']
     decay = connData['decay']
     gsyn = connData['gsyn']
-    use = connData['use']
 
+    lmat_exp = connData['lmat_exp']
+    a0mat_exp = connData['a0mat_exp']
+    d0_exp = connData['d0_exp']
+
+    # lmat_gauss = connData['lmat_gauss']
+    # a0mat_gauss = connData['a0mat_gauss']
+    # d0_gauss = connData['d0_gauss']
+    # x0_gauss = connData['x0_gauss']
     #------------------------------------------------------------------------------
     # S1 Local connectivity parameters 
     #------------------------------------------------------------------------------
@@ -333,23 +340,11 @@ def runnetpyne(cellnumber):
             for post in Ipops:
                 if float(connNumber[pre][post]) > 0 and pre in subPopLabels:        
 
-                    if int(float(d0[pre][post])) < 25:    #d0==12.5 -> single exponential fit
-                        linear = 0
-                        angular = 0
-                        prob = '%s * exp(-dist_2D/%s)*(dist_2D<%s)' % (a0mat[pre][post],lmat[pre][post],dfinal[pre][post])                     
-                    elif int(float(d0[pre][post])) == 25:    #d0==25 -> exponential fit when dist_2D>25, else prob[0um:25um] = pmat[12.5]
+                    if int(float(d0_exp[pre][post])) < 25:    #single exponential fit
+                        prob = '%s * exp(-dist_2D/%s)*(dist_2D<%s)' % (a0mat_exp[pre][post],lmat_exp[pre][post],dfinal[pre][post])                     
+                    else: #saturation [0:25]
                         linear = float(pmat[12.5][pre][post])
-                        angular = 0
-                        prob = '%s * exp(-dist_2D/%s)*(dist_2D<%s) if dist_2D > %s else %f * dist_2D + %f' % (a0mat[pre][post],lmat[pre][post],dfinal[pre][post],d0[pre][post],angular,linear)
-                    else:    #d0>25 -> exponential fit when dist_2D>d0, else prob[0um:d0] = linear interpolation [25:d0]
-                        d01 = int(float(d0[pre][post]))
-                        y1 = float(pmat[25][pre][post])
-                        y2 = float(pmat[d01][pre][post])
-                        x1 = 25
-                        x2 = d01                   
-                        angular = (y2 - y1)/(x2 - x1)
-                        linear = y2 - x2*angular
-                        prob = '%s * exp(-dist_2D/%s)*(dist_2D<%s) if dist_2D > %s else %f * dist_2D + %f' % (a0mat[pre][post],lmat[pre][post],dfinal[pre][post],d0[pre][post],angular,linear)
+                        prob = '%s * exp(-dist_2D/%s)*(dist_2D<%s) if dist_2D > %s else %f' % (a0mat_exp[pre][post],lmat_exp[pre][post],dfinal[pre][post],d0_exp[pre][post],linear)
 
                     if decay[pre][post] > 10.0:
                         synMechType =  ISynMech10
@@ -374,23 +369,11 @@ def runnetpyne(cellnumber):
             for post in Epops:
                 if float(connNumber[pre][post]) > 0 and pre in subPopLabels:        
 
-                    if int(float(d0[pre][post])) < 25:    #d0==12.5 -> single exponential fit
-                        linear = 0
-                        angular = 0
-                        prob = '%s*exp(-dist_2D/%s)*(dist_2D<%s)' % (a0mat[pre][post],lmat[pre][post],dfinal[pre][post])                     
-                    elif int(float(d0[pre][post])) == 25:    #d0==25 -> exponential fit when dist_2D>25, else prob[0um:25um] = pmat[12.5]
+                    if int(float(d0_exp[pre][post])) < 25:    #single exponential fit
+                        prob = '%s * exp(-dist_2D/%s)*(dist_2D<%s)' % (a0mat_exp[pre][post],lmat_exp[pre][post],dfinal[pre][post])                     
+                    else: #saturation [0:25]
                         linear = float(pmat[12.5][pre][post])
-                        angular = 0
-                        prob = '%s*exp(-dist_2D/%s)*(dist_2D<%s) if dist_2D > %s else %f*dist_2D+%f' % (a0mat[pre][post],lmat[pre][post],dfinal[pre][post],d0[pre][post],angular,linear)
-                    else:    #d0>25 -> exponential fit when dist_2D>d0, else prob[0um:d0] = linear interpolation [25:d0]
-                        d01 = int(float(d0[pre][post]))
-                        y1 = float(pmat[25][pre][post])
-                        y2 = float(pmat[d01][pre][post])
-                        x1 = 25
-                        x2 = d01                   
-                        angular = (y2 - y1)/(x2 - x1)
-                        linear = y2 - x2*angular
-                        prob = '%s*exp(-dist_2D/%s)*(dist_2D<%s) if dist_2D > %s else %f * dist_2D + %f' % (a0mat[pre][post],lmat[pre][post],dfinal[pre][post],d0[pre][post],angular,linear)
+                        prob = '%s * exp(-dist_2D/%s)*(dist_2D<%s) if dist_2D > %s else %f' % (a0mat_exp[pre][post],lmat_exp[pre][post],dfinal[pre][post],d0_exp[pre][post],linear)
 
                     if decay[pre][post] > 10.0:
                         synMechType =  ISynMech10
@@ -415,23 +398,11 @@ def runnetpyne(cellnumber):
             for post in Epops:
                 if float(connNumber[pre][post]) > 0 and pre in subPopLabels:        
 
-                    if int(float(d0[pre][post])) < 25:    #d0==12.5 -> single exponential fit
-                        linear = 0
-                        angular = 0
-                        prob = '%s * exp(-dist_2D/%s)*(dist_2D<%s)' % (a0mat[pre][post],lmat[pre][post],dfinal[pre][post])                     
-                    elif int(float(d0[pre][post])) == 25:    #d0==25 -> exponential fit when dist_2D>25, else prob[0um:25um] = pmat[12.5]
+                    if int(float(d0_exp[pre][post])) < 25:    #single exponential fit
+                        prob = '%s * exp(-dist_2D/%s)*(dist_2D<%s)' % (a0mat_exp[pre][post],lmat_exp[pre][post],dfinal[pre][post])                     
+                    else: #saturation [0:25]
                         linear = float(pmat[12.5][pre][post])
-                        angular = 0
-                        prob = '%s * exp(-dist_2D/%s)*(dist_2D<%s) if dist_2D > %s else %f * dist_2D + %f' % (a0mat[pre][post],lmat[pre][post],dfinal[pre][post],d0[pre][post],angular,linear)
-                    else:    #d0>25 -> exponential fit when dist_2D>d0, else prob[0um:d0] = linear interpolation [25:d0]
-                        d01 = int(float(d0[pre][post]))
-                        y1 = float(pmat[25][pre][post])
-                        y2 = float(pmat[d01][pre][post])
-                        x1 = 25
-                        x2 = d01                   
-                        angular = (y2 - y1)/(x2 - x1)
-                        linear = y2 - x2*angular
-                        prob = '%s * exp(-dist_2D/%s)*(dist_2D<%s) if dist_2D > %s else %f * dist_2D + %f' % (a0mat[pre][post],lmat[pre][post],dfinal[pre][post],d0[pre][post],angular,linear)
+                        prob = '%s * exp(-dist_2D/%s)*(dist_2D<%s) if dist_2D > %s else %f' % (a0mat_exp[pre][post],lmat_exp[pre][post],dfinal[pre][post],d0_exp[pre][post],linear)
 
                     netParams.connParams['EE_'+pre+'_'+post] = { 
                         'preConds': {'pop': pre}, 
@@ -448,23 +419,11 @@ def runnetpyne(cellnumber):
             for post in Ipops:
                 if float(connNumber[pre][post]) > 0 and pre in subPopLabels:        
 
-                    if int(float(d0[pre][post])) < 25:    #d0==12.5 -> single exponential fit
-                        linear = 0
-                        angular = 0
-                        prob = '%s * exp(-dist_2D/%s)*(dist_2D<%s)' % (a0mat[pre][post],lmat[pre][post],dfinal[pre][post])                     
-                    elif int(float(d0[pre][post])) == 25:    #d0==25 -> exponential fit when dist_2D>25, else prob[0um:25um] = pmat[12.5]
+                    if int(float(d0_exp[pre][post])) < 25:    #single exponential fit
+                        prob = '%s * exp(-dist_2D/%s)*(dist_2D<%s)' % (a0mat_exp[pre][post],lmat_exp[pre][post],dfinal[pre][post])                     
+                    else: #saturation [0:25]
                         linear = float(pmat[12.5][pre][post])
-                        angular = 0
-                        prob = '%s * exp(-dist_2D/%s)*(dist_2D<%s) if dist_2D > %s else %f * dist_2D + %f' % (a0mat[pre][post],lmat[pre][post],dfinal[pre][post],d0[pre][post],angular,linear)
-                    else:    #d0>25 -> exponential fit when dist_2D>d0, else prob[0um:d0] = linear interpolation [25:d0]
-                        d01 = int(float(d0[pre][post]))
-                        y1 = float(pmat[25][pre][post])
-                        y2 = float(pmat[d01][pre][post])
-                        x1 = 25
-                        x2 = d01                   
-                        angular = (y2 - y1)/(x2 - x1)
-                        linear = y2 - x2*angular
-                        prob = '%s * exp(-dist_2D/%s)*(dist_2D<%s) if dist_2D > %s else %f * dist_2D + %f' % (a0mat[pre][post],lmat[pre][post],dfinal[pre][post],d0[pre][post],angular,linear)
+                        prob = '%s * exp(-dist_2D/%s)*(dist_2D<%s) if dist_2D > %s else %f' % (a0mat_exp[pre][post],lmat_exp[pre][post],dfinal[pre][post],d0_exp[pre][post],linear)
 
                     netParams.connParams['EI_'+pre+'_'+post] = { 
                         'preConds': {'pop': pre}, 
