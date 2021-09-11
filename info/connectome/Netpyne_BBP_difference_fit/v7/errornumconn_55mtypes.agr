@@ -1,0 +1,4716 @@
+# Grace project file
+#
+@version 50125
+@page size 1257, 667
+@page scroll 5%
+@page inout 5%
+@link page off
+@map font 8 to "Courier", "Courier"
+@map font 10 to "Courier-Bold", "Courier-Bold"
+@map font 11 to "Courier-BoldOblique", "Courier-BoldOblique"
+@map font 9 to "Courier-Oblique", "Courier-Oblique"
+@map font 4 to "Helvetica", "Helvetica"
+@map font 6 to "Helvetica-Bold", "Helvetica-Bold"
+@map font 7 to "Helvetica-BoldOblique", "Helvetica-BoldOblique"
+@map font 5 to "Helvetica-Oblique", "Helvetica-Oblique"
+@map font 18 to "NimbusMonoL-Bold", "NimbusMonoL-Bold"
+@map font 19 to "NimbusMonoL-BoldOblique", "NimbusMonoL-BoldOblique"
+@map font 20 to "NimbusMonoL-Regular", "NimbusMonoL-Regular"
+@map font 21 to "NimbusMonoL-RegularOblique", "NimbusMonoL-RegularOblique"
+@map font 22 to "NimbusMonoPS-Bold", "NimbusMonoPS-Bold"
+@map font 23 to "NimbusMonoPS-BoldItalic", "NimbusMonoPS-BoldItalic"
+@map font 24 to "NimbusMonoPS-Italic", "NimbusMonoPS-Italic"
+@map font 25 to "NimbusMonoPS-Regular", "NimbusMonoPS-Regular"
+@map font 26 to "NimbusRoman-Bold", "NimbusRoman-Bold"
+@map font 27 to "NimbusRoman-BoldItalic", "NimbusRoman-BoldItalic"
+@map font 28 to "NimbusRoman-Italic", "NimbusRoman-Italic"
+@map font 29 to "NimbusRoman-Regular", "NimbusRoman-Regular"
+@map font 30 to "NimbusRomanNo9L-Medium", "NimbusRomanNo9L-Medium"
+@map font 31 to "NimbusRomanNo9L-MediumItalic", "NimbusRomanNo9L-MediumItalic"
+@map font 32 to "NimbusRomanNo9L-Regular", "NimbusRomanNo9L-Regular"
+@map font 33 to "NimbusRomanNo9L-RegularItalic", "NimbusRomanNo9L-RegularItalic"
+@map font 34 to "NimbusSans-Bold", "NimbusSans-Bold"
+@map font 35 to "NimbusSans-BoldItalic", "NimbusSans-BoldItalic"
+@map font 36 to "NimbusSans-Italic", "NimbusSans-Italic"
+@map font 37 to "NimbusSans-Regular", "NimbusSans-Regular"
+@map font 38 to "NimbusSansL-Bold", "NimbusSansL-Bold"
+@map font 39 to "NimbusSansL-BoldCondensed", "NimbusSansL-BoldCondensed"
+@map font 40 to "NimbusSansL-BoldCondensedItalic", "NimbusSansL-BoldCondensedItalic"
+@map font 41 to "NimbusSansL-BoldItalic", "NimbusSansL-BoldItalic"
+@map font 42 to "NimbusSansL-Regular", "NimbusSansL-Regular"
+@map font 43 to "NimbusSansL-RegularCondensed", "NimbusSansL-RegularCondensed"
+@map font 44 to "NimbusSansL-RegularCondensedItalic", "NimbusSansL-RegularCondensedItalic"
+@map font 45 to "NimbusSansL-RegularItalic", "NimbusSansL-RegularItalic"
+@map font 46 to "NimbusSansNarrow-Bold", "NimbusSansNarrow-Bold"
+@map font 47 to "NimbusSansNarrow-BoldOblique", "NimbusSansNarrow-BoldOblique"
+@map font 48 to "NimbusSansNarrow-Oblique", "NimbusSansNarrow-Oblique"
+@map font 49 to "NimbusSansNarrow-Regular", "NimbusSansNarrow-Regular"
+@map font 50 to "P052-Bold", "P052-Bold"
+@map font 51 to "P052-BoldItalic", "P052-BoldItalic"
+@map font 52 to "P052-Italic", "P052-Italic"
+@map font 53 to "P052-Roman", "P052-Roman"
+@map font 54 to "StandardSymbolsL-Regular", "StandardSymbolsL-Regular"
+@map font 55 to "StandardSymbolsPS-Regular", "StandardSymbolsPS-Regular"
+@map font 12 to "Symbol", "Symbol"
+@map font 2 to "Times-Bold", "Times-Bold"
+@map font 3 to "Times-BoldItalic", "Times-BoldItalic"
+@map font 1 to "Times-Italic", "Times-Italic"
+@map font 0 to "Times-Roman", "Times-Roman"
+@map font 61 to "URWBookman-Demi", "URWBookman-Demi"
+@map font 62 to "URWBookman-DemiItalic", "URWBookman-DemiItalic"
+@map font 63 to "URWBookman-Light", "URWBookman-Light"
+@map font 64 to "URWBookman-LightItalic", "URWBookman-LightItalic"
+@map font 65 to "URWBookmanL-DemiBold", "URWBookmanL-DemiBold"
+@map font 66 to "URWBookmanL-DemiBoldItalic", "URWBookmanL-DemiBoldItalic"
+@map font 67 to "URWBookmanL-Light", "URWBookmanL-Light"
+@map font 68 to "URWBookmanL-LightItalic", "URWBookmanL-LightItalic"
+@map font 69 to "URWChanceryL-MediumItalic", "URWChanceryL-MediumItalic"
+@map font 70 to "URWGothic-Book", "URWGothic-Book"
+@map font 71 to "URWGothic-BookOblique", "URWGothic-BookOblique"
+@map font 72 to "URWGothic-Demi", "URWGothic-Demi"
+@map font 73 to "URWGothic-DemiOblique", "URWGothic-DemiOblique"
+@map font 74 to "URWGothicL-Book", "URWGothicL-Book"
+@map font 75 to "URWGothicL-BookOblique", "URWGothicL-BookOblique"
+@map font 76 to "URWGothicL-Demi", "URWGothicL-Demi"
+@map font 77 to "URWGothicL-DemiOblique", "URWGothicL-DemiOblique"
+@map font 78 to "URWPalladioL-Bold", "URWPalladioL-Bold"
+@map font 79 to "URWPalladioL-BoldItalic", "URWPalladioL-BoldItalic"
+@map font 80 to "URWPalladioL-Italic", "URWPalladioL-Italic"
+@map font 81 to "URWPalladioL-Roman", "URWPalladioL-Roman"
+@map font 82 to "Z003-MediumItalic", "Z003-MediumItalic"
+@map font 13 to "ZapfDingbats", "ZapfDingbats"
+@map color 0 to (255, 255, 255), "white"
+@map color 1 to (0, 0, 0), "black"
+@map color 2 to (255, 0, 0), "red"
+@map color 3 to (0, 255, 0), "green"
+@map color 4 to (0, 0, 255), "blue"
+@map color 5 to (255, 255, 0), "yellow"
+@map color 6 to (188, 143, 143), "brown"
+@map color 7 to (220, 220, 220), "grey"
+@map color 8 to (148, 0, 211), "violet"
+@map color 9 to (0, 255, 255), "cyan"
+@map color 10 to (255, 0, 255), "magenta"
+@map color 11 to (255, 165, 0), "orange"
+@map color 12 to (114, 33, 188), "indigo"
+@map color 13 to (103, 7, 72), "maroon"
+@map color 14 to (64, 224, 208), "turquoise"
+@map color 15 to (0, 139, 0), "green4"
+@reference date 0
+@date wrap off
+@date wrap year 1950
+@default linewidth 1.0
+@default linestyle 1
+@default color 1
+@default pattern 1
+@default font 0
+@default char size 1.000000
+@default symbol size 1.000000
+@default sformat "%.8g"
+@background color 0
+@page background fill on
+@timestamp off
+@timestamp 0.03, 0.03
+@timestamp color 1
+@timestamp rot 0
+@timestamp font 0
+@timestamp char size 1.000000
+@timestamp def "Sat Sep 11 16:48:46 2021"
+@r0 off
+@link r0 to g0
+@r0 type above
+@r0 linestyle 1
+@r0 linewidth 1.0
+@r0 color 1
+@r0 line 0, 0, 0, 0
+@r1 off
+@link r1 to g0
+@r1 type above
+@r1 linestyle 1
+@r1 linewidth 1.0
+@r1 color 1
+@r1 line 0, 0, 0, 0
+@r2 off
+@link r2 to g0
+@r2 type above
+@r2 linestyle 1
+@r2 linewidth 1.0
+@r2 color 1
+@r2 line 0, 0, 0, 0
+@r3 off
+@link r3 to g0
+@r3 type above
+@r3 linestyle 1
+@r3 linewidth 1.0
+@r3 color 1
+@r3 line 0, 0, 0, 0
+@r4 off
+@link r4 to g0
+@r4 type above
+@r4 linestyle 1
+@r4 linewidth 1.0
+@r4 color 1
+@r4 line 0, 0, 0, 0
+@g0 on
+@g0 hidden true
+@g0 type XY
+@g0 stacked false
+@g0 bar hgap 0.000000
+@g0 fixedpoint off
+@g0 fixedpoint type 0
+@g0 fixedpoint xy 0.000000, 0.000000
+@g0 fixedpoint format general general
+@g0 fixedpoint prec 6, 6
+@with g0
+@    world -91.5151488174, 0.134551709775, 2173.13395439, 877450.027651
+@    stack world 0, 0, 0, 0
+@    znorm 1
+@    view 0.197262, 0.095427, 1.869702, 0.980000
+@    title ""
+@    title font 0
+@    title size 1.500000
+@    title color 1
+@    subtitle ""
+@    subtitle font 0
+@    subtitle size 1.000000
+@    subtitle color 1
+@    xaxes scale Normal
+@    yaxes scale Logarithmic
+@    xaxes invert off
+@    yaxes invert off
+@    xaxis  off
+@    yaxis  off
+@    altxaxis  off
+@    altyaxis  off
+@    legend on
+@    legend loctype view
+@    legend 0.8833912606, 0.95
+@    legend box color 1
+@    legend box pattern 1
+@    legend box linewidth 2.0
+@    legend box linestyle 1
+@    legend box fill color 0
+@    legend box fill pattern 0
+@    legend font 0
+@    legend char size 2.500000
+@    legend color 1
+@    legend length 4
+@    legend vgap 1
+@    legend hgap 1
+@    legend invert false
+@    frame type 0
+@    frame linestyle 1
+@    frame linewidth 1.0
+@    frame color 1
+@    frame pattern 1
+@    frame background color 0
+@    frame background pattern 0
+@g1 on
+@g1 hidden true
+@g1 type XY
+@g1 stacked false
+@g1 bar hgap 0.000000
+@g1 fixedpoint off
+@g1 fixedpoint type 0
+@g1 fixedpoint xy 0.000000, 0.000000
+@g1 fixedpoint format general general
+@g1 fixedpoint prec 6, 6
+@with g1
+@    world 0, 1, 200, 10000
+@    stack world 0, 0, 0, 0
+@    znorm 1
+@    view 0.129359, 0.512418, 2.179963, 0.725490
+@    title ""
+@    title font 0
+@    title size 1.500000
+@    title color 1
+@    subtitle ""
+@    subtitle font 0
+@    subtitle size 1.000000
+@    subtitle color 1
+@    xaxes scale Normal
+@    yaxes scale Logarithmic
+@    xaxes invert off
+@    yaxes invert off
+@    xaxis  off
+@    yaxis  off
+@    altxaxis  off
+@    altyaxis  off
+@    legend on
+@    legend loctype view
+@    legend 1.47583070004, 0.8
+@    legend box color 1
+@    legend box pattern 1
+@    legend box linewidth 1.0
+@    legend box linestyle 1
+@    legend box fill color 0
+@    legend box fill pattern 1
+@    legend font 0
+@    legend char size 1.000000
+@    legend color 1
+@    legend length 4
+@    legend vgap 1
+@    legend hgap 1
+@    legend invert false
+@    frame type 0
+@    frame linestyle 1
+@    frame linewidth 1.0
+@    frame color 1
+@    frame pattern 1
+@    frame background color 0
+@    frame background pattern 0
+@g2 on
+@g2 hidden true
+@g2 type XY
+@g2 stacked false
+@g2 bar hgap 0.000000
+@g2 fixedpoint off
+@g2 fixedpoint type 0
+@g2 fixedpoint xy 0.000000, 0.000000
+@g2 fixedpoint format general general
+@g2 fixedpoint prec 6, 6
+@with g2
+@    world 0, -50, 200, 300
+@    stack world 0, 0, 0, 0
+@    znorm 1
+@    view 0.127657, 0.073203, 2.179963, 0.458824
+@    title ""
+@    title font 0
+@    title size 1.500000
+@    title color 1
+@    subtitle ""
+@    subtitle font 0
+@    subtitle size 1.000000
+@    subtitle color 1
+@    xaxes scale Normal
+@    yaxes scale Normal
+@    xaxes invert off
+@    yaxes invert off
+@    xaxis  off
+@    yaxis  off
+@    altxaxis  off
+@    altyaxis  off
+@    legend on
+@    legend loctype view
+@    legend 0.195315859462, 0.4
+@    legend box color 1
+@    legend box pattern 1
+@    legend box linewidth 1.0
+@    legend box linestyle 1
+@    legend box fill color 0
+@    legend box fill pattern 1
+@    legend font 0
+@    legend char size 1.000000
+@    legend color 1
+@    legend length 4
+@    legend vgap 1
+@    legend hgap 1
+@    legend invert false
+@    frame type 0
+@    frame linestyle 1
+@    frame linewidth 1.0
+@    frame color 1
+@    frame pattern 1
+@    frame background color 0
+@    frame background pattern 0
+@g3 on
+@g3 hidden true
+@g3 type XY
+@g3 stacked false
+@g3 bar hgap 0.000000
+@g3 fixedpoint off
+@g3 fixedpoint type 0
+@g3 fixedpoint xy 0.000000, 0.000000
+@g3 fixedpoint format general general
+@g3 fixedpoint prec 6, 6
+@with g3
+@    world 0, 3, 300, 3000
+@    stack world 0, 0, 0, 0
+@    znorm 1
+@    view 0.115743, 0.669281, 2.179963, 0.793464
+@    title ""
+@    title font 0
+@    title size 1.500000
+@    title color 1
+@    subtitle ""
+@    subtitle font 0
+@    subtitle size 1.000000
+@    subtitle color 1
+@    xaxes scale Normal
+@    yaxes scale Logarithmic
+@    xaxes invert off
+@    yaxes invert off
+@    xaxis  off
+@    yaxis  off
+@    altxaxis  off
+@    altyaxis  off
+@    legend on
+@    legend loctype view
+@    legend 0.260421145949, 0.96
+@    legend box color 1
+@    legend box pattern 1
+@    legend box linewidth 1.0
+@    legend box linestyle 1
+@    legend box fill color 0
+@    legend box fill pattern 1
+@    legend font 0
+@    legend char size 1.000000
+@    legend color 1
+@    legend length 4
+@    legend vgap 1
+@    legend hgap 1
+@    legend invert false
+@    frame type 0
+@    frame linestyle 1
+@    frame linewidth 1.0
+@    frame color 1
+@    frame pattern 1
+@    frame background color 0
+@    frame background pattern 0
+@g4 on
+@g4 hidden true
+@g4 type XY
+@g4 stacked false
+@g4 bar hgap 0.000000
+@g4 fixedpoint off
+@g4 fixedpoint type 0
+@g4 fixedpoint xy 0.000000, 0.000000
+@g4 fixedpoint format general general
+@g4 fixedpoint prec 6, 6
+@with g4
+@    world -45, -40, 92, 280
+@    stack world 0, 0, 0, 0
+@    znorm 1
+@    view 0.149533, 0.150000, 0.861103, 0.950000
+@    title ""
+@    title font 0
+@    title size 1.500000
+@    title color 1
+@    subtitle ""
+@    subtitle font 0
+@    subtitle size 1.000000
+@    subtitle color 1
+@    xaxes scale Normal
+@    yaxes scale Normal
+@    xaxes invert off
+@    yaxes invert off
+@    xaxis  off
+@    yaxis  off
+@    altxaxis  off
+@    altyaxis  off
+@    legend on
+@    legend loctype view
+@    legend 0.19531585997, 0.4
+@    legend box color 1
+@    legend box pattern 1
+@    legend box linewidth 1.0
+@    legend box linestyle 1
+@    legend box fill color 0
+@    legend box fill pattern 1
+@    legend font 0
+@    legend char size 1.000000
+@    legend color 1
+@    legend length 4
+@    legend vgap 1
+@    legend hgap 1
+@    legend invert false
+@    frame type 0
+@    frame linestyle 1
+@    frame linewidth 1.0
+@    frame color 1
+@    frame pattern 1
+@    frame background color 0
+@    frame background pattern 0
+@g5 on
+@g5 hidden false
+@g5 type XY
+@g5 stacked false
+@g5 bar hgap 0.000000
+@g5 fixedpoint off
+@g5 fixedpoint type 0
+@g5 fixedpoint xy 0.000000, 0.000000
+@g5 fixedpoint format general general
+@g5 fixedpoint prec 6, 6
+@with g5
+@    world 0.4, 0.4, 1000000, 1000000
+@    stack world 0, 0, 0, 0
+@    znorm 1
+@    view 0.150000, 0.150000, 0.850000, 0.850000
+@    title ""
+@    title font 0
+@    title size 1.500000
+@    title color 1
+@    subtitle ""
+@    subtitle font 0
+@    subtitle size 1.000000
+@    subtitle color 1
+@    xaxes scale Logarithmic
+@    yaxes scale Logarithmic
+@    xaxes invert off
+@    yaxes invert off
+@    xaxis  on
+@    xaxis  type zero false
+@    xaxis  offset 0.000000 , 0.000000
+@    xaxis  bar on
+@    xaxis  bar color 1
+@    xaxis  bar linestyle 1
+@    xaxis  bar linewidth 1.0
+@    xaxis  label "NetPyNE"
+@    xaxis  label layout para
+@    xaxis  label place auto
+@    xaxis  label char size 2.500000
+@    xaxis  label font 0
+@    xaxis  label color 1
+@    xaxis  label place normal
+@    xaxis  tick on
+@    xaxis  tick major 10
+@    xaxis  tick minor ticks 2
+@    xaxis  tick default 6
+@    xaxis  tick place rounded true
+@    xaxis  tick in
+@    xaxis  tick major size 0.500000
+@    xaxis  tick major color 1
+@    xaxis  tick major linewidth 1.0
+@    xaxis  tick major linestyle 1
+@    xaxis  tick major grid on
+@    xaxis  tick minor color 1
+@    xaxis  tick minor linewidth 1.0
+@    xaxis  tick minor linestyle 1
+@    xaxis  tick minor grid off
+@    xaxis  tick minor size 0.000000
+@    xaxis  ticklabel on
+@    xaxis  ticklabel format power
+@    xaxis  ticklabel prec 0
+@    xaxis  ticklabel formula ""
+@    xaxis  ticklabel append ""
+@    xaxis  ticklabel prepend ""
+@    xaxis  ticklabel angle 0
+@    xaxis  ticklabel skip 0
+@    xaxis  ticklabel stagger 0
+@    xaxis  ticklabel place normal
+@    xaxis  ticklabel offset auto
+@    xaxis  ticklabel offset 0.000000 , 0.010000
+@    xaxis  ticklabel start type auto
+@    xaxis  ticklabel start 0.000000
+@    xaxis  ticklabel stop type auto
+@    xaxis  ticklabel stop 0.000000
+@    xaxis  ticklabel char size 2.000000
+@    xaxis  ticklabel font 0
+@    xaxis  ticklabel color 1
+@    xaxis  tick place normal
+@    xaxis  tick spec type none
+@    yaxis  on
+@    yaxis  type zero false
+@    yaxis  offset 0.000000 , 0.000000
+@    yaxis  bar on
+@    yaxis  bar color 1
+@    yaxis  bar linestyle 1
+@    yaxis  bar linewidth 1.0
+@    yaxis  label "BBP"
+@    yaxis  label layout para
+@    yaxis  label place auto
+@    yaxis  label char size 2.500000
+@    yaxis  label font 0
+@    yaxis  label color 1
+@    yaxis  label place normal
+@    yaxis  tick on
+@    yaxis  tick major 10
+@    yaxis  tick minor ticks 9
+@    yaxis  tick default 6
+@    yaxis  tick place rounded true
+@    yaxis  tick in
+@    yaxis  tick major size 0.500000
+@    yaxis  tick major color 1
+@    yaxis  tick major linewidth 1.0
+@    yaxis  tick major linestyle 1
+@    yaxis  tick major grid on
+@    yaxis  tick minor color 1
+@    yaxis  tick minor linewidth 1.0
+@    yaxis  tick minor linestyle 1
+@    yaxis  tick minor grid off
+@    yaxis  tick minor size 0.000000
+@    yaxis  ticklabel on
+@    yaxis  ticklabel format power
+@    yaxis  ticklabel prec 0
+@    yaxis  ticklabel formula ""
+@    yaxis  ticklabel append ""
+@    yaxis  ticklabel prepend ""
+@    yaxis  ticklabel angle 0
+@    yaxis  ticklabel skip 0
+@    yaxis  ticklabel stagger 0
+@    yaxis  ticklabel place normal
+@    yaxis  ticklabel offset auto
+@    yaxis  ticklabel offset 0.000000 , 0.010000
+@    yaxis  ticklabel start type auto
+@    yaxis  ticklabel start 0.000000
+@    yaxis  ticklabel stop type auto
+@    yaxis  ticklabel stop 0.000000
+@    yaxis  ticklabel char size 2.000000
+@    yaxis  ticklabel font 0
+@    yaxis  ticklabel color 1
+@    yaxis  tick place normal
+@    yaxis  tick spec type none
+@    altxaxis  off
+@    altyaxis  off
+@    legend on
+@    legend loctype view
+@    legend 0.0857661418, 0.4
+@    legend box color 1
+@    legend box pattern 1
+@    legend box linewidth 1.0
+@    legend box linestyle 1
+@    legend box fill color 0
+@    legend box fill pattern 1
+@    legend font 0
+@    legend char size 1.000000
+@    legend color 1
+@    legend length 4
+@    legend vgap 1
+@    legend hgap 1
+@    legend invert false
+@    frame type 0
+@    frame linestyle 1
+@    frame linewidth 1.0
+@    frame color 1
+@    frame pattern 1
+@    frame background color 0
+@    frame background pattern 0
+@    s0 hidden false
+@    s0 type xycolor
+@    s0 symbol 1
+@    s0 symbol size 1.000000
+@    s0 symbol color 1
+@    s0 symbol pattern 1
+@    s0 symbol fill color 15
+@    s0 symbol fill pattern 1
+@    s0 symbol linewidth 1.0
+@    s0 symbol linestyle 1
+@    s0 symbol char 65
+@    s0 symbol char font 0
+@    s0 symbol skip 0
+@    s0 line type 0
+@    s0 line linestyle 1
+@    s0 line linewidth 3.0
+@    s0 line color 1
+@    s0 line pattern 1
+@    s0 baseline type 0
+@    s0 baseline off
+@    s0 dropline off
+@    s0 fill type 2
+@    s0 fill rule 0
+@    s0 fill color 7
+@    s0 fill pattern 1
+@    s0 avalue off
+@    s0 avalue type 2
+@    s0 avalue char size 1.000000
+@    s0 avalue font 0
+@    s0 avalue color 1
+@    s0 avalue rot 0
+@    s0 avalue format general
+@    s0 avalue prec 3
+@    s0 avalue prepend ""
+@    s0 avalue append ""
+@    s0 avalue offset 0.000000 , 0.000000
+@    s0 errorbar on
+@    s0 errorbar place both
+@    s0 errorbar color 1
+@    s0 errorbar pattern 1
+@    s0 errorbar size 1.000000
+@    s0 errorbar linewidth 1.0
+@    s0 errorbar linestyle 1
+@    s0 errorbar riser linewidth 1.0
+@    s0 errorbar riser linestyle 1
+@    s0 errorbar riser clip off
+@    s0 errorbar riser clip length 0.100000
+@    s0 comment "Cols 2:1:7"
+@    s0 legend  ""
+@g6 on
+@g6 hidden false
+@g6 type XY
+@g6 stacked false
+@g6 bar hgap 0.000000
+@g6 fixedpoint off
+@g6 fixedpoint type 0
+@g6 fixedpoint xy 0.000000, 0.000000
+@g6 fixedpoint format general general
+@g6 fixedpoint prec 6, 6
+@with g6
+@    world -52, -750, 52, 6500
+@    stack world 0, 0, 0, 0
+@    znorm 1
+@    view 0.990000, 0.150000, 1.690000, 0.850000
+@    title ""
+@    title font 0
+@    title size 1.500000
+@    title color 1
+@    subtitle ""
+@    subtitle font 0
+@    subtitle size 1.000000
+@    subtitle color 1
+@    xaxes scale Normal
+@    yaxes scale Normal
+@    xaxes invert off
+@    yaxes invert off
+@    xaxis  on
+@    xaxis  type zero false
+@    xaxis  offset 0.000000 , 0.000000
+@    xaxis  bar on
+@    xaxis  bar color 1
+@    xaxis  bar linestyle 1
+@    xaxis  bar linewidth 1.0
+@    xaxis  label "diff in %"
+@    xaxis  label layout para
+@    xaxis  label place auto
+@    xaxis  label char size 2.500000
+@    xaxis  label font 0
+@    xaxis  label color 1
+@    xaxis  label place normal
+@    xaxis  tick on
+@    xaxis  tick major 15
+@    xaxis  tick minor ticks 1
+@    xaxis  tick default 6
+@    xaxis  tick place rounded true
+@    xaxis  tick in
+@    xaxis  tick major size 0.500000
+@    xaxis  tick major color 1
+@    xaxis  tick major linewidth 1.0
+@    xaxis  tick major linestyle 1
+@    xaxis  tick major grid on
+@    xaxis  tick minor color 1
+@    xaxis  tick minor linewidth 1.0
+@    xaxis  tick minor linestyle 1
+@    xaxis  tick minor grid off
+@    xaxis  tick minor size 0.000000
+@    xaxis  ticklabel on
+@    xaxis  ticklabel format general
+@    xaxis  ticklabel prec 5
+@    xaxis  ticklabel formula ""
+@    xaxis  ticklabel append ""
+@    xaxis  ticklabel prepend ""
+@    xaxis  ticklabel angle 0
+@    xaxis  ticklabel skip 0
+@    xaxis  ticklabel stagger 0
+@    xaxis  ticklabel place normal
+@    xaxis  ticklabel offset auto
+@    xaxis  ticklabel offset 0.000000 , 0.010000
+@    xaxis  ticklabel start type auto
+@    xaxis  ticklabel start 0.000000
+@    xaxis  ticklabel stop type auto
+@    xaxis  ticklabel stop 0.000000
+@    xaxis  ticklabel char size 2.000000
+@    xaxis  ticklabel font 0
+@    xaxis  ticklabel color 1
+@    xaxis  tick place normal
+@    xaxis  tick spec type none
+@    yaxis  on
+@    yaxis  type zero false
+@    yaxis  offset 0.000000 , 0.000000
+@    yaxis  bar on
+@    yaxis  bar color 1
+@    yaxis  bar linestyle 1
+@    yaxis  bar linewidth 1.0
+@    yaxis  label "diff in #"
+@    yaxis  label layout para
+@    yaxis  label place auto
+@    yaxis  label char size 2.500000
+@    yaxis  label font 0
+@    yaxis  label color 1
+@    yaxis  label place opposite
+@    yaxis  tick on
+@    yaxis  tick major 1000
+@    yaxis  tick minor ticks 1
+@    yaxis  tick default 6
+@    yaxis  tick place rounded true
+@    yaxis  tick in
+@    yaxis  tick major size 0.500000
+@    yaxis  tick major color 1
+@    yaxis  tick major linewidth 1.0
+@    yaxis  tick major linestyle 1
+@    yaxis  tick major grid on
+@    yaxis  tick minor color 1
+@    yaxis  tick minor linewidth 1.0
+@    yaxis  tick minor linestyle 1
+@    yaxis  tick minor grid off
+@    yaxis  tick minor size 0.000000
+@    yaxis  ticklabel on
+@    yaxis  ticklabel format decimal
+@    yaxis  ticklabel prec 0
+@    yaxis  ticklabel formula ""
+@    yaxis  ticklabel append ""
+@    yaxis  ticklabel prepend ""
+@    yaxis  ticklabel angle 0
+@    yaxis  ticklabel skip 0
+@    yaxis  ticklabel stagger 0
+@    yaxis  ticklabel place opposite
+@    yaxis  ticklabel offset auto
+@    yaxis  ticklabel offset 0.000000 , 0.010000
+@    yaxis  ticklabel start type auto
+@    yaxis  ticklabel start 0.000000
+@    yaxis  ticklabel stop type auto
+@    yaxis  ticklabel stop 0.000000
+@    yaxis  ticklabel char size 2.000000
+@    yaxis  ticklabel font 0
+@    yaxis  ticklabel color 1
+@    yaxis  tick place opposite
+@    yaxis  tick spec type none
+@    altxaxis  off
+@    altyaxis  off
+@    legend on
+@    legend loctype view
+@    legend 0.19531586, 0.4
+@    legend box color 1
+@    legend box pattern 1
+@    legend box linewidth 1.0
+@    legend box linestyle 1
+@    legend box fill color 0
+@    legend box fill pattern 1
+@    legend font 0
+@    legend char size 1.000000
+@    legend color 1
+@    legend length 4
+@    legend vgap 1
+@    legend hgap 1
+@    legend invert false
+@    frame type 0
+@    frame linestyle 1
+@    frame linewidth 1.0
+@    frame color 1
+@    frame pattern 1
+@    frame background color 0
+@    frame background pattern 0
+@    s0 hidden false
+@    s0 type xycolor
+@    s0 symbol 1
+@    s0 symbol size 1.000000
+@    s0 symbol color 1
+@    s0 symbol pattern 1
+@    s0 symbol fill color 15
+@    s0 symbol fill pattern 1
+@    s0 symbol linewidth 1.0
+@    s0 symbol linestyle 1
+@    s0 symbol char 65
+@    s0 symbol char font 0
+@    s0 symbol skip 0
+@    s0 line type 0
+@    s0 line linestyle 1
+@    s0 line linewidth 3.0
+@    s0 line color 1
+@    s0 line pattern 1
+@    s0 baseline type 0
+@    s0 baseline off
+@    s0 dropline off
+@    s0 fill type 2
+@    s0 fill rule 0
+@    s0 fill color 7
+@    s0 fill pattern 1
+@    s0 avalue off
+@    s0 avalue type 2
+@    s0 avalue char size 1.000000
+@    s0 avalue font 0
+@    s0 avalue color 1
+@    s0 avalue rot 0
+@    s0 avalue format general
+@    s0 avalue prec 3
+@    s0 avalue prepend ""
+@    s0 avalue append ""
+@    s0 avalue offset 0.000000 , 0.000000
+@    s0 errorbar on
+@    s0 errorbar place both
+@    s0 errorbar color 1
+@    s0 errorbar pattern 1
+@    s0 errorbar size 1.000000
+@    s0 errorbar linewidth 1.0
+@    s0 errorbar linestyle 1
+@    s0 errorbar riser linewidth 1.0
+@    s0 errorbar riser linestyle 1
+@    s0 errorbar riser clip off
+@    s0 errorbar riser clip length 0.100000
+@    s0 comment "Cols 6:5:7"
+@    s0 legend  ""
+@target G5.S0
+@type xycolor
+35 32.7 1
+12.6 13.7 1
+41.4 39.1 2
+26.3 24.4 2
+22.3 20.9 2
+17.4 17 1
+1.3 1.7 2
+48.1 44.7 2
+24.6 23.9 2
+32.1 32.6 1
+140.7 137.7 2
+225 212.7 1
+96.4 95.4 2
+9.3 11.7 2
+3300.6 3208.3 2
+50.6 50.3 1
+6.4 6 2
+5.1 5.7 1
+5.9 5.7 2
+882.7 847 2
+1.7 2 2
+152.7 143 1
+34 32.9 2
+2.9 3 2
+2.3 2.3 1
+2.1 2.3 1
+123.7 120.3 2
+1649 1598.6 2
+1482.1 1451.4 2
+23.6 26.6 1
+19 19.6 2
+34.1 33.1 2
+28.4 25.1 2
+61.6 64.1 2
+19.1 17 1
+5.7 6.4 1
+20.7 20.1 2
+14.6 14.1 2
+9.3 9.1 2
+8 7.7 2
+13.3 14.7 2
+12.6 11.9 1
+11.7 12.6 1
+47.1 48.9 2
+88.3 86.9 1
+33.4 35.3 1
+1399.9 1382.4 2
+21.7 21.4 2
+288 288.6 2
+44.1 45.6 2
+52.7 53.3 2
+795.4 765.1 1
+683.1 657.9 2
+2.9 2.6 2
+11.3 11.4 2
+83.6 79.3 2
+36.1 36.3 1
+105.6 108.4 2
+79.4 70.1 2
+53.9 46.7 2
+43.1 41.3 2
+2.6 3.1 1
+69.7 67.9 2
+49.6 45.9 2
+51 48.3 2
+173.6 163.3 2
+354.7 331.3 2
+101.7 101.1 1
+10.9 12.7 1
+6262.9 5884.1 2
+65.1 59.4 2
+4 3.3 1
+1044.4 991.6 2
+153.7 148.7 2
+3.3 3.4 1
+237 220.3 2
+3590.3 3378.9 2
+3193.6 3049.4 2
+9.1 6.9 1
+44.9 42.6 1
+51.9 48 2
+19.1 17 2
+68 61.9 2
+34.3 37.9 1
+25.3 25.9 2
+26.4 21.7 2
+46.1 46.6 2
+30.1 29.7 2
+27.9 29 2
+140.4 126.3 2
+260.9 231.6 2
+102.1 89.9 2
+11.9 11 2
+3837.1 3661.9 2
+50.6 46 2
+831 784.6 2
+122.7 119.3 2
+1.9 2 1
+143.6 144.3 1
+2170.7 2018.9 2
+1919.1 1844.3 2
+8.3 7.6 2
+32.7 33.6 1
+22 19.1 2
+6.1 6.7 1
+26.3 24.7 2
+16.9 15.1 2
+9.7 11 1
+5.6 7 1
+17.4 15.7 1
+9.3 9 1
+10.7 13 1
+41.6 39.9 2
+98.4 81.1 2
+33.9 30.6 2
+3.3 3.4 1
+1411.4 1361.1 2
+17 17.6 2
+247.1 237.3 2
+33.1 34.6 2
+50.4 50.6 2
+822.1 771.3 2
+736.6 710.4 2
+2.4 2.3 2
+8 7.9 1
+15.4 15.9 1
+4.1 5 1
+18.7 17 2
+10.1 10.6 1
+8.4 8.7 1
+8.4 7.1 1
+13.3 13.7 2
+7.6 7.4 2
+8.7 8.9 1
+37 36.7 2
+70.9 70.3 2
+24.9 26.3 2
+3.6 4 1
+1067.7 1076.9 2
+13.1 14.9 1
+204.6 205.9 2
+32.7 30 2
+47.3 41 2
+596 605 2
+541 547.1 2
+9.1 8.7 2
+1.1 1.1 2
+6.4 6 1
+3.6 4.1 2
+3.1 4.1 2
+104.3 97.3 2
+5.1 5.1 1
+6.1 6.1 1
+151.7 156.1 2
+50.3 50.9 2
+32.4 30.6 1
+6.4 6 1
+8.1 7.9 2
+5.4 5.7 1
+22.1 20.4 2
+142.6 134.7 2
+112.4 105.7 2
+16.9 17.1 2
+30.6 32.9 2
+3.7 3.1 2
+22.3 21.4 2
+21 19.4 2
+22.4 21.4 2
+28.6 26.6 2
+9.9 9.6 2
+27.1 22.4 2
+19.7 17.3 2
+12.9 11.6 2
+12.6 12 1
+7 5.9 1
+114.1 112.6 1
+62.6 57.6 1
+93.3 93.1 2
+503.7 460.3 2
+429.3 393.1 2
+306.6 298 2
+37 36.7 2
+5533.1 5333.7 2
+143.4 134.3 2
+15.4 15.4 1
+4.7 5.7 1
+19.4 18.3 1
+101.9 97.9 2
+108.7 109.4 2
+84.4 75.6 2
+4 3.1 2
+3741.4 3644.6 2
+43.9 43.7 1
+1119.4 1109.3 2
+437.6 439.6 2
+8.9 9.1 1
+41.3 38.9 1
+27.4 28.6 1
+90.6 85.3 2
+147.9 144.7 2
+75.6 74.1 1
+7.6 8 2
+443.9 449.3 2
+3817.3 3686.4 2
+3367.6 3354.1 2
+389.3 361.1 2
+841.1 825.1 2
+2.7 2.7 1
+170 164 1
+34 34.7 1
+22.1 20.4 1
+12.3 12.1 1
+4.3 4.1 1
+680.4 641.1 2
+608.6 582.3 2
+891.4 861.4 1
+2562.9 2531.6 2
+435.4 408.3 2
+206.1 195.1 2
+160.3 153.7 2
+6.7 6.1 2
+120.9 119.7 2
+92.9 89.1 2
+22.7 22.9 2
+5.9 6.6 2
+18.3 16.9 2
+11.9 10.6 2
+7.4 7.1 2
+8.3 7.7 1
+5.6 6 1
+109.3 105.3 2
+50.6 50.7 2
+78 75.3 1
+473.1 444.9 2
+402.1 386.6 2
+299.6 290.1 2
+29.9 32 2
+6619.3 6465.6 2
+148.3 135.9 2
+19.4 18.7 1
+10.9 11 2
+21 20.7 2
+154.3 142.7 1
+160.7 150.9 2
+110.4 108.1 2
+2.4 2.9 1
+4633.3 4538.9 2
+60.3 59 2
+1489.1 1458.6 2
+691.1 676.1 2
+12 11.4 1
+65 61.3 2
+11.9 12.7 2
+44.1 38.4 2
+136 138.1 2
+256.3 255.7 2
+123.3 116.7 2
+11.9 11 2
+565.9 551.7 2
+4654.7 4449.3 2
+4012.7 3964.7 2
+531.3 492 2
+1294.1 1236.6 2
+3 2.6 1
+5 4.9 1
+205.6 198.6 2
+43.7 40.9 2
+15 18.3 1
+14.3 14.1 1
+6.1 5.7 2
+864.1 842.7 2
+782 763.4 2
+1119.3 1067.4 2
+98.1 100 2
+36.9 32.4 2
+95.6 93.9 2
+66.3 63.1 2
+39.1 42.1 2
+34.7 36.3 2
+14.7 14.9 1
+274 272.4 2
+151.7 142.1 2
+227.6 227.4 1
+1378.6 1305.7 2
+1273.3 1159.1 2
+790.6 738.3 2
+97.9 99.6 1
+18538 17463.4 2
+444.9 401 2
+25.6 24.6 1
+9.1 11.1 2
+29 27.7 2
+142.1 143.7 1
+161.4 146.4 1
+123.6 114.9 1
+4.3 4 1
+7774.1 7427.7 2
+60.1 61.1 2
+1873.3 1854.1 2
+665.6 634.7 2
+46.6 44.3 1
+5.7 7.1 2
+36.1 37.7 2
+88.6 91.7 1
+156.3 157.7 2
+83 77.4 1
+4.9 5 2
+954.7 891.3 2
+8696.7 8335 2
+7660.4 7603.7 2
+505.4 512 2
+746.3 724.1 2
+60.3 59.3 2
+16.3 16.1 1
+7.1 6.9 1
+5 5.1 2
+772 726.3 2
+625.3 606.3 2
+1064.7 1030.7 1
+278.6 264.7 2
+112 103.1 2
+300.7 298.3 2
+196.3 187.6 2
+144 133.7 2
+127.6 118.9 2
+25.7 23.3 2
+513.6 478.6 2
+299.1 277.9 2
+381.1 379.4 2
+2026.6 1883.6 2
+2471.3 2326.1 2
+1333.3 1276.3 2
+168.9 163.3 2
+34230 32758.7 2
+663.6 629.3 2
+17.4 18.6 2
+9 9.6 1
+34.4 33.4 2
+131.9 143.6 2
+145.4 153 2
+114 108.7 2
+4 3.6 2
+10442.1 10410.9 2
+72.7 66.6 2
+2315.7 2241.4 2
+722.1 720 2
+54.3 52.4 2
+10 9.7 1
+55.4 51.4 2
+98.1 102.1 2
+156.4 163.9 2
+85.9 87.7 2
+6.6 8.1 2
+1488.1 1436 2
+16258.6 15652.6 2
+14626.3 14406 2
+575.7 551.9 2
+733.6 711 2
+60 60.1 2
+15.7 13.3 1
+4.4 4.6 1
+4.1 4.3 1
+3.4 4 2
+735.4 718 2
+573.9 567.4 2
+1250.6 1170.9 2
+82 76.7 2
+28 26.3 2
+75.1 67 2
+38.6 38.1 2
+26.4 23.3 2
+32.4 28.3 2
+12.6 12.9 1
+238.3 230.4 2
+137 128 2
+193.4 193.1 2
+1019.9 973.4 2
+1105.4 1013.7 2
+636 637 2
+78.4 75.9 1
+13015.3 12639.1 2
+316.6 292.1 2
+15.4 15.9 2
+7.7 6.4 2
+19.4 19.3 2
+83.6 80.7 1
+86.4 85 2
+66.7 64.1 2
+2 1.9 1
+5765.1 5634.4 2
+39.1 38.9 2
+1309 1264.6 2
+418.9 403 2
+21.4 21 1
+30 28.1 1
+34 31.7 2
+36 35.9 1
+18.1 18.6 2
+697.6 663.4 2
+6666.7 6449.3 2
+5869.7 5814.3 2
+304.7 293.6 2
+245 245.1 1
+430.3 429.7 2
+339.1 333.7 2
+721.6 706.4 2
+14.4 14.4 1
+3.7 4 2
+6.7 7.7 1
+5.6 7 1
+33.4 33.7 1
+18.9 18 2
+30.9 27.6 1
+155.6 157.3 2
+161.7 153.4 2
+106 107 2
+11.4 12.1 1
+2321.3 2309.9 2
+46.7 47 2
+10.9 11.4 1
+10.9 11.6 1
+7.7 7 2
+859.7 836 2
+6.4 6.3 2
+179 171.9 2
+54.1 54.3 2
+2.7 2.6 2
+3.6 3.3 2
+2.1 2.7 1
+99.3 97.7 2
+947.6 929 2
+869.9 862.3 2
+45.4 42.1 2
+20.7 24.3 1
+57.6 55.9 2
+41.3 42.1 1
+95.7 101.7 2
+466.7 452 2
+143.9 147.6 1
+403.6 386.4 2
+239.1 222.4 2
+170.4 163.4 2
+140 144.9 1
+123.9 117.6 1
+2667.6 2624.7 2
+1345 1281.1 2
+1936.9 2082.4 1
+11845.3 11535.7 2
+9197.1 8834.3 2
+13846.4 13492.6 2
+852.6 861.9 1
+374194 369455.6 2
+8038.3 7714.1 2
+476.1 487.6 2
+251.3 264 2
+477.6 506.7 1
+3764.1 3720.7 2
+4087.1 4049.3 2
+2993.1 2978.9 2
+103 101.4 2
+274441.9 268468.6 2
+1514.1 1503.9 2
+88478.6 88977.3 2
+36916.4 36323.7 2
+333.1 337.6 1
+1587.1 1662.7 1
+339.1 356.6 1
+961.6 956.7 1
+3931.7 4001.4 2
+7166.9 7189 2
+3444.1 3467.4 2
+38.4 39 1
+336.7 324.1 2
+35698.7 35253.9 2
+276228.4 276644.3 2
+254822.4 251113.9 2
+33025.4 32889.3 2
+77463.7 76379.1 2
+172.9 172 1
+61.1 62.1 1
+60.4 63.9 2
+17816.1 17930.9 2
+1670.6 1716.3 2
+1016.9 1076.7 2
+583.3 610.7 2
+197 199.1 2
+53823.3 52891.7 2
+49951.1 49406 2
+69076.6 67608.6 2
+36.1 33.3 1
+10.6 9.9 2
+27.9 27.1 2
+15.6 15.3 2
+11.7 11.4 1
+12 13.3 1
+6.7 6.9 1
+134.9 127.3 2
+72.3 66.9 2
+102.3 93.6 2
+689 640.9 2
+582.3 532.3 2
+348 334.7 2
+40.6 39.3 2
+6549.4 6199.6 2
+188.3 189.9 2
+6.6 7.3 1
+1.6 3.1 2
+11.9 12 2
+52.1 51.4 1
+58 57.6 2
+48.9 43.1 2
+3300.1 3187.7 2
+26.7 24.3 2
+776.1 745.7 2
+261.7 249.1 2
+17.3 15.7 2
+2.1 2 1
+15.4 15.1 2
+26.7 27.4 2
+37.9 38.1 2
+22.9 21.9 2
+379.1 366.1 2
+3483 3345.3 2
+3151.4 3069.1 2
+216.3 210 2
+208.3 205 2
+8.9 8.7 2
+276.9 275.9 2
+236.9 231.9 2
+430 426.4 1
+3 3.4 2
+11.1 10.1 2
+9.7 10.9 2
+6 7.4 1
+186.9 178 2
+4.4 4.3 1
+4.1 4.6 2
+5.4 5.4 2
+5.7 4.9 2
+158.4 149.9 2
+2.1 2.7 1
+52.6 48.4 2
+23.4 25.9 1
+4.7 5 1
+14.9 14.4 1
+133.6 125.3 2
+116.9 111.9 2
+13.6 12.3 2
+29.6 30.9 2
+4.6 5.1 1
+31.7 27.9 1
+28.6 26.6 2
+33.1 31.4 1
+9.4 9.1 2
+4 4 1
+9 8.1 2
+36.1 36.4 2
+25 23.4 2
+21.1 20.3 2
+515 502.4 2
+9.9 9.3 1
+27.9 27.9 2
+27.4 26.3 2
+20 20.4 2
+635.1 620.1 2
+11.9 12 2
+263.9 254.7 2
+122.9 119 2
+11.4 8.4 1
+4.6 5 1
+16.9 21 2
+42 39 2
+17.9 17.7 2
+76.9 76.3 2
+568 559.7 2
+486.4 486.1 2
+69.9 72.3 2
+221.6 207.6 2
+11.6 11.3 2
+4.3 4.4 2
+171.6 164.9 2
+159.3 165.3 2
+197 189.7 2
+57.1 52.6 2
+103.1 104.7 2
+58.6 54.4 1
+47.4 41.6 2
+128.9 110.4 2
+89 88.4 1
+3.1 2.9 1
+23.1 17.3 1
+9.3 8.3 2
+13.6 14 2
+77.1 72 2
+49.9 45.4 2
+37.7 34.7 2
+5.7 5.3 2
+1051.1 983.6 2
+23 20.6 2
+4.3 4.7 2
+5.9 6.1 2
+47.4 47.4 2
+53.9 48.4 2
+39.6 36.9 2
+1346.9 1302.4 2
+19.9 19.1 2
+497 457.3 2
+221.9 208.4 2
+5.3 5 1
+22.6 21.3 1
+3 4.4 2
+16.7 14.4 2
+58.3 57.3 2
+107.1 107 2
+57.1 54.3 2
+3.7 3.7 1
+202.3 188.7 2
+1498.6 1418.9 2
+1362.1 1260 2
+198.6 183.4 2
+682.6 632.4 2
+5.7 5.9 2
+1.6 1.6 1
+244.9 239.3 1
+38.7 42.7 2
+29.3 29.6 1
+10.9 12.7 2
+2.1 3 1
+415 391.1 2
+370.1 369.7 2
+523.9 495.1 2
+2.1 2.7 1
+54.3 53.3 1
+21.9 21.9 1
+41.9 44 2
+221 213.3 2
+140 136.4 2
+125.3 117.6 2
+11.4 12.6 1
+2977.4 2934.7 2
+68.3 64.7 2
+23.3 23.7 1
+15.7 12.7 2
+30.9 25.6 1
+209.1 209.1 1
+191.7 188.9 2
+156 150.7 2
+6 7.1 2
+4812.9 4722.1 2
+93.4 83.3 2
+1940.7 1918.4 2
+903.7 901.6 2
+13.1 11.7 1
+64.1 65.1 2
+17 17 2
+44.3 39.6 2
+156.3 159.1 2
+251.6 249.7 2
+116 123.1 2
+13.1 13.6 2
+546.7 538.6 2
+4044.9 3974.1 2
+3555.6 3462.4 2
+549 547.7 2
+1489.3 1476.1 2
+4 3.7 2
+4.4 5.4 2
+215.1 209.3 2
+54.4 52.1 2
+24.9 23.9 2
+14.7 14.9 1
+7.4 6.1 2
+1251.4 1233.4 2
+1163.9 1130.4 2
+1432.7 1410.1 2
+41.4 40.3 2
+17.4 17.7 1
+51.1 50.9 2
+31.7 30.1 2
+23.1 19.9 1
+22.1 21.9 1
+4.3 4 2
+103.3 98.7 2
+51.4 47.1 2
+77 76.1 1
+401.6 367 2
+452.9 405.3 2
+266.9 235.9 2
+36.1 31.7 1
+6765.4 6445.4 2
+128.3 118.9 2
+20 19.1 2
+8 8.7 2
+17.7 23 2
+141.4 143.7 1
+152.6 152 2
+121.1 120.7 2
+5.7 4.3 2
+5102.7 4755.4 2
+65.3 69.3 1
+1566.4 1487.9 2
+745.4 710.3 2
+6.7 7 1
+46.1 49.6 1
+9 10.7 2
+33.3 32.1 1
+107.9 104 1
+177.4 170.7 1
+85.4 82.9 1
+9.9 7.6 2
+479.7 458.4 2
+4030.3 3866.3 2
+3598.7 3447.6 2
+398.3 406.3 2
+969.1 942.3 2
+81 79 2
+19.4 19.7 2
+9.1 8.6 2
+4.6 4.1 1
+889.3 870.3 2
+804.3 747.4 2
+1006.6 951.6 2
+32.1 31.3 2
+10.9 10.1 1
+24.3 23.6 2
+123.4 112.9 2
+78.4 72.9 2
+73.4 64.6 2
+5.6 6.7 2
+1689.6 1581.3 2
+34.4 32.1 2
+25.6 21.6 2
+10.6 8.7 1
+22.9 20.7 1
+135.4 139.6 2
+160.1 141.7 2
+110.1 109.7 2
+5.1 5.4 1
+4019.3 3810.4 2
+63.1 59.1 2
+1406.3 1330 2
+670.7 638.3 2
+5.1 5.9 1
+53 48 2
+8.4 9.1 1
+29.7 27.9 2
+104.3 105.6 2
+165.9 162.7 2
+96.4 86.4 2
+8 7.3 2
+375.1 361.4 2
+2768.7 2628.7 2
+2385.9 2241 2
+386 363.7 2
+1090 1037.6 2
+11.3 11.1 1
+14.3 12.6 2
+2.7 3.7 1
+915.4 860.1 2
+871.4 845.6 2
+1037.4 988 2
+36.4 35.3 1
+7.7 8.3 1
+5.4 5.9 1
+203.4 199.3 2
+2.6 2.7 2
+63.3 63.9 1
+36.7 37 1
+3.4 3 1
+5.3 6.1 1
+8.6 10 1
+3.3 4.1 1
+19.7 18 1
+145.9 146.9 2
+124.4 122.9 2
+16.4 16.9 1
+57.6 57.3 2
+40.7 41.3 2
+44.6 44.7 2
+49.4 49.4 2
+2.3 3.7 1
+443 421 1
+183.9 176 1
+448 432.4 1
+1795.6 1743.3 1
+1221 1191 2
+950.9 941.7 1
+96.3 95.4 2
+46237.6 46723.6 1
+517.3 507.1 2
+32 39.6 2
+304.7 284 2
+291.3 298.3 1
+215.3 279.9 1
+2221.9 2386 1
+2420.7 2573.4 1
+3733.7 3678.9 1
+67.4 64.6 2
+138724.6 136716 2
+2187.6 2232.4 1
+46858.7 46520.1 2
+21329.3 21060.1 2
+278.4 304.6 1
+1139 1277.9 1
+292.3 318.6 1
+589.6 795.1 1
+2913.9 3228.4 1
+5650 6107.9 1
+2764.4 2871.3 1
+23.1 38.6 1
+235.3 256.7 1
+22399.6 21658.7 2
+171922.3 169677.3 2
+147981.7 146888 2
+21781.6 21605 2
+79625 78599.4 2
+103.4 99.3 1
+236.6 230.4 1
+62.3 59.3 1
+64.1 64.9 2
+24545.3 24336.9 2
+1824 1838.6 2
+1310 1329.9 2
+673.1 691.1 2
+12.3 12.6 2
+235.9 241.9 2
+45470.9 44927.9 2
+45357.1 45068.9 2
+58195.3 57251.4 2
+16.4 15.9 2
+7.4 7.3 1
+14.1 13.7 2
+68.3 66 2
+43.3 48 1
+33.9 33.6 2
+949 896.9 2
+17.7 19.7 2
+10 9.9 1
+6.9 6.1 1
+13.6 13.6 2
+122 116.9 2
+94.7 87.9 2
+67.4 68.7 2
+1837.9 1803.7 2
+53.9 50 1
+866.6 837.3 2
+393.6 388.1 2
+17.7 17.7 2
+12 11.6 2
+47.3 43.4 2
+56.4 56.3 2
+30.7 29.7 1
+180.9 177.6 2
+1314.1 1260 2
+1106 1084.9 2
+197.4 186.1 2
+433.3 409.7 2
+496.3 477.7 2
+420.7 427.9 2
+486.3 479 2
+106 103.1 1
+28.6 29.9 1
+64.9 66 1
+395.4 380.4 2
+264.4 275.6 1
+197.7 202.9 1
+14.1 14.9 2
+9553.9 9395.1 1
+108.7 104.7 1
+9.6 10.6 1
+90 96.6 1
+53.9 53.4 1
+79.7 89.9 1
+790.3 794.6 2
+858.1 892.3 1
+636.7 635.4 1
+21.7 22.4 1
+50282 49602.6 2
+282 300.7 1
+14239.6 14404.6 2
+8063 7896.9 2
+105.3 114.1 1
+485.3 488.6 1
+117.7 119.1 1
+255 272.4 1
+1143.9 1161.4 1
+2218.4 2205.1 2
+1023.9 1052.6 2
+9.6 11 1
+98.3 97.3 2
+7736.1 7670.6 2
+61009.1 60509.6 2
+52472.7 52312 2
+7764.6 7642.7 2
+23599 23295.9 2
+37.1 35.3 1
+9.1 9.1 1
+17.4 18.1 2
+3374 3299.7 2
+406.9 397.7 2
+200.3 199.6 2
+115.6 113.9 2
+3.1 3.7 1
+44.6 46.9 2
+13552.1 13449.4 2
+13776.4 13739.3 2
+17709.3 17489.6 2
+14 15 2
+2.9 3.7 1
+4.6 4.9 1
+6.6 6.1 1
+5 5.6 2
+137 140.9 1
+73.6 78.3 1
+132.3 128.9 1
+641.4 625 2
+420.4 421.7 2
+343.7 343.7 1
+39 39.1 1
+9617.7 9528.4 1
+187.7 178.9 1
+40.3 43.1 2
+21 21.4 1
+28.3 40.9 1
+264.9 297.4 2
+339.3 343.1 2
+222.4 244 1
+8 9.4 1
+21134.3 20750.7 2
+114.3 120.7 1
+6964.1 6882.1 2
+3076.1 3046.6 2
+39.3 39.7 1
+161.7 155.7 2
+35.6 36.3 2
+102.9 103.3 1
+418.1 389.6 2
+725.1 726.3 2
+357.1 354 2
+3.9 3.1 1
+39 35.3 1
+2978.1 2922 2
+24326.7 23861.6 2
+21517.1 21182.4 2
+2850.7 2809.7 2
+7652.1 7517 2
+6.9 7.4 2
+2.7 3 1
+3 2.9 1
+468.1 455.3 2
+106.3 107.4 2
+39 39.6 1
+25.1 24.6 2
+17.3 16.3 1
+4794 4819.9 1
+4923.3 4827 2
+6441.4 6325.9 1
+7.1 8.9 1
+6.4 7.7 1
+5 5 1
+152.6 154.4 2
+3.1 3.3 2
+6.4 6.7 2
+5.7 5.6 2
+5.3 5.1 1
+181.4 186.9 1
+56.7 62 2
+25.4 30.9 2
+4.9 4.3 1
+13.4 12.1 2
+23 24.1 2
+11.3 11.6 2
+33.1 37.6 2
+308.1 296.6 1
+269.7 268.4 2
+31.6 35 1
+111.6 119.3 1
+35.3 34.4 1
+3 5.9 1
+59.7 60.3 1
+52.6 54.9 2
+83.6 83.6 1
+9.7 10.1 1
+5 5.3 1
+6.7 6.9 1
+39 41.7 2
+32 33.3 1
+22.6 25.4 2
+3.7 3.4 1
+626.1 617 2
+13.4 13.4 2
+6.1 6 1
+2.4 2.7 1
+5.1 5.6 2
+41.4 42.4 1
+46.7 45.6 2
+32 34.3 2
+1100.4 1092.1 2
+14.1 14.7 1
+371.7 355.3 1
+166.1 167.1 2
+6.6 7.6 1
+36.1 36.6 2
+8.1 8.3 1
+24.3 23.1 1
+95.7 93.1 2
+184.3 180.4 2
+88.3 81 2
+8.3 8.1 2
+241.9 233.6 2
+1945.7 1896.6 2
+1641.3 1633 2
+229.3 229 2
+1106.9 1083.6 2
+5.3 5.4 1
+0.6 2 1
+233.7 239.9 2
+58.3 56 2
+30.9 30.7 2
+13.7 14.1 2
+5 5.3 1
+532.3 547.9 2
+563.4 552.7 2
+758.1 741.1 2
+5.6 5.6 2
+68.4 67.6 1
+29.1 29.4 2
+21.7 26.7 1
+32.9 33.9 1
+910.3 933.1 1
+697.7 706.4 1
+21.7 22.9 1
+24.9 27 2
+6.3 7.7 1
+5.6 5.6 1
+6.9 6.4 2
+4.7 5.1 1
+15.7 17.6 2
+16.3 15.1 1
+9 11.6 2
+297.3 289.9 2
+5.7 5 2
+18.3 18 1
+19.9 20.1 2
+13 12.4 2
+476.4 460.9 2
+5.9 6 2
+133.4 130.1 2
+73.3 74.4 2
+2.4 4.6 2
+23.4 23 2
+5 6.1 1
+12 12.1 2
+69.1 64.6 2
+120.7 115.9 2
+59 55 2
+3.6 4 1
+152.6 153 2
+1241 1205.7 2
+1050.7 1033.9 2
+149 143.1 2
+762.3 745 2
+4 4 2
+6.6 6.7 1
+2 2 1
+327.4 324.9 2
+54.6 52.1 2
+35.7 35.1 2
+21 21 2
+5.6 5 1
+357 357.1 2
+350.4 345.7 2
+495.1 489.7 2
+1.9 2.6 2
+24.7 24 1
+10.7 10.1 1
+17.3 15.6 1
+88.3 87.9 2
+70.6 66.7 1
+47.3 49 1
+5.1 5.6 2
+1191.9 1170 2
+26 26.9 2
+3.6 3.6 1
+17.6 17 2
+9.6 9.7 1
+20.1 20.1 2
+134.7 131.9 2
+170.6 150.6 2
+104.9 105.6 2
+3.1 4.4 1
+3624.6 3524.4 2
+50.3 49.3 2
+1134.9 1124.9 2
+536 527.9 2
+31 30.6 2
+140.4 140.6 2
+37.1 36.7 2
+93.3 91.9 1
+322.4 340.7 2
+719.3 690.3 2
+332.9 335.7 2
+3.7 3.7 2
+31.1 31.3 2
+913.4 857.1 2
+7083.3 6926 2
+5921.7 5882 2
+873 874.4 2
+3991.6 3961.6 2
+10.7 9.7 1
+21.6 20.1 1
+6.6 6 1
+8.9 8 2
+995 994.7 2
+193.7 198.9 2
+117.4 115.7 2
+63.3 66 2
+32.1 30.1 1
+1909.1 1883.9 2
+1997.6 2004.4 2
+2697.1 2660.3 2
+78.4 78.1 2
+28.4 27.4 2
+79.6 76.6 2
+50.1 50.1 1
+31.1 33.9 2
+34 33.4 2
+5.9 6 1
+231.4 226.7 2
+130 116.1 1
+167 164.7 1
+867.6 874.6 2
+1033.9 1027.6 1
+572.1 573.4 1
+68.1 71.1 2
+14069.7 14255 1
+293.7 284.9 2
+3.7 3.9 2
+55.7 55.7 1
+29.7 27.6 2
+66.3 59.4 2
+412.6 409 2
+485.3 456.4 2
+337.7 326.7 2
+16.3 14.9 2
+12496 12147 2
+156.6 158.4 2
+4110 3998 2
+1832.9 1805.7 2
+36.7 35.4 1
+204.7 197.6 2
+51.9 52.3 2
+127.3 128.4 2
+520.6 496.9 2
+911 942 2
+442.4 435 2
+5.4 4.9 2
+40.9 38.7 1
+1759.9 1688.3 2
+18948.9 18514.1 2
+17006 16663.1 2
+1497.7 1440.6 2
+4894.1 4853.4 2
+3.7 4.1 1
+8.7 10.1 1
+2.7 2.6 1
+6.1 7.9 1
+419 417.3 1
+118.4 118.7 2
+47.9 47.9 1
+30.1 32.4 1
+21.9 22.1 2
+2871.7 2835 2
+2920.1 2908 2
+3814.9 3712.3 2
+13.1 13.3 2
+3.7 4 1
+5.9 7.6 1
+37 38.4 2
+33.9 29.1 2
+19.1 17.7 1
+394.9 375.9 2
+12.3 10.6 2
+3 4.6 1
+18.4 17.3 1
+11.6 10.4 1
+18.4 18.1 1
+133.6 127.3 1
+157.3 151.3 2
+97.3 92.9 2
+2.1 3.1 2
+3062.1 2985.4 2
+47.1 46.6 2
+959.6 941.6 2
+452.6 433 2
+38.9 34.6 2
+155.4 152.9 1
+38.7 34.7 1
+96.3 95 1
+379.3 363.6 2
+722 738.9 2
+328.1 342.7 2
+4.6 3.9 1
+40.3 33.9 2
+893.6 869.9 2
+7261.4 7134 2
+6270.1 6075.7 2
+922.4 883.4 2
+4161.1 4033.9 2
+7.1 7.4 1
+18 17.9 2
+4 3.6 2
+6.9 7.1 1
+689 666.3 2
+198.6 191.4 2
+83.4 75.4 2
+53 52.9 2
+27.3 25.7 2
+1836 1836.3 2
+2021.7 1976 2
+2743 2681.7 2
+1.6 1.6 1
+21.7 23.6 1
+3 3.7 1
+7.1 7.4 2
+11.9 11.9 1
+5.6 7.1 1
+18.4 17.1 2
+136.9 134.4 2
+114 112.6 2
+18.1 15.9 2
+68 66.4 1
+14 17 1
+4.9 4.1 2
+25 26.4 2
+28.1 28.9 2
+41.6 40.4 1
+4.6 3.4 2
+4.1 3.9 1
+64 60.3 2
+1.1 1.9 1
+16 16 2
+21.4 18.7 2
+394.4 377.3 2
+8.6 6.1 2
+124.4 119.6 2
+61.7 57.6 2
+12.6 13.3 1
+3.4 3.7 1
+10.1 10.1 1
+35.9 34.6 2
+65.9 67.6 2
+33 31.7 2
+3.4 3.6 1
+100.1 88 2
+739.3 679.9 2
+658.6 599.6 2
+87.6 81 2
+373.9 348.9 2
+35.6 27.4 2
+10.4 10.3 2
+165.3 161.3 2
+195.1 186.4 2
+258.9 237.3 2
+17.1 16.6 2
+7.4 8.7 1
+10.3 9 1
+71.7 70.6 1
+64.4 58 1
+46.4 43.7 1
+1697.4 1672.6 2
+17.6 17.7 1
+16.7 17.1 1
+7.9 8.9 2
+10.9 10.4 1
+127.9 126.9 1
+147.7 150 1
+85.6 82 1
+7023.7 6911.4 1
+50.6 49.9 1
+2157.4 2142.9 2
+989.1 989 2
+46.4 46.7 1
+167.6 171.9 2
+41.7 41 2
+98 98.3 1
+412.7 415.3 2
+876.6 860.9 2
+426.1 423.3 2
+43.6 39.4 2
+2093.9 2127.6 2
+18184.9 17754.4 2
+15294.6 15093.7 2
+2261.1 2232.7 2
+13890.4 13701.9 2
+29.9 27.1 1
+62.6 60.1 2
+18.9 16.3 2
+12.3 12.1 1
+6307.7 6220.9 2
+459.3 450.9 2
+341.7 328.3 2
+163.3 165.7 2
+5.1 4.6 1
+59.9 58.4 2
+6480.6 6496 2
+6334.9 6312.1 2
+9152 8958.4 2
+7.3 6.7 1
+5.4 4.6 2
+7.7 7.3 2
+135.7 135.7 1
+40.9 43.3 1
+101.6 102.7 2
+454.9 464.3 2
+385.6 389.7 1
+305.7 301.9 2
+24.7 25.6 1
+12534.4 12453.1 2
+126.7 131.3 2
+110 106.6 1
+56.3 54.9 1
+108.9 99 1
+837.7 820 1
+941 936.3 2
+573 556.7 1
+11.9 13 1
+41654.4 42169.9 1
+272.1 275 1
+12356.3 12502.1 1
+5852.6 5881.1 2
+355.4 348.7 2
+1308.1 1331.9 2
+337 334.9 2
+873.1 882.1 2
+4075.7 4036 1
+7506.3 7411.9 2
+7773.3 7596.7 2
+36.4 36 2
+899.9 886.7 2
+17630.9 17058.4 2
+136429 133992.1 2
+115194.6 113374.3 2
+17579 17317.1 2
+108470.4 106091.7 2
+272.7 270.6 1
+463.4 468.4 2
+132.4 134.4 1
+120.7 131 2
+48248.9 46905.1 2
+3948.6 3963.7 1
+2644.7 2629.3 1
+1389 1393.7 2
+29.9 30 2
+491.9 491 1
+50268.9 49654.6 2
+49417.1 48060.3 2
+69331.9 67576.7 2
+5.3 5.6 1
+5 5.4 2
+5.3 6 1
+4.3 3.9 1
+3.6 3.1 2
+89.6 83.1 2
+31.6 29.6 1
+65.3 63.1 2
+306.9 306.9 1
+279.4 269.4 1
+159.9 168.7 2
+17.3 16.9 1
+8223.1 8226.9 2
+87.6 93.6 1
+97 98.4 2
+54 56 2
+88 81.3 1
+742.9 730.7 1
+874.4 868.4 2
+535.3 517.6 2
+14.9 14.4 1
+41411.6 41811.6 1
+260.9 265.3 2
+12524.3 12581.4 1
+5956.3 5852.3 2
+309.1 299.3 2
+1147.7 1146.3 2
+272.6 269 2
+692.9 748.4 1
+3482.3 3487.4 2
+6445.9 6264.7 2
+6624.7 6476.7 2
+25.9 29.1 1
+785.6 751.7 2
+15812.6 15408.3 2
+119679.7 118256.9 2
+100168.1 100287.1 2
+15928.9 15556.1 2
+92783.9 91358.9 2
+191.7 190.4 1
+339.4 349 2
+97.7 95 1
+96.3 111.7 1
+37054.1 36075 2
+3112.3 3057.6 2
+2021.4 2017.3 1
+1040.3 1053 2
+22.4 25.6 2
+375.1 364.4 2
+42509.7 42403.9 2
+42065.3 41096.4 2
+59962.3 58881.6 2
+4.3 4.7 2
+1.6 2.4 1
+27.6 28 2
+7.9 8.4 2
+14.6 15.6 2
+89 94.7 2
+90.3 90.1 2
+60.4 61.1 2
+5.9 5.9 1
+2463.3 2402.7 2
+23.4 23 1
+18.1 18 2
+8.7 9.4 1
+17.7 17.9 2
+155.6 151 2
+196.9 181.6 2
+104.9 100 1
+3.3 3.7 1
+7841.4 7794.3 1
+53.1 52.1 1
+2335.9 2323.4 1
+1064.6 1064.4 1
+44.6 52 1
+224.7 227.1 1
+50.6 53.7 2
+109.4 122.6 1
+596.7 591.7 2
+1260.6 1245.1 2
+570.4 576.1 2
+1.9 3.1 1
+60.4 59.3 1
+3197.3 3118.4 2
+25103.6 24705.6 2
+21314.3 20827.7 2
+3168.3 3076.9 1
+18641.4 18110.9 2
+43.3 40.4 1
+67.9 69.9 2
+20.4 21.3 1
+21.7 19 2
+7771.3 7579.9 2
+675.6 665 2
+459.6 443.7 2
+235.7 237.9 2
+4.6 4.4 2
+79.7 74.9 2
+8518 8406.7 2
+8607.6 8383.7 2
+12012.6 11790.7 2
+31.7 33.7 1
+1.9 3.3 1
+136.7 137.4 1
+74.9 80.4 2
+82.1 79.9 1
+5.6 5.1 2
+2899.1 2892.6 2
+44 46.9 1
+29.7 31 1
+22.1 20.6 2
+29.9 28.3 1
+262.6 261.6 1
+345 324.3 1
+204.9 205.3 1
+7.4 7.1 1
+15183.3 14946.3 1
+107.7 101.3 1
+4891.9 4800.7 2
+2141.7 2114.9 1
+74.9 74.7 1
+562.4 537 1
+121.7 127.3 2
+287.1 287.1 2
+1442.6 1423.6 2
+3351.3 3324.9 2
+1374 1374.4 2
+10.3 12 1
+122.3 121.3 2
+8216.9 7936.7 1
+64107.3 62995.1 2
+51187.7 50427.1 2
+7631.1 7451.4 2
+184522 182088.6 2
+684.1 729.7 1
+1330.3 1372.6 1
+301.7 305.1 1
+240.7 284.1 1
+186884.3 182324 2
+8132.7 8621.6 1
+8280.9 8657 1
+3644 3854.3 1
+72 89.6 1
+866.7 917.6 1
+68203.1 68400.9 2
+66558 66128.6 1
+101988.6 99717.4 1
+22.3 20.1 2
+4.9 5.3 1
+3.9 3.7 2
+158.7 150.9 2
+45.4 46 2
+21.6 22.1 1
+6.3 8.4 1
+2.1 2.3 1
+4 3.9 1
+23.4 21.7 1
+46.9 47.4 2
+19.6 20.9 1
+2.6 2.6 1
+62.3 54.7 2
+440.6 434.3 2
+359.6 366.3 2
+65.6 60 2
+658 644.4 1
+8.3 8 1
+11 9.9 2
+2.7 2.7 1
+636.9 646 2
+66 70.3 1
+56.1 62.3 1
+31.1 30.7 1
+7.1 6.1 2
+299.6 289.6 1
+263.3 257.6 1
+369.7 384.4 2
+4.1 5.3 2
+5.9 6.1 1
+8.9 8.6 2
+3.3 4.1 1
+157.6 153.1 2
+41.4 41.3 1
+21.9 21.7 2
+5.1 5.1 1
+24.4 22.9 2
+7 6.9 2
+15.4 14.7 2
+67.1 65.6 2
+146.4 138.4 2
+61.1 61.4 2
+6.9 5.3 2
+118.4 118 2
+985.7 970.6 2
+836.9 802.3 2
+123 112.4 1
+1860.7 1812.6 2
+18.3 16.9 1
+28.6 27.7 1
+6.1 6.3 1
+7.7 7.6 1
+1547.3 1506 2
+208.6 206.7 2
+171.3 171.6 2
+85.1 82.1 2
+28.7 25 2
+755.3 730.4 2
+721 698.6 2
+1080.1 1072.7 2
+127.6 123.9 2
+75 79.6 1
+110.6 107.9 2
+187.7 185.9 2
+51.3 50.6 1
+43.9 41.3 2
+56.4 52.1 1
+44.1 43.3 2
+59.4 57 2
+20 17.1 2
+8 9.9 1
+5.9 6.4 1
+12.6 11.4 2
+5.7 5.4 2
+12.6 12.6 2
+132.4 120.9 2
+99.7 96.6 2
+13.6 12 2
+207.4 195.4 2
+204.4 191.7 2
+22.6 20.4 2
+18.4 19.1 2
+8.3 7.7 2
+2.3 2.4 1
+84 85.7 2
+89.9 75.7 2
+121 116 2
+23.1 20.6 2
+7.9 6.9 1
+66.9 66.7 2
+59.9 59.3 1
+43.1 40.4 1
+1841.9 1827.9 2
+16.1 17.4 2
+9.7 8.7 1
+3.9 3.6 1
+11.1 11.1 2
+89.1 91.4 2
+87 90.3 1
+49.3 51.7 2
+4242.7 4248.7 2
+24.1 24 1
+1183 1247.3 1
+623.9 640.6 1
+42.4 41.1 1
+275.1 269.1 2
+81 86.6 1
+162.7 164.6 1
+807.4 813 1
+2225.3 2209.3 2
+870.3 870.4 2
+8 6.4 1
+74.6 75.9 2
+4098.9 4023 1
+33059.9 33083.7 1
+24457.3 24307.9 1
+3474.7 3465.3 1
+153931.9 150966.6 2
+669.9 678.4 1
+1139.3 1150 1
+224.4 242.3 1
+239.7 245.9 1
+158899.4 154529.3 2
+7237.3 7301.3 1
+7221.4 7356 1
+3287 3353 1
+65.1 78.1 1
+794.1 791 1
+56979.1 57420.1 2
+56078.6 54869.3 1
+83101.9 81721.4 2
+7.6 7.3 1
+6.9 8.4 1
+39 37 1
+25.1 25.4 1
+20.6 20.1 2
+433.1 437.6 2
+11.3 10.4 1
+3.9 3.7 2
+8 8.1 1
+5.1 6 2
+8.6 9.4 1
+57.9 57.9 2
+68.9 65.4 2
+41.6 40 1
+1582 1537.9 2
+18.6 20.4 1
+467 452.1 2
+244.9 242.6 2
+29.1 30.3 1
+129.3 122 2
+28.3 29.6 1
+78.1 77.9 1
+348.1 337.7 2
+782.4 766.6 2
+344.6 348.6 2
+1.6 2.3 1
+33.4 33.6 2
+732.3 722.6 2
+5816.9 5674.3 2
+4742.9 4649.1 2
+691 670.7 2
+13572.7 13254.7 2
+120 111.9 2
+230 217.6 2
+55.6 55.4 1
+49.1 52.3 1
+12661.7 12361.3 2
+1481.1 1462.4 2
+1443.4 1375.6 2
+624.6 624.1 2
+14.9 16.6 1
+190 172.6 2
+5704.6 5575.6 2
+5509.3 5345.3 2
+7744.7 7523.7 2
+22.9 23.3 1
+8.7 10.1 1
+22.3 28.3 2
+12.6 14.6 1
+9 9.1 1
+7.6 12.4 1
+101.3 96.7 2
+52.7 50.6 2
+74.1 70.1 1
+419.3 398.4 2
+415.3 383.6 2
+272.1 266.3 2
+32.3 30.4 1
+6387.1 6135.1 2
+129.7 129.3 2
+1.9 2 1
+19.1 18.1 2
+13.6 10.7 2
+18.4 18.3 1
+155.9 149.6 2
+175.7 173.1 2
+119.6 114.4 1
+7 5.1 2
+4974.9 4872.4 2
+62.1 60.4 2
+1563.3 1547.6 2
+663.1 685.3 2
+23.9 26.6 1
+124.4 125.7 2
+29.3 29 1
+78.3 76.4 2
+321.3 322.3 2
+659.3 639.4 2
+311 292 2
+3.1 3.4 1
+32 28.6 2
+894.6 863.6 2
+7206.6 6987.9 2
+6266.7 6121 2
+794 788 2
+7648.1 7693.3 2
+71.3 72 1
+116 114.6 2
+25.3 25.7 2
+28.6 29 2
+6719.4 6841.7 2
+782.4 810.4 2
+794.9 738 1
+345 346.3 2
+8 9.6 1
+88.4 91.6 2
+3446 3492.3 2
+3224.9 3281.7 2
+4532.6 4491 2
+44.4 42 1
+9.6 8.3 1
+5.1 8 2
+31.1 28.9 2
+6.7 8 1
+25 25 2
+96.3 95.6 2
+246.4 242.4 2
+91.9 95.1 2
+9.7 10.1 2
+180.1 165.3 2
+1302.3 1263.9 2
+921.6 924.1 2
+145.3 131.4 2
+6572.7 6470.7 2
+65.7 65.3 2
+121.7 114.7 2
+27.3 28.4 1
+32.9 28.7 2
+6574.3 6516.9 2
+766.7 753.3 2
+733.3 727.4 2
+338.3 328.4 1
+8.6 9.4 1
+92.3 88.3 2
+2666.1 2653.7 2
+2547.3 2522.6 2
+3608.1 3550.4 2
+4.4 4.1 2
+11.3 11.4 2
+5 5.4 1
+40.7 44 1
+17.3 20.4 1
+490.9 500.4 2
+4.1 4 2
+8.1 8.9 2
+2.3 2.7 2
+511.1 528.6 2
+47.7 52.9 2
+51.7 55.1 2
+24 25.6 2
+5.9 5.4 2
+193.7 190.6 2
+191.7 182.3 2
+280 273 2
+6.6 6.9 1
+1.9 2.4 2
+3.7 4.3 1
+21.9 19 2
+58.7 55 2
+19.4 18.4 2
+31.7 31.6 2
+279.6 275.7 2
+178.7 172.9 2
+26.4 27.4 2
+1546.7 1497.7 2
+14.3 13.1 2
+26.7 27.7 2
+6.9 6.7 2
+1633.1 1541.4 2
+178 170.6 2
+182.4 169.7 2
+70.7 70 2
+1.6 1.9 1
+13 14.4 1
+614.1 596.1 2
+608.4 569.7 2
+877.4 827.9 2
+17.9 19 2
+7.4 7 1
+87.9 83.4 2
+76.6 70.6 2
+59 59.4 1
+6.1 6.4 2
+2383.3 2380.3 2
+25.7 27.9 2
+14.6 13.1 1
+12.6 10 1
+8 9.9 2
+112.7 121 2
+145.1 146.4 1
+92.7 93.1 1
+2.7 3 1
+7117.6 6999.9 2
+40.6 43.9 2
+2192.9 2177 2
+1035.3 1029.3 2
+65.6 63.6 2
+263.6 268.7 1
+68.6 68.9 1
+165 162.4 1
+754.7 749.9 1
+1740.9 1731.7 2
+729.3 736 2
+10.6 9.7 1
+71.9 69.4 1
+4141.7 4091.3 1
+31335 31292.6 1
+24932.9 24764.4 1
+3892.9 3859.1 1
+78085.1 77478 2
+258.6 274.4 2
+576.3 576.1 1
+124 124.1 2
+105.3 117.1 1
+73241.6 72365.3 2
+3626 3640.6 1
+3556.6 3516.6 1
+2799.1 2811.7 2
+38.1 41.3 1
+380.3 389.9 1
+22767.6 23278.9 2
+21023 20885.1 2
+44994 44386.1 2
+19.6 23 1
+10.7 11.1 1
+96.6 100.6 1
+72.6 75 1
+59.4 63.4 1
+4.9 7.4 2
+3086.6 2991.7 1
+30.1 29 1
+14.1 15.3 2
+10.1 9.4 1
+5.7 10 1
+139.6 139.6 1
+155.3 142 1
+78.4 92.9 2
+3.6 4.6 1
+6213.1 6162.1 1
+40.7 45.4 1
+2061.4 2042 1
+910.7 924 1
+194.3 199.4 1
+53.3 54.7 1
+111.6 116.7 1
+616.7 615.9 1
+1443.3 1401.1 2
+603.7 599.7 1
+3.9 5.6 1
+67 61.1 2
+3220 3181.9 1
+26454 25966.7 1
+20991.6 20649.1 1
+2943.7 2857.4 1
+74367 73074 2
+322.3 315.7 1
+521 528.7 1
+116.3 114.1 1
+112.1 115.3 2
+72477.4 71263.7 2
+3168.1 3201.3 1
+3306 3342 1
+2587.7 2579.9 2
+31.4 35.9 1
+737.7 720.3 2
+20343.3 20400 2
+18422 18329.1 2
+41281.7 40456.7 2
+33 31.9 1
+9.6 10.7 1
+25.7 26.4 2
+137 133.4 1
+107.7 102.1 1
+87 83.4 2
+5.3 6.1 2
+3600.3 3536.7 2
+33.1 33.9 1
+15.4 16.3 2
+10.3 10.9 2
+14 11.9 1
+145.3 146.4 1
+181.9 178.9 1
+97.7 96.4 2
+8722.4 8583.1 2
+55.9 55.1 1
+2790.7 2759.1 2
+1260.7 1281.9 2
+47.6 47.4 1
+245.3 240.4 2
+62.4 66 1
+160.6 156.7 1
+692.4 697.6 2
+1722.7 1736.3 2
+733.7 727.3 2
+3.7 4.1 1
+61.1 64.6 2
+3796 3669.1 1
+29262.9 28762 1
+22947.4 22520.3 2
+3440 3431 2
+116206.6 114804.6 2
+441 463.7 1
+960 923.1 2
+180 185.4 1
+195.3 189.6 1
+122171.1 119610 2
+5548.9 5481.6 2
+5713.9 5726.6 2
+2413.6 2450.7 2
+48.4 51.4 2
+598 578.4 2
+41736.6 41896.6 2
+40593.1 40151.7 2
+60851.7 60939.1 2
+&
+@target G6.S0
+@type xycolor
+7 2.3 1
+-8.2 -1.1 1
+6 2.3 2
+7.7 1.9 2
+6.6 1.4 2
+2.5 0.4 1
+-24.4 -0.4 2
+7.7 3.4 2
+2.8 0.7 2
+-1.4 -0.5 1
+2.2 3 2
+5.8 12.3 1
+1.1 1 2
+-20.6 -2.4 2
+2.9 92.3 2
+0.5 0.3 1
+7.1 0.4 2
+-9.8 -0.6 1
+2.8 0.2 2
+4.2 35.7 2
+-14.3 -0.3 2
+6.8 9.7 1
+3.3 1.1 2
+-4.8 -0.1 2
+-0.6 -0 1
+-6.8 -0.2 1
+2.8 3.4 2
+3.2 50.4 2
+2.1 30.7 2
+-11.4 -3 1
+-3.1 -0.6 2
+3.2 1 2
+13.3 3.3 2
+-3.9 -2.5 2
+12.6 2.1 1
+-10.7 -0.7 1
+3.1 0.6 2
+3.3 0.5 2
+2 0.2 2
+3.9 0.3 2
+-9.6 -1.4 2
+5.6 0.7 1
+-7 -0.9 1
+-3.6 -1.8 2
+1.6 1.4 1
+-5.3 -1.9 1
+1.3 17.5 2
+1.5 0.3 2
+-0.2 -0.6 2
+-3.2 -1.5 2
+-1.1 -0.6 2
+4 30.3 1
+3.8 25.2 2
+9.9 0.3 2
+-1 -0.1 2
+5.4 4.3 2
+-0.4 -0.2 1
+-2.6 -2.8 2
+13.3 9.3 2
+15.3 7.2 2
+4.5 1.8 2
+-17.1 -0.5 1
+2.7 1.8 2
+8 3.7 2
+5.6 2.7 2
+6.3 10.3 2
+7.1 23.4 2
+0.6 0.6 1
+-14.5 -1.8 1
+6.4 378.8 2
+9.7 5.7 2
+21.2 0.7 1
+5.3 52.8 2
+3.4 5 2
+-3.4 -0.1 1
+7.6 16.7 2
+6.3 211.4 2
+4.7 144.2 2
+32.5 2.2 1
+5.3 2.3 1
+8 3.9 2
+12.6 2.1 2
+9.9 6.1 2
+-9.5 -3.6 1
+-2.4 -0.6 2
+21.8 4.7 2
+-1 -0.5 2
+1.5 0.4 2
+-3.9 -1.1 2
+11.2 14.1 2
+12.6 29.3 2
+13.6 12.2 2
+7.8 0.9 2
+4.8 175.2 2
+9.9 4.6 2
+5.9 46.4 2
+2.9 3.4 2
+-7.1 -0.1 1
+-0.5 -0.7 1
+7.5 151.8 2
+4.1 74.8 2
+9 0.7 2
+-2.6 -0.9 1
+15.2 2.9 2
+-8.3 -0.6 1
+6.4 1.6 2
+11.6 1.8 2
+-11.7 -1.3 1
+-20.4 -1.4 1
+11 1.7 1
+3.2 0.3 1
+-17.6 -2.3 1
+4.2 1.7 2
+21.4 17.3 2
+10.6 3.3 2
+-3.4 -0.1 1
+3.7 50.3 2
+-3.4 -0.6 2
+4.1 9.8 2
+-4.2 -1.5 2
+-0.3 -0.2 2
+6.6 50.8 2
+3.7 26.2 2
+5.6 0.1 2
+1.3 0.1 1
+-3 -0.5 1
+-17.1 -0.9 1
+10.1 1.7 2
+-4.3 -0.5 1
+-3.1 -0.3 1
+18.7 1.3 1
+-3 -0.4 2
+2.3 0.2 2
+-2.1 -0.2 1
+0.8 0.3 2
+0.8 0.6 2
+-5.5 -1.4 2
+-10.7 -0.4 1
+-0.9 -9.2 2
+-11.8 -1.8 1
+-0.6 -1.3 2
+9 2.7 2
+15.3 6.3 2
+-1.5 -9 2
+-1.1 -6.1 2
+5.1 0.4 2
+3.9 0 2
+7.1 0.4 1
+-12.9 -0.5 2
+-23.3 -1 2
+7.2 7 2
+0.8 0 1
+0.7 0 1
+-2.8 -4.4 2
+-1.2 -0.6 2
+6 1.8 1
+7.1 0.4 1
+3.1 0.2 2
+-4.8 -0.3 1
+8.5 1.7 2
+5.8 7.9 2
+6.4 6.7 2
+-1.4 -0.2 2
+-7.1 -2.3 2
+19.8 0.6 2
+4.1 0.9 2
+8.2 1.6 2
+4.8 1 2
+7.4 2 2
+2.7 0.3 2
+21.2 4.7 2
+14 2.4 2
+10.8 1.3 2
+4.8 0.6 1
+18.6 1.1 1
+1.4 1.5 1
+8.6 5 1
+0.2 0.2 2
+9.4 43.4 2
+9.2 36.2 2
+2.9 8.6 2
+0.8 0.3 2
+3.7 199.4 2
+6.8 9.1 2
+0.2 0 1
+-17.3 -1 1
+6.2 1.1 1
+4 4 2
+-0.6 -0.7 2
+11.7 8.8 2
+29 0.9 2
+2.7 96.8 2
+0.4 0.2 1
+0.9 10.1 2
+-0.5 -2 2
+-2.7 -0.2 1
+6.1 2.4 1
+-4.1 -1.2 1
+6.2 5.3 2
+2.2 3.2 2
+2 1.5 1
+-5.4 -0.4 2
+-1.2 -5.4 2
+3.6 130.9 2
+0.4 13.5 2
+7.8 28.2 2
+1.9 16 2
+0.5 0 1
+3.7 6 1
+-2 -0.7 1
+8.5 1.7 1
+1.5 0.2 1
+4.5 0.2 1
+6.1 39.3 2
+4.5 26.3 2
+3.5 30 1
+1.2 31.3 2
+6.6 27.1 2
+5.7 11 2
+4.3 6.6 2
+10.1 0.6 2
+1 1.2 2
+4.2 3.8 2
+-0.8 -0.2 2
+-11.3 -0.7 2
+8.2 1.4 2
+11.9 1.3 2
+4.6 0.3 2
+7.6 0.6 1
+-7.1 -0.4 1
+3.8 4 2
+-0.3 -0.1 2
+3.6 2.7 1
+6.3 28.2 2
+4 15.5 2
+3.3 9.5 2
+-6.7 -2.1 2
+2.4 153.7 2
+9.1 12.4 2
+3.9 0.7 1
+-1.3 -0.1 2
+1.4 0.3 2
+8.1 11.6 1
+6.5 9.8 2
+2.2 2.3 2
+-16.3 -0.5 1
+2.1 94.4 2
+2.2 1.3 2
+2.1 30.5 2
+2.2 15 2
+5.3 0.6 1
+6 3.7 2
+-6.6 -0.8 2
+15 5.7 2
+-1.5 -2.1 2
+0.2 0.6 2
+5.6 6.6 2
+7.8 0.9 2
+2.6 14.2 2
+4.6 205.4 2
+1.2 48 2
+8 39.3 2
+4.7 57.5 2
+15.4 0.4 1
+2 0.1 1
+3.5 7 2
+6.9 2.8 2
+-18 -3.3 1
+1.3 0.2 1
+7.8 0.4 2
+2.5 21.4 2
+2.4 18.6 2
+4.9 51.9 2
+-1.9 -1.9 2
+13.8 4.5 2
+1.8 1.7 2
+5 3.2 2
+-7 -3 2
+-4.4 -1.6 2
+-1.2 -0.2 1
+0.6 1.6 2
+6.8 9.6 2
+0.1 0.2 1
+5.6 72.9 2
+9.9 114.2 2
+7.1 52.3 2
+-1.7 -1.7 1
+6.2 1074.6 2
+10.9 43.9 2
+3.9 1 1
+-17.6 -2 2
+4.7 1.3 2
+-1.1 -1.6 1
+10.3 15 1
+7.5 8.7 1
+7.1 0.3 1
+4.7 346.4 2
+-1.6 -1 2
+1 19.2 2
+4.9 30.9 2
+5.1 2.3 1
+-19.5 -1.4 2
+-4.1 -1.6 2
+-3.4 -3.1 1
+-0.9 -1.4 2
+7.2 5.6 1
+-2.9 -0.1 2
+7.1 63.4 2
+4.3 361.7 2
+0.7 56.7 2
+-1.3 -6.6 2
+3.1 22.2 2
+1.7 1 2
+1.2 0.2 1
+3.5 0.2 1
+-2 -0.1 2
+6.3 45.7 2
+3.1 19 2
+3.3 34 1
+5.2 13.9 2
+8.6 8.9 2
+0.8 2.4 2
+4.6 8.7 2
+7.7 10.3 2
+7.3 8.7 2
+10.4 2.4 2
+7.3 35 2
+7.6 21.2 2
+0.5 1.7 2
+7.6 143 2
+6.2 145.2 2
+4.5 57 2
+3.4 5.6 2
+4.5 1471.3 2
+5.4 34.3 2
+-6.3 -1.2 2
+-6.2 -0.6 1
+3.1 1 2
+-8.2 -11.7 2
+-4.9 -7.6 2
+4.9 5.3 2
+11.1 0.4 2
+0.3 31.2 2
+9.2 6.1 2
+3.3 74.3 2
+0.3 2.1 2
+3.6 1.9 2
+3.1 0.3 1
+7.8 4 2
+-3.9 -4 2
+-4.6 -7.5 2
+-2.1 -1.8 2
+-18.9 -1.5 2
+3.6 52.1 2
+3.9 606 2
+1.5 220.3 2
+4.3 23.8 2
+3.2 22.6 2
+-0.2 -0.1 2
+18.2 2.4 1
+-3.7 -0.2 1
+-3.7 -0.2 1
+-14.3 -0.6 2
+2.4 17.4 2
+1.1 6.5 2
+6.8 79.7 2
+6.9 5.3 2
+6.5 1.7 2
+12.2 8.1 2
+1.2 0.5 2
+13.4 3.1 2
+14.6 4.1 2
+-2.5 -0.3 1
+3.4 7.9 2
+7 9 2
+0.2 0.3 2
+4.8 46.5 2
+9 91.7 2
+-0.2 -1 2
+3.3 2.5 1
+3 376.2 2
+8.4 24.5 2
+-3 -0.5 2
+20.5 1.3 2
+0.7 0.1 2
+3.6 2.9 1
+1.7 1.4 2
+4.1 2.6 2
+5.3 0.1 1
+2.3 130.7 2
+0.6 0.2 2
+3.5 44.4 2
+3.9 15.9 2
+2 0.4 1
+6.8 1.9 1
+7.3 2.3 2
+0.3 0.1 1
+-2.5 -0.5 2
+5.2 34.2 2
+3.4 217.4 2
+1 55.4 2
+3.8 11.1 2
+-0 -0.1 1
+0.1 0.6 2
+1.6 5.4 2
+2.1 15.2 2
+0.2 0 1
+-7.1 -0.3 2
+-12.8 -1 1
+-20.4 -1.4 1
+-0.8 -0.3 1
+4.8 0.9 2
+11.8 3.3 1
+-1.1 -1.7 2
+5.4 8.3 2
+-0.9 -1 2
+-5.5 -0.7 1
+0.5 11.4 2
+-0.6 -0.3 2
+-4.8 -0.5 1
+-6.4 -0.7 1
+10.2 0.7 2
+2.8 23.7 2
+2 0.1 2
+4.1 7.1 2
+-0.3 -0.2 2
+4.4 0.1 2
+8.2 0.3 2
+-20.6 -0.6 1
+1.6 1.6 2
+2 18.6 2
+0.9 7.6 2
+7.9 3.3 2
+-14.8 -3.6 1
+3 1.7 2
+-1.9 -0.8 1
+-5.9 -6 2
+3.3 14.7 2
+-2.5 -3.7 1
+4.4 17.2 2
+7.5 16.7 2
+4.3 7 2
+-3.4 -4.9 1
+5.3 6.3 1
+1.6 42.9 2
+5 63.9 2
+-7 -145.5 1
+2.7 309.6 2
+4.1 362.8 2
+2.6 353.8 2
+-1.1 -9.3 1
+1.3 4738.4 2
+4.2 324.2 2
+-2.3 -11.5 2
+-4.8 -12.7 2
+-5.7 -29.1 1
+1.2 43.4 2
+0.9 37.8 2
+0.5 14.2 2
+1.6 1.6 2
+2.2 5973.3 2
+0.7 10.2 2
+-0.6 -498.7 2
+1.6 592.7 2
+-1.3 -4.5 1
+-4.5 -75.6 1
+-4.9 -17.5 1
+0.5 4.9 1
+-1.7 -69.7 2
+-0.3 -22.1 2
+-0.7 -23.3 2
+-1.5 -0.6 1
+3.9 12.6 2
+1.3 444.8 2
+-0.2 -415.9 2
+1.5 3708.5 2
+0.4 136.1 2
+1.4 1084.6 2
+0.5 0.9 1
+-1.5 -1 1
+-5.4 -3.5 2
+-0.6 -114.8 2
+-2.7 -45.7 2
+-5.6 -59.8 2
+-4.5 -27.4 2
+-1.1 -2.1 2
+1.8 931.6 2
+1.1 545.1 2
+2.2 1468 2
+8.5 2.8 1
+6.8 0.7 2
+2.8 0.8 2
+1.8 0.3 2
+2.8 0.3 1
+-9.8 -1.3 1
+-2.7 -0.2 1
+5.9 7.6 2
+8.1 5.4 2
+9.3 8.7 2
+7.5 48.1 2
+9.4 50 2
+4 13.3 2
+3.2 1.3 2
+5.6 349.8 2
+-0.9 -1.6 2
+-10 -0.7 1
+-49.3 -1.5 2
+-1.2 -0.1 2
+1.4 0.7 1
+0.7 0.4 2
+13.4 5.8 2
+3.5 112.4 2
+9.9 2.4 2
+4.1 30.4 2
+5.1 12.6 2
+10.1 1.6 2
+7.1 0.1 1
+2.2 0.3 2
+-2.5 -0.7 2
+-0.6 -0.2 2
+4.4 1 2
+3.6 13 2
+4.1 137.7 2
+2.7 82.3 2
+3 6.3 2
+1.6 3.3 2
+1.8 0.2 2
+0.3 1 2
+2.1 5 2
+0.8 3.6 1
+-11.8 -0.4 2
+10.3 1 2
+-10.9 -1.2 2
+-18.9 -1.4 1
+5 8.9 2
+3 0.1 1
+-9.9 -0.5 2
+0.5 0 2
+16.6 0.8 2
+5.7 8.5 2
+-20.6 -0.6 1
+8.6 4.2 2
+-9.5 -2.5 1
+-5.7 -0.3 1
+3.2 0.5 1
+6.6 8.3 2
+4.4 5 2
+10.3 1.3 2
+-4.3 -1.3 2
+-10.4 -0.5 1
+13.7 3.8 1
+7.4 2 2
+5.6 1.7 1
+3.6 0.3 2
+0 0 1
+11.1 0.9 2
+-0.7 -0.3 2
+6.8 1.6 2
+4.2 0.8 2
+2.5 12.6 2
+6 0.6 1
+-0.2 -0 2
+4.3 1.1 2
+-2 -0.4 2
+2.4 15 2
+-1.2 -0.1 2
+3.6 9.2 2
+3.2 3.9 2
+36.1 3 1
+-8.6 -0.4 1
+-19.7 -4.1 2
+7.7 3 2
+0.9 0.2 2
+0.7 0.6 2
+1.5 8.3 2
+0.1 0.3 2
+-3.4 -2.4 2
+6.7 14 2
+2.4 0.3 2
+-2.6 -0.1 2
+4 6.7 2
+-3.6 -6 2
+3.8 7.3 2
+8.6 4.5 2
+-1.5 -1.6 2
+7.7 4.2 1
+14 5.8 2
+16.7 18.5 2
+0.7 0.6 1
+8.4 0.2 1
+33.8 5.8 1
+11.9 1 2
+-3.1 -0.4 2
+7.1 5.1 2
+9.8 4.5 2
+8.7 3 2
+7.8 0.4 2
+6.9 67.5 2
+11.7 2.4 2
+-8.8 -0.4 2
+-4 -0.2 2
+0.1 0 2
+11.3 5.5 2
+7.2 2.7 2
+3.4 44.5 2
+4 0.8 2
+8.7 39.7 2
+6.5 13.5 2
+5.7 0.3 1
+6 1.3 1
+-31.8 -1.4 2
+16.1 2.3 2
+1.7 1 2
+0.1 0.1 2
+5.2 2.8 2
+0.4 0 1
+7.2 13.6 2
+5.6 79.7 2
+8.1 102.1 2
+8.3 15.2 2
+7.9 50.2 2
+-3.1 -0.2 2
+-1.8 -0 1
+2.3 5.6 1
+-9.3 -4 2
+-1.1 -0.3 1
+-14.5 -1.8 2
+-28.6 -0.9 1
+6.1 23.9 2
+0.1 0.4 2
+5.8 28.8 2
+-20.6 -0.6 1
+1.8 1 1
+-0.2 -0 1
+-4.9 -2.1 2
+3.6 7.7 2
+2.6 3.6 2
+6.5 7.7 2
+-9.3 -1.2 1
+1.5 42.7 2
+5.5 3.6 2
+-1.7 -0.4 1
+23.7 3 2
+20.5 5.3 1
+0 0 1
+1.5 2.8 2
+3.5 5.3 2
+-15.5 -1.1 2
+1.9 90.8 2
+12.2 10.1 2
+1.2 22.3 2
+0.2 2.1 2
+12.3 1.4 1
+-1.5 -1 2
+0 0 2
+11.8 4.7 2
+-1.8 -2.8 2
+0.7 1.9 2
+-5.8 -7.1 2
+-3.4 -0.5 2
+1.5 8.1 2
+1.8 70.8 2
+2.7 93.2 2
+0.2 1.3 2
+0.9 13.2 2
+8.1 0.3 2
+-18 -1 2
+2.8 5.8 2
+4.5 2.3 2
+4 1 2
+-1.2 -0.2 1
+21.8 1.3 2
+1.5 18 2
+3 33.5 2
+1.6 22.6 2
+2.8 1.1 2
+-1.5 -0.3 1
+0.5 0.2 2
+5.4 1.6 2
+16.3 3.2 1
+1.1 0.2 1
+7.1 0.3 2
+4.6 4.6 2
+9.2 4.3 2
+1.2 0.9 1
+9.4 34.6 2
+11.7 47.6 2
+13.1 31 2
+14 4.4 1
+5 320 2
+7.9 9.4 2
+4.7 0.9 2
+-8 -0.7 2
+-23 -5.3 2
+-1.6 -2.3 1
+0.4 0.6 2
+0.4 0.4 2
+32.9 1.4 2
+7.3 347.3 2
+-5.8 -4 1
+5.3 78.5 2
+4.9 35.1 2
+-4.1 -0.3 1
+-7 -3.5 1
+-15.9 -1.7 2
+3.7 1.2 1
+3.7 3.9 1
+3.9 6.7 1
+3.1 2.5 1
+29.7 2.3 2
+4.6 21.3 2
+4.2 164 2
+4.4 151.1 2
+-2 -8 2
+2.8 26.8 2
+2.5 2 2
+-1.4 -0.3 2
+6.3 0.5 2
+11.5 0.5 1
+2.2 19 2
+7.6 56.9 2
+5.8 55 2
+2.7 0.8 2
+7.5 0.8 1
+2.9 0.7 2
+9.3 10.5 2
+7.6 5.5 2
+13.7 8.8 2
+-16.8 -1.1 2
+6.8 108.3 2
+7.3 2.3 2
+18.4 4 2
+21.5 1.9 1
+10.4 2.2 1
+-3 -4.2 2
+13 18.4 2
+0.4 0.4 2
+-4.8 -0.3 1
+5.5 208.9 2
+6.8 4 2
+5.7 76.3 2
+5.1 32.4 2
+-12.8 -0.8 1
+10.4 5 2
+-7.4 -0.7 1
+6.5 1.8 2
+-1.2 -1.3 2
+1.9 3.2 2
+11.6 10 2
+9.6 0.7 2
+3.8 13.7 2
+5.3 140 2
+6.5 144.9 2
+6.1 22.3 2
+5.1 52.4 2
+1.7 0.2 1
+13.4 1.7 2
+-26.6 -1 1
+6.4 55.3 2
+3.1 25.8 2
+5 49.4 2
+3.2 1.1 1
+-7.1 -0.6 1
+-8 -0.5 1
+2.1 4.1 2
+-4.8 -0.1 2
+-1 -0.6 1
+-0.8 -0.3 1
+14.3 0.4 1
+-13.3 -0.8 1
+-14.3 -1.4 1
+-19.9 -0.8 1
+9.5 1.7 1
+-0.7 -1 2
+1.2 1.5 2
+-2.8 -0.5 1
+0.5 0.3 2
+-1.4 -0.6 2
+-0.3 -0.1 2
+0.1 0 2
+-38.2 -1.4 1
+5.2 22 1
+4.5 7.9 1
+3.6 15.6 1
+3 52.3 1
+2.5 30 2
+1 9.2 1
+0.9 0.9 2
+-1 -486 1
+2 10.2 2
+-19.2 -7.6 2
+7.3 20.7 2
+-2.4 -7 1
+-23.1 -64.6 1
+-6.9 -164.1 1
+-5.9 -152.7 1
+1.5 54.8 1
+4.4 2.8 2
+1.5 2008.6 2
+-2 -44.8 1
+0.7 338.6 2
+1.3 269.2 2
+-8.6 -26.2 1
+-10.9 -138.9 1
+-8.3 -26.3 1
+-25.8 -205.5 1
+-9.7 -314.5 1
+-7.5 -457.9 1
+-3.7 -106.9 1
+-40 -15.5 1
+-8.3 -21.4 1
+3.4 740.9 2
+1.3 2245 2
+0.7 1093.7 2
+0.8 176.6 2
+1.3 1025.6 2
+4.2 4.1 1
+2.7 6.2 1
+5 3 1
+-1.2 -0.8 2
+0.9 208.4 2
+-0.8 -14.6 2
+-1.5 -19.9 2
+-2.6 -18 2
+-2.5 -0.3 2
+-2.5 -6 2
+1.2 543 2
+0.6 288.2 2
+1.6 943.9 2
+3.3 0.5 2
+1.8 0.1 1
+3.2 0.4 2
+3.5 2.3 2
+-9.8 -4.7 1
+0.8 0.3 2
+5.8 52.1 2
+-10.1 -2 2
+1 0.1 1
+12.4 0.8 1
+-0.2 -0 2
+4.4 5.1 2
+7.8 6.8 2
+-1.9 -1.3 2
+1.9 34.2 2
+7.7 3.9 1
+3.5 29.3 2
+1.4 5.5 2
+0.1 0 2
+3.4 0.4 2
+9 3.9 2
+0.2 0.1 2
+3.4 1 1
+1.8 3.3 2
+4.3 54.1 2
+1.9 21.1 2
+6.1 11.3 2
+5.8 23.6 2
+3.9 18.6 2
+-1.7 -7.2 2
+1.5 7.3 2
+2.8 2.9 1
+-4.4 -1.3 1
+-1.7 -1.1 1
+4 15 2
+-4.1 -11.2 1
+-2.6 -5.2 1
+-5.1 -0.8 2
+1.7 158.8 1
+3.8 4 1
+-9.7 -1 1
+-6.8 -6.6 1
+0.9 0.5 1
+-11.3 -10.2 1
+-0.5 -4.3 2
+-3.8 -34.2 1
+0.2 1.3 1
+-3.1 -0.7 1
+1.4 679.4 2
+-6.2 -18.7 1
+-1.1 -165 2
+2.1 166.1 2
+-7.7 -8.8 1
+-0.7 -3.3 1
+-1.2 -1.4 1
+-6.4 -17.4 1
+-1.5 -17.5 1
+0.6 13.3 2
+-2.7 -28.7 2
+-13 -1.4 1
+1 1 2
+0.9 65.5 2
+0.8 499.5 2
+0.3 160.7 2
+1.6 121.9 2
+1.3 303.1 2
+5.2 1.8 1
+0.5 0 1
+-3.7 -0.7 2
+2.3 74.3 2
+2.3 9.2 2
+0.3 0.7 2
+1.5 1.7 2
+-15.1 -0.6 1
+-5 -2.3 2
+0.8 102.7 2
+0.3 37.1 2
+1.3 219.7 2
+-6.7 -1 2
+-22.8 -0.8 1
+-6.7 -0.3 1
+7.7 0.5 1
+-10.7 -0.6 2
+-2.8 -3.9 1
+-6 -4.7 1
+2.6 3.4 1
+2.6 16.4 2
+-0.3 -1.3 2
+0 0 1
+-0.3 -0.1 1
+0.9 89.3 1
+4.9 8.8 1
+-6.5 -2.8 2
+-1.9 -0.4 1
+-30.8 -12.6 1
+-10.9 -32.5 2
+-1.1 -3.8 2
+-8.8 -21.6 1
+-14.9 -1.4 1
+1.8 383.6 2
+-5.3 -6.4 1
+1.2 82 2
+1 29.5 2
+-1 -0.4 1
+3.9 6 2
+-2 -0.7 2
+-0.4 -0.4 1
+7.3 28.5 2
+-0.2 -1.2 2
+0.9 3.1 2
+24.4 0.8 1
+10.5 3.7 1
+1.9 56.1 2
+1.9 465.1 2
+1.6 334.7 2
+1.5 41 2
+1.8 135.1 2
+-7.3 -0.5 2
+-9.5 -0.3 1
+3.4 0.1 1
+2.8 12.8 2
+-1 -1.1 2
+-1.5 -0.6 1
+2.2 0.5 2
+6 1 1
+-0.5 -25.9 1
+2 96.3 2
+1.8 115.5 1
+-19.7 -1.8 1
+-16.5 -1.3 1
+0 0 1
+-1.2 -1.8 2
+-4.8 -0.2 2
+-4.1 -0.3 2
+2 0.1 2
+3.6 0.2 1
+-2.9 -5.5 1
+-8.5 -5.3 2
+-17.7 -5.5 2
+13 0.6 1
+11 1.3 2
+-4.6 -1.1 2
+-2.7 -0.3 2
+-11.9 -4.5 2
+3.9 11.5 1
+0.5 1.3 2
+-9.8 -3.4 1
+-6.5 -7.7 1
+2.6 0.9 1
+-49.2 -2.9 1
+-1 -0.6 1
+-4.2 -2.3 2
+-0 -0 1
+-3.8 -0.4 1
+-5.7 -0.3 1
+-2.7 -0.2 1
+-6.5 -2.7 2
+-3.9 -1.3 1
+-11.1 -2.8 2
+9.2 0.3 1
+1.5 9.1 2
+0.2 0 2
+2.4 0.1 1
+-10.1 -0.3 1
+-8.2 -0.5 2
+-2.3 -1 1
+2.4 1.1 2
+-6.7 -2.3 2
+0.8 8.3 2
+-3.8 -0.6 1
+4.6 16.4 1
+-0.6 -1 2
+-13.5 -1 1
+-1.2 -0.5 2
+-1.9 -0.2 1
+5.1 1.2 1
+2.8 2.6 2
+2.2 3.9 2
+9 7.3 2
+2.3 0.2 2
+3.5 8.3 2
+2.6 49.1 2
+0.5 8.3 2
+0.1 0.3 2
+2.1 23.3 2
+-2.1 -0.1 1
+-71.4 -1.4 1
+-2.6 -6.2 2
+4.1 2.3 2
+0.5 0.2 2
+-2.7 -0.4 2
+-5.7 -0.3 1
+-2.8 -15.6 2
+1.9 10.7 2
+2.3 17 2
+-0.5 -0 2
+1.2 0.8 1
+-0.9 -0.3 2
+-18.7 -5 1
+-3.1 -1 1
+-2.4 -22.8 1
+-1.2 -8.7 1
+-5.2 -1.2 1
+-7.9 -2.1 2
+-18.4 -1.4 1
+-0.5 -0 1
+7.1 0.5 2
+-7.6 -0.4 1
+-10.7 -1.9 2
+7.9 1.2 1
+-22.4 -2.6 2
+2.5 7.4 2
+14.3 0.7 2
+1.6 0.3 1
+-1.2 -0.2 2
+4.8 0.6 2
+3.4 15.5 2
+-2.4 -0.1 2
+2.6 3.3 2
+-1.5 -1.1 2
+-47.2 -2.2 2
+1.9 0.4 2
+-18 -1.1 1
+-0.8 -0.1 2
+7 4.5 2
+4.2 4.8 2
+7.3 4 2
+-10.7 -0.4 1
+-0.3 -0.4 2
+2.9 35.3 2
+1.6 16.8 2
+4.1 5.9 2
+2.3 17.3 2
+0 0 2
+-1.9 -0.1 1
+0 0 1
+0.8 2.5 2
+4.7 2.5 2
+1.8 0.6 2
+0 0 2
+11.4 0.6 1
+-0 -0.1 2
+1.4 4.7 2
+1.1 5.4 2
+-28.6 -0.7 2
+3 0.7 1
+6.1 0.6 1
+10.8 1.7 1
+0.4 0.4 2
+5.8 3.9 1
+-3.5 -1.7 1
+-8.2 -0.5 2
+1.9 21.9 2
+-3.3 -0.9 2
+-0.8 -0 1
+3.4 0.6 2
+-1.3 -0.1 1
+0.2 0 2
+2.1 2.8 2
+13.3 20 2
+-0.7 -0.7 2
+-28.6 -1.3 1
+2.8 100.2 2
+2 1 2
+0.9 10 2
+1.5 8.1 2
+1.3 0.4 2
+-0.1 -0.2 2
+1.2 0.4 2
+1.5 1.4 1
+-5.4 -18.3 2
+4.2 29 2
+-0.8 -2.8 2
+0.4 0 2
+-0.5 -0.2 2
+6.6 56.3 2
+2.3 157.3 2
+0.7 39.7 2
+-0.2 -1.4 2
+0.8 30 2
+10.5 1 1
+7.3 1.5 1
+9.5 0.6 1
+10.7 0.9 2
+0 0.3 2
+-2.6 -5.2 2
+1.5 1.7 2
+-4.1 -2.7 2
+6.8 2 1
+1.3 25.2 2
+-0.3 -6.8 2
+1.4 36.8 2
+0.4 0.3 2
+3.8 1 2
+3.9 3 2
+0.1 0 1
+-8.1 -2.8 2
+1.8 0.6 2
+-2.4 -0.1 1
+2.1 4.7 2
+12 13.9 1
+1.4 2.3 1
+-0.8 -7 2
+0.6 6.3 1
+-0.2 -1.3 1
+-4.2 -3 2
+-1.3 -185.3 1
+3.1 8.8 2
+-4.8 -0.2 2
+0 0 1
+7.7 2.1 2
+11.6 6.9 2
+0.9 3.6 2
+6.3 28.9 2
+3.4 11 2
+9.3 1.4 2
+2.9 349 2
+-1.2 -1.8 2
+2.8 112 2
+1.5 27.2 2
+3.7 1.3 1
+3.6 7.1 2
+-0.8 -0.4 2
+-0.9 -1.1 2
+4.8 23.7 2
+-3.3 -31 2
+1.7 7.4 2
+10.8 0.5 2
+5.6 2.2 1
+4.2 71.6 2
+2.3 434.8 2
+2.1 342.9 2
+4 57.1 2
+0.8 40.7 2
+-9.4 -0.4 1
+-13.7 -1.4 1
+4.4 0.1 1
+-22.2 -1.8 1
+0.4 1.7 1
+-0.2 -0.3 2
+-0.1 -0 1
+-7 -2.3 1
+-1.1 -0.2 2
+1.3 36.7 2
+0.4 12.1 2
+2.8 102.6 2
+-1.2 -0.2 2
+-7.1 -0.3 1
+-22.9 -1.7 1
+-3.6 -1.4 2
+16.3 4.8 2
+8.2 1.4 1
+5 19 2
+15.9 1.7 2
+-34.8 -1.6 1
+6.5 1.1 1
+11.3 1.2 1
+1.8 0.3 1
+4.9 6.3 1
+4 6 2
+4.7 4.4 2
+-30.9 -1 2
+2.6 76.7 2
+1.2 0.5 2
+1.9 18 2
+4.5 19.6 2
+12.3 4.3 2
+1.7 2.5 1
+11.6 4 1
+1.4 1.3 1
+4.3 15.7 2
+-2.3 -16.9 2
+-4.2 -14.6 2
+17.2 0.7 1
+18.8 6.4 2
+2.7 23.7 2
+1.8 127.4 2
+3.2 194.4 2
+4.4 39 2
+3.2 127.2 2
+-3.5 -0.3 1
+0.6 0.1 2
+11.1 0.4 2
+-3.4 -0.2 1
+3.4 22.7 2
+3.7 7.2 2
+10.6 8 2
+0.2 0.1 2
+6.2 1.6 2
+-0 -0.3 2
+2.3 45.7 2
+2.3 61.3 2
+-1.8 -0 1
+-8 -1.9 1
+-18.9 -0.7 1
+-3.5 -0.3 2
+-0.4 -0 1
+-21.5 -1.5 1
+7.8 1.3 2
+1.8 2.5 2
+1.2 1.4 2
+14.1 2.2 2
+2.4 1.6 1
+-17.6 -3 1
+18.5 0.8 2
+-5.3 -1.4 2
+-2.6 -0.8 2
+2.9 1.2 1
+34.5 1.2 2
+6.2 0.2 1
+6.1 3.7 2
+-39.8 -0.8 1
+0 0 2
+14.6 2.7 2
+4.5 17.1 2
+40.5 2.5 2
+4 4.8 2
+7.1 4.1 2
+-5.5 -0.7 1
+-7.3 -0.3 1
+0.4 0 1
+3.6 1.3 2
+-2.6 -1.7 2
+4.1 1.3 2
+-4.8 -0.2 1
+13.8 12.1 2
+8.7 59.4 2
+9.8 59 2
+8.1 6.6 2
+7.2 25 2
+29.8 8.2 2
+1.2 0.1 2
+2.5 4 2
+4.7 8.7 2
+9.1 21.6 2
+3.3 0.5 2
+-14.6 -1.3 1
+14.3 1.3 1
+1.6 1.1 1
+11.1 6.4 1
+6.2 2.7 1
+1.5 24.8 2
+-0.7 -0.1 1
+-2.3 -0.4 1
+-11.7 -1 2
+4.4 0.5 1
+0.8 1 1
+-1.5 -2.3 1
+4.4 3.6 1
+1.6 112.3 1
+1.3 0.7 1
+0.7 14.5 2
+0 0.1 2
+-0.6 -0.3 1
+-2.5 -4.3 2
+1.7 0.7 2
+-0.3 -0.3 1
+-0.6 -2.6 2
+1.8 15.7 2
+0.7 2.8 2
+10.6 4.2 2
+-1.6 -33.7 2
+2.4 430.5 2
+1.3 200.9 2
+1.3 28.4 2
+1.4 188.5 2
+10.2 2.8 1
+4.1 2.5 2
+15.7 2.6 2
+1.5 0.2 1
+1.4 86.8 2
+1.9 8.4 2
+4.1 13.4 2
+-1.5 -2.4 2
+11.8 0.5 1
+2.5 1.5 2
+-0.2 -15.4 2
+0.4 22.8 2
+2.2 193.6 2
+8.7 0.6 1
+18 0.8 2
+5.7 0.4 2
+0 0 1
+-5.6 -2.4 1
+-1.1 -1.1 2
+-2 -9.4 2
+-1.1 -4.1 1
+1.3 3.8 2
+-3.5 -0.9 1
+0.7 81.3 2
+-3.5 -4.6 2
+3.2 3.4 1
+2.5 1.4 1
+10 9.9 1
+2.2 17.7 1
+0.5 4.7 2
+2.9 16.3 1
+-8.8 -1.1 1
+-1.2 -515.5 1
+-1 -2.9 1
+-1.2 -145.8 1
+-0.5 -28.5 2
+1.9 6.7 2
+-1.8 -23.8 2
+0.6 2.1 2
+-1 -9 2
+1 39.7 1
+1.3 94.4 2
+2.3 176.6 2
+1.2 0.4 2
+1.5 13.2 2
+3.4 572.5 2
+1.8 2436.9 2
+1.6 1820.3 2
+1.5 261.9 2
+2.2 2378.7 2
+0.8 2.1 1
+-1.1 -5 2
+-1.5 -2 1
+-7.9 -10.3 2
+2.9 1343.8 2
+-0.4 -15.1 1
+0.6 15.4 1
+-0.3 -4.7 2
+-0.5 -0.1 2
+0.2 0.9 1
+1.2 614.3 2
+2.8 1356.8 2
+2.6 1755.2 2
+-5.6 -0.3 1
+-7.4 -0.4 2
+-11.9 -0.7 1
+9.9 0.4 1
+15.2 0.5 2
+7.8 6.5 2
+6.7 2 1
+3.5 2.2 2
+-0 -0 1
+3.7 10 1
+-5.2 -8.8 2
+2.3 0.4 1
+-0 -3.8 2
+-6.4 -6 1
+-1.4 -1.4 2
+-3.6 -2 2
+8.2 6.7 1
+1.7 12.2 1
+0.7 6 2
+3.4 17.7 2
+3.2 0.5 1
+-1 -400 1
+-1.7 -4.4 2
+-0.5 -57.1 1
+1.8 104 2
+3.3 9.8 2
+0.1 1.4 2
+1.3 3.6 2
+-7.4 -55.5 1
+-0.1 -5.1 2
+2.9 181.2 2
+2.3 148 2
+-11.1 -3.2 1
+4.5 33.9 2
+2.6 404.3 2
+1.2 1422.8 2
+-0.1 -119 2
+2.4 372.8 2
+1.6 1425 2
+0.7 1.3 1
+-2.7 -9.6 2
+2.9 2.7 1
+-13.8 -15.4 1
+2.7 979.1 2
+1.8 54.7 2
+0.2 4.1 1
+-1.2 -12.7 2
+-12.4 -3.2 2
+2.9 10.7 2
+0.2 105.8 2
+2.4 968.9 2
+1.8 1080.7 2
+-8.8 -0.4 2
+-34.5 -0.8 1
+-1.5 -0.4 2
+-6.5 -0.5 2
+-6.6 -1 2
+-6 -5.7 2
+0.2 0.2 2
+-1.1 -0.7 2
+-0.7 -0 1
+2.5 60.6 2
+1.9 0.4 1
+0.8 0.1 2
+-7.3 -0.7 1
+-1 -0.2 2
+3 4.6 2
+8.4 15.3 2
+4.9 4.9 1
+-11.2 -0.4 1
+0.6 47.1 1
+2 1 1
+0.5 12.5 1
+0 0.2 1
+-14.3 -7.4 1
+-1.1 -2.4 1
+-5.8 -3.1 2
+-10.7 -13.2 1
+0.8 5 2
+1.2 15.5 2
+-1 -5.7 2
+-40.1 -1.2 1
+1.9 1.1 1
+2.5 78.9 2
+1.6 398 2
+2.3 486.6 2
+3 91.4 1
+2.9 530.5 2
+7.1 2.9 1
+-2.9 -2 2
+-4.1 -0.9 1
+14.3 2.7 2
+2.5 191.4 2
+1.6 10.6 2
+3.6 15.9 2
+-0.9 -2.2 2
+3.9 0.2 2
+6.4 4.8 2
+1.3 111.3 2
+2.7 223.9 2
+1.9 221.9 2
+-5.9 -2 1
+-43.7 -1.4 1
+-0.5 -0.7 1
+-6.9 -5.5 2
+2.8 2.2 1
+9.2 0.5 2
+0.2 6.5 2
+-6.2 -2.9 1
+-4.1 -1.3 1
+7.5 1.5 2
+5.5 1.6 1
+0.4 1 1
+6.4 20.7 1
+-0.2 -0.4 1
+4.6 0.3 1
+1.6 237 1
+6.3 6.4 1
+1.9 91.2 2
+1.3 26.8 1
+0.2 0.2 1
+4.7 25.4 1
+-4.4 -5.6 2
+0 0 2
+1.3 19 2
+0.8 26.4 2
+-0 -0.4 2
+-14.3 -1.7 1
+0.8 1 2
+3.5 280.2 1
+1.8 1112.2 2
+1.5 760.6 2
+2.4 179.7 2
+1.3 2433.4 2
+-6.2 -45.6 1
+-3.1 -42.3 1
+-1.1 -3.4 1
+-15.3 -43.4 1
+2.5 4560.3 2
+-5.7 -488.9 1
+-4.3 -376.1 1
+-5.5 -210.3 1
+-19.6 -17.6 1
+-5.5 -50.9 1
+-0.3 -197.8 2
+0.6 429.4 1
+2.3 2271.2 1
+10.9 2.2 2
+-8.4 -0.4 1
+4.2 0.2 2
+5.2 7.8 2
+-1.2 -0.6 2
+-2.4 -0.5 1
+-25.2 -2.1 1
+-6.8 -0.2 1
+2.6 0.1 1
+8 1.7 1
+-1.1 -0.5 2
+-6.4 -1.3 1
+-1.1 -0 1
+13.9 7.6 2
+1.4 6.3 2
+-1.8 -6.7 2
+9.3 5.6 2
+2.1 13.6 1
+3.6 0.3 1
+11.1 1.1 2
+0.5 0 1
+-1.4 -9.1 2
+-6.1 -4.3 1
+-9.9 -6.2 1
+1.4 0.4 1
+17.1 1 2
+3.4 10 1
+2.2 5.7 1
+-3.8 -14.7 2
+-21.8 -1.2 2
+-4 -0.2 1
+3 0.3 2
+-19.9 -0.8 1
+2.9 4.5 2
+0.3 0.1 1
+0.7 0.2 2
+0.8 0 1
+6.7 1.5 2
+1.4 0.1 2
+5 0.7 2
+2.4 1.5 2
+5.8 8 2
+-0.4 -0.3 2
+29.4 1.6 2
+0.4 0.4 2
+1.6 15.1 2
+4.3 34.6 2
+9.4 10.6 1
+2.7 48.1 2
+8.2 1.4 1
+3.1 0.9 1
+-2.5 -0.2 1
+1.5 0.1 1
+2.7 41.3 2
+0.9 1.9 2
+-0.2 -0.3 2
+3.7 3 2
+14.9 3.7 2
+3.4 24.9 2
+3.2 22.4 2
+0.7 7.4 2
+3 3.7 2
+-5.8 -4.6 1
+2.5 2.7 2
+1 1.8 2
+1.4 0.7 1
+6.2 2.6 2
+8.3 4.3 1
+1.9 0.8 2
+4.3 2.4 2
+17 2.9 2
+-19.2 -1.9 1
+-8.5 -0.5 1
+10.3 1.2 2
+5.8 0.3 2
+-0.2 -0 2
+9.5 11.5 2
+3.2 3.1 2
+13.1 1.6 2
+6.2 12 2
+6.6 12.7 2
+10.6 2.2 2
+-3.5 -0.7 2
+7.6 0.6 2
+-4.8 -0.1 1
+-2 -1.7 2
+18.7 14.2 2
+4.3 5 2
+12.3 2.5 2
+13.9 1 1
+0.2 0.2 2
+0.9 0.6 1
+6.8 2.7 1
+0.8 14 2
+-7.2 -1.3 2
+11.7 1 1
+7.1 0.3 1
+0.4 0 2
+-2.5 -2.3 2
+-3.7 -3.3 1
+-4.7 -2.4 2
+-0.1 -6 2
+0.6 0.1 1
+-5.2 -64.3 1
+-2.6 -16.7 1
+3.2 1.3 1
+2.2 6 2
+-6.5 -5.6 1
+-1.1 -1.9 1
+-0.7 -5.6 1
+0.7 16 2
+-0 -0.1 2
+25 1.6 1
+-1.8 -1.3 2
+1.9 75.9 1
+-0.1 -23.8 1
+0.6 149.4 1
+0.3 9.4 1
+2 2965.3 2
+-1.3 -8.5 1
+-0.9 -10.7 1
+-7.4 -17.9 1
+-2.5 -6.2 1
+2.8 4370.1 2
+-0.9 -64 1
+-1.8 -134.6 1
+-2 -66 1
+-16.6 -13 1
+0.4 3.1 1
+-0.8 -441 2
+2.2 1209.3 1
+1.7 1380.5 2
+3.7 0.3 1
+-18.4 -1.5 1
+5.4 2 1
+-1 -0.3 1
+2.3 0.5 2
+-1 -4.5 2
+8.5 0.9 1
+4.2 0.2 2
+-1.2 -0.1 1
+-14.3 -0.9 2
+-8.8 -0.8 1
+-0.1 -0 2
+5.3 3.5 2
+3.9 1.6 1
+2.9 44.1 2
+-9 -1.8 1
+3.3 14.9 2
+0.9 2.3 2
+-3.8 -1.2 1
+6 7.3 2
+-4.4 -1.3 1
+0.3 0.2 1
+3.1 10.4 2
+2.1 15.8 2
+-1.2 -4 2
+-31.7 -0.7 1
+-0.5 -0.2 2
+1.3 9.7 2
+2.5 142.6 2
+2 93.8 2
+3 20.3 2
+2.4 318 2
+7.2 8.1 2
+5.7 12.4 2
+0.3 0.2 1
+-6 -3.2 1
+2.4 300.4 2
+1.3 18.7 2
+4.9 67.8 2
+0.1 0.5 2
+-10.5 -1.7 1
+10.1 17.4 2
+2.3 129 2
+3.1 164 2
+2.9 221 2
+-1.9 -0.4 1
+-13.7 -1.4 1
+-21.3 -6 2
+-13.9 -2 1
+-1.1 -0.1 1
+-38.9 -4.8 1
+4.7 4.6 2
+4.2 2.1 2
+5.8 4 1
+5.2 20.9 2
+8.3 31.7 2
+2.2 5.8 2
+6.2 1.9 1
+4.1 252 2
+0.3 0.4 2
+-7.1 -0.1 1
+5.8 1 2
+26.8 2.9 2
+0.7 0.1 1
+4.2 6.3 2
+1.5 2.6 2
+4.5 5.2 1
+37.3 1.9 2
+2.1 102.5 2
+2.9 1.7 2
+1 15.7 2
+-3.2 -22.2 2
+-10.3 -2.7 1
+-1 -1.3 2
+1 0.3 1
+2.5 1.9 2
+-0.3 -1 2
+3.1 19.9 2
+6.5 19 2
+-7.6 -0.3 1
+11.9 3.4 2
+3.6 31 2
+3.1 218.7 2
+2.4 145.7 2
+0.8 6 2
+-0.6 -45.2 2
+-1 -0.7 1
+1.2 1.4 2
+-1.6 -0.4 2
+-1.5 -0.4 2
+-1.8 -122.3 2
+-3.5 -28 2
+7.7 56.9 1
+-0.4 -1.3 2
+-16.7 -1.6 1
+-3.5 -3.2 2
+-1.3 -46.3 2
+-1.7 -56.8 2
+0.9 41.6 2
+5.8 2.4 1
+15.3 1.3 1
+-35.7 -2.9 2
+7.8 2.2 2
+-16.1 -1.3 1
+0 0 2
+0.7 0.7 2
+1.7 4 2
+-3.4 -3.2 2
+-3.8 -0.4 2
+9 14.8 2
+3 38.4 2
+-0.3 -2.5 2
+10.6 13.9 2
+1.6 102 2
+0.6 0.4 2
+6.1 7 2
+-3.9 -1.1 1
+14.5 4.2 2
+0.9 57.4 2
+1.8 13.4 2
+0.8 5.9 2
+3 9.9 1
+-8.8 -0.8 1
+4.5 4 2
+0.5 12.4 2
+1 24.7 2
+1.6 57.7 2
+8 0.3 2
+-1 -0.1 2
+-7.4 -0.4 1
+-7.5 -3.3 1
+-15.3 -3.1 1
+-1.9 -9.5 2
+3.6 0.1 2
+-8.5 -0.8 2
+-15.3 -0.4 2
+-3.3 -17.5 2
+-9.8 -5.2 2
+-6.1 -3.4 2
+-6.3 -1.6 2
+8.5 0.5 2
+1.6 3.1 2
+5.2 9.4 2
+2.6 7 2
+-4.8 -0.3 1
+-22.6 -0.5 2
+-13.6 -0.6 1
+15 2.9 2
+6.8 3.7 2
+5.6 1 2
+0.4 0.1 2
+1.4 3.9 2
+3.4 5.8 2
+-3.5 -1 2
+3.3 49 2
+9.1 1.2 2
+-3.6 -1 2
+2.3 0.2 2
+6 91.7 2
+4.3 7.4 2
+7.5 12.7 2
+1 0.7 2
+-17.3 -0.3 1
+-9.7 -1.4 1
+3 18 2
+6.8 38.7 2
+6 49.5 2
+-6 -1.1 2
+6.1 0.4 1
+5.3 4.5 2
+8.5 6 2
+-0.7 -0.4 1
+-4 -0.3 2
+0.1 3 2
+-7.8 -2.2 2
+11.2 1.5 1
+25.7 2.6 1
+-19.2 -1.9 2
+-6.8 -8.3 2
+-0.9 -1.3 1
+-0.4 -0.4 1
+-9.5 -0.3 1
+1.7 117.7 2
+-7.6 -3.3 2
+0.7 15.9 2
+0.6 6 2
+3.1 2 2
+-1.9 -5.1 1
+-0.5 -0.3 1
+1.6 2.6 1
+0.6 4.8 1
+0.5 9.2 2
+-0.9 -6.7 2
+9 0.9 1
+3.5 2.5 1
+1.2 50.4 1
+0.1 42.4 1
+0.7 168.5 1
+0.9 33.8 1
+0.8 607.1 2
+-5.8 -15.8 2
+0 0.2 1
+-0.1 -0.1 2
+-10.1 -11.8 1
+1.2 876.3 2
+-0.4 -14.6 1
+1.1 40 1
+-0.4 -12.6 2
+-7.6 -3.2 1
+-2.5 -9.6 1
+-2.2 -511.3 2
+0.7 137.9 2
+1.4 607.9 2
+-14.9 -3.4 1
+-3.5 -0.4 1
+-4 -4 1
+-3.2 -2.4 1
+-6.3 -4 1
+-34.4 -2.5 2
+3.2 94.9 1
+3.9 1.1 1
+-7.6 -1.2 2
+7.9 0.7 1
+-42.9 -4.3 1
+-0 -0 1
+9.4 13.3 1
+-15.6 -14.5 2
+-22.4 -1 1
+0.8 51 1
+-10.3 -4.7 1
+1 19.4 1
+-1.4 -13.3 1
+-2.6 -5.1 1
+-2.6 -1.4 1
+-4.4 -5.1 1
+0.1 0.8 1
+3 42.2 2
+0.7 4 1
+-31.1 -1.7 1
+9.7 5.9 2
+1.2 38.1 1
+1.9 487.3 1
+1.7 342.5 1
+3 86.3 1
+1.8 1293 2
+2.1 6.6 1
+-1.5 -7.7 1
+1.9 2.2 1
+-2.7 -3.2 2
+1.7 1213.7 2
+-1 -33.2 1
+-1.1 -36 1
+0.3 7.8 2
+-12.5 -4.5 1
+2.4 17.4 2
+-0.3 -56.7 2
+0.5 92.9 2
+2 825 2
+3.4 1.1 1
+-10.5 -1.1 1
+-2.6 -0.7 2
+2.7 3.6 1
+5.5 5.6 1
+4.3 3.6 2
+-13.3 -0.8 2
+1.8 63.6 2
+-2.2 -0.8 1
+-5.3 -0.9 2
+-5.6 -0.6 2
+17.6 2.1 1
+-0.8 -1.1 1
+1.7 3 1
+1.4 1.3 2
+1.6 139.3 2
+1.4 0.8 1
+1.1 31.6 2
+-1.7 -21.2 2
+0.4 0.2 1
+2 4.9 2
+-5.4 -3.6 1
+2.5 3.9 1
+-0.7 -5.2 2
+-0.8 -13.6 2
+0.9 6.4 2
+-9.4 -0.4 1
+-5.4 -3.5 2
+3.5 126.9 1
+1.7 500.9 1
+1.9 427.1 2
+0.3 9 2
+1.2 1402 2
+-4.9 -22.7 1
+4 36.9 2
+-2.9 -5.4 1
+3 5.7 1
+2.1 2561.1 2
+1.2 67.3 2
+-0.2 -12.7 2
+-1.5 -37.1 2
+-5.8 -3 2
+3.4 19.6 2
+-0.4 -160 2
+1.1 441.4 2
+-0.1 -87.4 2
+&
