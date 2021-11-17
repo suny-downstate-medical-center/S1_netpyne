@@ -11,6 +11,7 @@ from netpyne import specs
 import pickle, json
 import os
 import numpy as np
+import pandas as pd
 
 netParams = specs.NetParams()   # object of class NetParams to store the network parameters
 
@@ -66,62 +67,23 @@ ymax={'ss_RTN_o': 1000+1766, 'ss_RTN_m': 1000+1844, 'ss_RTN_i': 1000+2000, 'VPL_
 # General connectivity parameters
 #------------------------------------------------------------------------------
 netParams.defaultThreshold = -10.0 # spike threshold, 10 mV is NetCon default, lower it for all cells
-netParams.defaultDelay = 0.1 # default conn delay (ms)(M1: 2.0 ms)
-netParams.propVelocity = 300.0 #  300 μm/ms (Stuart et al., 1997)(M1: 500.0um/ms)
-netParams.scaleConnWeight = 0.001 # weight conversion factor (from nS to uS)
+netParams.defaultDelay = 0.1 # default conn delay (ms)
+netParams.propVelocity = 300.0 #  300 μm/ms (Stuart et al., 1997)
 netParams.scaleConnWeightNetStims = 0.001  # weight conversion factor (from nS to uS)
-
-#------------------------------------------------------------------------------
-# Cell parameters  # L1 70  L23 215  L4 230 L5 260  L6 260  = 1035
-#------------------------------------------------------------------------------
-folder = os.listdir('%s/cell_data/' % (cfg.rootFolder))
-folder = sorted([d for d in folder if os.path.isdir('%s/cell_data/%s' % (cfg.rootFolder, d))])
-
-## Load cell rules using BBP template
-if cfg.importCellMod == 'BBPtemplate':
-
-    def loadTemplateName(cellnumber):     
-        outFolder = cfg.rootFolder+'/cell_data/'+folder[cellnumber]
-        try:
-            f = open(outFolder+'/template.hoc', 'r')
-            for line in f.readlines():
-                if 'begintemplate' in line:
-                    return str(line)[14:-1]     
-        except:
-            print('Cannot read cell template from %s' % (outFolder))
-            return False
-
-    cellName = {}
-    cellType = {}
-    cellnumber = 0
-    loadCellParams = folder
-    for ruleLabel in loadCellParams:
-        cellName[cellnumber] = ruleLabel
-        cellTemplateName = loadTemplateName(cellnumber)
-        # print(cellName[cellnumber], cellTemplateName)
-        if cellTemplateName:
-            cellRule = netParams.importCellParams(label=cellName[cellnumber], somaAtOrigin=False,
-                conds={'cellType': cellName[cellnumber], 'cellModel': 'HH_full'},
-                fileName='cellwrapper.py',
-                cellName='loadCell',
-                cellInstance = True,
-                cellArgs={'cellName': cellName[cellnumber], 'cellTemplateName': cellTemplateName})
-            netParams.renameCellParamsSec(label=cellName[cellnumber], oldSec='soma_0', newSec='soma')
-            os.chdir(cfg.rootFolder)
-        cellnumber = cellnumber + 1
 
 #------------------------------------------------------------------------------
 # Population parameters
 #------------------------------------------------------------------------------
 ## S1
-for popName in cfg.S1pops:
-	layernumber = popName[1:2]
+
+for cellName in cfg.S1cells:
+	layernumber = cellName[1:2]
 	if layernumber == '2':
-		netParams.popParams[popName] = {'cellType': popName, 'cellModel': 'HH_full', 'ynormRange': layer['23'], 
-                                        'numCells': int(np.ceil(cfg.scaleDensity*cfg.popNumber[popName])), 'diversity': True}
+		netParams.popParams[cellName] = {'cellType': cellName, 'cellModel': 'HH_full', 'ynormRange': layer['23'], 
+                                        'numCells': int(np.ceil(cfg.scaleDensity*cfg.cellNumber[cellName])), 'diversity': True}
 	else:
-		netParams.popParams[popName] = {'cellType': popName, 'cellModel': 'HH_full', 'ynormRange': layer[layernumber], 
-                                        'numCells': int(np.ceil(cfg.scaleDensity*cfg.popNumber[popName])), 'diversity': True}
+		netParams.popParams[cellName] = {'cellType': cellName, 'cellModel': 'HH_full', 'ynormRange': layer[layernumber], 
+                                        'numCells': int(np.ceil(cfg.scaleDensity*cfg.cellNumber[cellName])), 'diversity': True}
 
 ## THALAMIC POPULATIONS (from prev model)
 for popName in cfg.thalamicpops:
@@ -132,8 +94,52 @@ for popName in cfg.thalamicpops:
     netParams.popParams[popName] = {'cellType': ThcellType, 'cellModel': 'HH_full', 'yRange': [ymin[popName], ymax[popName]],
                                         'numCells':  int(np.ceil(cfg.scaleDensity*cfg.popNumber[popName])), 'diversity': False}
 
+#------------------------------------------------------------------------------
+# Cell parameters  # L1 70  L23 215  L4 230 L5 260  L6 260  = 1035
+#------------------------------------------------------------------------------
+if not cfg.loadcellsfromJSON:     ## Load cell rules using BBP template
+    
+    def loadTemplateName(cellMe):     
+        outFolder = cfg.rootFolder+'/cell_data/'+cellMe
+        try:
+            f = open(outFolder+'/template.hoc', 'r')
+            for line in f.readlines():
+                if 'begintemplate' in line:
+                    return str(line)[14:-1]     
+        except:
+            print('Cannot read cell template from %s' % (outFolder))
+            return False
+
+    cellnumber = 0    
+    for cellName in cfg.S1cells:
+
+        if cfg.cellNumber[cellName] < 5:
+            morphoNumbers = cfg.cellNumber[cellName]
+        else:
+            morphoNumbers = 5
+
+        for morphoNumber in range(morphoNumbers):
+            cellMe = cfg.cellLabel[cellName] + '_' + str(morphoNumber+1)
+            print(cellMe,cellName)
+
+            cellTemplateName = loadTemplateName(cellMe)
+
+            if cellTemplateName:
+
+                cellRule = netParams.importCellParams(label=cellMe, somaAtOrigin=True,
+                    conds={'cellType': cellMe, 'cellModel': 'HH_full'},
+                    fileName='cellwrapper.py',
+                    cellName='loadCell',
+                    cellInstance = True,
+                    cellArgs={'cellName': cellMe, 'cellTemplateName': cellTemplateName})
+
+                netParams.renameCellParamsSec(label=cellMe, oldSec='soma_0', newSec='soma')              
+                for secname2 in netParams.cellParams[cellMe]['secLists'].keys():
+                 if 'soma_0' in netParams.cellParams[cellMe]['secLists'][secname2]:
+                   print(cellMe,secname2,netParams.cellParams[cellMe]['secLists'][secname2][0])
+                   netParams.cellParams[cellMe]['secLists'][secname2][0] = 'soma'    
+
 ## S1 cell property rules
-cellnumber = 0    
 for cellName in cfg.S1cells:
     
     if cfg.cellNumber[cellName] < 5:
@@ -141,46 +147,44 @@ for cellName in cfg.S1cells:
     else:
         morphoNumbers = 5
     
-    popName = cfg.popLabel[cellName]
-    cellFraction = 1.0*cfg.cellNumber[cellName]/(morphoNumbers*cfg.popNumber[popName])
+    cellFraction = 1.0/morphoNumbers
     
     for morphoNumber in range(morphoNumbers):
-        cellMe = cellName + '_' + str(morphoNumber+1)
-        ## Load cell rules previously saved using netpyne format
-        if cfg.importCellMod == 'pkl':
-            netParams.loadCellParamsRule(label = cellMe, fileName = 'cell_data/' + cellMe + '/' + cellMe + '_cellParams.pkl')    
-            netParams.renameCellParamsSec(label = cellMe, oldSec = 'soma_0', newSec = 'soma')
-
-        cellRule = {'conds': {'cellType': popName}, 'diversityFraction': cellFraction, 'secs': {}}  # cell rule dict
-        cellRule['secs'] = netParams.cellParams[cellMe]['secs']     
-        cellRule['conds'] = netParams.cellParams[cellMe]['conds']    
-        cellRule['conds']['cellType'] = popName
-        cellRule['globals'] = netParams.cellParams[cellMe]['globals']       
-        cellRule['secLists'] = netParams.cellParams[cellMe]['secLists']                 
-        cellRule['secLists']['all'][0] = 'soma' # replace 'soma_0'
-        cellRule['secLists']['somatic'][0]  = 'soma' # replace 'soma_0'
-                              
-        cellRule['secLists']['spiny'] = {}
-        cellRule['secLists']['spinyEE'] = {}
-
-        nonSpiny = ['axon_0', 'axon_1']
-        cellRule['secLists']['spiny'] = [sec for sec in cellRule['secLists']['all'] if sec not in nonSpiny]
-        nonSpinyEE = ['axon_0', 'axon_1', 'soma']
-        cellRule['secLists']['spinyEE'] = [sec for sec in cellRule['secLists']['all'] if sec not in nonSpinyEE]
+        cellMe = cfg.cellLabel[cellName] + '_' + str(morphoNumber+1)
+        
+        if cfg.loadcellsfromJSON:
+            # Load cell rules previously saved using netpyne format
+            netParams.loadCellParamsRule(label = cellMe, fileName = 'cell_data/' + cellMe + '/' + cellMe + '_cellParams.json')           
+        else:
+            cellRule = {'conds': {'cellType': cellName}, 'diversityFraction': cellFraction, 'secs': {}}  # cell rule dict
+            cellRule['secs'] = netParams.cellParams[cellMe]['secs']     
+            cellRule['conds'] = netParams.cellParams[cellMe]['conds']    
+            cellRule['conds']['cellType'] = cellName
+            cellRule['globals'] = netParams.cellParams[cellMe]['globals']       
+            cellRule['secLists'] = netParams.cellParams[cellMe]['secLists']      
+            cellRule['secLists']['spiny'] = {}
+            cellRule['secLists']['spinyEE'] = {}
+            nonSpiny = ['axon_0', 'axon_1']
+            cellRule['secLists']['spiny'] = [sec for sec in cellRule['secLists']['all'] if sec not in nonSpiny]
+            nonSpinyEE = ['axon_0', 'axon_1', 'soma']
+            cellRule['secLists']['spinyEE'] = [sec for sec in cellRule['secLists']['all'] if sec not in nonSpinyEE]
+            netParams.cellParams[cellMe] = cellRule   # add dict to list of cell params  
 
         #-----------------------------------------------------------------------------------#
         if cfg.reducedtest:
-            # only soma to test the net
+            cellRule = {'conds': {'cellType': cellName}, 'diversityFraction': cellFraction, 'secs': {}}  # cell rule dict
+            cellRule['conds'] = netParams.cellParams[cellMe]['conds']    
             cellRule['secs'] = {}
             cellRule['secs']['soma'] = netParams.cellParams[cellMe]['secs']['soma']
+            cellRule['secLists'] = {}
             cellRule['secLists']['spiny'] = ['soma']
             cellRule['secLists']['spinyEE'] = ['soma']
             cellRule['secLists']['all'] = ['soma']
-            cellRule['secLists']['basal'] = ['soma']    
+            cellRule['secLists']['basal'] = ['soma']   
+            cellRule['secLists']['apical'] = ['soma']    
+            netParams.cellParams[cellMe] = cellRule   # add dict to list of cell params   
         #-----------------------------------------------------------------------------------#
-        netParams.cellParams[cellMe] = cellRule   # add dict to list of cell params   
-        cellnumber=cellnumber+1        
-
+       
 ## Th cell property rules
 # JSON FILES FROM A1 WITH UPDATED DYNAMICS
 # # --- VL - Exc --- #
@@ -192,32 +196,6 @@ netParams.loadCellParamsRule(label='sRE_cell', fileName='cells/sRE_jv_00.json') 
 netParams.cellParams['sRE_cell']['conds']={}
 
 #------------------------------------------------------------------------------
-# Synaptic mechanism parameters  - mods from M1 detailed
-#------------------------------------------------------------------------------
-## S1
-netParams.synMechParams['AMPA'] = {'mod':'MyExp2SynBB', 'tau1': 0.2, 'tau2': 1.74, 'e': 0}
-netParams.synMechParams['NMDA'] = {'mod': 'MyExp2SynNMDABB', 'tau1NMDA': 0.29, 'tau2NMDA': 43, 'e': 0}
-netParams.synMechParams['GABAA6'] = {'mod':'MyExp2SynBB', 'tau1': 0.2, 'tau2': 6.44, 'e': -80}
-netParams.synMechParams['GABAA'] = {'mod':'MyExp2SynBB', 'tau1': 0.2, 'tau2': 8.3, 'e': -80}
-netParams.synMechParams['GABAA10'] = {'mod':'MyExp2SynBB', 'tau1': 0.2, 'tau2': 10.4, 'e': -80}
-netParams.synMechParams['GABAB'] = {'mod':'MyExp2SynBB', 'tau1': 3.5, 'tau2': 260.9, 'e': -93} 
-
-ESynMech = ['AMPA', 'NMDA']
-ISynMech = ['GABAA', 'GABAB']
-ISynMech6 = ['GABAA6', 'GABAB']
-ISynMech10 = ['GABAA10', 'GABAB']
-
-# Th
-netParams.synMechParams['NMDA_Th']             = {'mod': 'MyExp2SynNMDABB',    'tau1NMDA': 15, 'tau2NMDA': 150,                'e': 0}
-netParams.synMechParams['AMPA_Th']             = {'mod': 'MyExp2SynBB',        'tau1': 0.05,   'tau2': 5.3, 'e': 0}
-netParams.synMechParams['GABAB_Th']            = {'mod': 'MyExp2SynBB',        'tau1': 3.5,    'tau2': 260.9,                  'e': -93} 
-netParams.synMechParams['GABAA_Th']            = {'mod': 'MyExp2SynBB',        'tau1': 0.07,   'tau2': 18.2,                   'e': -80}
-
-ESynMech_Th    = ['AMPA_Th', 'NMDA_Th']
-PVSynMech_Th   = ['GABAA_Th']
-NGFSynMech_Th  = ['GABAA_Th', 'GABAB_Th']
-
-#------------------------------------------------------------------------------
 # load data from S1 conn pre-processing file 
 #------------------------------------------------------------------------------
 with open('conn/conn.pkl', 'rb') as fileObj: connData = pickle.load(fileObj)
@@ -225,6 +203,16 @@ with open('conn/conn.pkl', 'rb') as fileObj: connData = pickle.load(fileObj)
 lmat = connData['lmat']
 a0mat = connData['a0mat']
 d0 = connData['d0']
+
+a0e = connData['a0mat_exp']
+l0e = connData['lmat_exp']
+d0e = connData['d0_exp']
+
+a0g = connData['a0mat_gauss']
+x0g = connData['x0_gauss']
+l0g = connData['lmat_gauss']
+d0g = connData['d0_gauss']
+
 dfinal = connData['dfinal']
 pmat = {}
 pmat[12.5] = connData['pmat12um']
@@ -241,163 +229,328 @@ synperconnNumber = connData['synperconnNumber']
 connNumber = connData['connNumber']
 decay = connData['decay']
 gsyn = connData['gsyn']
-# use = connData['use']
+use = connData['use']
 
-# print(netParams.connParams)
+ConnTypesNumber = connData['ConnTypesNumber'] 
+ConnTypes = connData['ConnTypes']   
+
+connIEtype = connData['connIEtype']  
+connEItype = connData['connEItype']
+parameters_syn = connData['parameters_syn']
+
+physColumnNames = []
+syntypes = []
+for name,syntype in parameters_syn:    
+    if name not in physColumnNames:
+        physColumnNames.append(name) 
+    if syntype not in syntypes:
+        syntypes.append(syntype)
+        
+dfS6 = pd.DataFrame(index=syntypes, columns=physColumnNames)
+for syntype in syntypes:
+    for name in physColumnNames:    
+        dfS6.loc[syntype][name] = parameters_syn[name,syntype]
+
+#------------------------------------------------------------------------------
+# Synaptic mechanism parameters
+#------------------------------------------------------------------------------
+#  mods from S1 BBP - deterministic version
+for syntype in syntypes:
+    if syntype > 50:  # Exc
+        
+        netParams.synMechParams['S1_EE_STP_Det_' + str(syntype)] = {'mod': 'DetAMPANMDA',
+                                         'Use': dfS6['use'][syntype], # ± dfS6['useStd'][syntype]
+                                         'Dep': dfS6['dep'][syntype], # ± dfS6['depStd'][syntype] 
+                                         'Fac': dfS6['fac'][syntype], # ± dfS6['facStd'][syntype]
+                                         'tau_d_AMPA': 1.74, # ± 0.18 ms
+                                         'tau_r_AMPA': 0.2, 
+                                         'tau_r_NMDA': 0.29,
+                                         'tau_d_NMDA': 43,   
+                                         'NMDA_ratio': 0.8, # ± 0.1 for EE -- experimentally measured for some path?
+                                         'mg':1.0, #    0.5mM where exceptionally specified?                                                                
+                                            }
+        netParams.synMechParams['S1_EI_STP_Det_' + str(syntype)] = {'mod': 'DetAMPANMDA',
+                                         'Use': dfS6['use'][syntype], # ± dfS6['useStd'][syntype]
+                                         'Dep': dfS6['dep'][syntype], # ± dfS6['depStd'][syntype] 
+                                         'Fac': dfS6['fac'][syntype], # ± dfS6['facStd'][syntype]
+                                         'tau_d_AMPA': 1.74, # ± 0.18 ms
+                                         'tau_r_AMPA': 0.2,
+                                         'tau_r_NMDA': 0.29,
+                                         'tau_d_NMDA': 43,   
+                                         'NMDA_ratio': 0.4, # ± 0.1  for EI -- experimentally measured for some path?
+                                         'mg':1.0, #    0.5mM where exceptionally specified?                                                                
+                                            }
+    else: # Inh
+        
+        netParams.synMechParams['S1_II_STP_Det_' + str(syntype)] = {'mod': 'DetGABAAB',
+                                         'Use': dfS6['use'][syntype], # ± dfS6['useStd'][syntype]
+                                         'Dep': dfS6['dep'][syntype], # ± dfS6['depStd'][syntype]  
+                                         'Fac': dfS6['fac'][syntype], # ± dfS6['facStd'][syntype]
+                                         'tau_d_GABAA': dfS6['decay'][syntype], # ± dfS6['decayStd'][syntype]
+                                         'tau_r_GABAA': 0.2,   #rng.lognormal(0.2, 0.1) in synapses.hoc  
+                                         'tau_d_GABAB': 260.9,
+                                         'tau_r_GABAB': 3.5,
+#                                          'GABAB_ratio': 1.0,  #=0(1):The ratio of GABAB to GABAA  ?          
+                                            }
+        
+        netParams.synMechParams['S1_IE_STP_Det_' + str(syntype)] = {'mod': 'DetGABAAB',
+                                         'Use': dfS6['use'][syntype], # ± dfS6['useStd'][syntype]
+                                         'Dep': dfS6['dep'][syntype], # ± dfS6['depStd'][syntype]  
+                                         'Fac': dfS6['fac'][syntype], # ± dfS6['facStd'][syntype]
+                                         'tau_d_GABAA': dfS6['decay'][syntype], # ± dfS6['decayStd'][syntype]
+                                         'tau_r_GABAA': 0.2,   #rng.lognormal(0.2, 0.1) in synapses.hoc  
+                                         'tau_d_GABAB': 260.9,
+                                         'tau_r_GABAB': 3.5,
+#                                          'GABAB_ratio': 1.0,  #=0(1):The ratio of GABAB to GABAA   ?       
+                                            }
+
+# Spont and BG
+netParams.synMechParams['AMPA'] = {'mod':'MyExp2SynBB', 'tau1': 0.2, 'tau2': 1.74, 'e': 0}
+netParams.synMechParams['NMDA'] = {'mod': 'MyExp2SynNMDABB', 'tau1NMDA': 0.29, 'tau2NMDA': 43, 'e': 0}
+netParams.synMechParams['GABAA'] = {'mod':'MyExp2SynBB', 'tau1': 0.2, 'tau2': 8.3, 'e': -80}
+netParams.synMechParams['GABAB'] = {'mod':'MyExp2SynBB', 'tau1': 3.5, 'tau2': 260.9, 'e': -93} 
+ESynMech = ['AMPA', 'NMDA']
+ISynMech = ['GABAA', 'GABAB']
+
+# Th
+netParams.synMechParams['NMDA_Th']             = {'mod': 'MyExp2SynNMDABB',    'tau1NMDA': 15, 'tau2NMDA': 150,                'e': 0}
+netParams.synMechParams['AMPA_Th']             = {'mod': 'MyExp2SynBB',        'tau1': 0.05,   'tau2': 5.3, 'e': 0}
+netParams.synMechParams['GABAB_Th']            = {'mod': 'MyExp2SynBB',        'tau1': 3.5,    'tau2': 260.9,                  'e': -93} 
+netParams.synMechParams['GABAA_Th']            = {'mod': 'MyExp2SynBB',        'tau1': 0.07,   'tau2': 18.2,                   'e': -80}
+ESynMech_Th    = ['AMPA_Th', 'NMDA_Th']
+PVSynMech_Th   = ['GABAA_Th']
+NGFSynMech_Th  = ['GABAA_Th', 'GABAB_Th']
 
 #------------------------------------------------------------------------------
 # S1 Local connectivity parameters 
 #------------------------------------------------------------------------------
-if cfg.addConn:   
-# I -> I
-    for pre in Ipops:
-        for post in Ipops:
-            if float(connNumber[pre][post]) > 0:        
+cfg.addConn = True
 
-                if int(float(d0[pre][post])) < 25:    #d0==12.5 -> single exponential fit
-                    linear = 0
-                    angular = 0
-                    prob = '%s * exp(-dist_2D/%s)*(dist_2D<%s)' % (a0mat[pre][post],lmat[pre][post],dfinal[pre][post])                     
-                elif int(float(d0[pre][post])) == 25:    #d0==25 -> exponential fit when dist_2D>25, else prob[0um:25um] = pmat[12.5]
-                    linear = float(pmat[12.5][pre][post])
-                    angular = 0
-                    prob = '%s * exp(-dist_2D/%s)*(dist_2D<%s) if dist_2D > %s else %f * dist_2D + %f' % (a0mat[pre][post],lmat[pre][post],dfinal[pre][post],d0[pre][post],angular,linear)
-                else:    #d0>25 -> exponential fit when dist_2D>d0, else prob[0um:d0] = linear interpolation [25:d0]
-                    d01 = int(float(d0[pre][post]))
-                    y1 = float(pmat[25][pre][post])
-                    y2 = float(pmat[d01][pre][post])
-                    x1 = 25
-                    x2 = d01                   
-                    angular = (y2 - y1)/(x2 - x1)
-                    linear = y2 - x2*angular
-                    prob = '%s * exp(-dist_2D/%s)*(dist_2D<%s) if dist_2D > %s else %f * dist_2D + %f' % (a0mat[pre][post],lmat[pre][post],dfinal[pre][post],d0[pre][post],angular,linear)
+contA = 0
+
+if cfg.addConn:    
+    for pre in Ipops+Epops:
+        for post in Ipops+Epops:
+            if float(connNumber[pre][post]) > 0:           
+                # ------------------------------------------------------------------------------    
+                #  2D distance prob rules
+                # ------------------------------------------------------------------------------ 
+                if int(float(d0[pre][post])) < 25:    # single fit
+                    if 'exp' in connData['best_fit'][pre][post]:  # exponential            
+                        prob = '%s*exp(-dist_2D/%s)*(dist_2D<%s)' % (a0mat[pre][post],lmat[pre][post],dfinal[pre][post])      
+                    else: # gaussian
+                        prob = '%s*exp(-(dist_2D-%s)**2/(2*%s**2))*(dist_2D<%s)' % (a0g[pre][post],x0g[pre][post],l0g[pre][post],dfinal[pre][post])   
+                        
+                else:
+                    if 'expl' in connData['best_fit'][pre][post]:  # exponential + linear interpolation [25:d0]
+                        if int(float(d0[pre][post])) == 25:    #d0==25 -> exponential fit when dist_2D>25, else prob[0um:25um] = pmat[12.5]
+                            prob = '%s*exp(-dist_2D/%s)*(dist_2D<%s) if dist_2D > %s else %f' % (a0mat[pre][post],lmat[pre][post],dfinal[pre][post],d0[pre][post],float(pmat[12.5][pre][post]))
+                        else:    #d0>25 -> exponential fit when dist_2D>d0, else prob[0um:d0] = linear interpolation [25:d0]
+                            d01 = int(float(d0[pre][post]))
+                            y1 = float(pmat[25][pre][post])
+                            y2 = float(pmat[d01][pre][post])
+                            x1 = 25
+                            x2 = d01                   
+                            angular = (y2 - y1)/(x2 - x1)
+                            linear = y2 - x2*angular
+                            prob = '%s*exp(-dist_2D/%s)*(dist_2D<%s) if dist_2D > %s else %f * dist_2D + %f' % (a0mat[pre][post],lmat[pre][post],dfinal[pre][post],d0[pre][post],angular,linear)
+                   
+                    elif 'exp' in connData['best_fit'][pre][post]:  # exponential     
+                        if float(pmat[12.5][pre][post]) > float(pmat[25][pre][post]):
+                            prob = '%s*exp(-dist_2D/%s)*(dist_2D<%s)' % (a0e[pre][post],l0e[pre][post],dfinal[pre][post])
+                        else:  
+                            prob = '%s*exp(-dist_2D/%s)*(dist_2D<%s) if dist_2D > %s else %f' % (a0e[pre][post],l0e[pre][post],dfinal[pre][post],d0e[pre][post],float(pmat[12.5][pre][post]))      
+                    
+                    else: # gaussian
+                        prob = '%s*exp(-(dist_2D-%s)**2/(2*%s**2))*(dist_2D<%s)' % (a0g[pre][post],x0g[pre][post],l0g[pre][post],dfinal[pre][post])             
+                        
+                # ------------------------------------------------------------------------------    
+                # I -> I
+                # ------------------------------------------------------------------------------
+                if pre in Ipops:
+                    if post in Ipops:                             
+                        connID = ConnTypes[pre][post][0]                        
+                        synMechType = 'S1_II_STP_Det_' + str(connID)   
+                        contA+= 1
+                        netParams.connParams['II_' + pre + '_' + post] = { 
+                                        'preConds': {'pop': cfg.popLabelEl[pre]}, 
+                                        'postConds': {'pop': cfg.popLabelEl[post]},
+                                        'synMech': synMechType,
+                                        'probability': prob,
+                                        'weight': parameters_syn['gsyn',connID] * cfg.IIGain, 
+                                        'synMechWeightFactor': cfg.synWeightFractionII,
+                                        'delay': 'defaultDelay+dist_3D/propVelocity',
+                                        'synsPerConn': int(synperconnNumber[pre][post]+0.5),
+                                        'sec': 'spiny'}        
+                # ------------------------------------------------------------------------------
+                #  I -> E  # with ME conn diversity
+                # ------------------------------------------------------------------------------
+                if pre in Ipops:
+                    if post in Epops:                                                       
+                        cellpreList_A = []
+                        cellpreList_B = []
+                        cellpreList_C = []
+                        connID_B = -1    
+                        connID_C = -1                               
+                        if 'SBC' in pre or 'LBC' in pre or 'NBC' in pre:                              
+                            cellpost = cfg.popLabelEl[post][0]   
+                            for npre,cellpre in enumerate(cfg.popLabelEl[pre]):   
+                                premtype = pre[-3:]
+                                preetype = cellpre[-3:]                                    
+                                connID = connIEtype[premtype][preetype]                                     
+                                if connID == ConnTypes[pre][post][0]:
+                                    cellpreList_A.append(cellpre)    
+                                elif connID == ConnTypes[pre][post][1]:
+                                    cellpreList_B.append(cellpre)
+                                    connID_B = ConnTypes[pre][post][1]
+                                elif connID == ConnTypes[pre][post][2]:
+                                    cellpreList_C.append(cellpre)
+                                    connID_C = ConnTypes[pre][post][2]
+                                else:
+                                    print('ERROR')                                    
+                        else:   
+                            cellpreList_A = cfg.popLabelEl[pre]                              
+                            
+                        connID = ConnTypes[pre][post][0]                            
+                        synMechType = 'S1_IE_STP_Det_' + str(connID)
+                        
+                        contA+= 1                          
+                        netParams.connParams['IE_'+pre+'_'+post] = { 
+                                    'preConds': {'pop': cellpreList_A}, 
+                                    'postConds': {'pop': cfg.popLabelEl[post]},
+                                    'synMech': synMechType,
+                                    'probability': prob,
+                                    'weight': parameters_syn['gsyn',connID] * cfg.IEGain, 
+                                    'synMechWeightFactor': cfg.synWeightFractionIE,
+                                    'delay': 'defaultDelay+dist_3D/propVelocity',
+                                    'synsPerConn': int(synperconnNumber[pre][post]+0.5),
+                                    'sec': 'spiny'}  
                 
-                if decay[pre][post] > 10.0:
-                    synMechType =  ISynMech10
-                elif decay[pre][post] < 7.0:
-                    synMechType =  ISynMech6
-                else:
-                    synMechType =  ISynMech
 
-                netParams.connParams['II_'+pre+'_'+post] = { 
-                    'preConds': {'pop': pre}, 
-                    'postConds': {'pop': post},
-                    'synMech': synMechType,
-                    'probability': prob,
-                    'weight': gsyn[pre][post] * cfg.IIGain, 
-                    'synMechWeightFactor': cfg.synWeightFractionII,
-                    'delay': 'defaultDelay+dist_3D/propVelocity',
-                    'synsPerConn': int(synperconnNumber[pre][post]+0.5),
-                    'sec': 'spiny'}       
+                        if connID_B >= 0:          
+                            connID = connID_B
+                            synMechType = 'S1_IE_STP_Det_' + str(connID)         
+                            netParams.connParams['IE_'+pre+'_'+post+'_B'] = { 
+                                        'preConds': {'pop': cellpreList_B}, 
+                                        'postConds': {'pop': cfg.popLabelEl[post]},
+                                        'synMech': synMechType,
+                                        'probability': prob,
+                                        'weight': parameters_syn['gsyn',connID] * cfg.IEGain, 
+                                        'synMechWeightFactor': cfg.synWeightFractionIE,
+                                        'delay': 'defaultDelay+dist_3D/propVelocity',
+                                        'synsPerConn': int(synperconnNumber[pre][post]+0.5),
+                                        'sec': 'spiny'}                       
+                
+                                
+                            if connID_C >= 0:          
+                                connID = connID_C
+                                synMechType = 'S1_IE_STP_Det_' + str(connID)         
+                                netParams.connParams['IE_'+pre+'_'+post+'_C'] = { 
+                                            'preConds': {'pop': cellpreList_C}, 
+                                            'postConds': {'pop': cfg.popLabelEl[post]},
+                                            'synMech': synMechType,
+                                            'probability': prob,
+                                            'weight': parameters_syn['gsyn',connID] * cfg.IEGain, 
+                                            'synMechWeightFactor': cfg.synWeightFractionIE,
+                                            'delay': 'defaultDelay+dist_3D/propVelocity',
+                                            'synsPerConn': int(synperconnNumber[pre][post]+0.5),
+                                            'sec': 'spiny'}                       
+                                
+                #------------------------------------------------------------------------------   
+                # E -> E
+                #------------------------------------------------------------------------------
+                if pre in Epops:
+                    if post in Epops:    
+                        connID = ConnTypes[pre][post][0]                        
+                        synMechType = 'S1_EE_STP_Det_' + str(connID)   
+                        contA+= 1   
+                        netParams.connParams['EE_'+pre+'_'+post] = { 
+                            'preConds': {'pop': cfg.popLabelEl[pre]}, 
+                            'postConds': {'pop': cfg.popLabelEl[post]},
+                            'synMech': synMechType,
+                            'probability': prob, 
+                            'weight': parameters_syn['gsyn',connID] * cfg.EEGain, 
+                            'synMechWeightFactor': cfg.synWeightFractionEE,
+                            'delay': 'defaultDelay+dist_3D/propVelocity',
+                            'synsPerConn': int(synperconnNumber[pre][post]+0.5),
+                            'sec': 'spinyEE'}    
+    
+                #------------------------------------------------------------------------------               
+                #  E -> I  with ME conn diversity
+                #------------------------------------------------------------------------------   
+                if pre in Epops:
+                    if post in Ipops:                        
+                        cellpostList_A = []
+                        cellpostList_B = []
+                        connID_B = -1                          
+                        if ConnTypes[pre][post][0] == 131 or ConnTypes[pre][post][0] == 132: # EXCEPTIONS -> L6_IPC:L6_(DBC-LBC-NBC-SBC) and  L6_TPC_L:L6_(DBC-LBC-NBC-SBC)    
+                            cellpostList_A = cfg.popLabelEl[post]     
+                        elif 'LBC' in post or 'NBC' in post or 'BP' in post or 'DBC' in post or 'BTC' in post:    
+                            cellpre = cfg.popLabelEl[pre][0]
+                            for npost,cellpost in enumerate(cfg.popLabelEl[post]):                                
+                                postmtype = post[-3:]
+                                postetype = cellpost[-3:]
+                                if 'BP' in postmtype:
+                                    postmtype = post[-2:]       
+                                connID = connEItype[postmtype][postetype]                                
+                                if connID == ConnTypes[pre][post][0]:
+                                    cellpostList_A.append(cellpost)    
+                                elif connID == ConnTypes[pre][post][1]:
+                                    cellpostList_B.append(cellpost)
+                                    connID_B = ConnTypes[pre][post][1]
+                                else:
+                                    print('ERROR')                                
+                        else:                           
+                            cellpostList_A = cfg.popLabelEl[post]         
+                             
+                        connID = ConnTypes[pre][post][0]      
+                        synMechType = 'S1_EI_STP_Det_' + str(connID)  
+                        contA+= 1                                                              
+                        netParams.connParams['EI_'+pre+'_'+post] = { 
+                                        'preConds': {'pop': cfg.popLabelEl[pre]}, 
+                                        'postConds': {'pop': cellpostList_A},
+                                        'synMech': synMechType,
+                                        'probability': prob, 
+                                        'weight': parameters_syn['gsyn',connID] * cfg.EIGain, 
+                                        'synMechWeightFactor': cfg.synWeightFractionEI,
+                                        'delay': 'defaultDelay+dist_3D/propVelocity',
+                                        'synsPerConn': int(synperconnNumber[pre][post]+0.5),
+                                        'sec': 'spiny'}   
 
-## I -> E
-    for pre in Ipops:
-        for post in Epops:
-            if float(connNumber[pre][post]) > 0:        
+                        if connID_B >= 0:          
+                            connID = connID_B
+                            synMechType = 'S1_EI_STP_Det_' + str(connID)        
+                            netParams.connParams['EI_'+pre+'_'+post+'_B'] = { 
+                                            'preConds': {'pop': cfg.popLabelEl[pre]}, 
+                                            'postConds': {'pop': cellpostList_B},
+                                            'synMech': synMechType,
+                                            'probability': prob, 
+                                            'weight': parameters_syn['gsyn',connID] * cfg.EIGain, 
+                                            'synMechWeightFactor': cfg.synWeightFractionEI,
+                                            'delay': 'defaultDelay+dist_3D/propVelocity',
+                                            'synsPerConn': int(synperconnNumber[pre][post]+0.5),
+                                            'sec': 'spiny'}   
 
-                if int(float(d0[pre][post])) < 25:    #d0==12.5 -> single exponential fit
-                    linear = 0
-                    angular = 0
-                    prob = '%s*exp(-dist_2D/%s)*(dist_2D<%s)' % (a0mat[pre][post],lmat[pre][post],dfinal[pre][post])                     
-                elif int(float(d0[pre][post])) == 25:    #d0==25 -> exponential fit when dist_2D>25, else prob[0um:25um] = pmat[12.5]
-                    linear = float(pmat[12.5][pre][post])
-                    angular = 0
-                    prob = '%s*exp(-dist_2D/%s)*(dist_2D<%s) if dist_2D > %s else %f*dist_2D+%f' % (a0mat[pre][post],lmat[pre][post],dfinal[pre][post],d0[pre][post],angular,linear)
-                else:    #d0>25 -> exponential fit when dist_2D>d0, else prob[0um:d0] = linear interpolation [25:d0]
-                    d01 = int(float(d0[pre][post]))
-                    y1 = float(pmat[25][pre][post])
-                    y2 = float(pmat[d01][pre][post])
-                    x1 = 25
-                    x2 = d01                   
-                    angular = (y2 - y1)/(x2 - x1)
-                    linear = y2 - x2*angular
-                    prob = '%s*exp(-dist_2D/%s)*(dist_2D<%s) if dist_2D > %s else %f * dist_2D + %f' % (a0mat[pre][post],lmat[pre][post],dfinal[pre][post],d0[pre][post],angular,linear)
-
-                if decay[pre][post] > 10.0:
-                    synMechType =  ISynMech10
-                elif decay[pre][post] < 7.0:
-                    synMechType =  ISynMech6
-                else:
-                    synMechType =  ISynMech
-
-                netParams.connParams['IE_'+pre+'_'+post] = { 
-                    'preConds': {'pop': pre}, 
-                    'postConds': {'pop': post},
-                    'synMech': synMechType,
-                    'probability': prob,
-                    'weight': gsyn[pre][post] * cfg.IEGain, 
-                    'synMechWeightFactor': cfg.synWeightFractionIE,
-                    'delay': 'defaultDelay+dist_3D/propVelocity',
-                    'synsPerConn': int(synperconnNumber[pre][post]+0.5),
-                    'sec': 'spiny'}     
- 
-# ## E -> I
-    for pre in Epops:
-        for post in Ipops:
-            if float(connNumber[pre][post]) > 0:        
-
-                if int(float(d0[pre][post])) < 25:    #d0==12.5 -> single exponential fit
-                    linear = 0
-                    angular = 0
-                    prob = '%s * exp(-dist_2D/%s)*(dist_2D<%s)' % (a0mat[pre][post],lmat[pre][post],dfinal[pre][post])                     
-                elif int(float(d0[pre][post])) == 25:    #d0==25 -> exponential fit when dist_2D>25, else prob[0um:25um] = pmat[12.5]
-                    linear = float(pmat[12.5][pre][post])
-                    angular = 0
-                    prob = '%s * exp(-dist_2D/%s)*(dist_2D<%s) if dist_2D > %s else %f * dist_2D + %f' % (a0mat[pre][post],lmat[pre][post],dfinal[pre][post],d0[pre][post],angular,linear)
-                else:    #d0>25 -> exponential fit when dist_2D>d0, else prob[0um:d0] = linear interpolation [25:d0]
-                    d01 = int(float(d0[pre][post]))
-                    y1 = float(pmat[25][pre][post])
-                    y2 = float(pmat[d01][pre][post])
-                    x1 = 25
-                    x2 = d01                   
-                    angular = (y2 - y1)/(x2 - x1)
-                    linear = y2 - x2*angular
-                    prob = '%s * exp(-dist_2D/%s)*(dist_2D<%s) if dist_2D > %s else %f * dist_2D + %f' % (a0mat[pre][post],lmat[pre][post],dfinal[pre][post],d0[pre][post],angular,linear)
-
-                netParams.connParams['EI_'+pre+'_'+post] = { 
-                    'preConds': {'pop': pre}, 
-                    'postConds': {'pop': post},
-                    'synMech': ESynMech,
-                    'probability': prob, 
-                    'weight': gsyn[pre][post] * cfg.EIGain, 
-                    'synMechWeightFactor': cfg.synWeightFractionEI,
-                    'delay': 'defaultDelay+dist_3D/propVelocity',
-                    'synsPerConn': int(synperconnNumber[pre][post]+0.5),
-                    'sec': 'spiny'}     
-  
-# E -> E
-    for pre in Epops:
-        for post in Epops:
-            if float(connNumber[pre][post]) > 0:        
-
-                if int(float(d0[pre][post])) < 25:    #d0==12.5 -> single exponential fit
-                    linear = 0
-                    angular = 0
-                    prob = '%s * exp(-dist_2D/%s)*(dist_2D<%s)' % (a0mat[pre][post],lmat[pre][post],dfinal[pre][post])                     
-                elif int(float(d0[pre][post])) == 25:    #d0==25 -> exponential fit when dist_2D>25, else prob[0um:25um] = pmat[12.5]
-                    linear = float(pmat[12.5][pre][post])
-                    angular = 0
-                    prob = '%s * exp(-dist_2D/%s)*(dist_2D<%s) if dist_2D > %s else %f * dist_2D + %f' % (a0mat[pre][post],lmat[pre][post],dfinal[pre][post],d0[pre][post],angular,linear)
-                else:    #d0>25 -> exponential fit when dist_2D>d0, else prob[0um:d0] = linear interpolation [25:d0]
-                    d01 = int(float(d0[pre][post]))
-                    y1 = float(pmat[25][pre][post])
-                    y2 = float(pmat[d01][pre][post])
-                    x1 = 25
-                    x2 = d01                   
-                    angular = (y2 - y1)/(x2 - x1)
-                    linear = y2 - x2*angular
-                    prob = '%s * exp(-dist_2D/%s)*(dist_2D<%s) if dist_2D > %s else %f * dist_2D + %f' % (a0mat[pre][post],lmat[pre][post],dfinal[pre][post],d0[pre][post],angular,linear)
-
-                netParams.connParams['EE_'+pre+'_'+post] = { 
-                    'preConds': {'pop': pre}, 
-                    'postConds': {'pop': post},
-                    'synMech': ESynMech,
-                    'probability': prob, 
-                    'weight': gsyn[pre][post] * cfg.EEGain, 
-                    'synMechWeightFactor': cfg.synWeightFractionEE,
-                    'delay': 'defaultDelay+dist_3D/propVelocity',
-                    'synsPerConn': int(synperconnNumber[pre][post]+0.5),
-                    'sec': 'spinyEE'}                       
+# contA = 0
+# contB = 0
+# contC = 0
+# for connpath in netParams.connParams.keys():
+#     if '_B' in connpath[-2:]:
+#         contB+=1        
+# #         print()
+# #         print(connpathAnt)
+# #         print(netParams.connParams[connpathAnt])
+# #         print(connpath)
+# #         print(netParams.connParams[connpath])
+#     elif '_C' in connpath[-2:]:
+#         contC+=1        
+# #         print(connpath)
+# #         print(netParams.connParams[connpath])
+#     else:        
+#         contA+=1        
+#     connpathAnt = connpath
+# print(contA,contB,contC)
+# print(contA+contB+contC)
 
 #------------------------------------------------------------------------------
 # NetStim inputs to simulate Spontaneous synapses + background in S1 neurons - data from Rat
@@ -422,46 +575,37 @@ if cfg.addStimSynS1:
         for qSnum in range(SourcesNumber):
             ratesdifferentiation = (0.8 + 0.4*qSnum/(SourcesNumber-1)) * (synperNeuron*ratespontaneous)/SourcesNumber
             netParams.stimSourceParams['StimSynS1_S_all_EXC->' + post + '_' + str(qSnum)] = {'type': 'NetStim', 'rate': ratesdifferentiation, 'noise': 1.0}
-
+            
     #------------------------------------------------------------------------------
     for post in Epops:
         for qSnum in range(SourcesNumber):
             netParams.stimTargetParams['StimSynS1_T_all_EXC->' + post + '_' + str(qSnum)] = {
                 'source': 'StimSynS1_S_all_EXC->' + post + '_' + str(qSnum), 
-                'conds': {'cellType': post}, 
-                'ynorm':[0,1], 
+                'conds': {'cellType': cfg.popLabelEl[post]}, 
+                'synMech': 'AMPA', 
                 'sec': 'spinyEE', 
-                'loc': 0.5, 
-                'synMechWeightFactor': [1.0],
                 'weight': GsynStimE[post],
-                'delay': 0.1, 
-                'synMech': 'AMPA'}
+                'delay': 0.1}
 
     for post in Ipops:
         for qSnum in range(SourcesNumber):
             netParams.stimTargetParams['StimSynS1_T_all_EXC->' + post + '_' + str(qSnum)] = {
                 'source': 'StimSynS1_S_all_EXC->' + post + '_' + str(qSnum), 
-                'conds': {'cellType': post}, 
-                'ynorm':[0,1], 
+                'synMech': 'AMPA', 
+                'conds': {'cellType': cfg.popLabelEl[post]}, 
                 'sec': 'spiny', 
-                'loc': 0.5, 
-                'synMechWeightFactor': [1.0],
                 'weight': GsynStimE[post],
-                'delay': 0.1, 
-                'synMech': 'AMPA'}
+                'delay': 0.1}
 
     for post in Epops+Ipops:
         for qSnum in range(SourcesNumber):
             netParams.stimTargetParams['StimSynS1_T_all_INH->' + post + '_' + str(qSnum)] = {
                 'source': 'StimSynS1_S_all_INH->' + post + '_' + str(qSnum), 
-                'conds': {'cellType': post}, 
-                'ynorm':[0,1], 
+                'conds': {'cellType': cfg.popLabelEl[post]}, 
+                'synMech': 'GABAA', 
                 'sec': 'spiny', 
-                'loc': 0.5, 
-                'synMechWeightFactor': [1.0],
                 'weight': GsynStimI[post],
-                'delay': 0.1, 
-                'synMech': 'GABAA'}
+                'delay': 0.1}
 
 #------------------------------------------------------------------------------
 # Th-Th connectivity parameters
@@ -636,8 +780,8 @@ if cfg.connect_Th_S1:
 
                 netParams.connParams['thal_'+pre+'_'+post] = { 
                     'preConds': {'pop': pre}, 
-                    'postConds': {'pop': post},
-                    'weight': 0.19,  
+                    'postConds': {'pop': cfg.popLabelEl[post]},
+                    'weight': 0.001*0.19,  # weight conversion factor (from nS to uS)
                     'delay': 'defaultDelay+dist_3D/propVelocity',
                     'synsPerConn': int(synapsesperconnection_Th_S1), 
                     'synMech': ESynMech}  
@@ -677,7 +821,7 @@ if cfg.connect_S1_Th:
                 prob_rule = '%f*dist_2D<%f' % (cfg.connProb_S1_RTN,radius2D_S1_RTN)
 
                 netParams.connParams['thal_'+pre+'_'+post] = { 
-                                'preConds': {'pop': pre}, 
+                                'preConds': {'pop': cfg.popLabelEl[pre]}, 
                                 'postConds': {'pop': post},
                                 'synMech': syn,
                                 conn_method:  prob_rule,
@@ -746,8 +890,6 @@ if cfg.addNetStim:
 
         if synMech == ESynMech:
             wfrac = cfg.synWeightFractionEE
-        elif synMech == SOMESynMech:
-            wfrac = cfg.synWeightFractionSOME
         else:
             wfrac = [1.0]
 
@@ -786,8 +928,6 @@ if cfg.addTargetedNetStim:
 
         if synMech == ESynMech:
             wfrac = cfg.synWeightFractionEE
-        elif synMech == SOMESynMech:
-            wfrac = cfg.synWeightFractionSOME
         else:
             wfrac = [1.0]
 
@@ -824,4 +964,5 @@ netParams.description = """
 - v3 - ajust conn number
 - v4 - NetStim inputs to simulate Spontaneous synapses + background in S1 neurons - data from Rat
 - v5 - insert thalamic pops
+- v6 - insert Short Term synaptic plasticity between S1 cells and projections S1->Th
 """
