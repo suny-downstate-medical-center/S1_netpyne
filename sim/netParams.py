@@ -14,7 +14,6 @@ import numpy as np
 
 netParams = specs.NetParams()   # object of class NetParams to store the network parameters
 
-netParams.version = 6
 
 try:
     from __main__ import cfg  # import SimConfig object with params from parent module
@@ -55,11 +54,6 @@ Ipops = []
 for popName in cfg.S1pops:
     if popName not in Epops:
         Ipops.append(popName)
-
-Epops = []
-for popName in cfg.S1pops:
-    if popName not in Ipops:
-        Epops.append(popName)   
 
 layer = {'1':[0.0, 0.079], '2': [0.079,0.151], '3': [0.151,0.320], '23': [0.079,0.320], '4':[0.320,0.412], '5': [0.412,0.664], '6': [0.664,1.0], 
 'longS1': [2.2,2.3], 'longS2': [2.3,2.4]}  # normalized layer boundaries
@@ -130,13 +124,13 @@ for popName in cfg.S1pops:
                                         'numCells': int(np.ceil(cfg.scaleDensity*cfg.popNumber[popName])), 'diversity': True}
 
 ## THALAMIC POPULATIONS (from prev model)
-# for popName in cfg.thalamicpops:
-#     if 'RTN' in popName: # inhibitory - RTN
-#         ThcellType = 'sRE_cell'
-#     else: # excitatory
-#         ThcellType = 'sTC_cell'    
-#     netParams.popParams[popName] = {'cellType': ThcellType, 'cellModel': 'HH_full', 'yRange': [ymin[popName], ymax[popName]],
-#                                         'numCells':  int(np.ceil(cfg.scaleDensity*cfg.popNumber[popName])), 'diversity': False}
+for popName in cfg.thalamicpops:
+    if 'RTN' in popName: # inhibitory - RTN
+        ThcellType = 'sRE_cell'
+    else: # excitatory
+        ThcellType = 'sTC_cell'    
+    netParams.popParams[popName] = {'cellType': ThcellType, 'cellModel': 'HH_full', 'yRange': [ymin[popName], ymax[popName]],
+                                        'numCells':  int(np.ceil(cfg.scaleDensity*cfg.popNumber[popName])), 'diversity': False}
 
 ## S1 cell property rules
 cellnumber = 0    
@@ -189,13 +183,13 @@ for cellName in cfg.S1cells:
 
 ## Th cell property rules
 # JSON FILES FROM A1 WITH UPDATED DYNAMICS
-# # # --- VL - Exc --- #
-# netParams.loadCellParamsRule(label='sTC_cell', fileName='cells/sTC_jv_00.json')  # Load cellParams for each of the above cell subtype
-# netParams.cellParams['sTC_cell']['conds']={}
+# # --- VL - Exc --- #
+netParams.loadCellParamsRule(label='sTC_cell', fileName='cells/sTC_jv_00.json')  # Load cellParams for each of the above cell subtype
+netParams.cellParams['sTC_cell']['conds']={}
 
-# # --- RTN - Inh --- #
-# netParams.loadCellParamsRule(label='sRE_cell', fileName='cells/sRE_jv_00.json')  # Load cellParams for each of the above cell subtype
-# netParams.cellParams['sRE_cell']['conds']={}
+# --- RTN - Inh --- #
+netParams.loadCellParamsRule(label='sRE_cell', fileName='cells/sRE_jv_00.json')  # Load cellParams for each of the above cell subtype
+netParams.cellParams['sRE_cell']['conds']={}
 
 #------------------------------------------------------------------------------
 # Synaptic mechanism parameters  - mods from M1 detailed
@@ -255,11 +249,10 @@ gsyn = connData['gsyn']
 # S1 Local connectivity parameters 
 #------------------------------------------------------------------------------
 if cfg.addConn:   
-    
 # I -> I
     for pre in Ipops:
         for post in Ipops:
-            if float(connNumber[pre][post]) > 0 and pre in cfg.preNet:        
+            if float(connNumber[pre][post]) > 0:        
 
                 if int(float(d0[pre][post])) < 25:    #d0==12.5 -> single exponential fit
                     linear = 0
@@ -300,7 +293,7 @@ if cfg.addConn:
 ## I -> E
     for pre in Ipops:
         for post in Epops:
-            if float(connNumber[pre][post]) > 0 and pre in cfg.preNet:        
+            if float(connNumber[pre][post]) > 0:        
 
                 if int(float(d0[pre][post])) < 25:    #d0==12.5 -> single exponential fit
                     linear = 0
@@ -341,7 +334,7 @@ if cfg.addConn:
 # ## E -> I
     for pre in Epops:
         for post in Ipops:
-            if float(connNumber[pre][post]) > 0 and pre in cfg.preNet:        
+            if float(connNumber[pre][post]) > 0:        
 
                 if int(float(d0[pre][post])) < 25:    #d0==12.5 -> single exponential fit
                     linear = 0
@@ -375,7 +368,7 @@ if cfg.addConn:
 # E -> E
     for pre in Epops:
         for post in Epops:
-            if float(connNumber[pre][post]) > 0 and pre in cfg.preNet:        
+            if float(connNumber[pre][post]) > 0:        
 
                 if int(float(d0[pre][post])) < 25:    #d0==12.5 -> single exponential fit
                     linear = 0
@@ -753,6 +746,8 @@ if cfg.addNetStim:
 
         if synMech == ESynMech:
             wfrac = cfg.synWeightFractionEE
+        elif synMech == SOMESynMech:
+            wfrac = cfg.synWeightFractionSOME
         else:
             wfrac = [1.0]
 
@@ -791,6 +786,8 @@ if cfg.addTargetedNetStim:
 
         if synMech == ESynMech:
             wfrac = cfg.synWeightFractionEE
+        elif synMech == SOMESynMech:
+            wfrac = cfg.synWeightFractionSOME
         else:
             wfrac = [1.0]
 
@@ -821,11 +818,10 @@ if cfg.addTargetedNetStim:
 #------------------------------------------------------------------------------
 netParams.description = """ 
 - Code based: M1 net, 6 layers, 7 cell types - v103
-- v0: insert cell diversity
-- v1: insert connection rules
-- v2: insert phys conn parameters
-- v3: ajust conn number
-- v4: NetStim inputs to simulate Spontaneous synapses + background in S1 neurons - data from Rat
-- v5: insert thalamic pops
-- v6: add short-term plastcity between S1 synapses
+- v0 - insert cell diversity
+- v1 - insert connection rules
+- v2 - insert phys conn parameters
+- v3 - ajust conn number
+- v4 - NetStim inputs to simulate Spontaneous synapses + background in S1 neurons - data from Rat
+- v5 - insert thalamic pops
 """
