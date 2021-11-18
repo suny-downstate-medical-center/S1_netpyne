@@ -1,0 +1,297 @@
+numprocs=4
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v6_batch0/v6_batch0_0_0_cfg.json ... 
+Loading simConfig...
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v6_batch0/v6_batch0_0_0_cfg.json ... 
+Loading simConfig...
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v6_batch0/v6_batch0_0_0_cfg.json ... 
+Loading simConfig...
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v6_batch0/v6_batch0_0_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v6_batch0/v6_batch0_netParams.py
+
+Start time:  2021-11-18 12:01:07.912915
+Importing netParams from ../data/v6_batch0/v6_batch0_netParams.py
+Importing netParams from ../data/v6_batch0/v6_batch0_netParams.py
+Importing netParams from ../data/v6_batch0/v6_batch0_netParams.py
+
+Creating network of 213 cell populations on 4 hosts...
+  Number of cells on node 1: 1936 
+  Number of cells on node 2: 1935 
+  Number of cells on node 0: 1936 
+  Number of cells on node 3: 1935 
+  Done; cell creation time = 19.64 s.
+Making connections...
+  Number of connections on node 0: 41465 
+  Number of synaptic contacts on node 0: 128756 
+  Number of connections on node 2: 41020 
+  Number of synaptic contacts on node 2: 126808 
+  Number of connections on node 3: 41368 
+  Number of synaptic contacts on node 3: 132595 
+  Number of connections on node 1: 41467 
+  Number of synaptic contacts on node 1: 133017 
+  Done; cell connection time = 175.30 s.
+Adding stims...
+  Number of stims on node 1: 2258 
+  Number of stims on node 3: 2258 
+  Number of stims on node 0: 2258 
+  Number of stims on node 2: 2257 
+  Done; cell stims creation time = 2.22 s.
+Recording 56 traces of 1 types on node 3
+Recording 56 traces of 1 types on node 1
+Recording 63 traces of 1 types on node 0
+Recording 62 traces of 1 types on node 2
+0.0s
+
+Running simulation for 1000.0 ms...
+0.1s
+0.2s
+0.3s
+0.4s
+0.5s
+0.6s
+0.7s
+0.8s
+0.9s
+1.0s
+  Done; run time = 2153.67 s; real-time ratio: 0.00.
+
+Gathering data...
+  Done; gather time = 1.01 s.
+
+Analyzing...
+  Cells: 7742
+  Connections: 0 (0.00 per cell)
+  Spikes: 53976 (6.97 Hz)
+  Simulated time: 1.0 s; 4 workers
+  Run time: 2153.67 s
+   L1_DAC_bNA : 2.000 Hz
+   L1_DAC_cNA : 2.000 Hz
+   L1_DLAC_cNA : 2.000 Hz
+   L1_HAC_bNA : 3.000 Hz
+   L1_HAC_cIR : 2.000 Hz
+   L1_HAC_cNA : 2.000 Hz
+   L1_NGC-DA_bNA : 3.000 Hz
+   L1_NGC-DA_cAC : 7.000 Hz
+   L1_NGC-DA_cNA : 2.000 Hz
+   L1_NGC-DA_cST : 10.000 Hz
+   L1_NGC-SA_cNA : 4.000 Hz
+   L1_SLAC_bNA : 3.000 Hz
+   L1_SLAC_cAC : 2.000 Hz
+   L1_SLAC_cNA : 3.000 Hz
+   L23_BP_bAC : 5.000 Hz
+   L23_BP_bIR : 5.000 Hz
+   L23_BP_bNA : 29.000 Hz
+   L23_BP_cAC : 13.000 Hz
+   L23_BP_cNA : 13.000 Hz
+   L23_BP_dST : 17.000 Hz
+   L23_BTC_bAC : 5.000 Hz
+   L23_BTC_bIR : 2.000 Hz
+   L23_BTC_bNA : 9.000 Hz
+   L23_BTC_cAC : 10.000 Hz
+   L23_BTC_cNA : 3.000 Hz
+   L23_ChC_cAC : 15.000 Hz
+   L23_ChC_cNA : 11.000 Hz
+   L23_ChC_dNA : 9.000 Hz
+   L23_DBC_bAC : 5.000 Hz
+   L23_DBC_bIR : 5.000 Hz
+   L23_DBC_bNA : 14.000 Hz
+   L23_DBC_cAC : 13.000 Hz
+   L23_LBC_bAC : 2.000 Hz
+   L23_LBC_bNA : 8.000 Hz
+   L23_LBC_cAC : 11.500 Hz
+   L23_LBC_cNA : 18.000 Hz
+   L23_LBC_cST : 3.000 Hz
+   L23_LBC_dNA : 11.500 Hz
+   L23_MC_bAC : 3.000 Hz
+   L23_MC_bNA : 5.000 Hz
+   L23_MC_cAC : 7.000 Hz
+   L23_MC_cNA : 3.000 Hz
+   L23_MC_dNA : 7.000 Hz
+   L23_NBC_bAC : 3.000 Hz
+   L23_NBC_bNA : 7.000 Hz
+   L23_NBC_cAC : 7.000 Hz
+   L23_NBC_cIR : 7.000 Hz
+   L23_NBC_cNA : 7.000 Hz
+   L23_NBC_dNA : 3.000 Hz
+   L23_NGC_bNA : 5.000 Hz
+   L23_NGC_cAC : 7.000 Hz
+   L23_NGC_cNA : 4.000 Hz
+   L23_NGC_cST : 4.000 Hz
+   L23_PC_cAD : 1.475 Hz
+   L23_SBC_bNA : 12.000 Hz
+   L23_SBC_cAC : 11.000 Hz
+   L23_SBC_dNA : 15.000 Hz
+   L4_BP_bAC : 5.000 Hz
+   L4_BP_bIR : 5.000 Hz
+   L4_BP_bNA : 36.000 Hz
+   L4_BP_cAC : 8.000 Hz
+   L4_BP_cNA : 6.000 Hz
+   L4_BP_dST : 11.000 Hz
+   L4_BTC_bAC : 3.000 Hz
+   L4_BTC_bIR : 3.000 Hz
+   L4_BTC_bST : 13.000 Hz
+   L4_BTC_cAC : 13.000 Hz
+   L4_BTC_cNA : 11.000 Hz
+   L4_BTC_dNA : 12.000 Hz
+   L4_ChC_cAC : 7.000 Hz
+   L4_ChC_cNA : 6.000 Hz
+   L4_ChC_dNA : 5.000 Hz
+   L4_DBC_bAC : 5.000 Hz
+   L4_DBC_bIR : 3.000 Hz
+   L4_DBC_bNA : 20.000 Hz
+   L4_DBC_bST : 11.000 Hz
+   L4_DBC_cAC : 12.000 Hz
+   L4_DBC_cIR : 8.000 Hz
+   L4_DBC_cNA : 18.000 Hz
+   L4_LBC_cAC : 18.000 Hz
+   L4_LBC_cNA : 14.000 Hz
+   L4_LBC_cST : 17.000 Hz
+   L4_LBC_dNA : 15.000 Hz
+   L4_LBC_dST : 6.000 Hz
+   L4_MC_bAC : 2.000 Hz
+   L4_MC_bNA : 6.000 Hz
+   L4_MC_cAC : 7.000 Hz
+   L4_MC_cNA : 4.000 Hz
+   L4_MC_dNA : 13.000 Hz
+   L4_NBC_cAC : 13.000 Hz
+   L4_NBC_cIR : 6.000 Hz
+   L4_NBC_cNA : 34.000 Hz
+   L4_NBC_dNA : 30.000 Hz
+   L4_NGC_bNA : 13.000 Hz
+   L4_NGC_cAC : 13.000 Hz
+   L4_NGC_cNA : 10.000 Hz
+   L4_NGC_cST : 3.000 Hz
+   L4_PC_cAD : 4.296 Hz
+   L4_SBC_bNA : 50.000 Hz
+   L4_SBC_cAC : 6.000 Hz
+   L4_SBC_dNA : 25.000 Hz
+   L4_SP_cAD : 3.909 Hz
+   L4_SS_cAD : 2.800 Hz
+   L5_BP_bAC : 3.000 Hz
+   L5_BP_bIR : 4.000 Hz
+   L5_BP_bNA : 37.000 Hz
+   L5_BP_cAC : 13.000 Hz
+   L5_BP_cNA : 1.000 Hz
+   L5_BP_dST : 4.000 Hz
+   L5_BTC_bAC : 4.000 Hz
+   L5_BTC_cAC : 9.000 Hz
+   L5_BTC_cNA : 2.000 Hz
+   L5_ChC_cAC : 2.000 Hz
+   L5_ChC_cNA : 3.000 Hz
+   L5_ChC_dNA : 4.000 Hz
+   L5_DBC_bAC : 4.000 Hz
+   L5_DBC_bIR : 4.000 Hz
+   L5_DBC_bNA : 1.000 Hz
+   L5_DBC_bST : 9.000 Hz
+   L5_DBC_cAC : 2.000 Hz
+   L5_DBC_cIR : 4.000 Hz
+   L5_DBC_cNA : 11.000 Hz
+   L5_LBC_bAC : 4.000 Hz
+   L5_LBC_cAC : 22.000 Hz
+   L5_LBC_cIR : 16.000 Hz
+   L5_LBC_cNA : 10.000 Hz
+   L5_LBC_cST : 4.000 Hz
+   L5_LBC_dNA : 10.000 Hz
+   L5_LBC_dST : 26.000 Hz
+   L5_MC_bAC : 4.500 Hz
+   L5_MC_bIR : 5.000 Hz
+   L5_MC_bST : 16.000 Hz
+   L5_MC_cAC : 4.500 Hz
+   L5_MC_cNA : 2.000 Hz
+   L5_MC_cST : 7.000 Hz
+   L5_MC_dNA : 4.000 Hz
+   L5_NBC_bAC : 5.000 Hz
+   L5_NBC_bIR : 4.000 Hz
+   L5_NBC_bST : 95.000 Hz
+   L5_NBC_cAC : 13.000 Hz
+   L5_NBC_cIR : 19.000 Hz
+   L5_NBC_cNA : 10.000 Hz
+   L5_NBC_cST : 9.000 Hz
+   L5_NBC_dST : 10.000 Hz
+   L5_NGC_bNA : 1.000 Hz
+   L5_NGC_cAC : 11.000 Hz
+   L5_NGC_cNA : 1.000 Hz
+   L5_NGC_cST : 1.000 Hz
+   L5_SBC_bNA : 36.000 Hz
+   L5_SBC_cAC : 5.000 Hz
+   L5_SBC_dNA : 3.000 Hz
+   L5_STPC_cAD : 5.250 Hz
+   L5_TTPC1_cAD : 8.480 Hz
+   L5_TTPC2_cAD : 7.000 Hz
+   L5_UTPC_cAD : 7.750 Hz
+   L6_BPC_cAD : 2.312 Hz
+   L6_BP_bAC : 6.000 Hz
+   L6_BP_bIR : 4.000 Hz
+   L6_BP_bNA : 26.000 Hz
+   L6_BP_cAC : 12.000 Hz
+   L6_BP_cNA : 23.000 Hz
+   L6_BP_dST : 8.000 Hz
+   L6_BTC_bAC : 4.000 Hz
+   L6_BTC_cAC : 17.000 Hz
+   L6_BTC_cNA : 19.000 Hz
+   L6_ChC_cAC : 5.000 Hz
+   L6_ChC_cNA : 27.000 Hz
+   L6_ChC_dNA : 6.000 Hz
+   L6_DBC_bAC : 5.000 Hz
+   L6_DBC_bIR : 3.000 Hz
+   L6_DBC_bNA : 23.000 Hz
+   L6_DBC_bST : 17.000 Hz
+   L6_DBC_cAC : 18.000 Hz
+   L6_DBC_cIR : 8.000 Hz
+   L6_DBC_cNA : 27.000 Hz
+   L6_IPC_cAD : 2.343 Hz
+   L6_LBC_bAC : 4.000 Hz
+   L6_LBC_bIR : 3.000 Hz
+   L6_LBC_bNA : 119.000 Hz
+   L6_LBC_bST : 13.500 Hz
+   L6_LBC_cNA : 18.000 Hz
+   L6_LBC_cST : 8.000 Hz
+   L6_MC_bAC : 4.000 Hz
+   L6_MC_bIR : 3.000 Hz
+   L6_MC_bNA : 16.000 Hz
+   L6_MC_bST : 8.000 Hz
+   L6_MC_cAC : 10.000 Hz
+   L6_MC_cIR : 7.000 Hz
+   L6_MC_cNA : 8.000 Hz
+   L6_NBC_bAC : 4.000 Hz
+   L6_NBC_bIR : 9.000 Hz
+   L6_NBC_bST : 7.000 Hz
+   L6_NBC_cAC : 29.000 Hz
+   L6_NBC_cIR : 10.000 Hz
+   L6_NBC_cNA : 36.000 Hz
+   L6_NBC_cST : 69.000 Hz
+   L6_NBC_dST : 2.000 Hz
+   L6_NGC_bNA : 1.000 Hz
+   L6_NGC_cAC : 14.000 Hz
+   L6_NGC_cNA : 20.000 Hz
+   L6_NGC_cST : 8.000 Hz
+   L6_SBC_bNA : 91.000 Hz
+   L6_SBC_cAC : 26.000 Hz
+   L6_SBC_dNA : 58.000 Hz
+   L6_TPC_L1_cAD : 2.176 Hz
+   L6_TPC_L4_cAD : 4.267 Hz
+   L6_UTPC_cAD : 2.389 Hz
+   ss_RTN_o : 6.584 Hz
+   ss_RTN_m : 10.947 Hz
+   ss_RTN_i : 9.486 Hz
+   VPL_sTC : 3.109 Hz
+   VPM_sTC : 5.763 Hz
+   POm_sTC_s1 : 7.354 Hz
+Saving output as ../data/v6_batch0/v6_batch0_0_0.json  ... 
+Finished saving!
+  Done; saving time = 3.08 s.
+Plotting raster...
+Plotting recorded cell traces ... cell
+  Done; plotting time = 115.98 s
+
+Total time = 2493.79 s
+
+End time:  2021-11-18 12:42:41.707387
