@@ -96,7 +96,7 @@ cfg.S1cells = cellParam[0:207]
 
 cfg.thalamicpops = ['ss_RTN_o', 'ss_RTN_m', 'ss_RTN_i', 'VPL_sTC', 'VPM_sTC', 'POm_sTC_s1']
 
-cfg.cellNumber['ss_RTN_o'] = int(382 * (210**2/150**2))
+cfg.cellNumber['ss_RTN_o'] = int(382 * (210**2/150**2)) # from mouse model (d = 150 um)
 cfg.cellNumber['ss_RTN_m'] = int(382 * (210**2/150**2))
 cfg.cellNumber['ss_RTN_i'] = int(765 * (210**2/150**2))
 cfg.cellNumber['VPL_sTC'] = int(656 * (210**2/150**2))
@@ -122,7 +122,7 @@ cfg.allpops = cfg.cellParamLabels
 cfg.cellsrec = 2
 if cfg.cellsrec == 0:  cfg.recordCells = cfg.allpops # record all cells
 elif cfg.cellsrec == 1: cfg.recordCells = [(pop,0) for pop in cfg.allpops] # record one cell of each pop
-elif cfg.cellsrec == 2: # record one cell of each cellMEtype
+elif cfg.cellsrec == 2: # record one cell of each cellMEtype # need more test!!!
     cfg.recordCells = []
     for metype in cfg.cellParamLabels:
         if cfg.cellNumber[metype] < 5:
@@ -179,7 +179,7 @@ cfg.scale = 1.0 # reduce size
 cfg.sizeY = 2082.0
 cfg.sizeX = 420.0 # r = 210 um and hexagonal side length = 230.9 um
 cfg.sizeZ = 420.0
-cfg.scaleDensity = 0.01 # Number of cells = 31346
+cfg.scaleDensity = 1.0 # Number of cells = 31346
 
 #------------------------------------------------------------------------------
 # Spontaneous synapses + background - data from Rat
@@ -231,7 +231,7 @@ cfg.divergenceHO = 10
 # 						   corticothalamic < 2.4 ± 0.1 mV
 #------------------------------------------------------------------------------
 ## Th->S1
-cfg.connect_Th_S1 = True
+cfg.connect_Th_S1 = False
 cfg.TC_S1 = {}
 cfg.TC_S1['VPL_sTC'] = True
 cfg.TC_S1['VPM_sTC'] = True
@@ -240,7 +240,7 @@ cfg.TC_S1['POm_sTC_s1'] = True
 cfg.frac_Th_S1 = 1.0
 #------------------------------------------------------------------------------
 ## S1->Th 
-cfg.connect_S1_Th = True
+cfg.connect_S1_Th = False
 
 cfg.connect_S1_RTN = True
 cfg.connProb_S1_RTN         = 0.1  # dist_2D<R
@@ -253,12 +253,12 @@ cfg.connWeight_S1_TC       = 0.250
 #------------------------------------------------------------------------------
 # Current inputs 
 #------------------------------------------------------------------------------
-cfg.addIClamp = True
+cfg.addIClamp = True  # decrease the transient
  
 cfg.IClamp = []
 cfg.IClampnumber = 0
 
-cfg.thalamocorticalconnections =  ['VPL_sTC', 'VPM_sTC', 'POm_sTC_s1'] # decrease the transient
+cfg.thalamocorticalconnections =  ['VPL_sTC', 'VPM_sTC', 'POm_sTC_s1']
 for popName in cfg.thalamocorticalconnections:
     cfg.IClamp.append({'pop': popName, 'sec': 'soma', 'loc': 0.5, 'start': 0, 'dur': 5, 'amp': 2.0+10.0*cfg.IClampnumber}) #pA
     cfg.IClampnumber=cfg.IClampnumber+1
