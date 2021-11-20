@@ -1,30 +1,14 @@
 COMMENT
-/*                                                                               
-Copyright (c) 2015 EPFL-BBP, All rights reserved.                                
-                                                                                 
-THIS SOFTWARE IS PROVIDED BY THE BLUE BRAIN PROJECT ``AS IS''                    
-AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO,            
-THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR           
-PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE BLUE BRAIN PROJECT                 
-BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR           
-CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF             
-SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR                  
-BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,            
-WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE             
-OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN           
-IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.                                    
-                                                                                 
-This work is licensed under a                                                    
-Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License. 
-To view a copy of this license, visit                                            
-http://creativecommons.org/licenses/by-nc-sa/4.0/legalcode or send a letter to   
-Creative Commons,                                                                
-171 Second Street, Suite 300,                                                    
-San Francisco, California, 94105, USA.                                           
-*/                                                                               
+/**
+ * @file ProbGABAAB.mod
+ * @brief
+ * @author king, muller
+ * @date 2011-08-17
+ * @remark Copyright © BBP/EPFL 2005-2011; All rights reserved. Do not distribute without further notice.
+ */
 ENDCOMMENT
 
-TITLE GABAAB receptor with presynaptic short-term plasticity 
+TITLE GABAAB receptor with presynaptic short-term plasticity
 
 
 COMMENT
@@ -36,9 +20,9 @@ _EMS (Eilif Michael Srikanth)
 Modification of ProbGABAA: 2-State model by Eilif Muller, Michael Reimann, Srikanth Ramaswamy, Blue Brain Project, August 2011
 This new model was motivated by the following constraints:
 
-1) No consumption on failure.  
+1) No consumption on failure.
 2) No release just after release until recovery.
-3) Same ensemble averaged trace as deterministic/canonical Tsodyks-Markram 
+3) Same ensemble averaged trace as deterministic/canonical Tsodyks-Markram
    using same parameters determined from experiment.
 4) Same quantal size as present production probabilistic model.
 
@@ -53,63 +37,59 @@ and with probability u (which follows facilitation dynamics).  If it
 releases, it will transition to the unrecovered state.  Recovery is as
 a Poisson process with rate 1/Dep.
 
-This model satisfies all of (1)-(4).
-ENDCOMMENT
+This model satisys all of (1)-(4).
 
 
-COMMENT
-/**
- @file ProbGABAAB_EMS.mod
- @brief GABAAB receptor with presynaptic short-term plasticity
- @author Eilif Muller, Michael Reimann, Srikanth Ramaswamy, James King @ BBP
- @date 2011
-*/
 ENDCOMMENT
+
 
 NEURON {
     THREADSAFE
 	POINT_PROCESS ProbGABAAB_EMS
-	RANGE tau_r_GABAA, tau_d_GABAA, tau_r_GABAB, tau_d_GABAB 
-	RANGE Use, u, Dep, Fac, u0, Rstate, tsyn_fac, u
+	RANGE tau_r_GABAA, tau_d_GABAA, tau_r_GABAB, tau_d_GABAB
+	RANGE Use, u, Dep, Fac, u0, tsyn
+    RANGE unoccupied, occupied, Nrrp
 	RANGE i,i_GABAA, i_GABAB, g_GABAA, g_GABAB, g, e_GABAA, e_GABAB, GABAB_ratio
         RANGE A_GABAA_step, B_GABAA_step, A_GABAB_step, B_GABAB_step
 	NONSPECIFIC_CURRENT i
-    POINTER rng
-    RANGE synapseID, verboseLevel
+    BBCOREPOINTER rng
+    RANGE synapseID, selected_for_report, verboseLevel
 }
 
 PARAMETER {
 	tau_r_GABAA  = 0.2   (ms)  : dual-exponential conductance profile
 	tau_d_GABAA = 8   (ms)  : IMPORTANT: tau_r < tau_d
     tau_r_GABAB  = 3.5   (ms)  : dual-exponential conductance profile :Placeholder value from hippocampal recordings SR
-	tau_d_GABAB = 260.9   (ms)  : IMPORTANT: tau_r < tau_d  :Placeholder value from hippocampal recordings 
-	Use        = 1.0   (1)   : Utilization of synaptic efficacy (just initial values! Use, Dep and Fac are overwritten by BlueBuilder assigned values) 
+	tau_d_GABAB = 260.9   (ms)  : IMPORTANT: tau_r < tau_d  :Placeholder value from hippocampal recordings
+	Use        = 1.0   (1)   : Utilization of synaptic efficacy (just initial values! Use, Dep and Fac are overwritten by BlueBuilder assigned values)
 	Dep   = 100   (ms)  : relaxation time constant from depression
 	Fac   = 10   (ms)  :  relaxation time constant from facilitation
 	e_GABAA    = -80     (mV)  : GABAA reversal potential
     e_GABAB    = -97     (mV)  : GABAB reversal potential
     gmax = .001 (uS) : weight conversion factor (from nS to uS)
     u0 = 0 :initial value of u, which is the running value of release probability
+    Nrrp = 1 (1)  : Number of total release sites for given contact
     synapseID = 0
     verboseLevel = 0
+    selected_for_report = 0
 	GABAB_ratio = 0 (1) : The ratio of GABAB to GABAA
 }
 
 COMMENT
-The Verbatim block is needed to generate random nos. from a uniform distribution between 0 and 1 
+The Verbatim block is needed to generate random nos. from a uniform distribution between 0 and 1
 for comparison with Pr to decide whether to activate the synapse or not
 ENDCOMMENT
-   
+
 VERBATIM
 #include<stdlib.h>
 #include<stdio.h>
 #include<math.h>
+#include "nrnran123.h"
 
 double nrn_random_pick(void* r);
 void* nrn_random_arg(int argpos);
-
 ENDVERBATIM
-  
+
 
 ASSIGNED {
 	v (mV)
@@ -126,17 +106,13 @@ ASSIGNED {
 	factor_GABAA
         factor_GABAB
         rng
+        usingR123            : TEMPORARY until mcellran4 completely deprecated
 
-       : Recording these three, you can observe full state of model
-       : tsyn_fac gives you presynaptic times, Rstate gives you 
-	 : state transitions,
-	 : u gives you the "release probability" at transitions 
-	 : (attention: u is event based based, so only valid at incoming events)
-       Rstate (1) : recovered state {0=unrecovered, 1=recovered}
-       tsyn_fac (ms) : the time of the last spike
-       u (1) : running release probability
-
-
+    : MVR
+    unoccupied (1) : no. of unoccupied sites following release event
+    occupied   (1) : no. of occupied sites following one epoch of recovery
+    tsyn (ms) : the time of the last spike
+    u (1) : running release probability
 }
 
 STATE {
@@ -147,25 +123,27 @@ STATE {
 }
 
 INITIAL{
-
         LOCAL tp_GABAA, tp_GABAB
 
-	Rstate=1
-	tsyn_fac=0
-	u=u0
-        
+        tsyn = 0
+        u=u0
+
+        : MVR
+        unoccupied = 0
+        occupied = Nrrp
+
         A_GABAA = 0
         B_GABAA = 0
-        
+
         A_GABAB = 0
         B_GABAB = 0
-        
+
         tp_GABAA = (tau_r_GABAA*tau_d_GABAA)/(tau_d_GABAA-tau_r_GABAA)*log(tau_d_GABAA/tau_r_GABAA) :time to peak of the conductance
         tp_GABAB = (tau_r_GABAB*tau_d_GABAB)/(tau_d_GABAB-tau_r_GABAB)*log(tau_d_GABAB/tau_r_GABAB) :time to peak of the conductance
-        
+
         factor_GABAA = -exp(-tp_GABAA/tau_r_GABAA)+exp(-tp_GABAA/tau_d_GABAA) :GABAA Normalization factor - so that when t = tp_GABAA, gsyn = gpeak
         factor_GABAA = 1/factor_GABAA
-        
+
         factor_GABAB = -exp(-tp_GABAB/tau_r_GABAB)+exp(-tp_GABAB/tau_d_GABAB) :GABAB Normalization factor - so that when t = tp_GABAB, gsyn = gpeak
         factor_GABAB = 1/factor_GABAB
         
@@ -173,13 +151,19 @@ INITIAL{
         B_GABAA_step = exp(dt*(( - 1.0 ) / tau_d_GABAA))
         A_GABAB_step = exp(dt*(( - 1.0 ) / tau_r_GABAB))
         B_GABAB_step = exp(dt*(( - 1.0 ) / tau_d_GABAB))
+
+        VERBATIM
+        if( usingR123 ) {
+            nrnran123_setseq((nrnran123_State*)_p_rng, 0, 0);
+        }
+        ENDVERBATIM
 }
 
 BREAKPOINT {
 	SOLVE state
 	
         g_GABAA = gmax*(B_GABAA-A_GABAA) :compute time varying conductance as the difference of state variables B_GABAA and A_GABAA
-        g_GABAB = gmax*(B_GABAB-A_GABAB) :compute time varying conductance as the difference of state variables B_GABAB and A_GABAB 
+        g_GABAB = gmax*(B_GABAB-A_GABAB) :compute time varying conductance as the difference of state variables B_GABAB and A_GABAB
         g = g_GABAA + g_GABAB
         i_GABAA = g_GABAA*(v-e_GABAA) :compute the GABAA driving force based on the time varying conductance, membrane potential, and GABAA reversal
         i_GABAB = g_GABAB*(v-e_GABAB) :compute the GABAB driving force based on the time varying conductance, membrane potential, and GABAB reversal
@@ -194,135 +178,229 @@ PROCEDURE state() {
 }
 
 
-NET_RECEIVE (weight, weight_GABAA, weight_GABAB, Psurv, tsyn (ms)){
-    LOCAL result
+NET_RECEIVE (weight, weight_GABAA, weight_GABAB, Psurv){
+    LOCAL result, ves, occu
     weight_GABAA = weight
     weight_GABAB = weight*GABAB_ratio
     : Locals:
     : Psurv - survival probability of unrecovered state
-    : tsyn - time since last surival evaluation.
 
 
     INITIAL{
-		tsyn=t
     }
 
-    : Do not perform any calculations if the synapse (netcon) is deactivated.  This avoids drawing from the random stream
-    if(  !(weight > 0) ) {
+    : Do not perform any calculations if the synapse (netcon) is deactivated. This avoids drawing from
+    : random number stream. Also, disable in case of t < 0 (in case of ForwardSkip) which causes numerical
+    : instability if synapses are activated.
+    if(  weight <= 0 || t < 0 ) {
 VERBATIM
         return;
 ENDVERBATIM
     }
 
-        : calc u at event-
-        if (Fac > 0) {
-                u = u*exp(-(t - tsyn_fac)/Fac) :update facilitation variable if Fac>0 Eq. 2 in Fuhrmann et al.
-           } else {
-                  u = Use  
-           } 
-           if(Fac > 0){
-                  u = u + Use*(1-u) :update facilitation variable if Fac>0 Eq. 2 in Fuhrmann et al.
-           }    
+    : calc u at event-
+    if (Fac > 0) {
+            u = u*exp(-(t - tsyn)/Fac) :update facilitation variable if Fac>0 Eq. 2 in Fuhrmann et al.
+       } else {
+              u = Use
+       }
+       if(Fac > 0){
+              u = u + Use*(1-u) :update facilitation variable if Fac>0 Eq. 2 in Fuhrmann et al.
+       }
 
-	   : tsyn_fac knows about all spikes, not only those that released
-	   : i.e. each spike can increase the u, regardless of recovered state.
-	   tsyn_fac = t
+    : recovery
+    FROM counter = 0 TO (unoccupied - 1) {
+        : Iterate over all unoccupied sites and compute how many recover
+        Psurv = exp(-(t-tsyn)/Dep)
+        result = urand()
+        if (result>Psurv) {
+            occupied = occupied + 1     : recover a previously unoccupied site
+            if( verboseLevel > 0 ) {
+                UNITSOFF
+                printf( "Recovered! %f at time %g: Psurv = %g, urand=%g\n", synapseID, t, Psurv, result )
+                UNITSON
+            }
+        }
+    }
 
-           : recovery
-	   if (Rstate == 0) {
-	   : probability of survival of unrecovered state based on Poisson recovery with rate 1/tau
-	          Psurv = exp(-(t-tsyn)/Dep)
-		  result = urand()
-		  if (result>Psurv) {
-		         Rstate = 1     : recover      
+    ves = 0                  : Initialize the number of released vesicles to 0
+    occu = occupied - 1  : Store the number of occupied sites in a local variable
 
-                         if( verboseLevel > 0 ) {
-                             printf( "Recovered! %f at time %g: Psurv = %g, urand=%g\n", synapseID, t, Psurv, result )
-                         }
+    FROM counter = 0 TO occu {
+        : iterate over all occupied sites and compute how many release
+        result = urand()
+        if (result<u) {
+            : release a single site!
+            occupied = occupied - 1  : decrease the number of occupied sites by 1
+            ves = ves + 1            : increase number of relesed vesicles by 1
+        }
+    }
 
-		  }
-		  else {
-		         : survival must now be from this interval
-		         tsyn = t
-                         if( verboseLevel > 0 ) {
-                             printf( "Failed to recover! %f at time %g: Psurv = %g, urand=%g\n", synapseID, t, Psurv, result )
-                         }
-		  }
-           }	   
-	   
-	   if (Rstate == 1) {
-   	          result = urand()
-		  if (result<u) {
-		  : release!
-   		         tsyn = t
-			 Rstate = 0
+    : Update number of unoccupied sites
+    unoccupied = Nrrp - occupied
 
-                         A_GABAA = A_GABAA + weight_GABAA*factor_GABAA
-                         B_GABAA = B_GABAA + weight_GABAA*factor_GABAA
-                         A_GABAB = A_GABAB + weight_GABAB*factor_GABAB
-                         B_GABAB = B_GABAB + weight_GABAB*factor_GABAB
-                         
-                         if( verboseLevel > 0 ) {
-                             printf( "Release! %f at time %g: vals %g %g %g \n", synapseID, t, A_GABAA, weight_GABAA, factor_GABAA )
-                         }
-		  		  
-		  }
-		  else {
-		         if( verboseLevel > 0 ) {
-			     printf("Failure! %f at time %g: urand = %g\n", synapseID, t, result )
-		         }
+    : Update tsyn
+    : tsyn knows about all spikes, not only those that released
+    : i.e. each spike can increase the u, regardless of recovered state.
+    :      and each spike trigger an evaluation of recovery
+    tsyn = t
 
-		  }
+    if (ves > 0) { :no need to evaluate unless we have vesicle release
+        A_GABAA = A_GABAA + ves/Nrrp*weight_GABAA*factor_GABAA
+        B_GABAA = B_GABAA + ves/Nrrp*weight_GABAA*factor_GABAA
+        A_GABAB = A_GABAB + ves/Nrrp*weight_GABAB*factor_GABAB
+        B_GABAB = B_GABAB + ves/Nrrp*weight_GABAB*factor_GABAB
 
-	   }
+        if( verboseLevel > 0 ) {
+            UNITSOFF
+            printf( "Release! %f at time %g: vals %g %g %g \n", synapseID, t, A_GABAA, weight_GABAA, factor_GABAA )
+            UNITSON
+        }
 
-        
+    } else {
+        : total release failure
+        if ( verboseLevel > 0 ) {
+            UNITSOFF
+            printf("Failure! %f at time %g: urand = %g\n", synapseID, t, result)
+            UNITSON
+        }
+    }
 
 }
 
 
 PROCEDURE setRNG() {
 VERBATIM
-    {
-        /**
-         * This function takes a NEURON Random object declared in hoc and makes it usable by this mod file.
-         * Note that this method is taken from Brett paper as used by netstim.hoc and netstim.mod
-         */
-        void** pv = (void**)(&_p_rng);
-        if( ifarg(1)) {
-            *pv = nrn_random_arg(1);
-        } else {
-            *pv = (void*)0;
+    #ifndef CORENEURON_BUILD
+    // For compatibility, allow for either MCellRan4 or Random123
+    // Distinguish by the arg types
+    // Object => MCellRan4, seeds (double) => Random123
+    usingR123 = 0;
+    if( ifarg(1) && hoc_is_double_arg(1) ) {
+        nrnran123_State** pv = (nrnran123_State**)(&_p_rng);
+        uint32_t a2 = 0;
+        uint32_t a3 = 0;
+
+        if (*pv) {
+            nrnran123_deletestream(*pv);
+            *pv = (nrnran123_State*)0;
         }
+        if (ifarg(2)) {
+            a2 = (uint32_t)*getarg(2);
+        }
+        if (ifarg(3)) {
+            a3 = (uint32_t)*getarg(3);
+        }
+        *pv = nrnran123_newstream3((uint32_t)*getarg(1), a2, a3);
+        usingR123 = 1;
+    } else if( ifarg(1) ) {   // not a double, so assume hoc object type
+        void** pv = (void**)(&_p_rng);
+        *pv = nrn_random_arg(1);
+    } else {  // no arg, so clear pointer
+        void** pv = (void**)(&_p_rng);
+        *pv = (void*)0;
     }
+    #endif
 ENDVERBATIM
 }
 
+
 FUNCTION urand() {
 VERBATIM
-        double value;
-        if (_p_rng) {
-                /*
-                :Supports separate independent but reproducible streams for
-                : each instance. However, the corresponding hoc Random
-                : distribution MUST be set to Random.uniform(1)
-                */
-                value = nrn_random_pick(_p_rng);
-                //printf("random stream for this simulation = %lf\n",value);
-                return value;
-        }else{
+    double value = 0.0;
+    if ( usingR123 ) {
+        value = nrnran123_dblpick((nrnran123_State*)_p_rng);
+    } else if (_p_rng) {
+        #ifndef CORENEURON_BUILD
+        value = nrn_random_pick(_p_rng);
+        #endif
+    } else {
+        // Note: prior versions used scop_random(1), but since we never use this model without configuring the rng.  Maybe should throw error?
+        value = 0.0;
+    }
+    _lurand = value;
 ENDVERBATIM
-                : the old standby. Cannot use if reproducible parallel sim
-                : independent of nhost or which host this instance is on
-                : is desired, since each instance on this cpu draws from
-                : the same stream
-                urand = scop_random(1)
-VERBATIM
-        }
-ENDVERBATIM
-        urand = value
 }
+
+
+FUNCTION bbsavestate() {
+        bbsavestate = 0
+VERBATIM
+#ifndef CORENEURON_BUILD
+        /* first arg is direction (0 save, 1 restore), second is array*/
+        /* if first arg is -1, fill xdir with the size of the array */
+        double *xdir, *xval, *hoc_pgetarg();
+        long nrn_get_random_sequence(void* r);
+        void nrn_set_random_sequence(void* r, int val);
+        xdir = hoc_pgetarg(1);
+        xval = hoc_pgetarg(2);
+        if (_p_rng) {
+            // tell how many items need saving
+            if (*xdir == -1) {  // count items
+                if( usingR123 ) {
+                    *xdir = 2.0;
+                } else {
+                    *xdir = 1.0;
+                }
+                return 0.0;
+            } else if(*xdir ==0 ) {  // save
+                if( usingR123 ) {
+                    uint32_t seq;
+                    char which;
+                    nrnran123_getseq( (nrnran123_State*)_p_rng, &seq, &which );
+                    xval[0] = (double) seq;
+                    xval[1] = (double) which;
+                } else {
+                    xval[0] = (double)nrn_get_random_sequence(_p_rng);
+                }
+            } else {  // restore
+                if( usingR123 ) {
+                    nrnran123_setseq( (nrnran123_State*)_p_rng, (uint32_t)xval[0], (char)xval[1] );
+                } else {
+                    nrn_set_random_sequence(_p_rng, (long)(xval[0]));
+                }
+            }
+        }
+#endif
+ENDVERBATIM
+}
+
 
 FUNCTION toggleVerbose() {
     verboseLevel = 1 - verboseLevel
 }
+
+
+VERBATIM
+static void bbcore_write(double* x, int* d, int* xx, int* offset, _threadargsproto_) {
+   if (d) {
+    // write stream ids
+    uint32_t* di = ((uint32_t*)d) + *offset;
+    nrnran123_State** pv = (nrnran123_State**)(&_p_rng);
+    nrnran123_getids3(*pv, di, di+1, di+2);
+
+    // write strem sequence
+    char which;
+    nrnran123_getseq(*pv, di+3, &which);
+    di[4] = (int)which;
+    //printf("ProbGABAAB_EMS bbcore_write %d %d %d\n", di[0], di[1], di[2]);
+   }
+  *offset += 5;
+}
+
+static void bbcore_read(double* x, int* d, int* xx, int* offset, _threadargsproto_) {
+  assert(!_p_rng);
+  uint32_t* di = ((uint32_t*)d) + *offset;
+  if (di[0] != 0 || di[1] != 0 || di[2] != 0) {
+      nrnran123_State** pv = (nrnran123_State**)(&_p_rng);
+      *pv = nrnran123_newstream3(di[0], di[1], di[2]);
+
+      // restore stream sequence
+      unsigned char which = (unsigned char)di[4];
+      nrnran123_setseq(*pv, di[3], which);
+  }
+  //printf("ProbGABAAB_EMS bbcore_read %d %d %d\n", di[0], di[1], di[2]);
+  *offset += 5;
+}
+ENDVERBATIM
+

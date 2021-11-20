@@ -23,7 +23,7 @@ cfg = specs.SimConfig()
 #------------------------------------------------------------------------------
 # Run parameters
 #------------------------------------------------------------------------------
-cfg.duration = 2.0*1e3 ## Duration of the sim, in ms  
+cfg.duration = 5.0*1e3 ## Duration of the sim, in ms  
 cfg.dt = 0.025
 cfg.seeds = {'conn': 4321, 'stim': 4321, 'loc': 4321} 
 cfg.hParams = {'celsius': 34, 'v_init': -65}  
@@ -179,7 +179,7 @@ cfg.scale = 1.0 # reduce size
 cfg.sizeY = 2082.0
 cfg.sizeX = 420.0 # r = 210 um and hexagonal side length = 230.9 um
 cfg.sizeZ = 420.0
-cfg.scaleDensity = 0.1 # Number of cells = 31346
+cfg.scaleDensity = 0.01 # Number of cells = 31346
 
 #------------------------------------------------------------------------------
 # Spontaneous synapses + background - data from Rat
@@ -240,7 +240,7 @@ cfg.TC_S1['POm_sTC_s1'] = True
 cfg.frac_Th_S1 = 1.0
 #------------------------------------------------------------------------------
 ## S1->Th 
-cfg.connect_S1_Th = False
+cfg.connect_S1_Th = True
 
 cfg.connect_S1_RTN = True
 cfg.connProb_S1_RTN         = 0.1  # dist_2D<R
