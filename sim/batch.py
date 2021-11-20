@@ -35,7 +35,7 @@ def setRunCfg(b, type='mpi_bulletin'):
 
     elif type=='mpi_direct':
         b.runCfg = {'type': 'mpi_direct',
-            'cores': 80,
+            'cores': 40,
             'script': 'init.py',
             'mpiCommand': 'mpiexec', # --use-hwthread-cpus
             'skip': True}
