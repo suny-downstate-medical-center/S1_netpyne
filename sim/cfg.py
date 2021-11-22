@@ -231,7 +231,7 @@ cfg.divergenceHO = 10
 # 						   corticothalamic < 2.4 ± 0.1 mV
 #------------------------------------------------------------------------------
 ## Th->S1
-cfg.connect_Th_S1 = False
+cfg.connect_Th_S1 = True
 cfg.TC_S1 = {}
 cfg.TC_S1['VPL_sTC'] = True
 cfg.TC_S1['VPM_sTC'] = True
@@ -240,7 +240,7 @@ cfg.TC_S1['POm_sTC_s1'] = True
 cfg.frac_Th_S1 = 1.0
 #------------------------------------------------------------------------------
 ## S1->Th 
-cfg.connect_S1_Th = False
+cfg.connect_S1_Th = True
 
 cfg.connect_S1_RTN = True
 cfg.connProb_S1_RTN         = 0.1  # dist_2D<R

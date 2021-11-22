@@ -807,8 +807,8 @@ if cfg.connect_S1_Th:
     pops_HO     = ['POm_sTC_s1'],
 
     pops_CT     = ['L5_TTPC2', 'L6_TPC_L4']
-    radius2D_S1_TC = 50.0
-    radius2D_S1_RTN = 50.0
+    radius2D_S1_TC = 100.0
+    radius2D_S1_RTN = 150.0
 
     if cfg.connect_S1_RTN:
         for pre in pops_CT:
