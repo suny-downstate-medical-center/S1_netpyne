@@ -3,7 +3,7 @@ import numpy as np
 import h5py
 
 data = {}
-batchName = 'v6_batch0'
+batchName = 'v6_batch1'
 with open(batchName + '/' + batchName + '_0_0.json', 'r') as f:
     data = json.load(f) 
     
