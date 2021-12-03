@@ -51,6 +51,9 @@ cellModels = ['HH_full']
 Epops = ['L23_PC', 'L4_PC', 'L4_SS', 'L4_SP', 
              'L5_TTPC1', 'L5_TTPC2', 'L5_STPC', 'L5_UTPC',
              'L6_TPC_L1', 'L6_TPC_L4', 'L6_BPC', 'L6_IPC', 'L6_UTPC']
+
+Epops = ['L5_TTPC2', 'L6_TPC_L4']
+
 Ipops = []
 for popName in cfg.S1pops:
     if popName not in Epops:
@@ -324,8 +327,6 @@ NGFSynMech_Th  = ['GABAA_Th', 'GABAB_Th']
 #------------------------------------------------------------------------------
 # S1 Local connectivity parameters 
 #------------------------------------------------------------------------------
-cfg.addConn = True
-
 contA = 0
 
 if cfg.addConn:    
@@ -818,7 +819,8 @@ if cfg.connect_S1_Th:
                 synWeightFactor = [1.0]
 
                 conn_method = 'probability'
-                prob_rule = '%f*dist_2D<%f' % (cfg.connProb_S1_RTN,radius2D_S1_RTN)
+                prob_rule = '%f * exp(-dist_2D/%f)\
+                                                *dist_2D<%f' % (cfg.connProb_S1_RTN,radius2D_S1_RTN,radius2D_S1_RTN)
 
                 netParams.connParams['thal_'+pre+'_'+post] = { 
                                 'preConds': {'pop': cfg.popLabelEl[pre]}, 
@@ -843,7 +845,8 @@ if cfg.connect_S1_Th:
                     prob_rule = cfg.divergenceHO/2.0
                 else: # topographycal connectivity
                     conn_method = 'probability'
-                    prob_rule = '%f*dist_2D<%f' % (cfg.connProb_S1_TC,radius2D_S1_TC)
+                    prob_rule = '%f * exp(-dist_2D/%f)\
+                                                *dist_2D<%f' % (cfg.connProb_S1_TC,radius2D_S1_TC,radius2D_S1_TC)
 
                     netParams.connParams['thal_'+pre+'_'+post] = { 
                                 'preConds': {'pop': pre}, 
