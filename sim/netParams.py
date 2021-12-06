@@ -52,8 +52,6 @@ Epops = ['L23_PC', 'L4_PC', 'L4_SS', 'L4_SP',
              'L5_TTPC1', 'L5_TTPC2', 'L5_STPC', 'L5_UTPC',
              'L6_TPC_L1', 'L6_TPC_L4', 'L6_BPC', 'L6_IPC', 'L6_UTPC']
 
-Epops = ['L5_TTPC2', 'L6_TPC_L4']
-
 Ipops = []
 for popName in cfg.S1pops:
     if popName not in Epops:
@@ -306,6 +304,19 @@ for syntype in syntypes:
                                          'tau_r_GABAB': 3.5,
 #                                          'GABAB_ratio': 1.0,  #=0(1):The ratio of GABAB to GABAA   ?       
                                             }
+
+# Th NEW
+#E2 -> syn 134
+netParams.synMechParams['TC:S1'] = {'mod': 'DetAMPANMDA',
+                                          'Dep': 227.0,
+                                          'Fac': 13.0,
+                                          'Use': 0.72,
+                                          'tau_r_AMPA': 0.2,
+                                          'tau_d_AMPA': 1.74,
+                                          'NMDA_ratio': 0.4,
+                                          'tau_r_NMDA': 0.29,
+                                          'tau_d_NMDA': 43.0}
+
 
 # Spont and BG
 netParams.synMechParams['AMPA'] = {'mod':'MyExp2SynBB', 'tau1': 0.2, 'tau2': 1.74, 'e': 0}
@@ -782,10 +793,11 @@ if cfg.connect_Th_S1:
                 netParams.connParams['thal_'+pre+'_'+post] = { 
                     'preConds': {'pop': pre}, 
                     'postConds': {'pop': cfg.popLabelEl[post]},
-                    'weight': 0.001*0.19,  # weight conversion factor (from nS to uS)
+                    'weight': 0.19,   # synaptic weight 
+                    'sec': 'spinyEE', # target postsyn section
                     'delay': 'defaultDelay+dist_3D/propVelocity',
                     'synsPerConn': int(synapsesperconnection_Th_S1), 
-                    'synMech': ESynMech}  
+                    'synMech': 'TC:S1'}  
 
                 if pre=='POm_sTC_s1':
                     netParams.connParams['thal_'+pre+'_'+post]['convergence'] = conn_convergence # non-topographycal connectivity
@@ -808,8 +820,10 @@ if cfg.connect_S1_Th:
     pops_HO     = ['POm_sTC_s1'],
 
     pops_CT     = ['L5_TTPC2', 'L6_TPC_L4']
-    radius2D_S1_TC = 100.0
-    radius2D_S1_RTN = 150.0
+
+    radius2D_S1_RTN = 50.0
+    radius2D_S1_TC = 50.0
+    radius_cilinder = netParams.sizeX/2.0
 
     if cfg.connect_S1_RTN:
         for pre in pops_CT:
@@ -819,8 +833,10 @@ if cfg.connect_S1_Th:
                 synWeightFactor = [1.0]
 
                 conn_method = 'probability'
-                prob_rule = '%f * exp(-dist_2D/%f)\
-                                                *dist_2D<%f' % (cfg.connProb_S1_RTN,radius2D_S1_RTN,radius2D_S1_RTN)
+
+                conn_convergence = cfg.convergence_S1_RTN
+                prob_conv = 1.0*(conn_convergence/cfg.popNumber[pre])*((radius_cilinder**2)/(radius2D_S1_RTN**2)) # prob*(AreaS1/Area_Th_syn)  
+                prob_rule = '%f if dist_2D < %f else 0.0' % (prob_conv,radius2D_S1_RTN)
 
                 netParams.connParams['thal_'+pre+'_'+post] = { 
                                 'preConds': {'pop': cfg.popLabelEl[pre]}, 
@@ -845,11 +861,12 @@ if cfg.connect_S1_Th:
                     prob_rule = cfg.divergenceHO/2.0
                 else: # topographycal connectivity
                     conn_method = 'probability'
-                    prob_rule = '%f * exp(-dist_2D/%f)\
-                                                *dist_2D<%f' % (cfg.connProb_S1_TC,radius2D_S1_TC,radius2D_S1_TC)
+                    conn_convergence = cfg.convergence_S1_TC
+                    prob_conv = 1.0*(conn_convergence/cfg.popNumber[pre])*((radius_cilinder**2)/(radius2D_S1_TC**2)) # prob*(AreaS1/Area_Th_syn)  
+                    prob_rule = '%f if dist_2D < %f else 0.0' % (prob_conv,radius2D_S1_TC)
 
                     netParams.connParams['thal_'+pre+'_'+post] = { 
-                                'preConds': {'pop': pre}, 
+                                'preConds': {'pop': cfg.popLabelEl[pre]}, 
                                 'postConds': {'pop': post},
                                 'synMech': syn,
                                 conn_method:  prob_rule,
