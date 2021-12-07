@@ -1,0 +1,41 @@
+{
+    "batch": {
+        "batchLabel": "v6_batch4",
+        "cfgFile": "cfg.py",
+        "evolCfg": {
+            "fitnessFunc": "removed"
+        },
+        "initCfg": {},
+        "method": "grid",
+        "netParamsFile": "netParams.py",
+        "params": [
+            {
+                "label": "connWeight_RTN_RTN",
+                "values": [
+                    2.0
+                ]
+            },
+            {
+                "label": "connWeight_TC_RTN",
+                "values": [
+                    1.5
+                ]
+            },
+            {
+                "label": "connWeight_RTN_TC",
+                "values": [
+                    0.35
+                ]
+            }
+        ],
+        "runCfg": {
+            "cores": 8,
+            "mpiCommand": "mpiexec --use-hwthread-cpus",
+            "script": "init.py",
+            "skip": true,
+            "type": "mpi_direct"
+        },
+        "saveFolder": "../data/v6_batch4",
+        "seed": null
+    }
+}

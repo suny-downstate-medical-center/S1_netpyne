@@ -17,12 +17,8 @@ def custom():
     
     # params[('seeds', 'conn')] =  [1234]
 
-    # params[('rateStimI')] = [9.0]
-    # params[('rateStimE')] = [9.0]
-
-    params[('connWeight_RTN_RTN')] = [2.0]
-    params[('connWeight_TC_RTN')] = [1.5]
-    params[('connWeight_RTN_TC')] = [0.1,0.25,0.5]
+    params[('rateStimI')] = [9.0]
+    params[('rateStimE')] = [9.0]
 
     b = Batch(params=params, netParamsFile='netParams.py', cfgFile='cfg.py')
 
@@ -39,9 +35,9 @@ def setRunCfg(b, type='mpi_bulletin'):
 
     elif type=='mpi_direct':
         b.runCfg = {'type': 'mpi_direct',
-            'cores': 2,
+            'cores': 40,
             'script': 'init.py',
-            'mpiCommand': 'mpiexec', # --use-hwthread-cpus
+            'mpiCommand': 'mpiexec --use-hwthread-cpus', # --use-hwthread-cpus
             'skip': True}
 
     elif type=='hpc_slurm_gcp':
@@ -62,7 +58,7 @@ def setRunCfg(b, type='mpi_bulletin'):
 if __name__ == '__main__': 
     b = custom() #
 
-    b.batchLabel = 'v6_batch4'  
+    b.batchLabel = 'v6_batch2'  
     b.saveFolder = '../data/'+b.batchLabel
     b.method = 'grid'
     setRunCfg(b, 'mpi_direct')

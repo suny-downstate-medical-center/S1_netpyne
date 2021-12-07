@@ -23,7 +23,7 @@ cfg = specs.SimConfig()
 #------------------------------------------------------------------------------
 # Run parameters
 #------------------------------------------------------------------------------
-cfg.duration = 5.0*1e3 ## Duration of the sim, in ms  
+cfg.duration = 5.0*1e2 ## Duration of the sim, in ms  
 cfg.dt = 0.025
 cfg.seeds = {'conn': 4321, 'stim': 4321, 'loc': 4321} 
 cfg.hParams = {'celsius': 34, 'v_init': -65}  
@@ -184,7 +184,7 @@ cfg.scaleDensity = 0.1 # Number of cells = 31346
 #------------------------------------------------------------------------------
 # Spontaneous synapses + background - data from Rat
 #------------------------------------------------------------------------------
-cfg.addStimSynS1 = False
+cfg.addStimSynS1 = True
 cfg.rateStimE = 9.0
 cfg.rateStimI = 9.0
 
@@ -214,9 +214,9 @@ cfg.yConnFactor             = 10 # y-tolerance form connection distance based on
 
 cfg.intraThalamicGain = 1.0 
 
-cfg.connWeight_RTN_RTN      = 2.0 # optimized to increase synchrony in (simDate = '2021_04_30' / simCode = 't_allpops_012') - old value: 0.5
-cfg.connWeight_TC_RTN       = 1.5 #0.5
-cfg.connWeight_RTN_TC       = 0.25 # optimized to increase synchrony in (simDate = '2021_04_30' / simCode = 't_allpops_013') - old value: 0.83
+cfg.connWeight_RTN_RTN      = 2.0 # optimized to increase synchrony
+cfg.connWeight_TC_RTN       = 1.5 # optimized to increase synchrony
+cfg.connWeight_RTN_TC       = 0.35 # optimized to increase synchrony
 
 cfg.connProb_RTN_RTN        = 0.5 #2021-06-23 - test
 cfg.connProb_TC_RTN         = 1 #2021-06-23 - test
@@ -231,7 +231,7 @@ cfg.divergenceHO = 10
 # 						   corticothalamic < 2.4 ± 0.1 mV
 #------------------------------------------------------------------------------
 ## Th->S1
-cfg.connect_Th_S1 = False
+cfg.connect_Th_S1 = True
 cfg.TC_S1 = {}
 cfg.TC_S1['VPL_sTC'] = True
 cfg.TC_S1['VPM_sTC'] = True
@@ -240,7 +240,7 @@ cfg.TC_S1['POm_sTC_s1'] = True
 cfg.frac_Th_S1 = 1.0
 #------------------------------------------------------------------------------
 ## S1->Th 
-cfg.connect_S1_Th = False
+cfg.connect_S1_Th = True
 
 cfg.connect_S1_RTN = True
 cfg.convergence_S1_RTN         = 30.0  # dist_2D<R
