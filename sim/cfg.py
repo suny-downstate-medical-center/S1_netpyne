@@ -23,9 +23,9 @@ cfg = specs.SimConfig()
 #------------------------------------------------------------------------------
 # Run parameters
 #------------------------------------------------------------------------------
-cfg.duration = 5.0*1e2 ## Duration of the sim, in ms  
+cfg.duration = 5.0*1e3 ## Duration of the sim, in ms  
 cfg.dt = 0.025
-cfg.seeds = {'conn': 4321, 'stim': 4321, 'loc': 4321} 
+cfg.seeds = {'conn': 4322, 'stim': 4322, 'loc': 4322} 
 cfg.hParams = {'celsius': 34, 'v_init': -65}  
 cfg.verbose = False
 cfg.createNEURONObj = True
@@ -51,7 +51,7 @@ cfg.poptypeNumber = 61 # max 55 + 6
 cfg.celltypeNumber = 213 # max 207 + 6
 
 # TO DEBUG - import and simulate only the Cell soma (to study only the Net)
-cfg.reducedtest = True    
+cfg.reducedtest = False    
 
 #------------------------------------------------------------------------------  
 #------------------------------------------------------------------------------  
@@ -179,7 +179,7 @@ cfg.scale = 1.0 # reduce size
 cfg.sizeY = 2082.0
 cfg.sizeX = 420.0 # r = 210 um and hexagonal side length = 230.9 um
 cfg.sizeZ = 420.0
-cfg.scaleDensity = 0.1 # Number of cells = 31346
+cfg.scaleDensity = 1.0 # Number of cells = 31346
 
 #------------------------------------------------------------------------------
 # Spontaneous synapses + background - data from Rat
@@ -192,7 +192,7 @@ cfg.rateStimI = 9.0
 # Connectivity
 #------------------------------------------------------------------------------
 ## S1->S1
-cfg.addConn = False
+cfg.addConn = True
 
 cfg.synWeightFractionEE = [1.0, 1.0] # E -> E AMPA to NMDA ratio
 cfg.synWeightFractionEI = [1.0, 1.0] # E -> I AMPA to NMDA ratio
