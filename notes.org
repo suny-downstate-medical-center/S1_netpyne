@@ -1,1 +1,34 @@
 
+* 24jan22
+** working on branch samn
+
+need to include current dipoles, then run ~15 s sim with 3 Hz stimulation to thalamus
+with strong/weak stimuli ... record all the current dipoles and the 3D locations ... 
+
+before making additions, try compile/run
+
+model code is in sim subdirectory, mod files in mod
+
+cd sim
+nrnivmodl mod
+
+...
+
+Successfully created x86_64/special
+
+usage described in sim/init.py
+
+Starting script to run NetPyNE-basedS1 model.
+
+Usage:
+    python init.py # Run simulation, optionally plot a raster
+
+MPI usage:
+    mpiexec -n 4 nrniv -python -mpi init.py
+
+change duration to 1 s (set in cfg.py)
+
+try with 30 cores first ... and 300 ms
+
+mpiexec -n 30 nrniv -python -mpi init.py
+
