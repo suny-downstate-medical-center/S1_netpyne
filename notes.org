@@ -32,3 +32,391 @@ try with 30 cores first ... and 300 ms
 
 mpiexec -n 30 nrniv -python -mpi init.py
 
+* 25jan22
+** sim ran for 300 ms -- output -->> data/v6_batch0_24jan22
+
+got many warnings about compartment connectivity
+
+Notice: compartCell_L6_UTPC_cAD_HH_full_31341.dend_9(0) had previously been connected to parent compartCell_L6_UTPC_cAD_HH_full_31341.dend_1(1)
+21 /opt/anaconda3/bin/nrniv: cai is being written at the same location by cadad and CaDynamics_E2
+21  near line 0
+21  nao0_na_ion = 140.0
+                    ^
+  Number of connections on node 23: 327049 
+  Number of synaptic contacts on node 23: 1683952 
+  Number of connections on node 22: 327770 
+  Number of synaptic contacts on node 22: 1690703 
+  Number of connections on node 24: 330118 
+  Number of synaptic contacts on node 24: 1707457 
+  Number of connections on node 16: 326600 
+  Number of synaptic contacts on node 16: 1691590 
+  Number of connections on node 20: 327888 
+  Number of synaptic contacts on node 20: 1693919 
+  Number of connections on node 27: 325423 
+  Number of synaptic contacts on node 27: 1681016 
+  Number of connections on node 18: 326127 
+  Number of synaptic contacts on node 18: 1686209 
+  Number of connections on node 12: 325469 
+  Number of synaptic contacts on node 12: 1685109 
+  Number of connections on node 4: 327165 
+  Number of synaptic contacts on node 4: 1689874 
+  Number of connections on node 8: 325957 
+  Number of synaptic contacts on node 8: 1684986 
+  Number of connections on node 11: 328112 
+  Number of synaptic contacts on node 11: 1697838 
+  Number of connections on node 13: 331209 
+  Number of synaptic contacts on node 13: 1708654 
+  Number of connections on node 26: 323398 
+  Number of synaptic contacts on node 26: 1669743 
+  Number of connections on node 29: 328557 
+  Number of synaptic contacts on node 29: 1696282 
+  Number of connections on node 6: 327358 
+  Number of synaptic contacts on node 6: 1693132 
+  Number of connections on node 10: 328734 
+  Number of synaptic contacts on node 10: 1700592 
+  Number of connections on node 1: 329323 
+  Number of synaptic contacts on node 1: 1700543 
+  Number of connections on node 9: 325557 
+  Number of synaptic contacts on node 9: 1683508 
+  Number of connections on node 15: 327432 
+  Number of synaptic contacts on node 15: 1698725 
+  Number of connections on node 21: 325085 
+  Number of synaptic contacts on node 21: 1680111 
+  Number of connections on node 5: 326871 
+  Number of synaptic contacts on node 5: 1682473 
+  Number of connections on node 25: 327435 
+  Number of synaptic contacts on node 25: 1690639 
+  Number of connections on node 14: 330104 
+  Number of synaptic contacts on node 14: 1711792 
+  Number of connections on node 3: 325894 
+  Number of synaptic contacts on node 3: 1680671 
+  Number of connections on node 28: 326045 
+  Number of synaptic contacts on node 28: 1683595 
+  Number of connections on node 7: 326082 
+  Number of synaptic contacts on node 7: 1685571 
+  Number of connections on node 2: 327017 
+  Number of synaptic contacts on node 2: 1692306 
+  Number of connections on node 19: 330702 
+  Number of synaptic contacts on node 19: 1712099 
+  Number of connections on node 0: 328703 
+  Number of synaptic contacts on node 0: 1700844 
+  Number of connections on node 17: 327270 
+  Number of synaptic contacts on node 17: 1689685 
+  Done; cell connection time = 12858.19 s.
+Adding stims...
+  Number of stims on node 24: 10593 
+  Number of stims on node 8: 10592 
+  Number of stims on node 13: 10592 
+  Number of stims on node 16: 10592 
+  Number of stims on node 5: 10592 
+  Number of stims on node 22: 10593 
+  Number of stims on node 25: 10593 
+  Number of stims on node 12: 10592 
+  Number of stims on node 29: 10583 
+  Number of stims on node 1: 10593 
+  Number of stims on node 19: 10592 
+  Number of stims on node 10: 10592 
+  Number of stims on node 28: 10583 
+  Number of stims on node 6: 10592 
+  Number of stims on node 26: 10583 
+  Number of stims on node 3: 10592 
+  Number of stims on node 9: 10592 
+  Number of stims on node 21: 10593 
+  Number of stims on node 23: 10593 
+  Number of stims on node 18: 10592 
+  Number of stims on node 15: 10592 
+  Number of stims on node 17: 10592 
+  Number of stims on node 20: 10592 
+  Number of stims on node 7: 10592 
+  Number of stims on node 0: 10593 
+  Number of stims on node 2: 10592 
+  Number of stims on node 11: 10592 
+  Number of stims on node 4: 10592 
+  Number of stims on node 14: 10592 
+  Number of stims on node 27: 10583 
+  Done; cell stims creation time = 14.07 s.
+Recording 29 traces of 1 types on node 18
+Recording 27 traces of 1 types on node 29
+Recording 36 traces of 1 types on node 5
+Recording 38 traces of 1 types on node 24
+Recording 39 traces of 1 types on node 22
+Recording 32 traces of 1 types on node 8
+Recording 27 traces of 1 types on node 19
+Recording 34 traces of 1 types on node 3
+Recording 38 traces of 1 types on node 6
+Recording 29 traces of 1 types on node 16
+Recording 30 traces of 1 types on node 1
+Recording 32 traces of 1 types on node 25
+Recording 37 traces of 1 types on node 13
+Recording 33 traces of 1 types on node 26
+Recording 33 traces of 1 types on node 10
+Recording 37 traces of 1 types on node 12
+Recording 29 traces of 1 types on node 21
+Recording 31 traces of 1 types on node 9
+Recording 28 traces of 1 types on node 23
+Recording 31 traces of 1 types on node 28
+Recording 35 traces of 1 types on node 17
+Recording 35 traces of 1 types on node 4
+Recording 36 traces of 1 types on node 15
+Recording 34 traces of 1 types on node 0
+Recording 34 traces of 1 types on node 27
+Recording 31 traces of 1 types on node 14
+Recording 26 traces of 1 types on node 2
+Recording 26 traces of 1 types on node 11
+Recording 25 traces of 1 types on node 7
+Recording 27 traces of 1 types on node 20
+0.0s
+
+Running simulation for 300.0 ms...
+0.1s
+0.2s
+0.3s
+  Done; run time = 11948.98 s; real-time ratio: 0.00.
+
+Gathering data...
+  Done; gather time = 13.98 s.
+
+Analyzing...
+  Cells: 38612
+  Connections: 0 (0.00 per cell)
+  Spikes: 61049 (5.27 Hz)
+   L1_DAC_bNA : 0.000 Hz
+   L1_DAC_cNA : 0.000 Hz
+   L1_DLAC_cNA : 0.000 Hz
+   L1_HAC_bNA : 0.000 Hz
+   L1_HAC_cIR : 0.000 Hz
+   L1_HAC_cNA : 0.000 Hz
+   L1_NGC-DA_bNA : 0.000 Hz
+   L1_NGC-DA_cAC : 0.000 Hz
+   L1_NGC-DA_cNA : 0.000 Hz
+   L1_NGC-DA_cST : 0.000 Hz
+   L1_NGC-SA_cNA : 0.000 Hz
+   L1_SLAC_bNA : 0.000 Hz
+   L1_SLAC_cAC : 0.000 Hz
+   L1_SLAC_cNA : 0.000 Hz
+   L23_BP_bAC : 0.000 Hz
+   L23_BP_bIR : 0.000 Hz
+   L23_BP_bNA : 0.000 Hz
+   L23_BP_cAC : 0.000 Hz
+   L23_BP_cNA : 0.000 Hz
+   L23_BP_dST : 0.000 Hz
+   L23_BTC_bAC : 0.000 Hz
+   L23_BTC_bIR : 0.000 Hz
+   L23_BTC_bNA : 0.000 Hz
+   L23_BTC_cAC : 0.000 Hz
+   L23_BTC_cNA : 0.000 Hz
+   L23_ChC_cAC : 0.000 Hz
+   L23_ChC_cNA : 0.000 Hz
+   L23_ChC_dNA : 0.000 Hz
+   L23_DBC_bAC : 0.000 Hz
+   L23_DBC_bIR : 0.000 Hz
+   L23_DBC_bNA : 0.000 Hz
+   L23_DBC_cAC : 0.000 Hz
+   L23_LBC_bAC : 0.000 Hz
+   L23_LBC_bNA : 0.000 Hz
+   L23_LBC_cAC : 0.000 Hz
+   L23_LBC_cNA : 0.000 Hz
+   L23_LBC_cST : 0.000 Hz
+   L23_LBC_dNA : 0.000 Hz
+   L23_MC_bAC : 0.000 Hz
+   L23_MC_bNA : 0.000 Hz
+   L23_MC_cAC : 0.000 Hz
+   L23_MC_cNA : 0.000 Hz
+   L23_MC_dNA : 0.000 Hz
+   L23_NBC_bAC : 0.000 Hz
+   L23_NBC_bNA : 0.000 Hz
+   L23_NBC_cAC : 0.000 Hz
+   L23_NBC_cIR : 0.000 Hz
+   L23_NBC_cNA : 0.000 Hz
+   L23_NBC_dNA : 0.000 Hz
+   L23_NGC_bNA : 0.000 Hz
+   L23_NGC_cAC : 0.000 Hz
+   L23_NGC_cNA : 0.000 Hz
+   L23_NGC_cST : 0.000 Hz
+   L23_PC_cAD : 0.000 Hz
+   L23_SBC_bNA : 0.000 Hz
+   L23_SBC_cAC : 0.000 Hz
+   L23_SBC_dNA : 0.000 Hz
+   L4_BP_bAC : 0.000 Hz
+   L4_BP_bIR : 0.000 Hz
+   L4_BP_bNA : 0.000 Hz
+   L4_BP_cAC : 0.000 Hz
+   L4_BP_cNA : 0.000 Hz
+   L4_BP_dST : 0.000 Hz
+   L4_BTC_bAC : 0.000 Hz
+   L4_BTC_bIR : 0.000 Hz
+   L4_BTC_bST : 0.000 Hz
+   L4_BTC_cAC : 0.000 Hz
+   L4_BTC_cNA : 0.000 Hz
+   L4_BTC_dNA : 0.000 Hz
+   L4_ChC_cAC : 0.000 Hz
+   L4_ChC_cNA : 0.000 Hz
+   L4_ChC_dNA : 0.000 Hz
+   L4_DBC_bAC : 0.000 Hz
+   L4_DBC_bIR : 0.000 Hz
+   L4_DBC_bNA : 0.000 Hz
+   L4_DBC_bST : 0.000 Hz
+   L4_DBC_cAC : 0.000 Hz
+   L4_DBC_cIR : 0.000 Hz
+   L4_DBC_cNA : 0.000 Hz
+   L4_LBC_cAC : 0.000 Hz
+   L4_LBC_cNA : 0.000 Hz
+   L4_LBC_cST : 0.000 Hz
+   L4_LBC_dNA : 0.000 Hz
+   L4_LBC_dST : 0.000 Hz
+   L4_MC_bAC : 0.000 Hz
+   L4_MC_bNA : 0.000 Hz
+   L4_MC_cAC : 0.000 Hz
+   L4_MC_cNA : 0.000 Hz
+   L4_MC_dNA : 0.000 Hz
+   L4_NBC_cAC : 0.000 Hz
+   L4_NBC_cIR : 0.000 Hz
+   L4_NBC_cNA : 0.000 Hz
+   L4_NBC_dNA : 0.000 Hz
+   L4_NGC_bNA : 0.000 Hz
+   L4_NGC_cAC : 0.000 Hz
+   L4_NGC_cNA : 0.000 Hz
+   L4_NGC_cST : 0.000 Hz
+   L4_PC_cAD : 0.000 Hz
+   L4_SBC_bNA : 0.000 Hz
+   L4_SBC_cAC : 0.000 Hz
+   L4_SBC_dNA : 0.000 Hz
+   L4_SP_cAD : 0.000 Hz
+   L4_SS_cAD : 0.000 Hz
+   L5_BP_bAC : 0.000 Hz
+   L5_BP_bIR : 0.000 Hz
+   L5_BP_bNA : 0.000 Hz
+   L5_BP_cAC : 0.000 Hz
+   L5_BP_cNA : 0.000 Hz
+   L5_BP_dST : 0.000 Hz
+   L5_BTC_bAC : 0.000 Hz
+   L5_BTC_cAC : 0.000 Hz
+   L5_BTC_cNA : 0.000 Hz
+   L5_ChC_cAC : 0.000 Hz
+   L5_ChC_cNA : 0.000 Hz
+   L5_ChC_dNA : 0.000 Hz
+   L5_DBC_bAC : 0.000 Hz
+   L5_DBC_bIR : 0.000 Hz
+   L5_DBC_bNA : 0.741 Hz
+   L5_DBC_bST : 1.852 Hz
+   L5_DBC_cAC : 0.000 Hz
+   L5_DBC_cIR : 0.000 Hz
+   L5_DBC_cNA : 0.000 Hz
+   L5_LBC_bAC : 0.000 Hz
+   L5_LBC_cAC : 0.000 Hz
+   L5_LBC_cIR : 0.000 Hz
+   L5_LBC_cNA : 0.000 Hz
+   L5_LBC_cST : 0.000 Hz
+   L5_LBC_dNA : 0.000 Hz
+   L5_LBC_dST : 0.000 Hz
+   L5_MC_bAC : 0.000 Hz
+   L5_MC_bIR : 0.000 Hz
+   L5_MC_bST : 0.000 Hz
+   L5_MC_cAC : 0.000 Hz
+   L5_MC_cNA : 0.000 Hz
+   L5_MC_cST : 0.000 Hz
+   L5_MC_dNA : 0.000 Hz
+   L5_NBC_bAC : 0.000 Hz
+   L5_NBC_bIR : 0.000 Hz
+   L5_NBC_bST : 0.000 Hz
+   L5_NBC_cAC : 0.000 Hz
+   L5_NBC_cIR : 0.000 Hz
+   L5_NBC_cNA : 0.000 Hz
+   L5_NBC_cST : 0.000 Hz
+   L5_NBC_dST : 0.000 Hz
+   L5_NGC_bNA : 0.000 Hz
+   L5_NGC_cAC : 0.000 Hz
+   L5_NGC_cNA : 0.000 Hz
+   L5_NGC_cST : 0.000 Hz
+   L5_SBC_bNA : 0.000 Hz
+   L5_SBC_cAC : 0.000 Hz
+   L5_SBC_dNA : 0.000 Hz
+   L5_STPC_cAD : 0.000 Hz
+   L5_TTPC1_cAD : 0.000 Hz
+   L5_TTPC2_cAD : 0.000 Hz
+   L5_UTPC_cAD : 0.000 Hz
+   L6_BPC_cAD : 0.000 Hz
+   L6_BP_bAC : 0.000 Hz
+   L6_BP_bIR : 0.000 Hz
+   L6_BP_bNA : 0.000 Hz
+   L6_BP_cAC : 0.000 Hz
+   L6_BP_cNA : 0.000 Hz
+   L6_BP_dST : 0.000 Hz
+   L6_BTC_bAC : 0.000 Hz
+   L6_BTC_cAC : 0.000 Hz
+   L6_BTC_cNA : 0.000 Hz
+   L6_ChC_cAC : 0.000 Hz
+   L6_ChC_cNA : 0.000 Hz
+   L6_ChC_dNA : 0.000 Hz
+   L6_DBC_bAC : 0.000 Hz
+   L6_DBC_bIR : 0.000 Hz
+   L6_DBC_bNA : 0.000 Hz
+   L6_DBC_bST : 0.000 Hz
+   L6_DBC_cAC : 0.000 Hz
+   L6_DBC_cIR : 0.000 Hz
+   L6_DBC_cNA : 0.000 Hz
+   L6_IPC_cAD : 0.000 Hz
+   L6_LBC_bAC : 0.000 Hz
+   L6_LBC_bIR : 0.000 Hz
+   L6_LBC_bNA : 0.000 Hz
+   L6_LBC_bST : 0.000 Hz
+   L6_LBC_cNA : 0.000 Hz
+   L6_LBC_cST : 0.000 Hz
+   L6_MC_bAC : 0.000 Hz
+   L6_MC_bIR : 0.000 Hz
+   L6_MC_bNA : 0.000 Hz
+   L6_MC_bST : 0.000 Hz
+   L6_MC_cAC : 0.000 Hz
+   L6_MC_cIR : 0.000 Hz
+   L6_MC_cNA : 0.000 Hz
+   L6_NBC_bAC : 0.000 Hz
+   L6_NBC_bIR : 0.000 Hz
+   L6_NBC_bST : 0.000 Hz
+   L6_NBC_cAC : 0.000 Hz
+   L6_NBC_cIR : 0.000 Hz
+   L6_NBC_cNA : 0.000 Hz
+   L6_NBC_cST : 0.000 Hz
+   L6_NBC_dST : 0.000 Hz
+   L6_NGC_bNA : 0.000 Hz
+   L6_NGC_cAC : 0.000 Hz
+   L6_NGC_cNA : 0.000 Hz
+   L6_NGC_cST : 0.000 Hz
+   L6_SBC_bNA : 0.000 Hz
+   L6_SBC_cAC : 0.000 Hz
+   L6_SBC_dNA : 0.000 Hz
+   L6_TPC_L1_cAD : 0.000 Hz
+   L6_TPC_L4_cAD : 0.000 Hz
+   L6_UTPC_cAD : 0.000 Hz
+   ss_RTN_o : 27.059 Hz
+   ss_RTN_m : 29.541 Hz
+   ss_RTN_i : 23.356 Hz
+   VPL_sTC : 30.335 Hz
+   VPM_sTC : 33.167 Hz
+   POm_sTC_s1 : 24.307 Hz
+  Simulated time: 0.3 s; 30 workers
+  Run time: 11948.98 s
+fatal: not a git repository (or any of the parent directories): .git
+Saving output as ../data/v6_batch0_24jan22/v6_batch0_24jan22.json  ... 
+Finished saving!
+  Done; saving time = 4.77 s.
+Plotting raster...
+Plotting recorded cell traces ... cell
+  Done; plotting time = 307.99 s
+
+Total time = 65853.50 s
+
+End time:  2022-01-25 08:26:35.723060
+
+*** run time for 300 ms simulation time = 11949 s, used 30 cores
+
+Running simulation for 300.0 ms...
+  Done; run time = 11948.98 s; real-time ratio: 0.00.
+
+so that simulation runtime was ~200 minutes
+
+running for 15 s would take at least 200.0 * 15000 / 300 = 10000.0 minutes = ~167 hours = ~1 week ...
+
+*** output figures in /home/samn/S1_netpyne/data/v6_batch0_24jan22
+
+[[/home/samn/S1_netpyne/data/v6_batch0_24jan22/v6_batch0_24jan22_raster.png]]
+
