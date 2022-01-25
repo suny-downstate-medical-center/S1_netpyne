@@ -420,3 +420,158 @@ running for 15 s would take at least 200.0 * 15000 / 300 = 10000.0 minutes = ~16
 
 [[/home/samn/S1_netpyne/data/v6_batch0_24jan22/v6_batch0_24jan22_raster.png]]
 
+** coreneuron
+
+https://github.com/BlueBrain/CoreNeuron
+
+using coreneuron should speed up computations ... 
+
+install cmake ... 
+
+sudo apt install cmake
+
+also need intel compiler
+
+https://www.intel.com/content/www/us/en/develop/documentation/get-started-with-dpcpp-compiler/top.html
+
+** Latest installation instructions for coreneuron from sal/bbp
+*** Ubuntu steps -->> corenrninstall.sh
+#!/usr/bin/env bash
+​
+# Scripts related env variables
+BASE_DIR=$(pwd)
+​
+# Simulation related env variables
+export SIM_TIME=1000  # set SIM_TIME to something small to avoid long run time (mainly with NEURON)
+export SCALE_DENSITY=1 # can be from 0.15 to 1.0
+​
+# Install Intel Compilers and IntelMPI
+install_intel() {
+     # download the key to system keyring
+     wget -O- https://apt.repos.intel.com/intel-gpg-keys/GPG-PUB-KEY-INTEL-SW-PRODUCTS.PUB \
+         | gpg --dearmor | sudo tee /usr/share/keyrings/oneapi-archive-keyring.gpg > /dev/null
+​
+     # add signed entry to apt sources and configure the APT client to use Intel repository:
+     echo "deb [signed-by=/usr/share/keyrings/oneapi-archive-keyring.gpg] https://apt.repos.intel.com/oneapi all main" | sudo tee /etc/apt/sources.list.d/oneAPI.list
+​
+     sudo apt-get update
+​
+     sudo apt-get install -y intel-oneapi-compiler-dpcpp-cpp-and-cpp-classic
+​
+     sudo apt-get install -y intel-oneapi-mpi-devel-2021.5.0
+​
+}
+​
+check_intel_compiler() {
+    source /opt/intel/oneapi/setvars.sh && \
+        gcc --version && g++ --version && \
+        icc --version && icpc --version && \
+        mpicc -v && mpicxx -v && mpiicc -v && mpiicpc -v
+}
+​
+clone_netpyne_M1() {
+    git clone git@github.com:suny-downstate-medical-center/netpyne.git
+    git clone -b magkanar/M1_vip_ngf git@github.com:iomaganaris/M1.git
+    pushd netpyne
+    sudo apt install python3.8-venv
+    python3 -m venv ${BASE_DIR}/M1/sim/venv
+    source ${BASE_DIR}/M1/sim/venv/bin/activate
+    pip3 install -r requirements.txt
+    pip3 install matplotlib_scalebar
+    popd
+}
+​
+install_neuron() {
+    [ -d nrn ] || git clone git@github.com:neuronsimulator/nrn.git
+    source /opt/intel/oneapi/setvars.sh
+    pushd nrn
+    rm -rf build_cpu
+    mkdir build_cpu && pushd build_cpu
+    cmake .. \
+      -DNRN_ENABLE_INTERVIEWS=OFF \
+      -DNRN_ENABLE_RX3D=OFF \
+      -DNRN_ENABLE_MPI=ON \
+      -DCORENRN_ENABLE_OPENMP=OFF \
+      -DNRN_ENABLE_CORENEURON=ON \
+      -DCORENRN_ENABLE_GPU=OFF \
+      -DCORENRN_ENABLE_NMODL=ON \
+      -DCORENRN_NMODL_FLAGS=" sympy --analytic" \
+      -DNRN_ENABLE_PYTHON=ON \
+      -DPYTHON_EXECUTABLE=$(which python3) \
+      -DNRN_ENABLE_TESTS=OFF \
+      -DCORENRN_ENABLE_UNIT_TESTS=OFF \
+      -DCMAKE_INSTALL_PREFIX=./install \
+      -DCMAKE_CXX_COMPILER=$(which icpc) \
+      -DCMAKE_C_COMPILER=$(which icc) \
+      -G Ninja /
+    cmake --build . --parallel 40 --target install
+    popd
+    popd
+}
+​
+build_special() {
+    NEURON_BUILD="$1"
+    source /opt/intel/oneapi/setvars.sh
+    pushd M1
+    rm -rf x86_64
+    ${BASE_DIR}/nrn/${NEURON_BUILD}/install/bin/nrnivmodl -coreneuron mod
+    popd
+}
+​
+run_netpyne_M1_nrn() {
+    export PYTHONPATH=${BASE_DIR}/netpyne:${BASE_DIR}/nrn/build_cpu/install/lib/python:${PYTHONPATH}
+    source /opt/intel/oneapi/setvars.sh
+    pushd M1/sim
+    source venv/bin/activate
+    sed -i "s#cfg.coreneuron = .*#cfg.coreneuron = False#g" cfg.py
+    sed -i "s#cfg.duration = .*#cfg.duration = $SIM_TIME#g" cfg.py
+    sed -i "s#cfg.scaleDensity = .*#cfg.scaleDensity = $SCALE_DENSITY#g" cfg.py
+    mpirun ../x86_64/special -mpi -python init.py
+    popd
+}
+​
+run_netpyne_M1_corenrn() {
+    export PYTHONPATH=${BASE_DIR}/netpyne:${BASE_DIR}/nrn/build_cpu/install/lib/python:${PYTHONPATH}
+    source /opt/intel/oneapi/setvars.sh
+    pushd M1/sim
+    source venv/bin/activate
+    sed -i "s#cfg.coreneuron = .*#cfg.coreneuron = True#g" cfg.py
+    sed -i "s#cfg.duration = .*#cfg.duration = $SIM_TIME#g" cfg.py
+    sed -i "s#cfg.scaleDensity = .*#cfg.scaleDensity = $SCALE_DENSITY#g" cfg.py
+    mpirun ../x86_64/special -mpi -python init.py
+    popd
+}
+​
+install_intel
+​
+check_intel_compiler
+​
+clone_netpyne_M1
+​
+install_neuron
+​
+build_special build_cpu
+​
+run_netpyne_M1_nrn
+​
+run_netpyne_M1_corenrn
+
+*** docker file for CentOS
+https://github.com/iomaganaris/docker-centos-intel
+** ubuntu packages/corenrn install details
+
+also needed
+ bison, flex, ninja-build, cmake
+
+from the corenrninstall.sh script, do not strictly need to install/compile M1 model (though
+it's a good test)
+
+      -DPYTHON_EXECUTABLE=$(which python3) \
+
+put this into -DPYTHON_EXECUTABLE:
+/opt/anaconda3/bin/python
+since dont think need to use python3.8 ...
+
+      -G Ninja /    <<-- that's for the ninja build system
+
+hmm, still get a pthread error in 
