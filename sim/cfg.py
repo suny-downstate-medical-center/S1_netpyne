@@ -20,6 +20,9 @@ cfg = specs.SimConfig()
 #
 #------------------------------------------------------------------------------
 
+cfg.simType='S1_TH_coreneuron'
+cfg.coreneuron = True
+
 #------------------------------------------------------------------------------
 # Run parameters
 #------------------------------------------------------------------------------
@@ -42,10 +45,6 @@ cfg.checkErrors = False
 #------------------------------------------------------------------------------
 # Cells
 #------------------------------------------------------------------------------
-cfg.rootFolder = os.getcwd()
-
-# Load cells info from previously saved using netpyne (False: load from HOC BBP files, slower)
-cfg.loadcellsfromJSON = True
 
 cfg.poptypeNumber = 61 # max 55 + 6
 cfg.celltypeNumber = 213 # max 207 + 6
@@ -148,12 +147,12 @@ cfg.recordStep = 0.1
 #------------------------------------------------------------------------------
 # Saving
 #------------------------------------------------------------------------------
-cfg.simLabel = 'v6_batch0'
+cfg.simLabel = 'v7_batch0'
 cfg.saveFolder = '../data/'+cfg.simLabel
 # cfg.filename =                	## Set file output name
-cfg.savePickle = False         	## Save pkl file
-cfg.saveJson = True	           	## Save json file
-cfg.saveDataInclude = ['simConfig', 'simData'] ## , 'simConfig', 'netParams'
+cfg.savePickle = True	        	## Save pkl file
+cfg.saveJson = False           	## Save json file
+cfg.saveDataInclude = ['simData', 'simConfig', 'netParams', 'net'] ## , 'simConfig', 'netParams'
 cfg.backupCfgFile = None 		##  
 cfg.gatherOnlySimData = False	##  
 cfg.saveCellSecs = False			
