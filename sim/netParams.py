@@ -103,15 +103,15 @@ for popName in cfg.thalamicpops:
 
 for cellName in cfg.S1cells:
     
-    if cfg.cellNumberS1[cellName] < 5:
-        morphoNumbers = cfg.cellNumberS1[cellName]
+    if cfg.cellNumber[cellName] < 5:
+        morphoNumbers = cfg.cellNumber[cellName]
     else:
         morphoNumbers = 5
     
     cellFraction = 1.0/morphoNumbers
     
     for morphoNumber in range(morphoNumbers):
-        cellMe = cfg.cellLabelS1[cellName] + '_' + str(morphoNumber+1)
+        cellMe = cfg.cellLabel[cellName] + '_' + str(morphoNumber+1)
         
         netParams.loadCellParamsRule(label = cellMe, fileName = 'cells/' + cellMe + '_cellParams.json')   
         cellRule = {'conds': {'cellType': cellName}, 'diversityFraction': cellFraction, 'secs': {}}  # cell rule dict
@@ -129,7 +129,7 @@ for cellName in cfg.S1cells:
         netParams.cellParams[cellMe] = cellRule   # add dict to list of cell params  
 
         #-----------------------------------------------------------------------------------#
-        if cfg.reducedtestS1:
+        if cfg.reducedtest:
             cellRule = {'conds': {'cellType': cellName}, 'diversityFraction': cellFraction, 'secs': {}}  # cell rule dict
             cellRule['conds'] = netParams.cellParams[cellMe]['conds']    
             cellRule['secs'] = {}
