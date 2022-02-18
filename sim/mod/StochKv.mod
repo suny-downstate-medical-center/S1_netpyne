@@ -185,9 +185,9 @@ PROCEDURE states() {
 : ----------------------------------------------------------------
 : trates - compute rates, using table if possible
 PROCEDURE trates(v (mV)) {     
-    TABLE ntau, ninf, a, b, tadj
-    DEPEND dt, Ra, Rb, tha, qa, q10, temp, celsius
-    FROM vmin TO vmax WITH 199
+    :TABLE ntau, ninf, a, b, tadj
+    :DEPEND dt, Ra, Rb, tha, qa, q10, temp, celsius
+    :FROM vmin TO vmax WITH 199
     
     tadj = q10 ^ ((celsius - temp)/(10 (K)))
     a = SigmoidRate(v, tha, Ra, qa)
