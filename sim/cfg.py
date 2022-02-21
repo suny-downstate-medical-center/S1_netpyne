@@ -22,6 +22,7 @@ cfg = specs.SimConfig()
 
 cfg.simType='S1_TH_coreneuron'
 cfg.coreneuron = False
+cfg.random123 = True
 
 #------------------------------------------------------------------------------
 # Run parameters
@@ -174,7 +175,6 @@ cfg.analysis['plotTraces'] = {'include': cfg.recordCells, 'oneFigPer': 'cell', '
 #------------------------------------------------------------------------------
 # Network 
 #------------------------------------------------------------------------------
-cfg.singleCellPops = 1
 cfg.scale = 1.0 # reduce size
 cfg.sizeY = 2082.0
 cfg.sizeX = 420.0 # r = 210 um and hexagonal side length = 230.9 um
