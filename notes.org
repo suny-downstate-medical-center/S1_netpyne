@@ -616,3 +616,9 @@ cfg.simLabel = 'v6_batch0_25feb22'
 
 ok, try it out for 300 ms with 60 cores ... 
 
+cd ~/S1_netpyne/sim
+mpiexec -n 60 --use-hwthread-cpus nrniv -python -mpi init.py
+
+started ~11:47 on cycle ...
+
+
