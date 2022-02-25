@@ -72,7 +72,7 @@ if __name__ == '__main__':
     if dataType == 'spont':
         timeRange = [0, 5000]
         # filenames = ['../data/v7_batch0/v7_batch0_%d_%d_data.pkl' % (iseed, cseed) for iseed in [0] for cseed in [0]] 
-        filenames = ['../data/v7_batch0/v7_batch0_0_0_data.pkl','../data/v7_batch1/v7_batch1_0_0_data.pkl','../data/v7_batch2/v7_batch2_0_0_data.pkl'] 
+        filenames = ['/home/fernando/Documents/data_S1_Rat/v7_batch0/v7_batch0_0_0_data.pkl'] 
 
     allData = []
 
@@ -80,7 +80,4 @@ if __name__ == '__main__':
         sim.load(filename, instantiate=False)
 
         # standardd plots
-        if filename != '../data/v7_batch0/v7_batch0_0_0_data.pkl':
-            sim.analysis.plotRaster(**{'include': cellParamS1, 'saveFig': filename[:-8]+'_raster_S1TH', 'showFig': False, 'popRates': 'minimal', 'orderInverse': True, 'timeRange': [0,1000], 'figSize': (36,18), 'lw': 0.2, 'markerSize': 2, 'marker': '.', 'dpi': 300})
-        else:
-            sim.analysis.plotRaster(**{'include': cellParamS1, 'saveFig': filename[:-8]+'_raster_S1TH', 'showFig': False, 'popRates': 'minimal', 'orderInverse': True, 'timeRange': [0,10000], 'figSize': (36,18), 'lw': 0.2, 'markerSize': 2, 'marker': '.', 'dpi': 300})
+        sim.analysis.plotRaster(**{'include': thalamicpops, 'saveFig': filename[:-8]+'_raster_S1TH', 'showFig': False, 'popRates': 'minimal', 'orderInverse': True, 'timeRange': [1000,2000], 'figSize': (25,5), 'lw': 0.2, 'markerSize': 2, 'marker': '.', 'dpi': 300})
