@@ -575,3 +575,44 @@ since dont think need to use python3.8 ...
       -G Ninja /    <<-- that's for the ninja build system
 
 hmm, still get a pthread error in 
+* 25feb22
+** back to sim
+
+dipole recording: 
+ http://www.netpyne.org/_modules/netpyne/sim/run.html#calculateDipole
+
+
+and setup in A1 model here:
+ https://github.com/NathanKlineInstitute/A1/blob/salva_layers/cfg.py
+
+cfg.recordDipole = True
+cfg.saveDipoleCells = ['all']
+cfg.saveDipolePops = cfg.allpops
+
+cfg.analysis['plotDipole'] = {'saveFig': True}
+
+make sure netpyne latest version that supports dipole recording
+
+pip install netpyne --upgrade
+
+also need lfpy
+
+pip install lfpy
+...
+Installing collected packages: neuron, meautility, LFPykit, lfpy
+Successfully installed LFPykit-0.4 lfpy-2.2.4 meautility-1.5.0 neuron-8.0.2
+
+python 
+import LFPy
+LFPy.__version__
+'2.2.4'
+
+import netpyne
+netpyne.__version__
+'1.0.1'
+
+updated label in cfg.py too:
+cfg.simLabel = 'v6_batch0_25feb22'
+
+ok, try it out for 300 ms with 60 cores ... 
+
