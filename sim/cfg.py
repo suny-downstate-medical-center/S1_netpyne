@@ -143,14 +143,14 @@ elif cfg.cellsrec == 2: # record one cell of each cellMEtype # need more test!!!
 
 cfg.recordTraces = {'V_soma': {'sec':'soma', 'loc':0.5, 'var':'v'}}  ## Dict with traces to record
 cfg.recordStim = False			
-cfg.recordTime = False  		
+cfg.recordTime = True
 cfg.recordStep = 0.1
 
 # setting up current dipole recordings
 #  based on https://github.com/NathanKlineInstitute/A1/blob/salva_layers/cfg.py
-cfg.recordDipole = True
-cfg.saveDipoleCells = ['all']
-cfg.saveDipolePops = cfg.allpops
+# cfg.recordDipole = True
+# cfg.saveDipoleCells = ['all']
+# cfg.saveDipolePops = cfg.allpops
 
 #------------------------------------------------------------------------------
 # Saving
@@ -158,8 +158,8 @@ cfg.saveDipolePops = cfg.allpops
 cfg.simLabel = 'v6_batch0_25feb22'
 cfg.saveFolder = '../data/'+cfg.simLabel
 # cfg.filename =                	## Set file output name
-cfg.savePickle = False         	## Save pkl file
-cfg.saveJson = True	           	## Save json file
+cfg.savePickle = True         	## Save pkl file
+cfg.saveJson = False	           	## Save json file
 cfg.saveDataInclude = ['simConfig', 'simData'] ## , 'simConfig', 'netParams'
 cfg.backupCfgFile = None 		##  
 cfg.gatherOnlySimData = False	##  
@@ -181,7 +181,7 @@ cfg.analysis['plotTraces'] = {'include': cfg.recordCells, 'oneFigPer': 'cell', '
 
 # save dipole figure                            
 #  from https://github.com/NathanKlineInstitute/A1/blob/salva_layers/cfg.py                            
-cfg.analysis['plotDipole'] = {'saveFig': True} 
+# cfg.analysis['plotDipole'] = {'saveFig': True} 
 
 #------------------------------------------------------------------------------
 # Network 
