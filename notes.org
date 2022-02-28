@@ -1669,3 +1669,7 @@ Plotting recorded cell traces ... cell
   Done; plotting time = 538.69 s
 
 Total time = 29845.46 s
+
+* 28feb22
+** restore current dipole recording to debug
+
