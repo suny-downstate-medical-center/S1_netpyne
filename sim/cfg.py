@@ -149,13 +149,13 @@ cfg.recordStep = 0.1
 # setting up current dipole recordings
 #  based on https://github.com/NathanKlineInstitute/A1/blob/salva_layers/cfg.py
 cfg.recordDipole = True
-cfg.saveDipoleCells = ['all']
-cfg.saveDipolePops = cfg.allpops
+# cfg.saveDipoleCells = ['all']
+# cfg.saveDipolePops = cfg.allpops
 
 #------------------------------------------------------------------------------
 # Saving
 #------------------------------------------------------------------------------
-cfg.simLabel = 'v6_batch0_28feb22'
+cfg.simLabel = 'v6_batch0_02mar22'
 cfg.saveFolder = '../data/'+cfg.simLabel
 # cfg.filename =                	## Set file output name
 cfg.savePickle = True         	## Save pkl file

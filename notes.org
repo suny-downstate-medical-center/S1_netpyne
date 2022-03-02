@@ -1672,4 +1672,7 @@ Total time = 29845.46 s
 
 * 28feb22
 ** restore current dipole recording to debug
+* 02mar22
+** try dipole without cells/pops -- to see if memory issue (sal suggestion)
+** try distributed saving -- check A1 model init.py
 
