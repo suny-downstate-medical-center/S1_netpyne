@@ -1674,5 +1674,10 @@ Total time = 29845.46 s
 ** restore current dipole recording to debug
 * 02mar22
 ** try dipole without cells/pops -- to see if memory issue (sal suggestion)
+
+mpiexec -n 60 --use-hwthread-cpus nrniv -python -mpi init.py
+
+started ~10:26 ... 
+
 ** try distributed saving -- check A1 model init.py
 
