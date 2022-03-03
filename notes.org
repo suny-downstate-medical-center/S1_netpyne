@@ -1359,6 +1359,7 @@ Assertion failed: file /root/nrn/src/ivoc/ocptrvector.cpp, line 75
       59 finitialize(-65)
 [cycle:2148213] 59 more processes have sent help message help-mpi-api.txt / mpi-abort
 [cycle:2148213] Set MCA parameter "orte_base_help_aggregate" to 0 to see all help / error messages
+
 *** check if errors gone without dipole recording/setup
 
 mpiexec -n 60 --use-hwthread-cpus nrniv -python -mpi init.py
@@ -1679,5 +1680,451 @@ mpiexec -n 60 --use-hwthread-cpus nrniv -python -mpi init.py
 
 started ~10:26 ... 
 
+*** still get error
+
+Recording 15 traces of 1 types on node 50
+Assertion failed: file /root/nrn/src/ivoc/ocptrvector.cpp, line 75
+51 /opt/anaconda3/bin/nrniv: i < size_
+51  near line 0
+51  tstop=300.0
+            ^
+        51 PtrVector[1].pset(72, ...)
+      51 finitialize(-65)
+--------------------------------------------------------------------------
+MPI_ABORT was invoked on rank 51 in communicator MPI_COMM_WORLD
+with errorcode -1.
+
+NOTE: invoking MPI_ABORT causes Open MPI to kill all MPI processes.
+You may or may not see output from other processes, depending on
+exactly when Open MPI kills them.
+--------------------------------------------------------------------------
+Assertion failed: file /root/nrn/src/ivoc/ocptrvector.cpp, line 75
+5 /opt/anaconda3/bin/nrniv: i < size_
+5  near line 0
+5  tstop=300.0
+            ^
+        5 PtrVector[14].pset(174, ...)
+      5 finitialize(-65)
+Assertion failed: file /root/nrn/src/ivoc/ocptrvector.cpp, line 75
+55 /opt/anaconda3/bin/nrniv: i < size_
+55  near line 0
+55  tstop=300.0
+            ^
+        55 PtrVector[18].pset(135, ...)
+      55 finitialize(-65)
+Assertion failed: file /root/nrn/src/ivoc/ocptrvector.cpp, line 75
+39 /opt/anaconda3/bin/nrniv: i < size_
+39  near line 0
+39  tstop=300.0
+            ^
+        39 PtrVector[18].pset(164, ...)
+      39 finitialize(-65)
+Assertion failed: file /root/nrn/src/ivoc/ocptrvector.cpp, line 75
+56 /opt/anaconda3/bin/nrniv: i < size_
+56  near line 0
+56  tstop=300.0
+            ^
+        56 PtrVector[13].pset(174, ...)
+      56 finitialize(-65)
+Assertion failed: file /root/nrn/src/ivoc/ocptrvector.cpp, line 75
+37 /opt/anaconda3/bin/nrniv: i < size_
+37  near line 0
+37  tstop=300.0
+            ^
+        37 PtrVector[16].pset(103, ...)
+      37 finitialize(-65)
+Assertion failed: file /root/nrn/src/ivoc/ocptrvector.cpp, line 75
+0 /opt/anaconda3/bin/nrniv: i < size_
+0  near line 0
+0  tstop=300.0
+            ^
+        0 PtrVector[17].pset(103, ...)
+      0 finitialize(-65)
+Assertion failed: file /root/nrn/src/ivoc/ocptrvector.cpp, line 75
+46 /opt/anaconda3/bin/nrniv: i < size_
+46  near line 0
+46  tstop=300.0
+            ^
+        46 PtrVector[16].pset(103, ...)
+      46 finitialize(-65)
+Assertion failed: file /root/nrn/src/ivoc/ocptrvector.cpp, line 75
+42 /opt/anaconda3/bin/nrniv: i < size_
+42  near line 0
+42  tstop=300.0
+            ^
+        42 PtrVector[9].pset(102, ...)
+      42 finitialize(-65)
+Assertion failed: file /root/nrn/src/ivoc/ocptrvector.cpp, line 75
+24 /opt/anaconda3/bin/nrniv: i < size_
+24  near line 0
+24  tstop=300.0
+            ^
+        24 PtrVector[13].pset(156, ...)
+      24 finitialize(-65)
+Assertion failed: file /root/nrn/src/ivoc/ocptrvector.cpp, line 75
+4 /opt/anaconda3/bin/nrniv: i < size_
+4  near line 0
+4  tstop=300.0
+            ^
+        4 PtrVector[14].pset(174, ...)
+      4 finitialize(-65)
+Assertion failed: file /root/nrn/src/ivoc/ocptrvector.cpp, line 75
+33 /opt/anaconda3/bin/nrniv: i < size_
+33  near line 0
+33  tstop=300.0
+            ^
+        33 PtrVector[23].pset(164, ...)
+      33 finitialize(-65)
+Assertion failed: file /root/nrn/src/ivoc/ocptrvector.cpp, line 75
+58 /opt/anaconda3/bin/nrniv: i < size_
+58  near line 0
+58  tstop=300.0
+            ^
+        58 PtrVector[13].pset(174, ...)
+      58 finitialize(-65)
+Assertion failed: file /root/nrn/src/ivoc/ocptrvector.cpp, line 75
+32 /opt/anaconda3/bin/nrniv: i < size_
+32  near line 0
+32  tstop=300.0
+            ^
+        32 PtrVector[18].pset(164, ...)
+      32 finitialize(-65)
+Assertion failed: file /root/nrn/src/ivoc/ocptrvector.cpp, line 75
+53 /opt/anaconda3/bin/nrniv: i < size_
+53  near line 0
+53  tstop=300.0
+            ^
+        53 PtrVector[16].pset(103, ...)
+      53 finitialize(-65)
+Assertion failed: file /root/nrn/src/ivoc/ocptrvector.cpp, line 75
+36 /opt/anaconda3/bin/nrniv: i < size_
+36  near line 0
+36  tstop=300.0
+            ^
+        36 PtrVector[14].pset(99, ...)
+      36 finitialize(-65)
+Assertion failed: file /root/nrn/src/ivoc/ocptrvector.cpp, line 75
+48 /opt/anaconda3/bin/nrniv: i < size_
+48  near line 0
+48  tstop=300.0
+            ^
+        48 PtrVector[15].pset(164, ...)
+      48 finitialize(-65)
+Assertion failed: file /root/nrn/src/ivoc/ocptrvector.cpp, line 75
+29 /opt/anaconda3/bin/nrniv: i < size_
+29  near line 0
+29  tstop=300.0
+            ^
+        29 PtrVector[18].pset(164, ...)
+      29 finitialize(-65)
+Assertion failed: file /root/nrn/src/ivoc/ocptrvector.cpp, line 75
+2 /opt/anaconda3/bin/nrniv: i < size_
+2  near line 0
+2  tstop=300.0
+            ^
+        2 PtrVector[17].pset(103, ...)
+      2 finitialize(-65)
+Assertion failed: file /root/nrn/src/ivoc/ocptrvector.cpp, line 75
+31 /opt/anaconda3/bin/nrniv: i < size_
+31  near line 0
+31  tstop=300.0
+            ^
+        31 PtrVector[18].pset(164, ...)
+      31 finitialize(-65)
+Assertion failed: file /root/nrn/src/ivoc/ocptrvector.cpp, line 75
+6 /opt/anaconda3/bin/nrniv: i < size_
+6  near line 0
+6  tstop=300.0
+            ^
+        6 PtrVector[14].pset(174, ...)
+      6 finitialize(-65)
+Assertion failed: file /root/nrn/src/ivoc/ocptrvector.cpp, line 75
+19 /opt/anaconda3/bin/nrniv: i < size_
+19  near line 0
+19  tstop=300.0
+            ^
+        19 PtrVector[13].pset(156, ...)
+      19 finitialize(-65)
+Assertion failed: file /root/nrn/src/ivoc/ocptrvector.cpp, line 75
+21 /opt/anaconda3/bin/nrniv: i < size_
+21  near line 0
+21  tstop=300.0
+            ^
+        21 PtrVector[18].pset(164, ...)
+      21 finitialize(-65)
+Assertion failed: file /root/nrn/src/ivoc/ocptrvector.cpp, line 75
+26 /opt/anaconda3/bin/nrniv: i < size_
+26  near line 0
+26  tstop=300.0
+            ^
+        26 PtrVector[13].pset(156, ...)
+      26 finitialize(-65)
+Assertion failed: file /root/nrn/src/ivoc/ocptrvector.cpp, line 75
+23 /opt/anaconda3/bin/nrniv: i < size_
+23  near line 0
+23  tstop=300.0
+            ^
+        23 PtrVector[18].pset(164, ...)
+      23 finitialize(-65)
+Assertion failed: file /root/nrn/src/ivoc/ocptrvector.cpp, line 75
+14 /opt/anaconda3/bin/nrniv: i < size_
+14  near line 0
+14  tstop=300.0
+            ^
+        14 PtrVector[14].pset(167, ...)
+      14 finitialize(-65)
+Assertion failed: file /root/nrn/src/ivoc/ocptrvector.cpp, line 75
+10 /opt/anaconda3/bin/nrniv: i < size_
+10  near line 0
+10  tstop=300.0
+            ^
+        10 PtrVector[19].pset(202, ...)
+      10 finitialize(-65)
+Assertion failed: file /root/nrn/src/ivoc/ocptrvector.cpp, line 75
+13 /opt/anaconda3/bin/nrniv: i < size_
+13  near line 0
+13  tstop=300.0
+            ^
+        13 PtrVector[14].pset(167, ...)
+      13 finitialize(-65)
+Assertion failed: file /root/nrn/src/ivoc/ocptrvector.cpp, line 75
+25 /opt/anaconda3/bin/nrniv: i < size_
+25  near line 0
+25  tstop=300.0
+            ^
+        25 PtrVector[13].pset(156, ...)
+      25 finitialize(-65)
+Assertion failed: file /root/nrn/src/ivoc/ocptrvector.cpp, line 75
+52 /opt/anaconda3/bin/nrniv: i < size_
+52  near line 0
+52  tstop=300.0
+            ^
+        52 PtrVector[12].pset(135, ...)
+      52 finitialize(-65)
+Assertion failed: file /root/nrn/src/ivoc/ocptrvector.cpp, line 75
+8 /opt/anaconda3/bin/nrniv: i < size_
+8  near line 0
+8  tstop=300.0
+            ^
+        8 PtrVector[19].pset(202, ...)
+      8 finitialize(-65)
+Assertion failed: file /root/nrn/src/ivoc/ocptrvector.cpp, line 75
+27 /opt/anaconda3/bin/nrniv: i < size_
+27  near line 0
+27  tstop=300.0
+            ^
+        27 PtrVector[13].pset(156, ...)
+      27 finitialize(-65)
+Assertion failed: file /root/nrn/src/ivoc/ocptrvector.cpp, line 75
+1 /opt/anaconda3/bin/nrniv: i < size_
+1  near line 0
+1  tstop=300.0
+            ^
+        1 PtrVector[17].pset(103, ...)
+      1 finitialize(-65)
+Assertion failed: file /root/nrn/src/ivoc/ocptrvector.cpp, line 75
+20 /opt/anaconda3/bin/nrniv: i < size_
+20  near line 0
+20  tstop=300.0
+            ^
+        20 PtrVector[16].pset(135, ...)
+      20 finitialize(-65)
+Assertion failed: file /root/nrn/src/ivoc/ocptrvector.cpp, line 75
+28 /opt/anaconda3/bin/nrniv: i < size_
+28  near line 0
+28  tstop=300.0
+            ^
+        28 PtrVector[16].pset(135, ...)
+      28 finitialize(-65)
+Assertion failed: file /root/nrn/src/ivoc/ocptrvector.cpp, line 75
+43 /opt/anaconda3/bin/nrniv: i < size_
+43  near line 0
+43  tstop=300.0
+            ^
+        43 PtrVector[9].pset(102, ...)
+      43 finitialize(-65)
+Assertion failed: file /root/nrn/src/ivoc/ocptrvector.cpp, line 75
+15 /opt/anaconda3/bin/nrniv: i < size_
+15  near line 0
+15  tstop=300.0
+            ^
+        15 PtrVector[18].pset(164, ...)
+      15 finitialize(-65)
+Assertion failed: file /root/nrn/src/ivoc/ocptrvector.cpp, line 75
+57 /opt/anaconda3/bin/nrniv: i < size_
+57  near line 0
+57  tstop=300.0
+            ^
+        57 PtrVector[13].pset(174, ...)
+      57 finitialize(-65)
+Assertion failed: file /root/nrn/src/ivoc/ocptrvector.cpp, line 75
+18 /opt/anaconda3/bin/nrniv: i < size_
+18  near line 0
+18  tstop=300.0
+            ^
+        18 PtrVector[13].pset(156, ...)
+      18 finitialize(-65)
+Assertion failed: file /root/nrn/src/ivoc/ocptrvector.cpp, line 75
+22 /opt/anaconda3/bin/nrniv: i < size_
+22  near line 0
+22  tstop=300.0
+            ^
+        22 PtrVector[16].pset(135, ...)
+      22 finitialize(-65)
+Assertion failed: file /root/nrn/src/ivoc/ocptrvector.cpp, line 75
+49 /opt/anaconda3/bin/nrniv: i < size_
+49  near line 0
+49  tstop=300.0
+            ^
+        49 PtrVector[15].pset(164, ...)
+      49 finitialize(-65)
+Assertion failed: file /root/nrn/src/ivoc/ocptrvector.cpp, line 75
+7 /opt/anaconda3/bin/nrniv: i < size_
+7  near line 0
+7  tstop=300.0
+            ^
+        7 PtrVector[14].pset(174, ...)
+      7 finitialize(-65)
+Assertion failed: file /root/nrn/src/ivoc/ocptrvector.cpp, line 75
+47 /opt/anaconda3/bin/nrniv: i < size_
+47  near line 0
+47  tstop=300.0
+            ^
+        47 PtrVector[18].pset(164, ...)
+      47 finitialize(-65)
+Assertion failed: file /root/nrn/src/ivoc/ocptrvector.cpp, line 75
+45 /opt/anaconda3/bin/nrniv: i < size_
+45  near line 0
+45  tstop=300.0
+            ^
+        45 PtrVector[10].pset(88, ...)
+      45 finitialize(-65)
+Assertion failed: file /root/nrn/src/ivoc/ocptrvector.cpp, line 75
+11 /opt/anaconda3/bin/nrniv: i < size_
+11  near line 0
+11  tstop=300.0
+            ^
+        11 PtrVector[19].pset(202, ...)
+      11 finitialize(-65)
+Assertion failed: file /root/nrn/src/ivoc/ocptrvector.cpp, line 75
+17 /opt/anaconda3/bin/nrniv: i < size_
+17  near line 0
+17  tstop=300.0
+            ^
+        17 PtrVector[13].pset(156, ...)
+      17 finitialize(-65)
+Assertion failed: file /root/nrn/src/ivoc/ocptrvector.cpp, line 75
+38 /opt/anaconda3/bin/nrniv: i < size_
+38  near line 0
+38  tstop=300.0
+            ^
+        38 PtrVector[16].pset(103, ...)
+      38 finitialize(-65)
+Assertion failed: file /root/nrn/src/ivoc/ocptrvector.cpp, line 75
+44 /opt/anaconda3/bin/nrniv: i < size_
+44  near line 0
+44  tstop=300.0
+            ^
+        44 PtrVector[16].pset(103, ...)
+      44 finitialize(-65)
+Assertion failed: file /root/nrn/src/ivoc/ocptrvector.cpp, line 75
+30 /opt/anaconda3/bin/nrniv: i < size_
+30  near line 0
+30  tstop=300.0
+            ^
+        30 PtrVector[16].pset(103, ...)
+      30 finitialize(-65)
+Assertion failed: file /root/nrn/src/ivoc/ocptrvector.cpp, line 75
+40 /opt/anaconda3/bin/nrniv: i < size_
+40  near line 0
+40  tstop=300.0
+            ^
+        40 PtrVector[9].pset(102, ...)
+      40 finitialize(-65)
+Assertion failed: file /root/nrn/src/ivoc/ocptrvector.cpp, line 75
+50 /opt/anaconda3/bin/nrniv: i < size_
+50  near line 0
+50  tstop=300.0
+            ^
+        50 PtrVector[15].pset(164, ...)
+      50 finitialize(-65)
+Assertion failed: file /root/nrn/src/ivoc/ocptrvector.cpp, line 75
+9 /opt/anaconda3/bin/nrniv: i < size_
+9  near line 0
+9  tstop=300.0
+            ^
+        9 PtrVector[19].pset(202, ...)
+      9 finitialize(-65)
+Assertion failed: file /root/nrn/src/ivoc/ocptrvector.cpp, line 75
+35 /opt/anaconda3/bin/nrniv: i < size_
+35  near line 0
+35  tstop=300.0
+            ^
+        35 PtrVector[9].pset(102, ...)
+      35 finitialize(-65)
+Assertion failed: file /root/nrn/src/ivoc/ocptrvector.cpp, line 75
+3 /opt/anaconda3/bin/nrniv: i < size_
+3  near line 0
+3  tstop=300.0
+            ^
+        3 PtrVector[19].pset(135, ...)
+      3 finitialize(-65)
+Assertion failed: file /root/nrn/src/ivoc/ocptrvector.cpp, line 75
+54 /opt/anaconda3/bin/nrniv: i < size_
+54  near line 0
+54  tstop=300.0
+            ^
+        54 PtrVector[16].pset(103, ...)
+      54 finitialize(-65)
+Assertion failed: file /root/nrn/src/ivoc/ocptrvector.cpp, line 75
+34 /opt/anaconda3/bin/nrniv: i < size_
+34  near line 0
+34  tstop=300.0
+            ^
+        34 PtrVector[18].pset(164, ...)
+      34 finitialize(-65)
+Assertion failed: file /root/nrn/src/ivoc/ocptrvector.cpp, line 75
+41 /opt/anaconda3/bin/nrniv: i < size_
+41  near line 0
+41  tstop=300.0
+            ^
+        41 PtrVector[9].pset(102, ...)
+      41 finitialize(-65)
+Assertion failed: file /root/nrn/src/ivoc/ocptrvector.cpp, line 75
+16 /opt/anaconda3/bin/nrniv: i < size_
+16  near line 0
+16  tstop=300.0
+            ^
+        16 PtrVector[13].pset(156, ...)
+      16 finitialize(-65)
+Assertion failed: file /root/nrn/src/ivoc/ocptrvector.cpp, line 75
+12 /opt/anaconda3/bin/nrniv: i < size_
+12  near line 0
+12  tstop=300.0
+            ^
+        12 PtrVector[14].pset(167, ...)
+      12 finitialize(-65)
+Assertion failed: file /root/nrn/src/ivoc/ocptrvector.cpp, line 75
+59 /opt/anaconda3/bin/nrniv: i < size_
+59  near line 0
+59  tstop=300.0
+            ^
+        59 PtrVector[13].pset(174, ...)
+      59 finitialize(-65)
+[cycle:1578782] 59 more processes have sent help message help-mpi-api.txt / mpi-abort
+[cycle:1578782] Set MCA parameter "orte_base_help_aggregate" to 0 to see all help / error messagesr
+
+* 03mar22
 ** try distributed saving -- check A1 model init.py
+
+put this into init.py : 
+
+# distributed saving (to avoid errors with large output data)
+sim.saveDataInNodes()
+sim.gatherDataFromFiles()
+sim.saveData() 
+
+mpiexec -n 60 --use-hwthread-cpus nrniv -python -mpi init.py
+
+started ~13:58 ...
 

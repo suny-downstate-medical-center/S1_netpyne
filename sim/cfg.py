@@ -155,7 +155,7 @@ cfg.recordDipole = True
 #------------------------------------------------------------------------------
 # Saving
 #------------------------------------------------------------------------------
-cfg.simLabel = 'v6_batch0_02mar22'
+cfg.simLabel = 'v6_batch0_03mar22'
 cfg.saveFolder = '../data/'+cfg.simLabel
 # cfg.filename =                	## Set file output name
 cfg.savePickle = True         	## Save pkl file
