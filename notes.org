@@ -2128,3 +2128,39 @@ mpiexec -n 60 --use-hwthread-cpus nrniv -python -mpi init.py
 
 started ~13:58 ...
 
+same problem, as expected:
+
+Recording 10 traces of 1 types on node 2
+Assertion failed: file /root/nrn/src/ivoc/ocptrvector.cpp, line 75
+56 /opt/anaconda3/bin/nrniv: i < size_
+56  near line 0
+56  tstop=300.0
+            ^
+        56 PtrVector[13].pset(174, ...)
+      56 finitialize(-65)
+--------------------------------------------------------------------------
+MPI_ABORT was invoked on rank 56 in communicator MPI_COMM_WORLD
+with errorcode -1.
+
+NOTE: invoking MPI_ABORT causes Open MPI to kill all MPI processes.
+You may or may not see output from other processes, depending on
+exactly when Open MPI kills them.
+--------------------------------------------------------------------------
+Assertion failed: file /root/nrn/src/ivoc/ocptrvector.cpp, line 75
+39 /opt/anaconda3/bin/nrniv: i < size_
+39  near line 0
+39  tstop=300.0
+            ^
+        39 PtrVector[18].pset(164, ...)
+      39 finitialize(-65)
+Assertion failed: file /root/nrn/src/ivoc/ocptrvector.cpp, line 75
+28 /opt/anaconda3/bin/nrniv: i < size_
+28  near line 0
+28  tstop=300.0
+            ^
+
+* 04mar22
+** try same run as previous but with 40 cores instead of 60
+
+mpiexec -n 40 --use-hwthread-cpus nrniv -python -mpi init.py
+
