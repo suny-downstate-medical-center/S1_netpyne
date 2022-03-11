@@ -57,11 +57,6 @@ for popName in cfg.S1pops:
     if popName not in Epops:
         Ipops.append(popName)
 
-Epops = []
-for popName in cfg.S1pops:
-    if popName not in Ipops:
-        Epops.append(popName)   
-
 layer = {'1':[0.0, 0.079], '2': [0.079,0.151], '3': [0.151,0.320], '23': [0.079,0.320], '4':[0.320,0.412], '5': [0.412,0.664], '6': [0.664,1.0], 
 'longS1': [2.2,2.3], 'longS2': [2.3,2.4]}  # normalized layer boundaries
 
@@ -161,7 +156,6 @@ for cellName in cfg.S1cells:
         if cfg.loadcellsfromJSON:
             # Load cell rules previously saved using netpyne format
             netParams.loadCellParamsRule(label = cellMe, fileName = 'cell_data/' + cellMe + '/' + cellMe + '_cellParams.json')           
-            # netParams.loadCellParamsRule(label = cellMe, fileName = 'cell_data/L5_TTPC1_cADpyr232_5/L5_TTPC1_cADpyr232_5_cellParams.json')     
         else:
             cellRule = {'conds': {'cellType': cellName}, 'diversityFraction': cellFraction, 'secs': {}}  # cell rule dict
             cellRule['secs'] = netParams.cellParams[cellMe]['secs']     
