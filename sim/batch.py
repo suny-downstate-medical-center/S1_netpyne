@@ -37,7 +37,12 @@ def setRunCfg(b, type='mpi_bulletin'):
         b.runCfg = {'type': 'mpi_direct',
             'cores': 64,
             'script': 'init.py',
-            'mpiCommand': 'mpiexec --use-hwthread-cpus', # --use-hwthread-cpus
+            'mpiCommand': 'mpiexec', # --use-hwthread-cpus
+            'skip': True}
+
+    elif type=='mpi_direct2':
+        b.runCfg = {'type': 'mpi_direct',
+            'mpiCommand': 'mpirun -n 80 ./x86_64/special -mpi -python init.py', # --use-hwthread-cpus
             'skip': True}
 
     elif type=='hpc_slurm_gcp':
@@ -58,7 +63,7 @@ def setRunCfg(b, type='mpi_bulletin'):
 if __name__ == '__main__': 
     b = custom() #
 
-    b.batchLabel = 'v6_batch4'  
+    b.batchLabel = 'v8_batch2'  
     b.saveFolder = '../data/'+b.batchLabel
     b.method = 'grid'
     setRunCfg(b, 'mpi_direct')

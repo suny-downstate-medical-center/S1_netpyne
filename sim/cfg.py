@@ -23,8 +23,8 @@ cfg = specs.SimConfig()
 #------------------------------------------------------------------------------
 # Run parameters
 #------------------------------------------------------------------------------
-cfg.duration = 5.0*1e3 ## Duration of the sim, in ms  
-cfg.dt = 0.025
+cfg.duration = 3.0*1e2 ## Duration of the sim, in ms  
+cfg.dt = 0.01
 cfg.seeds = {'conn': 4322, 'stim': 4322, 'loc': 4322} 
 cfg.hParams = {'celsius': 34, 'v_init': -65}  
 cfg.verbose = False
@@ -96,12 +96,12 @@ cfg.S1cells = cellParam[0:207]
 
 cfg.thalamicpops = ['ss_RTN_o', 'ss_RTN_m', 'ss_RTN_i', 'VPL_sTC', 'VPM_sTC', 'POm_sTC_s1']
 
-cfg.cellNumber['ss_RTN_o'] = int(382 * (210**2/150**2)) # from mouse model (d = 150 um)
-cfg.cellNumber['ss_RTN_m'] = int(382 * (210**2/150**2))
-cfg.cellNumber['ss_RTN_i'] = int(765 * (210**2/150**2))
-cfg.cellNumber['VPL_sTC'] = int(656 * (210**2/150**2))
-cfg.cellNumber['VPM_sTC'] = int(839 * (210**2/150**2))
-cfg.cellNumber['POm_sTC_s1'] = int(685 * (210**2/150**2))
+cfg.cellNumber['ss_RTN_o'] = 1 # int(382 * (210**2/150**2)) # from mouse model (d = 150 um)
+cfg.cellNumber['ss_RTN_m'] = 1 # int(382 * (210**2/150**2))
+cfg.cellNumber['ss_RTN_i'] = 1 # int(765 * (210**2/150**2))
+cfg.cellNumber['VPL_sTC'] = 1 # int(656 * (210**2/150**2))
+cfg.cellNumber['VPM_sTC'] = 1 # int(839 * (210**2/150**2))
+cfg.cellNumber['POm_sTC_s1'] = 1 # int(685 * (210**2/150**2))
 
 for mtype in cfg.thalamicpops: # No diversity
 	metype = mtype
@@ -115,11 +115,34 @@ for mtype in cfg.thalamicpops: # No diversity
 cfg.popParamLabels = popParam
 cfg.cellParamLabels = cellParam
 
+#------------------------------------------------------------------------------  
+#------------------------------------------------------------------------------  
+#------------------------------------------------------------------------------  
+
+## Run only selected populations (me-types)
+
+subPopLabels = cfg.S1pops[36:38] # from 0 to 55 is full S1 -> L1:6 L23:10 L4:12 L5:13 L6:14
+subPopLabels = ['L5_TTPC1'] # ['L4_PC','L4_LBC','L5_TTPC1','L5_MC']
+#------------------------------------------------------------------------------  
+cfg.S1pops = subPopLabels
+cfg.S1cells = []
+for metype in cfg.cellParamLabels:
+    if cfg.popLabel[metype] in subPopLabels:        
+        cfg.S1cells.append(metype)
+        
+cfg.thalamicpops = []
+
+cfg.popParamLabels = cfg.S1pops
+cfg.cellParamLabels = cfg.S1cells
+#------------------------------------------------------------------------------  
+#------------------------------------------------------------------------------  
+#------------------------------------------------------------------------------  
+
 #--------------------------------------------------------------------------
 # Recording 
 #--------------------------------------------------------------------------
 cfg.allpops = cfg.cellParamLabels
-cfg.cellsrec = 2
+cfg.cellsrec = 0
 if cfg.cellsrec == 0:  cfg.recordCells = cfg.allpops # record all cells
 elif cfg.cellsrec == 1: cfg.recordCells = [(pop,0) for pop in cfg.allpops] # record one cell of each pop
 elif cfg.cellsrec == 2: # record one cell of each cellMEtype # need more test!!!
@@ -143,27 +166,30 @@ elif cfg.cellsrec == 2: # record one cell of each cellMEtype # need more test!!!
 cfg.recordTraces = {'V_soma': {'sec':'soma', 'loc':0.5, 'var':'v'}}  ## Dict with traces to record
 cfg.recordStim = False			
 cfg.recordTime = False  		
-cfg.recordStep = 0.1            
+cfg.recordStep = 0.01            
+
+cfg.recordLFP = [[50, y, -150] for y in range(0, 1550, 250)]
+# cfg.saveLFPPops =  cfg.allCorticalPops #, "IT3", "SOM3", "PV3", "VIP3", "NGF3", "ITP4", "ITS4", "IT5A", "CT5A", "IT5B", "PT5B", "CT5B", "IT6", "CT6"]
 
 #------------------------------------------------------------------------------
 # Saving
 #------------------------------------------------------------------------------
-cfg.simLabel = 'v6_batch0'
+cfg.simLabel = 'v8_batch1'
 cfg.saveFolder = '../data/'+cfg.simLabel
 # cfg.filename =                	## Set file output name
-cfg.savePickle = False         	## Save pkl file
-cfg.saveJson = True	           	## Save json file
-cfg.saveDataInclude = ['simConfig', 'simData'] ## , 'simConfig', 'netParams'
+cfg.savePickle = True	        	## Save pkl file
+cfg.saveJson = False           	## Save json file
+cfg.saveDataInclude = ['simData', 'simConfig', 'netParams', 'net'] ## , 'simConfig', 'netParams'
 cfg.backupCfgFile = None 		##  
 cfg.gatherOnlySimData = False	##  
-cfg.saveCellSecs = False			
+cfg.saveCellSecs = True			
 cfg.saveCellConns = False	
 
 #------------------------------------------------------------------------------
 # Analysis and plotting 
 # ------------------------------------------------------------------------------
 cfg.analysis['plotRaster'] = {'include': cfg.allpops, 'saveFig': True, 'showFig': False, 'orderInverse': True, 'timeRange': [0,cfg.duration], 'figSize': (36,18), 'labels': 'legend', 'popRates': True, 'fontSize':12, 'lw': 1, 'markerSize':2, 'marker': '.', 'dpi': 300} 
-# cfg.analysis['plot2Dnet']   = {'include': cfg.allpops, 'saveFig': True, 'showConns': False, 'figSize': (24,24), 'fontSize':16}   # Plot 2D cells xy
+cfg.analysis['plot2Dnet']   = {'include': cfg.allpops, 'saveFig': True, 'showConns': False, 'figSize': (24,24), 'fontSize':16}   # Plot 2D cells xy
 cfg.analysis['plotTraces'] = {'include': cfg.recordCells, 'oneFigPer': 'cell', 'overlay': True, 'timeRange': [0,cfg.duration], 'ylim': [-100,50], 'saveFig': True, 'showFig': False, 'figSize':(12,4)}
 # cfg.analysis['plot2Dfiring']={'saveFig': True, 'figSize': (24,24), 'fontSize':16}
 # cfg.analysis['plotConn'] = {'includePre': cfg.allpops, 'includePost': cfg.allpops, 'feature': 'numConns', 'groupBy': 'pop', 'figSize': (24,24), 'saveFig': True, 'orderBy': 'gid', 'graphType': 'matrix', 'saveData':'../data/v5_batch0/v5_batch0_matrix_numConn.json', 'fontSize': 18}
@@ -172,6 +198,10 @@ cfg.analysis['plotTraces'] = {'include': cfg.recordCells, 'oneFigPer': 'cell', '
 # cfg.analysis['plotShape'] = {'includePre': cfg.recordCells, 'includePost': cfg.recordCells, 'showFig': False, 'includeAxon': False, 
                             # 'showSyns': False, 'saveFig': True, 'dist': 0.55, 'cvar': 'voltage', 'figSize': (24,12), 'dpi': 600}
 
+# cfg.analysis['plotLFP'] = {'plots': ['timeSeries'], 'figSize': (8,4), 'saveData': False, 'saveFig': True, 'showFig': False} #, 'electrodes': [10], 'maxFreq': 80 'PSD', 'spectrogram'
+
+cfg.analysis['plotLFP'] = {'separation': 1.0, 'plots': ['timeSeries', 'locations'], 'timeRange': [0,300], 'electrodes': [0, 1, 2, 3, 4, 5, 6], 'saveFig': True, 'showFig': False}
+
 #------------------------------------------------------------------------------
 # Network 
 #------------------------------------------------------------------------------
@@ -179,7 +209,7 @@ cfg.scale = 1.0 # reduce size
 cfg.sizeY = 2082.0
 cfg.sizeX = 420.0 # r = 210 um and hexagonal side length = 230.9 um
 cfg.sizeZ = 420.0
-cfg.scaleDensity = 1.0 # Number of cells = 31346
+cfg.scaleDensity = 0.02 # Number of cells = 31346
 
 #------------------------------------------------------------------------------
 # Spontaneous synapses + background - data from Rat
@@ -205,7 +235,7 @@ cfg.IEGain = 1.0
 
 #------------------------------------------------------------------------------
 ## Th->Th 
-cfg.connectTh = True
+cfg.connectTh = False
 cfg.connect_RTN_RTN     = True
 cfg.connect_TC_RTN      = True
 cfg.connect_RTN_TC      = True
@@ -231,7 +261,7 @@ cfg.divergenceHO = 10
 # 						   corticothalamic < 2.4 ± 0.1 mV
 #------------------------------------------------------------------------------
 ## Th->S1
-cfg.connect_Th_S1 = True
+cfg.connect_Th_S1 = False
 cfg.TC_S1 = {}
 cfg.TC_S1['VPL_sTC'] = True
 cfg.TC_S1['VPM_sTC'] = True
@@ -240,7 +270,7 @@ cfg.TC_S1['POm_sTC_s1'] = True
 cfg.frac_Th_S1 = 1.0
 #------------------------------------------------------------------------------
 ## S1->Th 
-cfg.connect_S1_Th = True
+cfg.connect_S1_Th = False
 
 cfg.connect_S1_RTN = True
 cfg.convergence_S1_RTN         = 30.0  # dist_2D<R
@@ -258,10 +288,18 @@ cfg.addIClamp = True  # decrease the transient
 cfg.IClamp = []
 cfg.IClampnumber = 0
 
-cfg.thalamocorticalconnections =  ['VPL_sTC', 'VPM_sTC', 'POm_sTC_s1']
-for popName in cfg.thalamocorticalconnections:
-    cfg.IClamp.append({'pop': popName, 'sec': 'soma', 'loc': 0.5, 'start': 0, 'dur': 5, 'amp': 2.0+10.0*cfg.IClampnumber}) #pA
+for popName in cfg.allpops:
+    cfg.IClamp.append({'pop': popName, 'sec': 'soma', 'loc': 0.5, 'start': 50, 'dur': 50, 'amp': 0.5}) #pA
     cfg.IClampnumber=cfg.IClampnumber+1
+
+for popName in cfg.allpops:
+    cfg.IClamp.append({'pop': popName, 'sec': 'soma', 'loc': 0.5, 'start': 150, 'dur': 100, 'amp': 0.5}) #pA
+    cfg.IClampnumber=cfg.IClampnumber+1
+
+# cfg.thalamocorticalconnections =  ['VPL_sTC', 'VPM_sTC', 'POm_sTC_s1']
+# for popName in cfg.thalamocorticalconnections:
+#     cfg.IClamp.append({'pop': popName, 'sec': 'soma', 'loc': 0.5, 'start': 0, 'dur': 5, 'amp': 2.0+10.0*cfg.IClampnumber}) #pA
+#     cfg.IClampnumber=cfg.IClampnumber+1
 
 #------------------------------------------------------------------------------
 # NetStim inputs 
