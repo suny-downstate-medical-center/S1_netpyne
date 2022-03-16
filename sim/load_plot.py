@@ -78,7 +78,7 @@ if __name__ == '__main__':
     if dataType == 'spont':
         timeRange = [0, 5000]
         # filenames = ['../data/v7_batch0/v7_batch0_%d_%d_data.pkl' % (iseed, cseed) for iseed in [0] for cseed in [0]] 
-        filenames = ['/home/fernando/Documents/data_S1_Rat/v7_batch3/v7_batch3_0_0_data.pkl'] 
+        filenames = ['../data/v8_batch6/v8_batch6_0_0_data.pkl'] 
 
     allData = []
 
@@ -87,4 +87,4 @@ if __name__ == '__main__':
 
         # standardd plots
         # sim.analysis.plot2Dfiring(**{'include': cellParamS1,'saveFig': True, 'timeRange': [8150,8230], 'figSize': (24,24), 'fontSize':16})
-        sim.analysis.plotRaster(**{'include': cellParamS1, 'saveFig': filename[:-8]+'_raster_S1TH', 'orderBy':'y', 'showFig': False, 'popRates': 'minimal', 'orderInverse': True, 'timeRange': [8150,8230], 'figSize': (24,12), 'lw': 1.0, 'markerSize': 10, 'marker': '.', 'dpi': 300})
+        sim.analysis.plotRaster(**{'include': cellParamS1, 'saveFig': filename[:-8]+'_raster_S1.png', 'orderBy':'y', 'showFig': False, 'popRates': 'minimal', 'orderInverse': True, 'timeRange': [0,1000], 'figSize': (24,12), 'lw': 1.0, 'markerSize': 10, 'marker': '.', 'dpi': 300})

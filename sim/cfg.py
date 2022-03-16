@@ -20,10 +20,12 @@ cfg = specs.SimConfig()
 #
 #------------------------------------------------------------------------------
 
+cfg.coreneuron = False
+
 #------------------------------------------------------------------------------
 # Run parameters
 #------------------------------------------------------------------------------
-cfg.duration = 3.0*1e2 ## Duration of the sim, in ms  
+cfg.duration = 1.0*1e3 ## Duration of the sim, in ms  
 cfg.dt = 0.01
 cfg.seeds = {'conn': 4322, 'stim': 4322, 'loc': 4322} 
 cfg.hParams = {'celsius': 34, 'v_init': -65}  
@@ -103,6 +105,8 @@ cfg.cellNumber['VPL_sTC'] = 1 # int(656 * (210**2/150**2))
 cfg.cellNumber['VPM_sTC'] = 1 # int(839 * (210**2/150**2))
 cfg.cellNumber['POm_sTC_s1'] = 1 # int(685 * (210**2/150**2))
 
+cfg.thalamicpops = []
+
 for mtype in cfg.thalamicpops: # No diversity
 	metype = mtype
 	popParam.append(mtype)
@@ -121,19 +125,19 @@ cfg.cellParamLabels = cellParam
 
 ## Run only selected populations (me-types)
 
-subPopLabels = cfg.S1pops[36:38] # from 0 to 55 is full S1 -> L1:6 L23:10 L4:12 L5:13 L6:14
-subPopLabels = ['L5_TTPC1'] # ['L4_PC','L4_LBC','L5_TTPC1','L5_MC']
+#subPopLabels = cfg.S1pops[36:38] # from 0 to 55 is full S1 -> L1:6 L23:10 L4:12 L5:13 L6:14
+#subPopLabels = ['L4_PC','L4_LBC','L5_TTPC1','L5_MC']
 #------------------------------------------------------------------------------  
-cfg.S1pops = subPopLabels
-cfg.S1cells = []
-for metype in cfg.cellParamLabels:
-    if cfg.popLabel[metype] in subPopLabels:        
-        cfg.S1cells.append(metype)
+#cfg.S1pops = subPopLabels
+#cfg.S1cells = []
+#for metype in cfg.cellParamLabels:
+ #   if cfg.popLabel[metype] in subPopLabels:        
+  #      cfg.S1cells.append(metype)
         
-cfg.thalamicpops = []
+# cfg.thalamicpops = []
 
-cfg.popParamLabels = cfg.S1pops
-cfg.cellParamLabels = cfg.S1cells
+#cfg.popParamLabels = cfg.S1pops
+#cfg.cellParamLabels = cfg.S1cells
 #------------------------------------------------------------------------------  
 #------------------------------------------------------------------------------  
 #------------------------------------------------------------------------------  
@@ -142,7 +146,7 @@ cfg.cellParamLabels = cfg.S1cells
 # Recording 
 #--------------------------------------------------------------------------
 cfg.allpops = cfg.cellParamLabels
-cfg.cellsrec = 0
+cfg.cellsrec = 2
 if cfg.cellsrec == 0:  cfg.recordCells = cfg.allpops # record all cells
 elif cfg.cellsrec == 1: cfg.recordCells = [(pop,0) for pop in cfg.allpops] # record one cell of each pop
 elif cfg.cellsrec == 2: # record one cell of each cellMEtype # need more test!!!
@@ -168,7 +172,7 @@ cfg.recordStim = False
 cfg.recordTime = False  		
 cfg.recordStep = 0.01            
 
-cfg.recordLFP = [[50, y, -150] for y in range(0, 1550, 250)]
+cfg.recordLFP = [[210, y, 210] for y in range(0, 2050, 50)]
 # cfg.saveLFPPops =  cfg.allCorticalPops #, "IT3", "SOM3", "PV3", "VIP3", "NGF3", "ITP4", "ITS4", "IT5A", "CT5A", "IT5B", "PT5B", "CT5B", "IT6", "CT6"]
 
 #------------------------------------------------------------------------------
@@ -182,13 +186,13 @@ cfg.saveJson = False           	## Save json file
 cfg.saveDataInclude = ['simData', 'simConfig', 'netParams', 'net'] ## , 'simConfig', 'netParams'
 cfg.backupCfgFile = None 		##  
 cfg.gatherOnlySimData = False	##  
-cfg.saveCellSecs = True			
+cfg.saveCellSecs = False			
 cfg.saveCellConns = False	
 
 #------------------------------------------------------------------------------
 # Analysis and plotting 
 # ------------------------------------------------------------------------------
-cfg.analysis['plotRaster'] = {'include': cfg.allpops, 'saveFig': True, 'showFig': False, 'orderInverse': True, 'timeRange': [0,cfg.duration], 'figSize': (36,18), 'labels': 'legend', 'popRates': True, 'fontSize':12, 'lw': 1, 'markerSize':2, 'marker': '.', 'dpi': 300} 
+cfg.analysis['plotRaster'] = {'include': cfg.allpops, 'saveFig': True, 'popRates': 'minimal', 'showFig': False, 'syncLines': False, 'orderInverse': True, 'timeRange': [0,cfg.duration], 'figSize': (36,18), 'fontSize':12, 'lw': 1, 'markerSize':2, 'marker': '.', 'dpi': 300} 
 cfg.analysis['plot2Dnet']   = {'include': cfg.allpops, 'saveFig': True, 'showConns': False, 'figSize': (24,24), 'fontSize':16}   # Plot 2D cells xy
 cfg.analysis['plotTraces'] = {'include': cfg.recordCells, 'oneFigPer': 'cell', 'overlay': True, 'timeRange': [0,cfg.duration], 'ylim': [-100,50], 'saveFig': True, 'showFig': False, 'figSize':(12,4)}
 # cfg.analysis['plot2Dfiring']={'saveFig': True, 'figSize': (24,24), 'fontSize':16}
@@ -200,7 +204,7 @@ cfg.analysis['plotTraces'] = {'include': cfg.recordCells, 'oneFigPer': 'cell', '
 
 # cfg.analysis['plotLFP'] = {'plots': ['timeSeries'], 'figSize': (8,4), 'saveData': False, 'saveFig': True, 'showFig': False} #, 'electrodes': [10], 'maxFreq': 80 'PSD', 'spectrogram'
 
-cfg.analysis['plotLFP'] = {'separation': 1.0, 'plots': ['timeSeries', 'locations'], 'timeRange': [0,300], 'electrodes': [0, 1, 2, 3, 4, 5, 6], 'saveFig': True, 'showFig': False}
+cfg.analysis['plotLFP'] = {'separation': 1.0, 'plots': ['timeSeries'], 'timeRange': [400,900], 'electrodes': [[y] for y in range(41)], 'saveFig': True, 'showFig': False}
 
 #------------------------------------------------------------------------------
 # Network 
@@ -209,7 +213,7 @@ cfg.scale = 1.0 # reduce size
 cfg.sizeY = 2082.0
 cfg.sizeX = 420.0 # r = 210 um and hexagonal side length = 230.9 um
 cfg.sizeZ = 420.0
-cfg.scaleDensity = 0.05 # Number of cells = 31346
+cfg.scaleDensity = 0.02 # Number of cells = 31346
 
 #------------------------------------------------------------------------------
 # Spontaneous synapses + background - data from Rat
@@ -289,11 +293,7 @@ cfg.IClamp = []
 cfg.IClampnumber = 0
 
 for popName in cfg.allpops:
-    cfg.IClamp.append({'pop': popName, 'sec': 'soma', 'loc': 0.5, 'start': 50, 'dur': 50, 'amp': 0.5}) #pA
-    cfg.IClampnumber=cfg.IClampnumber+1
-
-for popName in cfg.allpops:
-    cfg.IClamp.append({'pop': popName, 'sec': 'soma', 'loc': 0.5, 'start': 150, 'dur': 100, 'amp': 0.5}) #pA
+    cfg.IClamp.append({'pop': popName, 'sec': 'soma', 'loc': 0.5, 'start': 0, 'dur': 5000, 'amp': 0.1}) #pA
     cfg.IClampnumber=cfg.IClampnumber+1
 
 # cfg.thalamocorticalconnections =  ['VPL_sTC', 'VPM_sTC', 'POm_sTC_s1']
