@@ -168,7 +168,7 @@ cfg.recordStim = False
 cfg.recordTime = False  		
 cfg.recordStep = 0.01            
 
-cfg.recordLFP = [[x, y, z] for y in [250, 750, 1250] for x in range(1, 50, 40) for z in range(1, 50, 40)]
+cfg.recordLFP = [[x, y, z] for y in range(250, 1300, 1000) for x in range(1, 50, 40) for z in range(1, 50, 40)]
 # cfg.saveLFPPops =  cfg.allCorticalPops #, "IT3", "SOM3", "PV3", "VIP3", "NGF3", "ITP4", "ITS4", "IT5A", "CT5A", "IT5B", "PT5B", "CT5B", "IT6", "CT6"]
 
 #------------------------------------------------------------------------------
@@ -200,7 +200,7 @@ cfg.analysis['plotTraces'] = {'include': cfg.recordCells, 'oneFigPer': 'cell', '
 
 # cfg.analysis['plotLFP'] = {'plots': ['timeSeries'], 'figSize': (8,4), 'saveData': False, 'saveFig': True, 'showFig': False} #, 'electrodes': [10], 'maxFreq': 80 'PSD', 'spectrogram'
 
-cfg.analysis['plotLFP'] = {'separation': 1.0, 'plots': ['timeSeries', 'locations'], 'timeRange': [50,250], 'electrodes':  ['avg', 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11], 'saveFig': True, 'showFig': False}
+cfg.analysis['plotLFP'] = {'separation': 1.0, 'plots': ['timeSeries', 'locations'], 'timeRange': [50,250], 'electrodes':  ['avg', 0, 1, 2, 3, 4, 5, 6, 7], 'saveFig': True, 'showFig': False}
 
 #------------------------------------------------------------------------------
 # Network 

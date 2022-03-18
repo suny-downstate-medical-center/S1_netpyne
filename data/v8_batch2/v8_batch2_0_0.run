@@ -1,0 +1,249 @@
+numprocs=12
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v8_batch2/v8_batch2_0_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v8_batch2/v8_batch2_netParams.py
+  Number of cells on node 1: 1 
+  Number of connections on node 1: 2 
+  Number of synaptic contacts on node 1: 14 
+  Number of stims on node 1: 11 
+Recording 1 traces of 1 types on node 1
+Plotting LFP ...
+  There was an exception in plotLFP(): 
+    module 'netpyne.sim' has no attribute 'allSimData' 
+    (<class 'AttributeError'>, AttributeError("module 'netpyne.sim' has no attribute 'allSimData'"), <traceback object at 0x7f2badeb1b40>)
+Plotting LFP ...
+  There was an exception in plotLFP(): 
+    module 'netpyne.sim' has no attribute 'allSimData' 
+    (<class 'AttributeError'>, AttributeError("module 'netpyne.sim' has no attribute 'allSimData'"), <traceback object at 0x7f2badeb17d0>)
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v8_batch2/v8_batch2_0_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v8_batch2/v8_batch2_netParams.py
+  Number of cells on node 4: 1 
+  Number of connections on node 4: 1 
+  Number of synaptic contacts on node 4: 7 
+  Number of stims on node 4: 11 
+Recording 1 traces of 1 types on node 4
+Plotting LFP ...
+  There was an exception in plotLFP(): 
+    module 'netpyne.sim' has no attribute 'allSimData' 
+    (<class 'AttributeError'>, AttributeError("module 'netpyne.sim' has no attribute 'allSimData'"), <traceback object at 0x7f81c548f6e0>)
+Plotting LFP ...
+  There was an exception in plotLFP(): 
+    module 'netpyne.sim' has no attribute 'allSimData' 
+    (<class 'AttributeError'>, AttributeError("module 'netpyne.sim' has no attribute 'allSimData'"), <traceback object at 0x7f81c548ffa0>)
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v8_batch2/v8_batch2_0_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v8_batch2/v8_batch2_netParams.py
+  Number of cells on node 5: 1 
+  Number of connections on node 5: 0 
+  Number of stims on node 5: 11 
+Recording 1 traces of 1 types on node 5
+Plotting LFP ...
+  There was an exception in plotLFP(): 
+    module 'netpyne.sim' has no attribute 'allSimData' 
+    (<class 'AttributeError'>, AttributeError("module 'netpyne.sim' has no attribute 'allSimData'"), <traceback object at 0x7f8436a7a690>)
+Plotting LFP ...
+  There was an exception in plotLFP(): 
+    module 'netpyne.sim' has no attribute 'allSimData' 
+    (<class 'AttributeError'>, AttributeError("module 'netpyne.sim' has no attribute 'allSimData'"), <traceback object at 0x7f8436a7adc0>)
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v8_batch2/v8_batch2_0_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v8_batch2/v8_batch2_netParams.py
+  Number of cells on node 7: 1 
+  Number of connections on node 7: 3 
+  Number of synaptic contacts on node 7: 21 
+  Number of stims on node 7: 11 
+Recording 1 traces of 1 types on node 7
+Plotting LFP ...
+  There was an exception in plotLFP(): 
+    module 'netpyne.sim' has no attribute 'allSimData' 
+    (<class 'AttributeError'>, AttributeError("module 'netpyne.sim' has no attribute 'allSimData'"), <traceback object at 0x7fa0a983d4b0>)
+Plotting LFP ...
+  There was an exception in plotLFP(): 
+    module 'netpyne.sim' has no attribute 'allSimData' 
+    (<class 'AttributeError'>, AttributeError("module 'netpyne.sim' has no attribute 'allSimData'"), <traceback object at 0x7fa07f837f00>)
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v8_batch2/v8_batch2_0_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v8_batch2/v8_batch2_netParams.py
+  Number of cells on node 8: 1 
+  Number of connections on node 8: 0 
+  Number of stims on node 8: 11 
+Recording 1 traces of 1 types on node 8
+Plotting LFP ...
+  There was an exception in plotLFP(): 
+    module 'netpyne.sim' has no attribute 'allSimData' 
+    (<class 'AttributeError'>, AttributeError("module 'netpyne.sim' has no attribute 'allSimData'"), <traceback object at 0x7f32cfd5dd70>)
+Plotting LFP ...
+  There was an exception in plotLFP(): 
+    module 'netpyne.sim' has no attribute 'allSimData' 
+    (<class 'AttributeError'>, AttributeError("module 'netpyne.sim' has no attribute 'allSimData'"), <traceback object at 0x7f32cf646500>)
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v8_batch2/v8_batch2_0_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v8_batch2/v8_batch2_netParams.py
+  Number of cells on node 10: 1 
+  Number of connections on node 10: 1 
+  Number of synaptic contacts on node 10: 7 
+  Number of stims on node 10: 11 
+Recording 1 traces of 1 types on node 10
+Plotting LFP ...
+  There was an exception in plotLFP(): 
+    module 'netpyne.sim' has no attribute 'allSimData' 
+    (<class 'AttributeError'>, AttributeError("module 'netpyne.sim' has no attribute 'allSimData'"), <traceback object at 0x7fb3d08bebe0>)
+Plotting LFP ...
+  There was an exception in plotLFP(): 
+    module 'netpyne.sim' has no attribute 'allSimData' 
+    (<class 'AttributeError'>, AttributeError("module 'netpyne.sim' has no attribute 'allSimData'"), <traceback object at 0x7fb3db4f5370>)
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v8_batch2/v8_batch2_0_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v8_batch2/v8_batch2_netParams.py
+  Number of cells on node 6: 1 
+  Number of connections on node 6: 1 
+  Number of synaptic contacts on node 6: 7 
+  Number of stims on node 6: 11 
+Recording 1 traces of 1 types on node 6
+Plotting LFP ...
+  There was an exception in plotLFP(): 
+    module 'netpyne.sim' has no attribute 'allSimData' 
+    (<class 'AttributeError'>, AttributeError("module 'netpyne.sim' has no attribute 'allSimData'"), <traceback object at 0x7f47b6cc19b0>)
+Plotting LFP ...
+  There was an exception in plotLFP(): 
+    module 'netpyne.sim' has no attribute 'allSimData' 
+    (<class 'AttributeError'>, AttributeError("module 'netpyne.sim' has no attribute 'allSimData'"), <traceback object at 0x7f47d5a4c870>)
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v8_batch2/v8_batch2_0_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v8_batch2/v8_batch2_netParams.py
+  Number of cells on node 2: 1 
+  Number of connections on node 2: 0 
+  Number of stims on node 2: 11 
+Recording 1 traces of 1 types on node 2
+Plotting LFP ...
+  There was an exception in plotLFP(): 
+    module 'netpyne.sim' has no attribute 'allSimData' 
+    (<class 'AttributeError'>, AttributeError("module 'netpyne.sim' has no attribute 'allSimData'"), <traceback object at 0x7fc949965960>)
+Plotting LFP ...
+  There was an exception in plotLFP(): 
+    module 'netpyne.sim' has no attribute 'allSimData' 
+    (<class 'AttributeError'>, AttributeError("module 'netpyne.sim' has no attribute 'allSimData'"), <traceback object at 0x7fc92ab9d8c0>)
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v8_batch2/v8_batch2_0_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v8_batch2/v8_batch2_netParams.py
+  Number of cells on node 9: 1 
+  Number of connections on node 9: 0 
+  Number of stims on node 9: 11 
+Recording 1 traces of 1 types on node 9
+Plotting LFP ...
+  There was an exception in plotLFP(): 
+    module 'netpyne.sim' has no attribute 'allSimData' 
+    (<class 'AttributeError'>, AttributeError("module 'netpyne.sim' has no attribute 'allSimData'"), <traceback object at 0x7fa41787a820>)
+Plotting LFP ...
+  There was an exception in plotLFP(): 
+    module 'netpyne.sim' has no attribute 'allSimData' 
+    (<class 'AttributeError'>, AttributeError("module 'netpyne.sim' has no attribute 'allSimData'"), <traceback object at 0x7fa3f5eee3c0>)
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v8_batch2/v8_batch2_0_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v8_batch2/v8_batch2_netParams.py
+  Number of cells on node 11: 1 
+  Number of connections on node 11: 0 
+  Number of stims on node 11: 11 
+Recording 1 traces of 1 types on node 11
+Plotting LFP ...
+  There was an exception in plotLFP(): 
+    module 'netpyne.sim' has no attribute 'allSimData' 
+    (<class 'AttributeError'>, AttributeError("module 'netpyne.sim' has no attribute 'allSimData'"), <traceback object at 0x7f34aa69b0a0>)
+Plotting LFP ...
+  There was an exception in plotLFP(): 
+    module 'netpyne.sim' has no attribute 'allSimData' 
+    (<class 'AttributeError'>, AttributeError("module 'netpyne.sim' has no attribute 'allSimData'"), <traceback object at 0x7f34aa69b730>)
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v8_batch2/v8_batch2_0_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v8_batch2/v8_batch2_netParams.py
+  Number of cells on node 3: 1 
+  Number of connections on node 3: 0 
+  Number of stims on node 3: 11 
+Recording 1 traces of 1 types on node 3
+Plotting LFP ...
+  There was an exception in plotLFP(): 
+    module 'netpyne.sim' has no attribute 'allSimData' 
+    (<class 'AttributeError'>, AttributeError("module 'netpyne.sim' has no attribute 'allSimData'"), <traceback object at 0x7f1dcb45a5f0>)
+Plotting LFP ...
+  There was an exception in plotLFP(): 
+    module 'netpyne.sim' has no attribute 'allSimData' 
+    (<class 'AttributeError'>, AttributeError("module 'netpyne.sim' has no attribute 'allSimData'"), <traceback object at 0x7f1dcb45a5f0>)
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v8_batch2/v8_batch2_0_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v8_batch2/v8_batch2_netParams.py
+
+Start time:  2022-03-18 00:31:02.019065
+
+Creating network of 1 cell populations on 12 hosts...
+  Number of cells on node 0: 2 
+  Done; cell creation time = 0.21 s.
+Making connections...
+  Number of connections on node 0: 2 
+  Number of synaptic contacts on node 0: 14 
+  Done; cell connection time = 0.07 s.
+Adding stims...
+  Number of stims on node 0: 22 
+  Done; cell stims creation time = 0.07 s.
+Recording 2 traces of 1 types on node 0
+0.0s
+
+Running simulation for 300.0 ms...
+0.1s
+0.2s
+0.3s
+  Done; run time = 385.44 s; real-time ratio: 0.00.
+
+Gathering data...
+  Done; gather time = 2.42 s.
+
+Analyzing...
+  Cells: 13
+  Connections: 0 (0.00 per cell)
+  Spikes: 63 (16.15 Hz)
+  Simulated time: 0.3 s; 12 workers
+  Run time: 385.44 s
+   L5_TTPC1_cAD : 16.154 Hz
+Saving output as ../data/v8_batch2/v8_batch2_0_0.pkl ... 
+Finished saving!
+Saving output as ../data/v8_batch2/v8_batch2_0_0.json  ... 
+Finished saving!
+  Done; saving time = 6.19 s.
+Plotting 2D representation of network cell locations and connections...
+Plotting LFP ...
+Plotting 3D cell shape ...
+Plotting raster...
+Plotting recorded cell traces ... cell
+  Done; plotting time = 12.19 s
+
+Total time = 407.48 s
+
+End time:  2022-03-18 00:37:49.494373
+Plotting LFP ...
+Plotting LFP ...
+[mpiexec@fernando-Nitro5] Sending Ctrl-C to processes as requested
+[mpiexec@fernando-Nitro5] Press Ctrl-C again to force abort
