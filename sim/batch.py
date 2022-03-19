@@ -17,8 +17,8 @@ def custom():
     
     # params[('seeds', 'conn')] =  [1234]
 
-    params[('rateStimI')] = [20.0]
-    params[('rateStimE')] = [20.0]
+    params[('rateStimI')] = [5.0]
+    params[('rateStimE')] = [50.0]
 
     b = Batch(params=params, netParamsFile='netParams.py', cfgFile='cfg.py')
 

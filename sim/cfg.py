@@ -122,11 +122,7 @@ cfg.cellParamLabels = cellParam
 ## Run only selected populations (me-types)
 
 # subPopLabels = cfg.S1pops[16:41] # from 0 to 55 is full S1 -> L1:6 L23:10 L4:12 L5:13 L6:14
-<<<<<<< HEAD
 subPopLabels = cfg.S1pops[0:55] #['L4_PC','L4_LBC','L5_TTPC1','L5_MC'] #['L5_TTPC1'] # 
-=======
-subPopLabels = ['L4_PC','L4_LBC','L5_TTPC1','L5_MC'] #['L5_TTPC1'] # 
->>>>>>> a67f8bef5c18113ee606896be804b6d4d7accc5e
 #------------------------------------------------------------------------------  
 cfg.S1pops = subPopLabels
 cfg.S1cells = []
@@ -192,11 +188,7 @@ cfg.saveCellConns = False
 #------------------------------------------------------------------------------
 # Analysis and plotting 
 # ------------------------------------------------------------------------------
-<<<<<<< HEAD
 cfg.analysis['plotRaster'] = {'include': cfg.recordCells, 'saveFig': True, 'showFig': False,'orderInverse': True, 'timeRange': [0,cfg.duration], 'figSize': (36,36), 'fontSize':4, 'lw': 5, 'markerSize':10, 'marker': '.', 'dpi': 300} 
-=======
-cfg.analysis['plotRaster'] = {'include': cfg.recordCells, 'saveFig': True, 'showFig': False, 'orderInverse': True, 'timeRange': [0,cfg.duration], 'figSize': (36,18), 'fontSize':12, 'lw': 5, 'markerSize':10, 'marker': '.', 'dpi': 300} 
->>>>>>> a67f8bef5c18113ee606896be804b6d4d7accc5e
 cfg.analysis['plot2Dnet']   = {'include': cfg.recordCells, 'saveFig': True, 'showConns': False, 'figSize': (24,24), 'fontSize':16}   # Plot 2D cells xy
 cfg.analysis['plotTraces'] = {'include': cfg.recordCells, 'oneFigPer': 'cell', 'overlay': True, 'timeRange': [0,cfg.duration], 'ylim': [-100,50], 'saveFig': True, 'showFig': False, 'figSize':(12,4)}
 # cfg.analysis['plot2Dfiring']={'saveFig': True, 'figSize': (24,24), 'fontSize':16}
@@ -208,20 +200,16 @@ cfg.analysis['plotTraces'] = {'include': cfg.recordCells, 'oneFigPer': 'cell', '
 
 # cfg.analysis['plotLFP'] = {'plots': ['timeSeries'], 'figSize': (8,4), 'saveData': False, 'saveFig': True, 'showFig': False} #, 'electrodes': [10], 'maxFreq': 80 'PSD', 'spectrogram'
 
-<<<<<<< HEAD
 cfg.analysis['plotLFP'] = {'separation': 1.0, 'plots': ['timeSeries'], 'timeRange': [50,950], 'electrodes':  ['avg', 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11], 'saveFig': True, 'showFig': False}
-=======
-cfg.analysis['plotLFP'] = {'separation': 1.0, 'plots': ['timeSeries', 'locations'], 'timeRange': [50,250], 'electrodes':  ['avg', 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11], 'saveFig': True, 'showFig': False}
->>>>>>> a67f8bef5c18113ee606896be804b6d4d7accc5e
 
 #------------------------------------------------------------------------------
 # Network 
 #------------------------------------------------------------------------------
 cfg.scale = 1.0 # reduce size
 cfg.sizeY = 2082.0
-cfg.sizeX = 420.0/10.0 # r = 210 um and hexagonal side length = 230.9 um
-cfg.sizeZ = 420.0/10.0
-cfg.scaleDensity = 0.01 # Number of cells = 31346
+cfg.sizeX = 420.0/7.0 # r = 210 um and hexagonal side length = 230.9 um
+cfg.sizeZ = 420.0/7.0
+cfg.scaleDensity = 1.0/49.0 # Number of cells = 31346
 
 #------------------------------------------------------------------------------
 # Spontaneous synapses + background - data from Rat

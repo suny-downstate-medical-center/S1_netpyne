@@ -87,8 +87,11 @@ for cellName in cfg.S1cells:
     if layernumber == '2':
         netParams.popParams[cellName] = {'cellType': cellName, 'cellModel': 'HH_full', 'ynormRange': layer['23'], 
                                         'numCells': int(np.ceil(cfg.scaleDensity*cfg.cellNumber[cellName])), 'diversity': True}
+
+        netParams.popParams['L23_PC_cAD'] = {'cellType': 'L23_PC_cAD', 'cellModel': 'HH_full', 'ynormRange': layer['23'], 
+                                        'numCells': 1+int(np.ceil(cfg.scaleDensity*cfg.cellNumber['L23_PC_cAD'])), 'diversity': True}
     else:        
-        if cellName not in ['L4_SS_cAD','L5_TTPC1_cAD','L6_IPC_cAD','L6_TPC_L4_cAD']:
+        if cellName not in ['L4_PC_cAD', 'L5_TTPC1_cAD', 'L6_BPC_cAD', 'L6_TPC_L4_cAD']:
             netParams.popParams[cellName] = {'cellType': cellName, 'cellModel': 'HH_full', 'ynormRange': layer[layernumber], 
                                         'numCells': int(np.ceil(cfg.scaleDensity*cfg.cellNumber[cellName])), 'diversity': True}
         else:
