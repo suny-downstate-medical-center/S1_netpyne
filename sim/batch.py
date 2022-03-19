@@ -35,11 +35,7 @@ def setRunCfg(b, type='mpi_bulletin'):
 
     elif type=='mpi_direct':
         b.runCfg = {'type': 'mpi_direct',
-<<<<<<< HEAD
             'cores': 128,
-=======
-            'cores': 48,
->>>>>>> a67f8bef5c18113ee606896be804b6d4d7accc5e
             'script': 'init.py',
             'mpiCommand': 'mpiexec', # --use-hwthread-cpus
             'skip': True}
@@ -67,11 +63,7 @@ def setRunCfg(b, type='mpi_bulletin'):
 if __name__ == '__main__': 
     b = custom() #
 
-<<<<<<< HEAD
     b.batchLabel = 'v8_batch2'  
-=======
-    b.batchLabel = 'v8_batch5'  
->>>>>>> a67f8bef5c18113ee606896be804b6d4d7accc5e
     b.saveFolder = '../data/'+b.batchLabel
     b.method = 'grid'
     setRunCfg(b, 'mpi_direct')
