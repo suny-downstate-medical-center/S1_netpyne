@@ -83,13 +83,17 @@ netParams.scaleConnWeightNetStims = 0.001  # weight conversion factor (from nS t
 ## S1
 
 for cellName in cfg.S1cells:
-	layernumber = cellName[1:2]
-	if layernumber == '2':
-		netParams.popParams[cellName] = {'cellType': cellName, 'cellModel': 'HH_full', 'ynormRange': layer['23'], 
+    layernumber = cellName[1:2]
+    if layernumber == '2':
+        netParams.popParams[cellName] = {'cellType': cellName, 'cellModel': 'HH_full', 'ynormRange': layer['23'], 
                                         'numCells': int(np.ceil(cfg.scaleDensity*cfg.cellNumber[cellName])), 'diversity': True}
-	else:
-		netParams.popParams[cellName] = {'cellType': cellName, 'cellModel': 'HH_full', 'ynormRange': layer[layernumber], 
+    else:        
+        if cellName not in ['L4_SS_cAD','L5_TTPC1_cAD','L6_IPC_cAD','L6_TPC_L4_cAD']:
+            netParams.popParams[cellName] = {'cellType': cellName, 'cellModel': 'HH_full', 'ynormRange': layer[layernumber], 
                                         'numCells': int(np.ceil(cfg.scaleDensity*cfg.cellNumber[cellName])), 'diversity': True}
+        else:
+            netParams.popParams[cellName] = {'cellType': cellName, 'cellModel': 'HH_full', 'ynormRange': layer[layernumber], # avoid a error in cell diversity in cellnumber = mult of 5
+                                        'numCells': 1+int(np.ceil(cfg.scaleDensity*cfg.cellNumber[cellName])), 'diversity': True}
 
 ## THALAMIC POPULATIONS (from prev model)
 for popName in cfg.thalamicpops:

@@ -1,5 +1,5 @@
 """
-Module for grid search parameter optimization and exploration
+Module for setting up and running batch simulations
 
 """
 
@@ -24,10 +24,9 @@ except NameError:
 
 import imp
 import json
+import pickle
 import logging
 import datetime
-import os
-import glob
 from copy import copy
 from random import Random
 from time import sleep, time
@@ -37,340 +36,234 @@ import importlib, types
 
 from neuron import h
 from netpyne import specs
-from .utils import createFolder
+
 from .utils import bashTemplate
+from .utils import createFolder
+from .grid import gridSearch, getParamCombinations, generateParamCombinations
+from .evol import evolOptim
+from .asd_parallel import asdOptim
+
+try:
+    from .optuna_parallel import optunaOptim
+except:
+    pass
+    # print('Warning: Could not import "optuna" package...')
+
 
 pc = h.ParallelContext() # use bulletin board master/slave
+if pc.id()==0: pc.master_works_on_jobs(0)
 
 
 # -------------------------------------------------------------------------------
-# function to run single job using ParallelContext bulletin board (master/slave)
+# function to convert tuples to strings (avoids erro when saving/loading)
 # -------------------------------------------------------------------------------
-
-# func needs to be outside of class
-def runJob(script, cfgSavePath, netParamsSavePath, processes):
+def tupleToStr(obj):
     """
-    Function for/to <short description of `netpyne.batch.grid.runJob`>
+    Function for/to <short description of `netpyne.batch.batch.tupleToStr`>
 
     Parameters
     ----------
-    script : <type>
-        <Short description of script>
-        **Default:** *required*
-
-    cfgSavePath : <type>
-        <Short description of cfgSavePath>
-        **Default:** *required*
-
-    netParamsSavePath : <type>
-        <Short description of netParamsSavePath>
+    obj : <type>
+        <Short description of obj>
         **Default:** *required*
 
 
     """
 
 
-    print('\nJob in rank id: ',pc.id())
-    command = 'nrniv %s simConfig=%s netParams=%s' % (script, cfgSavePath, netParamsSavePath)
-    print(command+'\n')
-    proc = Popen(command.split(' '), stdout=PIPE, stderr=PIPE)
-    print(proc.stdout.read().decode())
-    processes.append(proc)
-
-
-
-# -------------------------------------------------------------------------------
-# Grid Search optimization
-# -------------------------------------------------------------------------------
-def gridSearch(self, pc):
-    """
-    Function for/to <short description of `netpyne.batch.grid.gridSearch`>
-
-    Parameters
-    ----------
-    self : <type>
-        <Short description of self>
-        **Default:** *required*
-
-    pc : <type>
-        <Short description of pc>
-        **Default:** *required*
-
-
-    """
-
-
-    createFolder(self.saveFolder)
-
-    # save Batch dict as json
-    targetFile = self.saveFolder+'/'+self.batchLabel+'_batch.json'
-    self.save(targetFile)
-
-    # copy this batch script to folder
-    targetFile = self.saveFolder+'/'+self.batchLabel+'_batchScript.py'
-    os.system('cp ' + os.path.realpath(__file__) + ' ' + targetFile)
-
-    # copy netParams source to folder
-    netParamsSavePath = self.saveFolder+'/'+self.batchLabel+'_netParams.py'
-    os.system('cp ' + self.netParamsFile + ' ' + netParamsSavePath)
-
-    # import cfg
-    if self.cfg is None:
-        cfgModuleName = os.path.basename(self.cfgFile).split('.')[0]
-
-        try:
-            loader = importlib.machinery.SourceFileLoader(cfgModuleName, self.cfgFile)
-            cfgModule = types.ModuleType(loader.name)
-            loader.exec_module(cfgModule)
-        except:
-            cfgModule = imp.load_source(cfgModuleName, self.cfgFile)
-
-        self.cfg = cfgModule.cfg
+    if type(obj) == list:
+        for item in obj:
+            if type(item) in [list, dict]:
+                tupleToStr(item)
+    elif type(obj) == dict:        
+        for key in list(obj.keys()):
+            if type(obj[key]) in [list, dict]:
+                tupleToStr(obj[key])
+            if type(key) == tuple:
+                obj[str(key)] = obj.pop(key)
     
-    self.cfg.checkErrors = False  # avoid error checking during batch
+    
+    return obj
 
-    # set initial cfg initCfg
-    if len(self.initCfg) > 0:
-        for paramLabel, paramVal in self.initCfg.items():
-            self.setCfgNestedParam(paramLabel, paramVal)
 
-    # iterate over all param combinations
-    if self.method == 'grid':
-        groupedParams = False
-        ungroupedParams = False
-        for p in self.params:
-            if 'group' not in p:
-                p['group'] = False
-                ungroupedParams = True
-            elif p['group'] == True:
-                groupedParams = True
+# -------------------------------------------------------------------------------
+# Batch class
+# -------------------------------------------------------------------------------
+class Batch(object):
+    """
+    Class for/to <short description of `netpyne.batch.batch.Batch`>
 
-        if ungroupedParams:
-            labelList, valuesList = zip(*[(p['label'], p['values']) for p in self.params if p['group'] == False])
-            valueCombinations = list(product(*(valuesList)))
-            indexCombinations = list(product(*[range(len(x)) for x in valuesList]))
-        else:
-            valueCombinations = [(0,)] # this is a hack -- improve!
-            indexCombinations = [(0,)]
-            labelList = ()
-            valuesList = ()
 
+    """
+
+
+    def __init__(self, cfgFile='cfg.py', netParamsFile='netParams.py', cfg=None, netParams=None, params=None, groupedParams=None, initCfg={}, seed=None):
+        self.batchLabel = 'batch_'+str(datetime.date.today())
+        self.cfgFile = cfgFile
+        self.cfg = cfg
+        self.netParams = netParams
+        self.initCfg = initCfg
+        self.netParamsFile = netParamsFile
+        self.saveFolder = '/'+self.batchLabel
+        self.method = 'grid'
+        self.runCfg = {}
+        self.evolCfg = {}
+        self.params = []
+        self.seed = seed
+        if params:
+            for k,v in params.items():
+                self.params.append({'label': k, 'values': v})
         if groupedParams:
-            labelListGroup, valuesListGroup = zip(*[(p['label'], p['values']) for p in self.params if p['group'] == True])
-            valueCombGroups = zip(*(valuesListGroup))
-            indexCombGroups = zip(*[range(len(x)) for x in valuesListGroup])
-            labelList = labelListGroup+labelList
-        else:
-            valueCombGroups = [(0,)] # this is a hack -- improve!
-            indexCombGroups = [(0,)]
-
-    # if using pc bulletin board, initialize all workers
-    if self.runCfg.get('type', None) == 'mpi_bulletin':
-        for iworker in range(int(pc.nhost())):
-            pc.runworker()
-
-    processes = []
-    processFiles = []
-
-    for iCombG, pCombG in zip(indexCombGroups, valueCombGroups):
-        for iCombNG, pCombNG in zip(indexCombinations, valueCombinations):
-            if groupedParams and ungroupedParams: # temporary hack - improve
-                iComb = iCombG+iCombNG
-                pComb = pCombG+pCombNG
-            elif ungroupedParams:
-                iComb = iCombNG
-                pComb = pCombNG
-            elif groupedParams:
-                iComb = iCombG
-                pComb = pCombG
-            else:
-                iComb = []
-                pComb = []
-
-            print(iComb, pComb)
-
-            for i, paramVal in enumerate(pComb):
-                paramLabel = labelList[i]
-                self.setCfgNestedParam(paramLabel, paramVal)
-
-                print(str(paramLabel)+' = '+str(paramVal))
-
-            # set simLabel and jobName
-            simLabel = self.batchLabel+''.join([''.join('_'+str(i)) for i in iComb])
-            jobName = self.saveFolder+'/'+simLabel
-
-            sleepInterval = 1
-
-            # skip if output file already exists
-            if self.runCfg.get('skip', False) and glob.glob(jobName+'.json'):
-                print('Skipping job %s since output file already exists...' % (jobName))
-            elif self.runCfg.get('skipCfg', False) and glob.glob(jobName+'_cfg.json'):
-                print('Skipping job %s since cfg file already exists...' % (jobName))
-            elif self.runCfg.get('skipCustom', None) and glob.glob(jobName+self.runCfg['skipCustom']):
-                print('Skipping job %s since %s file already exists...' % (jobName, self.runCfg['skipCustom']))
-            else:
-                # save simConfig json to saveFolder
-                self.cfg.simLabel = simLabel
-                self.cfg.saveFolder = self.saveFolder
-                cfgSavePath = self.saveFolder+'/'+simLabel+'_cfg.json'
-                self.cfg.save(cfgSavePath)
-
-                # hpc torque job submission
-                if self.runCfg.get('type',None) == 'hpc_torque':
-
-                    # read params or set defaults
-                    sleepInterval = self.runCfg.get('sleepInterval', 1)
-                    nodes = self.runCfg.get('nodes', 1)
-                    ppn = self.runCfg.get('ppn', 1)
-                    script = self.runCfg.get('script', 'init.py')
-                    mpiCommand = self.runCfg.get('mpiCommand', 'mpiexec')
-                    walltime = self.runCfg.get('walltime', '00:30:00')
-                    queueName = self.runCfg.get('queueName', 'default')
-                    nodesppn = 'nodes=%d:ppn=%d'%(nodes,ppn)
-                    custom = self.runCfg.get('custom', '')
-                    printOutput = self.runCfg.get('printOutput', False)
-                    numproc = nodes*ppn
-
-                    command = '%s -n %d nrniv -python -mpi %s simConfig=%s netParams=%s' % (mpiCommand, numproc, script, cfgSavePath, netParamsSavePath)
+            for p in self.params:
+                if p['label'] in groupedParams: p['group'] = True
 
 
-                    jobString = """#!/bin/bash
-#PBS -N %s
-#PBS -l walltime=%s
-#PBS -q %s
-#PBS -l %s
-#PBS -o %s.run
-#PBS -e %s.err
-%s
-cd $PBS_O_WORKDIR
-echo $PBS_O_WORKDIR
-%s
-                    """ % (jobName, walltime, queueName, nodesppn, jobName, jobName, custom, command)
+    def save(self, filename):
+        """
+        Function to save batch object to file
 
-                    # Send job_string to qsub
-                    print('Submitting job ',jobName)
-                    print(jobString+'\n')
+        Parameters
+        ----------
+        filename : str
+            The path of the file to save batch object in
+            *required*
+            
+        """
 
-                    batchfile = '%s.pbs'%(jobName)
-                    with open(batchfile, 'w') as text_file:
-                        text_file.write("%s" % jobString)
+        import os
+        from copy import deepcopy
+        basename = os.path.basename(filename)
+        folder = filename.split(basename)[0]
+        ext = basename.split('.')[1]
 
-                    proc = Popen(['qsub', batchfile], stderr=PIPE, stdout=PIPE)  # Open a pipe to the qsub command.
-                    (output, input) = (proc.stdin, proc.stdout)
+        # make dir
+        createFolder(folder)
 
+        # make copy of batch object to save it; but skip cfg (since instance of SimConfig and can't be copied)
+        odict = deepcopy({k:v for k,v in self.__dict__.items() if k != 'cfg' and k != 'netParams'})  
 
-                # hpc slurm job submission
-                elif self.runCfg.get('type',None) == 'hpc_slurm':
+        if 'evolCfg' in odict:
+            odict['evolCfg']['fitnessFunc'] = 'removed'
+        if 'optimCfg' in odict:
+            odict['optimCfg']['fitnessFunc'] = 'removed'
 
-                    # read params or set defaults
-                    sleepInterval = self.runCfg.get('sleepInterval', 1)
-                    allocation = self.runCfg.get('allocation', 'csd403') # NSG account
-                    nodes = self.runCfg.get('nodes', 1)
-                    coresPerNode = self.runCfg.get('coresPerNode', 1)
-                    email = self.runCfg.get('email', 'a@b.c')
-                    folder = self.runCfg.get('folder', '.')
-                    script = self.runCfg.get('script', 'init.py')
-                    mpiCommand = self.runCfg.get('mpiCommand', 'ibrun')
-                    walltime = self.runCfg.get('walltime', '00:30:00')
-                    reservation = self.runCfg.get('reservation', None)
-                    custom = self.runCfg.get('custom', '')
-                    printOutput = self.runCfg.get('printOutput', False)
-                    if reservation:
-                        res = '#SBATCH --res=%s'%(reservation)
-                    else:
-                        res = ''
+        odict['initCfg'] = tupleToStr(odict['initCfg'])
+        dataSave = {'batch': tupleToStr(odict)}
 
-                    numproc = nodes*coresPerNode
-                    command = '%s -n %d nrniv -python -mpi %s simConfig=%s netParams=%s' % (mpiCommand, numproc, script, cfgSavePath, netParamsSavePath)
+        if ext == 'json':
+            from .. import sim
+            #from json import encoder
+            #encoder.FLOAT_REPR = lambda o: format(o, '.12g')
+            print(('Saving batch to %s ... ' % (filename)))
 
-                    jobString = """#!/bin/bash
-#SBATCH --job-name=%s
-#SBATCH -A %s
-#SBATCH -t %s
-#SBATCH --nodes=%d
-#SBATCH --ntasks-per-node=%d
-#SBATCH -o %s.run
-#SBATCH -e %s.err
-#SBATCH --mail-user=%s
-#SBATCH --mail-type=end
-%s
-%s
+            sim.saveJSON(filename, dataSave)
 
-source ~/.bashrc
-cd %s
-%s
-wait
-                    """  % (simLabel, allocation, walltime, nodes, coresPerNode, jobName, jobName, email, res, custom, folder, command)
-
-                    # Send job_string to sbatch
-
-                    print('Submitting job ',jobName)
-                    print(jobString+'\n')
-
-                    batchfile = '%s.sbatch'%(jobName)
-                    with open(batchfile, 'w') as text_file:
-                        text_file.write("%s" % jobString)
-
-                    #subprocess.call
-                    proc = Popen(['sbatch',batchfile], stdin=PIPE, stdout=PIPE)  # Open a pipe to the qsub command.
-                    (output, input) = (proc.stdin, proc.stdout)
-
-
-                # run mpi jobs directly e.g. if have 16 cores, can run 4 jobs * 4 cores in parallel
-                # eg. usage: python batch.py
-                elif self.runCfg.get('type',None) == 'mpi_direct':
-                    jobName = self.saveFolder+'/'+simLabel
-                    print('Running job ',jobName)
-                    cores = self.runCfg.get('cores', 1)
-                    folder = self.runCfg.get('folder', '.')
-                    script = self.runCfg.get('script', 'init.py')
-                    mpiCommand = self.runCfg.get('mpiCommand', 'mpirun')
-                    printOutput = self.runCfg.get('printOutput', False)
-
-                    command = '%s -n %d nrniv -python -mpi %s simConfig=%s netParams=%s' % (mpiCommand, cores, script, cfgSavePath, netParamsSavePath)
-
-                    print(command+'\n')
-                    proc = Popen(command.split(' '), stdout=open(jobName+'.run','w'),  stderr=open(jobName+'.err','w'))
-                    processes.append(proc)
-                    processFiles.append(jobName+'.run')
-
-                # pc bulletin board job submission (master/slave) via mpi
-                # eg. usage: mpiexec -n 4 nrniv -mpi batch.py
-                elif self.runCfg.get('type',None) == 'mpi_bulletin':
-                    jobName = self.saveFolder+'/'+simLabel
-                    printOutput = self.runCfg.get('printOutput', False)
-                    print('Submitting job ',jobName)
-                    # master/slave bulletin board schedulling of jobs
-                    pc.submit(runJob, self.runCfg.get('script', 'init.py'), cfgSavePath, netParamsSavePath, processes)
-
+    def setCfgNestedParam(self, paramLabel, paramVal):
+        if isinstance(paramLabel, tuple):
+            container = self.cfg
+            for ip in range(len(paramLabel)-1):
+                if isinstance(container, specs.SimConfig):
+                    container = getattr(container, paramLabel[ip])
                 else:
-                    print(self.runCfg)
-                    print("Error: invalid runCfg 'type' selected; valid types are 'mpi_bulletin', 'mpi_direct', 'hpc_slurm', 'hpc_torque'")
-                    import sys
-                    sys.exit(0)
+                    container = container[paramLabel[ip]]
+            container[paramLabel[-1]] = paramVal
+        else:
+            setattr(self.cfg, paramLabel, paramVal) # set simConfig params
 
-            sleep(sleepInterval) # avoid saturating scheduler
-    print("-"*80)
-    print("   Finished submitting jobs for grid parameter exploration   ")
-    print("-" * 80)
-    while pc.working():
-        sleep(sleepInterval)
-    
-    outfiles = []
-    for procFile in processFiles:
-        outfiles.append(open(procFile, 'r'))
-        
-    while any([proc.poll() is None for proc in processes]):
-        for i, proc in enumerate(processes):
-                newline = outfiles[i].readline()
-                if len(newline) > 1:
-                    print(newline, end='')
-                
-        #sleep(sleepInterval)
-    
-    # attempt to terminate completed processes
-    for proc in processes:
-        try:
-            proc.terminate()
-        except:
-            pass
+
+    def saveScripts(self):
+        import os
+
+        # create Folder to save simulation
+        createFolder(self.saveFolder)
+
+        # save Batch dict as json
+        targetFile = self.saveFolder+'/'+self.batchLabel+'_batch.json'
+        self.save(targetFile)
+
+        # copy this batch script to folder
+        targetFile = self.saveFolder+'/'+self.batchLabel+'_batchScript.py'
+        os.system('cp ' + os.path.realpath(__file__) + ' ' + targetFile)
+
+        # copy this batch script to folder, netParams and simConfig
+        #os.system('cp ' + self.netParamsFile + ' ' + self.saveFolder + '/netParams.py')
+
+        # if user provided a netParams object as input argument
+        if self.netParams:
+            self.netParamsSavePath = self.saveFolder+'/'+self.batchLabel+'_netParams.json'
+            self.netParams.save(self.netParamsSavePath)
+
+        # if not, use netParamsFile           
+        else:
+            self.netParamsSavePath = self.saveFolder+'/'+self.batchLabel+'_netParams.py'
+            os.system('cp ' + self.netParamsFile + ' ' + self.netParamsSavePath)
+
+        os.system('cp ' + os.path.realpath(__file__) + ' ' + self.saveFolder + '/batchScript.py')
+
+        # save initial seed
+        with open(self.saveFolder + '/_seed.seed', 'w') as seed_file:
+            if not self.seed: self.seed = int(time())
+            seed_file.write(str(self.seed))
+
+        # set cfg
+        if self.cfg is None:
+            # import cfg
+            cfgModuleName = os.path.basename(self.cfgFile).split('.')[0]
+
+            try:  # py3
+                loader = importlib.machinery.SourceFileLoader(cfgModuleName, self.cfgFile)
+                cfgModule = types.ModuleType(loader.name)
+                loader.exec_module(cfgModule)
+            except:  # py2
+                cfgModule = imp.load_source(cfgModuleName, self.cfgFile)
+
+            if hasattr(cfgModule, 'cfg'):
+                self.cfg = cfgModule.cfg
+            else:
+                self.cfg = cfgModule.simConfig
+
+        self.cfg.checkErrors = False  # avoid error checking during batch
+
+
+
+    def openFiles2SaveStats(self):
+        stat_file_name = '%s/%s_stats.csv' %(self.saveFolder, self.batchLabel)
+        ind_file_name = '%s/%s_stats_indiv.csv' %(self.saveFolder, self.batchLabel)
+        individual = open(ind_file_name, 'w')
+        stats = open(stat_file_name, 'w')
+        stats.write('#gen  pop-size  worst  best  median  average  std-deviation\n')
+        individual.write('#gen  #ind  fitness  [candidate]\n')
+        return stats, individual
+
+    def getParamCombinations(self):
+        if self.method in 'grid':
+            return getParamCombinations(self)
+
+    def run(self):
+
+        # -------------------------------------------------------------------------------
+        # Grid Search optimization
+        # -------------------------------------------------------------------------------
+        if self.method in ['grid', 'list']:
+            gridSearch(self, pc)
+
+        # -------------------------------------------------------------------------------
+        # Evolutionary optimization
+        # -------------------------------------------------------------------------------
+        elif self.method == 'evol':
+            evolOptim(self, pc)
+
+        # -------------------------------------------------------------------------------
+        # Adaptive Stochastic Descent (ASD) optimization
+        # -------------------------------------------------------------------------------
+        elif self.method == 'asd':
+            asdOptim(self, pc)
+
+        # -------------------------------------------------------------------------------
+        # Optuna optimization (https://github.com/optuna/optuna)
+        # -------------------------------------------------------------------------------
+        elif self.method == 'optuna':
+            try:
+                optunaOptim(self, pc)
+            except:
+                print(' Warning: an exception occurred when running Optuna optimization...')

@@ -12,18 +12,18 @@
             {
                 "label": "rateStimI",
                 "values": [
-                    9.0
+                    20.0
                 ]
             },
             {
                 "label": "rateStimE",
                 "values": [
-                    9.0
+                    20.0
                 ]
             }
         ],
         "runCfg": {
-            "cores": 12,
+            "cores": 128,
             "mpiCommand": "mpiexec",
             "script": "init.py",
             "skip": true,
