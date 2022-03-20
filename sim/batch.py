@@ -18,7 +18,7 @@ def custom():
     # params[('seeds', 'conn')] =  [1234]
 
     params[('rateStimI')] = [5.0]
-    params[('rateStimE')] = [50.0]
+    params[('rateStimE')] = [25.0]
 
     b = Batch(params=params, netParamsFile='netParams.py', cfgFile='cfg.py')
 
@@ -63,7 +63,7 @@ def setRunCfg(b, type='mpi_bulletin'):
 if __name__ == '__main__': 
     b = custom() #
 
-    b.batchLabel = 'v8_batch2'  
+    b.batchLabel = 'v8_batch1'  
     b.saveFolder = '../data/'+b.batchLabel
     b.method = 'grid'
     setRunCfg(b, 'mpi_direct')

@@ -1,0 +1,1533 @@
+numprocs=128
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v8_batch3/v8_batch3_0_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v8_batch3/v8_batch3_netParams.py
+  Number of cells on node 6: 7 
+  Number of connections on node 6: 170 
+  Number of synaptic contacts on node 6: 995 
+  Number of stims on node 6: 70 
+Recording 7 traces of 1 types on node 6
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v8_batch3/v8_batch3_0_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v8_batch3/v8_batch3_netParams.py
+  Number of cells on node 8: 7 
+  Number of connections on node 8: 165 
+  Number of synaptic contacts on node 8: 910 
+  Number of stims on node 8: 70 
+Recording 7 traces of 1 types on node 8
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v8_batch3/v8_batch3_0_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v8_batch3/v8_batch3_netParams.py
+  Number of cells on node 9: 7 
+  Number of connections on node 9: 159 
+  Number of synaptic contacts on node 9: 927 
+  Number of stims on node 9: 70 
+Recording 7 traces of 1 types on node 9
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v8_batch3/v8_batch3_0_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v8_batch3/v8_batch3_netParams.py
+  Number of cells on node 10: 7 
+  Number of connections on node 10: 155 
+  Number of synaptic contacts on node 10: 843 
+  Number of stims on node 10: 70 
+Recording 7 traces of 1 types on node 10
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v8_batch3/v8_batch3_0_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v8_batch3/v8_batch3_netParams.py
+  Number of cells on node 11: 7 
+  Number of connections on node 11: 182 
+  Number of synaptic contacts on node 11: 1065 
+  Number of stims on node 11: 70 
+Recording 7 traces of 1 types on node 11
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v8_batch3/v8_batch3_0_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v8_batch3/v8_batch3_netParams.py
+  Number of cells on node 12: 7 
+  Number of connections on node 12: 164 
+  Number of synaptic contacts on node 12: 933 
+  Number of stims on node 12: 70 
+Recording 7 traces of 1 types on node 12
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v8_batch3/v8_batch3_0_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v8_batch3/v8_batch3_netParams.py
+  Number of cells on node 13: 6 
+  Number of connections on node 13: 111 
+  Number of synaptic contacts on node 13: 640 
+  Number of stims on node 13: 60 
+Recording 6 traces of 1 types on node 13
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v8_batch3/v8_batch3_0_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v8_batch3/v8_batch3_netParams.py
+  Number of cells on node 14: 6 
+  Number of connections on node 14: 106 
+  Number of synaptic contacts on node 14: 709 
+  Number of stims on node 14: 60 
+Recording 6 traces of 1 types on node 14
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v8_batch3/v8_batch3_0_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v8_batch3/v8_batch3_netParams.py
+  Number of cells on node 15: 6 
+  Number of connections on node 15: 130 
+  Number of synaptic contacts on node 15: 821 
+  Number of stims on node 15: 60 
+Recording 6 traces of 1 types on node 15
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v8_batch3/v8_batch3_0_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v8_batch3/v8_batch3_netParams.py
+  Number of cells on node 16: 6 
+  Number of connections on node 16: 133 
+  Number of synaptic contacts on node 16: 808 
+  Number of stims on node 16: 60 
+Recording 6 traces of 1 types on node 16
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v8_batch3/v8_batch3_0_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v8_batch3/v8_batch3_netParams.py
+  Number of cells on node 17: 6 
+  Number of connections on node 17: 125 
+  Number of synaptic contacts on node 17: 761 
+  Number of stims on node 17: 60 
+Recording 6 traces of 1 types on node 17
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v8_batch3/v8_batch3_0_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v8_batch3/v8_batch3_netParams.py
+  Number of cells on node 18: 6 
+  Number of connections on node 18: 142 
+  Number of synaptic contacts on node 18: 868 
+  Number of stims on node 18: 60 
+Recording 6 traces of 1 types on node 18
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v8_batch3/v8_batch3_0_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v8_batch3/v8_batch3_netParams.py
+  Number of cells on node 19: 6 
+  Number of connections on node 19: 141 
+  Number of synaptic contacts on node 19: 964 
+  Number of stims on node 19: 60 
+Recording 6 traces of 1 types on node 19
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v8_batch3/v8_batch3_0_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v8_batch3/v8_batch3_netParams.py
+  Number of cells on node 20: 6 
+  Number of connections on node 20: 142 
+  Number of synaptic contacts on node 20: 976 
+  Number of stims on node 20: 60 
+Recording 6 traces of 1 types on node 20
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v8_batch3/v8_batch3_0_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v8_batch3/v8_batch3_netParams.py
+  Number of cells on node 21: 6 
+  Number of connections on node 21: 148 
+  Number of synaptic contacts on node 21: 936 
+  Number of stims on node 21: 60 
+Recording 6 traces of 1 types on node 21
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v8_batch3/v8_batch3_0_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v8_batch3/v8_batch3_netParams.py
+  Number of cells on node 22: 6 
+  Number of connections on node 22: 140 
+  Number of synaptic contacts on node 22: 934 
+  Number of stims on node 22: 60 
+Recording 6 traces of 1 types on node 22
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v8_batch3/v8_batch3_0_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v8_batch3/v8_batch3_netParams.py
+  Number of cells on node 23: 6 
+  Number of connections on node 23: 128 
+  Number of synaptic contacts on node 23: 766 
+  Number of stims on node 23: 60 
+Recording 6 traces of 1 types on node 23
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v8_batch3/v8_batch3_0_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v8_batch3/v8_batch3_netParams.py
+  Number of cells on node 24: 6 
+  Number of connections on node 24: 140 
+  Number of synaptic contacts on node 24: 771 
+  Number of stims on node 24: 60 
+Recording 6 traces of 1 types on node 24
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v8_batch3/v8_batch3_0_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v8_batch3/v8_batch3_netParams.py
+  Number of cells on node 25: 6 
+  Number of connections on node 25: 130 
+  Number of synaptic contacts on node 25: 797 
+  Number of stims on node 25: 60 
+Recording 6 traces of 1 types on node 25
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v8_batch3/v8_batch3_0_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v8_batch3/v8_batch3_netParams.py
+  Number of cells on node 26: 6 
+  Number of connections on node 26: 139 
+  Number of synaptic contacts on node 26: 808 
+  Number of stims on node 26: 60 
+Recording 6 traces of 1 types on node 26
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v8_batch3/v8_batch3_0_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v8_batch3/v8_batch3_netParams.py
+  Number of cells on node 27: 6 
+  Number of connections on node 27: 127 
+  Number of synaptic contacts on node 27: 938 
+  Number of stims on node 27: 60 
+Recording 6 traces of 1 types on node 27
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v8_batch3/v8_batch3_0_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v8_batch3/v8_batch3_netParams.py
+  Number of cells on node 28: 6 
+  Number of connections on node 28: 134 
+  Number of synaptic contacts on node 28: 824 
+  Number of stims on node 28: 60 
+Recording 6 traces of 1 types on node 28
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v8_batch3/v8_batch3_0_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v8_batch3/v8_batch3_netParams.py
+  Number of cells on node 29: 6 
+  Number of connections on node 29: 120 
+  Number of synaptic contacts on node 29: 792 
+  Number of stims on node 29: 60 
+Recording 6 traces of 1 types on node 29
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v8_batch3/v8_batch3_0_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v8_batch3/v8_batch3_netParams.py
+  Number of cells on node 30: 6 
+  Number of connections on node 30: 144 
+  Number of synaptic contacts on node 30: 1010 
+  Number of stims on node 30: 60 
+Recording 6 traces of 1 types on node 30
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v8_batch3/v8_batch3_0_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v8_batch3/v8_batch3_netParams.py
+  Number of cells on node 31: 6 
+  Number of connections on node 31: 140 
+  Number of synaptic contacts on node 31: 940 
+  Number of stims on node 31: 60 
+Recording 6 traces of 1 types on node 31
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v8_batch3/v8_batch3_0_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v8_batch3/v8_batch3_netParams.py
+  Number of cells on node 32: 6 
+  Number of connections on node 32: 132 
+  Number of synaptic contacts on node 32: 763 
+  Number of stims on node 32: 60 
+Recording 6 traces of 1 types on node 32
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v8_batch3/v8_batch3_0_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v8_batch3/v8_batch3_netParams.py
+  Number of cells on node 33: 6 
+  Number of connections on node 33: 115 
+  Number of synaptic contacts on node 33: 727 
+  Number of stims on node 33: 60 
+Recording 6 traces of 1 types on node 33
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v8_batch3/v8_batch3_0_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v8_batch3/v8_batch3_netParams.py
+  Number of cells on node 34: 6 
+  Number of connections on node 34: 118 
+  Number of synaptic contacts on node 34: 752 
+  Number of stims on node 34: 60 
+Recording 6 traces of 1 types on node 34
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v8_batch3/v8_batch3_0_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v8_batch3/v8_batch3_netParams.py
+  Number of cells on node 35: 6 
+  Number of connections on node 35: 132 
+  Number of synaptic contacts on node 35: 864 
+  Number of stims on node 35: 60 
+Recording 6 traces of 1 types on node 35
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v8_batch3/v8_batch3_0_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v8_batch3/v8_batch3_netParams.py
+  Number of cells on node 36: 6 
+  Number of connections on node 36: 133 
+  Number of synaptic contacts on node 36: 827 
+  Number of stims on node 36: 60 
+Recording 6 traces of 1 types on node 36
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v8_batch3/v8_batch3_0_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v8_batch3/v8_batch3_netParams.py
+  Number of cells on node 37: 6 
+  Number of connections on node 37: 136 
+  Number of synaptic contacts on node 37: 887 
+  Number of stims on node 37: 60 
+Recording 6 traces of 1 types on node 37
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v8_batch3/v8_batch3_0_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v8_batch3/v8_batch3_netParams.py
+  Number of cells on node 38: 6 
+  Number of connections on node 38: 139 
+  Number of synaptic contacts on node 38: 830 
+  Number of stims on node 38: 60 
+Recording 6 traces of 1 types on node 38
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v8_batch3/v8_batch3_0_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v8_batch3/v8_batch3_netParams.py
+  Number of cells on node 39: 6 
+  Number of connections on node 39: 128 
+  Number of synaptic contacts on node 39: 846 
+  Number of stims on node 39: 60 
+Recording 6 traces of 1 types on node 39
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v8_batch3/v8_batch3_0_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v8_batch3/v8_batch3_netParams.py
+  Number of cells on node 40: 6 
+  Number of connections on node 40: 141 
+  Number of synaptic contacts on node 40: 983 
+  Number of stims on node 40: 60 
+Recording 6 traces of 1 types on node 40
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v8_batch3/v8_batch3_0_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v8_batch3/v8_batch3_netParams.py
+  Number of cells on node 41: 6 
+  Number of connections on node 41: 155 
+  Number of synaptic contacts on node 41: 970 
+  Number of stims on node 41: 60 
+Recording 6 traces of 1 types on node 41
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v8_batch3/v8_batch3_0_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v8_batch3/v8_batch3_netParams.py
+  Number of cells on node 42: 6 
+  Number of connections on node 42: 116 
+  Number of synaptic contacts on node 42: 738 
+  Number of stims on node 42: 60 
+Recording 6 traces of 1 types on node 42
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v8_batch3/v8_batch3_0_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v8_batch3/v8_batch3_netParams.py
+  Number of cells on node 43: 6 
+  Number of connections on node 43: 126 
+  Number of synaptic contacts on node 43: 804 
+  Number of stims on node 43: 60 
+Recording 6 traces of 1 types on node 43
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v8_batch3/v8_batch3_0_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v8_batch3/v8_batch3_netParams.py
+  Number of cells on node 44: 6 
+  Number of connections on node 44: 114 
+  Number of synaptic contacts on node 44: 683 
+  Number of stims on node 44: 60 
+Recording 6 traces of 1 types on node 44
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v8_batch3/v8_batch3_0_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v8_batch3/v8_batch3_netParams.py
+  Number of cells on node 45: 6 
+  Number of connections on node 45: 111 
+  Number of synaptic contacts on node 45: 742 
+  Number of stims on node 45: 60 
+Recording 6 traces of 1 types on node 45
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v8_batch3/v8_batch3_0_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v8_batch3/v8_batch3_netParams.py
+  Number of cells on node 46: 6 
+  Number of connections on node 46: 140 
+  Number of synaptic contacts on node 46: 928 
+  Number of stims on node 46: 60 
+Recording 6 traces of 1 types on node 46
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v8_batch3/v8_batch3_0_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v8_batch3/v8_batch3_netParams.py
+  Number of cells on node 47: 6 
+  Number of connections on node 47: 109 
+  Number of synaptic contacts on node 47: 690 
+  Number of stims on node 47: 60 
+Recording 6 traces of 1 types on node 47
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v8_batch3/v8_batch3_0_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v8_batch3/v8_batch3_netParams.py
+  Number of cells on node 48: 6 
+  Number of connections on node 48: 129 
+  Number of synaptic contacts on node 48: 776 
+  Number of stims on node 48: 60 
+Recording 6 traces of 1 types on node 48
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v8_batch3/v8_batch3_0_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v8_batch3/v8_batch3_netParams.py
+  Number of cells on node 49: 6 
+  Number of connections on node 49: 130 
+  Number of synaptic contacts on node 49: 896 
+  Number of stims on node 49: 60 
+Recording 6 traces of 1 types on node 49
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v8_batch3/v8_batch3_0_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v8_batch3/v8_batch3_netParams.py
+  Number of cells on node 50: 6 
+  Number of connections on node 50: 126 
+  Number of synaptic contacts on node 50: 914 
+  Number of stims on node 50: 60 
+Recording 6 traces of 1 types on node 50
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v8_batch3/v8_batch3_0_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v8_batch3/v8_batch3_netParams.py
+  Number of cells on node 51: 6 
+  Number of connections on node 51: 146 
+  Number of synaptic contacts on node 51: 896 
+  Number of stims on node 51: 60 
+Recording 6 traces of 1 types on node 51
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v8_batch3/v8_batch3_0_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v8_batch3/v8_batch3_netParams.py
+  Number of cells on node 52: 6 
+  Number of connections on node 52: 128 
+  Number of synaptic contacts on node 52: 874 
+  Number of stims on node 52: 60 
+Recording 6 traces of 1 types on node 52
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v8_batch3/v8_batch3_0_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v8_batch3/v8_batch3_netParams.py
+  Number of cells on node 53: 6 
+  Number of connections on node 53: 146 
+  Number of synaptic contacts on node 53: 897 
+  Number of stims on node 53: 60 
+Recording 6 traces of 1 types on node 53
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v8_batch3/v8_batch3_0_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v8_batch3/v8_batch3_netParams.py
+  Number of cells on node 54: 6 
+  Number of connections on node 54: 130 
+  Number of synaptic contacts on node 54: 829 
+  Number of stims on node 54: 60 
+Recording 6 traces of 1 types on node 54
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v8_batch3/v8_batch3_0_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v8_batch3/v8_batch3_netParams.py
+  Number of cells on node 55: 6 
+  Number of connections on node 55: 110 
+  Number of synaptic contacts on node 55: 744 
+  Number of stims on node 55: 60 
+Recording 6 traces of 1 types on node 55
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v8_batch3/v8_batch3_0_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v8_batch3/v8_batch3_netParams.py
+  Number of cells on node 56: 6 
+  Number of connections on node 56: 127 
+  Number of synaptic contacts on node 56: 813 
+  Number of stims on node 56: 60 
+Recording 6 traces of 1 types on node 56
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v8_batch3/v8_batch3_0_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v8_batch3/v8_batch3_netParams.py
+  Number of cells on node 57: 6 
+  Number of connections on node 57: 112 
+  Number of synaptic contacts on node 57: 710 
+  Number of stims on node 57: 60 
+Recording 6 traces of 1 types on node 57
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v8_batch3/v8_batch3_0_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v8_batch3/v8_batch3_netParams.py
+  Number of cells on node 58: 6 
+  Number of connections on node 58: 121 
+  Number of synaptic contacts on node 58: 770 
+  Number of stims on node 58: 60 
+Recording 6 traces of 1 types on node 58
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v8_batch3/v8_batch3_0_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v8_batch3/v8_batch3_netParams.py
+  Number of cells on node 59: 6 
+  Number of connections on node 59: 145 
+  Number of synaptic contacts on node 59: 983 
+  Number of stims on node 59: 60 
+Recording 6 traces of 1 types on node 59
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v8_batch3/v8_batch3_0_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v8_batch3/v8_batch3_netParams.py
+  Number of cells on node 60: 6 
+  Number of connections on node 60: 115 
+  Number of synaptic contacts on node 60: 668 
+  Number of stims on node 60: 60 
+Recording 6 traces of 1 types on node 60
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v8_batch3/v8_batch3_0_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v8_batch3/v8_batch3_netParams.py
+  Number of cells on node 61: 6 
+  Number of connections on node 61: 125 
+  Number of synaptic contacts on node 61: 731 
+  Number of stims on node 61: 60 
+Recording 6 traces of 1 types on node 61
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v8_batch3/v8_batch3_0_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v8_batch3/v8_batch3_netParams.py
+  Number of cells on node 62: 6 
+  Number of connections on node 62: 126 
+  Number of synaptic contacts on node 62: 771 
+  Number of stims on node 62: 60 
+Recording 6 traces of 1 types on node 62
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v8_batch3/v8_batch3_0_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v8_batch3/v8_batch3_netParams.py
+  Number of cells on node 63: 6 
+  Number of connections on node 63: 120 
+  Number of synaptic contacts on node 63: 681 
+  Number of stims on node 63: 60 
+Recording 6 traces of 1 types on node 63
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v8_batch3/v8_batch3_0_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v8_batch3/v8_batch3_netParams.py
+  Number of cells on node 64: 6 
+  Number of connections on node 64: 118 
+  Number of synaptic contacts on node 64: 761 
+  Number of stims on node 64: 60 
+Recording 6 traces of 1 types on node 64
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v8_batch3/v8_batch3_0_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v8_batch3/v8_batch3_netParams.py
+  Number of cells on node 65: 6 
+  Number of connections on node 65: 127 
+  Number of synaptic contacts on node 65: 661 
+  Number of stims on node 65: 60 
+Recording 6 traces of 1 types on node 65
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v8_batch3/v8_batch3_0_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v8_batch3/v8_batch3_netParams.py
+  Number of cells on node 66: 6 
+  Number of connections on node 66: 152 
+  Number of synaptic contacts on node 66: 897 
+  Number of stims on node 66: 60 
+Recording 6 traces of 1 types on node 66
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v8_batch3/v8_batch3_0_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v8_batch3/v8_batch3_netParams.py
+  Number of cells on node 67: 6 
+  Number of connections on node 67: 121 
+  Number of synaptic contacts on node 67: 618 
+  Number of stims on node 67: 60 
+Recording 6 traces of 1 types on node 67
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v8_batch3/v8_batch3_0_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v8_batch3/v8_batch3_netParams.py
+  Number of cells on node 68: 6 
+  Number of connections on node 68: 126 
+  Number of synaptic contacts on node 68: 733 
+  Number of stims on node 68: 60 
+Recording 6 traces of 1 types on node 68
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v8_batch3/v8_batch3_0_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v8_batch3/v8_batch3_netParams.py
+  Number of cells on node 69: 6 
+  Number of connections on node 69: 135 
+  Number of synaptic contacts on node 69: 807 
+  Number of stims on node 69: 60 
+Recording 6 traces of 1 types on node 69
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v8_batch3/v8_batch3_0_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v8_batch3/v8_batch3_netParams.py
+  Number of cells on node 70: 6 
+  Number of connections on node 70: 114 
+  Number of synaptic contacts on node 70: 665 
+  Number of stims on node 70: 60 
+Recording 6 traces of 1 types on node 70
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v8_batch3/v8_batch3_0_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v8_batch3/v8_batch3_netParams.py
+  Number of cells on node 71: 6 
+  Number of connections on node 71: 121 
+  Number of synaptic contacts on node 71: 694 
+  Number of stims on node 71: 60 
+Recording 6 traces of 1 types on node 71
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v8_batch3/v8_batch3_0_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v8_batch3/v8_batch3_netParams.py
+  Number of cells on node 72: 6 
+  Number of connections on node 72: 138 
+  Number of synaptic contacts on node 72: 797 
+  Number of stims on node 72: 60 
+Recording 6 traces of 1 types on node 72
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v8_batch3/v8_batch3_0_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v8_batch3/v8_batch3_netParams.py
+  Number of cells on node 73: 6 
+  Number of connections on node 73: 127 
+  Number of synaptic contacts on node 73: 770 
+  Number of stims on node 73: 60 
+Recording 6 traces of 1 types on node 73
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v8_batch3/v8_batch3_0_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v8_batch3/v8_batch3_netParams.py
+  Number of cells on node 74: 6 
+  Number of connections on node 74: 119 
+  Number of synaptic contacts on node 74: 691 
+  Number of stims on node 74: 60 
+Recording 6 traces of 1 types on node 74
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v8_batch3/v8_batch3_0_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v8_batch3/v8_batch3_netParams.py
+  Number of cells on node 75: 6 
+  Number of connections on node 75: 122 
+  Number of synaptic contacts on node 75: 662 
+  Number of stims on node 75: 60 
+Recording 6 traces of 1 types on node 75
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v8_batch3/v8_batch3_0_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v8_batch3/v8_batch3_netParams.py
+  Number of cells on node 76: 6 
+  Number of connections on node 76: 117 
+  Number of synaptic contacts on node 76: 740 
+  Number of stims on node 76: 60 
+Recording 6 traces of 1 types on node 76
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v8_batch3/v8_batch3_0_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v8_batch3/v8_batch3_netParams.py
+  Number of cells on node 77: 6 
+  Number of connections on node 77: 114 
+  Number of synaptic contacts on node 77: 711 
+  Number of stims on node 77: 60 
+Recording 6 traces of 1 types on node 77
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v8_batch3/v8_batch3_0_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v8_batch3/v8_batch3_netParams.py
+  Number of cells on node 78: 6 
+  Number of connections on node 78: 143 
+  Number of synaptic contacts on node 78: 889 
+  Number of stims on node 78: 60 
+Recording 6 traces of 1 types on node 78
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v8_batch3/v8_batch3_0_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v8_batch3/v8_batch3_netParams.py
+  Number of cells on node 79: 6 
+  Number of connections on node 79: 153 
+  Number of synaptic contacts on node 79: 986 
+  Number of stims on node 79: 60 
+Recording 6 traces of 1 types on node 79
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v8_batch3/v8_batch3_0_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v8_batch3/v8_batch3_netParams.py
+  Number of cells on node 80: 6 
+  Number of connections on node 80: 164 
+  Number of synaptic contacts on node 80: 1071 
+  Number of stims on node 80: 60 
+Recording 6 traces of 1 types on node 80
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v8_batch3/v8_batch3_0_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v8_batch3/v8_batch3_netParams.py
+  Number of cells on node 81: 6 
+  Number of connections on node 81: 136 
+  Number of synaptic contacts on node 81: 858 
+  Number of stims on node 81: 60 
+Recording 6 traces of 1 types on node 81
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v8_batch3/v8_batch3_0_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v8_batch3/v8_batch3_netParams.py
+  Number of cells on node 82: 6 
+  Number of connections on node 82: 143 
+  Number of synaptic contacts on node 82: 904 
+  Number of stims on node 82: 60 
+Recording 6 traces of 1 types on node 82
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v8_batch3/v8_batch3_0_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v8_batch3/v8_batch3_netParams.py
+  Number of cells on node 83: 6 
+  Number of connections on node 83: 140 
+  Number of synaptic contacts on node 83: 924 
+  Number of stims on node 83: 60 
+Recording 6 traces of 1 types on node 83
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v8_batch3/v8_batch3_0_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v8_batch3/v8_batch3_netParams.py
+  Number of cells on node 84: 6 
+  Number of connections on node 84: 149 
+  Number of synaptic contacts on node 84: 936 
+  Number of stims on node 84: 60 
+Recording 6 traces of 1 types on node 84
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v8_batch3/v8_batch3_0_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v8_batch3/v8_batch3_netParams.py
+  Number of cells on node 85: 6 
+  Number of connections on node 85: 135 
+  Number of synaptic contacts on node 85: 833 
+  Number of stims on node 85: 60 
+Recording 6 traces of 1 types on node 85
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v8_batch3/v8_batch3_0_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v8_batch3/v8_batch3_netParams.py
+  Number of cells on node 86: 6 
+  Number of connections on node 86: 124 
+  Number of synaptic contacts on node 86: 711 
+  Number of stims on node 86: 60 
+Recording 6 traces of 1 types on node 86
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v8_batch3/v8_batch3_0_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v8_batch3/v8_batch3_netParams.py
+  Number of cells on node 87: 6 
+  Number of connections on node 87: 136 
+  Number of synaptic contacts on node 87: 753 
+  Number of stims on node 87: 60 
+Recording 6 traces of 1 types on node 87
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v8_batch3/v8_batch3_0_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v8_batch3/v8_batch3_netParams.py
+  Number of cells on node 88: 6 
+  Number of connections on node 88: 131 
+  Number of synaptic contacts on node 88: 763 
+  Number of stims on node 88: 60 
+Recording 6 traces of 1 types on node 88
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v8_batch3/v8_batch3_0_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v8_batch3/v8_batch3_netParams.py
+  Number of cells on node 89: 6 
+  Number of connections on node 89: 120 
+  Number of synaptic contacts on node 89: 771 
+  Number of stims on node 89: 60 
+Recording 6 traces of 1 types on node 89
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v8_batch3/v8_batch3_0_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v8_batch3/v8_batch3_netParams.py
+  Number of cells on node 90: 6 
+  Number of connections on node 90: 125 
+  Number of synaptic contacts on node 90: 743 
+  Number of stims on node 90: 60 
+Recording 6 traces of 1 types on node 90
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v8_batch3/v8_batch3_0_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v8_batch3/v8_batch3_netParams.py
+  Number of cells on node 91: 6 
+  Number of connections on node 91: 124 
+  Number of synaptic contacts on node 91: 754 
+  Number of stims on node 91: 60 
+Recording 6 traces of 1 types on node 91
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v8_batch3/v8_batch3_0_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v8_batch3/v8_batch3_netParams.py
+  Number of cells on node 92: 6 
+  Number of connections on node 92: 129 
+  Number of synaptic contacts on node 92: 748 
+  Number of stims on node 92: 60 
+Recording 6 traces of 1 types on node 92
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v8_batch3/v8_batch3_0_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v8_batch3/v8_batch3_netParams.py
+  Number of cells on node 93: 6 
+  Number of connections on node 93: 155 
+  Number of synaptic contacts on node 93: 1058 
+  Number of stims on node 93: 60 
+Recording 6 traces of 1 types on node 93
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v8_batch3/v8_batch3_0_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v8_batch3/v8_batch3_netParams.py
+  Number of cells on node 94: 6 
+  Number of connections on node 94: 128 
+  Number of synaptic contacts on node 94: 841 
+  Number of stims on node 94: 60 
+Recording 6 traces of 1 types on node 94
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v8_batch3/v8_batch3_0_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v8_batch3/v8_batch3_netParams.py
+  Number of cells on node 95: 6 
+  Number of connections on node 95: 117 
+  Number of synaptic contacts on node 95: 703 
+  Number of stims on node 95: 60 
+Recording 6 traces of 1 types on node 95
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v8_batch3/v8_batch3_0_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v8_batch3/v8_batch3_netParams.py
+  Number of cells on node 96: 6 
+  Number of connections on node 96: 151 
+  Number of synaptic contacts on node 96: 939 
+  Number of stims on node 96: 60 
+Recording 6 traces of 1 types on node 96
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v8_batch3/v8_batch3_0_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v8_batch3/v8_batch3_netParams.py
+  Number of cells on node 97: 6 
+  Number of connections on node 97: 128 
+  Number of synaptic contacts on node 97: 802 
+  Number of stims on node 97: 60 
+Recording 6 traces of 1 types on node 97
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v8_batch3/v8_batch3_0_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v8_batch3/v8_batch3_netParams.py
+  Number of cells on node 98: 6 
+  Number of connections on node 98: 144 
+  Number of synaptic contacts on node 98: 893 
+  Number of stims on node 98: 60 
+Recording 6 traces of 1 types on node 98
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v8_batch3/v8_batch3_0_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v8_batch3/v8_batch3_netParams.py
+  Number of cells on node 99: 6 
+  Number of connections on node 99: 138 
+  Number of synaptic contacts on node 99: 902 
+  Number of stims on node 99: 60 
+Recording 6 traces of 1 types on node 99
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v8_batch3/v8_batch3_0_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v8_batch3/v8_batch3_netParams.py
+  Number of cells on node 100: 6 
+  Number of connections on node 100: 130 
+  Number of synaptic contacts on node 100: 829 
+  Number of stims on node 100: 60 
+Recording 6 traces of 1 types on node 100
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v8_batch3/v8_batch3_0_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v8_batch3/v8_batch3_netParams.py
+  Number of cells on node 101: 6 
+  Number of connections on node 101: 132 
+  Number of synaptic contacts on node 101: 777 
+  Number of stims on node 101: 60 
+Recording 6 traces of 1 types on node 101
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v8_batch3/v8_batch3_0_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v8_batch3/v8_batch3_netParams.py
+  Number of cells on node 102: 6 
+  Number of connections on node 102: 142 
+  Number of synaptic contacts on node 102: 949 
+  Number of stims on node 102: 60 
+Recording 6 traces of 1 types on node 102
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v8_batch3/v8_batch3_0_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v8_batch3/v8_batch3_netParams.py
+  Number of cells on node 103: 6 
+  Number of connections on node 103: 127 
+  Number of synaptic contacts on node 103: 756 
+  Number of stims on node 103: 60 
+Recording 6 traces of 1 types on node 103
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v8_batch3/v8_batch3_0_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v8_batch3/v8_batch3_netParams.py
+  Number of cells on node 104: 6 
+  Number of connections on node 104: 162 
+  Number of synaptic contacts on node 104: 955 
+  Number of stims on node 104: 60 
+Recording 6 traces of 1 types on node 104
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v8_batch3/v8_batch3_0_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v8_batch3/v8_batch3_netParams.py
+  Number of cells on node 105: 6 
+  Number of connections on node 105: 132 
+  Number of synaptic contacts on node 105: 778 
+  Number of stims on node 105: 60 
+Recording 6 traces of 1 types on node 105
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v8_batch3/v8_batch3_0_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v8_batch3/v8_batch3_netParams.py
+  Number of cells on node 106: 6 
+  Number of connections on node 106: 132 
+  Number of synaptic contacts on node 106: 646 
+  Number of stims on node 106: 60 
+Recording 6 traces of 1 types on node 106
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v8_batch3/v8_batch3_0_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v8_batch3/v8_batch3_netParams.py
+  Number of cells on node 107: 6 
+  Number of connections on node 107: 110 
+  Number of synaptic contacts on node 107: 561 
+  Number of stims on node 107: 60 
+Recording 6 traces of 1 types on node 107
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v8_batch3/v8_batch3_0_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v8_batch3/v8_batch3_netParams.py
+  Number of cells on node 108: 6 
+  Number of connections on node 108: 129 
+  Number of synaptic contacts on node 108: 604 
+  Number of stims on node 108: 60 
+Recording 6 traces of 1 types on node 108
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v8_batch3/v8_batch3_0_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v8_batch3/v8_batch3_netParams.py
+  Number of cells on node 109: 6 
+  Number of connections on node 109: 113 
+  Number of synaptic contacts on node 109: 547 
+  Number of stims on node 109: 60 
+Recording 6 traces of 1 types on node 109
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v8_batch3/v8_batch3_0_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v8_batch3/v8_batch3_netParams.py
+  Number of cells on node 110: 6 
+  Number of connections on node 110: 153 
+  Number of synaptic contacts on node 110: 883 
+  Number of stims on node 110: 60 
+Recording 6 traces of 1 types on node 110
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v8_batch3/v8_batch3_0_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v8_batch3/v8_batch3_netParams.py
+  Number of cells on node 111: 6 
+  Number of connections on node 111: 171 
+  Number of synaptic contacts on node 111: 884 
+  Number of stims on node 111: 60 
+Recording 6 traces of 1 types on node 111
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v8_batch3/v8_batch3_0_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v8_batch3/v8_batch3_netParams.py
+  Number of cells on node 112: 6 
+  Number of connections on node 112: 137 
+  Number of synaptic contacts on node 112: 653 
+  Number of stims on node 112: 60 
+Recording 6 traces of 1 types on node 112
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v8_batch3/v8_batch3_0_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v8_batch3/v8_batch3_netParams.py
+  Number of cells on node 113: 6 
+  Number of connections on node 113: 144 
+  Number of synaptic contacts on node 113: 696 
+  Number of stims on node 113: 60 
+Recording 6 traces of 1 types on node 113
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v8_batch3/v8_batch3_0_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v8_batch3/v8_batch3_netParams.py
+  Number of cells on node 114: 6 
+  Number of connections on node 114: 145 
+  Number of synaptic contacts on node 114: 749 
+  Number of stims on node 114: 60 
+Recording 6 traces of 1 types on node 114
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v8_batch3/v8_batch3_0_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v8_batch3/v8_batch3_netParams.py
+  Number of cells on node 115: 6 
+  Number of connections on node 115: 144 
+  Number of synaptic contacts on node 115: 748 
+  Number of stims on node 115: 60 
+Recording 6 traces of 1 types on node 115
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v8_batch3/v8_batch3_0_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v8_batch3/v8_batch3_netParams.py
+  Number of cells on node 116: 6 
+  Number of connections on node 116: 136 
+  Number of synaptic contacts on node 116: 718 
+  Number of stims on node 116: 60 
+Recording 6 traces of 1 types on node 116
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v8_batch3/v8_batch3_0_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v8_batch3/v8_batch3_netParams.py
+  Number of cells on node 117: 6 
+  Number of connections on node 117: 151 
+  Number of synaptic contacts on node 117: 728 
+  Number of stims on node 117: 60 
+Recording 6 traces of 1 types on node 117
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v8_batch3/v8_batch3_0_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v8_batch3/v8_batch3_netParams.py
+  Number of cells on node 118: 6 
+  Number of connections on node 118: 145 
+  Number of synaptic contacts on node 118: 764 
+  Number of stims on node 118: 60 
+Recording 6 traces of 1 types on node 118
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v8_batch3/v8_batch3_0_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v8_batch3/v8_batch3_netParams.py
+  Number of cells on node 119: 6 
+  Number of connections on node 119: 128 
+  Number of synaptic contacts on node 119: 550 
+  Number of stims on node 119: 60 
+Recording 6 traces of 1 types on node 119
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v8_batch3/v8_batch3_0_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v8_batch3/v8_batch3_netParams.py
+  Number of cells on node 120: 6 
+  Number of connections on node 120: 128 
+  Number of synaptic contacts on node 120: 566 
+  Number of stims on node 120: 60 
+Recording 6 traces of 1 types on node 120
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v8_batch3/v8_batch3_0_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v8_batch3/v8_batch3_netParams.py
+  Number of cells on node 121: 6 
+  Number of connections on node 121: 108 
+  Number of synaptic contacts on node 121: 483 
+  Number of stims on node 121: 60 
+Recording 6 traces of 1 types on node 121
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v8_batch3/v8_batch3_0_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v8_batch3/v8_batch3_netParams.py
+  Number of cells on node 122: 6 
+  Number of connections on node 122: 138 
+  Number of synaptic contacts on node 122: 638 
+  Number of stims on node 122: 60 
+Recording 6 traces of 1 types on node 122
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v8_batch3/v8_batch3_0_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v8_batch3/v8_batch3_netParams.py
+  Number of cells on node 123: 6 
+  Number of connections on node 123: 128 
+  Number of synaptic contacts on node 123: 626 
+  Number of stims on node 123: 60 
+Recording 6 traces of 1 types on node 123
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v8_batch3/v8_batch3_0_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v8_batch3/v8_batch3_netParams.py
+  Number of cells on node 124: 6 
+  Number of connections on node 124: 139 
+  Number of synaptic contacts on node 124: 627 
+  Number of stims on node 124: 60 
+Recording 6 traces of 1 types on node 124
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v8_batch3/v8_batch3_0_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v8_batch3/v8_batch3_netParams.py
+  Number of cells on node 125: 6 
+  Number of connections on node 125: 149 
+  Number of synaptic contacts on node 125: 665 
+  Number of stims on node 125: 60 
+Recording 6 traces of 1 types on node 125
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v8_batch3/v8_batch3_0_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v8_batch3/v8_batch3_netParams.py
+  Number of cells on node 126: 6 
+  Number of connections on node 126: 167 
+  Number of synaptic contacts on node 126: 846 
+  Number of stims on node 126: 60 
+Recording 6 traces of 1 types on node 126
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v8_batch3/v8_batch3_0_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v8_batch3/v8_batch3_netParams.py
+  Number of cells on node 127: 6 
+  Number of connections on node 127: 188 
+  Number of synaptic contacts on node 127: 911 
+  Number of stims on node 127: 60 
+Recording 6 traces of 1 types on node 127
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v8_batch3/v8_batch3_0_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v8_batch3/v8_batch3_netParams.py
+  Number of cells on node 1: 7 
+  Number of connections on node 1: 168 
+  Number of synaptic contacts on node 1: 854 
+  Number of stims on node 1: 70 
+Recording 7 traces of 1 types on node 1
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v8_batch3/v8_batch3_0_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v8_batch3/v8_batch3_netParams.py
+  Number of cells on node 2: 7 
+  Number of connections on node 2: 173 
+  Number of synaptic contacts on node 2: 882 
+  Number of stims on node 2: 70 
+Recording 7 traces of 1 types on node 2
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v8_batch3/v8_batch3_0_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v8_batch3/v8_batch3_netParams.py
+  Number of cells on node 3: 7 
+  Number of connections on node 3: 162 
+  Number of synaptic contacts on node 3: 811 
+  Number of stims on node 3: 70 
+Recording 7 traces of 1 types on node 3
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v8_batch3/v8_batch3_0_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v8_batch3/v8_batch3_netParams.py
+  Number of cells on node 4: 7 
+  Number of connections on node 4: 165 
+  Number of synaptic contacts on node 4: 877 
+  Number of stims on node 4: 70 
+Recording 7 traces of 1 types on node 4
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v8_batch3/v8_batch3_0_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v8_batch3/v8_batch3_netParams.py
+  Number of cells on node 5: 7 
+  Number of connections on node 5: 152 
+  Number of synaptic contacts on node 5: 898 
+  Number of stims on node 5: 70 
+Recording 7 traces of 1 types on node 5
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v8_batch3/v8_batch3_0_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v8_batch3/v8_batch3_netParams.py
+  Number of cells on node 7: 7 
+  Number of connections on node 7: 141 
+  Number of synaptic contacts on node 7: 842 
+  Number of stims on node 7: 70 
+Recording 7 traces of 1 types on node 7
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v8_batch3/v8_batch3_0_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v8_batch3/v8_batch3_netParams.py
+
+Start time:  2022-03-19 21:43:38.368850
+
+Creating network of 207 cell populations on 128 hosts...
+  Number of cells on node 0: 7 
+  Done; cell creation time = 5.36 s.
+Making connections...
+  Number of connections on node 0: 183 
+  Number of synaptic contacts on node 0: 943 
+  Done; cell connection time = 12.12 s.
+Adding stims...
+  Number of stims on node 0: 70 
+  Done; cell stims creation time = 0.38 s.
+Recording 7 traces of 1 types on node 0
+0.0s
+
+Running simulation using NEURON for 1000.0 ms...
+0.1s
+0.2s
+0.3s
+0.4s
+0.5s
+0.6s
+0.7s
+0.8s
+0.9s
+1.0s
+  Done; run time = 1417.30 s; real-time ratio: 0.00.
+
+Gathering data...
+  Done; gather time = 7.17 s.
+
+Analyzing...
+  Cells: 781
+  Connections: 0 (0.00 per cell)
+  Spikes: 9986 (12.79 Hz)
+  Simulated time: 1.0 s; 128 workers
+  Run time: 1417.30 s
+   L1_DAC_bNA : 0.000 Hz
+   L1_DAC_cNA : 12.000 Hz
+   L1_DLAC_cNA : 0.000 Hz
+   L1_HAC_bNA : 0.000 Hz
+   L1_HAC_cIR : 0.000 Hz
+   L1_HAC_cNA : 0.500 Hz
+   L1_NGC-DA_bNA : 1.000 Hz
+   L1_NGC-DA_cAC : 1.000 Hz
+   L1_NGC-DA_cNA : 3.000 Hz
+   L1_NGC-DA_cST : 0.000 Hz
+   L1_NGC-SA_cNA : 3.000 Hz
+   L1_SLAC_bNA : 0.000 Hz
+   L1_SLAC_cAC : 3.000 Hz
+   L1_SLAC_cNA : 9.000 Hz
+   L23_BP_bAC : 10.000 Hz
+   L23_PC_cAD : 3.339 Hz
+   L23_BP_bIR : 7.000 Hz
+   L23_BP_bNA : 13.000 Hz
+   L23_BP_cAC : 19.000 Hz
+   L23_BP_cNA : 43.000 Hz
+   L23_BP_dST : 32.000 Hz
+   L23_BTC_bAC : 7.000 Hz
+   L23_BTC_bIR : 0.000 Hz
+   L23_BTC_bNA : 15.000 Hz
+   L23_BTC_cAC : 7.000 Hz
+   L23_BTC_cNA : 23.000 Hz
+   L23_ChC_cAC : 41.000 Hz
+   L23_ChC_cNA : 92.000 Hz
+   L23_ChC_dNA : 95.000 Hz
+   L23_DBC_bAC : 5.000 Hz
+   L23_DBC_bIR : 0.000 Hz
+   L23_DBC_bNA : 10.500 Hz
+   L23_DBC_cAC : 25.000 Hz
+   L23_LBC_bAC : 13.000 Hz
+   L23_LBC_bNA : 81.000 Hz
+   L23_LBC_cAC : 28.000 Hz
+   L23_LBC_cNA : 87.000 Hz
+   L23_LBC_cST : 0.000 Hz
+   L23_LBC_dNA : 55.500 Hz
+   L23_MC_bAC : 0.000 Hz
+   L23_MC_bNA : 0.000 Hz
+   L23_MC_cAC : 0.167 Hz
+   L23_MC_cNA : 0.000 Hz
+   L23_MC_dNA : 0.000 Hz
+   L23_NBC_bAC : 8.000 Hz
+   L23_NBC_bNA : 7.000 Hz
+   L23_NBC_cAC : 18.500 Hz
+   L23_NBC_cIR : 88.000 Hz
+   L23_NBC_cNA : 35.000 Hz
+   L23_NBC_dNA : 62.500 Hz
+   L23_NGC_bNA : 57.000 Hz
+   L23_NGC_cAC : 31.000 Hz
+   L23_NGC_cNA : 20.000 Hz
+   L23_NGC_cST : 0.000 Hz
+   L23_SBC_bNA : 71.000 Hz
+   L23_SBC_cAC : 26.500 Hz
+   L23_SBC_dNA : 31.000 Hz
+   L4_BP_bAC : 13.000 Hz
+   L4_BP_bIR : 9.000 Hz
+   L4_BP_bNA : 2.000 Hz
+   L4_BP_cAC : 20.000 Hz
+   L4_BP_cNA : 22.000 Hz
+   L4_BP_dST : 0.000 Hz
+   L4_BTC_bAC : 15.000 Hz
+   L4_BTC_bIR : 0.000 Hz
+   L4_BTC_bST : 0.000 Hz
+   L4_BTC_cAC : 136.000 Hz
+   L4_BTC_cNA : 36.000 Hz
+   L4_BTC_dNA : 122.000 Hz
+   L4_ChC_cAC : 2.000 Hz
+   L4_ChC_cNA : 36.000 Hz
+   L4_ChC_dNA : 0.000 Hz
+   L4_DBC_bAC : 6.000 Hz
+   L4_DBC_bIR : 0.000 Hz
+   L4_DBC_bNA : 19.000 Hz
+   L4_DBC_bST : 14.000 Hz
+   L4_DBC_cAC : 27.000 Hz
+   L4_DBC_cIR : 27.000 Hz
+   L4_DBC_cNA : 21.000 Hz
+   L4_LBC_cAC : 23.000 Hz
+   L4_LBC_cNA : 28.000 Hz
+   L4_LBC_cST : 69.000 Hz
+   L4_LBC_dNA : 135.000 Hz
+   L4_LBC_dST : 1.000 Hz
+   L4_MC_bAC : 0.000 Hz
+   L4_MC_bNA : 1.000 Hz
+   L4_MC_cAC : 13.000 Hz
+   L4_MC_cNA : 45.000 Hz
+   L4_MC_dNA : 90.000 Hz
+   L4_NBC_cAC : 134.000 Hz
+   L4_NBC_cIR : 0.000 Hz
+   L4_NBC_cNA : 69.000 Hz
+   L4_NBC_dNA : 167.000 Hz
+   L4_NGC_bNA : 88.000 Hz
+   L4_NGC_cAC : 26.000 Hz
+   L4_NGC_cNA : 25.000 Hz
+   L4_NGC_cST : 0.000 Hz
+   L4_PC_cAD : 5.411 Hz
+   L4_SBC_bNA : 261.000 Hz
+   L4_SBC_cAC : 144.000 Hz
+   L4_SBC_dNA : 174.000 Hz
+   L4_SP_cAD : 11.739 Hz
+   L4_SS_cAD : 14.222 Hz
+   L5_BP_bAC : 15.000 Hz
+   L5_BP_bIR : 30.000 Hz
+   L5_BP_bNA : 47.000 Hz
+   L5_BP_cAC : 71.000 Hz
+   L5_BP_cNA : 93.000 Hz
+   L5_BP_dST : 32.000 Hz
+   L5_BTC_bAC : 27.000 Hz
+   L5_BTC_cAC : 9.500 Hz
+   L5_BTC_cNA : 1.000 Hz
+   L5_ChC_cAC : 28.000 Hz
+   L5_ChC_cNA : 24.000 Hz
+   L5_ChC_dNA : 85.000 Hz
+   L5_DBC_bAC : 18.000 Hz
+   L5_DBC_bIR : 0.000 Hz
+   L5_DBC_bNA : 77.000 Hz
+   L5_DBC_bST : 95.000 Hz
+   L5_DBC_cAC : 26.000 Hz
+   L5_DBC_cIR : 35.000 Hz
+   L5_DBC_cNA : 76.000 Hz
+   L5_LBC_bAC : 41.000 Hz
+   L5_LBC_cAC : 35.000 Hz
+   L5_LBC_cIR : 7.000 Hz
+   L5_LBC_cNA : 0.000 Hz
+   L5_LBC_cST : 162.000 Hz
+   L5_LBC_dNA : 67.000 Hz
+   L5_LBC_dST : 0.000 Hz
+   L5_MC_bAC : 2.667 Hz
+   L5_MC_bIR : 0.000 Hz
+   L5_MC_bST : 0.000 Hz
+   L5_MC_cAC : 35.000 Hz
+   L5_MC_cNA : 102.000 Hz
+   L5_MC_cST : 0.000 Hz
+   L5_MC_dNA : 0.000 Hz
+   L5_NBC_bAC : 8.000 Hz
+   L5_NBC_bIR : 0.000 Hz
+   L5_NBC_bST : 1.000 Hz
+   L5_NBC_cAC : 24.000 Hz
+   L5_NBC_cIR : 0.000 Hz
+   L5_NBC_cNA : 35.000 Hz
+   L5_NBC_cST : 1.000 Hz
+   L5_NBC_dST : 43.000 Hz
+   L5_NGC_bNA : 79.000 Hz
+   L5_NGC_cAC : 33.000 Hz
+   L5_NGC_cNA : 45.000 Hz
+   L5_NGC_cST : 8.000 Hz
+   L5_SBC_bNA : 37.000 Hz
+   L5_SBC_cAC : 31.000 Hz
+   L5_SBC_dNA : 59.000 Hz
+   L5_STPC_cAD : 1.143 Hz
+   L5_TTPC1_cAD : 4.020 Hz
+   L5_TTPC2_cAD : 9.341 Hz
+   L5_UTPC_cAD : 4.429 Hz
+   L6_BPC_cAD : 4.712 Hz
+   L6_BP_bAC : 21.000 Hz
+   L6_BP_bIR : 29.000 Hz
+   L6_BP_bNA : 48.000 Hz
+   L6_BP_cAC : 33.000 Hz
+   L6_BP_cNA : 141.000 Hz
+   L6_BP_dST : 0.000 Hz
+   L6_BTC_bAC : 17.000 Hz
+   L6_BTC_cAC : 13.000 Hz
+   L6_BTC_cNA : 1.000 Hz
+   L6_ChC_cAC : 58.000 Hz
+   L6_ChC_cNA : 101.000 Hz
+   L6_ChC_dNA : 1.000 Hz
+   L6_DBC_bAC : 8.000 Hz
+   L6_DBC_bIR : 8.000 Hz
+   L6_DBC_bNA : 2.000 Hz
+   L6_DBC_bST : 120.000 Hz
+   L6_DBC_cAC : 10.000 Hz
+   L6_DBC_cIR : 0.000 Hz
+   L6_DBC_cNA : 110.000 Hz
+   L6_IPC_cAD : 4.000 Hz
+   L6_LBC_bAC : 8.000 Hz
+   L6_LBC_bIR : 0.000 Hz
+   L6_LBC_bNA : 0.000 Hz
+   L6_LBC_bST : 1.667 Hz
+   L6_LBC_cNA : 3.000 Hz
+   L6_LBC_cST : 1.000 Hz
+   L6_MC_bAC : 18.000 Hz
+   L6_MC_bIR : 14.000 Hz
+   L6_MC_bNA : 132.000 Hz
+   L6_MC_bST : 0.000 Hz
+   L6_MC_cAC : 25.000 Hz
+   L6_MC_cIR : 0.000 Hz
+   L6_MC_cNA : 0.000 Hz
+   L6_NBC_bAC : 9.000 Hz
+   L6_NBC_bIR : 0.000 Hz
+   L6_NBC_bST : 1.000 Hz
+   L6_NBC_cAC : 2.000 Hz
+   L6_NBC_cIR : 31.000 Hz
+   L6_NBC_cNA : 1.000 Hz
+   L6_NBC_cST : 92.000 Hz
+   L6_NBC_dST : 1.000 Hz
+   L6_NGC_bNA : 125.000 Hz
+   L6_NGC_cAC : 50.000 Hz
+   L6_NGC_cNA : 53.000 Hz
+   L6_NGC_cST : 93.000 Hz
+   L6_SBC_bNA : 119.000 Hz
+   L6_SBC_cAC : 39.000 Hz
+   L6_SBC_dNA : 1.000 Hz
+   L6_TPC_L1_cAD : 3.912 Hz
+   L6_TPC_L4_cAD : 7.129 Hz
+   L6_UTPC_cAD : 4.917 Hz
+Saving output as ../data/v8_batch3/v8_batch3_0_0_data.pkl ... 
+Finished saving!
+  Done; saving time = 28.49 s.
+Plotting 2D representation of network cell locations and connections...
+Preparing LFP data...
+Plotting LFP time series...
+Preparing spike data...
+Plotting raster...
+Plotting recorded cell traces ... cell
+  Done; plotting time = 113.10 s
+
+Total time = 1593.13 s
