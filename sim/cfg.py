@@ -155,7 +155,7 @@ cfg.recordDipole = True
 #------------------------------------------------------------------------------
 # Saving
 #------------------------------------------------------------------------------
-cfg.simLabel = 'v6_batch0_21mar22_LowDensityC'
+cfg.simLabel = 'v6_batch0_21mar22_LowDensityD'
 cfg.saveFolder = '../data/'+cfg.simLabel
 # cfg.filename =                	## Set file output name
 cfg.savePickle = True         	## Save pkl file
@@ -188,9 +188,10 @@ cfg.analysis['plotDipole'] = {'saveFig': True}
 #------------------------------------------------------------------------------
 cfg.scale = 1.0 # reduce size
 cfg.sizeY = 2082.0
-cfg.sizeX = 420.0 # r = 210 um and hexagonal side length = 230.9 um
-cfg.sizeZ = 420.0
-cfg.scaleDensity = 0.01 # 1.0 # Number of cells = 31346
+myscalefctr = 20.0
+cfg.sizeX = 420.0/myscalefctr # r = 210 um and hexagonal side length = 230.9 um
+cfg.sizeZ = 420.0/myscalefctr
+cfg.scaleDensity = 1.0/myscalefctr**2 # 1.0 # Number of cells = 31346
 
 #------------------------------------------------------------------------------
 # Spontaneous synapses + background - data from Rat

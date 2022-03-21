@@ -2318,3 +2318,277 @@ Assertion failed: file /root/nrn/src/ivoc/ocptrvector.cpp, line 75
 3  near line 0
 3  tstop=300.0
             ^
+** FB suggests scaling sizeX,sizeZ as well as scaleDensity
+
+for example:
+cfg.sizeX = 420.0/7.0 # r = 210 um and hexagonal side length = 230.9 um
+cfg.sizeZ = 420.0/7.0
+cfg.scaleDensity = 1.0/49.0 # Number of cells = 31346
+
+and for 30 cores configure so has scaleDensity = ~0.0025
+
+0.0025 = 1 / x**2 = 1 / 20**2
+
+cfg.scale = 1.0 # reduce size
+cfg.sizeY = 2082.0
+myscalefctr = 20.0
+cfg.sizeX = 420.0/myscalefctr # r = 210 um and hexagonal side length = 230.9 um
+cfg.sizeZ = 420.0/myscalefctr
+cfg.scaleDensity = 1.0/myscalefctr**2 # 1.0 # Number of cells = 31346
+
+cfg.simLabel = 'v6_batch0_21mar22_LowDensityD'
+
+mpiexec -n 30 --use-hwthread-cpus nrniv -python -mpi init.py
+
+started ~11:51 ...
+
+Running simulation using NEURON for 300.0 ms...
+0.1s
+0.2s
+0.3s
+  Done; run time = 174.64 s; real-time ratio: 0.00.
+
+Searching for .pkl node files in ../data/v6_batch0_21mar22_LowDensityD/v6_batch0_21mar22_LowDensityD_node_data ...
+
+Gathering data from files for simulation: v6_batch0_21mar22_LowDensityD ...
+  Merging data file: v6_batch0_21mar22_LowDensityD_node_0.pkl
+
+>>> quit()
+Traceback (most recent call last):
+  File "init.py", line 30, in <module>
+    sim.saveDataInNodes(); sim.gatherDataFromFiles()
+  File "/opt/anaconda3/lib/python3.7/site-packages/netpyne/sim/gather.py", line 473, in gatherDataFromFiles
+    allSimData[key].update(value)
+ValueError: dictionary update sequence element #0 has length 3; 2 is required
+
+there are 30 pkl files in output ... so something went wrong in merging the data together
+
+will try again w/o distributed saving ... 
+
+  Run time: 174.17 s
+   L1_DAC_bNA : 0.000 Hz
+   L1_DAC_cNA : 3.333 Hz
+   L1_DLAC_cNA : 3.333 Hz
+   L1_HAC_bNA : 0.000 Hz
+   L1_HAC_cIR : 0.000 Hz
+   L1_HAC_cNA : 0.000 Hz
+   L1_NGC-DA_bNA : 3.333 Hz
+   L1_NGC-DA_cAC : 3.333 Hz
+   L1_NGC-DA_cNA : 3.333 Hz
+   L1_NGC-DA_cST : 3.333 Hz
+   L1_NGC-SA_cNA : 3.333 Hz
+   L1_SLAC_bNA : 3.333 Hz
+   L1_SLAC_cAC : 0.000 Hz
+   L1_SLAC_cNA : 0.000 Hz
+   L23_BP_bAC : 3.333 Hz
+   L23_BP_bIR : 3.333 Hz
+   L23_BP_bNA : 3.333 Hz
+   L23_BP_cAC : 3.333 Hz
+   L23_BP_cNA : 3.333 Hz
+   L23_BP_dST : 3.333 Hz
+   L23_BTC_bAC : 3.333 Hz
+   L23_BTC_bIR : 0.000 Hz
+   L23_BTC_bNA : 3.333 Hz
+   L23_BTC_cAC : 0.000 Hz
+   L23_BTC_cNA : 0.000 Hz
+   L23_ChC_cAC : 3.333 Hz
+   L23_ChC_cNA : 3.333 Hz
+   L23_ChC_dNA : 0.000 Hz
+   L23_DBC_bAC : 3.333 Hz
+   L23_DBC_bIR : 3.333 Hz
+   L23_DBC_bNA : 3.333 Hz
+   L23_DBC_cAC : 3.333 Hz
+   L23_LBC_bAC : 0.000 Hz
+   L23_LBC_bNA : 0.000 Hz
+   L23_LBC_cAC : 3.333 Hz
+   L23_LBC_cNA : 3.333 Hz
+   L23_LBC_cST : 0.000 Hz
+   L23_LBC_dNA : 0.000 Hz
+   L23_MC_bAC : 0.000 Hz
+   L23_MC_bNA : 0.000 Hz
+   L23_MC_cAC : 0.000 Hz
+   L23_MC_cNA : 0.000 Hz
+   L23_MC_dNA : 0.000 Hz
+   L23_NBC_bAC : 3.333 Hz
+   L23_NBC_bNA : 0.000 Hz
+   L23_NBC_cAC : 3.333 Hz
+   L23_NBC_cIR : 0.000 Hz
+   L23_NBC_cNA : 3.333 Hz
+   L23_NBC_dNA : 0.000 Hz
+   L23_NGC_bNA : 3.333 Hz
+   L23_NGC_cAC : 3.333 Hz
+   L23_NGC_cNA : 0.000 Hz
+   L23_NGC_cST : 0.000 Hz
+   L23_PC_cAD : 1.111 Hz
+   L23_SBC_bNA : 13.333 Hz
+   L23_SBC_cAC : 3.333 Hz
+   L23_SBC_dNA : 3.333 Hz
+   L4_BP_bAC : 23.333 Hz
+   L4_BP_bIR : 3.333 Hz
+   L4_BP_bNA : 10.000 Hz
+   L4_BP_cAC : 23.333 Hz
+   L4_BP_cNA : 6.667 Hz
+   L4_BP_dST : 3.333 Hz
+   L4_BTC_bAC : 3.333 Hz
+   L4_BTC_bIR : 0.000 Hz
+   L4_BTC_bST : 10.000 Hz
+   L4_BTC_cAC : 3.333 Hz
+   L4_BTC_cNA : 3.333 Hz
+   L4_BTC_dNA : 0.000 Hz
+   L4_ChC_cAC : 6.667 Hz
+   L4_ChC_cNA : 0.000 Hz
+   L4_ChC_dNA : 0.000 Hz
+   L4_DBC_bAC : 0.000 Hz
+   L4_DBC_bIR : 0.000 Hz
+   L4_DBC_bNA : 0.000 Hz
+   L4_DBC_bST : 0.000 Hz
+   L4_DBC_cAC : 13.333 Hz
+   L4_DBC_cIR : 0.000 Hz
+   L4_DBC_cNA : 3.333 Hz
+   L4_LBC_cAC : 0.000 Hz
+   L4_LBC_cNA : 6.667 Hz
+   L4_LBC_cST : 0.000 Hz
+   L4_LBC_dNA : 3.333 Hz
+   L4_LBC_dST : 0.000 Hz
+   L4_MC_bAC : 0.000 Hz
+   L4_MC_bNA : 0.000 Hz
+   L4_MC_cAC : 0.000 Hz
+   L4_MC_cNA : 0.000 Hz
+   L4_MC_dNA : 0.000 Hz
+   L4_NBC_cAC : 3.333 Hz
+   L4_NBC_cIR : 0.000 Hz
+   L4_NBC_cNA : 26.667 Hz
+   L4_NBC_dNA : 3.333 Hz
+   L4_NGC_bNA : 6.667 Hz
+   L4_NGC_cAC : 10.000 Hz
+   L4_NGC_cNA : 13.333 Hz
+   L4_NGC_cST : 0.000 Hz
+   L4_PC_cAD : 2.381 Hz
+   L4_SBC_bNA : 63.333 Hz
+   L4_SBC_cAC : 6.667 Hz
+   L4_SBC_dNA : 66.667 Hz
+   L4_SP_cAD : 2.222 Hz
+   L4_SS_cAD : 0.000 Hz
+   L5_BP_bAC : 16.667 Hz
+   L5_BP_bIR : 3.333 Hz
+   L5_BP_bNA : 16.667 Hz
+   L5_BP_cAC : 36.667 Hz
+   L5_BP_cNA : 20.000 Hz
+   L5_BP_dST : 3.333 Hz
+   L5_BTC_bAC : 3.333 Hz
+   L5_BTC_cAC : 30.000 Hz
+   L5_BTC_cNA : 3.333 Hz
+   L5_ChC_cAC : 13.333 Hz
+   L5_ChC_cNA : 30.000 Hz
+   L5_ChC_dNA : 3.333 Hz
+   L5_DBC_bAC : 3.333 Hz
+   L5_DBC_bIR : 3.333 Hz
+   L5_DBC_bNA : 6.667 Hz
+   L5_DBC_bST : 3.333 Hz
+   L5_DBC_cAC : 13.333 Hz
+   L5_DBC_cIR : 3.333 Hz
+   L5_DBC_cNA : 6.667 Hz
+   L5_LBC_bAC : 0.000 Hz
+   L5_LBC_cAC : 13.333 Hz
+   L5_LBC_cIR : 3.333 Hz
+   L5_LBC_cNA : 20.000 Hz
+   L5_LBC_cST : 3.333 Hz
+   L5_LBC_dNA : 3.333 Hz
+   L5_LBC_dST : 3.333 Hz
+   L5_MC_bAC : 3.333 Hz
+   L5_MC_bIR : 3.333 Hz
+   L5_MC_bST : 3.333 Hz
+   L5_MC_cAC : 3.333 Hz
+   L5_MC_cNA : 3.333 Hz
+   L5_MC_cST : 3.333 Hz
+   L5_MC_dNA : 3.333 Hz
+   L5_NBC_bAC : 20.000 Hz
+   L5_NBC_bIR : 3.333 Hz
+   L5_NBC_bST : 23.333 Hz
+   L5_NBC_cAC : 10.000 Hz
+   L5_NBC_cIR : 3.333 Hz
+   L5_NBC_cNA : 16.667 Hz
+   L5_NBC_cST : 3.333 Hz
+   L5_NBC_dST : 0.000 Hz
+   L5_NGC_bNA : 26.667 Hz
+   L5_NGC_cAC : 33.333 Hz
+   L5_NGC_cNA : 30.000 Hz
+   L5_NGC_cST : 3.333 Hz
+   L5_SBC_bNA : 20.000 Hz
+   L5_SBC_cAC : 50.000 Hz
+   L5_SBC_dNA : 76.667 Hz
+   L5_STPC_cAD : 0.000 Hz
+   L5_TTPC1_cAD : 10.952 Hz
+   L5_TTPC2_cAD : 8.889 Hz
+   L5_UTPC_cAD : 10.000 Hz
+   L6_BPC_cAD : 5.000 Hz
+   L6_BP_bAC : 10.000 Hz
+   L6_BP_bIR : 3.333 Hz
+   L6_BP_bNA : 6.667 Hz
+   L6_BP_cAC : 26.667 Hz
+   L6_BP_cNA : 13.333 Hz
+   L6_BP_dST : 3.333 Hz
+   L6_BTC_bAC : 0.000 Hz
+   L6_BTC_cAC : 23.333 Hz
+   L6_BTC_cNA : 0.000 Hz
+   L6_ChC_cAC : 43.333 Hz
+   L6_ChC_cNA : 6.667 Hz
+   L6_ChC_dNA : 93.333 Hz
+   L6_DBC_bAC : 13.333 Hz
+   L6_DBC_bIR : 6.667 Hz
+   L6_DBC_bNA : 3.333 Hz
+   L6_DBC_bST : 16.667 Hz
+   L6_DBC_cAC : 40.000 Hz
+   L6_DBC_cIR : 26.667 Hz
+   L6_DBC_cNA : 3.333 Hz
+   L6_IPC_cAD : 7.778 Hz
+   L6_LBC_bAC : 10.000 Hz
+   L6_LBC_bIR : 3.333 Hz
+   L6_LBC_bNA : 3.333 Hz
+   L6_LBC_bST : 3.333 Hz
+   L6_LBC_cNA : 90.000 Hz
+   L6_LBC_cST : 63.333 Hz
+   L6_MC_bAC : 0.000 Hz
+   L6_MC_bIR : 0.000 Hz
+   L6_MC_bNA : 0.000 Hz
+   L6_MC_bST : 0.000 Hz
+   L6_MC_cAC : 3.333 Hz
+   L6_MC_cIR : 0.000 Hz
+   L6_MC_cNA : 3.333 Hz
+   L6_NBC_bAC : 23.333 Hz
+   L6_NBC_bIR : 30.000 Hz
+   L6_NBC_bST : 3.333 Hz
+   L6_NBC_cAC : 10.000 Hz
+   L6_NBC_cIR : 46.667 Hz
+   L6_NBC_cNA : 23.333 Hz
+   L6_NBC_cST : 3.333 Hz
+   L6_NBC_dST : 0.000 Hz
+   L6_NGC_bNA : 16.667 Hz
+   L6_NGC_cAC : 23.333 Hz
+   L6_NGC_cNA : 13.333 Hz
+   L6_NGC_cST : 3.333 Hz
+   L6_SBC_bNA : 60.000 Hz
+   L6_SBC_cAC : 56.667 Hz
+   L6_SBC_dNA : 43.333 Hz
+   L6_TPC_L1_cAD : 2.000 Hz
+   L6_TPC_L4_cAD : 6.667 Hz
+   L6_UTPC_cAD : 7.333 Hz
+   ss_RTN_o : 6.529 Hz
+   ss_RTN_m : 9.938 Hz
+   ss_RTN_i : 1.170 Hz
+   VPL_sTC : 3.333 Hz
+   VPM_sTC : 6.667 Hz
+   POm_sTC_s1 : 10.012 Hz
+Saving output as ../data/v6_batch0_21mar22_LowDensityD/v6_batch0_21mar22_LowDensityD_data.pkl ... 
+Finished saving!
+
+ok, now have a single output pkl file and also dipole png, raster had an error saving:
+Plotting raster...
+  There was an exception in plotRaster(): 
+    addLegend() got multiple values for argument 'labels' 
+    (<class 'TypeError'>, TypeError("addLegend() got multiple values for argument 'labels'"), <traceback object at 0x7fe7d68d54b0>)
+
+cells fire early but then might be mostly quiet after ... 
+
+will look at the data inside the pkl file ... 
+
