@@ -2656,3 +2656,14 @@ ok, not much activity - check cfg.py for the NetStim inputs
 hmm, note that there already is some S1 synaptic input (spontaneous activation)
 set via cfg.addStimSynS1
 
+try again anyway ... since was not previously saving netParams, which are convenient for analyzing activity after sim
+
+mpiexec -n 30 --use-hwthread-cpus nrniv -python -mpi init.py
+
+** look again at previous sim output data and better raster
+
+also want to separate the thalamic cells from the cortical cells
+
+python -i simdat.py
+simConfig, sdat, dstartidx, dendidx, dnumc, dspkID, dspkT = loaddat('21mar22_LowDensityF')
+
