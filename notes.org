@@ -2624,3 +2624,35 @@ also adjust raster plot call to try to avoid error ...
 
 mpiexec -n 30 --use-hwthread-cpus nrniv -python -mpi init.py
 
+Running simulation using NEURON for 300.0 ms...
+0.1s
+0.2s
+0.3s
+  Done; run time = 176.40 s; real-time ratio: 0.00.
+
+ran to completion ...
+
+also, raster plot no error this time (removed labels in call)
+hmm, cant see anything on the raster figure though
+[[/home/samn/S1_netpyne/data/v6_batch0_21mar22_LowDensityE/v6_batch0_21mar22_LowDensityE_raster.png]]
+
+check simdata output ... 
+
+python -i simdat.py
+
+d,sdat = loaddat('v6_batch0_21mar22_LowDensityE')
+sdat.keys() # dict_keys(['spkt', 'spkid', 'V_soma', 't', 'dipoleSum', 'dipoleCells', 'dipolePops', 'popRates', 'avgRate'])
+
+sdat['dipoleCells'].keys() # cell IDs
+sdat['dipoleCells'][7529].shape # (3000, 3)
+
+plot(sdat['t'],sdat['dipoleCells'][7499])
+
+ok, not much activity - check cfg.py for the NetStim inputs 
+
+** added simdat.py convenience file (for loading/viewing data)
+** try same sim with some NetStim input (21mar22_LowDensityF)
+
+hmm, note that there already is some S1 synaptic input (spontaneous activation)
+set via cfg.addStimSynS1
+
