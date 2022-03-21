@@ -2167,7 +2167,7 @@ mpiexec -n 40 --use-hwthread-cpus nrniv -python -mpi init.py
 had to interrupt ... will restart later
 
 * 21mar22
-** try lower density model
+** try lower density model (cfg.scaleDensity=0.1)
 
 cfg.scaleDensity = 0.1 # 1.0 # Number of cells = 31346
 cfg.simLabel = 'v6_batch0_21mar22_LowDensityA'
@@ -2220,3 +2220,51 @@ Assertion failed: file /root/nrn/src/ivoc/ocptrvector.cpp, line 75
 13  near line 0
 13  tstop=300.0
             ^
+** try even lower density model (cfg.scaleDensity=0.05)
+
+cfg.scaleDensity = 0.05 # 1.0 # Number of cells = 31346
+cfg.simLabel = 'v6_batch0_21mar22_LowDensityB'
+
+mpiexec -n 30 --use-hwthread-cpus nrniv -python -mpi init.py
+
+started ~10:55 ...
+
+*** same error
+
+Recording 13 traces of 1 types on node 3
+Assertion failed: file /root/nrn/src/ivoc/ocptrvector.cpp, line 75
+12 /opt/anaconda3/bin/nrniv: i < size_
+12  near line 0
+12  tstop=300.0
+            ^
+        12 PtrVector[4].pset(294, ...)
+      12 finitialize(-65)
+Assertion failed: file /root/nrn/src/ivoc/ocptrvector.cpp, line 75
+13 /opt/anaconda3/bin/nrniv: i < size_
+13  near line 0
+13  tstop=300.0
+            ^
+        13 PtrVector[4].pset(294, ...)
+      13 finitialize(-65)
+--------------------------------------------------------------------------
+MPI_ABORT was invoked on rank 12 in communicator MPI_COMM_WORLD
+with errorcode -1.
+
+NOTE: invoking MPI_ABORT causes Open MPI to kill all MPI processes.
+You may or may not see output from other processes, depending on
+exactly when Open MPI kills them.
+--------------------------------------------------------------------------
+Assertion failed: file /root/nrn/src/ivoc/ocptrvector.cpp, line 75
+14 /opt/anaconda3/bin/nrniv: i < size_
+14  near line 0
+14  tstop=300.0
+            ^
+        14 PtrVector[4].pset(294, ...)
+      14 finitialize(-65)
+Assertion failed: file /root/nrn/src/ivoc/ocptrvector.cpp, line 75
+19 /opt/anaconda3/bin/nrniv: i < size_
+19  near line 0
+19  tstop=300.0
+            ^
+        19 PtrVector[4].pset(292, ...)
+
