@@ -2164,3 +2164,59 @@ Assertion failed: file /root/nrn/src/ivoc/ocptrvector.cpp, line 75
 
 mpiexec -n 40 --use-hwthread-cpus nrniv -python -mpi init.py
 
+had to interrupt ... will restart later
+
+* 21mar22
+** try lower density model
+
+cfg.scaleDensity = 0.1 # 1.0 # Number of cells = 31346
+cfg.simLabel = 'v6_batch0_21mar22_LowDensityA'
+
+mpiexec -n 30 --use-hwthread-cpus nrniv -python -mpi init.py
+
+started ~10:27 ...
+
+*** still get error
+
+Assertion failed: file /root/nrn/src/ivoc/ocptrvector.cpp, line 75
+2 /opt/anaconda3/bin/nrniv: i < size_
+2  near line 0
+2  tstop=300.0
+            ^
+        2 PtrVector[7].pset(292, ...)
+      2 finitialize(-65)
+--------------------------------------------------------------------------
+MPI_ABORT was invoked on rank 2 in communicator MPI_COMM_WORLD
+with errorcode -1.
+
+NOTE: invoking MPI_ABORT causes Open MPI to kill all MPI processes.
+You may or may not see output from other processes, depending on
+exactly when Open MPI kills them.
+--------------------------------------------------------------------------
+[cycle:3425871] PMIX ERROR: UNREACHABLE in file server/pmix_server.c at line 2147
+[cycle:3425871] PMIX ERROR: UNREACHABLE in file server/pmix_server.c at line 2147
+[cycle:3425871] PMIX ERROR: UNREACHABLE in file server/pmix_server.c at line 2147
+[cycle:3425871] PMIX ERROR: UNREACHABLE in file server/pmix_server.c at line 2147
+[cycle:3425871] PMIX ERROR: UNREACHABLE in file server/pmix_server.c at line 2147
+[cycle:3425871] PMIX ERROR: UNREACHABLE in file server/pmix_server.c at line 2147
+[cycle:3425871] PMIX ERROR: UNREACHABLE in file server/pmix_server.c at line 2147
+[cycle:3425871] PMIX ERROR: UNREACHABLE in file server/pmix_server.c at line 2147
+Assertion failed: file /root/nrn/src/ivoc/ocptrvector.cpp, line 75
+25 /opt/anaconda3/bin/nrniv: i < size_
+25  near line 0
+25  tstop=300.0
+            ^
+        25 PtrVector[6].pset(294, ...)
+      25 finitialize(-65)
+Assertion failed: file /root/nrn/src/ivoc/ocptrvector.cpp, line 75
+1 /opt/anaconda3/bin/nrniv: i < size_
+1  near line 0
+1  tstop=300.0
+            ^
+        1 PtrVector[7].pset(294, ...)
+      1 finitialize(-65)
+Assertion failed: file /root/nrn/src/ivoc/ocptrvector.cpp, line 75
+13 /opt/anaconda3/bin/nrniv: i < size_
+13  near line 0
+13  tstop=300.0
+            ^
