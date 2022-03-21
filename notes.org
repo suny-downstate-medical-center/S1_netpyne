@@ -2268,3 +2268,53 @@ Assertion failed: file /root/nrn/src/ivoc/ocptrvector.cpp, line 75
             ^
         19 PtrVector[4].pset(292, ...)
 
+** try even lower density model (cfg.scaleDensity=0.01)
+
+cfg.scaleDensity = 0.01 # 1.0 # Number of cells = 31346
+cfg.simLabel = 'v6_batch0_21mar22_LowDensityC'
+
+mpiexec -n 30 --use-hwthread-cpus nrniv -python -mpi init.py
+
+started ~11:15 ...
+
+produces same error (below); does not look like an issue of using too much RAM given that
+each process (out of 30) is only using ~0.2-0.3 of total system RAM at the time of the crash
+
+*** same error
+
+Recording 7 traces of 1 types on node 3
+Assertion failed: file /root/nrn/src/ivoc/ocptrvector.cpp, line 75
+29 /opt/anaconda3/bin/nrniv: i < size_
+29  near line 0
+29  tstop=300.0
+            ^
+        29 PtrVector[1].pset(292, ...)
+      29 finitialize(-65)
+--------------------------------------------------------------------------
+MPI_ABORT was invoked on rank 29 in communicator MPI_COMM_WORLD
+with errorcode -1.
+
+NOTE: invoking MPI_ABORT causes Open MPI to kill all MPI processes.
+You may or may not see output from other processes, depending on
+exactly when Open MPI kills them.
+--------------------------------------------------------------------------
+[cycle:3453767] PMIX ERROR: UNREACHABLE in file server/pmix_server.c at line 2147
+Assertion failed: file /root/nrn/src/ivoc/ocptrvector.cpp, line 75
+1 /opt/anaconda3/bin/nrniv: i < size_
+1  near line 0
+1  tstop=300.0
+            ^
+        1 PtrVector[2].pset(292, ...)
+      1 finitialize(-65)
+Assertion failed: file /root/nrn/src/ivoc/ocptrvector.cpp, line 75
+2 /opt/anaconda3/bin/nrniv: i < size_
+2  near line 0
+2  tstop=300.0
+            ^
+        2 PtrVector[2].pset(292, ...)
+      2 finitialize(-65)
+Assertion failed: file /root/nrn/src/ivoc/ocptrvector.cpp, line 75
+3 /opt/anaconda3/bin/nrniv: i < size_
+3  near line 0
+3  tstop=300.0
+            ^
