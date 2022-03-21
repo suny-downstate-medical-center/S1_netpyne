@@ -2590,5 +2590,25 @@ Plotting raster...
 
 cells fire early but then might be mostly quiet after ... 
 
+can see that in the dipole
+[[/home/samn/S1_netpyne/data/v6_batch0_21mar22_LowDensityD/v6_batch0_21mar22_LowDensityD_dipole.png]]
 will look at the data inside the pkl file ... 
+
+python
+import pickle
+from pylab import *
+ion()
+d = pickle.load(open('../data/v6_batch0_21mar22_LowDensityD/v6_batch0_21mar22_LowDensityD_data.pkl','rb'))
+d.keys() # dict_keys(['netpyne_version', 'netpyne_changeset', 'simConfig', 'simData'])
+d['simData'].keys() # dict_keys(['spkt', 'spkid', 'V_soma', 't', 'dipoleSum', 'popRates', 'avgRate'])
+
+plot(d['simData']['spkt'],d['simData']['spkid'],'ko')
+savefig('gif/21mar22_rast_a0.png')
+
+simdat = d['simData']
+plot(simdat['t'],simdat['dipoleSum'])
+simdat['dipoleSum'].shape # (3000, 3)
+ok, so that's the total dipole in the 3 directions
+
+simdat['popRates']['L6_TPC_L1_cAD'] # this has population rate (not as a function of time)
 
