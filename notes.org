@@ -2824,3 +2824,5 @@ def save_dipoles_matlab():
 
 ** run longer sim (15 s)
 
+./myrun 60
+
