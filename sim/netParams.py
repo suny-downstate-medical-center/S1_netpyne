@@ -93,7 +93,7 @@ for popName in cfg.thalamicpops:
     else: # excitatory
         ThcellType = 'sTC_cell'    
     netParams.popParams[popName] = {'cellType': ThcellType, 'cellModel': 'HH_full', 'yRange': [ymin[popName], ymax[popName]],
-                                        'numCells':  int(np.ceil(cfg.popNumber[popName])), 'diversity': False}
+                                        'numCells':  int(np.ceil(cfg.scaleThal*cfg.popNumber[popName])), 'diversity': False}
 
 #------------------------------------------------------------------------------
 # Cell parameters  # L1 70  L23 215  L4 230 L5 260  L6 260  = 1035

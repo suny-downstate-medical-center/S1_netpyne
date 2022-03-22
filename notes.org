@@ -2697,3 +2697,19 @@ when rescaling...
 drawraster(dspkT,dspkID)
 savefig('gif/22mar21_rast_a0.png')
 
+try with just using cfg.scale ... or add a diff option for scaling the thalamic cells ... 
+
+ok, adding cfg.scaleThal ... will try with 1/20 first ... 
+
+mpiexec -n 30 --use-hwthread-cpus nrniv -python -mpi init.py
+
+python -i simdat.py
+simname = '22mar22_LDA'
+simConfig, sdat, dstartidx, dendidx, dnumc, dspkID, dspkT = loaddat(simname)
+drawraster(dspkT,dspkID)
+savefig('gif/22mar21_rast_a1.png')
+
+ok, thal not as dominant now ... 
+
+could reduce thal some more and then put back more of S1 cells ...
+
