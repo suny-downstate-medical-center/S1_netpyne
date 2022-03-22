@@ -2676,7 +2676,7 @@ simConfig, sdat, dstartidx, dendidx, dnumc, dspkID, dspkT = loaddat('21mar22_Low
 apparently, pops were missing since did not save them properly:
  cfg.saveDataInclude = ['simConfig', 'simData', 'netParams', 'netCells', 'netPops'] ## , 'simConfig', 'netParams'
 
-** rerun and try again
+** rerun and try again -->> working on reduced model with 60 cores
 
 mpiexec -n 30 --use-hwthread-cpus nrniv -python -mpi init.py
 
@@ -2787,4 +2787,40 @@ ok ...
 for k in sdat['dipoleCells'].keys(): plot(sdat['t'][0:-1],sdat['dipoleCells'][k][:,0])
 
 now try longer sim ... 
+
+3 s ...
+
+mpiexec -n 60 --use-hwthread-cpus nrniv -python -mpi init.py
+
+ok, that ran to completion ...
+
+python -i simdat.py
+simname = '22mar22_LDA'; simConfig, sdat, dstartidx, dendidx, dnumc, dspkID, dspkT = loaddat(simname); drawraster(dspkT,dspkID)
+savefig('gif/22mar21_rast_a6.png')
+
+ok, activity persists...due to the spontaneous inputs
+
+plot(sdat['t'],sdat['dipoleSum'])
+savefig('gif/22mar21_sumdpl_a7.png')
+
+are the x,y,z coordinates available?
+
+simConfig['net'].keys()
+simConfig['net']['cells'][0]
+yes, has the xnorm, ynorm, znorm ... and also the x, y, z coordinates, presumably in microns
+
+** dipole->matlab code from Sal in A1 model: https://github.com/NathanKlineInstitute/A1/blob/salva_layers/analysis/disc_grant.py#L368
+
+can use/adjust the save_dipoles_matlab function
+
+def save_dipoles_matlab():
+    from netpyne import sim
+    sim.load('../data/v34_batch53/v34_batch53_0_0_data.pkl', instantiate=False)
+    cellPos = [[c.tags['x'], sim.net.params.sizeY-c.tags['y'],c.tags['z']] for c in sim.net.cells if c.gid <=12186]
+    cellDipoles = [sim.allSimData['dipoleCells'][i] for i in range(12187)]
+    cellPops = [c.tags['pop'] for c in sim.net.cells if c.gid <=12186]
+    matDat = {'cellPos': cellPos, 'cellPops': cellPops, 'cellDipoles': cellDipoles, 'popDipoles': sim.allSimData['dipolePops'], 'dipoleSum': sim.allSimData['dipoleSum']}
+    scipy.io.savemat('A1_cell_dipoles.mat', matDat)
+
+** run longer sim (15 s)
 
