@@ -2713,3 +2713,13 @@ ok, thal not as dominant now ...
 
 could reduce thal some more and then put back more of S1 cells ...
 
+mpiexec -n 60 --use-hwthread-cpus nrniv -python -mpi init.py
+
+python -i simdat.py
+simname = '22mar22_LDA'; simConfig, sdat, dstartidx, dendidx, dnumc, dspkID, dspkT = loaddat(simname); drawraster(dspkT,dspkID)
+savefig('gif/22mar21_rast_a2.png')
+
+and here's total dipole signal: gif/22mar22_LDA_dipole.png
+
+try running for 2s to see if activity persists ... 
+
