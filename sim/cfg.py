@@ -24,7 +24,7 @@ cfg = specs.SimConfig()
 # Run parameters
 #------------------------------------------------------------------------------
 #cfg.duration = 5.0*1e3 ## Duration of the sim, in ms
-cfg.duration = 300 ## Duration of the sim, in ms  
+cfg.duration = 1000 ## Duration of the sim, in ms  
 cfg.dt = 0.025
 cfg.seeds = {'conn': 4322, 'stim': 4322, 'loc': 4322} 
 cfg.hParams = {'celsius': 34, 'v_init': -65}  
@@ -150,7 +150,7 @@ cfg.recordStep = 0.1
 #  based on https://github.com/NathanKlineInstitute/A1/blob/salva_layers/cfg.py
 cfg.recordDipole = True
 cfg.saveDipoleCells = ['all']
-cfg.saveDipolePops = cfg.allpops
+# cfg.saveDipolePops = cfg.allpops
 
 #------------------------------------------------------------------------------
 # Saving
@@ -187,13 +187,13 @@ cfg.analysis['plotDipole'] = {'saveFig': True}
 #------------------------------------------------------------------------------
 # Network 
 #------------------------------------------------------------------------------
-myscalefctr = 10.0
+myscalefctr = 12.0
 cfg.scale = 1.0 # reduce size
 cfg.sizeY = 2082.0
 cfg.sizeX = 420.0/myscalefctr # r = 210 um and hexagonal side length = 230.9 um
 cfg.sizeZ = 420.0/myscalefctr
 cfg.scaleDensity = 1.0/myscalefctr**2 # 1.0 # Number of cells = 31346
-cfg.scaleThal = 1.0/50.0 
+cfg.scaleThal = 1.0/60.0 
 
 #------------------------------------------------------------------------------
 # Spontaneous synapses + background - data from Rat

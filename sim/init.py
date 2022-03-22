@@ -27,13 +27,15 @@ sim.setupRecording()              			# setup variables to record for each cell (
 sim.runSim()                      			# run parallel Neuron simulation  
 
 # distributed saving (to avoid errors with large output data)
-# sim.saveDataInNodes(); sim.gatherDataFromFiles()
+#sim.saveDataInNodes(); sim.gatherDataFromFiles()
+
+# sim._gatherAllCellTags() #gather cell tags; see https://github.com/Neurosim-lab/netpyne/blob/development/netpyne/sim/gather.py
 
 # following line is for non-distributed save
 sim.gatherData()                  			# gather spiking data and cell info from each node
 
 sim.saveData()                    			# save params, cell info and sim output to file (pickle,mat,txt,etc)#
-sim.analysis.plotData()         			# plot spike raster etc
+# sim.analysis.plotData()         			# plot spike raster etc
 
 #sim.analysis.plotRaster(include=cfg.recordCells, timeRange=[0,cfg.duration], orderBy='gid', orderInverse=True, labels='legend', popRates=True, lw=5, marker='.', markerSize=15, figSize=(18, 12), fontSize=9, dpi=300, saveFig='../data/'+cfg.simLabel[0:9]+'/'+cfg.simLabel + '_Raster_onecellperpop.png', showFig=False)
 #sim.analysis.plotRaster(include=cfg.popParamLabels, timeRange=[0,cfg.duration], orderBy='gid', orderInverse=True, labels='legend', popRates=True, lw=1, marker='.', markerSize=2, figSize=(18, 12), fontSize=9, dpi=300, saveFig=True, showFig=False)

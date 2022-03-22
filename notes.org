@@ -2721,5 +2721,70 @@ savefig('gif/22mar21_rast_a2.png')
 
 and here's total dipole signal: gif/22mar22_LDA_dipole.png
 
-try running for 2s to see if activity persists ... 
+try running for 3s to see if activity persists ... 
+
+mpiexec -n 60 --use-hwthread-cpus nrniv -python -mpi init.py
+
+hmm, crashes at gatherdata when running for 3 s ... :
+
+3.0s
+  Done; run time = 809.43 s; real-time ratio: 0.00.
+
+Gathering data...
+[cycle:110342] *** Process received signal ***
+[cycle:110342] Signal: Segmentation fault (11)
+[cycle:110342] Signal code:  (216521728)
+[cycle:110342] Failing at address: 0x2420
+
+try for 1 s ... 
+
+mpiexec -n 60 --use-hwthread-cpus nrniv -python -mpi init.py
+
+hmm, still crashes ... 
+
+500 ms ?
+
+mpiexec -n 60 --use-hwthread-cpus nrniv -python -mpi init.py
+
+ok, that did not crash ... but need to run longer than 500 ms ... 
+
+python -i simdat.py
+simname = '22mar22_LDA'; simConfig, sdat, dstartidx, dendidx, dnumc, dspkID, dspkT = loaddat(simname); drawraster(dspkT,dspkID)
+savefig('gif/22mar21_rast_a3.png')
+
+pip install -U netpyne
+
+upgraded from netpyne-1.0.1 to netpyne-1.0.2 ... will see if works w/o crash ... 
+
+mpiexec -n 60 --use-hwthread-cpus nrniv -python -mpi init.py
+
+when saving data in nodes does not crash but does not merge the files together properly ... 
+
+Traceback (most recent call last):
+  File "init.py", line 30, in <module>
+    sim.saveDataInNodes(); sim.gatherDataFromFiles()
+  File "/opt/anaconda3/lib/python3.7/site-packages/netpyne/sim/gather.py", line 473, in gatherDataFromFiles
+    allSimData[key].update(value)
+ValueError: dictionary update sequence element #0 has length 3; 2 is required
+>>> 
+
+could manually merge ... ? 
+
+w/o population dipoles ... and standard gather, somewhat smaller network, seems to work
+
+mpiexec -n 60 --use-hwthread-cpus nrniv -python -mpi init.py
+
+python -i simdat.py
+simname = '22mar22_LDA'; simConfig, sdat, dstartidx, dendidx, dnumc, dspkID, dspkT = loaddat(simname); drawraster(dspkT,dspkID)
+savefig('gif/22mar21_rast_a4.png')
+
+plot(sdat['t'][0:-1],sdat['dipoleSum'])
+
+savefig('gif/22mar21_sumdpl_a5.png')
+
+ok ... 
+
+for k in sdat['dipoleCells'].keys(): plot(sdat['t'][0:-1],sdat['dipoleCells'][k][:,0])
+
+now try longer sim ... 
 
