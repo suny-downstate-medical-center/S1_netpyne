@@ -1,12 +1,16 @@
 import pickle
 from pylab import *
+import matplotlib.patches as mpatches
 tl=tight_layout
 ion()
+totalDur = 0
 
 def loaddat (simname):
+  global totalDur
   d = pickle.load(open('../data/'+simname+'/'+simname+'_data.pkl','rb'))
   simConfig = d # ['simConfig']
   sdat = d['simData']
+  totalDur = d['simConfig']['duration']
   dstartidx,dendidx={},{} # starting,ending indices for each population
   for p in simConfig['net']['params']['popParams'].keys():
     if simConfig['net']['pops'][p]['tags']['numCells'] > 0:

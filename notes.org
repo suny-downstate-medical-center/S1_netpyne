@@ -2664,6 +2664,36 @@ mpiexec -n 30 --use-hwthread-cpus nrniv -python -mpi init.py
 
 also want to separate the thalamic cells from the cortical cells
 
+simname = '21mar22_LowDensityF'
+d = pickle.load(open('../data/'+simname+'/'+simname+'_data.pkl','rb'))
+
 python -i simdat.py
 simConfig, sdat, dstartidx, dendidx, dnumc, dspkID, dspkT = loaddat('21mar22_LowDensityF')
+
+* 22mar22
+** which info to save from cfg (cfg.saveDataInclude)
+
+apparently, pops were missing since did not save them properly:
+ cfg.saveDataInclude = ['simConfig', 'simData', 'netParams', 'netCells', 'netPops'] ## , 'simConfig', 'netParams'
+
+** rerun and try again
+
+mpiexec -n 30 --use-hwthread-cpus nrniv -python -mpi init.py
+
+python -i simdat.py
+
+simname = '22mar22_LDA'
+
+d = pickle.load(open('../data/'+simname+'/'+simname+'_data.pkl','rb'))
+ok, good now, have d['net']['pops']
+
+simConfig, sdat, dstartidx, dendidx, dnumc, dspkID, dspkT = loaddat(simname)
+
+hmm, only have ~1 of a cell of a given type for many of these populations ... that's probably an issue ... 
+and looks like thalamic populations do not get downscaled. maybe worth adjusting so that both thalamic and
+cortical populations can get rescaled and so there would be better balance between cortical and thalamic populations
+when rescaling...
+
+drawraster(dspkT,dspkID)
+savefig('gif/22mar21_rast_a0.png')
 
