@@ -24,7 +24,7 @@ cfg = specs.SimConfig()
 # Run parameters
 #------------------------------------------------------------------------------
 #cfg.duration = 5.0*1e3 ## Duration of the sim, in ms
-cfg.duration = 6000 ## Duration of the sim, in ms  
+cfg.duration = 10000 ## Duration of the sim, in ms  
 cfg.dt = 0.1 # 0.025
 cfg.seeds = {'conn': 4322, 'stim': 4322, 'loc': 4322} 
 cfg.hParams = {'celsius': 34, 'v_init': -65}  

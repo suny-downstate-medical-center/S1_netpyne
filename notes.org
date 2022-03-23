@@ -2927,3 +2927,23 @@ savefig('gif/23mar22_b1.png')
 
 ok...will try a 10 s sim ... 
 
+mpiexec -n 60 --use-hwthread-cpus nrniv -python -mpi init.py
+
+  Spikes: 25370 (4.95 Hz)
+  Simulated time: 10.0 s; 60 workers
+  Run time: 1510.38 s
+
+great, that saved properly ... 
+
+python -i simdat.py
+simname = '23mar22_LDA'; simConfig, sdat, dstartidx, dendidx, dnumc, dspkID, dspkT = loaddat(simname); drawraster(dspkT,dspkID)
+savefig('gif/23mar22_rast_b2.png')
+
+plot(sdat['t'],sdat['dipoleSum'])
+savefig('gif/23mar22_sumdpl_b3.png')
+
+plot(sdat['t'],sdat['dipoleCells'][0][:,0])
+savefig('gif/23mar22_dpl_b4.png')
+
+looks good, no artifacts ... as for firing rates, some populations look low ... 
+
