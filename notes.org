@@ -2914,3 +2914,16 @@ artifact is gone ...
 
 should check if gatherData works w/o crash with this larger dt ... 
 
+mpiexec -n 60 --use-hwthread-cpus nrniv -python -mpi init.py
+
+great...that did not crash ... 
+
+python -i simdat.py
+
+d = pickle.load(open('../data/23mar22_LDA/23mar22_LDA_data.pkl','rb'))
+
+plot(d['simData']['t'][0:-1],d['simData']['dipoleCells'][0][:,0])
+savefig('gif/23mar22_b1.png')
+
+ok...will try a 10 s sim ... 
+
