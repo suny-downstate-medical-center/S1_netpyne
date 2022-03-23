@@ -24,7 +24,7 @@ cfg = specs.SimConfig()
 # Run parameters
 #------------------------------------------------------------------------------
 #cfg.duration = 5.0*1e3 ## Duration of the sim, in ms
-cfg.duration = 3000 ## Duration of the sim, in ms  
+cfg.duration = 15000 ## Duration of the sim, in ms  
 cfg.dt = 0.025
 cfg.seeds = {'conn': 4322, 'stim': 4322, 'loc': 4322} 
 cfg.hParams = {'celsius': 34, 'v_init': -65}  
@@ -182,7 +182,7 @@ cfg.saveCellConns = False
 
 # save dipole figure                            
 #  from https://github.com/NathanKlineInstitute/A1/blob/salva_layers/cfg.py                            
-cfg.analysis['plotDipole'] = {'saveFig': True} 
+# cfg.analysis['plotDipole'] = {'saveFig': True} 
 
 #------------------------------------------------------------------------------
 # Network 

@@ -27,12 +27,13 @@ sim.setupRecording()              			# setup variables to record for each cell (
 sim.runSim()                      			# run parallel Neuron simulation  
 
 # distributed saving (to avoid errors with large output data)
-#sim.saveDataInNodes(); sim.gatherDataFromFiles()
+distributedSave = True
 
-# sim._gatherAllCellTags() #gather cell tags; see https://github.com/Neurosim-lab/netpyne/blob/development/netpyne/sim/gather.py
-
-# following line is for non-distributed save
-sim.gatherData()                  			# gather spiking data and cell info from each node
+if distributedSave:
+  sim.saveDataInNodes()
+  sim.gatherDataFromFiles()
+else:
+  sim.gatherData()                  			# gather spiking data and cell info from each node
 
 sim.saveData()                    			# save params, cell info and sim output to file (pickle,mat,txt,etc)#
 # sim.analysis.plotData()         			# plot spike raster etc

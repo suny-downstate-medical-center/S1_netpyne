@@ -2826,3 +2826,19 @@ def save_dipoles_matlab():
 
 ./myrun 60
 
+ Done; run time = 2893.52 s; real-time ratio: 0.01.
+Gathering data...
+terminate called after throwing an instance of 'std::bad_alloc'
+  what():  std::bad_alloc
+[cycle:205025] *** Process received signal ***
+[cycle:205025] Signal: Aborted (6)
+[cycle:205025] Signal code:  (-6)
+
+with gatherDataFromFiles probably won't crash but looking at the code in /opt/anaconda3/lib/python3.7/site-packages/netpyne/sim/gather.py
+that function does not have gatherDipole option similar to the gatherDipole option in standard gatherData . that could explain the other crash
+when using gatherDataFromFiles ... so would have to fix that function to allow gather dipole to work properly . . . ?
+
+first make sure still getting error with the distributed save ... 
+
+./myrun 60
+
