@@ -2842,3 +2842,75 @@ first make sure still getting error with the distributed save ...
 
 ./myrun 60
 
+yes, sim runs to completion but throws an exception during gather data from files 
+
+* 23mar22
+** check data to see if can merge
+
+python -i simdat.py
+
+d = pickle.load(open('../data/22mar22_LDA/22mar22_LDA_node_data/22mar22_LDA_node_0.pkl','rb'))
+dict_keys(['netpyne_version', 'netpyne_changeset', 'simConfig', 'simData', 'cells', 'pops', 'net'])
+
+d['simData'].keys() # dict_keys(['spkt', 'spkid', 'V_soma', 't', 'dipoleSum', 'dipoleCells'])
+d['simData']['dipoleCells'].keys() # dict_keys([0, 60, 120, 180, 240, 300, 360, 420, 480])
+
+ok, so all the individual data is there ... just spread across multiple files 
+
+plot(d['simData']['t'][0:-1],d['simData']['dipoleCells'][0][:,0])
+
+savefig('gif/23mar22_a0.png')
+savefig('gif/23mar22_a0b.png')
+
+hmm, part of that signal looks like saturating ... ??
+
+plot(d['simData']['t'][0:-1],d['simData']['dipoleCells'][60][:,0],'r')
+
+savefig('gif/23mar22_a0c.png')
+
+hmm, that strange saturation/high-freq activity occurs for multiple cells, so could be a bug ... 
+
+plot(d['simData']['t'][0:-1],d['simData']['dipoleCells'][120][:,0],'g')
+
+savefig('gif/23mar22_a0d.png')
+
+plot(d['simData']['spkt'],d['simData']['spkid'],'ko')
+
+plot(d['simData']['t'][0:-1],d['simData']['dipoleSum'])
+savefig('gif/23mar22_a0e.png')
+
+especially since the dipole integrated across cells does not have that artifact ...
+
+d = pickle.load(open('../data/22mar22_LDA/22mar22_LDA_node_data/22mar22_LDA_node_1.pkl','rb'))
+d['simData']['dipoleCells'].keys() # dict_keys([1, 61, 121, 181, 241, 301, 361, 421, 481])
+plot(d['simData']['dipoleCells'][61][:,0],'r')
+savefig('gif/23mar22_a0f.png')
+no artifact from this node ... 
+
+d = pickle.load(open('../data/22mar22_LDA/22mar22_LDA_node_data/22mar22_LDA_node_0.pkl','rb'))
+d['net'].keys() # {}
+empty ... so will need net,pop,cell,gid info from full pkl file ... 
+
+** avoiding dipole,LFP artifact -->> use same value for recordStep and simulation dt
+
+EG said that to avoid artifact in LFP (which looked similar to these dipole artifacts), they
+set recordstep and dt to same values
+
+try with recordStep and dt at 0.1 ... only run for 6 s ... 
+
+mpiexec -n 60 --use-hwthread-cpus nrniv -python -mpi init.py
+
+ran a lot faster with the longer dt ... 
+
+python -i simdat.py
+
+d = pickle.load(open('../data/23mar22_LDA/23mar22_LDA_node_data/23mar22_LDA_node_0.pkl','rb'))
+d['simData']['dipoleCells'].keys() # dict_keys([0, 60, 120, 180, 240, 300, 360, 420, 480])
+
+plot(d['simData']['t'][0:-1],d['simData']['dipoleCells'][0][:,0])
+savefig('gif/23mar22_b0.png')
+
+artifact is gone ... 
+
+should check if gatherData works w/o crash with this larger dt ... 
+

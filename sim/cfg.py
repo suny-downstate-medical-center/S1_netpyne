@@ -24,8 +24,8 @@ cfg = specs.SimConfig()
 # Run parameters
 #------------------------------------------------------------------------------
 #cfg.duration = 5.0*1e3 ## Duration of the sim, in ms
-cfg.duration = 15000 ## Duration of the sim, in ms  
-cfg.dt = 0.025
+cfg.duration = 6000 ## Duration of the sim, in ms  
+cfg.dt = 0.1 # 0.025
 cfg.seeds = {'conn': 4322, 'stim': 4322, 'loc': 4322} 
 cfg.hParams = {'celsius': 34, 'v_init': -65}  
 cfg.verbose = False
@@ -144,7 +144,7 @@ elif cfg.cellsrec == 2: # record one cell of each cellMEtype # need more test!!!
 cfg.recordTraces = {'V_soma': {'sec':'soma', 'loc':0.5, 'var':'v'}}  ## Dict with traces to record
 cfg.recordStim = False			
 cfg.recordTime = True
-cfg.recordStep = 0.1
+cfg.recordStep = cfg.dt
 
 # setting up current dipole recordings
 #  based on https://github.com/NathanKlineInstitute/A1/blob/salva_layers/cfg.py
@@ -155,7 +155,7 @@ cfg.saveDipoleCells = ['all']
 #------------------------------------------------------------------------------
 # Saving
 #------------------------------------------------------------------------------
-cfg.simLabel = '22mar22_LDA'
+cfg.simLabel = '23mar22_LDA'
 cfg.saveFolder = '../data/'+cfg.simLabel
 # cfg.filename =                	## Set file output name
 cfg.savePickle = True         	## Save pkl file
