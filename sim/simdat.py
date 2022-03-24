@@ -1,6 +1,7 @@
 import pickle
 from pylab import *
 import matplotlib.patches as mpatches
+import scipy
 tl=tight_layout
 ion()
 totalDur = 0
@@ -101,13 +102,26 @@ def drawcellVm (simConfig, ldrawpop=None,tlim=None, lclr=None):
   ax.legend(handles=lpatch,handlelength=1,loc='best')
   if tlim is not None: ax.set_xlim(tlim)
 
-def save_dipoles_matlab (outfn):
+def IsCortical (ty): return ty.startswith('L') and ty.count('_') > 0
+
+def IsThal (ty): return not IsCortical(ty)
+
+def GetCellType (idx, dnumc, dstartidx, dendidx):
+  for ty in dnumc.keys():
+    if idx >= dstartidx[ty] and idx <= dendidx[ty]: return ty
+  return -1
+
+def GetCellCoords (simConfig, idx): return [simConfig['net']['cells'][idx]['tags'][k] for k in ['x','y','z']]
+
+def save_dipoles_matlab (outfn, simConfig, sdat, dnumc, dstartidx, dendidx):
   # save dipoles in matlab format to file outfn
   # adapting (not done yet) from https://github.com/NathanKlineInstitute/A1/blob/salva_layers/analysis/disc_grant.py#L368
-  sizeY = 2082.0
-  cellPos = [[c.tags['x'], sizeY-c.tags['y'],c.tags['z']] for c in sim.net.cells if c.gid <=12186]
-  cellDipoles = [sim.allSimData['dipoleCells'][i] for i in range(12187)]
-  cellPops = [c.tags['pop'] for c in sim.net.cells if c.gid <=12186]
-  matDat = {'cellPos': cellPos, 'cellPops': cellPops, 'cellDipoles': cellDipoles, 'dipoleSum': sim.allSimData['dipoleSum']}
-  scipy.io.savemat(outfn, matDat)
+  from scipy import io
+  lidx = list(sdat['dipoleCells'].keys())
+  lty = [GetCellType(idx,dnumc,dstartidx,dendidx) for idx in lidx]
+  lcort = [IsCortical(ty) for ty in lty]    
+  cellPos = [GetCellCoords(simConfig,idx) for idx in lidx]
+  cellDipoles = [sdat['dipoleCells'][idx] for idx in lidx]
+  matDat = {'cellPos': cellPos, 'cellPops': lty, 'cellDipoles': cellDipoles, 'dipoleSum': sdat['dipoleSum'], 'cortical': lcort}
+  io.savemat(outfn, matDat)
 

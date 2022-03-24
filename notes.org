@@ -2982,5 +2982,21 @@ ValueError: dictionary update sequence element #0 has length 3; 2 is required
 '1.0.2'
 
 
-** continue
+** continue - examine previous output
 
+make sure can get the x,y,z of each cortical cell ... as well as their dipoles ... 
+
+python -i simdat.py
+simname = '23mar22_LDA'; simConfig, sdat, dstartidx, dendidx, dnumc, dspkID, dspkT = loaddat(simname); drawraster(dspkT,dspkID)
+
+simConfig['net']['pops'].keys()
+
+sdat.keys()
+
+lidx = list(sdat['dipoleCells'].keys())
+lty = [GetCellType(idx,dnumc,dstartidx,dendidx) for idx in lidx]
+lcort = [IsCortical(ty) for ty in lty]
+simConfig['net']['cells'][0]['tags']['x']
+GetCellCoords(simConfig,0) # [18.89076276824184, 132.88113983393526, 3.298729009722557]
+
+save_dipoles_matlab('test.mat', simConfig, sdat, dnumc, dstartidx, dendidx)
