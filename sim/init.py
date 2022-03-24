@@ -27,7 +27,7 @@ sim.setupRecording()              			# setup variables to record for each cell (
 sim.runSim()                      			# run parallel Neuron simulation  
 
 # distributed saving (to avoid errors with large output data)
-distributedSave = False # True
+distributedSave = True
 
 if distributedSave:
   sim.saveDataInNodes()

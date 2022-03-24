@@ -2947,3 +2947,40 @@ savefig('gif/23mar22_dpl_b4.png')
 
 looks good, no artifacts ... as for firing rates, some populations look low ... 
 
+* 24mar22
+** install dev branch of netpyne (has some fixes to gatherData, gatherDataFromFiles)
+
+cd ~
+git clone git@github.com:Neurosim-lab/netpyne.git
+cd netpyne
+git checkout development
+pip install -e .
+
+** try dev branch of netpyne -- to check if gatherDataFromFiles works with the dipoles
+
+cd ~/S1_netpyne/sim
+
+mpiexec -n 60 --use-hwthread-cpus nrniv -python -mpi init.py
+
+get same error
+
+  Done; saving time = 0.26 s.
+
+Searching for .pkl node files in ../data/24mar22_LDA/24mar22_LDA_node_data ...
+
+Gathering data from files for simulation: 24mar22_LDA ...
+  Merging data file: 24mar22_LDA_node_0.pkl
+>>> 
+Traceback (most recent call last):
+  File "init.py", line 34, in <module>
+    sim.gatherDataFromFiles()
+  File "/home/samn/netpyne/netpyne/sim/gather.py", line 473, in gatherDataFromFiles
+    allSimData[key].update(value)
+ValueError: dictionary update sequence element #0 has length 3; 2 is required
+>>> import netpyne
+>>> netpyne.__version__
+'1.0.2'
+
+
+** continue
+
