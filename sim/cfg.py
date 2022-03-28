@@ -24,7 +24,7 @@ cfg = specs.SimConfig()
 # Run parameters
 #------------------------------------------------------------------------------
 #cfg.duration = 5.0*1e3 ## Duration of the sim, in ms
-cfg.duration = 300 ## Duration of the sim, in ms  
+cfg.duration = 3000 # 3000 ## Duration of the sim, in ms  
 cfg.dt = 0.1 # 0.025
 cfg.seeds = {'conn': 4322, 'stim': 4322, 'loc': 4322} 
 cfg.hParams = {'celsius': 34, 'v_init': -65}  
@@ -155,7 +155,7 @@ cfg.saveDipoleCells = ['all']
 #------------------------------------------------------------------------------
 # Saving
 #------------------------------------------------------------------------------
-cfg.simLabel = '24mar22_LDA'
+cfg.simLabel = '28mar22_StimVPL_LDA'
 cfg.saveFolder = '../data/'+cfg.simLabel
 # cfg.filename =                	## Set file output name
 cfg.savePickle = True         	## Save pkl file
@@ -304,34 +304,31 @@ if cfg.addNetStim:
 #------------------------------------------------------------------------------
 # Targeted NetStim inputs 
 #------------------------------------------------------------------------------
-cfg.addTargetedNetStim=False
+cfg.addTargetedNetStim = True # False
 if cfg.addTargetedNetStim:
-    
+    cfg.stimRate = 3.0
     cfg.startStimTime=None
     cfg.stimPop = None
-    cfg.netWeight           = 20
+    cfg.netWeight           = 25e3 # 25e3 is superthreshold; 10e3 is subthreshold but very strong
     # cfg.startStimTime1      = 2000
-    cfg.numStims            = 15
-    cfg.interStimInterval   = 75 #125#1000/5
+    cfg.numStims            = cfg.stimRate * int(cfg.duration/1e3 - 2)
+    cfg.interStimInterval   = 1e3/cfg.stimRate 
 
-    cfg.numOfTargetCells=100
+    cfg.numOfTargetCells = 22 # 100
 
     cfg.TargetedNetStim1= { 
                         'pop':              'VPL_sTC', 
                         # 'pop':              cfg.stimPop, 
-                        'ynorm':            [0,1], 
+                        # 'ynorm':            [0,1], 
                         'sec':              'soma', 
                         'loc':              0.5, 
                         'synMech':          ['AMPA_Th'], 
                         'synMechWeightFactor': [1.0],
-                        'start':            1500, 
+                        'start':            1000, 
                         'interval':         cfg.interStimInterval, 
-                        'noise':            1, 
+                        'noise':            0.0, 
                         'number':           cfg.numStims, 
                         'weight':           cfg.netWeight, 
                         'delay':            0,
-                        # 'targetCells':      [0]
-                        # 'targetCells':      list(range(0,10,1))
                         'targetCells':      list(range(0,cfg.numOfTargetCells,1))
-                        # 'targetCells':      [0,50,500,900]
-                        }
+    }

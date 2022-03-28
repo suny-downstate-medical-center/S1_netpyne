@@ -3000,3 +3000,33 @@ simConfig['net']['cells'][0]['tags']['x']
 GetCellCoords(simConfig,0) # [18.89076276824184, 132.88113983393526, 3.298729009722557]
 
 save_dipoles_matlab('test.mat', simConfig, sdat, dnumc, dstartidx, dendidx)
+
+* 28mar22
+** try thal stim
+
+VPL_sTC
+
+cfg.addTargetedNetStim
+
+start at 1000 ... apply 3Hz stims (3 times), then turn off and run until t=3000
+try with noise=0.25
+
+weights have to be pretty high ... original placeholder value of 20 way too low to get any kind
+of response ... ~10e3 - 25e3 gets a strong response ... 10e3 is sub-threshold but strong
+and 25e3 is superthreshold
+
+mpiexec -n 60 --use-hwthread-cpus nrniv -python -mpi init.py
+
+python -i simdat.py
+simname = '28mar22_StimVPL_LDA'; simConfig, sdat, dstartidx, dendidx, dnumc, dspkID, dspkT = loaddat(simname); drawraster(dspkT,dspkID)
+plot([0,3e3],[dstartidx['VPL_sTC'],dstartidx['VPL_sTC']],'k--',linewidth=4)
+plot([0,3e3],[dendidx['VPL_sTC'],dendidx['VPL_sTC']],'k--',linewidth=4)
+figure(); plot(sdat['t'],sdat['V_soma']['cell_'+str(dstartidx['VPL_sTC'])])
+
+ok, can see a response in VPL_sTC, but not much spreading elsewhere ...
+
+[[/home/samn/S1_netpyne/sim/gif/28mar22_rast_a0.png]]
+[[/home/samn/S1_netpyne/sim/gif/28mar22_cell_a1.png]]
+
+try 10 s sim ... 
+

@@ -939,6 +939,7 @@ if cfg.addNetStim:
 # Targeted NetStim inputs - FROM CFG.PY
 #------------------------------------------------------------------------------
 if cfg.addTargetedNetStim:
+    # print('adding Targeted NetStim')
     for key in [k for k in dir(cfg) if k.startswith('TargetedNetStim')]:
         params = getattr(cfg, key, None)
         [pop, sec, loc, synMech, synMechWeightFactor, start, interval, noise, number, weight, delay, targetCells] = \
@@ -946,6 +947,7 @@ if cfg.addTargetedNetStim:
 
         #cfg.analysis['plotTraces']['include'] = [(pop,0)]
 
+        # print('adding stim for ', pop, sec, loc, synMech, start, interval, noise, number, weight, delay, len(targetCells))
         if synMech == ESynMech:
             wfrac = cfg.synWeightFractionEE
         else:
