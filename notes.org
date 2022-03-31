@@ -3126,3 +3126,82 @@ ok, looks like some synchronization of POm driving most of the propagation from 
 ~5 s until start stimulation ... could run 15 s sim, with 5 s initialization, and 10 s of stimulation, then 5 s w/o
 further stimulation ... 
 
+** apply vb patch for distributed save, relevant for dipoles
+
+put this into ~/netpyne/dipoleSum.patch:
+
+diff --git a/netpyne/sim/gather.py b/netpyne/sim/gather.py
+index f093ecbd..598cafa7 100644
+--- a/netpyne/sim/gather.py
++++ b/netpyne/sim/gather.py
+@@ -469,6 +469,12 @@ def gatherDataFromFiles(gatherLFP=True, saveFolder=None, simLabel=None, sim=None
+                             for p in value:
+                                 allSimData['LFPPops'][p] += np.array(value[p])
+ 
++                        elif key == 'dipoleSum':
++                            if key not in allSimData.keys():
++                                allSimData[key] = value
++                            else:
++                                allSimData[key] += value
++
+                         elif key not in singleNodeVecs:
+                             allSimData[key].update(value)
+
+then
+
+cd ~/netpyne
+git apply dipoleSum.patch
+ 
+** test VPL stim in longer simulation
+
+15 s simulation, 5 s of stimulation in middle 5 s ... hmm, that crashes in gatherdata ... try with
+vb patch above for distributed save ... ok , applied patch, can try again 
+(... to avoid initial synchronization transient could adjust
+netstims to start at random times during first few s ...)
+
+./myrun 60
+
+ok, with the fix, distributed saving works ... 
+
+python -i simdat.py
+simname = '31mar22_LDA'; simConfig, sdat, dstartidx, dendidx, dnumc, dspkID, dspkT = loaddat(simname); drawraster(dspkT,dspkID)
+plot([0,totalDur],[dstartidx['VPL_sTC'],dstartidx['VPL_sTC']],'k--',linewidth=2)
+plot([0,totalDur],[dendidx['VPL_sTC'],dendidx['VPL_sTC']],'k--',linewidth=2)
+savefig('gif/31mar22_rast_d0.png')
+
+for ty in ['VPM_sTC', 'VPL_sTC', 'L4_PC_cAD']: print(ty,getrate(dspkT,dspkID,ty,dnumc))
+
+for ty,clr in zip(['VPM_sTC', 'VPL_sTC','L4_PC_cAD'],['g','b','r']): plot(sdat['t'],sdat['V_soma']['cell_'+str(dstartidx[ty])],clr)
+savefig('gif/31mar22_Vm_d1.png')
+
+simname = '31mar22_LDA'
+d = pickle.load(open('31mar22_LDA_data.pkl','rb'))
+for p in d['net']['pops'].keys(): print(p,d['net']['pops'][p]['numCells'],len(d['net']['pops'][p]['cellGids']))
+
+hmm, some discrepancy in the len of cellGids and the number of cells . . . 
+
+may try starting netstims at different times ... 
+
+first will try run for 10 s ... w/o distributed save. and only have stim for last 5 s.
+
+./myrun 60
+
+python -i simdat.py
+simname = '31mar22_LDA'; simConfig, sdat, dstartidx, dendidx, dnumc, dspkID, dspkT = loaddat(simname); drawraster(dspkT,dspkID)
+plot([0,totalDur],[dstartidx['VPL_sTC'],dstartidx['VPL_sTC']],'k--',linewidth=2)
+plot([0,totalDur],[dendidx['VPL_sTC'],dendidx['VPL_sTC']],'k--',linewidth=2)
+savefig('gif/31mar22_rast_d0.png')
+
+looks rhythmic already ... 
+
+for ty in ['VPM_sTC', 'VPL_sTC', 'L4_PC_cAD']: print(ty,getrate(dspkT,dspkID,ty,dnumc))
+
+VPM_sTC 2.007142857142857
+VPL_sTC 2.227272727272727
+L4_PC_cAD 1.1736842105263159
+
+for ty,clr in zip(['VPM_sTC', 'VPL_sTC','L4_PC_cAD'],['g','b','r']): plot(sdat['t'],sdat['V_soma']['cell_'+str(dstartidx[ty])],clr)
+savefig('gif/31mar22_Vm_d1.png')
+
+can try lower strength off / off stim too ...
+

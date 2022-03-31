@@ -914,11 +914,12 @@ if cfg.addNetStim:
             wfrac = [1.0]
 
         # add stim source
-        netParams.stimSourceParams[key] = { 'type':     'NetStim', 
-                                            'start':    cfg.startStimTime       if cfg.startStimTime is not None        else start, 
-                                            'interval': cfg.interStimInterval   if cfg.interStimInterval is not None    else interval, 
-                                            'noise':    noise, 
-                                            'number':   cfg.numStims            if cfg.numStims is not None             else number}
+        netParams.stimSourceParams[key] = {
+            'type': 'NetStim', 
+            'start': cfg.startStimTime if cfg.startStimTime is not None else start, 
+            'interval': cfg.interStimInterval if cfg.interStimInterval is not None else interval, 
+            'noise': noise, 
+            'number': cfg.numStims if cfg.numStims is not None else number}
 
         # netParams.stimSourceParams[key] = {'type': 'NetStim', 'start': start, 'interval': interval, 'noise': noise, 'number': number}
 

@@ -24,7 +24,7 @@ cfg = specs.SimConfig()
 # Run parameters
 #------------------------------------------------------------------------------
 #cfg.duration = 5.0*1e3 ## Duration of the sim, in ms
-cfg.duration = 15000 # 3000 ## Duration of the sim, in ms  
+cfg.duration = 10000 # 3000 ## Duration of the sim, in ms  
 cfg.dt = 0.1 # 0.025
 cfg.seeds = {'conn': 4322, 'stim': 4322, 'loc': 4322} 
 cfg.hParams = {'celsius': 34, 'v_init': -65}  
@@ -289,47 +289,50 @@ if cfg.addNetStim:
     cfg.startStimTime = 0
     cfg.interStimInterval=0.1
 
-    cfg.NetStim1    = { 'pop':              'VPM_sTC', 
-                        'ynorm':            [0,1], 
-                        'sec':              'soma', 
-                        'loc':              0.5, 
-                        'synMech':          ['AMPA_Th'], 
-                        'synMechWeightFactor': [1.0],
-                        'start':            cfg.startStimTime, 
-                        'interval':         cfg.interStimInterval, 
-                        'noise':            1, 
-                        'number':           cfg.numStims, 
-                        'weight':           cfg.netWeight, 
-                        'delay':            0}
+    cfg.NetStim1    = {
+        'pop':              'VPM_sTC', 
+        'ynorm':            [0,1], 
+        'sec':              'soma', 
+        'loc':              0.5, 
+        'synMech':          ['AMPA_Th'], 
+        'synMechWeightFactor': [1.0],
+        'start':            cfg.startStimTime, 
+        'interval':         cfg.interStimInterval, 
+        'noise':            1, 
+        'number':           cfg.numStims, 
+        'weight':           cfg.netWeight, 
+        'delay':            0
+    }
 
 #------------------------------------------------------------------------------
 # Targeted NetStim inputs 
 #------------------------------------------------------------------------------
 cfg.addTargetedNetStim = True # False
 if cfg.addTargetedNetStim:
+    cfg.stimDuration = 5.0
     cfg.stimRate = 3.0
     cfg.startStimTime=None
     cfg.stimPop = None
     cfg.netWeight           = 25e3 # 25e3 is superthreshold; 10e3 is subthreshold but very strong
     # cfg.startStimTime1      = 2000
-    cfg.numStims            = cfg.stimRate * int(cfg.duration/1e3 - 2)
+    cfg.numStims            = cfg.stimRate * int(cfg.stimDuration/1e3) 
     cfg.interStimInterval   = 1e3/cfg.stimRate 
 
     cfg.numOfTargetCells = 22 # 100
 
     cfg.TargetedNetStim1= { 
-                        'pop':              'VPL_sTC', 
-                        # 'pop':              cfg.stimPop, 
-                        # 'ynorm':            [0,1], 
-                        'sec':              'soma', 
-                        'loc':              0.5, 
-                        'synMech':          ['AMPA_Th'], 
-                        'synMechWeightFactor': [1.0],
-                        'start':            5000, 
-                        'interval':         cfg.interStimInterval, 
-                        'noise':            0.0, 
-                        'number':           cfg.numStims, 
-                        'weight':           cfg.netWeight, 
-                        'delay':            0,
-                        'targetCells':      list(range(0,cfg.numOfTargetCells,1))
+        'pop':              'VPL_sTC', 
+        # 'pop':              cfg.stimPop, 
+        # 'ynorm':            [0,1], 
+        'sec':              'soma', 
+        'loc':              0.5, 
+        'synMech':          ['AMPA_Th'], 
+        'synMechWeightFactor': [1.0],
+        'start':            5000, 
+        'interval':         cfg.interStimInterval, 
+        'noise':            0.0, 
+        'number':           cfg.numStims, 
+        'weight':           cfg.netWeight, 
+        'delay':            0,
+        'targetCells':      list(range(0,cfg.numOfTargetCells,1))
     }
