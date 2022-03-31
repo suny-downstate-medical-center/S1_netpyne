@@ -3030,3 +3030,99 @@ ok, can see a response in VPL_sTC, but not much spreading elsewhere ...
 
 try 10 s sim ... 
 
+mpiexec -n 60 --use-hwthread-cpus nrniv -python -mpi init.py
+
+* 31mar22
+** check output of thal stim simulation
+
+python -i simdat.py
+simname = '28mar22_StimVPL_LDA'; simConfig, sdat, dstartidx, dendidx, dnumc, dspkID, dspkT = loaddat(simname); drawraster(dspkT,dspkID)
+
+plot([0,10e3],[dstartidx['VPL_sTC'],dstartidx['VPL_sTC']],'k--',linewidth=4)
+plot([0,10e3],[dendidx['VPL_sTC'],dendidx['VPL_sTC']],'k--',linewidth=4)
+savefig('gif/31mar22_rast_a0.png')
+
+ok, stim seems to be working properly ... might be some spread to ctx ... can see patterned activity at the
+stimulation rate ... though since populations are small, somewhat difficult to see in the raster
+
+figure(); plot(sdat['t'],sdat['V_soma']['cell_'+str(dstartidx['VPL_sTC'])])
+savefig('gif/31mar22_VPL_Vm_a1.png')
+
+also check a layer 4 pyramidal cell
+dnumc['L4_PC_cAD'] # 19
+
+ty='L4_PC_cAD'; plot(sdat['t'],sdat['V_soma']['cell_'+str(dstartidx[ty])],'r')
+savefig('gif/31mar22_VPL_L4_PC_Vm_a2.png')
+
+getrate(dspkT,dspkID,ty,dnumc) # 0.9210526315789473
+getrate(dspkT,dspkID,'VPL_sTC',dnumc) # 4.109090909090909
+
+for ty in ['VPL_sTC', 'L4_PC_cAD']: print(ty,getrate(dspkT,dspkID,ty,dnumc))
+
+VPL_sTC   4.109090909090909
+L4_PC_cAD 0.9210526315789473
+
+ok, and compare firing rates to simulation w/o stimulation ... 
+
+python -i simdat.py
+simname = '23mar22_LDA'; simConfig, sdat, dstartidx, dendidx, dnumc, dspkID, dspkT = loaddat(simname); drawraster(dspkT,dspkID)
+
+for ty in ['VPL_sTC', 'L4_PC_cAD']: print(ty,getrate(dspkT,dspkID,ty,dnumc))
+
+VPL_sTC 1.1045454545454545
+L4_PC_cAD 0.9210526315789473
+
+hmm, VPL firing rate is lower w/o VPL stimulation, but L4 firing rates same ... so that means activity
+is not propagating from thal -> S1 ... 
+
+savefig('gif/31mar22_VPL_L4_PC_Vm_a3.png')
+
+that might be due to lower number of thal cells in reduced model ... so could scale up the weights from thal -> S1 ... 
+
+** new param cfg.Th_S1_Gain 
+
+this scales synaptic weights from Th -> S1 (used in netParams.py)
+
+** test increase cfg.Th_S1_Gain
+*** with cfg.Th_S1_Gain == 10
+
+./myrun 60 
+
+python -i simdat.py
+simname = '31mar22_LDA'; simConfig, sdat, dstartidx, dendidx, dnumc, dspkID, dspkT = loaddat(simname); drawraster(dspkT,dspkID)
+plot([0,totalDur],[dstartidx['VPL_sTC'],dstartidx['VPL_sTC']],'k--',linewidth=2)
+plot([0,totalDur],[dendidx['VPL_sTC'],dendidx['VPL_sTC']],'k--',linewidth=2)
+savefig('gif/31mar22_rast_b0.png')
+
+for ty in ['VPL_sTC', 'L4_PC_cAD']: print(ty,getrate(dspkT,dspkID,ty,dnumc))
+VPL_sTC 3.742424242424242
+L4_PC_cAD 2.017543859649123
+
+ok, now there's strong rhythmic thalamocortical propagation ... but stim of VPL not making much of a change to
+overall pattern ... 
+
+for ty,clr in zip(['VPL_sTC','L4_PC_cAD'],['b','r']): plot(sdat['t'],sdat['V_soma']['cell_'+str(dstartidx[ty])],clr)
+savefig('gif/31mar22_Vm_b1.png')
+
+*** with cfg.Th_S1_Gain == 5
+
+./myrun 60
+
+python -i simdat.py
+simname = '31mar22_LDA'; simConfig, sdat, dstartidx, dendidx, dnumc, dspkID, dspkT = loaddat(simname); drawraster(dspkT,dspkID)
+plot([0,totalDur],[dstartidx['VPL_sTC'],dstartidx['VPL_sTC']],'k--',linewidth=2)
+plot([0,totalDur],[dendidx['VPL_sTC'],dendidx['VPL_sTC']],'k--',linewidth=2)
+savefig('gif/31mar22_rast_c0.png')
+
+for ty in ['VPM_sTC', 'VPL_sTC', 'L4_PC_cAD']: print(ty,getrate(dspkT,dspkID,ty,dnumc))
+VPM_sTC 3.3333333333333335
+VPL_sTC 3.606060606060606
+L4_PC_cAD 1.4385964912280702
+
+for ty,clr in zip(['VPM_sTC', 'VPL_sTC','L4_PC_cAD'],['g','b','r']): plot(sdat['t'],sdat['V_soma']['cell_'+str(dstartidx[ty])],clr)
+savefig('gif/31mar22_Vm_c1.png')
+
+ok, looks like some synchronization of POm driving most of the propagation from TC -> S1; so should probably wait
+~5 s until start stimulation ... could run 15 s sim, with 5 s initialization, and 10 s of stimulation, then 5 s w/o
+further stimulation ... 
+

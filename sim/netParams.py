@@ -793,7 +793,7 @@ if cfg.connect_Th_S1:
                 netParams.connParams['thal_'+pre+'_'+post] = { 
                     'preConds': {'pop': pre}, 
                     'postConds': {'pop': cfg.popLabelEl[post]},
-                    'weight': 0.19,   # synaptic weight 
+                    'weight': 0.19 * cfg.Th_S1_Gain,   # synaptic weight 
                     'sec': 'spinyEE', # target postsyn section
                     'delay': 'defaultDelay+dist_3D/propVelocity',
                     'synsPerConn': int(synapsesperconnection_Th_S1), 

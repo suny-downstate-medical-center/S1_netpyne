@@ -24,7 +24,7 @@ cfg = specs.SimConfig()
 # Run parameters
 #------------------------------------------------------------------------------
 #cfg.duration = 5.0*1e3 ## Duration of the sim, in ms
-cfg.duration = 3000 # 3000 ## Duration of the sim, in ms  
+cfg.duration = 15000 # 3000 ## Duration of the sim, in ms  
 cfg.dt = 0.1 # 0.025
 cfg.seeds = {'conn': 4322, 'stim': 4322, 'loc': 4322} 
 cfg.hParams = {'celsius': 34, 'v_init': -65}  
@@ -155,7 +155,7 @@ cfg.saveDipoleCells = ['all']
 #------------------------------------------------------------------------------
 # Saving
 #------------------------------------------------------------------------------
-cfg.simLabel = '28mar22_StimVPL_LDA'
+cfg.simLabel = '31mar22_LDA'
 cfg.saveFolder = '../data/'+cfg.simLabel
 # cfg.filename =                	## Set file output name
 cfg.savePickle = True         	## Save pkl file
@@ -216,6 +216,7 @@ cfg.EEGain = 1.0
 cfg.EIGain = 1.0
 cfg.IIGain = 1.0
 cfg.IEGain = 1.0
+cfg.Th_S1_Gain = 5.0 # gain of synaptic weights from thal -> S1
 
 #------------------------------------------------------------------------------
 ## Th->Th 
@@ -324,7 +325,7 @@ if cfg.addTargetedNetStim:
                         'loc':              0.5, 
                         'synMech':          ['AMPA_Th'], 
                         'synMechWeightFactor': [1.0],
-                        'start':            1000, 
+                        'start':            5000, 
                         'interval':         cfg.interStimInterval, 
                         'noise':            0.0, 
                         'number':           cfg.numStims, 
