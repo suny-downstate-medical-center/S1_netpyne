@@ -24,7 +24,7 @@ cfg = specs.SimConfig()
 # Run parameters
 #------------------------------------------------------------------------------
 #cfg.duration = 5.0*1e3 ## Duration of the sim, in ms
-cfg.duration = 10000 # 3000 ## Duration of the sim, in ms  
+cfg.duration = 15000 # 3000 ## Duration of the sim, in ms  
 cfg.dt = 0.1 # 0.025
 cfg.seeds = {'conn': 4322, 'stim': 4322, 'loc': 4322} 
 cfg.hParams = {'celsius': 34, 'v_init': -65}  
@@ -105,12 +105,11 @@ cfg.cellNumber['VPM_sTC'] = int(839 * (210**2/150**2))
 cfg.cellNumber['POm_sTC_s1'] = int(685 * (210**2/150**2))
 
 for mtype in cfg.thalamicpops: # No diversity
-	metype = mtype
-	popParam.append(mtype)
-	cfg.popLabel[metype] = mtype
-	cellParam.append(metype)
-
-	cfg.popNumber[mtype] = cfg.cellNumber[metype]
+  metype = mtype
+  popParam.append(mtype)
+  cfg.popLabel[metype] = mtype
+  cellParam.append(metype)
+  cfg.popNumber[mtype] = cfg.cellNumber[metype]
 
 #------------------------------------------------------------------------------  
 cfg.popParamLabels = popParam
@@ -149,13 +148,13 @@ cfg.recordStep = cfg.dt
 # setting up current dipole recordings
 #  based on https://github.com/NathanKlineInstitute/A1/blob/salva_layers/cfg.py
 cfg.recordDipole = True
-cfg.saveDipoleCells = ['all']
+cfg.saveDipoleCells = cfg.S1cells # ['all']
 # cfg.saveDipolePops = cfg.allpops
 
 #------------------------------------------------------------------------------
 # Saving
 #------------------------------------------------------------------------------
-cfg.simLabel = '31mar22_LDA'
+cfg.simLabel = '1apr22_LD_StimHigh'
 cfg.saveFolder = '../data/'+cfg.simLabel
 # cfg.filename =                	## Set file output name
 cfg.savePickle = True         	## Save pkl file
@@ -309,7 +308,7 @@ if cfg.addNetStim:
 #------------------------------------------------------------------------------
 cfg.addTargetedNetStim = True # False
 if cfg.addTargetedNetStim:
-    cfg.stimDuration = 5.0
+    cfg.stimDuration = 5e3
     cfg.stimRate = 3.0
     cfg.startStimTime=None
     cfg.stimPop = None

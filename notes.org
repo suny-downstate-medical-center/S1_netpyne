@@ -3205,3 +3205,44 @@ savefig('gif/31mar22_Vm_d1.png')
 
 can try lower strength off / off stim too ...
 
+* 1apr22
+** setup only record dipoles from S1
+
+this might work, in netParams.py:
+if cfg.recordDipole: cfg.saveDipoleCells = cfg.S1pops
+
+./myrun 60
+
+hmm, that does not work ... 
+
+Traceback (most recent call last):
+  File "init.py", line 26, in <module>
+    sim.setupRecording()              			# setup variables to record for each cell (spikes, V traces, etc)
+  File "/home/samn/netpyne/netpyne/sim/setup.py", line 518, in setupRecording
+    setupRecordDipole()
+  File "/home/samn/netpyne/netpyne/sim/setup.py", line 377, in setupRecordDipole
+    cellsRecordDipole = utils.getCellsList(sim.cfg.saveDipoleCells)
+  File "/home/samn/netpyne/netpyne/sim/utils.py", line 98, in getCellsList
+    cellGids.extend(list(sim.net.pops[condition].cellGids))
+  File "/home/samn/netpyne/netpyne/specs/dicts.py", line 197, in __getitem__
+    return super(ODict, self).__getitem__(k)
+KeyError: 'L1_DLAC'
+
+L1_DAC causes a key error ... are there no L1_DAC cells??
+happens for all of the populations ... ah, error since sim.net.pops not setup yet
+during init.py ?? no, have createPops, createCells before ... maybe error since
+not all pops exist on each node ?
+
+no, was not using full population name ... need to do like this:
+if cfg.recordDipole: cfg.saveDipoleCells = cfg.S1cells
+
+cfg.S1cells has full cell type name ...
+
+so, that works ... 
+
+ok, try that for 15 s ... 
+
+** try 15 s sim again, with stimulation for 5 s
+
+./myrun 60
+

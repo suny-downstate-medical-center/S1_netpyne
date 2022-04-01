@@ -1,7 +1,7 @@
 """
 init.py
 
-Starting script to run NetPyNE-basedS1 model.
+Starting script to run NetPyNE-based S1 model.
 
 Usage:
     python init.py # Run simulation, optionally plot a raster
@@ -16,13 +16,12 @@ import matplotlib; matplotlib.use('Agg')  # to avoid graphics error in servers
 from netpyne import sim
 
 cfg, netParams = sim.readCmdLineArgs()
-sim.initialize(
-    simConfig = cfg, 	
-    netParams = netParams)  				# create network object and set cfg and net params
+sim.initialize(simConfig = cfg, netParams = netParams)  # create network object and set cfg and net params
 sim.net.createPops()               			# instantiate network populations
 sim.net.createCells()              			# instantiate network cells based on defined populations
 sim.net.connectCells()            			# create connections between cells based on params
 sim.net.addStims() 							# add network stimulation
+# sim._gatherAllCellTags()
 sim.setupRecording()              			# setup variables to record for each cell (spikes, V traces, etc)
 sim.runSim()                      			# run parallel Neuron simulation  
 

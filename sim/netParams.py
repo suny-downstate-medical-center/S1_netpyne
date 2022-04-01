@@ -46,7 +46,6 @@ netParams.shape = 'cylinder' # cylindrical (column-like) volume
 # L23	502		    0.241		    0.079	0.320
 # All	2082	    1.000	
 
-
 cellModels = ['HH_full']
 Epops = ['L23_PC', 'L4_PC', 'L4_SS', 'L4_SP', 
              'L5_TTPC1', 'L5_TTPC2', 'L5_STPC', 'L5_UTPC',
