@@ -3246,3 +3246,92 @@ ok, try that for 15 s ...
 
 ./myrun 60
 
+ok, that ran w/o crashing...
+
+python -i simdat.py
+simname = '1apr22_LD_StimHigh'; simConfig, sdat, dstartidx, dendidx, dnumc, dspkID, dspkT = loaddat(simname); drawraster(dspkT,dspkID)
+plot([0,totalDur],[dstartidx['VPL_sTC'],dstartidx['VPL_sTC']],'k--',linewidth=2)
+plot([0,totalDur],[dendidx['VPL_sTC'],dendidx['VPL_sTC']],'k--',linewidth=2)
+savefig('gif/1apr22_rast_a0.png')
+
+seems like rhythmic activity already present ... so, a bit difficult to distinguish from stimulus
+maybe worth doubling stimulus rate ... or the weights from VPL -> S1 ... 
+
+for ty in ['VPM_sTC', 'VPL_sTC', 'L4_PC_cAD']: print(ty,getrate(dspkT,dspkID,ty,dnumc))
+
+VPM_sTC 1.9404761904761905
+VPL_sTC 2.1484848484848484
+L4_PC_cAD 1.119298245614035
+
+for ty,clr in zip(['VPM_sTC', 'VPL_sTC','L4_PC_cAD'],['g','b','r']): plot(sdat['t'],sdat['V_soma']['cell_'+str(dstartidx[ty])],clr)
+
+savefig('gif/1apr22_Vm_a1.png')
+
+for ty in ['VPM_sTC', 'VPL_sTC', 'L4_PC_cAD']:
+  for tlim in [(1e3,5e3),(5e3,10e3),(10e3,15e3)]:
+    print('tlim:',np.array(tlim)/1e3,ty,getrate(dspkT,dspkID,ty,dnumc,tlim=tlim))
+
+tlim: [1. 5.]   VPM_sTC 3.0982142857142856
+tlim: [ 5. 10.] VPM_sTC 1.0928571428571427
+tlim: [10. 15.] VPM_sTC 0.6214285714285714
+tlim: [1. 5.]   VPL_sTC 0.7045454545454546
+tlim: [ 5. 10.] VPL_sTC 4.709090909090909
+tlim: [10. 15.] VPL_sTC 0.5545454545454546
+tlim: [1. 5.]   L4_PC_cAD 1.0394736842105263
+tlim: [ 5. 10.] L4_PC_cAD 1.0526315789473684
+tlim: [10. 15.] L4_PC_cAD 1.0105263157894737
+
+barely any change in firing rates of non-stimulated populations ... may need to adjust Thal -> S1 weights further
+or use different stim rate ... will first try 6 Hz stim instead ... 
+
+./myrun 60
+
+python -i simdat.py
+simname = '1apr22_LD_StimHigh'; simConfig, sdat, dstartidx, dendidx, dnumc, dspkID, dspkT = loaddat(simname); drawraster(dspkT,dspkID)
+plot([0,totalDur],[dstartidx['VPL_sTC'],dstartidx['VPL_sTC']],'k--',linewidth=2)
+plot([0,totalDur],[dendidx['VPL_sTC'],dendidx['VPL_sTC']],'k--',linewidth=2)
+savefig('gif/1apr22_rast_a2.png')
+
+for ty in ['VPM_sTC', 'VPL_sTC', 'L4_PC_cAD']: print(ty,getrate(dspkT,dspkID,ty,dnumc))
+VPM_sTC 2.85
+VPL_sTC 2.790909090909091
+L4_PC_cAD 1.1298245614035087
+
+for ty,clr in zip(['VPM_sTC', 'VPL_sTC','L4_PC_cAD'],['g','b','r']): plot(sdat['t'],sdat['V_soma']['cell_'+str(dstartidx[ty])],clr)
+
+savefig('gif/1apr22_Vm_a3.png')
+
+for ty in ['VPM_sTC', 'VPL_sTC', 'L4_PC_cAD', 'L23_PC_cAD']:
+  for tlim in [(1e3,5e3),(5e3,10e3),(10e3,15e3)]:
+    print('tlim:',np.array(tlim)/1e3,ty,getrate(dspkT,dspkID,ty,dnumc,tlim=tlim))
+
+tlim: [1. 5.]   VPM_sTC 5.946428571428571
+tlim: [ 5. 10.] VPM_sTC 0.7428571428571429
+tlim: [10. 15.] VPM_sTC 0.9714285714285714
+tlim: [1. 5.]   VPL_sTC 0.7045454545454546
+tlim: [ 5. 10.] VPL_sTC 7.1
+tlim: [10. 15.] VPL_sTC 0.09090909090909091
+tlim: [1. 5.]   L4_PC_cAD 1.0394736842105263
+tlim: [ 5. 10.] L4_PC_cAD 1.0736842105263158
+tlim: [10. 15.] L4_PC_cAD 1.0210526315789474
+tlim: [1. 5.]   L23_PC_cAD 0.4146341463414634
+tlim: [ 5. 10.] L23_PC_cAD 0.526829268292683
+tlim: [10. 15.] L23_PC_cAD 0.3951219512195122
+
+hmm, VPL almost entirely off after the stim ... maybe due to ADP
+
+should S1 -> Thal weights increase too? 
+
+what happens w/o scaling thal down ... ? 
+
+** try less scaling down thal
+
+will probably crash in gatherdata ... 
+
+with 2x thal size of last time (scale down by 1/30 instead of 1/60)
+
+./myrun 60
+
+and a 3 s sim ... 6 Hz stim rate ... 
+and 2.5 X gain (instead of 5x) from Thal -> S1
+
