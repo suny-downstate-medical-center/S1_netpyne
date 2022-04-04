@@ -14,7 +14,11 @@ def loaddat (simname):
   totalDur = d['simConfig']['duration']
   dstartidx,dendidx={},{} # starting,ending indices for each population
   for p in simConfig['net']['params']['popParams'].keys():
-    if simConfig['net']['pops'][p]['tags']['numCells'] > 0:
+    if 'tags' in simConfig['net']['pops'][p]:
+      numCells = simConfig['net']['pops'][p]['tags']['numCells']
+    else:
+      numCells = simConfig['net']['pops'][p]['numCells']
+    if numCells > 0:
       dstartidx[p] = simConfig['net']['pops'][p]['cellGids'][0]
       dendidx[p] = simConfig['net']['pops'][p]['cellGids'][-1]
   dnumc = {}
@@ -55,7 +59,7 @@ def pravgrates (dspkT,dspkID,dnumc,tlim=None):
   for pop in dspkT.keys(): print(pop,round(getrate(dspkT,dspkID,pop,dnumc,tlim=tlim),2),'Hz')
 
 #
-def drawraster (dspkT,dspkID,tlim=None,msz=2,skipstim=True):
+def drawraster (dspkT,dspkID,tlim=None,msz=2,skipstim=True,drawlegend=False):
   # draw raster (x-axis: time, y-axis: neuron ID)
   lpop=list(dspkT.keys()); lpop.reverse()
   lpop = [x for x in lpop if not skipstim or x.count('stim')==0]  
@@ -69,10 +73,11 @@ def drawraster (dspkT,dspkID,tlim=None,msz=2,skipstim=True):
   else:
     xlim((0,totalDur))
   xlabel('Time (ms)')
-  #lclr.reverse(); 
-  lpatch = [mpatches.Patch(color=c,label=s+' '+str(round(getrate(dspkT,dspkID,s,dnumc,tlim=tlim),2))+' Hz') for c,s in zip(lclr,lpop)]
-  ax=gca()
-  ax.legend(handles=lpatch,handlelength=1,loc='best')
+  #lclr.reverse();
+  if drawlegend:
+    lpatch = [mpatches.Patch(color=c,label=s+' '+str(round(getrate(dspkT,dspkID,s,dnumc,tlim=tlim),2))+' Hz') for c,s in zip(lclr,lpop)]
+    ax=gca()
+    ax.legend(handles=lpatch,handlelength=1,loc='best')
   ylim((0,sum([dnumc[x] for x in lpop])))
 
 #
@@ -111,7 +116,11 @@ def GetCellType (idx, dnumc, dstartidx, dendidx):
     if idx >= dstartidx[ty] and idx <= dendidx[ty]: return ty
   return -1
 
-def GetCellCoords (simConfig, idx): return [simConfig['net']['cells'][idx]['tags'][k] for k in ['x','y','z']]
+def GetCellCoords (simConfig, idx):
+  if 'tags' in simConfig['net']['cells'][idx]:
+    return [simConfig['net']['cells'][idx]['tags'][k] for k in ['x','y','z']]
+  else:
+    return [simConfig['net']['cells'][idx][k] for k in ['x','y','z']]    
 
 def save_dipoles_matlab (outfn, simConfig, sdat, dnumc, dstartidx, dendidx):
   # save dipoles in matlab format to file outfn

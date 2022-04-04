@@ -3335,3 +3335,40 @@ with 2x thal size of last time (scale down by 1/30 instead of 1/60)
 and a 3 s sim ... 6 Hz stim rate ... 
 and 2.5 X gain (instead of 5x) from Thal -> S1
 
+3 s runs to completion ... 
+
+* 4apr22
+** suggestions from FB
+
+FB thinks in full scale model most of the S1 dynamics governed by
+spontaneous inputs and Thal -> S1 connectivity; tested by removing
+S1 <-> S1 connections and checking if dynamics differed (they did not)
+
+** next sims - larger thal
+
+keeping thal a little larger and original Thal -> S1 weights to test 
+first try w/o targeted stim, to see if synchrony in thal dissipates
+
+./myrun 60
+
+python -i simdat.py
+simname = '4apr22_LDA'; simConfig, sdat, dstartidx, dendidx, dnumc, dspkID, dspkT = loaddat(simname); drawraster(dspkT,dspkID)
+plot([0,totalDur],[dstartidx['VPL_sTC'],dstartidx['VPL_sTC']],'k--',linewidth=2)
+plot([0,totalDur],[dendidx['VPL_sTC'],dendidx['VPL_sTC']],'k--',linewidth=2)
+savefig('gif/4apr22_rast_a0.png')
+
+still a lot of thalamic synchrony, and still transfers (at least partially) to S1
+
+for ty in ['VPM_sTC', 'VPL_sTC', 'L4_PC_cAD']: print(ty,getrate(dspkT,dspkID,ty,dnumc))
+
+VPM_sTC 3.480722891566265
+VPL_sTC 3.4107692307692306
+L4_PC_cAD 0.9263157894736842
+
+for ty,clr in zip(['VPM_sTC', 'VPL_sTC','L4_PC_cAD'],['g','b','r']): plot(sdat['t'],sdat['V_soma']['cell_'+str(dstartidx[ty])],clr)
+
+savefig('gif/4apr22_Vm_a1.png')
+
+for ty in ['VPM_sTC', 'VPL_sTC', 'L4_PC_cAD', 'L23_PC_cAD']:
+  for tlim in [(1e3,5e3),(5e3,10e3),(10e3,15e3)]:
+    print('tlim:',np.array(tlim)/1e3,ty,getrate(dspkT,dspkID,ty,dnumc,tlim=tlim))

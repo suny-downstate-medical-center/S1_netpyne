@@ -24,7 +24,7 @@ cfg = specs.SimConfig()
 # Run parameters
 #------------------------------------------------------------------------------
 #cfg.duration = 5.0*1e3 ## Duration of the sim, in ms
-cfg.duration = 3000 # 3000 ## Duration of the sim, in ms  
+cfg.duration = 10000 # 3000 ## Duration of the sim, in ms  
 cfg.dt = 0.1 # 0.025
 cfg.seeds = {'conn': 4322, 'stim': 4322, 'loc': 4322} 
 cfg.hParams = {'celsius': 34, 'v_init': -65}  
@@ -154,7 +154,7 @@ cfg.saveDipoleCells = cfg.S1cells # ['all']
 #------------------------------------------------------------------------------
 # Saving
 #------------------------------------------------------------------------------
-cfg.simLabel = '1apr22_LDB_StimHigh'
+cfg.simLabel = '4apr22_LDA'
 cfg.saveFolder = '../data/'+cfg.simLabel
 # cfg.filename =                	## Set file output name
 cfg.savePickle = True         	## Save pkl file
@@ -192,7 +192,7 @@ cfg.sizeY = 2082.0
 cfg.sizeX = 420.0/myscalefctr # r = 210 um and hexagonal side length = 230.9 um
 cfg.sizeZ = 420.0/myscalefctr
 cfg.scaleDensity = 1.0/myscalefctr**2 # 1.0 # Number of cells = 31346
-cfg.scaleThal = 1.0/30.0 # 1.0/60.0 
+cfg.scaleThal = 1.0/20.0 # 1.0/60.0 
 
 #------------------------------------------------------------------------------
 # Spontaneous synapses + background - data from Rat
@@ -215,7 +215,7 @@ cfg.EEGain = 1.0
 cfg.EIGain = 1.0
 cfg.IIGain = 1.0
 cfg.IEGain = 1.0
-cfg.Th_S1_Gain = 2.5 # gain of synaptic weights from thal -> S1
+cfg.Th_S1_Gain = 1.0 # gain of synaptic weights from thal -> S1
 
 #------------------------------------------------------------------------------
 ## Th->Th 
@@ -306,7 +306,7 @@ if cfg.addNetStim:
 #------------------------------------------------------------------------------
 # Targeted NetStim inputs 
 #------------------------------------------------------------------------------
-cfg.addTargetedNetStim = True # False
+cfg.addTargetedNetStim = False
 if cfg.addTargetedNetStim:
     cfg.stimDuration = 1e3
     cfg.stimRate = 6.0
@@ -327,7 +327,7 @@ if cfg.addTargetedNetStim:
         'loc':              0.5, 
         'synMech':          ['AMPA_Th'], 
         'synMechWeightFactor': [1.0],
-        'start':            2000, 
+        'start':            1000, 
         'interval':         cfg.interStimInterval, 
         'noise':            0.0, 
         'number':           cfg.numStims, 
