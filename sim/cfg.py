@@ -150,7 +150,7 @@ cfg.saveDipoleCells = cfg.S1cells # ['all']
 #------------------------------------------------------------------------------
 # Saving
 #------------------------------------------------------------------------------
-cfg.simLabel = '5apr22_StrongStimVPL3Hz_LDA'
+cfg.simLabel = '5apr22_Stim_LDA'
 cfg.saveFolder = '../data/'+cfg.simLabel
 # cfg.filename =                	## Set file output name
 cfg.savePickle = True         	## Save pkl file
@@ -211,8 +211,8 @@ cfg.EEGain = 1.0
 cfg.EIGain = 1.0
 cfg.IIGain = 1.0
 cfg.IEGain = 1.0
-cfg.Th_S1_Gain = 1.5 # gain of synaptic weights from Thal -> S1
-cfg.S1_Th_Gain = 1.5 # gain of synaptic weights from S1 -> Thal
+cfg.Th_S1_Gain = 2.5 # gain of synaptic weights from Thal -> S1
+cfg.S1_Th_Gain = 2.5 # gain of synaptic weights from S1 -> Thal
 
 #------------------------------------------------------------------------------
 ## Th->Th 
@@ -303,10 +303,10 @@ if cfg.addNetStim:
 #------------------------------------------------------------------------------
 # Targeted NetStim inputs 
 #------------------------------------------------------------------------------
-cfg.addTargetedNetStim = True # False
+cfg.addTargetedNetStim = True # True # False
 if cfg.addTargetedNetStim:
     cfg.stimDuration = 13e3
-    cfg.stimRate = 3.0
+    cfg.stimRate = 6.0
     cfg.startStimTime=None
     cfg.stimPop = None
     cfg.netWeight           = 25e3 # 25e3 is superthreshold; 10e3 is subthreshold but very strong

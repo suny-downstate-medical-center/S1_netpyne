@@ -3510,3 +3510,52 @@ added cfg.S1_Th_Gain option
 STP (short term plasticity) seems to be used in this model; mod files are DetAMPANMDA.mod and DetGABAAB.mod
 may want to turn it off
 
+SD mentions that the STP contributes to slow ~1 Hz rhythm , so can keep it here for consistency with
+the full model
+
+** setup next sim
+
+gain of 1.5x, 1.5x between Thal and S1
+spontaneous
+
+./myrun 60
+
+  Simulated time: 15.0 s; 60 workers
+  Run time: 2258.97 s
+
+python -i simdat.py
+simname = '5apr22_LDA'; simConfig, sdat, dstartidx, dendidx, dnumc, dspkID, dspkT = loaddat(simname); drawraster(dspkT,dspkID)
+plot([0,totalDur],[dstartidx['VPL_sTC'],dstartidx['VPL_sTC']],'k--',linewidth=2)
+plot([0,totalDur],[dendidx['VPL_sTC'],dendidx['VPL_sTC']],'k--',linewidth=2)
+savefig('gif/5apr22_rast_c0.png')
+
+VPL very quiet...and possibly too much synchrony between Thal, S1 ... 
+
+for ty in ['VPM_sTC', 'VPL_sTC', 'L4_PC_cAD', 'L23_PC_cAD']:
+  for tlim in [(1e3,5e3),(5e3,10e3),(10e3,15e3)]:
+    print('tlim:',np.array(tlim)/1e3,ty,getrate(dspkT,dspkID,ty,dnumc,tlim=tlim))
+
+tlim: [1. 5.] VPM_sTC 0.9910714285714286
+tlim: [ 5. 10.] VPM_sTC 0.21428571428571427
+tlim: [10. 15.] VPM_sTC 0.5642857142857143
+tlim: [1. 5.] VPL_sTC 1.0568181818181819
+tlim: [ 5. 10.] VPL_sTC 0.7909090909090909
+tlim: [10. 15.] VPL_sTC 0.9363636363636364
+tlim: [1. 5.] L4_PC_cAD 0.8947368421052632
+tlim: [ 5. 10.] L4_PC_cAD 0.8947368421052632
+tlim: [10. 15.] L4_PC_cAD 0.9052631578947369
+tlim: [1. 5.] L23_PC_cAD 0.29878048780487804
+tlim: [ 5. 10.] L23_PC_cAD 0.28292682926829266
+tlim: [10. 15.] L23_PC_cAD 0.28780487804878047
+
+cla(); plot(sdat['t'],sdat['dipoleSum'][:,0],'k'); 
+xlim((5e3,6e3))
+
+savefig('gif/5apr22_dpl_c1.png')
+
+reduce the S1, Thal gains to 1.25 ... try again ... 
+
+try at 2.5 since dont see much propagation ... 
+
+and 6 Hz stim ... 
+
