@@ -24,7 +24,7 @@ cfg = specs.SimConfig()
 # Run parameters
 #------------------------------------------------------------------------------
 #cfg.duration = 5.0*1e3 ## Duration of the sim, in ms
-cfg.duration = 10000 # 3000 ## Duration of the sim, in ms  
+cfg.duration = 15000 # 3000 ## Duration of the sim, in ms  
 cfg.dt = 0.1 # 0.025
 cfg.seeds = {'conn': 4322, 'stim': 4322, 'loc': 4322} 
 cfg.hParams = {'celsius': 34, 'v_init': -65}  
@@ -154,7 +154,7 @@ cfg.saveDipoleCells = cfg.S1cells # ['all']
 #------------------------------------------------------------------------------
 # Saving
 #------------------------------------------------------------------------------
-cfg.simLabel = '4apr22_LDA'
+cfg.simLabel = '5apr22_StrongStimVPL3Hz_LDA'
 cfg.saveFolder = '../data/'+cfg.simLabel
 # cfg.filename =                	## Set file output name
 cfg.savePickle = True         	## Save pkl file
@@ -306,10 +306,10 @@ if cfg.addNetStim:
 #------------------------------------------------------------------------------
 # Targeted NetStim inputs 
 #------------------------------------------------------------------------------
-cfg.addTargetedNetStim = False
+cfg.addTargetedNetStim = True # False
 if cfg.addTargetedNetStim:
-    cfg.stimDuration = 1e3
-    cfg.stimRate = 6.0
+    cfg.stimDuration = 13e3
+    cfg.stimRate = 3.0
     cfg.startStimTime=None
     cfg.stimPop = None
     cfg.netWeight           = 25e3 # 25e3 is superthreshold; 10e3 is subthreshold but very strong
@@ -317,7 +317,7 @@ if cfg.addTargetedNetStim:
     cfg.numStims            = cfg.stimRate * int(cfg.stimDuration/1e3) 
     cfg.interStimInterval   = 1e3/cfg.stimRate 
 
-    cfg.numOfTargetCells = 22 # 100
+    cfg.numOfTargetCells = 65 # 100
 
     cfg.TargetedNetStim1= { 
         'pop':              'VPL_sTC', 
@@ -329,7 +329,7 @@ if cfg.addTargetedNetStim:
         'synMechWeightFactor': [1.0],
         'start':            1000, 
         'interval':         cfg.interStimInterval, 
-        'noise':            0.0, 
+        'noise':            0.1, 
         'number':           cfg.numStims, 
         'weight':           cfg.netWeight, 
         'delay':            0,

@@ -128,9 +128,10 @@ def save_dipoles_matlab (outfn, simConfig, sdat, dnumc, dstartidx, dendidx):
   from scipy import io
   lidx = list(sdat['dipoleCells'].keys())
   lty = [GetCellType(idx,dnumc,dstartidx,dendidx) for idx in lidx]
-  lcort = [IsCortical(ty) for ty in lty]    
+  # lcort = [IsCortical(ty) for ty in lty]    
   cellPos = [GetCellCoords(simConfig,idx) for idx in lidx]
   cellDipoles = [sdat['dipoleCells'][idx] for idx in lidx]
-  matDat = {'cellPos': cellPos, 'cellPops': lty, 'cellDipoles': cellDipoles, 'dipoleSum': sdat['dipoleSum'], 'cortical': lcort}
+  #matDat = {'cellPos': cellPos, 'cellPops': lty, 'cellDipoles': cellDipoles, 'dipoleSum': sdat['dipoleSum'], 'cortical': lcort}
+  matDat = {'cellPos': cellPos, 'cellPops': lty, 'cellDipoles': cellDipoles, 'dipoleSum': sdat['dipoleSum']}
   io.savemat(outfn, matDat)
 

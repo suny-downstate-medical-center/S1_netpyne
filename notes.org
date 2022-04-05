@@ -3369,6 +3369,50 @@ for ty,clr in zip(['VPM_sTC', 'VPL_sTC','L4_PC_cAD'],['g','b','r']): plot(sdat['
 
 savefig('gif/4apr22_Vm_a1.png')
 
+try 15 s sim ... see if runs to completion ... 
+
+./myrun 60
+
+ran to completion
+  Run time: 1941.62 s
+took ~32 minutes ... 
+
+python -i simdat.py
+simname = '4apr22_LDA'; simConfig, sdat, dstartidx, dendidx, dnumc, dspkID, dspkT = loaddat(simname); drawraster(dspkT,dspkID)
+plot([0,totalDur],[dstartidx['VPL_sTC'],dstartidx['VPL_sTC']],'k--',linewidth=2)
+plot([0,totalDur],[dendidx['VPL_sTC'],dendidx['VPL_sTC']],'k--',linewidth=2)
+savefig('gif/4apr22_rast_a2.png')
+
 for ty in ['VPM_sTC', 'VPL_sTC', 'L4_PC_cAD', 'L23_PC_cAD']:
   for tlim in [(1e3,5e3),(5e3,10e3),(10e3,15e3)]:
     print('tlim:',np.array(tlim)/1e3,ty,getrate(dspkT,dspkID,ty,dnumc,tlim=tlim))
+
+tlim: [1. 5.] VPM_sTC 2.8463855421686746
+tlim: [ 5. 10.] VPM_sTC 3.330120481927711
+tlim: [10. 15.] VPM_sTC 3.9036144578313254
+tlim: [1. 5.] VPL_sTC 2.0692307692307694
+tlim: [ 5. 10.] VPL_sTC 3.6953846153846155
+tlim: [10. 15.] VPL_sTC 3.766153846153846
+tlim: [1. 5.] L4_PC_cAD 0.8947368421052632
+tlim: [ 5. 10.] L4_PC_cAD 0.8631578947368421
+tlim: [10. 15.] L4_PC_cAD 0.8947368421052632
+tlim: [1. 5.] L23_PC_cAD 0.2804878048780488
+tlim: [ 5. 10.] L23_PC_cAD 0.2780487804878049
+tlim: [10. 15.] L23_PC_cAD 0.28780487804878047
+
+lot of variability in firing rates ... notice that VPL goes in and out of firing activity ... 
+
+save_dipoles_matlab('/home/samn/S1_netpyne/data/4apr22_LDA/dipoles.mat', simConfig, sdat, dnumc, dstartidx, dendidx)
+
+plot(sdat['t'],sdat['dipoleSum'])
+xlim((0,15e3))
+savefig('gif/4apr22_dipoleSum_a3.png')
+
+* 5apr22
+** run same sim with strong 3 Hz stim to VPL (5apr22_StrongStimVPL3Hz_LDA)
+
+will use 0.1 noise, start stim at 1e3, end stim at 14e3 ... total sim duration of 15e3
+stim strength of 25e3 
+
+./myrun 60
+
