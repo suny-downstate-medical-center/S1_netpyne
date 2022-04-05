@@ -825,8 +825,8 @@ if cfg.connect_S1_Th:
     radius_cilinder = netParams.sizeX/2.0
 
     if cfg.connect_S1_RTN:
-        for pre in pops_CT:
-            for post in pops_RTN:
+        for pre in pops_CT: # S1 corticothalamic
+            for post in pops_RTN: # thalamic reticular
 
                 syn = ['AMPA_Th'] # AMPA
                 synWeightFactor = [1.0]
@@ -842,15 +842,15 @@ if cfg.connect_S1_Th:
                                 'postConds': {'pop': post},
                                 'synMech': syn,
                                 conn_method:  prob_rule,
-                                'weight': cfg.connWeight_S1_RTN, 
+                                'weight': cfg.connWeight_S1_RTN * cfg.S1_Th_Gain, 
                                 'synMechWeightFactor': synWeightFactor,
                                 'delay': 'defaultDelay+dist_3D/propVelocity',
                                 'synsPerConn': 1,
                                 'sec': 'soma'}
 
     if cfg.connect_S1_TC:
-        for pre in pops_CT:
-            for post in pops_TC:
+        for pre in pops_CT: # from S1 deep layers
+            for post in pops_TC: # to Thal
 
                 syn = ['AMPA_Th'] # AMPA
                 synWeightFactor = [1.0]
@@ -861,19 +861,19 @@ if cfg.connect_S1_Th:
                 else: # topographycal connectivity
                     conn_method = 'probability'
                     conn_convergence = cfg.convergence_S1_TC
-                    prob_conv = 1.0*(conn_convergence/cfg.popNumber[pre])*((radius_cilinder**2)/(radius2D_S1_TC**2)) # prob*(AreaS1/Area_Th_syn)  
+                    prob_conv = 1.0*(conn_convergence/cfg.popNumber[pre])*((radius_cilinder**2)/(radius2D_S1_TC**2)) 
                     prob_rule = '%f if dist_2D < %f else 0.0' % (prob_conv,radius2D_S1_TC)
 
-                    netParams.connParams['thal_'+pre+'_'+post] = { 
-                                'preConds': {'pop': cfg.popLabelEl[pre]}, 
-                                'postConds': {'pop': post},
-                                'synMech': syn,
-                                conn_method:  prob_rule,
-                                'weight': cfg.connWeight_S1_TC, 
-                                'synMechWeightFactor': synWeightFactor,
-                                'delay': 'defaultDelay+dist_3D/propVelocity',
-                                'synsPerConn': 1,
-                                'sec': 'soma'}
+                netParams.connParams['thal_'+pre+'_'+post] = { 
+                            'preConds': {'pop': cfg.popLabelEl[pre]}, 
+                            'postConds': {'pop': post},
+                            'synMech': syn,
+                            conn_method:  prob_rule,
+                            'weight': cfg.connWeight_S1_TC * cfg.S1_Th_Gain, 
+                            'synMechWeightFactor': synWeightFactor,
+                            'delay': 'defaultDelay+dist_3D/propVelocity',
+                            'synsPerConn': 1,
+                            'sec': 'soma'}
 
 #------------------------------------------------------------------------------    
 # Current inputs (IClamp)
@@ -954,11 +954,12 @@ if cfg.addTargetedNetStim:
             wfrac = [1.0]
 
         # add stim source
-        netParams.stimSourceParams[key] = { 'type':     'NetStim', 
-                                            'start':    cfg.startStimTime       if cfg.startStimTime is not None        else start, 
-                                            'interval': cfg.interStimInterval   if cfg.interStimInterval is not None    else interval, 
-                                            'noise':    noise, 
-                                            'number':   cfg.numStims            if cfg.numStims is not None             else number}
+        netParams.stimSourceParams[key] = {
+            'type':     'NetStim', 
+            'start':    cfg.startStimTime       if cfg.startStimTime is not None else start, 
+            'interval': cfg.interStimInterval   if cfg.interStimInterval is not None else interval,
+            'noise':    noise, 
+            'number':   cfg.numStims            if cfg.numStims is not None else number}
 
         # netParams.stimSourceParams[key] = {'type': 'NetStim', 'start': start, 'interval': interval, 'noise': noise, 'number': number}
 

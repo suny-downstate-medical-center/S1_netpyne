@@ -3500,3 +3500,13 @@ savefig('gif/5apr22_dipoleSum_compare_b4.png')
 
 still not that different ... may need to adjust gains from TH -> S1 ... 
 
+** next sims/adjustments
+
+may as well reduce thal again, since larger scale thal shows similar dynamics
+
+also noticed an indent typo in netParams.py (from S1 -> TC); fixed that up and
+added cfg.S1_Th_Gain option
+
+STP (short term plasticity) seems to be used in this model; mod files are DetAMPANMDA.mod and DetGABAAB.mod
+may want to turn it off
+

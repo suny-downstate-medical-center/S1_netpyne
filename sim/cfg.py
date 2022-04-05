@@ -61,8 +61,7 @@ cfg.reducedtest = False
 # Load 207 Morpho-electrical Names used to import the cells from 'cell_data/' -> L1:14 L23:43 L4:46 L5:52 L6:52
 # Create [Morphological,Electrical] = number of cell metype in the sub-pop
 
-with open('../info/anatomy/S1-cells-distributions-Rat.txt') as mtype_file:
-    mtype_content = mtype_file.read()       
+with open('../info/anatomy/S1-cells-distributions-Rat.txt') as mtype_file: mtype_content = mtype_file.read()       
 
 cfg.popNumber = {}
 cfg.cellNumber = {} 
@@ -74,20 +73,17 @@ cfg.popLabelEl = {}
 cfg.cellLabel = {}
 
 for line in mtype_content.split('\n')[:-1]:
-    cellname, mtype, etype, n, m = line.split()
-    metype = mtype + '_' + etype[0:3]
-    cfg.cellNumber[metype] = int(n)
-    cfg.popLabel[metype] = mtype
-    cfg.popNumber[mtype] = int(m)
-    cfg.cellLabel[metype] = cellname
-
-    if mtype not in popParam:
-        popParam.append(mtype)
-        cfg.popLabelEl[mtype] = [] 
-               
-    cfg.popLabelEl[mtype].append(metype)
-    
-    cellParam.append(mtype + '_' + etype[0:3])
+  cellname, mtype, etype, n, m = line.split()
+  metype = mtype + '_' + etype[0:3]
+  cfg.cellNumber[metype] = int(n)
+  cfg.popLabel[metype] = mtype
+  cfg.popNumber[mtype] = int(m)
+  cfg.cellLabel[metype] = cellname
+  if mtype not in popParam:
+    popParam.append(mtype)
+    cfg.popLabelEl[mtype] = []                
+  cfg.popLabelEl[mtype].append(metype)  
+  cellParam.append(mtype + '_' + etype[0:3])
     
 cfg.S1pops = popParam[0:55]
 cfg.S1cells = cellParam[0:207]
@@ -192,7 +188,7 @@ cfg.sizeY = 2082.0
 cfg.sizeX = 420.0/myscalefctr # r = 210 um and hexagonal side length = 230.9 um
 cfg.sizeZ = 420.0/myscalefctr
 cfg.scaleDensity = 1.0/myscalefctr**2 # 1.0 # Number of cells = 31346
-cfg.scaleThal = 1.0/20.0 # 1.0/60.0 
+cfg.scaleThal = 1.0/60.0 # 1.0/20.0 # 1.0/60.0 
 
 #------------------------------------------------------------------------------
 # Spontaneous synapses + background - data from Rat
@@ -215,7 +211,8 @@ cfg.EEGain = 1.0
 cfg.EIGain = 1.0
 cfg.IIGain = 1.0
 cfg.IEGain = 1.0
-cfg.Th_S1_Gain = 1.0 # gain of synaptic weights from thal -> S1
+cfg.Th_S1_Gain = 1.5 # gain of synaptic weights from Thal -> S1
+cfg.S1_Th_Gain = 1.5 # gain of synaptic weights from S1 -> Thal
 
 #------------------------------------------------------------------------------
 ## Th->Th 
@@ -317,7 +314,7 @@ if cfg.addTargetedNetStim:
     cfg.numStims            = cfg.stimRate * int(cfg.stimDuration/1e3) 
     cfg.interStimInterval   = 1e3/cfg.stimRate 
 
-    cfg.numOfTargetCells = 65 # 100
+    cfg.numOfTargetCells = 22 # 65 # 100
 
     cfg.TargetedNetStim1= { 
         'pop':              'VPL_sTC', 
