@@ -3416,3 +3416,87 @@ stim strength of 25e3
 
 ./myrun 60
 
+ran to completion...
+
+  Simulated time: 15.0 s; 60 workers
+  Run time: 2634.08 s
+
+python -i simdat.py
+simname = '5apr22_StrongStimVPL3Hz_LDA'; simConfig, sdat, dstartidx, dendidx, dnumc, dspkID, dspkT = loaddat(simname); drawraster(dspkT,dspkID)
+plot([0,totalDur],[dstartidx['VPL_sTC'],dstartidx['VPL_sTC']],'k--',linewidth=2)
+plot([0,totalDur],[dendidx['VPL_sTC'],dendidx['VPL_sTC']],'k--',linewidth=2)
+savefig('gif/5apr22_rast_b0.png')
+
+hmm, cant see any rhythm with the noise == 0.1 ... but the firing patterns are very different in thalamus ... 
+
+for ty in ['VPM_sTC', 'VPL_sTC', 'L4_PC_cAD', 'L23_PC_cAD']:
+  for tlim in [(1e3,5e3),(5e3,10e3),(10e3,15e3)]:
+    print('tlim:',np.array(tlim)/1e3,ty,getrate(dspkT,dspkID,ty,dnumc,tlim=tlim))
+
+lim: [1. 5.] VPM_sTC 3.3283132530120483
+tlim: [ 5. 10.] VPM_sTC 2.9493975903614458
+tlim: [10. 15.] VPM_sTC 3.6409638554216865
+tlim: [1. 5.] VPL_sTC 4.676923076923077
+tlim: [ 5. 10.] VPL_sTC 3.7046153846153844
+tlim: [10. 15.] VPL_sTC 4.547692307692308
+tlim: [1. 5.] L4_PC_cAD 0.8552631578947368
+tlim: [ 5. 10.] L4_PC_cAD 0.8947368421052632
+tlim: [10. 15.] L4_PC_cAD 0.8736842105263158
+tlim: [1. 5.] L23_PC_cAD 0.2804878048780488
+tlim: [ 5. 10.] L23_PC_cAD 0.28292682926829266
+tlim: [10. 15.] L23_PC_cAD 0.28292682926829266
+
+# save_dipoles_matlab('/home/samn/S1_netpyne/data/4apr22_LDA/dipoles.mat', simConfig, sdat, dnumc, dstartidx, dendidx)
+
+plot(sdat['t'],sdat['dipoleSum']); 
+xlim((0,15e3))
+savefig('gif/5apr22_dipoleSum_b1.png')
+
+simname = '4apr22_LDA'; simConfig, sdatB, dstartidx, dendidx, dnumc, dspkID, dspkT = loaddat(simname); 
+cla(); plot(sdatB['t'],sdatB['dipoleSum'][:,0],'b'); plot(sdat['t'],sdat['dipoleSum'][:,0],'r'); 
+xlim((5e3,6e3))
+
+savefig('gif/5apr22_dipoleSum_compare_b2.png')
+
+hmm, not identical but very similar ... 
+
+try again w/o any noise in VPL stim ... 
+
+./myrun 60
+
+  Simulated time: 15.0 s; 60 workers
+  Run time: 2109.07 s
+
+python -i simdat.py
+simname = '5apr22_StrongStimVPL3Hz_LDA'; simConfig, sdat, dstartidx, dendidx, dnumc, dspkID, dspkT = loaddat(simname); drawraster(dspkT,dspkID)
+plot([0,totalDur],[dstartidx['VPL_sTC'],dstartidx['VPL_sTC']],'k--',linewidth=2)
+plot([0,totalDur],[dendidx['VPL_sTC'],dendidx['VPL_sTC']],'k--',linewidth=2)
+savefig('gif/5apr22_rast_b3.png')
+
+ok, now can see clear response in VPL ... 
+
+for ty in ['VPM_sTC', 'VPL_sTC', 'L4_PC_cAD', 'L23_PC_cAD']:
+  for tlim in [(1e3,5e3),(5e3,10e3),(10e3,15e3)]:
+    print('tlim:',np.array(tlim)/1e3,ty,getrate(dspkT,dspkID,ty,dnumc,tlim=tlim))
+
+tlim: [1. 5.] VPM_sTC 3.3283132530120483
+tlim: [ 5. 10.] VPM_sTC 2.9493975903614458
+tlim: [10. 15.] VPM_sTC 3.6409638554216865
+tlim: [1. 5.] VPL_sTC 6.461538461538462
+tlim: [ 5. 10.] VPL_sTC 5.2153846153846155
+tlim: [10. 15.] VPL_sTC 7.578461538461538
+tlim: [1. 5.] L4_PC_cAD 0.8552631578947368
+tlim: [ 5. 10.] L4_PC_cAD 0.8842105263157894
+tlim: [10. 15.] L4_PC_cAD 0.8842105263157894
+tlim: [1. 5.] L23_PC_cAD 0.2804878048780488
+tlim: [ 5. 10.] L23_PC_cAD 0.28292682926829266
+tlim: [10. 15.] L23_PC_cAD 0.28292682926829266
+
+simname = '4apr22_LDA'; simConfig, sdatB, dstartidx, dendidx, dnumc, dspkID, dspkT = loaddat(simname); 
+cla(); plot(sdatB['t'],sdatB['dipoleSum'][:,0],'b'); plot(sdat['t'],sdat['dipoleSum'][:,0],'r'); 
+xlim((5e3,6e3))
+
+savefig('gif/5apr22_dipoleSum_compare_b4.png')
+
+still not that different ... may need to adjust gains from TH -> S1 ... 
+

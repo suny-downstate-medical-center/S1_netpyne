@@ -329,7 +329,7 @@ if cfg.addTargetedNetStim:
         'synMechWeightFactor': [1.0],
         'start':            1000, 
         'interval':         cfg.interStimInterval, 
-        'noise':            0.1, 
+        'noise':            0.0, 
         'number':           cfg.numStims, 
         'weight':           cfg.netWeight, 
         'delay':            0,
