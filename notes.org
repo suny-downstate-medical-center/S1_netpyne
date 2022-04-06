@@ -3662,3 +3662,61 @@ cla(); plot(sdat['t'][:-1],sdat['dipoleSum'][:,0],'b');
 
 savefig('gif/6apr22_dpl_b1.png')
 
+now try with slightly lower gain on weights between S1, Thal ... (1.5 instead of 2.5)
+
+python -i simdat.py
+simname = '6apr22_Stim_LDB'; simConfig, sdat, dstartidx, dendidx, dnumc, dspkID, dspkT = loaddat(simname); drawraster(dspkT,dspkID)
+plot([0,totalDur],[dstartidx['VPL_sTC'],dstartidx['VPL_sTC']],'k--',linewidth=2)
+plot([0,totalDur],[dendidx['VPL_sTC'],dendidx['VPL_sTC']],'k--',linewidth=2)
+savefig('gif/6apr22_rast_b2.png')
+
+even at this lower gain, effects still noticeable
+
+cla(); plot(sdat['t'][:-1],sdat['dipoleSum'][:,0],'b'); 
+
+savefig('gif/6apr22_dpl_b3.png')
+
+could reduce those gains (cfg.Th_S1_Gain, cfg.S1_Th_Gain) to original values (1.0, 1.0) and see how looks ... 
+
+python -i simdat.py
+simname = '6apr22_Stim_LDB'; simConfig, sdat, dstartidx, dendidx, dnumc, dspkID, dspkT = loaddat(simname); drawraster(dspkT,dspkID)
+plot([0,totalDur],[dstartidx['VPL_sTC'],dstartidx['VPL_sTC']],'k--',linewidth=2)
+plot([0,totalDur],[dendidx['VPL_sTC'],dendidx['VPL_sTC']],'k--',linewidth=2)
+savefig('gif/6apr22_rast_b4.png')
+
+cla(); plot(sdat['t'][:-1],sdat['dipoleSum'][:,0],'b'); 
+
+savefig('gif/6apr22_dpl_b5.png')
+
+still have a pretty strong/visible impact ... 
+
+could reduce strength of stimulus to VPL, and or use some noise ... 
+
+python -i simdat.py
+simname = '6apr22_Stim_LDB'; simConfig, sdat, dstartidx, dendidx, dnumc, dspkID, dspkT = loaddat(simname); drawraster(dspkT,dspkID)
+plot([0,totalDur],[dstartidx['VPL_sTC'],dstartidx['VPL_sTC']],'k--',linewidth=2)
+plot([0,totalDur],[dendidx['VPL_sTC'],dendidx['VPL_sTC']],'k--',linewidth=2)
+
+savefig('gif/6apr22_rast_b6.png')
+cla(); plot(sdat['t'][:],sdat['dipoleSum'][:,0],'b'); 
+savefig('gif/6apr22_dpl_b7.png')
+
+looks better with the noise = 0.01, as long as the NetStim inputs to VPL come in ~same time ... and doesn't
+drift over a long simulation ... 
+
+try 15 s sim now ... with same stim params ...
+
+python -i simdat.py
+simname = '6apr22_Stim_LDB'; simConfig, sdat, dstartidx, dendidx, dnumc, dspkID, dspkT = loaddat(simname); drawraster(dspkT,dspkID)
+plot([0,totalDur],[dstartidx['VPL_sTC'],dstartidx['VPL_sTC']],'k--',linewidth=2)
+plot([0,totalDur],[dendidx['VPL_sTC'],dendidx['VPL_sTC']],'k--',linewidth=2)
+
+savefig('gif/6apr22_rast_b6.png')
+cla(); plot(sdat['t'][:],sdat['dipoleSum'][:,0],'b'); 
+savefig('gif/6apr22_dpl_b8.png')
+
+looks pretty reasonable overall ... have that initial spike from first stim but the others are not as large, though
+still visible
+
+so now run comparison sim w/o the stimulation ... 
+

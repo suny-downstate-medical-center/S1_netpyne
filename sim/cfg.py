@@ -24,7 +24,7 @@ cfg = specs.SimConfig()
 # Run parameters
 #------------------------------------------------------------------------------
 #cfg.duration = 5.0*1e3 ## Duration of the sim, in ms
-cfg.duration = 3000 # 3000 ## Duration of the sim, in ms  
+cfg.duration = 15000 # 3000 ## Duration of the sim, in ms  
 cfg.dt = 0.1 # 0.025
 cfg.seeds = {'conn': 4322, 'stim': 4322, 'loc': 4322} 
 cfg.hParams = {'celsius': 34, 'v_init': -65}  
@@ -211,8 +211,8 @@ cfg.EEGain = 1.0
 cfg.EIGain = 1.0
 cfg.IIGain = 1.0
 cfg.IEGain = 1.0
-cfg.Th_S1_Gain = 2.5 # gain of synaptic weights from Thal -> S1
-cfg.S1_Th_Gain = 2.5 # gain of synaptic weights from S1 -> Thal
+cfg.Th_S1_Gain = 1.0 # gain of synaptic weights from Thal -> S1
+cfg.S1_Th_Gain = 1.0 # gain of synaptic weights from S1 -> Thal
 
 #------------------------------------------------------------------------------
 ## Th->Th 
@@ -307,16 +307,14 @@ if cfg.addNetStim:
 cfg.addTargetedNetStim = True
 if cfg.addTargetedNetStim:
     cfg.stimDuration = 13e3
-    cfg.stimRate = 6.0
+    cfg.stimRate = 3.0
     cfg.startStimTime=None
     cfg.stimPop = None
     cfg.netWeight           = 25e3 # 25e3 is superthreshold; 10e3 is subthreshold but very strong
     # cfg.startStimTime1      = 2000
     cfg.numStims            = cfg.stimRate * int(cfg.stimDuration/1e3) 
     cfg.interStimInterval   = 1e3/cfg.stimRate 
-
-    cfg.numOfTargetCells = 22 # 65 # 100
-
+    cfg.numOfTargetCells = 22 # this is for reduced network size. 65 # 100
     cfg.TargetedNetStim1= { 
         'pop':              'VPL_sTC', 
         # 'pop':              cfg.stimPop, 
@@ -327,7 +325,7 @@ if cfg.addTargetedNetStim:
         'synMechWeightFactor': [1.0],
         'start':            1000, 
         'interval':         cfg.interStimInterval, 
-        'noise':            0.0, 
+        'noise':            0.01, 
         'number':           cfg.numStims, 
         'weight':           cfg.netWeight, 
         'delay':            0,
