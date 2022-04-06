@@ -3720,3 +3720,54 @@ still visible
 
 so now run comparison sim w/o the stimulation ... 
 
+simname = 6apr22_LDB
+
+python -i simdat.py
+
+simname = '6apr22_LDB'; simConfig, sdat, dstartidx, dendidx, dnumc, dspkID, dspkT = loaddat(simname); drawraster(dspkT,dspkID)
+plot([0,totalDur],[dstartidx['VPL_sTC'],dstartidx['VPL_sTC']],'k--',linewidth=2)
+plot([0,totalDur],[dendidx['VPL_sTC'],dendidx['VPL_sTC']],'k--',linewidth=2)
+
+savefig('gif/6apr22_rast_b9.png')
+cla(); plot(sdat['t'][:],sdat['dipoleSum'][:,0],'b'); 
+savefig('gif/6apr22_dpl_b10.png')
+
+simname = '6apr22_Stim_LDB'; simConfig, sdatB, dstartidx, dendidx, dnumc, dspkID, dspkT = loaddat(simname); 
+plot(sdatB['t'],sdatB['dipoleSum'][:,0],'r'); 
+
+savefig('gif/6apr22_dpl_b11.png')
+
+can see some differences ... due to noisiness, not as pronounced ... could set noise=0 to compare
+
+or check spectrograms ... 
+
+len(sdatB['dipoleSum'][:,0])
+
+from morlet import *
+
+a,b = sdat['dipoleSum'][10000:,0],sdatB['dipoleSum'][10000:,0]
+a = a - np.mean(a)
+b = b - np.mean(b)
+ds = {'nostim': MorletSpec(a,10e3,0.25,30,0.5), 'stim': MorletSpec(b,10e3,0.25,30,0.5)}
+
+mn,mx = min(np.amin(ds['nostim'].TFR),np.amin(ds['stim'].TFR)),max(np.amax(ds['nostim'].TFR),np.amax(ds['stim'].TFR))
+
+subplot(1,2,1)
+imshow(ds['nostim'].TFR[:,10000:],origin='lower',interpolation='None',extent=(1,15,0.25,30),vmin=mn,vmax=mx)
+subplot(1,2,2)
+imshow(ds['stim'].TFR[:,10000:],origin='lower',interpolation='None',extent=(1,15,0.25,30),vmin=mn,vmax=mx)
+
+davg = {k:np.mean(ds[k].TFR,axis=1) for k in ds.keys()}
+
+plot(ds['nostim'].f,davg['nostim'],'b')
+plot(ds['stim'].f,davg['stim'],'r')
+
+xlabel('Frequency (Hz)'); ylabel('Power')
+xlim((0.25,30))
+
+savefig('gif/6apr22_dpl_pow_b12.png')
+
+ok, can see a clear 3 Hz peak in stim sim ... 6 Hz harmonic, and higher broadband power too ... no 1/f pattern here
+
+next, try a weaker stimulus ...
+

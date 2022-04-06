@@ -150,7 +150,7 @@ cfg.saveDipoleCells = cfg.S1cells # ['all']
 #------------------------------------------------------------------------------
 # Saving
 #------------------------------------------------------------------------------
-cfg.simLabel = '6apr22_Stim_LDB'
+cfg.simLabel = '6apr22_LDB'
 cfg.saveFolder = '../data/'+cfg.simLabel
 # cfg.filename =    ## Set file output name
 cfg.savePickle = True ## Save pkl file
@@ -304,7 +304,7 @@ if cfg.addNetStim:
 #------------------------------------------------------------------------------
 # Targeted NetStim inputs 
 #------------------------------------------------------------------------------
-cfg.addTargetedNetStim = True
+cfg.addTargetedNetStim = False
 if cfg.addTargetedNetStim:
     cfg.stimDuration = 13e3
     cfg.stimRate = 3.0
