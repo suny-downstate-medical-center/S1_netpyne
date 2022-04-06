@@ -3559,3 +3559,106 @@ try at 2.5 since dont see much propagation ...
 
 and 6 Hz stim ... 
 
+  Simulated time: 15.0 s; 60 workers
+  Run time: 2273.82 s
+
+
+python -i simdat.py
+simname = '5apr22_Stim_LDA'; simConfig, sdat, dstartidx, dendidx, dnumc, dspkID, dspkT = loaddat(simname); drawraster(dspkT,dspkID)
+plot([0,totalDur],[dstartidx['VPL_sTC'],dstartidx['VPL_sTC']],'k--',linewidth=2)
+plot([0,totalDur],[dendidx['VPL_sTC'],dendidx['VPL_sTC']],'k--',linewidth=2)
+savefig('gif/5apr22_rast_c2.png')
+
+for ty in ['VPM_sTC', 'VPL_sTC', 'L4_PC_cAD', 'L23_PC_cAD']:
+  for tlim in [(0,1e3),(1e3,14e3),(14e3,15e3)]:
+    print('tlim:',np.array(tlim)/1e3,ty,getrate(dspkT,dspkID,ty,dnumc,tlim=tlim))
+
+tlim: [0. 1.] VPM_sTC 10.392857142857142
+tlim: [ 1. 14.] VPM_sTC 5.782967032967033
+tlim: [14. 15.] VPM_sTC 2.75
+tlim: [0. 1.] VPL_sTC 2.8636363636363638
+tlim: [ 1. 14.] VPL_sTC 7.171328671328672
+tlim: [14. 15.] VPL_sTC 0.5
+tlim: [0. 1.] L4_PC_cAD 1.9473684210526316
+tlim: [ 1. 14.] L4_PC_cAD 0.9352226720647774
+tlim: [14. 15.] L4_PC_cAD 0.9473684210526315
+tlim: [0. 1.] L23_PC_cAD 1.2195121951219512
+tlim: [ 1. 14.] L23_PC_cAD 0.3151969981238274
+tlim: [14. 15.] L23_PC_cAD 0.3170731707317073
+
+cla(); plot(sdat['t'],sdat['dipoleSum'][:,0],'k'); 
+xlim((5e3,6e3))
+
+savefig('gif/5apr22_dpl_c3.png')
+
+need to compare to sim w/o stimulation ... to see if there's any impact
+
+* 6apr22
+** run same sim w/o the stimulation (6apr22_LDA)
+
+just run for 3 s ... 
+
+./myrun 60
+
+python -i simdat.py
+simname = '6apr22_LDA'; simConfig, sdat, dstartidx, dendidx, dnumc, dspkID, dspkT = loaddat(simname); drawraster(dspkT,dspkID)
+plot([0,totalDur],[dstartidx['VPL_sTC'],dstartidx['VPL_sTC']],'k--',linewidth=2)
+plot([0,totalDur],[dendidx['VPL_sTC'],dendidx['VPL_sTC']],'k--',linewidth=2)
+savefig('gif/6apr22_rast_a0.png')
+
+cla(); plot(sdat['t'][:-1],sdat['dipoleSum'][:,0],'b'); 
+xlim((1e3,2e3))
+
+savefig('gif/6apr22_dpl_a1.png')
+
+simname = '5apr22_Stim_LDA'; simConfig, sdatB, dstartidx, dendidx, dnumc, dspkID, dspkT = loaddat(simname); 
+plot(sdatB['t'],sdatB['dipoleSum'][:,0],'r'); 
+
+savefig('gif/6apr22_dpl_a2.png')
+
+again, not seeing much difference in the dipole sum ... 
+
+may need to adjust VPL -> S1 pathway ... 
+
+** check/adjust VPL -> S1 pathway (6apr22_Stim_LDB)
+
+POm vs VPL, VPM use different connectivity rules ... VPL, VPM use some form of topographical
+connectivity?, whereas POm (higher order inputs) use different?
+
+
+see netParams.py : 
+        conn_convergence = np.ceil(convergence_Th_S1[pre][post]/synapsesperconnection_Th_S1)
+        prob_conv = 1.0*(conn_convergence/cfg.popNumber[pre])*((radius_cilinder**2)/(radius2D_Th_S1**2))
+        probability_rule = '%f if dist_2D < %f else 0.0' % (prob_conv,radius2D_Th_S1)
+
+
+        if pre=='POm_sTC_s1':
+          netParams.connParams['thal_'+pre+'_'+post]['convergence'] = conn_convergence # non-topographycal connectivity
+        else:
+          netParams.connParams['thal_'+pre+'_'+post]['probability'] = probability_rule # FO (First Order)
+
+since dealing with a much smaller area in the reduced model may want to use convergence that is not
+spatially dependent ... 
+
+try with this adjustment:
+
+        if (cfg.myscalefctr > 1.0 and cfg.scaleThal < 1.0) or pre=='POm_sTC_s1':
+          netParams.connParams['thal_'+pre+'_'+post]['convergence'] = conn_convergence # non-topographycal connectivity
+        else:
+          netParams.connParams['thal_'+pre+'_'+post]['probability'] = probability_rule # FO (First Order)
+
+
+try this sim, run for 3 s with 6 Hz targeted stim to VPL
+
+python -i simdat.py
+simname = '6apr22_Stim_LDB'; simConfig, sdat, dstartidx, dendidx, dnumc, dspkID, dspkT = loaddat(simname); drawraster(dspkT,dspkID)
+plot([0,totalDur],[dstartidx['VPL_sTC'],dstartidx['VPL_sTC']],'k--',linewidth=2)
+plot([0,totalDur],[dendidx['VPL_sTC'],dendidx['VPL_sTC']],'k--',linewidth=2)
+savefig('gif/6apr22_rast_b0.png')
+
+yeah, that looks a lot different. now VPL has a clear impact on S1
+
+cla(); plot(sdat['t'][:-1],sdat['dipoleSum'][:,0],'b'); 
+
+savefig('gif/6apr22_dpl_b1.png')
+

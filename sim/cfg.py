@@ -24,7 +24,7 @@ cfg = specs.SimConfig()
 # Run parameters
 #------------------------------------------------------------------------------
 #cfg.duration = 5.0*1e3 ## Duration of the sim, in ms
-cfg.duration = 15000 # 3000 ## Duration of the sim, in ms  
+cfg.duration = 3000 # 3000 ## Duration of the sim, in ms  
 cfg.dt = 0.1 # 0.025
 cfg.seeds = {'conn': 4322, 'stim': 4322, 'loc': 4322} 
 cfg.hParams = {'celsius': 34, 'v_init': -65}  
@@ -150,14 +150,14 @@ cfg.saveDipoleCells = cfg.S1cells # ['all']
 #------------------------------------------------------------------------------
 # Saving
 #------------------------------------------------------------------------------
-cfg.simLabel = '5apr22_Stim_LDA'
+cfg.simLabel = '6apr22_Stim_LDB'
 cfg.saveFolder = '../data/'+cfg.simLabel
-# cfg.filename =                	## Set file output name
-cfg.savePickle = True         	## Save pkl file
-cfg.saveJson = False	           	## Save json file
+# cfg.filename =    ## Set file output name
+cfg.savePickle = True ## Save pkl file
+cfg.saveJson = False ## Save json file
 cfg.saveDataInclude = ['simConfig', 'simData', 'netParams', 'netCells', 'netPops'] ## , 'simConfig', 'netParams'
-cfg.backupCfgFile = None 		##  
-cfg.gatherOnlySimData = False	##  
+cfg.backupCfgFile = None 
+cfg.gatherOnlySimData = False
 cfg.saveCellSecs = False			
 cfg.saveCellConns = False	
 
@@ -182,12 +182,12 @@ cfg.saveCellConns = False
 #------------------------------------------------------------------------------
 # Network 
 #------------------------------------------------------------------------------
-myscalefctr = 12.0
+cfg.myscalefctr = 12.0
 cfg.scale = 1.0 # reduce size
 cfg.sizeY = 2082.0
-cfg.sizeX = 420.0/myscalefctr # r = 210 um and hexagonal side length = 230.9 um
-cfg.sizeZ = 420.0/myscalefctr
-cfg.scaleDensity = 1.0/myscalefctr**2 # 1.0 # Number of cells = 31346
+cfg.sizeX = 420.0/cfg.myscalefctr # r = 210 um and hexagonal side length = 230.9 um
+cfg.sizeZ = 420.0/cfg.myscalefctr
+cfg.scaleDensity = 1.0/cfg.myscalefctr**2 # 1.0 # Number of cells = 31346
 cfg.scaleThal = 1.0/60.0 # 1.0/20.0 # 1.0/60.0 
 
 #------------------------------------------------------------------------------
@@ -205,8 +205,8 @@ cfg.addConn = True
 
 cfg.synWeightFractionEE = [1.0, 1.0] # E -> E AMPA to NMDA ratio
 cfg.synWeightFractionEI = [1.0, 1.0] # E -> I AMPA to NMDA ratio
-cfg.synWeightFractionII = [1.0, 1.0]  # I -> I GABAA to GABAB ratio
-cfg.synWeightFractionIE = [1.0, 1.0]  # I -> E GABAA to GABAB ratio
+cfg.synWeightFractionII = [1.0, 1.0] # I -> I GABAA to GABAB ratio
+cfg.synWeightFractionIE = [1.0, 1.0] # I -> E GABAA to GABAB ratio
 cfg.EEGain = 1.0
 cfg.EIGain = 1.0
 cfg.IIGain = 1.0
@@ -217,21 +217,22 @@ cfg.S1_Th_Gain = 2.5 # gain of synaptic weights from S1 -> Thal
 #------------------------------------------------------------------------------
 ## Th->Th 
 cfg.connectTh = True
-cfg.connect_RTN_RTN     = True
-cfg.connect_TC_RTN      = True
-cfg.connect_RTN_TC      = True
+cfg.connect_RTN_RTN = True
+cfg.connect_TC_RTN = True
+cfg.connect_RTN_TC = True
 
-cfg.yConnFactor             = 10 # y-tolerance form connection distance based on the x and z-plane radial tolerances (1=100%; 2=50%; 5=20%; 10=10%)
+# y-tolerance form connection distance based on the x and z-plane radial tolerances (1=100%; 2=50%; 5=20%; 10=10%)
+cfg.yConnFactor = 10 
 
 cfg.intraThalamicGain = 1.0 
 
-cfg.connWeight_RTN_RTN      = 2.0 # optimized to increase synchrony
-cfg.connWeight_TC_RTN       = 1.5 # optimized to increase synchrony
-cfg.connWeight_RTN_TC       = 0.35 # optimized to increase synchrony
+cfg.connWeight_RTN_RTN = 2.0 # optimized to increase synchrony
+cfg.connWeight_TC_RTN = 1.5 # optimized to increase synchrony
+cfg.connWeight_RTN_TC = 0.35 # optimized to increase synchrony
 
-cfg.connProb_RTN_RTN        = 0.5 #2021-06-23 - test
-cfg.connProb_TC_RTN         = 1 #2021-06-23 - test
-cfg.connProb_RTN_TC         = 1 #2021-06-23 - test
+cfg.connProb_RTN_RTN = 0.5 #2021-06-23 - test
+cfg.connProb_TC_RTN = 1 #2021-06-23 - test
+cfg.connProb_RTN_TC = 1 #2021-06-23 - test
 
 cfg.divergenceHO = 10
 
@@ -303,7 +304,7 @@ if cfg.addNetStim:
 #------------------------------------------------------------------------------
 # Targeted NetStim inputs 
 #------------------------------------------------------------------------------
-cfg.addTargetedNetStim = True # True # False
+cfg.addTargetedNetStim = True
 if cfg.addTargetedNetStim:
     cfg.stimDuration = 13e3
     cfg.stimRate = 6.0

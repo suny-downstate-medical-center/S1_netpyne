@@ -760,83 +760,65 @@ if cfg.connectTh:
 # Th->S1 connectivity parameters
 #------------------------------------------------------------------------------
 if cfg.connect_Th_S1:
-
-    # mtype VPM_sTC POm_sTC_s1 nameref
-    with open('../info/anatomy/convergence_Th_S1.txt') as mtype_file:
-        mtype_content = mtype_file.read()       
-
-    convergence_Th_S1 = {}
-    convergence_Th_S1['VPM_sTC'] = {}
-    convergence_Th_S1['VPL_sTC'] = {}
-    convergence_Th_S1['POm_sTC_s1'] = {}
-
-    for line in mtype_content.split('\n')[:-1]:
-        mtype, preFO, preHO, nameref  = line.split()
-        convergence_Th_S1['VPL_sTC'][mtype] = int(cfg.frac_Th_S1*int(preFO)) # First Order  
-        convergence_Th_S1['VPM_sTC'][mtype] = int(cfg.frac_Th_S1*int(preFO)) # First Order
-        convergence_Th_S1['POm_sTC_s1'][mtype] = int(cfg.frac_Th_S1*int(preHO)) # High Order 
-
-    ## Connectivity rules
-    radius_cilinder = netParams.sizeX/2.0
-    synapsesperconnection_Th_S1 = 9.0
-    radius2D_Th_S1 = 50.0
-
-    for pre in ['VPL_sTC', 'VPM_sTC', 'POm_sTC_s1']:  #  
-        if cfg.TC_S1[pre]:
-            for post in Epops+Ipops: 
-                
-                conn_convergence = np.ceil(convergence_Th_S1[pre][post]/synapsesperconnection_Th_S1)
-                prob_conv = 1.0*(conn_convergence/cfg.popNumber[pre])*((radius_cilinder**2)/(radius2D_Th_S1**2)) # prob*(AreaS1/Area_Th_syn)  
-                probability_rule = '%f if dist_2D < %f else 0.0' % (prob_conv,radius2D_Th_S1)
-
-                netParams.connParams['thal_'+pre+'_'+post] = { 
-                    'preConds': {'pop': pre}, 
-                    'postConds': {'pop': cfg.popLabelEl[post]},
-                    'weight': 0.19 * cfg.Th_S1_Gain,   # synaptic weight 
-                    'sec': 'spinyEE', # target postsyn section
-                    'delay': 'defaultDelay+dist_3D/propVelocity',
-                    'synsPerConn': int(synapsesperconnection_Th_S1), 
-                    'synMech': 'TC:S1'}  
-
-                if pre=='POm_sTC_s1':
-                    netParams.connParams['thal_'+pre+'_'+post]['convergence'] = conn_convergence # non-topographycal connectivity
-                else:
-                    netParams.connParams['thal_'+pre+'_'+post]['probability'] = probability_rule # FO (First Order)
+  # mtype VPM_sTC POm_sTC_s1 nameref
+  with open('../info/anatomy/convergence_Th_S1.txt') as mtype_file: mtype_content = mtype_file.read()       
+  convergence_Th_S1 = {}
+  convergence_Th_S1['VPM_sTC'] = {}
+  convergence_Th_S1['VPL_sTC'] = {}
+  convergence_Th_S1['POm_sTC_s1'] = {}
+  for line in mtype_content.split('\n')[:-1]:
+    mtype, preFO, preHO, nameref  = line.split()
+    convergence_Th_S1['VPL_sTC'][mtype] = int(cfg.frac_Th_S1*int(preFO)) # First Order  
+    convergence_Th_S1['VPM_sTC'][mtype] = int(cfg.frac_Th_S1*int(preFO)) # First Order
+    convergence_Th_S1['POm_sTC_s1'][mtype] = int(cfg.frac_Th_S1*int(preHO)) # High Order 
+  ## Connectivity rules
+  radius_cilinder = netParams.sizeX/2.0
+  synapsesperconnection_Th_S1 = 9.0
+  radius2D_Th_S1 = 50.0
+  for pre in ['VPL_sTC', 'VPM_sTC', 'POm_sTC_s1']:  #  
+    if cfg.TC_S1[pre]:
+      for post in Epops+Ipops:                 
+        conn_convergence = np.ceil(convergence_Th_S1[pre][post]/synapsesperconnection_Th_S1)
+        prob_conv = 1.0*(conn_convergence/cfg.popNumber[pre])*((radius_cilinder**2)/(radius2D_Th_S1**2))
+        probability_rule = '%f if dist_2D < %f else 0.0' % (prob_conv,radius2D_Th_S1)
+        netParams.connParams['thal_'+pre+'_'+post] = { 
+          'preConds': {'pop': pre}, 
+          'postConds': {'pop': cfg.popLabelEl[post]},
+          'weight': 0.19 * cfg.Th_S1_Gain,   # synaptic weight 
+          'sec': 'spinyEE', # target postsyn section
+          'delay': 'defaultDelay+dist_3D/propVelocity',
+          'synsPerConn': int(synapsesperconnection_Th_S1), 
+          'synMech': 'TC:S1'}  
+        if (cfg.myscalefctr > 1.0 and cfg.scaleThal < 1.0) or pre=='POm_sTC_s1':
+          netParams.connParams['thal_'+pre+'_'+post]['convergence'] = conn_convergence # non-topographycal connectivity
+        else:
+          netParams.connParams['thal_'+pre+'_'+post]['probability'] = probability_rule # FO (First Order)
 
 #------------------------------------------------------------------------------
 # S1-> connectivity parameters Th
 #------------------------------------------------------------------------------
 if cfg.connect_S1_Th:
-
     ## load data from conn pre-processing file
     with open('conn/conn_Th.pkl', 'rb') as fileObj: connData = pickle.load(fileObj)
     wmat = connData['wmat']
-    cmat = connData['cmat']
-    
+    cmat = connData['cmat']    
     pops_TC     = ['VPL_sTC','VPM_sTC', 'POm_sTC_s1']
     pops_RTN    = ['ss_RTN_o', 'ss_RTN_m', 'ss_RTN_i']
     pops_FO     = ['VPL_sTC','VPM_sTC']
     pops_HO     = ['POm_sTC_s1'],
-
     pops_CT     = ['L5_TTPC2', 'L6_TPC_L4']
-
     radius2D_S1_RTN = 50.0
     radius2D_S1_TC = 50.0
     radius_cilinder = netParams.sizeX/2.0
-
     if cfg.connect_S1_RTN:
         for pre in pops_CT: # S1 corticothalamic
             for post in pops_RTN: # thalamic reticular
-
                 syn = ['AMPA_Th'] # AMPA
                 synWeightFactor = [1.0]
-
                 conn_method = 'probability'
-
                 conn_convergence = cfg.convergence_S1_RTN
                 prob_conv = 1.0*(conn_convergence/cfg.popNumber[pre])*((radius_cilinder**2)/(radius2D_S1_RTN**2)) # prob*(AreaS1/Area_Th_syn)  
                 prob_rule = '%f if dist_2D < %f else 0.0' % (prob_conv,radius2D_S1_RTN)
-
                 netParams.connParams['thal_'+pre+'_'+post] = { 
                                 'preConds': {'pop': cfg.popLabelEl[pre]}, 
                                 'postConds': {'pop': post},
@@ -847,14 +829,11 @@ if cfg.connect_S1_Th:
                                 'delay': 'defaultDelay+dist_3D/propVelocity',
                                 'synsPerConn': 1,
                                 'sec': 'soma'}
-
     if cfg.connect_S1_TC:
         for pre in pops_CT: # from S1 deep layers
             for post in pops_TC: # to Thal
-
                 syn = ['AMPA_Th'] # AMPA
                 synWeightFactor = [1.0]
-
                 if post in pops_HO:
                     conn_method = 'divergence'
                     prob_rule = cfg.divergenceHO/2.0
@@ -863,7 +842,6 @@ if cfg.connect_S1_Th:
                     conn_convergence = cfg.convergence_S1_TC
                     prob_conv = 1.0*(conn_convergence/cfg.popNumber[pre])*((radius_cilinder**2)/(radius2D_S1_TC**2)) 
                     prob_rule = '%f if dist_2D < %f else 0.0' % (prob_conv,radius2D_S1_TC)
-
                 netParams.connParams['thal_'+pre+'_'+post] = { 
                             'preConds': {'pop': cfg.popLabelEl[pre]}, 
                             'postConds': {'pop': post},
@@ -879,61 +857,59 @@ if cfg.connect_S1_Th:
 # Current inputs (IClamp)
 #------------------------------------------------------------------------------
 if cfg.addIClamp:
-     for j in range(cfg.IClampnumber):
-        key ='IClamp'
-        params = getattr(cfg, key, None)
-        key ='IClamp'+str(j+1)
-        params = params[j]
-        [pop,sec,loc,start,dur,amp] = [params[s] for s in ['pop','sec','loc','start','dur','amp']]
-
-        # add stim source
-        netParams.stimSourceParams[key] = {'type': 'IClamp', 'delay': start, 'dur': dur, 'amp': amp}
-        
-        # connect stim source to target
-        netParams.stimTargetParams[key+'_'+pop] =  {
-            'source': key, 
-            'conds': {'pop': pop},
-            'sec': sec, 
-            'loc': loc}
+ for j in range(cfg.IClampnumber):
+   key ='IClamp'
+   params = getattr(cfg, key, None)
+   key ='IClamp'+str(j+1)
+   params = params[j]
+   [pop,sec,loc,start,dur,amp] = [params[s] for s in ['pop','sec','loc','start','dur','amp']]
+   # add stim source
+   netParams.stimSourceParams[key] = {'type': 'IClamp', 'delay': start, 'dur': dur, 'amp': amp}
+   # connect stim source to target
+   netParams.stimTargetParams[key+'_'+pop] =  {
+     'source': key, 
+     'conds': {'pop': pop},
+     'sec': sec, 
+     'loc': loc}
 
 #------------------------------------------------------------------------------
 # NetStim inputs - FROM CFG.PY
 #------------------------------------------------------------------------------
 if cfg.addNetStim:
-    for key in [k for k in dir(cfg) if k.startswith('NetStim')]:
-        params = getattr(cfg, key, None)
-        [pop, sec, loc, synMech, synMechWeightFactor, start, interval, noise, number, weight, delay] = \
-        [params[s] for s in ['pop', 'sec', 'loc', 'synMech', 'synMechWeightFactor', 'start', 'interval', 'noise', 'number', 'weight', 'delay']] 
+  for key in [k for k in dir(cfg) if k.startswith('NetStim')]:
+    params = getattr(cfg, key, None)
+    [pop, sec, loc, synMech, synMechWeightFactor, start, interval, noise, number, weight, delay] = \
+    [params[s] for s in ['pop', 'sec', 'loc', 'synMech', 'synMechWeightFactor', 'start', 'interval', 'noise', 'number', 'weight', 'delay']] 
 
-        #cfg.analysis['plotTraces']['include'] = [(pop,0)]
+    #cfg.analysis['plotTraces']['include'] = [(pop,0)]
 
-        if synMech == ESynMech:
-            wfrac = cfg.synWeightFractionEE
-        else:
-            wfrac = [1.0]
+    if synMech == ESynMech:
+      wfrac = cfg.synWeightFractionEE
+    else:
+      wfrac = [1.0]
 
-        # add stim source
-        netParams.stimSourceParams[key] = {
-            'type': 'NetStim', 
-            'start': cfg.startStimTime if cfg.startStimTime is not None else start, 
-            'interval': cfg.interStimInterval if cfg.interStimInterval is not None else interval, 
-            'noise': noise, 
-            'number': cfg.numStims if cfg.numStims is not None else number}
+    # add stim source
+    netParams.stimSourceParams[key] = {
+      'type': 'NetStim', 
+      'start': cfg.startStimTime if cfg.startStimTime is not None else start, 
+      'interval': cfg.interStimInterval if cfg.interStimInterval is not None else interval, 
+      'noise': noise, 
+      'number': cfg.numStims if cfg.numStims is not None else number}
 
-        # netParams.stimSourceParams[key] = {'type': 'NetStim', 'start': start, 'interval': interval, 'noise': noise, 'number': number}
+    # netParams.stimSourceParams[key] = {'type': 'NetStim', 'start': start, 'interval': interval, 'noise': noise, 'number': number}
 
-        # connect stim source to target
-        # for i, syn in enumerate(synMech):
-        netParams.stimTargetParams[key+'_'+pop] =  {
-            'source': key, 
-            'conds': {'pop': pop},
-            'sec': sec, 
-            'loc': loc,
-            'synMech': synMech,
-            # 'weight': weight,
-            'weight': cfg.netWeight if cfg.netWeight is not None else weight,
-            'synMechWeightFactor': synMechWeightFactor,
-            'delay': delay}
+    # connect stim source to target
+    # for i, syn in enumerate(synMech):
+    netParams.stimTargetParams[key+'_'+pop] =  {
+      'source': key, 
+      'conds': {'pop': pop},
+      'sec': sec, 
+      'loc': loc,
+      'synMech': synMech,
+      # 'weight': weight,
+      'weight': cfg.netWeight if cfg.netWeight is not None else weight,
+      'synMechWeightFactor': synMechWeightFactor,
+      'delay': delay}
 
 #------------------------------------------------------------------------------
 # Targeted NetStim inputs - FROM CFG.PY
