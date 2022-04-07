@@ -150,7 +150,7 @@ cfg.saveDipoleCells = cfg.S1cells # ['all']
 #------------------------------------------------------------------------------
 # Saving
 #------------------------------------------------------------------------------
-cfg.simLabel = '6apr22_LDB'
+cfg.simLabel = '7apr22_Stim10e3_LDB'
 cfg.saveFolder = '../data/'+cfg.simLabel
 # cfg.filename =    ## Set file output name
 cfg.savePickle = True ## Save pkl file
@@ -304,13 +304,13 @@ if cfg.addNetStim:
 #------------------------------------------------------------------------------
 # Targeted NetStim inputs 
 #------------------------------------------------------------------------------
-cfg.addTargetedNetStim = False
+cfg.addTargetedNetStim = True
 if cfg.addTargetedNetStim:
     cfg.stimDuration = 13e3
     cfg.stimRate = 3.0
     cfg.startStimTime=None
     cfg.stimPop = None
-    cfg.netWeight           = 25e3 # 25e3 is superthreshold; 10e3 is subthreshold but very strong
+    cfg.netWeight           = 10e3 # 25e3 # 25e3 is superthreshold; 10e3 is subthreshold but very strong
     # cfg.startStimTime1      = 2000
     cfg.numStims            = cfg.stimRate * int(cfg.stimDuration/1e3) 
     cfg.interStimInterval   = 1e3/cfg.stimRate 
