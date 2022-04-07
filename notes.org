@@ -3841,7 +3841,135 @@ stim turned on ... will try that again ...
 
 ./myrun 60
 
+python -i simdat.py
 
+simname = '7apr22_Stim10e3_LDB'; simConfig, sdat, dstartidx, dendidx, dnumc, dspkID, dspkT = loaddat(simname); drawraster(dspkT,dspkID)
+plot([0,totalDur],[dstartidx['VPL_sTC'],dstartidx['VPL_sTC']],'k--',linewidth=2)
+plot([0,totalDur],[dendidx['VPL_sTC'],dendidx['VPL_sTC']],'k--',linewidth=2)
 
-** next sim -- superthreshold targeted VPL stim with less/0 noise
+savefig('gif/7apr22_rast_b0.png') 
+cla(); plot(sdat['t'][:],sdat['dipoleSum'][:,0],'g'); 
+savefig('gif/7apr22_dpl_b1.png')
+
+there's a bit of 3 Hz activity from targeted inputs to VPL ... may as well compare to the others ...
+
+lclr = ['b', 'g', 'r']
+lsim = ['6apr22_LDB', '7apr22_Stim10e3_LDB', '6apr22_Stim_LDB']
+ddat = {}
+for simname in lsim:
+  simConfig, sdat, dstartidx, dendidx, dnumc, dspkID, dspkT = loaddat(simname)
+  ddat[simname] = {'simConfig':simConfig,'sdat':sdat,'dspkID':dspkID,'dspkT':dspkT}
+
+from morlet import *
+
+sampr = 10000
+
+for sim in lsim:
+  sig = ddat[sim]['sdat']['dipoleSum'][sampr:,0]
+  sig = sig - np.mean(sig)
+  specg = MorletSpec(sig,sampr,0.25,30,0.5)
+  ddat[sim]['specg'] = specg
+  avgpow = np.mean(specg.TFR,axis=1)
+  ddat[sim]['avgpow'] = avgpow
+
+mn,mx = 1e9,-1e9
+for sim in lsim: 
+  mn=min(mn, np.amin(ddat[sim]['specg'].TFR))
+  mx=max(mx, np.amax(ddat[sim]['specg'].TFR))
+
+mx # 3325186.9565324117
+mx = 3325186.9565324117 / 25
+
+for sdx,sim in enumerate(lsim):
+  subplot(1,4,sdx+1)
+  imshow(ddat[sim]['specg'].TFR[:,10000:],origin='lower',interpolation='None',extent=(1,15,0.25,30),vmin=mn,vmax=mx)
+  ylim((0.25,10))
+
+subplot(1,4,4)
+for sdx,sim in enumerate(lsim):
+  plot(ddat[sim]['specg'].f,ddat[sim]['avgpow'],lclr[sdx])
+
+xlabel('Frequency (Hz)'); ylabel('Power'); xlim((0.25,30))
+
+savefig('gif/7apr22_compare_dpl_specgram_b2.png')
+
+so the 10e3 weight stim is not strong enough to be noticeably detectable
+
+** sim with 17.5e3 3 Hz targeted weight to VPL (7apr22_Stim17.5e3_LDB)
+
+python -i simdat.py
+
+simname = '7apr22_Stim17.5e3_LDB'; simConfig, sdat, dstartidx, dendidx, dnumc, dspkID, dspkT = loaddat(simname); drawraster(dspkT,dspkID)
+plot([0,totalDur],[dstartidx['VPL_sTC'],dstartidx['VPL_sTC']],'k--',linewidth=2)
+plot([0,totalDur],[dendidx['VPL_sTC'],dendidx['VPL_sTC']],'k--',linewidth=2)
+
+ok, can see a clear 3 Hz rhythm in VPL
+
+savefig('gif/7apr22_rast_c0.png') 
+cla(); plot(sdat['t'][:],sdat['dipoleSum'][:,0],'g'); 
+savefig('gif/7apr22_dpl_c1.png')
+
+lclr = ['b', 'g', 'r']
+lsim = ['6apr22_LDB', '7apr22_Stim17.5e3_LDB', '6apr22_Stim_LDB']
+ddat = {}
+for simname in lsim:
+  simConfig, sdat, dstartidx, dendidx, dnumc, dspkID, dspkT = loaddat(simname)
+  ddat[simname] = {'simConfig':simConfig,'sdat':sdat,'dspkID':dspkID,'dspkT':dspkT}
+
+from morlet import *
+
+sampr = 10000
+
+for sim in lsim:
+  sig = ddat[sim]['sdat']['dipoleSum'][sampr:,0]
+  sig = sig - np.mean(sig)
+  specg = MorletSpec(sig,sampr,0.25,30,0.5)
+  ddat[sim]['specg'] = specg
+  avgpow = np.mean(specg.TFR,axis=1)
+  ddat[sim]['avgpow'] = avgpow
+
+mn,mx = 1e9,-1e9
+for sim in lsim: 
+  mn=min(mn, np.amin(ddat[sim]['specg'].TFR))
+  mx=max(mx, np.amax(ddat[sim]['specg'].TFR))
+
+mx # 3325186.9565324117
+mx = 3325186.9565324117 / 25
+
+for sdx,sim in enumerate(lsim):
+  subplot(1,4,sdx+1)
+  imshow(ddat[sim]['specg'].TFR[:,10000:],origin='lower',interpolation='None',extent=(1,15,0.25,30),vmin=mn,vmax=mx,cmap='jet')
+  ylim((0.25,10))
+
+subplot(1,4,4); 
+for sdx,sim in enumerate(lsim):
+  plot(ddat[sim]['specg'].f,ddat[sim]['avgpow'],lclr[sdx])
+
+xlabel('Frequency (Hz)',fontsize=25); ylabel('Power',fontsize=25); xlim((0.25,25)); ylim((0,155000))
+
+savefig('gif/7apr22_compare_dpl_specgram_c2.png')
+
+for sdx,sim in enumerate(lsim):
+  subplot(2,4,sdx+1)
+  imshow(ddat[sim]['specg'].TFR[:,10000:],origin='lower',interpolation='None',extent=(1,15,0.25,30),vmin=mn,vmax=mx,cmap='jet')
+  ylim((0.25,10)); # xlim((8,12))
+  xlabel('Time (s)', fontsize=25); ylabel('Frequency (Hz)',fontsize=25)
+
+for sdx,sim in enumerate(lsim):
+  subplot(2,4,sdx+5)
+  sig = ddat[sim]['sdat']['dipoleSum'][sampr:,0]
+  sig = sig - np.mean(sig)
+  plot(np.linspace(1,15,len(sig)),sig,lclr[sdx])
+  xlim((11,12)); ylim((-10000,25000))
+  xlabel('Time (s)',fontsize=25)
+
+subplot(1,4,4); 
+for sdx,sim in enumerate(lsim):
+  plot(ddat[sim]['specg'].f,ddat[sim]['avgpow'],lclr[sdx])
+
+xlabel('Frequency (Hz)',fontsize=25); ylabel('Power',fontsize=25); xlim((0.25,25)); ylim((0,155000))
+
+savefig('gif/7apr22_compare_dpl_specgram_c3.png')
+
+** next sim -- superthreshold targeted VPL stim with less/0 noise -- for comparison
 
