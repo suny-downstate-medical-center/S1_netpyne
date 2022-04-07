@@ -3971,5 +3971,30 @@ xlabel('Frequency (Hz)',fontsize=25); ylabel('Power',fontsize=25); xlim((0.25,25
 
 savefig('gif/7apr22_compare_dpl_specgram_c3.png')
 
-** next sim -- superthreshold targeted VPL stim with less/0 noise -- for comparison
+also include rasters ...
+
+lt = ['No VPL stimulation', 'Medium strength VPL stimulation (3 Hz)', 'Strong VPL stimulation (3 Hz)']
+
+for sdx,sim in enumerate(lsim):
+  subplot(1,3,sdx+1); title(lt[sdx],fontsize=25)
+  dspkT,dspkID = ddat[sim]['dspkT'],ddat[sim]['dspkID']
+  drawraster(dspkT,dspkID)
+  plot([0,totalDur],[dstartidx['VPL_sTC'],dstartidx['VPL_sTC']],'k--',linewidth=2)
+  plot([0,totalDur],[dendidx['VPL_sTC'],dendidx['VPL_sTC']],'k--',linewidth=2)
+  xlim((8e3,12e3))
+  xlabel('Time (ms)',fontsize=25)
+
+savefig('gif/7apr22_compare_raster_c4.png')
+
+there are other ongoing rhythms (e.g. alpha ~10-12 Hz)
+
+save dipoles ... 
+
+lmfn = ['NoVPLStim','MedVPLStim','StrongVPLStim']
+for sdx,sim in enumerate(lsim):
+  save_dipoles_matlab('../data/'+lmfn[sdx]+'_'+sim+'.mat', ddat[sim]['simConfig'], ddat[sim]['sdat'], dnumc, dstartidx, dendidx)
+
+ok will upload to drive ... 
+
+** next sim -- superthreshold targeted VPL stim with less/0 noise -- (7apr22_Stim17.5e3_Noise0_LDB)
 

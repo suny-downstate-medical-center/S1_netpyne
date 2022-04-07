@@ -150,7 +150,7 @@ cfg.saveDipoleCells = cfg.S1cells # ['all']
 #------------------------------------------------------------------------------
 # Saving
 #------------------------------------------------------------------------------
-cfg.simLabel = '7apr22_Stim17.5e3_LDB'
+cfg.simLabel = '7apr22_Stim17.5e3_Noise0_LDB'
 cfg.saveFolder = '../data/'+cfg.simLabel
 # cfg.filename =    ## Set file output name
 cfg.savePickle = True ## Save pkl file
@@ -325,7 +325,7 @@ if cfg.addTargetedNetStim:
         'synMechWeightFactor': [1.0],
         'start':            1000, 
         'interval':         cfg.interStimInterval, 
-        'noise':            0.01, 
+        'noise':            0.0, 
         'number':           cfg.numStims, 
         'weight':           cfg.netWeight, 
         'delay':            0,
