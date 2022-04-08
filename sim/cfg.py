@@ -24,7 +24,7 @@ cfg = specs.SimConfig()
 # Run parameters
 #------------------------------------------------------------------------------
 #cfg.duration = 5.0*1e3 ## Duration of the sim, in ms
-cfg.duration = 15000 # 3000 ## Duration of the sim, in ms  
+cfg.duration = 1000 # 3000 ## Duration of the sim, in ms  
 cfg.dt = 0.1 # 0.025
 cfg.seeds = {'conn': 4322, 'stim': 4322, 'loc': 4322} 
 cfg.hParams = {'celsius': 34, 'v_init': -65}  
@@ -143,14 +143,31 @@ cfg.recordStep = cfg.dt
 
 # setting up current dipole recordings
 #  based on https://github.com/NathanKlineInstitute/A1/blob/salva_layers/cfg.py
-cfg.recordDipole = True
-cfg.saveDipoleCells = cfg.S1cells # ['all']
+cfg.recordDipole = False # True
+if cfg.recordDipole: cfg.saveDipoleCells = cfg.S1cells # ['all']
 # cfg.saveDipolePops = cfg.allpops
+
+# setting up LFP recordings
+#cfg.recordLFP = [[45, y, 45] for y in range(0, 2000, 500)] #+[[100, 2500, 200], [100,2700,200]]
+cfg.recordLFP = [[45, 1000, 45]] #  for y in range(0, 2000, 500)] #+[[100, 2500, 200], [100,2700,200]]
+cfg.saveLFPPops =  cfg.S1cells
+
+def adjLFPpops ():
+  Epops = ['L23_PC', 'L4_PC', 'L4_SS', 'L4_SP', 
+           'L5_TTPC1', 'L5_TTPC2', 'L5_STPC', 'L5_UTPC',
+           'L6_TPC_L1', 'L6_TPC_L4', 'L6_BPC', 'L6_IPC', 'L6_UTPC']
+  out = []
+  for p in cfg.saveLFPPops:
+    for ty in Epops:
+      if p.count(ty): out.append(p)
+  return out
+
+cfg.saveLFPPops = adjLFPpops()
 
 #------------------------------------------------------------------------------
 # Saving
 #------------------------------------------------------------------------------
-cfg.simLabel = '7apr22_Stim17.5e3_Noise0_LDB'
+cfg.simLabel = '8apr22_LDC'
 cfg.saveFolder = '../data/'+cfg.simLabel
 # cfg.filename =    ## Set file output name
 cfg.savePickle = True ## Save pkl file
@@ -182,13 +199,13 @@ cfg.saveCellConns = False
 #------------------------------------------------------------------------------
 # Network 
 #------------------------------------------------------------------------------
-cfg.myscalefctr = 12.0
+cfg.myscalefctr = 1.0 # 12.0
 cfg.scale = 1.0 # reduce size
 cfg.sizeY = 2082.0
 cfg.sizeX = 420.0/cfg.myscalefctr # r = 210 um and hexagonal side length = 230.9 um
 cfg.sizeZ = 420.0/cfg.myscalefctr
 cfg.scaleDensity = 1.0/cfg.myscalefctr**2 # 1.0 # Number of cells = 31346
-cfg.scaleThal = 1.0/60.0 # 1.0/20.0 # 1.0/60.0 
+cfg.scaleThal = 1.0 # 1.0/60.0 # 1.0/20.0 # 1.0/60.0 
 
 #------------------------------------------------------------------------------
 # Spontaneous synapses + background - data from Rat
@@ -304,7 +321,7 @@ if cfg.addNetStim:
 #------------------------------------------------------------------------------
 # Targeted NetStim inputs 
 #------------------------------------------------------------------------------
-cfg.addTargetedNetStim = True
+cfg.addTargetedNetStim = False # True
 if cfg.addTargetedNetStim:
     cfg.stimDuration = 13e3
     cfg.stimRate = 3.0

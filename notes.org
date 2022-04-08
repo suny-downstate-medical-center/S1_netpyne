@@ -3997,4 +3997,113 @@ for sdx,sim in enumerate(lsim):
 ok will upload to drive ... 
 
 ** next sim -- superthreshold targeted VPL stim with less/0 noise -- (7apr22_Stim17.5e3_Noise0_LDB)
+* 8apr22
+** 1/f -- where from & why missing here? (sim=8apr22_LDC)
+
+maybe just low-pass filtering of noise
+check how spectrogram on LFP signal looks ... 
+
+# setting up LFP recordings
+cfg.recordLFP = [[100, y, 100] for y in range(0, 2000, 500)] #+[[100, 2500, 200], [100,2700,200]]
+cfg.saveLFPPops =  cfg.S1cells 
+
+./myrun 60
+
+  Done; run time = 2231.41 s; real-time ratio: 0.01.
+
+Gathering data...
+[cycle:3983939] *** Process received signal ***
+[cycle:3983939] Signal: Segmentation fault (11)
+[cycle:3983939] Associated errno: Unknown error 32649 (32649)
+[cycle:3983939] Signal code:  (1990185152)
+[cycle:3983939] Failing at address: 0xffffffffffffffff
+[cycle:3983939] [ 0] /lib/x86_64-linux-gnu/libc.so.6(+0x430c0)[0x7f8b345340c0]
+
+hmm ... try 1 s run first ...
+
+./myrun 60
+
+  Done; run time = 154.25 s; real-time ratio: 0.01.
+
+Gathering data...
+terminate called after throwing an instance of 'std::bad_alloc'
+  what():  std::bad_alloc
+[cycle:3999000] *** Process received signal ***
+[cycle:3999000] Signal: Aborted (6)
+[cycle:3999000] Signal code:  (-6)
+[cycle:3999000] [ 0] /lib/x86_64-linux-gnu/libpthread.so.0(+0x143c0)[0x7f0eee86d3c0]
+[cycle:3999000] [ 1] /lib/x86_64-linux-gnu/libc.so.6(gsignal+0xcb)[0x7f0eee6aa03b]
+[cycle:3999000] [ 2] /lib/x86_64-linux-gnu/libc.so.6(abort+0x12b)[0x7f0eee689859]
+
+also crashes ...
+
+try with a single LFP electrode ...
+
+./myrun 60
+
+ok, that did not crash ...
+
+python -i simdat.py
+
+simname = '8apr22_LDC'; simConfig, sdat, dstartidx, dendidx, dnumc, dspkID, dspkT = loaddat(simname); drawraster(dspkT,dspkID)
+plot([0,totalDur],[dstartidx['VPL_sTC'],dstartidx['VPL_sTC']],'k--',linewidth=2)
+plot([0,totalDur],[dendidx['VPL_sTC'],dendidx['VPL_sTC']],'k--',linewidth=2)
+
+savefig('gif/8apr22_rast_a0.png')
+
+sdat.keys() # dict_keys(['spkt', 'spkid', 'V_soma', 't', 'LFP', 'LFPPops', 'popRates', 'avgRate'])
+
+len(sdat['LFP']) # 10000
+
+plot(sdat['LFP'])
+
+sdat['LFPPops'].keys()
+dict_keys(['L1_DAC_bNA', 'L1_DAC_cNA', 'L1_DLAC_cNA', 'L1_HAC_bNA', 'L1_HAC_cIR', 'L1_HAC_cNA', 'L1_NGC-DA_bNA', 'L1_NGC-DA_cAC', 'L1_NGC-DA_cNA', 'L1_NGC-DA_cST', 'L1_NGC-SA_cNA', 'L1_SLAC_bNA', 'L1_SLAC_cAC', 'L1_SLAC_cNA', 'L23_BP_bAC', 'L23_BP_bIR', 'L23_BP_bNA', 'L23_BP_cAC', 'L23_BP_cNA', 'L23_BP_dST', 'L23_BTC_bAC', 'L23_BTC_bIR', 'L23_BTC_bNA', 'L23_BTC_cAC', 'L23_BTC_cNA', 'L23_ChC_cAC', 'L23_ChC_cNA', 'L23_ChC_dNA', 'L23_DBC_bAC', 'L23_DBC_bIR', 'L23_DBC_bNA', 'L23_DBC_cAC', 'L23_LBC_bAC', 'L23_LBC_bNA', 'L23_LBC_cAC', 'L23_LBC_cNA', 'L23_LBC_cST', 'L23_LBC_dNA', 'L23_MC_bAC', 'L23_MC_bNA', 'L23_MC_cAC', 'L23_MC_cNA', 'L23_MC_dNA', 'L23_NBC_bAC', 'L23_NBC_bNA', 'L23_NBC_cAC', 'L23_NBC_cIR', 'L23_NBC_cNA', 'L23_NBC_dNA', 'L23_NGC_bNA', 'L23_NGC_cAC', 'L23_NGC_cNA', 'L23_NGC_cST', 'L23_PC_cAD', 'L23_SBC_bNA', 'L23_SBC_cAC', 'L23_SBC_dNA', 'L4_BP_bAC', 'L4_BP_bIR', 'L4_BP_bNA', 'L4_BP_cAC', 'L4_BP_cNA', 'L4_BP_dST', 'L4_BTC_bAC', 'L4_BTC_bIR', 'L4_BTC_bST', 'L4_BTC_cAC', 'L4_BTC_cNA', 'L4_BTC_dNA', 'L4_ChC_cAC', 'L4_ChC_cNA', 'L4_ChC_dNA', 'L4_DBC_bAC', 'L4_DBC_bIR', 'L4_DBC_bNA', 'L4_DBC_bST', 'L4_DBC_cAC', 'L4_DBC_cIR', 'L4_DBC_cNA', 'L4_LBC_cAC', 'L4_LBC_cNA', 'L4_LBC_cST', 'L4_LBC_dNA', 'L4_LBC_dST', 'L4_MC_bAC', 'L4_MC_bNA', 'L4_MC_cAC', 'L4_MC_cNA', 'L4_MC_dNA', 'L4_NBC_cAC', 'L4_NBC_cIR', 'L4_NBC_cNA', 'L4_NBC_dNA', 'L4_NGC_bNA', 'L4_NGC_cAC', 'L4_NGC_cNA', 'L4_NGC_cST', 'L4_PC_cAD', 'L4_SBC_bNA', 'L4_SBC_cAC', 'L4_SBC_dNA', 'L4_SP_cAD', 'L4_SS_cAD', 'L5_BP_bAC', 'L5_BP_bIR', 'L5_BP_bNA', 'L5_BP_cAC', 'L5_BP_cNA', 'L5_BP_dST', 'L5_BTC_bAC', 'L5_BTC_cAC', 'L5_BTC_cNA', 'L5_ChC_cAC', 'L5_ChC_cNA', 'L5_ChC_dNA', 'L5_DBC_bAC', 'L5_DBC_bIR', 'L5_DBC_bNA', 'L5_DBC_bST', 'L5_DBC_cAC', 'L5_DBC_cIR', 'L5_DBC_cNA', 'L5_LBC_bAC', 'L5_LBC_cAC', 'L5_LBC_cIR', 'L5_LBC_cNA', 'L5_LBC_cST', 'L5_LBC_dNA', 'L5_LBC_dST', 'L5_MC_bAC', 'L5_MC_bIR', 'L5_MC_bST', 'L5_MC_cAC', 'L5_MC_cNA', 'L5_MC_cST', 'L5_MC_dNA', 'L5_NBC_bAC', 'L5_NBC_bIR', 'L5_NBC_bST', 'L5_NBC_cAC', 'L5_NBC_cIR', 'L5_NBC_cNA', 'L5_NBC_cST', 'L5_NBC_dST', 'L5_NGC_bNA', 'L5_NGC_cAC', 'L5_NGC_cNA', 'L5_NGC_cST', 'L5_SBC_bNA', 'L5_SBC_cAC', 'L5_SBC_dNA', 'L5_STPC_cAD', 'L5_TTPC1_cAD', 'L5_TTPC2_cAD', 'L5_UTPC_cAD', 'L6_BPC_cAD', 'L6_BP_bAC', 'L6_BP_bIR', 'L6_BP_bNA', 'L6_BP_cAC', 'L6_BP_cNA', 'L6_BP_dST', 'L6_BTC_bAC', 'L6_BTC_cAC', 'L6_BTC_cNA', 'L6_ChC_cAC', 'L6_ChC_cNA', 'L6_ChC_dNA', 'L6_DBC_bAC', 'L6_DBC_bIR', 'L6_DBC_bNA', 'L6_DBC_bST', 'L6_DBC_cAC', 'L6_DBC_cIR', 'L6_DBC_cNA', 'L6_IPC_cAD', 'L6_LBC_bAC', 'L6_LBC_bIR', 'L6_LBC_bNA', 'L6_LBC_bST', 'L6_LBC_cNA', 'L6_LBC_cST', 'L6_MC_bAC', 'L6_MC_bIR', 'L6_MC_bNA', 'L6_MC_bST', 'L6_MC_cAC', 'L6_MC_cIR', 'L6_MC_cNA', 'L6_NBC_bAC', 'L6_NBC_bIR', 'L6_NBC_bST', 'L6_NBC_cAC', 'L6_NBC_cIR', 'L6_NBC_cNA', 'L6_NBC_cST', 'L6_NBC_dST', 'L6_NGC_bNA', 'L6_NGC_cAC', 'L6_NGC_cNA', 'L6_NGC_cST', 'L6_SBC_bNA', 'L6_SBC_cAC', 'L6_SBC_dNA', 'L6_TPC_L1_cAD', 'L6_TPC_L4_cAD', 'L6_UTPC_cAD'])
+
+plot(sdat['LFPPops']['L4_PC_cAD'])
+
+to get rid of thalamic contributions could either adjust ~/netpyne/netpyne/sim/run.py to allow selection of which
+populations contribute ... or  SD suggests recording the thal populations and then just subtract that off the full LFP
+
+or could put a hack ... where only save LFP from cells that have their population LFPs recorded ... 
+
+        if sim.cfg.saveLFPPops:
+            if cell.gid in sim.net.popForEachGid:
+                pop = sim.net.popForEachGid[cell.gid]
+                sim.simData['LFPPops'][pop][saveStep - 1,:] += ecp  # contribution of individual cells (stored optionally)
+                sim.simData['LFP'][saveStep - 1,:] += ecp  # sum of all cells
+
+        if sim.cfg.saveLFPCells and gid in sim.simData['LFPCells']:
+            sim.simData['LFPCells'][gid][saveStep - 1,:] = ecp  # contribution of individual cells (stored optionally)
+
+        # sim.simData['LFP'][saveStep - 1,:] += ecp  # sum of all cells
+
+try it out ... 
+
+python -i simdat.py
+
+simname = '8apr22_LDC'; simConfig, sdat, dstartidx, dendidx, dnumc, dspkID, dspkT = loaddat(simname); 
+
+plot(sdat['t'],sdat['LFP'])
+
+from morlet import *
+
+sampr = 10000
+
+sig = np.array(sdat['LFP'])
+sig = sig - np.mean(sig)
+sig = sig[:,0]
+specg = MorletSpec(sig,sampr,0.25,30,0.5)
+avgpow = np.mean(specg.TFR,axis=1)
+plot(specg.f,avgpow)
+
+for sdx,k in enumerate(sdat['LFPPops']):
+  subplot(7,2,sdx+1); title(k); plot(sdat['t'],sdat['LFPPops'][k])
+
+sig = np.array(sdat['LFPPops']['L6_TPC_L1_cAD'])
+sig = sig - np.mean(sig)
+sig = sig[:,0]
+specg = MorletSpec(sig,sampr,0.25,30,0.5)
+avgpow = np.mean(specg.TFR,axis=1)
+figure(); plot(specg.f,avgpow)
 
