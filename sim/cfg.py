@@ -24,7 +24,7 @@ cfg = specs.SimConfig()
 # Run parameters
 #------------------------------------------------------------------------------
 #cfg.duration = 5.0*1e3 ## Duration of the sim, in ms
-cfg.duration = 1000 # 3000 ## Duration of the sim, in ms  
+cfg.duration = 400 # 3000 ## Duration of the sim, in ms  
 cfg.dt = 0.1 # 0.025
 cfg.seeds = {'conn': 4322, 'stim': 4322, 'loc': 4322} 
 cfg.hParams = {'celsius': 34, 'v_init': -65}  
@@ -149,7 +149,7 @@ if cfg.recordDipole: cfg.saveDipoleCells = cfg.S1cells # ['all']
 
 # setting up LFP recordings
 #cfg.recordLFP = [[45, y, 45] for y in range(0, 2000, 500)] #+[[100, 2500, 200], [100,2700,200]]
-cfg.recordLFP = [[45, 1000, 45]] #  for y in range(0, 2000, 500)] #+[[100, 2500, 200], [100,2700,200]]
+cfg.recordLFP = [[0, 1000, 0]] #  for y in range(0, 2000, 500)] #+[[100, 2500, 200], [100,2700,200]]
 cfg.saveLFPPops =  cfg.S1cells
 
 def adjLFPpops ():
@@ -162,7 +162,7 @@ def adjLFPpops ():
       if p.count(ty): out.append(p)
   return out
 
-cfg.saveLFPPops = adjLFPpops()
+# cfg.saveLFPPops = adjLFPpops()
 
 #------------------------------------------------------------------------------
 # Saving
@@ -199,7 +199,7 @@ cfg.saveCellConns = False
 #------------------------------------------------------------------------------
 # Network 
 #------------------------------------------------------------------------------
-cfg.myscalefctr = 1.0 # 12.0
+cfg.myscalefctr = 1.0 # 12.0 # 1.0
 cfg.scale = 1.0 # reduce size
 cfg.sizeY = 2082.0
 cfg.sizeX = 420.0/cfg.myscalefctr # r = 210 um and hexagonal side length = 230.9 um
@@ -211,8 +211,10 @@ cfg.scaleThal = 1.0 # 1.0/60.0 # 1.0/20.0 # 1.0/60.0
 # Spontaneous synapses + background - data from Rat
 #------------------------------------------------------------------------------
 cfg.addStimSynS1 = True
-cfg.rateStimE = 9.0
-cfg.rateStimI = 9.0
+cfg.rateStimEE = 9.0
+cfg.rateStimIE = 9.0
+cfg.rateStimEI = 9.0
+cfg.rateStimII = 9.0
 
 #------------------------------------------------------------------------------
 # Connectivity

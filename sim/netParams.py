@@ -572,17 +572,29 @@ synperNeuronStimE = connData['synperNeuronStimE']
 GsynStimI = connData['GsynStimI']
 GsynStimE = connData['GsynStimE']
    
-if cfg.addStimSynS1:      
-    for post in Ipops + Epops:
-
+if cfg.addStimSynS1:
+    for post in Ipops:
         synperNeuron = synperNeuronStimI[post]
-        ratespontaneous = cfg.rateStimI
+        ratespontaneous = cfg.rateStimII
         for qSnum in range(SourcesNumber):
             ratesdifferentiation = (0.8 + 0.4*qSnum/(SourcesNumber-1)) * (synperNeuron*ratespontaneous)/SourcesNumber
             netParams.stimSourceParams['StimSynS1_S_all_INH->' + post + '_' + str(qSnum)] = {'type': 'NetStim', 'rate': ratesdifferentiation, 'noise': 1.0}
 
         synperNeuron = synperNeuronStimE[post]
-        ratespontaneous = cfg.rateStimE
+        ratespontaneous = cfg.rateStimEI
+        for qSnum in range(SourcesNumber):
+            ratesdifferentiation = (0.8 + 0.4*qSnum/(SourcesNumber-1)) * (synperNeuron*ratespontaneous)/SourcesNumber
+            netParams.stimSourceParams['StimSynS1_S_all_EXC->' + post + '_' + str(qSnum)] = {'type': 'NetStim', 'rate': ratesdifferentiation, 'noise': 1.0}
+        
+    for post in Epops:
+        synperNeuron = synperNeuronStimI[post]
+        ratespontaneous = cfg.rateStimIE
+        for qSnum in range(SourcesNumber):
+            ratesdifferentiation = (0.8 + 0.4*qSnum/(SourcesNumber-1)) * (synperNeuron*ratespontaneous)/SourcesNumber
+            netParams.stimSourceParams['StimSynS1_S_all_INH->' + post + '_' + str(qSnum)] = {'type': 'NetStim', 'rate': ratesdifferentiation, 'noise': 1.0}
+
+        synperNeuron = synperNeuronStimE[post]
+        ratespontaneous = cfg.rateStimEE
         for qSnum in range(SourcesNumber):
             ratesdifferentiation = (0.8 + 0.4*qSnum/(SourcesNumber-1)) * (synperNeuron*ratespontaneous)/SourcesNumber
             netParams.stimSourceParams['StimSynS1_S_all_EXC->' + post + '_' + str(qSnum)] = {'type': 'NetStim', 'rate': ratesdifferentiation, 'noise': 1.0}
