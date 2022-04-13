@@ -24,7 +24,7 @@ cfg = specs.SimConfig()
 # Run parameters
 #------------------------------------------------------------------------------
 #cfg.duration = 5.0*1e3 ## Duration of the sim, in ms
-cfg.duration = 15000 # 400 # 3000 ## Duration of the sim, in ms  
+cfg.duration = 5000 # 400 # 3000 ## Duration of the sim, in ms  
 cfg.dt = 0.1 # 0.025
 cfg.seeds = {'conn': 4322, 'stim': 4322, 'loc': 4322} 
 cfg.hParams = {'celsius': 34, 'v_init': -65}  
@@ -149,9 +149,10 @@ if cfg.recordDipole: cfg.saveDipoleCells = cfg.S1cells # ['all']
 
 # setting up LFP recordings
 #cfg.recordLFP = [[45, y, 45] for y in range(0, 2000, 500)] #+[[100, 2500, 200], [100,2700,200]]
-cfg.recordLFP = [[210, 1000, 210]] #  for y in range(0, 2000, 500)] #+[[100, 2500, 200], [100,2700,200]]
-cfg.saveLFPPops =  cfg.S1cells
-cfg.saveLFPCells = [139]
+#cfg.recordLFP = [[210, 1000, 210]] #  for y in range(0, 2000, 500)] #+[[100, 2500, 200], [100,2700,200]]
+cfg.recordLFP = [[17.5, 1000, 17.5]] #  for y in range(0, 2000, 500)] #+[[100, 2500, 200], [100,2700,200]]
+# cfg.saveLFPPops =  cfg.S1cells
+# cfg.saveLFPCells = [139]
 
 def adjLFPpops ():
   Epops = ['L23_PC', 'L4_PC', 'L4_SS', 'L4_SP', 
@@ -168,7 +169,7 @@ def adjLFPpops ():
 #------------------------------------------------------------------------------
 # Saving
 #------------------------------------------------------------------------------
-cfg.simLabel = '11apr22_LDA'
+cfg.simLabel = '12apr22_LDB'
 cfg.saveFolder = '../data/'+cfg.simLabel
 # cfg.filename =    ## Set file output name
 cfg.savePickle = True ## Save pkl file
@@ -203,8 +204,8 @@ cfg.saveCellConns = False
 cfg.myscalefctr = 12.0 # 12.0 # 1.0
 cfg.scale = 1.0 # reduce size
 cfg.sizeY = 2082.0
-cfg.sizeX = 420.0 # 420.0/cfg.myscalefctr # r = 210 um and hexagonal side length = 230.9 um
-cfg.sizeZ = 420.0 # 420.0/cfg.myscalefctr
+cfg.sizeX = 420.0/cfg.myscalefctr # r = 210 um and hexagonal side length = 230.9 um
+cfg.sizeZ = 420.0/cfg.myscalefctr
 cfg.scaleDensity = 1.0/cfg.myscalefctr**2 # 1.0 # Number of cells = 31346
 cfg.scaleThal = 1.0/60.0 # 1.0/20.0 # 1.0/60.0 
 

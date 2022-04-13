@@ -4188,3 +4188,106 @@ for ty,clr in zip(['VPM_sTC', 'VPL_sTC','L4_PC_cAD'],['g','b','r']): plot(sdat['
 
 hmm, psd looks more 1/f like ... 
 
+tried running 15 s sim but it crashed in gather
+
+* 12apr22
+** try 10 s sim 
+
+also crashses
+
+try 5 s sim ...
+
+hmm, also crashed ... 
+
+try w/o LFPPops and w/o LFPCells ...
+
+ok, that ran to completion ...
+
+* 13apr22
+** check last output (12apr22_LDA)
+
+python -i simdat.py
+
+simname = '12apr22_LDA'; simConfig, sdat, dstartidx, dendidx, dnumc, dspkID, dspkT = loaddat(simname); 
+
+plot(sdat['LFP'])
+savefig('gif/13apr22_lfp_a0.png')
+
+drawraster(dspkT,dspkID)
+plot([0,totalDur],[dstartidx['VPL_sTC'],dstartidx['VPL_sTC']],'k--',linewidth=2)
+plot([0,totalDur],[dendidx['VPL_sTC'],dendidx['VPL_sTC']],'k--',linewidth=2)
+savefig('gif/13apr22_rast_a1.png')
+
+from morlet import *
+
+sampr = 10000
+
+sig = np.array(sdat['LFP'][1000:])
+sig = sig - np.mean(sig)
+sig = sig[:,0]
+specg = MorletSpec(sig,sampr,0.25,30,0.5)
+avgpow = np.mean(specg.TFR,axis=1)
+plot(specg.f,avgpow)
+xlabel('Freq (Hz)',fontsize=25); ylabel('Average wavelet power',fontsize=25)
+
+savefig('gif/13apr22_wvlt_avg_a2.png')
+
+from psd import psd
+figure(); fpcntile, mpf, fmax, Ptotal, f, P = psd(sig, sampr)
+xlim((0,3000))
+
+savefig('gif/13apr22_welch_psd_a3.png')
+
+xlim((0,30))
+
+savefig('gif/13apr22_welch_psd_a4.png')
+
+specg = MorletSpec(sig,sampr,0.25,3000,10)
+avgpow = np.mean(specg.TFR,axis=1)
+plot(specg.f,avgpow)
+
+savefig('gif/13apr22_wvlt_avg_a4.png')
+
+np.savetxt('testLFP.txt', sig)
+
+so at wide freq range looks more similar to 1/f
+
+** another variation (12apr22_LDB)
+
+use the lower sizeX, sizeZ (420/12.), and record LFP from middle at x=z=17.5
+
+python -i simdat.py
+
+simname = '12apr22_LDB'; simConfig, sdat, dstartidx, dendidx, dnumc, dspkID, dspkT = loaddat(simname); 
+
+plot(sdat['LFP'])
+savefig('gif/13apr22_lfp_b0.png')
+
+drawraster(dspkT,dspkID)
+plot([0,totalDur],[dstartidx['VPL_sTC'],dstartidx['VPL_sTC']],'k--',linewidth=2)
+plot([0,totalDur],[dendidx['VPL_sTC'],dendidx['VPL_sTC']],'k--',linewidth=2)
+savefig('gif/13apr22_rast_b1.png')
+
+from morlet import *
+sampr = 10000
+sig = np.array(sdat['LFP'][1000:])
+sig = sig - np.mean(sig)
+sig = sig[:,0]
+specg = MorletSpec(sig,sampr,0.25,3000,10)
+avgpow = np.mean(specg.TFR,axis=1)
+plot(specg.f,avgpow)
+xlabel('Freq (Hz)',fontsize=25); ylabel('Average wavelet power',fontsize=25)
+
+savefig('gif/13apr22_wvlt_avg_b2.png')
+
+from psd import psd
+fpcntile, mpf, fmax, Ptotal, f, P = psd(sig, sampr)
+xlim((0,3000))
+
+savefig('gif/13apr22_welch_psd_b3.png')
+
+specg = MorletSpec(sig,sampr,0.25,3000,1)
+avgpow = np.mean(specg.TFR,axis=1)
+plot(specg.f,avgpow)
+xlabel('Freq (Hz)',fontsize=25); ylabel('Average wavelet power',fontsize=25)
+
