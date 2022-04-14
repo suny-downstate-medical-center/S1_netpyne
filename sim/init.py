@@ -28,22 +28,22 @@ sim.net.createCells()              			# instantiate network cells based on defin
 with open('../data/spkTimes_v7_batch0.pkl', 'rb') as fileObj: simData = pickle.load(fileObj)
 cellsTags = simData['cellsTags']
 
-print(sim.net.cells[0].tags)
+# print(sim.rank,sim.net.cells[0].tags)
 
-ii=0
-for i,metype in enumerate(cellsTags):
-    if metype['cellType'] == sim.net.cells[ii].tags['pop'][7:]:
+for i,metype in enumerate(sim.net.cells):
+
+    if 'presyn' in metype.tags['pop']:
+
+        ii = int(metype.tags['cellLabel'])
         
-        sim.net.cells[ii].tags['xnorm'] = metype['xnorm']
-        sim.net.cells[ii].tags['ynorm'] = metype['ynorm']
-        sim.net.cells[ii].tags['znorm'] = metype['znorm']
-        sim.net.cells[ii].tags['x'] = metype['x']
-        sim.net.cells[ii].tags['y'] = metype['y']
-        sim.net.cells[ii].tags['z'] = metype['z']            
-        # print(i,metype['cellType'],ii,sim.net.cells[ii].tags['pop'][7:])            
-        ii+=1     
+        metype.tags['xnorm'] = cellsTags[ii]['xnorm']
+        metype.tags['ynorm'] = cellsTags[ii]['ynorm']
+        metype.tags['znorm'] = cellsTags[ii]['znorm']
+        metype.tags['x'] = cellsTags[ii]['x']
+        metype.tags['y'] = cellsTags[ii]['y']
+        metype.tags['z'] = cellsTags[ii]['z']   
 
-print(sim.net.cells[0].tags)
+# print(sim.rank,sim.net.cells[0].tags)
 
 sim.net.connectCells()            			# create connections between cells based on params
 sim.net.addStims() 							# add network stimulation
@@ -53,9 +53,9 @@ sim.gatherData()                  			# gather spiking data and cell info from ea
 sim.saveData()                    			# save params, cell info and sim output to file (pickle,mat,txt,etc)#
 sim.analysis.plotData()         			# plot spike raster etc
 
-sim.analysis.plotRaster(include=cfg.recordCells, timeRange=[0,cfg.duration], orderBy='gid', orderInverse=True, labels=None, popRates=False, lw=5, marker='.', markerSize=15, figSize=(18, 12), fontSize=9, dpi=300, saveFig='../data/'+cfg.simLabel[0:9]+'/'+cfg.simLabel + '_Raster_onecellperpop.png', showFig=False)
-sim.analysis.plotRaster(timeRange=[0,cfg.duration], orderBy='gid', orderInverse=True, labels=None, popRates=False, lw=1, marker='.', markerSize=2, figSize=(18, 12), fontSize=9, dpi=300, saveFig=True, showFig=False)
-sim.analysis.plotTraces(include=cfg.recordCells, overlay=True, oneFigPer='cell', figSize=(12, 4), fontSize=7, saveFig=True)
+# sim.analysis.plotRaster(include=cfg.recordCells, timeRange=[0,cfg.duration], orderBy='gid', orderInverse=True, labels=None, popRates=False, lw=5, marker='.', markerSize=15, figSize=(18, 12), fontSize=9, dpi=300, saveFig='../data/'+cfg.simLabel[0:9]+'/'+cfg.simLabel + '_Raster_onecellperpop.png', showFig=False)
+# sim.analysis.plotRaster(timeRange=[0,cfg.duration], orderBy='gid', orderInverse=True, labels=None, popRates=False, lw=1, marker='.', markerSize=2, figSize=(18, 12), fontSize=9, dpi=300, saveFig=True, showFig=False)
+# sim.analysis.plotTraces(include=cfg.recordCells, overlay=True, oneFigPer='cell', figSize=(12, 4), fontSize=7, saveFig=True)
 #sim.analysis.plotTraces(include=cfg.recordCells, overlay=False, oneFigPer='trace', figSize=(18, 12), fontSize=9, saveFig=True)
 # features = ['numConns','convergence']
 # groups =['pop']
@@ -63,6 +63,6 @@ sim.analysis.plotTraces(include=cfg.recordCells, overlay=True, oneFigPer='cell',
 #    for group in groups:
 #        sim.analysis.plotConn(includePre=['L1_DAC_cNA','L23_MC_cAC','L4_SS_cAD','L4_NBC_cNA','L5_TTPC2_cAD', 'L5_LBC_cNA', 'L6_TPC_L4_cAD', 'L6_LBC_cNA', 'ss_RTN_o', 'ss_RTN_m', 'ss_RTN_i', 'VPL_sTC', 'VPM_sTC', 'POm_sTC_s1'], includePost=['L1_DAC_cNA','L23_MC_cAC','L4_SS_cAD','L4_NBC_cNA','L5_TTPC2_cAD', 'L5_LBC_cNA', 'L6_TPC_L4_cAD', 'L6_LBC_cNA', 'ss_RTN_o', 'ss_RTN_m', 'ss_RTN_i', 'VPL_sTC', 'VPM_sTC', 'POm_sTC_s1'], feature=feat, groupBy=group, figSize=(24,24), saveFig=True, orderBy='gid', graphType='matrix', fontSize=18, saveData='../data/'+cfg.simLabel[0:9]+'/'+cfg.simLabel + '_' + group + '_' + feat+ '_matrix.json')
 
-sim.analysis.plotLFP(**{'plots': ['timeSeries'], 'electrodes': [0,1,2,3], 'timeRange': [150, cfg.duration], 'maxFreq':80, 'figSize': (16,8), 'saveFig': '../data/'+cfg.simLabel[0:9]+'/'+cfg.simLabel + '_' +'LFP1.png', 'showFig': False})
+# sim.analysis.plotLFP(**{'plots': ['timeSeries'], 'electrodes': [0,1,2,3], 'timeRange': [150, cfg.duration], 'maxFreq':80, 'figSize': (16,8), 'saveFig': '../data/'+cfg.simLabel[0:9]+'/'+cfg.simLabel + '_' +'LFP1.png', 'showFig': False})
 # sim.analysis.plotLFP(**{'plots': ['timeSeries'], 'electrodes': [4,5,6,7], 'timeRange': [0, 300], 'maxFreq':80, 'figSize': (16,8), 'saveFig': '../data/'+cfg.simLabel[0:9]+'/'+cfg.simLabel + '_' +'LFP2', 'showFig': False})
 # sim.analysis.plotLFP(**{'plots': ['timeSeries'], 'electrodes': [8,9,10,11], 'timeRange': [0, 300], 'maxFreq':80, 'figSize': (16,8), 'saveFig': '../data/'+cfg.simLabel[0:9]+'/'+cfg.simLabel + '_' +'LFP3', 'showFig': False})

@@ -168,11 +168,10 @@ cfg.recordStim = False
 cfg.recordTime = False  		
 cfg.recordStep = 0.1            
 
-cfg.recordLFP = [[200, 1100, 200], [220, 1100, 200], [200, 1200, 220], [220, 1200, 220]]
+# cfg.recordLFP = [[200, 1100, 200], [220, 1100, 200], [200, 1200, 220], [220, 1200, 220]]
 # cfg.saveLFPPops =  cfg.recordCells 
 
-# cfg.recordLFP = [[x, y, z] for y in [250, 750, 1250, 1300] for x in range(10, 51, 40) for z in range(10, 51, 40)]
-# cfg.saveLFPPops =  cfg.allCorticalPops #, "IT3", "SOM3", "PV3", "VIP3", "NGF3", "ITP4", "ITS4", "IT5A", "CT5A", "IT5B", "PT5B", "CT5B", "IT6", "CT6"]
+cfg.recordLFP = [[x, y, z] for y in [250, 1250, 1300] for x in range(185, 241, 50) for z in range(185, 241, 50)]
 
 #------------------------------------------------------------------------------
 # Saving
@@ -192,7 +191,7 @@ cfg.saveCellConns = False
 # Analysis and plotting 
 # ------------------------------------------------------------------------------
 cfg.analysis['plotRaster'] = {'include': cfg.recordCells, 'saveFig': True, 'showFig': False,'orderInverse': True, 'timeRange': [0,cfg.duration], 'figSize': (24,12), 'fontSize':4, 'lw': 4, 'markerSize':4, 'marker': 'o', 'dpi': 300} 
-cfg.analysis['plot2Dnet']   = {'include': cfg.recordCells, 'saveFig': True, 'showConns': False, 'figSize': (24,24), 'fontSize':16}   # Plot 2D cells xy
+cfg.analysis['plot2Dnet']   = {'saveFig': True, 'showConns': False, 'figSize': (24,24), 'fontSize':16}   # Plot 2D cells xy
 # cfg.analysis['plotTraces'] = {'include': cfg.recordCells, 'oneFigPer': 'cell', 'overlay': True, 'timeRange': [0,cfg.duration], 'ylim': [-100,50], 'saveFig': True, 'showFig': False, 'figSize':(12,4)}
 # cfg.analysis['plot2Dfiring']={'saveFig': True, 'figSize': (24,24), 'fontSize':16}
 # cfg.analysis['plotConn'] = {'includePre': cfg.allpops, 'includePost': cfg.allpops, 'feature': 'numConns', 'groupBy': 'pop', 'figSize': (24,24), 'saveFig': True, 'orderBy': 'gid', 'graphType': 'matrix', 'saveData':'../data/v5_batch0/v5_batch0_matrix_numConn.json', 'fontSize': 18}
@@ -201,7 +200,7 @@ cfg.analysis['plot2Dnet']   = {'include': cfg.recordCells, 'saveFig': True, 'sho
 # cfg.analysis['plotShape'] = {'includePre': cfg.recordCells, 'includePost': cfg.recordCells, 'showFig': False, 'includeAxon': False, 
                             # 'showSyns': False, 'saveFig': True, 'dist': 0.55, 'cvar': 'voltage', 'figSize': (24,12), 'dpi': 600}
 
-cfg.analysis['plotLFP'] = {'plots': ['timeSeries','PSD', 'spectrogram'], 'electrodes': [[0,1,2,3]], 'timeRange': [50, cfg.duration], 'maxFreq': 400, 'figSize': (8,4), 'saveData': False, 'saveFig': True, 'showFig': False} # 
+cfg.analysis['plotLFP'] = {'plots': ['timeSeries','PSD', 'spectrogram'], 'electrodes': [[0,1,2,3],[4,5,6,7,8,9,10,11]], 'timeRange': [1000, cfg.duration], 'maxFreq': 400, 'figSize': (8,4), 'saveData': False, 'saveFig': True, 'showFig': False} # 
 
 # cfg.analysis['plotLFP'] = {'separation': 1.0, 'plots': ['timeSeries'], 'timeRange': [50,200], 'saveFig': True, 'showFig': False}
 
@@ -217,7 +216,7 @@ cfg.scaleDensity = 1.0/49.0 # 49.0 # Number of cells = 31346
 #------------------------------------------------------------------------------
 # Spontaneous synapses + background - data from Rat
 #------------------------------------------------------------------------------
-cfg.addStimSynS1 = False
+cfg.addStimSynS1 = True
 cfg.rateStimE = 9.0
 cfg.rateStimI = 9.0
 
@@ -225,7 +224,7 @@ cfg.rateStimI = 9.0
 # Connectivity
 #------------------------------------------------------------------------------
 ## S1->S1
-cfg.addConn = False
+cfg.addConn = True
 
 cfg.synWeightFractionEE = [1.0, 1.0] # E -> E AMPA to NMDA ratio
 cfg.synWeightFractionEI = [1.0, 1.0] # E -> I AMPA to NMDA ratio
