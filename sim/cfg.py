@@ -167,7 +167,7 @@ cfg.recordStep = 0.1
 # cfg.recordLFP = [[200, 1100, 200], [220, 1100, 200], [200, 1200, 220], [220, 1200, 220]]
 # cfg.saveLFPPops =  cfg.recordCells 
 
-cfg.recordLFP = [[x, y, z] for y in [250, 1250, 1300] for x in range(185, 241, 50) for z in range(185, 241, 50)]
+cfg.recordLFP = [[210, y, 210] for y in [500, 1000, 1500, 2000]] # 4 elec in L1 and 8 elec in L6
 
 #------------------------------------------------------------------------------
 # Saving
@@ -196,7 +196,7 @@ cfg.analysis['plot2Dnet']   = {'saveFig': True, 'showConns': False, 'figSize': (
 # cfg.analysis['plotShape'] = {'includePre': cfg.recordCells, 'includePost': cfg.recordCells, 'showFig': False, 'includeAxon': False, 
                             # 'showSyns': False, 'saveFig': True, 'dist': 0.55, 'cvar': 'voltage', 'figSize': (24,12), 'dpi': 600}
 
-cfg.analysis['plotLFP'] = {'plots': ['timeSeries','PSD', 'spectrogram'], 'electrodes': [[0,1,2,3],[4,5,6,7,8,9,10,11]], 'timeRange': [1000, cfg.duration], 'maxFreq': 400, 'figSize': (8,4), 'saveData': False, 'saveFig': True, 'showFig': False} # 
+# cfg.analysis['plotLFP'] = {'plots': ['timeSeries','PSD', 'spectrogram'], 'electrodes': [[0,1,2,3],[4,5,6,7,8,9,10,11]], 'timeRange': [1000, cfg.duration], 'maxFreq': 400, 'figSize': (8,4), 'saveData': False, 'saveFig': True, 'showFig': False} # 
 
 # cfg.analysis['plotLFP'] = {'separation': 1.0, 'plots': ['timeSeries'], 'timeRange': [50,200], 'saveFig': True, 'showFig': False}
 
@@ -207,7 +207,7 @@ cfg.scale = 1.0 # reduce size
 cfg.sizeY = 2082.0
 cfg.sizeX = 420.0 # r = 210 um and hexagonal side length = 230.9 um
 cfg.sizeZ = 420.0
-cfg.scaleDensity = 1.0/49.0 # 49.0 # Number of cells = 31346
+cfg.scaleDensity = 1.0/27.5625 # 49.0 # Number of cells = 31346
 
 #------------------------------------------------------------------------------
 # Spontaneous synapses + background - data from Rat

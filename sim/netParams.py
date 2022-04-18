@@ -129,21 +129,22 @@ for popLabel in cellsVSName.keys():
 for cellName in cfg.S1cells:
     layernumber = cellName[1:2]
     if layernumber == '2':
-        netParams.popParams[cellName] = {'cellType': cellName, 'cellModel': 'HH_full', 'ynormRange': layer['23'], 'xnormRange': [0.5-0.5/7.0, 0.5+0.5/7.0],  'znormRange': [0.5-0.5/7.0, 0.5+0.5/7.0], 
+        netParams.popParams[cellName] = {'cellType': cellName, 'cellModel': 'HH_full', 'ynormRange': layer['23'], 'xnormRange': [0.5-0.5/5.25, 0.5+0.5/5.25],  'znormRange': [0.5-0.5/5.25, 0.5+0.5/5.25],
                                         'numCells': int(np.ceil(cfg.scaleDensity*cfg.cellNumber[cellName])), 'diversity': True}
 
-        netParams.popParams['L23_PC_cAD'] = {'cellType': 'L23_PC_cAD', 'cellModel': 'HH_full', 'ynormRange': layer['23'], 'xnormRange': [0.5-0.5/7.0, 0.5+0.5/7.0],  'znormRange': [0.5-0.5/7.0, 0.5+0.5/7.0], 
-                                        'numCells': 1+int(np.ceil(cfg.scaleDensity*cfg.cellNumber['L23_PC_cAD'])), 'diversity': True}
-    else:    
-        if cellName not in ['L4_PC_cAD', 'L5_TTPC1_cAD', 'L6_BPC_cAD', 'L6_TPC_L4_cAD']:
-            netParams.popParams[cellName] = {'cellType': cellName, 'cellModel': 'HH_full', 'ynormRange': layer[layernumber], 'xnormRange': [0.5-0.5/7.0, 0.5+0.5/7.0],  'znormRange': [0.5-0.5/7.0, 0.5+0.5/7.0], 
+        netParams.popParams['L23_MC_cAC'] = {'cellType': 'L23_PC_cAD', 'cellModel': 'HH_full', 'ynormRange': layer['23'],'xnormRange':[0.5-0.5/5.25, 0.5+0.5/5.25],'znormRange':[0.5-0.5/5.25, 0.5+0.5/5.25],
+                                       'numCells': 1+int(np.ceil(cfg.scaleDensity*cfg.cellNumber['L23_PC_cAD'])), 'diversity': True}
+    else:
+        if cellName not in ['L4_SP_cAD','L4_SS_cAD','L6_LBC_bIR','L6_LBC_bST','L6_TPC_L1_cAD']:
+            netParams.popParams[cellName] = {'cellType': cellName, 'cellModel': 'HH_full', 'ynormRange': layer[layernumber], 'xnormRange': [0.5-0.5/5.25, 0.5+0.5/5.25],  'znormRange': [0.5-0.5/5.25, 0.5+0.5/5.25],
                                         'numCells': int(np.ceil(cfg.scaleDensity*cfg.cellNumber[cellName])), 'diversity': True}
         else:
-            netParams.popParams[cellName] = {'cellType': cellName, 'cellModel': 'HH_full', 'ynormRange': layer[layernumber], 'xnormRange': [0.5-0.5/7.0, 0.5+0.5/7.0],  'znormRange': [0.5-0.5/7.0, 0.5+0.5/7.0], # avoid a error in cell diversity in cellnumber = mult of 5
+            netParams.popParams[cellName] = {'cellType': cellName, 'cellModel': 'HH_full', 'ynormRange': layer[layernumber], 'xnormRange': [0.5-0.5/5.25, 0.5+0.5/5.25],  'znormRange': [0.5-0.5/5.25, 0.5+0.5/5.25], # avoid a error in cell diversity in cellnumber = mult of 5
                                         'numCells': 1+int(np.ceil(cfg.scaleDensity*cfg.cellNumber[cellName])), 'diversity': True}
 
             # avoid a error in cell diversity in cellnumber = mult of 5       
-    
+
+
 ## THALAMIC POPULATIONS (from prev model)
 for popName in cfg.thalamicpops:
     if 'RTN' in popName: # inhibitory - RTN
