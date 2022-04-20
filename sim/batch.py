@@ -35,14 +35,14 @@ def setRunCfg(b, type='mpi_bulletin'):
 
     elif type=='mpi_direct':
         b.runCfg = {'type': 'mpi_direct',
-            'cores': 64,
+            'cores': 80,
             'script': 'init.py',
             'mpiCommand': 'mpiexec', # --use-hwthread-cpus
             'skip': True}
 
     elif type=='mpi_direct2':
         b.runCfg = {'type': 'mpi_direct',
-            'mpiCommand': 'mpirun -n 80 ./x86_64/special -mpi -python init.py', # --use-hwthread-cpus
+            'mpiCommand': 'mpirun -n 120 ./x86_64/special -mpi -python init.py', # --use-hwthread-cpus
             'skip': True}
 
     elif type=='hpc_slurm_gcp':
