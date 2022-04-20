@@ -26,7 +26,7 @@ cfg.coreneuron = True
 #------------------------------------------------------------------------------
 # Run parameters
 #------------------------------------------------------------------------------
-cfg.duration = 5.0*1e3 ## Duration of the sim, in ms  
+cfg.duration = 1.5*1e4 ## Duration of the sim, in ms  
 cfg.dt = 0.025
 cfg.seeds = {'conn': 4322, 'stim': 4322, 'loc': 4322} 
 cfg.hParams = {'celsius': 34, 'v_init': -65}  
@@ -118,7 +118,7 @@ cfg.cellParamLabels = cellParam
 # Recording 
 #--------------------------------------------------------------------------
 cfg.allpops = cfg.cellParamLabels
-cfg.cellsrec = 2
+cfg.cellsrec = 1
 if cfg.cellsrec == 0:  cfg.recordCells = cfg.allpops # record all cells
 elif cfg.cellsrec == 1: cfg.recordCells = [(pop,0) for pop in cfg.allpops] # record one cell of each pop
 elif cfg.cellsrec == 2: # record one cell of each cellMEtype # need more test!!!

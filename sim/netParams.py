@@ -822,7 +822,7 @@ if cfg.connect_S1_Th:
                     prob_conv = 1.0*(conn_convergence/cfg.popNumber[pre])*((radius_cilinder**2)/(radius2D_S1_TC**2)) # prob*(AreaS1/Area_Th_syn)  
                     prob_rule = '%f if dist_2D < %f else 0.0' % (prob_conv,radius2D_S1_TC)
 
-                    netParams.connParams['thal_'+pre+'_'+post] = { 
+                netParams.connParams['thal_'+pre+'_'+post] = { 
                                 'preConds': {'pop': cfg.popLabelEl[pre]}, 
                                 'postConds': {'pop': post},
                                 'synMech': syn,
