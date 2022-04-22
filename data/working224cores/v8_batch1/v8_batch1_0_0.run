@@ -1,0 +1,2602 @@
+numprocs=128
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v8_batch1/v8_batch1_0_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v8_batch1/v8_batch1_netParams.py
+  Number of cells on node 7: 251 
+  Number of connections on node 7: 1894 
+  Number of synaptic contacts on node 7: 10141 
+  Number of stims on node 7: 60 
+Recording 6 traces of 1 types on node 7
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v8_batch1/v8_batch1_0_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v8_batch1/v8_batch1_netParams.py
+  Number of cells on node 14: 251 
+  Number of connections on node 14: 1884 
+  Number of synaptic contacts on node 14: 9692 
+  Number of stims on node 14: 60 
+Recording 6 traces of 1 types on node 14
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v8_batch1/v8_batch1_0_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v8_batch1/v8_batch1_netParams.py
+  Number of cells on node 22: 251 
+  Number of connections on node 22: 1914 
+  Number of synaptic contacts on node 22: 9702 
+  Number of stims on node 22: 60 
+Recording 6 traces of 1 types on node 22
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v8_batch1/v8_batch1_0_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v8_batch1/v8_batch1_netParams.py
+  Number of cells on node 33: 251 
+  Number of connections on node 33: 1695 
+  Number of synaptic contacts on node 33: 9422 
+  Number of stims on node 33: 60 
+Recording 6 traces of 1 types on node 33
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v8_batch1/v8_batch1_0_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v8_batch1/v8_batch1_netParams.py
+  Number of cells on node 35: 251 
+  Number of connections on node 35: 1845 
+  Number of synaptic contacts on node 35: 10891 
+  Number of stims on node 35: 60 
+Recording 6 traces of 1 types on node 35
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v8_batch1/v8_batch1_0_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v8_batch1/v8_batch1_netParams.py
+  Number of cells on node 40: 251 
+  Number of connections on node 40: 1773 
+  Number of synaptic contacts on node 40: 9497 
+  Number of stims on node 40: 60 
+Recording 6 traces of 1 types on node 40
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v8_batch1/v8_batch1_0_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v8_batch1/v8_batch1_netParams.py
+  Number of cells on node 41: 251 
+  Number of connections on node 41: 1701 
+  Number of synaptic contacts on node 41: 8892 
+  Number of stims on node 41: 60 
+Recording 6 traces of 1 types on node 41
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v8_batch1/v8_batch1_0_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v8_batch1/v8_batch1_netParams.py
+  Number of cells on node 43: 251 
+  Number of connections on node 43: 1773 
+  Number of synaptic contacts on node 43: 9594 
+  Number of stims on node 43: 60 
+Recording 6 traces of 1 types on node 43
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v8_batch1/v8_batch1_0_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v8_batch1/v8_batch1_netParams.py
+  Number of cells on node 45: 251 
+  Number of connections on node 45: 1718 
+  Number of synaptic contacts on node 45: 9167 
+  Number of stims on node 45: 60 
+Recording 6 traces of 1 types on node 45
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v8_batch1/v8_batch1_0_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v8_batch1/v8_batch1_netParams.py
+  Number of cells on node 52: 251 
+  Number of connections on node 52: 2017 
+  Number of synaptic contacts on node 52: 10339 
+  Number of stims on node 52: 60 
+Recording 6 traces of 1 types on node 52
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v8_batch1/v8_batch1_0_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v8_batch1/v8_batch1_netParams.py
+  Number of cells on node 53: 251 
+  Number of connections on node 53: 2079 
+  Number of synaptic contacts on node 53: 10067 
+  Number of stims on node 53: 60 
+Recording 6 traces of 1 types on node 53
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v8_batch1/v8_batch1_0_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v8_batch1/v8_batch1_netParams.py
+  Number of cells on node 54: 251 
+  Number of connections on node 54: 2087 
+  Number of synaptic contacts on node 54: 10405 
+  Number of stims on node 54: 60 
+Recording 6 traces of 1 types on node 54
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v8_batch1/v8_batch1_0_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v8_batch1/v8_batch1_netParams.py
+  Number of cells on node 55: 251 
+  Number of connections on node 55: 1933 
+  Number of synaptic contacts on node 55: 9420 
+  Number of stims on node 55: 60 
+Recording 6 traces of 1 types on node 55
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v8_batch1/v8_batch1_0_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v8_batch1/v8_batch1_netParams.py
+  Number of cells on node 59: 251 
+  Number of connections on node 59: 1664 
+  Number of synaptic contacts on node 59: 8239 
+  Number of stims on node 59: 60 
+Recording 6 traces of 1 types on node 59
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v8_batch1/v8_batch1_0_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v8_batch1/v8_batch1_netParams.py
+  Number of cells on node 62: 251 
+  Number of connections on node 62: 1826 
+  Number of synaptic contacts on node 62: 9200 
+  Number of stims on node 62: 60 
+Recording 6 traces of 1 types on node 62
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v8_batch1/v8_batch1_0_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v8_batch1/v8_batch1_netParams.py
+  Number of cells on node 63: 251 
+  Number of connections on node 63: 1874 
+  Number of synaptic contacts on node 63: 9854 
+  Number of stims on node 63: 60 
+Recording 6 traces of 1 types on node 63
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v8_batch1/v8_batch1_0_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v8_batch1/v8_batch1_netParams.py
+  Number of cells on node 66: 251 
+  Number of connections on node 66: 1945 
+  Number of synaptic contacts on node 66: 10658 
+  Number of stims on node 66: 60 
+Recording 6 traces of 1 types on node 66
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v8_batch1/v8_batch1_0_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v8_batch1/v8_batch1_netParams.py
+  Number of cells on node 70: 251 
+  Number of connections on node 70: 1880 
+  Number of synaptic contacts on node 70: 9808 
+  Number of stims on node 70: 60 
+Recording 6 traces of 1 types on node 70
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v8_batch1/v8_batch1_0_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v8_batch1/v8_batch1_netParams.py
+  Number of cells on node 72: 251 
+  Number of connections on node 72: 1732 
+  Number of synaptic contacts on node 72: 8913 
+  Number of stims on node 72: 60 
+Recording 6 traces of 1 types on node 72
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v8_batch1/v8_batch1_0_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v8_batch1/v8_batch1_netParams.py
+  Number of cells on node 74: 251 
+  Number of connections on node 74: 1732 
+  Number of synaptic contacts on node 74: 8621 
+  Number of stims on node 74: 60 
+Recording 6 traces of 1 types on node 74
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v8_batch1/v8_batch1_0_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v8_batch1/v8_batch1_netParams.py
+  Number of cells on node 75: 251 
+  Number of connections on node 75: 1772 
+  Number of synaptic contacts on node 75: 8500 
+  Number of stims on node 75: 60 
+Recording 6 traces of 1 types on node 75
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v8_batch1/v8_batch1_0_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v8_batch1/v8_batch1_netParams.py
+  Number of cells on node 79: 251 
+  Number of connections on node 79: 2007 
+  Number of synaptic contacts on node 79: 10818 
+  Number of stims on node 79: 60 
+Recording 6 traces of 1 types on node 79
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v8_batch1/v8_batch1_0_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v8_batch1/v8_batch1_netParams.py
+  Number of cells on node 81: 251 
+  Number of connections on node 81: 1883 
+  Number of synaptic contacts on node 81: 10420 
+  Number of stims on node 81: 60 
+Recording 6 traces of 1 types on node 81
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v8_batch1/v8_batch1_0_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v8_batch1/v8_batch1_netParams.py
+  Number of cells on node 83: 251 
+  Number of connections on node 83: 1850 
+  Number of synaptic contacts on node 83: 9438 
+  Number of stims on node 83: 60 
+Recording 6 traces of 1 types on node 83
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v8_batch1/v8_batch1_0_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v8_batch1/v8_batch1_netParams.py
+  Number of cells on node 84: 251 
+  Number of connections on node 84: 1804 
+  Number of synaptic contacts on node 84: 9002 
+  Number of stims on node 84: 60 
+Recording 6 traces of 1 types on node 84
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v8_batch1/v8_batch1_0_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v8_batch1/v8_batch1_netParams.py
+  Number of cells on node 88: 251 
+  Number of connections on node 88: 1799 
+  Number of synaptic contacts on node 88: 9113 
+  Number of stims on node 88: 60 
+Recording 6 traces of 1 types on node 88
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v8_batch1/v8_batch1_0_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v8_batch1/v8_batch1_netParams.py
+  Number of cells on node 90: 251 
+  Number of connections on node 90: 1696 
+  Number of synaptic contacts on node 90: 8099 
+  Number of stims on node 90: 60 
+Recording 6 traces of 1 types on node 90
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v8_batch1/v8_batch1_0_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v8_batch1/v8_batch1_netParams.py
+  Number of cells on node 93: 251 
+  Number of connections on node 93: 1764 
+  Number of synaptic contacts on node 93: 7875 
+  Number of stims on node 93: 60 
+Recording 6 traces of 1 types on node 93
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v8_batch1/v8_batch1_0_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v8_batch1/v8_batch1_netParams.py
+  Number of cells on node 95: 251 
+  Number of connections on node 95: 1851 
+  Number of synaptic contacts on node 95: 8403 
+  Number of stims on node 95: 60 
+Recording 6 traces of 1 types on node 95
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v8_batch1/v8_batch1_0_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v8_batch1/v8_batch1_netParams.py
+  Number of cells on node 96: 251 
+  Number of connections on node 96: 2050 
+  Number of synaptic contacts on node 96: 9029 
+  Number of stims on node 96: 60 
+Recording 6 traces of 1 types on node 96
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v8_batch1/v8_batch1_0_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v8_batch1/v8_batch1_netParams.py
+  Number of cells on node 98: 251 
+  Number of connections on node 98: 2089 
+  Number of synaptic contacts on node 98: 8652 
+  Number of stims on node 98: 60 
+Recording 6 traces of 1 types on node 98
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v8_batch1/v8_batch1_0_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v8_batch1/v8_batch1_netParams.py
+  Number of cells on node 100: 251 
+  Number of connections on node 100: 2122 
+  Number of synaptic contacts on node 100: 8634 
+  Number of stims on node 100: 60 
+Recording 6 traces of 1 types on node 100
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v8_batch1/v8_batch1_0_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v8_batch1/v8_batch1_netParams.py
+  Number of cells on node 104: 251 
+  Number of connections on node 104: 2182 
+  Number of synaptic contacts on node 104: 8880 
+  Number of stims on node 104: 60 
+Recording 6 traces of 1 types on node 104
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v8_batch1/v8_batch1_0_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v8_batch1/v8_batch1_netParams.py
+  Number of cells on node 105: 251 
+  Number of connections on node 105: 1924 
+  Number of synaptic contacts on node 105: 7696 
+  Number of stims on node 105: 60 
+Recording 6 traces of 1 types on node 105
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v8_batch1/v8_batch1_0_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v8_batch1/v8_batch1_netParams.py
+  Number of cells on node 106: 251 
+  Number of connections on node 106: 1886 
+  Number of synaptic contacts on node 106: 7575 
+  Number of stims on node 106: 60 
+Recording 6 traces of 1 types on node 106
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v8_batch1/v8_batch1_0_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v8_batch1/v8_batch1_netParams.py
+  Number of cells on node 107: 251 
+  Number of connections on node 107: 1951 
+  Number of synaptic contacts on node 107: 7873 
+  Number of stims on node 107: 60 
+Recording 6 traces of 1 types on node 107
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v8_batch1/v8_batch1_0_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v8_batch1/v8_batch1_netParams.py
+  Number of cells on node 109: 251 
+  Number of connections on node 109: 2057 
+  Number of synaptic contacts on node 109: 8625 
+  Number of stims on node 109: 60 
+Recording 6 traces of 1 types on node 109
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v8_batch1/v8_batch1_0_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v8_batch1/v8_batch1_netParams.py
+  Number of cells on node 112: 251 
+  Number of connections on node 112: 2478 
+  Number of synaptic contacts on node 112: 10422 
+  Number of stims on node 112: 60 
+Recording 6 traces of 1 types on node 112
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v8_batch1/v8_batch1_0_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v8_batch1/v8_batch1_netParams.py
+  Number of cells on node 113: 251 
+  Number of connections on node 113: 2657 
+  Number of synaptic contacts on node 113: 10886 
+  Number of stims on node 113: 60 
+Recording 6 traces of 1 types on node 113
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v8_batch1/v8_batch1_0_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v8_batch1/v8_batch1_netParams.py
+  Number of cells on node 115: 251 
+  Number of connections on node 115: 2592 
+  Number of synaptic contacts on node 115: 10912 
+  Number of stims on node 115: 70 
+Recording 7 traces of 1 types on node 115
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v8_batch1/v8_batch1_0_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v8_batch1/v8_batch1_netParams.py
+  Number of cells on node 118: 251 
+  Number of connections on node 118: 2472 
+  Number of synaptic contacts on node 118: 11191 
+  Number of stims on node 118: 70 
+Recording 7 traces of 1 types on node 118
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v8_batch1/v8_batch1_0_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v8_batch1/v8_batch1_netParams.py
+  Number of cells on node 119: 251 
+  Number of connections on node 119: 2450 
+  Number of synaptic contacts on node 119: 12325 
+  Number of stims on node 119: 70 
+Recording 7 traces of 1 types on node 119
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v8_batch1/v8_batch1_0_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v8_batch1/v8_batch1_netParams.py
+  Number of cells on node 121: 251 
+  Number of connections on node 121: 2393 
+  Number of synaptic contacts on node 121: 11686 
+  Number of stims on node 121: 70 
+Recording 7 traces of 1 types on node 121
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v8_batch1/v8_batch1_0_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v8_batch1/v8_batch1_netParams.py
+  Number of cells on node 122: 251 
+  Number of connections on node 122: 2426 
+  Number of synaptic contacts on node 122: 12335 
+  Number of stims on node 122: 70 
+Recording 7 traces of 1 types on node 122
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v8_batch1/v8_batch1_0_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v8_batch1/v8_batch1_netParams.py
+  Number of cells on node 123: 251 
+  Number of connections on node 123: 2485 
+  Number of synaptic contacts on node 123: 12173 
+  Number of stims on node 123: 70 
+Recording 7 traces of 1 types on node 123
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v8_batch1/v8_batch1_0_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v8_batch1/v8_batch1_netParams.py
+  Number of cells on node 124: 251 
+  Number of connections on node 124: 2343 
+  Number of synaptic contacts on node 124: 11443 
+  Number of stims on node 124: 70 
+Recording 7 traces of 1 types on node 124
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v8_batch1/v8_batch1_0_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v8_batch1/v8_batch1_netParams.py
+  Number of cells on node 125: 251 
+  Number of connections on node 125: 2262 
+  Number of synaptic contacts on node 125: 11074 
+  Number of stims on node 125: 70 
+Recording 7 traces of 1 types on node 125
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v8_batch1/v8_batch1_0_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v8_batch1/v8_batch1_netParams.py
+  Number of cells on node 127: 250 
+  Number of connections on node 127: 1715 
+  Number of synaptic contacts on node 127: 8915 
+  Number of stims on node 127: 60 
+Recording 6 traces of 1 types on node 127
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v8_batch1/v8_batch1_0_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v8_batch1/v8_batch1_netParams.py
+  Number of cells on node 1: 251 
+  Number of connections on node 1: 1885 
+  Number of synaptic contacts on node 1: 10224 
+  Number of stims on node 1: 60 
+Recording 6 traces of 1 types on node 1
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v8_batch1/v8_batch1_0_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v8_batch1/v8_batch1_netParams.py
+  Number of cells on node 2: 251 
+  Number of connections on node 2: 1840 
+  Number of synaptic contacts on node 2: 10055 
+  Number of stims on node 2: 60 
+Recording 6 traces of 1 types on node 2
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v8_batch1/v8_batch1_0_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v8_batch1/v8_batch1_netParams.py
+  Number of cells on node 3: 251 
+  Number of connections on node 3: 1941 
+  Number of synaptic contacts on node 3: 10342 
+  Number of stims on node 3: 60 
+Recording 6 traces of 1 types on node 3
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v8_batch1/v8_batch1_0_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v8_batch1/v8_batch1_netParams.py
+  Number of cells on node 4: 251 
+  Number of connections on node 4: 1952 
+  Number of synaptic contacts on node 4: 10590 
+  Number of stims on node 4: 60 
+Recording 6 traces of 1 types on node 4
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v8_batch1/v8_batch1_0_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v8_batch1/v8_batch1_netParams.py
+  Number of cells on node 5: 251 
+  Number of connections on node 5: 2018 
+  Number of synaptic contacts on node 5: 10869 
+  Number of stims on node 5: 60 
+Recording 6 traces of 1 types on node 5
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v8_batch1/v8_batch1_0_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v8_batch1/v8_batch1_netParams.py
+  Number of cells on node 6: 251 
+  Number of connections on node 6: 1957 
+  Number of synaptic contacts on node 6: 10606 
+  Number of stims on node 6: 60 
+Recording 6 traces of 1 types on node 6
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v8_batch1/v8_batch1_0_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v8_batch1/v8_batch1_netParams.py
+  Number of cells on node 8: 251 
+  Number of connections on node 8: 1973 
+  Number of synaptic contacts on node 8: 10432 
+  Number of stims on node 8: 60 
+Recording 6 traces of 1 types on node 8
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v8_batch1/v8_batch1_0_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v8_batch1/v8_batch1_netParams.py
+  Number of cells on node 9: 251 
+  Number of connections on node 9: 1886 
+  Number of synaptic contacts on node 9: 9640 
+  Number of stims on node 9: 60 
+Recording 6 traces of 1 types on node 9
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v8_batch1/v8_batch1_0_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v8_batch1/v8_batch1_netParams.py
+  Number of cells on node 10: 251 
+  Number of connections on node 10: 1843 
+  Number of synaptic contacts on node 10: 9721 
+  Number of stims on node 10: 60 
+Recording 6 traces of 1 types on node 10
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v8_batch1/v8_batch1_0_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v8_batch1/v8_batch1_netParams.py
+  Number of cells on node 11: 251 
+  Number of connections on node 11: 1861 
+  Number of synaptic contacts on node 11: 9251 
+  Number of stims on node 11: 60 
+Recording 6 traces of 1 types on node 11
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v8_batch1/v8_batch1_0_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v8_batch1/v8_batch1_netParams.py
+  Number of cells on node 12: 251 
+  Number of connections on node 12: 1931 
+  Number of synaptic contacts on node 12: 9957 
+  Number of stims on node 12: 60 
+Recording 6 traces of 1 types on node 12
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v8_batch1/v8_batch1_0_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v8_batch1/v8_batch1_netParams.py
+  Number of cells on node 13: 251 
+  Number of connections on node 13: 1934 
+  Number of synaptic contacts on node 13: 9770 
+  Number of stims on node 13: 60 
+Recording 6 traces of 1 types on node 13
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v8_batch1/v8_batch1_0_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v8_batch1/v8_batch1_netParams.py
+  Number of cells on node 15: 251 
+  Number of connections on node 15: 1930 
+  Number of synaptic contacts on node 15: 10404 
+  Number of stims on node 15: 60 
+Recording 6 traces of 1 types on node 15
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v8_batch1/v8_batch1_0_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v8_batch1/v8_batch1_netParams.py
+  Number of cells on node 16: 251 
+  Number of connections on node 16: 2001 
+  Number of synaptic contacts on node 16: 10653 
+  Number of stims on node 16: 60 
+Recording 6 traces of 1 types on node 16
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v8_batch1/v8_batch1_0_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v8_batch1/v8_batch1_netParams.py
+  Number of cells on node 17: 251 
+  Number of connections on node 17: 1903 
+  Number of synaptic contacts on node 17: 10016 
+  Number of stims on node 17: 60 
+Recording 6 traces of 1 types on node 17
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v8_batch1/v8_batch1_0_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v8_batch1/v8_batch1_netParams.py
+  Number of cells on node 18: 251 
+  Number of connections on node 18: 1879 
+  Number of synaptic contacts on node 18: 9763 
+  Number of stims on node 18: 60 
+Recording 6 traces of 1 types on node 18
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v8_batch1/v8_batch1_0_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v8_batch1/v8_batch1_netParams.py
+  Number of cells on node 19: 251 
+  Number of connections on node 19: 1819 
+  Number of synaptic contacts on node 19: 9393 
+  Number of stims on node 19: 60 
+Recording 6 traces of 1 types on node 19
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v8_batch1/v8_batch1_0_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v8_batch1/v8_batch1_netParams.py
+  Number of cells on node 20: 251 
+  Number of connections on node 20: 1816 
+  Number of synaptic contacts on node 20: 9601 
+  Number of stims on node 20: 60 
+Recording 6 traces of 1 types on node 20
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v8_batch1/v8_batch1_0_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v8_batch1/v8_batch1_netParams.py
+  Number of cells on node 21: 251 
+  Number of connections on node 21: 1813 
+  Number of synaptic contacts on node 21: 9486 
+  Number of stims on node 21: 60 
+Recording 6 traces of 1 types on node 21
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v8_batch1/v8_batch1_0_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v8_batch1/v8_batch1_netParams.py
+  Number of cells on node 23: 251 
+  Number of connections on node 23: 1941 
+  Number of synaptic contacts on node 23: 10183 
+  Number of stims on node 23: 60 
+Recording 6 traces of 1 types on node 23
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v8_batch1/v8_batch1_0_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v8_batch1/v8_batch1_netParams.py
+  Number of cells on node 24: 251 
+  Number of connections on node 24: 1642 
+  Number of synaptic contacts on node 24: 9126 
+  Number of stims on node 24: 60 
+Recording 6 traces of 1 types on node 24
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v8_batch1/v8_batch1_0_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v8_batch1/v8_batch1_netParams.py
+  Number of cells on node 25: 251 
+  Number of connections on node 25: 1632 
+  Number of synaptic contacts on node 25: 9230 
+  Number of stims on node 25: 60 
+Recording 6 traces of 1 types on node 25
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v8_batch1/v8_batch1_0_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v8_batch1/v8_batch1_netParams.py
+  Number of cells on node 26: 251 
+  Number of connections on node 26: 1961 
+  Number of synaptic contacts on node 26: 10283 
+  Number of stims on node 26: 60 
+Recording 6 traces of 1 types on node 26
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v8_batch1/v8_batch1_0_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v8_batch1/v8_batch1_netParams.py
+  Number of cells on node 27: 251 
+  Number of connections on node 27: 2084 
+  Number of synaptic contacts on node 27: 10650 
+  Number of stims on node 27: 60 
+Recording 6 traces of 1 types on node 27
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v8_batch1/v8_batch1_0_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v8_batch1/v8_batch1_netParams.py
+  Number of cells on node 28: 251 
+  Number of connections on node 28: 1731 
+  Number of synaptic contacts on node 28: 9447 
+  Number of stims on node 28: 60 
+Recording 6 traces of 1 types on node 28
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v8_batch1/v8_batch1_0_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v8_batch1/v8_batch1_netParams.py
+  Number of cells on node 29: 251 
+  Number of connections on node 29: 1686 
+  Number of synaptic contacts on node 29: 9202 
+  Number of stims on node 29: 60 
+Recording 6 traces of 1 types on node 29
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v8_batch1/v8_batch1_0_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v8_batch1/v8_batch1_netParams.py
+  Number of cells on node 30: 251 
+  Number of connections on node 30: 1748 
+  Number of synaptic contacts on node 30: 9511 
+  Number of stims on node 30: 60 
+Recording 6 traces of 1 types on node 30
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v8_batch1/v8_batch1_0_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v8_batch1/v8_batch1_netParams.py
+  Number of cells on node 31: 251 
+  Number of connections on node 31: 1657 
+  Number of synaptic contacts on node 31: 9306 
+  Number of stims on node 31: 60 
+Recording 6 traces of 1 types on node 31
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v8_batch1/v8_batch1_0_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v8_batch1/v8_batch1_netParams.py
+  Number of cells on node 32: 251 
+  Number of connections on node 32: 1667 
+  Number of synaptic contacts on node 32: 8869 
+  Number of stims on node 32: 60 
+Recording 6 traces of 1 types on node 32
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v8_batch1/v8_batch1_0_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v8_batch1/v8_batch1_netParams.py
+  Number of cells on node 34: 251 
+  Number of connections on node 34: 1793 
+  Number of synaptic contacts on node 34: 10187 
+  Number of stims on node 34: 60 
+Recording 6 traces of 1 types on node 34
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v8_batch1/v8_batch1_0_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v8_batch1/v8_batch1_netParams.py
+  Number of cells on node 36: 251 
+  Number of connections on node 36: 1822 
+  Number of synaptic contacts on node 36: 10371 
+  Number of stims on node 36: 60 
+Recording 6 traces of 1 types on node 36
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v8_batch1/v8_batch1_0_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v8_batch1/v8_batch1_netParams.py
+  Number of cells on node 37: 251 
+  Number of connections on node 37: 1793 
+  Number of synaptic contacts on node 37: 10052 
+  Number of stims on node 37: 60 
+Recording 6 traces of 1 types on node 37
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v8_batch1/v8_batch1_0_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v8_batch1/v8_batch1_netParams.py
+  Number of cells on node 38: 251 
+  Number of connections on node 38: 1819 
+  Number of synaptic contacts on node 38: 10048 
+  Number of stims on node 38: 60 
+Recording 6 traces of 1 types on node 38
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v8_batch1/v8_batch1_0_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v8_batch1/v8_batch1_netParams.py
+  Number of cells on node 39: 251 
+  Number of connections on node 39: 1794 
+  Number of synaptic contacts on node 39: 9833 
+  Number of stims on node 39: 60 
+Recording 6 traces of 1 types on node 39
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v8_batch1/v8_batch1_0_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v8_batch1/v8_batch1_netParams.py
+  Number of cells on node 42: 251 
+  Number of connections on node 42: 1721 
+  Number of synaptic contacts on node 42: 9347 
+  Number of stims on node 42: 60 
+Recording 6 traces of 1 types on node 42
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v8_batch1/v8_batch1_0_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v8_batch1/v8_batch1_netParams.py
+  Number of cells on node 44: 251 
+  Number of connections on node 44: 1760 
+  Number of synaptic contacts on node 44: 9378 
+  Number of stims on node 44: 60 
+Recording 6 traces of 1 types on node 44
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v8_batch1/v8_batch1_0_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v8_batch1/v8_batch1_netParams.py
+  Number of cells on node 46: 251 
+  Number of connections on node 46: 1663 
+  Number of synaptic contacts on node 46: 9045 
+  Number of stims on node 46: 60 
+Recording 6 traces of 1 types on node 46
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v8_batch1/v8_batch1_0_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v8_batch1/v8_batch1_netParams.py
+  Number of cells on node 47: 251 
+  Number of connections on node 47: 2004 
+  Number of synaptic contacts on node 47: 9970 
+  Number of stims on node 47: 60 
+Recording 6 traces of 1 types on node 47
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v8_batch1/v8_batch1_0_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v8_batch1/v8_batch1_netParams.py
+  Number of cells on node 48: 251 
+  Number of connections on node 48: 1832 
+  Number of synaptic contacts on node 48: 9053 
+  Number of stims on node 48: 60 
+Recording 6 traces of 1 types on node 48
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v8_batch1/v8_batch1_0_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v8_batch1/v8_batch1_netParams.py
+  Number of cells on node 49: 251 
+  Number of connections on node 49: 1873 
+  Number of synaptic contacts on node 49: 9363 
+  Number of stims on node 49: 60 
+Recording 6 traces of 1 types on node 49
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v8_batch1/v8_batch1_0_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v8_batch1/v8_batch1_netParams.py
+  Number of cells on node 50: 251 
+  Number of connections on node 50: 1976 
+  Number of synaptic contacts on node 50: 9798 
+  Number of stims on node 50: 60 
+Recording 6 traces of 1 types on node 50
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v8_batch1/v8_batch1_0_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v8_batch1/v8_batch1_netParams.py
+  Number of cells on node 51: 251 
+  Number of connections on node 51: 2069 
+  Number of synaptic contacts on node 51: 10264 
+  Number of stims on node 51: 60 
+Recording 6 traces of 1 types on node 51
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v8_batch1/v8_batch1_0_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v8_batch1/v8_batch1_netParams.py
+  Number of cells on node 56: 251 
+  Number of connections on node 56: 1954 
+  Number of synaptic contacts on node 56: 9979 
+  Number of stims on node 56: 60 
+Recording 6 traces of 1 types on node 56
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v8_batch1/v8_batch1_0_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v8_batch1/v8_batch1_netParams.py
+  Number of cells on node 57: 251 
+  Number of connections on node 57: 1927 
+  Number of synaptic contacts on node 57: 9390 
+  Number of stims on node 57: 60 
+Recording 6 traces of 1 types on node 57
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v8_batch1/v8_batch1_0_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v8_batch1/v8_batch1_netParams.py
+  Number of cells on node 58: 251 
+  Number of connections on node 58: 1862 
+  Number of synaptic contacts on node 58: 9167 
+  Number of stims on node 58: 60 
+Recording 6 traces of 1 types on node 58
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v8_batch1/v8_batch1_0_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v8_batch1/v8_batch1_netParams.py
+  Number of cells on node 60: 251 
+  Number of connections on node 60: 1749 
+  Number of synaptic contacts on node 60: 8740 
+  Number of stims on node 60: 60 
+Recording 6 traces of 1 types on node 60
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v8_batch1/v8_batch1_0_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v8_batch1/v8_batch1_netParams.py
+  Number of cells on node 61: 251 
+  Number of connections on node 61: 1854 
+  Number of synaptic contacts on node 61: 9357 
+  Number of stims on node 61: 60 
+Recording 6 traces of 1 types on node 61
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v8_batch1/v8_batch1_0_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v8_batch1/v8_batch1_netParams.py
+  Number of cells on node 64: 251 
+  Number of connections on node 64: 1805 
+  Number of synaptic contacts on node 64: 9387 
+  Number of stims on node 64: 60 
+Recording 6 traces of 1 types on node 64
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v8_batch1/v8_batch1_0_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v8_batch1/v8_batch1_netParams.py
+  Number of cells on node 65: 251 
+  Number of connections on node 65: 1991 
+  Number of synaptic contacts on node 65: 11081 
+  Number of stims on node 65: 60 
+Recording 6 traces of 1 types on node 65
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v8_batch1/v8_batch1_0_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v8_batch1/v8_batch1_netParams.py
+  Number of cells on node 67: 251 
+  Number of connections on node 67: 1999 
+  Number of synaptic contacts on node 67: 10933 
+  Number of stims on node 67: 60 
+Recording 6 traces of 1 types on node 67
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v8_batch1/v8_batch1_0_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v8_batch1/v8_batch1_netParams.py
+  Number of cells on node 68: 251 
+  Number of connections on node 68: 1997 
+  Number of synaptic contacts on node 68: 10728 
+  Number of stims on node 68: 60 
+Recording 6 traces of 1 types on node 68
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v8_batch1/v8_batch1_0_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v8_batch1/v8_batch1_netParams.py
+  Number of cells on node 69: 251 
+  Number of connections on node 69: 1959 
+  Number of synaptic contacts on node 69: 10622 
+  Number of stims on node 69: 60 
+Recording 6 traces of 1 types on node 69
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v8_batch1/v8_batch1_0_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v8_batch1/v8_batch1_netParams.py
+  Number of cells on node 71: 251 
+  Number of connections on node 71: 1831 
+  Number of synaptic contacts on node 71: 9551 
+  Number of stims on node 71: 60 
+Recording 6 traces of 1 types on node 71
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v8_batch1/v8_batch1_0_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v8_batch1/v8_batch1_netParams.py
+  Number of cells on node 73: 251 
+  Number of connections on node 73: 1853 
+  Number of synaptic contacts on node 73: 9135 
+  Number of stims on node 73: 60 
+Recording 6 traces of 1 types on node 73
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v8_batch1/v8_batch1_0_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v8_batch1/v8_batch1_netParams.py
+  Number of cells on node 76: 251 
+  Number of connections on node 76: 1794 
+  Number of synaptic contacts on node 76: 9209 
+  Number of stims on node 76: 60 
+Recording 6 traces of 1 types on node 76
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v8_batch1/v8_batch1_0_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v8_batch1/v8_batch1_netParams.py
+  Number of cells on node 77: 251 
+  Number of connections on node 77: 1914 
+  Number of synaptic contacts on node 77: 9906 
+  Number of stims on node 77: 60 
+Recording 6 traces of 1 types on node 77
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v8_batch1/v8_batch1_0_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v8_batch1/v8_batch1_netParams.py
+  Number of cells on node 78: 251 
+  Number of connections on node 78: 1872 
+  Number of synaptic contacts on node 78: 10045 
+  Number of stims on node 78: 60 
+Recording 6 traces of 1 types on node 78
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v8_batch1/v8_batch1_0_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v8_batch1/v8_batch1_netParams.py
+  Number of cells on node 80: 251 
+  Number of connections on node 80: 1934 
+  Number of synaptic contacts on node 80: 10679 
+  Number of stims on node 80: 60 
+Recording 6 traces of 1 types on node 80
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v8_batch1/v8_batch1_0_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v8_batch1/v8_batch1_netParams.py
+  Number of cells on node 82: 251 
+  Number of connections on node 82: 1967 
+  Number of synaptic contacts on node 82: 11088 
+  Number of stims on node 82: 60 
+Recording 6 traces of 1 types on node 82
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v8_batch1/v8_batch1_0_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v8_batch1/v8_batch1_netParams.py
+  Number of cells on node 85: 251 
+  Number of connections on node 85: 1787 
+  Number of synaptic contacts on node 85: 9310 
+  Number of stims on node 85: 60 
+Recording 6 traces of 1 types on node 85
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v8_batch1/v8_batch1_0_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v8_batch1/v8_batch1_netParams.py
+  Number of cells on node 86: 251 
+  Number of connections on node 86: 1853 
+  Number of synaptic contacts on node 86: 9611 
+  Number of stims on node 86: 60 
+Recording 6 traces of 1 types on node 86
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v8_batch1/v8_batch1_0_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v8_batch1/v8_batch1_netParams.py
+  Number of cells on node 87: 251 
+  Number of connections on node 87: 1879 
+  Number of synaptic contacts on node 87: 9702 
+  Number of stims on node 87: 60 
+Recording 6 traces of 1 types on node 87
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v8_batch1/v8_batch1_0_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v8_batch1/v8_batch1_netParams.py
+  Number of cells on node 89: 251 
+  Number of connections on node 89: 1879 
+  Number of synaptic contacts on node 89: 9274 
+  Number of stims on node 89: 60 
+Recording 6 traces of 1 types on node 89
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v8_batch1/v8_batch1_0_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v8_batch1/v8_batch1_netParams.py
+  Number of cells on node 91: 251 
+  Number of connections on node 91: 1885 
+  Number of synaptic contacts on node 91: 8784 
+  Number of stims on node 91: 60 
+Recording 6 traces of 1 types on node 91
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v8_batch1/v8_batch1_0_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v8_batch1/v8_batch1_netParams.py
+  Number of cells on node 92: 251 
+  Number of connections on node 92: 1762 
+  Number of synaptic contacts on node 92: 7753 
+  Number of stims on node 92: 60 
+Recording 6 traces of 1 types on node 92
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v8_batch1/v8_batch1_0_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v8_batch1/v8_batch1_netParams.py
+  Number of cells on node 94: 251 
+  Number of connections on node 94: 1727 
+  Number of synaptic contacts on node 94: 7790 
+  Number of stims on node 94: 60 
+Recording 6 traces of 1 types on node 94
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v8_batch1/v8_batch1_0_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v8_batch1/v8_batch1_netParams.py
+  Number of cells on node 97: 251 
+  Number of connections on node 97: 2133 
+  Number of synaptic contacts on node 97: 8868 
+  Number of stims on node 97: 60 
+Recording 6 traces of 1 types on node 97
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v8_batch1/v8_batch1_0_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v8_batch1/v8_batch1_netParams.py
+  Number of cells on node 99: 251 
+  Number of connections on node 99: 2074 
+  Number of synaptic contacts on node 99: 8549 
+  Number of stims on node 99: 60 
+Recording 6 traces of 1 types on node 99
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v8_batch1/v8_batch1_0_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v8_batch1/v8_batch1_netParams.py
+  Number of cells on node 101: 251 
+  Number of connections on node 101: 2136 
+  Number of synaptic contacts on node 101: 9135 
+  Number of stims on node 101: 60 
+Recording 6 traces of 1 types on node 101
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v8_batch1/v8_batch1_0_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v8_batch1/v8_batch1_netParams.py
+  Number of cells on node 102: 251 
+  Number of connections on node 102: 2118 
+  Number of synaptic contacts on node 102: 8780 
+  Number of stims on node 102: 60 
+Recording 6 traces of 1 types on node 102
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v8_batch1/v8_batch1_0_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v8_batch1/v8_batch1_netParams.py
+  Number of cells on node 103: 251 
+  Number of connections on node 103: 2106 
+  Number of synaptic contacts on node 103: 8910 
+  Number of stims on node 103: 60 
+Recording 6 traces of 1 types on node 103
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v8_batch1/v8_batch1_0_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v8_batch1/v8_batch1_netParams.py
+  Number of cells on node 108: 251 
+  Number of connections on node 108: 1971 
+  Number of synaptic contacts on node 108: 7790 
+  Number of stims on node 108: 60 
+Recording 6 traces of 1 types on node 108
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v8_batch1/v8_batch1_0_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v8_batch1/v8_batch1_netParams.py
+  Number of cells on node 110: 251 
+  Number of connections on node 110: 2048 
+  Number of synaptic contacts on node 110: 8400 
+  Number of stims on node 110: 60 
+Recording 6 traces of 1 types on node 110
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v8_batch1/v8_batch1_0_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v8_batch1/v8_batch1_netParams.py
+  Number of cells on node 111: 251 
+  Number of connections on node 111: 2124 
+  Number of synaptic contacts on node 111: 8625 
+  Number of stims on node 111: 60 
+Recording 6 traces of 1 types on node 111
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v8_batch1/v8_batch1_0_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v8_batch1/v8_batch1_netParams.py
+  Number of cells on node 114: 251 
+  Number of connections on node 114: 2608 
+  Number of synaptic contacts on node 114: 11494 
+  Number of stims on node 114: 70 
+Recording 7 traces of 1 types on node 114
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v8_batch1/v8_batch1_0_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v8_batch1/v8_batch1_netParams.py
+  Number of cells on node 116: 251 
+  Number of connections on node 116: 2593 
+  Number of synaptic contacts on node 116: 10781 
+  Number of stims on node 116: 70 
+Recording 7 traces of 1 types on node 116
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v8_batch1/v8_batch1_0_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v8_batch1/v8_batch1_netParams.py
+  Number of cells on node 117: 251 
+  Number of connections on node 117: 2608 
+  Number of synaptic contacts on node 117: 11119 
+  Number of stims on node 117: 70 
+Recording 7 traces of 1 types on node 117
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v8_batch1/v8_batch1_0_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v8_batch1/v8_batch1_netParams.py
+  Number of cells on node 120: 251 
+  Number of connections on node 120: 2499 
+  Number of synaptic contacts on node 120: 12456 
+  Number of stims on node 120: 70 
+Recording 7 traces of 1 types on node 120
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v8_batch1/v8_batch1_0_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v8_batch1/v8_batch1_netParams.py
+  Number of cells on node 126: 251 
+  Number of connections on node 126: 2311 
+  Number of synaptic contacts on node 126: 11259 
+  Number of stims on node 126: 70 
+Recording 7 traces of 1 types on node 126
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v8_batch1/v8_batch1_0_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v8_batch1/v8_batch1_netParams.py
+
+Start time:  2022-04-14 14:29:06.716052
+
+Creating network of 414 cell populations on 128 hosts...
+  Number of cells on node 0: 251 
+  Done; cell creation time = 5.50 s.
+Making connections...
+  Number of connections on node 0: 1766 
+  Number of synaptic contacts on node 0: 9447 
+  Done; cell connection time = 605.32 s.
+Adding stims...
+  Number of stims on node 0: 60 
+  Done; cell stims creation time = 11.94 s.
+Recording 6 traces of 1 types on node 0
+0.0s
+
+Running simulation using NEURON for 10000.0 ms...
+0.1s
+0.2s
+0.3s
+0.4s
+0.5s
+0.6s
+0.7s
+0.8s
+0.9s
+1.0s
+1.1s
+1.2s
+1.3s
+1.4s
+1.5s
+1.6s
+1.7s
+1.8s
+1.9s
+2.0s
+2.1s
+2.2s
+2.3s
+2.4s
+2.5s
+2.6s
+2.7s
+2.8s
+2.9s
+3.0s
+3.1s
+3.2s
+3.3s
+3.4s
+3.5s
+3.6s
+3.7s
+3.8s
+3.9s
+4.0s
+4.1s
+4.2s
+4.3s
+4.4s
+4.5s
+4.6s
+4.7s
+4.8s
+4.9s
+5.0s
+5.1s
+5.2s
+5.3s
+5.4s
+5.5s
+5.6s
+5.7s
+5.8s
+5.9s
+6.0s
+6.1s
+6.2s
+6.3s
+6.4s
+6.5s
+6.6s
+6.7s
+6.8s
+6.9s
+7.0s
+7.1s
+7.2s
+7.3s
+7.4s
+7.5s
+7.6s
+7.7s
+7.8s
+7.9s
+8.0s
+8.1s
+8.2s
+8.3s
+8.4s
+8.5s
+8.6s
+8.7s
+8.8s
+8.9s
+9.0s
+9.1s
+9.2s
+9.3s
+9.4s
+9.5s
+9.6s
+9.7s
+9.8s
+9.9s
+  Done; run time = 4419.26 s; real-time ratio: 0.00.
+
+Gathering data...
+  Done; gather time = 17.11 s.
+
+Analyzing...
+  Cells: 32127
+  Connections: 0 (0.00 per cell)
+  Spikes: 1476802 (4.60 Hz)
+  Simulated time: 10.0 s; 128 workers
+  Run time: 4419.26 s
+   presyn_L1_DAC_bNA : 0.000 Hz
+   presyn_L1_DAC_cNA : 0.000 Hz
+   presyn_L1_DLAC_cNA : 0.000 Hz
+   presyn_L1_HAC_bNA : 0.000 Hz
+   presyn_L1_HAC_cIR : 0.000 Hz
+   presyn_L1_HAC_cNA : 0.000 Hz
+   presyn_L1_NGC-DA_bNA : 0.000 Hz
+   presyn_L1_NGC-DA_cAC : 0.000 Hz
+   presyn_L1_NGC-DA_cNA : 0.000 Hz
+   presyn_L1_NGC-DA_cST : 0.000 Hz
+   presyn_L1_NGC-SA_cNA : 0.002 Hz
+   presyn_L1_SLAC_bNA : 0.007 Hz
+   presyn_L1_SLAC_cAC : 0.000 Hz
+   presyn_L1_SLAC_cNA : 0.000 Hz
+   presyn_L23_BP_bAC : 0.100 Hz
+   presyn_L23_BP_bIR : 0.000 Hz
+   presyn_L23_BP_bNA : 0.443 Hz
+   presyn_L23_BP_cAC : 0.657 Hz
+   presyn_L23_BP_cNA : 1.100 Hz
+   presyn_L23_BP_dST : 0.033 Hz
+   presyn_L23_BTC_bAC : 0.040 Hz
+   presyn_L23_BTC_bIR : 0.014 Hz
+   presyn_L23_BTC_bNA : 0.083 Hz
+   presyn_L23_BTC_cAC : 0.000 Hz
+   presyn_L23_BTC_cNA : 0.167 Hz
+   presyn_L23_ChC_cAC : 0.843 Hz
+   presyn_L23_ChC_cNA : 0.517 Hz
+   presyn_L23_ChC_dNA : 0.200 Hz
+   presyn_L23_DBC_bAC : 0.008 Hz
+   presyn_L23_DBC_bIR : 0.000 Hz
+   presyn_L23_DBC_bNA : 0.046 Hz
+   presyn_L23_DBC_cAC : 0.023 Hz
+   presyn_L23_LBC_bAC : 0.094 Hz
+   presyn_L23_LBC_bNA : 4.863 Hz
+   presyn_L23_LBC_cAC : 0.897 Hz
+   presyn_L23_LBC_cNA : 1.778 Hz
+   presyn_L23_LBC_cST : 2.041 Hz
+   presyn_L23_LBC_dNA : 3.520 Hz
+   presyn_L23_MC_bAC : 0.000 Hz
+   presyn_L23_MC_bNA : 0.000 Hz
+   presyn_L23_MC_cAC : 0.000 Hz
+   presyn_L23_MC_cNA : 0.000 Hz
+   presyn_L23_MC_dNA : 0.000 Hz
+   presyn_L23_NBC_bAC : 0.071 Hz
+   presyn_L23_NBC_bNA : 1.833 Hz
+   presyn_L23_NBC_cAC : 0.137 Hz
+   presyn_L23_NBC_cIR : 0.000 Hz
+   presyn_L23_NBC_cNA : 0.113 Hz
+   presyn_L23_NBC_dNA : 0.684 Hz
+   presyn_L23_NGC_bNA : 0.020 Hz
+   presyn_L23_NGC_cAC : 0.000 Hz
+   presyn_L23_NGC_cNA : 0.017 Hz
+   presyn_L23_NGC_cST : 0.000 Hz
+   presyn_L23_PC_cAD : 0.316 Hz
+   presyn_L23_SBC_bNA : 3.347 Hz
+   presyn_L23_SBC_cAC : 2.758 Hz
+   presyn_L23_SBC_dNA : 1.863 Hz
+   presyn_L4_BP_bAC : 0.000 Hz
+   presyn_L4_BP_bIR : 0.000 Hz
+   presyn_L4_BP_bNA : 1.900 Hz
+   presyn_L4_BP_cAC : 0.100 Hz
+   presyn_L4_BP_cNA : 10.300 Hz
+   presyn_L4_BP_dST : 0.000 Hz
+   presyn_L4_BTC_bAC : 2.550 Hz
+   presyn_L4_BTC_bIR : 1.000 Hz
+   presyn_L4_BTC_bST : 2.650 Hz
+   presyn_L4_BTC_cAC : 4.667 Hz
+   presyn_L4_BTC_cNA : 6.300 Hz
+   presyn_L4_BTC_dNA : 1.300 Hz
+   presyn_L4_ChC_cAC : 17.700 Hz
+   presyn_L4_ChC_cNA : 14.967 Hz
+   presyn_L4_ChC_dNA : 2.000 Hz
+   presyn_L4_DBC_bAC : 3.825 Hz
+   presyn_L4_DBC_bIR : 0.069 Hz
+   presyn_L4_DBC_bNA : 0.650 Hz
+   presyn_L4_DBC_bST : 0.050 Hz
+   presyn_L4_DBC_cAC : 0.875 Hz
+   presyn_L4_DBC_cIR : 0.257 Hz
+   presyn_L4_DBC_cNA : 2.700 Hz
+   presyn_L4_LBC_cAC : 13.009 Hz
+   presyn_L4_LBC_cNA : 20.264 Hz
+   presyn_L4_LBC_cST : 15.265 Hz
+   presyn_L4_LBC_dNA : 23.361 Hz
+   presyn_L4_LBC_dST : 17.578 Hz
+   presyn_L4_MC_bAC : 0.000 Hz
+   presyn_L4_MC_bNA : 0.000 Hz
+   presyn_L4_MC_cAC : 0.002 Hz
+   presyn_L4_MC_cNA : 0.000 Hz
+   presyn_L4_MC_dNA : 0.000 Hz
+   presyn_L4_NBC_cAC : 12.660 Hz
+   presyn_L4_NBC_cIR : 8.640 Hz
+   presyn_L4_NBC_cNA : 26.831 Hz
+   presyn_L4_NBC_dNA : 19.394 Hz
+   presyn_L4_NGC_bNA : 3.900 Hz
+   presyn_L4_NGC_cAC : 2.300 Hz
+   presyn_L4_NGC_cNA : 2.167 Hz
+   presyn_L4_NGC_cST : 0.700 Hz
+   presyn_L4_PC_cAD : 3.058 Hz
+   presyn_L4_SBC_bNA : 22.810 Hz
+   presyn_L4_SBC_cAC : 14.264 Hz
+   presyn_L4_SBC_dNA : 23.724 Hz
+   presyn_L4_SP_cAD : 3.988 Hz
+   presyn_L4_SS_cAD : 4.481 Hz
+   presyn_L5_BP_bAC : 5.867 Hz
+   presyn_L5_BP_bIR : 1.100 Hz
+   presyn_L5_BP_bNA : 15.656 Hz
+   presyn_L5_BP_cAC : 11.833 Hz
+   presyn_L5_BP_cNA : 22.980 Hz
+   presyn_L5_BP_dST : 0.800 Hz
+   presyn_L5_BTC_bAC : 8.754 Hz
+   presyn_L5_BTC_cAC : 9.032 Hz
+   presyn_L5_BTC_cNA : 15.969 Hz
+   presyn_L5_ChC_cAC : 23.829 Hz
+   presyn_L5_ChC_cNA : 31.743 Hz
+   presyn_L5_ChC_dNA : 27.960 Hz
+   presyn_L5_DBC_bAC : 3.467 Hz
+   presyn_L5_DBC_bIR : 0.491 Hz
+   presyn_L5_DBC_bNA : 5.122 Hz
+   presyn_L5_DBC_bST : 1.344 Hz
+   presyn_L5_DBC_cAC : 5.756 Hz
+   presyn_L5_DBC_cIR : 0.959 Hz
+   presyn_L5_DBC_cNA : 9.078 Hz
+   presyn_L5_LBC_bAC : 9.092 Hz
+   presyn_L5_LBC_cAC : 17.788 Hz
+   presyn_L5_LBC_cIR : 5.031 Hz
+   presyn_L5_LBC_cNA : 39.046 Hz
+   presyn_L5_LBC_cST : 30.151 Hz
+   presyn_L5_LBC_dNA : 36.019 Hz
+   presyn_L5_LBC_dST : 24.990 Hz
+   presyn_L5_MC_bAC : 0.384 Hz
+   presyn_L5_MC_bIR : 0.055 Hz
+   presyn_L5_MC_bST : 0.113 Hz
+   presyn_L5_MC_cAC : 0.995 Hz
+   presyn_L5_MC_cNA : 0.544 Hz
+   presyn_L5_MC_cST : 0.000 Hz
+   presyn_L5_MC_dNA : 0.000 Hz
+   presyn_L5_NBC_bAC : 7.286 Hz
+   presyn_L5_NBC_bIR : 3.443 Hz
+   presyn_L5_NBC_bST : 23.030 Hz
+   presyn_L5_NBC_cAC : 22.545 Hz
+   presyn_L5_NBC_cIR : 11.700 Hz
+   presyn_L5_NBC_cNA : 32.903 Hz
+   presyn_L5_NBC_cST : 24.495 Hz
+   presyn_L5_NBC_dST : 28.500 Hz
+   presyn_L5_NGC_bNA : 9.500 Hz
+   presyn_L5_NGC_cAC : 11.900 Hz
+   presyn_L5_NGC_cNA : 22.800 Hz
+   presyn_L5_NGC_cST : 0.200 Hz
+   presyn_L5_SBC_bNA : 21.400 Hz
+   presyn_L5_SBC_cAC : 12.800 Hz
+   presyn_L5_SBC_dNA : 44.100 Hz
+   presyn_L5_STPC_cAD : 6.804 Hz
+   presyn_L5_TTPC1_cAD : 6.907 Hz
+   presyn_L5_TTPC2_cAD : 7.129 Hz
+   presyn_L5_UTPC_cAD : 9.533 Hz
+   presyn_L6_BPC_cAD : 4.276 Hz
+   presyn_L6_BP_bAC : 5.700 Hz
+   presyn_L6_BP_bIR : 1.110 Hz
+   presyn_L6_BP_bNA : 12.668 Hz
+   presyn_L6_BP_cAC : 11.632 Hz
+   presyn_L6_BP_cNA : 18.230 Hz
+   presyn_L6_BP_dST : 0.717 Hz
+   presyn_L6_BTC_bAC : 6.690 Hz
+   presyn_L6_BTC_cAC : 9.491 Hz
+   presyn_L6_BTC_cNA : 20.100 Hz
+   presyn_L6_ChC_cAC : 11.367 Hz
+   presyn_L6_ChC_cNA : 50.033 Hz
+   presyn_L6_ChC_dNA : 29.500 Hz
+   presyn_L6_DBC_bAC : 7.567 Hz
+   presyn_L6_DBC_bIR : 0.810 Hz
+   presyn_L6_DBC_bNA : 4.500 Hz
+   presyn_L6_DBC_bST : 2.967 Hz
+   presyn_L6_DBC_cAC : 9.167 Hz
+   presyn_L6_DBC_cIR : 3.100 Hz
+   presyn_L6_DBC_cNA : 4.967 Hz
+   presyn_L6_IPC_cAD : 4.085 Hz
+   presyn_L6_LBC_bAC : 6.229 Hz
+   presyn_L6_LBC_bIR : 3.641 Hz
+   presyn_L6_LBC_bNA : 53.449 Hz
+   presyn_L6_LBC_bST : 27.771 Hz
+   presyn_L6_LBC_cNA : 42.905 Hz
+   presyn_L6_LBC_cST : 24.074 Hz
+   presyn_L6_MC_bAC : 0.322 Hz
+   presyn_L6_MC_bIR : 0.018 Hz
+   presyn_L6_MC_bNA : 0.550 Hz
+   presyn_L6_MC_bST : 0.086 Hz
+   presyn_L6_MC_cAC : 1.235 Hz
+   presyn_L6_MC_cIR : 0.000 Hz
+   presyn_L6_MC_cNA : 0.571 Hz
+   presyn_L6_NBC_bAC : 7.286 Hz
+   presyn_L6_NBC_bIR : 4.350 Hz
+   presyn_L6_NBC_bST : 35.274 Hz
+   presyn_L6_NBC_cAC : 12.908 Hz
+   presyn_L6_NBC_cIR : 5.350 Hz
+   presyn_L6_NBC_cNA : 30.524 Hz
+   presyn_L6_NBC_cST : 26.474 Hz
+   presyn_L6_NBC_dST : 31.721 Hz
+   presyn_L6_NGC_bNA : 12.650 Hz
+   presyn_L6_NGC_cAC : 12.150 Hz
+   presyn_L6_NGC_cNA : 22.355 Hz
+   presyn_L6_NGC_cST : 1.100 Hz
+   presyn_L6_SBC_bNA : 40.829 Hz
+   presyn_L6_SBC_cAC : 23.596 Hz
+   presyn_L6_SBC_dNA : 27.126 Hz
+   presyn_L6_TPC_L1_cAD : 4.363 Hz
+   presyn_L6_TPC_L4_cAD : 5.230 Hz
+   presyn_L6_UTPC_cAD : 5.637 Hz
+   L1_DAC_bNA : 0.000 Hz
+   L1_DAC_cNA : 0.000 Hz
+   L1_DLAC_cNA : 0.000 Hz
+   L1_HAC_bNA : 0.000 Hz
+   L1_HAC_cIR : 0.000 Hz
+   L1_HAC_cNA : 0.000 Hz
+   L1_NGC-DA_bNA : 0.000 Hz
+   L1_NGC-DA_cAC : 0.000 Hz
+   L1_NGC-DA_cNA : 0.000 Hz
+   L1_NGC-DA_cST : 0.000 Hz
+   L1_NGC-SA_cNA : 0.000 Hz
+   L1_SLAC_bNA : 0.000 Hz
+   L1_SLAC_cAC : 0.000 Hz
+   L1_SLAC_cNA : 0.000 Hz
+   L23_BP_bAC : 0.000 Hz
+   L23_PC_cAD : 0.326 Hz
+   L23_BP_bIR : 0.000 Hz
+   L23_BP_bNA : 0.600 Hz
+   L23_BP_cAC : 0.600 Hz
+   L23_BP_cNA : 1.000 Hz
+   L23_BP_dST : 0.000 Hz
+   L23_BTC_bAC : 0.000 Hz
+   L23_BTC_bIR : 0.000 Hz
+   L23_BTC_bNA : 0.000 Hz
+   L23_BTC_cAC : 0.000 Hz
+   L23_BTC_cNA : 1.300 Hz
+   L23_ChC_cAC : 1.500 Hz
+   L23_ChC_cNA : 1.100 Hz
+   L23_ChC_dNA : 0.000 Hz
+   L23_DBC_bAC : 0.000 Hz
+   L23_DBC_bIR : 0.000 Hz
+   L23_DBC_bNA : 0.000 Hz
+   L23_DBC_cAC : 0.000 Hz
+   L23_LBC_bAC : 0.000 Hz
+   L23_LBC_bNA : 2.500 Hz
+   L23_LBC_cAC : 1.133 Hz
+   L23_LBC_cNA : 6.200 Hz
+   L23_LBC_cST : 1.600 Hz
+   L23_LBC_dNA : 4.200 Hz
+   L23_MC_bAC : 0.000 Hz
+   L23_MC_bNA : 0.000 Hz
+   L23_MC_cAC : 0.000 Hz
+   L23_MC_cNA : 0.000 Hz
+   L23_MC_dNA : 0.000 Hz
+   L23_NBC_bAC : 0.000 Hz
+   L23_NBC_bNA : 1.300 Hz
+   L23_NBC_cAC : 0.000 Hz
+   L23_NBC_cIR : 0.000 Hz
+   L23_NBC_cNA : 0.000 Hz
+   L23_NBC_dNA : 0.350 Hz
+   L23_NGC_bNA : 0.100 Hz
+   L23_NGC_cAC : 0.100 Hz
+   L23_NGC_cNA : 0.000 Hz
+   L23_NGC_cST : 0.000 Hz
+   L23_SBC_bNA : 6.250 Hz
+   L23_SBC_cAC : 2.650 Hz
+   L23_SBC_dNA : 1.000 Hz
+   L4_BP_bAC : 0.300 Hz
+   L4_BP_bIR : 0.100 Hz
+   L4_BP_bNA : 4.600 Hz
+   L4_BP_cAC : 0.200 Hz
+   L4_BP_cNA : 1.800 Hz
+   L4_BP_dST : 0.900 Hz
+   L4_BTC_bAC : 1.900 Hz
+   L4_BTC_bIR : 1.400 Hz
+   L4_BTC_bST : 2.400 Hz
+   L4_BTC_cAC : 6.700 Hz
+   L4_BTC_cNA : 22.200 Hz
+   L4_BTC_dNA : 3.000 Hz
+   L4_ChC_cAC : 13.500 Hz
+   L4_ChC_cNA : 9.600 Hz
+   L4_ChC_dNA : 2.300 Hz
+   L4_DBC_bAC : 0.000 Hz
+   L4_DBC_bIR : 0.000 Hz
+   L4_DBC_bNA : 0.500 Hz
+   L4_DBC_bST : 0.000 Hz
+   L4_DBC_cAC : 0.100 Hz
+   L4_DBC_cIR : 0.300 Hz
+   L4_DBC_cNA : 1.400 Hz
+   L4_LBC_cAC : 1.900 Hz
+   L4_LBC_cNA : 7.400 Hz
+   L4_LBC_cST : 7.200 Hz
+   L4_LBC_dNA : 25.400 Hz
+   L4_LBC_dST : 8.100 Hz
+   L4_MC_bAC : 0.000 Hz
+   L4_MC_bNA : 0.000 Hz
+   L4_MC_cAC : 0.000 Hz
+   L4_MC_cNA : 0.000 Hz
+   L4_MC_dNA : 0.000 Hz
+   L4_NBC_cAC : 4.800 Hz
+   L4_NBC_cIR : 13.200 Hz
+   L4_NBC_cNA : 17.300 Hz
+   L4_NBC_dNA : 11.500 Hz
+   L4_NGC_bNA : 2.500 Hz
+   L4_NGC_cAC : 5.000 Hz
+   L4_NGC_cNA : 1.800 Hz
+   L4_NGC_cST : 0.500 Hz
+   L4_PC_cAD : 2.757 Hz
+   L4_SBC_bNA : 24.100 Hz
+   L4_SBC_cAC : 7.700 Hz
+   L4_SBC_dNA : 65.500 Hz
+   L4_SP_cAD : 3.983 Hz
+   L4_SS_cAD : 3.678 Hz
+   L5_BP_bAC : 4.100 Hz
+   L5_BP_bIR : 1.100 Hz
+   L5_BP_bNA : 8.200 Hz
+   L5_BP_cAC : 11.500 Hz
+   L5_BP_cNA : 7.500 Hz
+   L5_BP_dST : 1.200 Hz
+   L5_BTC_bAC : 5.000 Hz
+   L5_BTC_cAC : 7.250 Hz
+   L5_BTC_cNA : 41.000 Hz
+   L5_ChC_cAC : 50.600 Hz
+   L5_ChC_cNA : 27.900 Hz
+   L5_ChC_dNA : 19.500 Hz
+   L5_DBC_bAC : 1.400 Hz
+   L5_DBC_bIR : 0.600 Hz
+   L5_DBC_bNA : 10.100 Hz
+   L5_DBC_bST : 1.900 Hz
+   L5_DBC_cAC : 12.200 Hz
+   L5_DBC_cIR : 1.300 Hz
+   L5_DBC_cNA : 1.900 Hz
+   L5_LBC_bAC : 9.900 Hz
+   L5_LBC_cAC : 17.100 Hz
+   L5_LBC_cIR : 1.400 Hz
+   L5_LBC_cNA : 81.400 Hz
+   L5_LBC_cST : 25.700 Hz
+   L5_LBC_dNA : 86.200 Hz
+   L5_LBC_dST : 37.100 Hz
+   L5_MC_bAC : 1.967 Hz
+   L5_MC_bIR : 0.000 Hz
+   L5_MC_bST : 0.100 Hz
+   L5_MC_cAC : 1.267 Hz
+   L5_MC_cNA : 0.000 Hz
+   L5_MC_cST : 0.000 Hz
+   L5_MC_dNA : 0.000 Hz
+   L5_NBC_bAC : 11.500 Hz
+   L5_NBC_bIR : 0.900 Hz
+   L5_NBC_bST : 18.100 Hz
+   L5_NBC_cAC : 27.200 Hz
+   L5_NBC_cIR : 0.500 Hz
+   L5_NBC_cNA : 8.100 Hz
+   L5_NBC_cST : 8.300 Hz
+   L5_NBC_dST : 5.500 Hz
+   L5_NGC_bNA : 15.600 Hz
+   L5_NGC_cAC : 12.100 Hz
+   L5_NGC_cNA : 21.800 Hz
+   L5_NGC_cST : 1.500 Hz
+   L5_SBC_bNA : 15.000 Hz
+   L5_SBC_cAC : 8.800 Hz
+   L5_SBC_dNA : 76.600 Hz
+   L5_STPC_cAD : 10.414 Hz
+   L5_TTPC1_cAD : 9.302 Hz
+   L5_TTPC2_cAD : 8.168 Hz
+   L5_UTPC_cAD : 7.114 Hz
+   L6_BPC_cAD : 4.109 Hz
+   L6_BP_bAC : 7.700 Hz
+   L6_BP_bIR : 1.100 Hz
+   L6_BP_bNA : 11.400 Hz
+   L6_BP_cAC : 8.000 Hz
+   L6_BP_cNA : 24.500 Hz
+   L6_BP_dST : 1.300 Hz
+   L6_BTC_bAC : 11.700 Hz
+   L6_BTC_cAC : 14.200 Hz
+   L6_BTC_cNA : 8.900 Hz
+   L6_ChC_cAC : 53.300 Hz
+   L6_ChC_cNA : 47.300 Hz
+   L6_ChC_dNA : 23.500 Hz
+   L6_DBC_bAC : 4.700 Hz
+   L6_DBC_bIR : 0.200 Hz
+   L6_DBC_bNA : 4.000 Hz
+   L6_DBC_bST : 0.400 Hz
+   L6_DBC_cAC : 1.400 Hz
+   L6_DBC_cIR : 11.800 Hz
+   L6_DBC_cNA : 39.500 Hz
+   L6_IPC_cAD : 4.489 Hz
+   L6_LBC_bAC : 9.150 Hz
+   L6_LBC_bIR : 5.233 Hz
+   L6_LBC_bNA : 22.700 Hz
+   L6_LBC_bST : 11.833 Hz
+   L6_LBC_cNA : 80.700 Hz
+   L6_LBC_cST : 4.700 Hz
+   L6_MC_bAC : 0.900 Hz
+   L6_MC_bIR : 0.300 Hz
+   L6_MC_bNA : 4.800 Hz
+   L6_MC_bST : 0.000 Hz
+   L6_MC_cAC : 1.450 Hz
+   L6_MC_cIR : 0.700 Hz
+   L6_MC_cNA : 0.000 Hz
+   L6_NBC_bAC : 3.600 Hz
+   L6_NBC_bIR : 2.500 Hz
+   L6_NBC_bST : 10.800 Hz
+   L6_NBC_cAC : 18.300 Hz
+   L6_NBC_cIR : 6.400 Hz
+   L6_NBC_cNA : 64.800 Hz
+   L6_NBC_cST : 3.800 Hz
+   L6_NBC_dST : 2.600 Hz
+   L6_NGC_bNA : 11.800 Hz
+   L6_NGC_cAC : 11.400 Hz
+   L6_NGC_cNA : 23.300 Hz
+   L6_NGC_cST : 1.300 Hz
+   L6_SBC_bNA : 30.900 Hz
+   L6_SBC_cAC : 21.400 Hz
+   L6_SBC_dNA : 36.800 Hz
+   L6_TPC_L1_cAD : 5.065 Hz
+   L6_TPC_L4_cAD : 5.139 Hz
+   L6_UTPC_cAD : 6.706 Hz
+Saving output as ../data/v8_batch1/v8_batch1_0_0_data.pkl ... 
+Finished saving!
+  Done; saving time = 35.57 s.
+Plotting 2D representation of network cell locations and connections...
+Preparing LFP data...
+Plotting LFP time series...
+Preparing LFP data...
+Preparing PSD data...
+Plotting LFP power spectral density (PSD)...
+Preparing LFP data...
+Preparing spectrogram data...
+Plotting LFP spectrogram...
+Preparing spike data...
+Plotting raster...
+  Done; plotting time = 112.31 s
+
+Total time = 5483.77 s
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 0 PID 8366 RUNNING AT coreneuron14jan22-1
+=   KILLED BY SIGNAL: 15 (Terminated)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 1 PID 8367 RUNNING AT coreneuron14jan22-1
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 2 PID 8368 RUNNING AT coreneuron14jan22-1
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 3 PID 8369 RUNNING AT coreneuron14jan22-1
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 4 PID 8370 RUNNING AT coreneuron14jan22-1
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 5 PID 8371 RUNNING AT coreneuron14jan22-1
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 6 PID 8372 RUNNING AT coreneuron14jan22-1
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 7 PID 8373 RUNNING AT coreneuron14jan22-1
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 8 PID 8374 RUNNING AT coreneuron14jan22-1
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 9 PID 8375 RUNNING AT coreneuron14jan22-1
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 10 PID 8376 RUNNING AT coreneuron14jan22-1
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 11 PID 8377 RUNNING AT coreneuron14jan22-1
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 12 PID 8378 RUNNING AT coreneuron14jan22-1
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 13 PID 8379 RUNNING AT coreneuron14jan22-1
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 14 PID 8380 RUNNING AT coreneuron14jan22-1
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 15 PID 8381 RUNNING AT coreneuron14jan22-1
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 16 PID 8382 RUNNING AT coreneuron14jan22-1
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 17 PID 8383 RUNNING AT coreneuron14jan22-1
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 18 PID 8384 RUNNING AT coreneuron14jan22-1
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 19 PID 8385 RUNNING AT coreneuron14jan22-1
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 20 PID 8386 RUNNING AT coreneuron14jan22-1
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 21 PID 8387 RUNNING AT coreneuron14jan22-1
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 22 PID 8388 RUNNING AT coreneuron14jan22-1
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 23 PID 8389 RUNNING AT coreneuron14jan22-1
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 24 PID 8390 RUNNING AT coreneuron14jan22-1
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 25 PID 8391 RUNNING AT coreneuron14jan22-1
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 26 PID 8392 RUNNING AT coreneuron14jan22-1
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 27 PID 8393 RUNNING AT coreneuron14jan22-1
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 28 PID 8394 RUNNING AT coreneuron14jan22-1
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 29 PID 8395 RUNNING AT coreneuron14jan22-1
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 30 PID 8396 RUNNING AT coreneuron14jan22-1
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 31 PID 8397 RUNNING AT coreneuron14jan22-1
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 32 PID 8398 RUNNING AT coreneuron14jan22-1
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 33 PID 8399 RUNNING AT coreneuron14jan22-1
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 34 PID 8400 RUNNING AT coreneuron14jan22-1
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 35 PID 8401 RUNNING AT coreneuron14jan22-1
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 36 PID 8402 RUNNING AT coreneuron14jan22-1
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 37 PID 8403 RUNNING AT coreneuron14jan22-1
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 38 PID 8404 RUNNING AT coreneuron14jan22-1
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 39 PID 8405 RUNNING AT coreneuron14jan22-1
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 40 PID 8406 RUNNING AT coreneuron14jan22-1
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 41 PID 8407 RUNNING AT coreneuron14jan22-1
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 42 PID 8408 RUNNING AT coreneuron14jan22-1
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 43 PID 8409 RUNNING AT coreneuron14jan22-1
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 44 PID 8410 RUNNING AT coreneuron14jan22-1
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 45 PID 8411 RUNNING AT coreneuron14jan22-1
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 46 PID 8412 RUNNING AT coreneuron14jan22-1
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 47 PID 8413 RUNNING AT coreneuron14jan22-1
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 48 PID 8414 RUNNING AT coreneuron14jan22-1
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 49 PID 8415 RUNNING AT coreneuron14jan22-1
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 50 PID 8416 RUNNING AT coreneuron14jan22-1
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 51 PID 8417 RUNNING AT coreneuron14jan22-1
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 52 PID 8418 RUNNING AT coreneuron14jan22-1
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 53 PID 8419 RUNNING AT coreneuron14jan22-1
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 54 PID 8420 RUNNING AT coreneuron14jan22-1
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 55 PID 8421 RUNNING AT coreneuron14jan22-1
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 56 PID 8422 RUNNING AT coreneuron14jan22-1
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 57 PID 8423 RUNNING AT coreneuron14jan22-1
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 58 PID 8424 RUNNING AT coreneuron14jan22-1
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 59 PID 8425 RUNNING AT coreneuron14jan22-1
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 60 PID 8426 RUNNING AT coreneuron14jan22-1
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 61 PID 8427 RUNNING AT coreneuron14jan22-1
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 62 PID 8428 RUNNING AT coreneuron14jan22-1
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 63 PID 8429 RUNNING AT coreneuron14jan22-1
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 64 PID 8430 RUNNING AT coreneuron14jan22-1
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 65 PID 8431 RUNNING AT coreneuron14jan22-1
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 66 PID 8432 RUNNING AT coreneuron14jan22-1
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 67 PID 8433 RUNNING AT coreneuron14jan22-1
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 68 PID 8434 RUNNING AT coreneuron14jan22-1
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 69 PID 8435 RUNNING AT coreneuron14jan22-1
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 70 PID 8436 RUNNING AT coreneuron14jan22-1
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 71 PID 8437 RUNNING AT coreneuron14jan22-1
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 72 PID 8438 RUNNING AT coreneuron14jan22-1
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 73 PID 8439 RUNNING AT coreneuron14jan22-1
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 74 PID 8440 RUNNING AT coreneuron14jan22-1
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 75 PID 8441 RUNNING AT coreneuron14jan22-1
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 76 PID 8442 RUNNING AT coreneuron14jan22-1
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 77 PID 8443 RUNNING AT coreneuron14jan22-1
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 78 PID 8444 RUNNING AT coreneuron14jan22-1
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 79 PID 8445 RUNNING AT coreneuron14jan22-1
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 80 PID 8446 RUNNING AT coreneuron14jan22-1
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 81 PID 8447 RUNNING AT coreneuron14jan22-1
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 82 PID 8448 RUNNING AT coreneuron14jan22-1
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 83 PID 8449 RUNNING AT coreneuron14jan22-1
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 84 PID 8450 RUNNING AT coreneuron14jan22-1
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 85 PID 8451 RUNNING AT coreneuron14jan22-1
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 86 PID 8452 RUNNING AT coreneuron14jan22-1
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 87 PID 8453 RUNNING AT coreneuron14jan22-1
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 88 PID 8454 RUNNING AT coreneuron14jan22-1
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 89 PID 8455 RUNNING AT coreneuron14jan22-1
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 90 PID 8456 RUNNING AT coreneuron14jan22-1
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 91 PID 8457 RUNNING AT coreneuron14jan22-1
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 92 PID 8458 RUNNING AT coreneuron14jan22-1
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 93 PID 8459 RUNNING AT coreneuron14jan22-1
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 94 PID 8460 RUNNING AT coreneuron14jan22-1
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 95 PID 8461 RUNNING AT coreneuron14jan22-1
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 96 PID 8462 RUNNING AT coreneuron14jan22-1
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 97 PID 8463 RUNNING AT coreneuron14jan22-1
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 98 PID 8464 RUNNING AT coreneuron14jan22-1
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 99 PID 8465 RUNNING AT coreneuron14jan22-1
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 100 PID 8466 RUNNING AT coreneuron14jan22-1
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 101 PID 8467 RUNNING AT coreneuron14jan22-1
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 102 PID 8468 RUNNING AT coreneuron14jan22-1
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 103 PID 8469 RUNNING AT coreneuron14jan22-1
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 104 PID 8470 RUNNING AT coreneuron14jan22-1
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 105 PID 8471 RUNNING AT coreneuron14jan22-1
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 106 PID 8472 RUNNING AT coreneuron14jan22-1
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 107 PID 8473 RUNNING AT coreneuron14jan22-1
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 108 PID 8474 RUNNING AT coreneuron14jan22-1
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 109 PID 8475 RUNNING AT coreneuron14jan22-1
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 110 PID 8476 RUNNING AT coreneuron14jan22-1
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 111 PID 8477 RUNNING AT coreneuron14jan22-1
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 112 PID 8478 RUNNING AT coreneuron14jan22-1
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 113 PID 8479 RUNNING AT coreneuron14jan22-1
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 114 PID 8480 RUNNING AT coreneuron14jan22-1
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 115 PID 8481 RUNNING AT coreneuron14jan22-1
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 116 PID 8482 RUNNING AT coreneuron14jan22-1
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 117 PID 8483 RUNNING AT coreneuron14jan22-1
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 118 PID 8484 RUNNING AT coreneuron14jan22-1
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 119 PID 8485 RUNNING AT coreneuron14jan22-1
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 120 PID 8486 RUNNING AT coreneuron14jan22-1
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 121 PID 8487 RUNNING AT coreneuron14jan22-1
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 122 PID 8488 RUNNING AT coreneuron14jan22-1
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 123 PID 8489 RUNNING AT coreneuron14jan22-1
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 124 PID 8490 RUNNING AT coreneuron14jan22-1
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 125 PID 8491 RUNNING AT coreneuron14jan22-1
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 126 PID 8492 RUNNING AT coreneuron14jan22-1
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 127 PID 8493 RUNNING AT coreneuron14jan22-1
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================

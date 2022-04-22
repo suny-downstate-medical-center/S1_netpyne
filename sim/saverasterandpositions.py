@@ -63,10 +63,33 @@ for line in mtype_content.split('\n')[:-1]:
     
 cfg.S1pops = popParam[0:55]
 cfg.S1cells = cellParam[0:207]
+#------------------------------------------------------------------------------  
+# Thalamic Cells
+
+cfg.thalamicpops = ['ss_RTN_o', 'ss_RTN_m', 'ss_RTN_i', 'VPL_sTC', 'VPM_sTC', 'POm_sTC_s1']
+
+cfg.cellNumber['ss_RTN_o'] = int(382 * (210**2/150**2)) # from mouse model (d = 150 um)
+cfg.cellNumber['ss_RTN_m'] = int(382 * (210**2/150**2))
+cfg.cellNumber['ss_RTN_i'] = int(765 * (210**2/150**2))
+cfg.cellNumber['VPL_sTC'] = int(656 * (210**2/150**2))
+cfg.cellNumber['VPM_sTC'] = int(839 * (210**2/150**2))
+cfg.cellNumber['POm_sTC_s1'] = int(685 * (210**2/150**2))
+
+for mtype in cfg.thalamicpops: # No diversity
+	metype = mtype
+	popParam.append(mtype)
+	cfg.popLabel[metype] = mtype
+	cellParam.append(metype)
+
+	cfg.popNumber[mtype] = cfg.cellNumber[metype]
+
+#------------------------------------------------------------------------------  
+cfg.popParamLabels = popParam
+cfg.cellParamLabels = cellParam
 
 #------------------------------------------------------------------------------
 
-with open('/home/fernando/Documents/data_S1_Rat/v7_batch0/v7_batch0_0_0_data.pkl', 'rb') as fileObj: spikesData = pickle.load(fileObj)
+with open('/home/fernando/Documents/data_S1_Rat/v7_batch1/v7_batch1_0_0_data.pkl', 'rb') as fileObj: spikesData = pickle.load(fileObj)
 
 spkid = spikesData['simData']['spkid']
 spkt = spikesData['simData']['spkt']
@@ -86,11 +109,18 @@ for metype in cfg.cellNumber.keys():
 print('N =',N,', Number of spikes =',np.size(spkt),', FR =',np.size(spkt)/(10.0*N))
 
 for mtype in cfg.popNumber.keys():
-    for metype in cfg.popLabelEl[mtype]:  
+    if mtype in cfg.popLabelEl.keys():
+        for metype in cfg.popLabelEl[mtype]:  
+            for i in range(np.size(spkt)):
+                if spkid[i] >= popID[metype] and spkid[i] < popID[metype]+cfg.cellNumber[metype]:
+                    spkTimes[metype+'_'+str(int(spkid[i]))].append(spkt[i])
+    else:
+        metype = mtype
         for i in range(np.size(spkt)):
             if spkid[i] >= popID[metype] and spkid[i] < popID[metype]+cfg.cellNumber[metype]:
                 spkTimes[metype+'_'+str(int(spkid[i]))].append(spkt[i])
 
+    print(metype,popID[metype],cfg.cellNumber[metype])
 #------------------------------------------------------------------------------
 cellsTags = []
 for i,metype in enumerate(spikesData['net']['cells']):
@@ -99,9 +129,9 @@ for i,metype in enumerate(spikesData['net']['cells']):
         for tp in ['cellType', 'xnorm', 'ynorm', 'znorm', 'x', 'y', 'z']:
             cellsTags2[tp] = metype.tags[tp]            
         cellsTags.append(cellsTags2)
-
+        print(i,metype)
 #------------------------------------------------------------------------------
 # Save data to pkl file
 import pickle
-with open('../data/spkTimes_v7_batch0.pkl', 'wb') as f:
+with open('../data/spkTimes_v7_batch1.pkl', 'wb') as f:
     pickle.dump({'spkTimes': spkTimes, 'cellsTags': cellsTags}, f)
