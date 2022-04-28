@@ -23,6 +23,28 @@ sim.initialize(
     netParams = netParams)  				# create network object and set cfg and net params
 sim.net.createPops()               			# instantiate network populations
 sim.net.createCells()              			# instantiate network cells based on defined populations
+
+## Load cells positions
+with open('../data/spkTimes_v7_batch0.pkl', 'rb') as fileObj: simData = pickle.load(fileObj)
+cellsTags = simData['cellsTags']
+
+# print(sim.rank,sim.net.cells[0].tags)
+
+for i,metype in enumerate(sim.net.cells):
+
+    if 'presyn' in metype.tags['pop']:
+
+        ii = int(metype.tags['cellLabel'])
+        
+        metype.tags['xnorm'] = cellsTags[ii]['xnorm']
+        metype.tags['ynorm'] = cellsTags[ii]['ynorm']
+        metype.tags['znorm'] = cellsTags[ii]['znorm']
+        metype.tags['x'] = cellsTags[ii]['x']
+        metype.tags['y'] = cellsTags[ii]['y']
+        metype.tags['z'] = cellsTags[ii]['z']   
+
+# print(sim.rank,sim.net.cells[0].tags)
+
 sim.net.connectCells()            			# create connections between cells based on params
 sim.net.addStims() 							# add network stimulation
 sim.setupRecording()              			# setup variables to record for each cell (spikes, V traces, etc)

@@ -82,7 +82,7 @@ netParams.scaleConnWeightNetStims = 0.001  # weight conversion factor (from nS t
 #------------------------------------------------------------------------------
 
 ## Load spkTimes and cells positions
-with open('../data/spkTimes_v7_batch0.pkl', 'rb') as fileObj: simData = pickle.load(fileObj)
+with open('../data/spkTimes_v7_batch1.pkl', 'rb') as fileObj: simData = pickle.load(fileObj)
 spkTimes = simData['spkTimes']
 # cellsTags = simData['cellsTags']
 
@@ -105,7 +105,7 @@ for cellLabel in spkTimes.keys():
     cellsVSName[metype].append('presyn_'+cellLabel)
     popsVSName[mtype].append('presyn_'+cellLabel)
 
-# create 1 vectstim pop per S1 cell gid
+# create 1 vectstim pop per cell gid
 for popLabel in cellsVSName.keys():
     
     cellsList = []            
@@ -117,7 +117,7 @@ for popLabel in cellsVSName.keys():
             metype += '_' + cellme[i]         
 
         if np.size(spkTimes[metype+'_'+cellLabel.split('_')[-1]]) == 0:
-            spkTimes[metype+'_'+cellLabel.split('_')[-1]] = [10000.5]
+            spkTimes[metype+'_'+cellLabel.split('_')[-1]] = [15000.5]
         
         cellsList.append({'cellLabel': int(cellLabel.split('_')[-1]), 'spkTimes': spkTimes[metype+'_'+cellLabel.split('_')[-1]]})
         netParams.popParams['presyn_'+metype] = {'cellModel': 'VecStim', 'cellsList': cellsList}
@@ -131,19 +131,9 @@ for cellName in cfg.S1cells:
     if layernumber == '2':
         netParams.popParams[cellName] = {'cellType': cellName, 'cellModel': 'HH_full', 'ynormRange': layer['23'], 'xnormRange': [0.5-0.5/5.25, 0.5+0.5/5.25],  'znormRange': [0.5-0.5/5.25, 0.5+0.5/5.25],
                                         'numCells': int(np.ceil(cfg.scaleDensity*cfg.cellNumber[cellName])), 'diversity': True}
-
-        netParams.popParams['L23_MC_cAC'] = {'cellType': 'L23_PC_cAD', 'cellModel': 'HH_full', 'ynormRange': layer['23'],'xnormRange':[0.5-0.5/5.25, 0.5+0.5/5.25],'znormRange':[0.5-0.5/5.25, 0.5+0.5/5.25],
-                                       'numCells': 1+int(np.ceil(cfg.scaleDensity*cfg.cellNumber['L23_PC_cAD'])), 'diversity': True}
     else:
-        if cellName not in ['L4_SP_cAD','L4_SS_cAD','L6_LBC_bIR','L6_LBC_bST','L6_TPC_L1_cAD']:
-            netParams.popParams[cellName] = {'cellType': cellName, 'cellModel': 'HH_full', 'ynormRange': layer[layernumber], 'xnormRange': [0.5-0.5/5.25, 0.5+0.5/5.25],  'znormRange': [0.5-0.5/5.25, 0.5+0.5/5.25],
+        netParams.popParams[cellName] = {'cellType': cellName, 'cellModel': 'HH_full', 'ynormRange': layer[layernumber], 'xnormRange': [0.5-0.5/5.25, 0.5+0.5/5.25],  'znormRange': [0.5-0.5/5.25, 0.5+0.5/5.25],
                                         'numCells': int(np.ceil(cfg.scaleDensity*cfg.cellNumber[cellName])), 'diversity': True}
-        else:
-            netParams.popParams[cellName] = {'cellType': cellName, 'cellModel': 'HH_full', 'ynormRange': layer[layernumber], 'xnormRange': [0.5-0.5/5.25, 0.5+0.5/5.25],  'znormRange': [0.5-0.5/5.25, 0.5+0.5/5.25], # avoid a error in cell diversity in cellnumber = mult of 5
-                                        'numCells': 1+int(np.ceil(cfg.scaleDensity*cfg.cellNumber[cellName])), 'diversity': True}
-
-            # avoid a error in cell diversity in cellnumber = mult of 5       
-
 
 ## THALAMIC POPULATIONS (from prev model)
 for popName in cfg.thalamicpops:
@@ -895,6 +885,53 @@ if cfg.connect_Th_S1:
 
                 netParams.connParams['thal_'+pre+'_'+post] = { 
                     'preConds': {'pop': pre}, 
+                    'postConds': {'pop': cfg.popLabelEl[post]},
+                    'weight': 0.19,   # synaptic weight 
+                    'sec': 'spinyEE', # target postsyn section
+                    'delay': 'defaultDelay+dist_3D/propVelocity',
+                    'synsPerConn': int(synapsesperconnection_Th_S1), 
+                    'synMech': 'TC:S1'}  
+
+                if pre=='POm_sTC_s1':
+                    netParams.connParams['thal_'+pre+'_'+post]['convergence'] = conn_convergence # non-topographycal connectivity
+                else:
+                    netParams.connParams['thal_'+pre+'_'+post]['probability'] = probability_rule # FO (First Order)
+
+#------------------------------------------------------------------------------
+# ThVecStim->S1 connectivity parameters
+#------------------------------------------------------------------------------
+if cfg.connect_ThVecStim_S1:
+
+    # mtype VPM_sTC POm_sTC_s1 nameref
+    with open('../info/anatomy/convergence_Th_S1.txt') as mtype_file:
+        mtype_content = mtype_file.read()       
+
+    convergence_Th_S1 = {}
+    convergence_Th_S1['VPM_sTC'] = {}
+    convergence_Th_S1['VPL_sTC'] = {}
+    convergence_Th_S1['POm_sTC_s1'] = {}
+
+    for line in mtype_content.split('\n')[:-1]:
+        mtype, preFO, preHO, nameref  = line.split()
+        convergence_Th_S1['VPL_sTC'][mtype] = int(cfg.frac_Th_S1*int(preFO)) # First Order  
+        convergence_Th_S1['VPM_sTC'][mtype] = int(cfg.frac_Th_S1*int(preFO)) # First Order
+        convergence_Th_S1['POm_sTC_s1'][mtype] = int(cfg.frac_Th_S1*int(preHO)) # High Order 
+
+    ## Connectivity rules
+    radius_cilinder = netParams.sizeX/2.0
+    synapsesperconnection_Th_S1 = 9.0
+    radius2D_Th_S1 = 50.0
+
+    for pre in ['VPL_sTC', 'VPM_sTC', 'POm_sTC_s1']:  #  
+        if cfg.TC_S1[pre]:
+            for post in Epops+Ipops: 
+                
+                conn_convergence = np.ceil(convergence_Th_S1[pre][post]/synapsesperconnection_Th_S1)
+                prob_conv = 1.0*(conn_convergence/cfg.popNumber[pre])*((radius_cilinder**2)/(radius2D_Th_S1**2)) # prob*(AreaS1/Area_Th_syn)  
+                probability_rule = '%f if dist_2D < %f else 0.0' % (prob_conv,radius2D_Th_S1)
+
+                netParams.connParams['thal_'+pre+'_'+post] = { 
+                    'preConds': {'pop': 'presyn_'+pre},  ####################################################
                     'postConds': {'pop': cfg.popLabelEl[post]},
                     'weight': 0.19,   # synaptic weight 
                     'sec': 'spinyEE', # target postsyn section
