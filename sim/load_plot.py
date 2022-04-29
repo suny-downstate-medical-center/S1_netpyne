@@ -69,7 +69,6 @@ for line in mtype_content.split('\n')[:-1]:
 S1pops = popParam[0:55]
 S1cells = cellParam[0:207]
 
-
 ###########################
 ######## MAIN CODE ########
 ###########################
@@ -79,12 +78,10 @@ if __name__ == '__main__':
     dataType = 'spont' #'speech' #'spont'
 
     if dataType == 'spont':
-        filenames = ['../data/v8_batch4/v8_batch4_%d_%d_data.pkl' % (iseed, cseed) for iseed in [0] for cseed in [0]]
+        filenames = ['../data/v8_batch1/v8_batch1_%d_%d_data.pkl' % (iseed, cseed) for iseed in [0] for cseed in [0]]
         timeRange = [6000, 11000]
 
-    layer_bounds= {'L1': 100, 'L2': 160, 'L3': 950, 'L4': 1250, 'L5A': 1334, 'L5B': 1550}#, 'L6': 2000}
-    layer_bounds= {'S': 950, 'G': 1250, 'I': 1900}#, 'L6': 2000}
-
+    layer_bounds= {'1':[0.0, 0.079], '2': [0.079,0.151], '3': [0.151,0.320], '23': [0.079,0.320], '4':[0.320,0.412], '5': [0.412,0.664], '6': [0.664,1.0]}
 
     allData = []
 

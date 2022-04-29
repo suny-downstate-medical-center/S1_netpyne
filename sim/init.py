@@ -18,33 +18,27 @@ import pickle, json
 
 cfg, netParams = sim.readCmdLineArgs(simConfigDefault='cfg.py', netParamsDefault='netParams.py')
 
+print('%s \t Nmorpho ~ %.1f (%.1f percent) \t 1/fracmorphoradius = %.2f' % (cfg.simLabel,31346*cfg.scaleDensity,100.0*cfg.scaleDensity,1.0/cfg.fracmorphoradius))
+
 sim.initialize(
     simConfig = cfg, 	
     netParams = netParams)  				# create network object and set cfg and net params
 sim.net.createPops()               			# instantiate network populations
 sim.net.createCells()              			# instantiate network cells based on defined populations
-
 ## Load cells positions
 with open('../data/spkTimes_v7_batch1.pkl', 'rb') as fileObj: simData = pickle.load(fileObj)
 cellsTags = simData['cellsTags']
-
 # print(sim.rank,sim.net.cells[33110].tags)
-
 for i,metype in enumerate(sim.net.cells):
-
     if 'presyn' in metype.tags['pop']:
-
-        ii = int(metype.tags['cellLabel'])
-        
+        ii = int(metype.tags['cellLabel'])        
         metype.tags['xnorm'] = cellsTags[ii]['xnorm']
         metype.tags['ynorm'] = cellsTags[ii]['ynorm']
         metype.tags['znorm'] = cellsTags[ii]['znorm']
         metype.tags['x'] = cellsTags[ii]['x']
         metype.tags['y'] = cellsTags[ii]['y']
         metype.tags['z'] = cellsTags[ii]['z']   
-
 # print(sim.rank,sim.net.cells[33110].tags)
-
 sim.net.connectCells()            			# create connections between cells based on params
 sim.net.addStims() 							# add network stimulation
 sim.setupRecording()              			# setup variables to record for each cell (spikes, V traces, etc)
