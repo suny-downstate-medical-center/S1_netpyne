@@ -110,25 +110,28 @@ for popLabel in cellsVSName.keys():
     
     cellsList = []            
     for cellLabel in cellsVSName[popLabel]:
-
-        ii = int(cellLabel.split('_')[-1])
-        excluderadius2 = (0.5*cfg.fracmorphoradius)**2
-        distexclude2 = (cellsTags[ii]['xnorm']-0.5)**2 + (cellsTags[ii]['znorm']-0.5)**2
-
-        if distexclude2 > excluderadius2:
             
-            cellme = cellLabel.split('_')[0:-1]
-            metype = cellme[1]
-            for i in range(2,np.size(cellme)):
-                metype += '_' + cellme[i]         
+        cellme = cellLabel.split('_')[0:-1]
+        metype = cellme[1]
+        for i in range(2,np.size(cellme)):
+            metype += '_' + cellme[i]         
 
-            if np.size(spkTimes[metype+'_'+cellLabel.split('_')[-1]]) == 0:
-                spkTimes[metype+'_'+cellLabel.split('_')[-1]] = [15000.5]
-            
+        if np.size(spkTimes[metype+'_'+cellLabel.split('_')[-1]]) == 0:
+            spkTimes[metype+'_'+cellLabel.split('_')[-1]] = [15000.5]
+  
+        if metype in cfg.S1cells:
+
+            ii = int(cellLabel.split('_')[-1])
+            excluderadius2 = (0.5*cfg.fracmorphoradius)**2
+            distexclude2 = (cellsTags[ii]['xnorm']-0.5)**2 + (cellsTags[ii]['znorm']-0.5)**2
+
+            if distexclude2 > excluderadius2:                
+                cellsList.append({'cellLabel': int(cellLabel.split('_')[-1]), 'spkTimes': spkTimes[metype+'_'+cellLabel.split('_')[-1]]})
+                netParams.popParams['presyn_'+metype] = {'cellModel': 'VecStim', 'cellsList': cellsList}
+
+        else:
             cellsList.append({'cellLabel': int(cellLabel.split('_')[-1]), 'spkTimes': spkTimes[metype+'_'+cellLabel.split('_')[-1]]})
             netParams.popParams['presyn_'+metype] = {'cellModel': 'VecStim', 'cellsList': cellsList}
-
-            # print('%.3f %.3f' % (cellsTags[ii]['xnorm'],cellsTags[ii]['znorm']))
 
 #------------------------------------------------------------------------------
 # Population parameters
