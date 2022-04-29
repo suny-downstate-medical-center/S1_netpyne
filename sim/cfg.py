@@ -138,7 +138,7 @@ cfg.cellParamLabels = cfg.S1cells
 # Recording 
 #--------------------------------------------------------------------------
 cfg.allpops = cfg.cellParamLabels
-cfg.cellsrec = 1
+cfg.cellsrec = 0
 if cfg.cellsrec == 0:  cfg.recordCells = cfg.allpops # record all cells
 elif cfg.cellsrec == 1: cfg.recordCells = [(pop,0) for pop in cfg.allpops] # record one cell of each pop
 elif cfg.cellsrec == 2: # record one cell of each cellMEtype # need more test!!!
@@ -172,7 +172,7 @@ cfg.recordLFP = [[210, y, 210] for y in [200, 1000, 1200, 1400]] # 1 elec in L1 
 #------------------------------------------------------------------------------
 # Saving
 #------------------------------------------------------------------------------
-cfg.simLabel = 'v8_batch1'
+cfg.simLabel = 'v8_batch2'
 cfg.saveFolder = '../data/'+cfg.simLabel
 # cfg.filename =                	## Set file output name
 cfg.savePickle = True	        	## Save pkl file
@@ -208,7 +208,7 @@ cfg.scale = 1.0 # reduce size
 cfg.sizeY = 2082.0
 cfg.sizeX = 420.0 # r = 210 um and hexagonal side length = 230.9 um
 cfg.sizeZ = 420.0
-cfg.fracmorphoradius = 1.0/7.0
+cfg.fracmorphoradius = 1.0/4.0
 cfg.scaleDensity = 1.0*(cfg.fracmorphoradius*cfg.fracmorphoradius) # Number of cells = 31346
 
 #------------------------------------------------------------------------------
