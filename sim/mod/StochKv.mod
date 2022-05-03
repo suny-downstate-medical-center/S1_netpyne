@@ -40,14 +40,12 @@ INDEPENDENT {t FROM 0 TO 1 WITH 1 (ms)}
 
 NEURON {
     SUFFIX StochKv
-    THREADSAFE
     USEION k READ ek WRITE ik
     RANGE N,eta, gk, gamma, deterministic, gkbar, ik
-    RANGE ninf, ntau,a,b,P_a,P_b
+    GLOBAL ninf, ntau,a,b,P_a,P_b
     GLOBAL Ra, Rb
-    GLOBAL vmin, vmax, q10, temp
-    RANGE tadj
-    BBCOREPOINTER rng
+    GLOBAL vmin, vmax, q10, temp, tadj
+    POINTER rng
 }
 
 UNITS {
@@ -97,7 +95,6 @@ ASSIGNED {
     P_b     : probability of one channel making beta transition
 
     rng
-    usingR123
 
     n0_n1_new
 
@@ -116,26 +113,17 @@ for comparison with Pr to decide whether to activate the synapse or not
 ENDCOMMENT
    
 VERBATIM
-#include "nrnran123.h"
 #include <stdlib.h>
 #include <stdio.h>
 #include <math.h>
 
-#ifndef CORENEURON_BUILD
 double nrn_random_pick(void* r);
 void* nrn_random_arg(int argpos);
-#endif
 
 ENDVERBATIM
 : ----------------------------------------------------------------
 : initialization
-INITIAL {
-    VERBATIM
-    if( usingR123 ) {
-        nrnran123_setseq((nrnran123_State*)_p_rng, 0, 0);
-    }
-    ENDVERBATIM
-  
+INITIAL { 
     eta = gkbar / gamma
     trates(v)
     n = ninf
@@ -243,53 +231,39 @@ PROCEDURE ChkProb(p) {
 PROCEDURE setRNG() {
 
 VERBATIM
-    // For compatibility, allow for either MCellRan4 or Random123.  Distinguish by the arg types
-    // Object => MCellRan4, seeds (double) => Random123
-#ifndef CORENEURON_BUILD
-    usingR123 = 0;
-    if( ifarg(1) && hoc_is_double_arg(1) ) {
-        nrnran123_State** pv = (nrnran123_State**)(&_p_rng);
-        uint32_t a2 = 0;
-        uint32_t a3 = 0;
-
-        if (*pv) {
-            nrnran123_deletestream(*pv);
-            *pv = (nrnran123_State*)0;
-        }
-        if (ifarg(2)) {
-            a2 = (uint32_t)*getarg(2);
-        }
-        if (ifarg(3)) {
-            a3 = (uint32_t)*getarg(3);
-        }
-        *pv = nrnran123_newstream3((uint32_t)*getarg(1), a2, a3);
-        usingR123 = 1;
-    } else if( ifarg(1) ) {
+    {
+        /**
+         * This function takes a NEURON Random object declared in hoc and makes it usable by this mod file.
+         * Note that this method is taken from Brett paper as used by netstim.hoc and netstim.mod
+         * which points out that the Random must be in negexp(1) mode
+         */
         void** pv = (void**)(&_p_rng);
-        *pv = nrn_random_arg(1);
-    } else {
-        void** pv = (void**)(&_p_rng);
-        *pv = (void*)0;
+        if( ifarg(1)) {
+            *pv = nrn_random_arg(1);
+        } else {
+            *pv = (void*)0;
+        }
     }
-#endif
 ENDVERBATIM
+
 }
 
 FUNCTION urand() {
 
 VERBATIM
-    double value;
-    if( usingR123 ) {
-        value = nrnran123_dblpick((nrnran123_State*)_p_rng);
-    } else if (_p_rng) {
-#ifndef CORENEURON_BUILD
+        /*
+        :Supports separate independent but reproducible streams for
+        : each instance. However, the corresponding hoc Random
+        : distribution MUST be set to Random.uniform(0,1)
+        */
+
+        double value;
         value = nrn_random_pick(_p_rng);
-#endif
-    } else {
-        value = 0.5;
-    }
-    _lurand = value;
+
+        return(value);
 ENDVERBATIM
+
+        urand = value
 }
 
 : Returns random numbers drawn from a binomial distribution
@@ -306,7 +280,7 @@ VERBATIM
         double value = 0.0;
         int i;
         for (i = 0; i < _lN; i++) {
-           if (urand(_threadargs_) < _lP) {
+           if (nrn_random_pick(_p_rng) < _lP) {
               value = value + 1;
            }
         }
@@ -371,13 +345,13 @@ VERBATIM
         if (_lnnr < 25) {
             bnl=0.0;
             for (j=1;j<=_lnnr;j++)
-                if (urand(_threadargs_) < p) bnl += 1.0;
+                if (urand() < p) bnl += 1.0;
         }
         else if (am < 1.0) {
             g=exp(-am);
             bt=1.0;
             for (j=0;j<=_lnnr;j++) {
-                bt *= urand(_threadargs_);
+                bt *= urand();
                 if (bt < g) break;
             }
             bnl=(j <= _lnnr ? j : _lnnr);
@@ -397,15 +371,15 @@ VERBATIM
             sq=sqrt(2.0*am*pc);
             do {
                 do {
-                    angle=PI*urand(_threadargs_);
-                        angle=PI*urand(_threadargs_);
+                    angle=PI*urand();
+                        angle=PI*urand();
                     y=tan(angle);
                     em=sq*y+am;
                 } while (em < 0.0 || em >= (en+1.0));
                 em=floor(em);
                     bt=1.2*sq*(1.0+y*y)*exp(oldg-gammln(em+1.0) - 
                     gammln(en-em+1.0)+em*plog+(en-em)*pclog);
-            } while (urand(_threadargs_) > bt);
+            } while (urand() > bt);
             bnl=em;
         }
         if (p != _lppr) bnl=_lnnr-bnl;
@@ -419,83 +393,4 @@ VERBATIM
     ENDVERBATIM
     BnlDev = bnl
 }  
-
-VERBATIM
-static void bbcore_write(double* x, int* d, int* xx, int* offset, _threadargsproto_) {
-    if (d) {
-        uint32_t* di = ((uint32_t*)d) + *offset;
-      // temporary just enough to see how much space is being used
-      if (!_p_rng) {
-        di[0] = 0; di[1] = 0, di[2] = 0;
-      }else{
-        nrnran123_State** pv = (nrnran123_State**)(&_p_rng);
-        nrnran123_getids3(*pv, di, di+1, di+2);
-        // write stream sequence
-        char which;
-        nrnran123_getseq(*pv, di+3, &which);
-        di[4] = (int)which;
-      }
-      //printf("StochKv3.mod %p: bbcore_write offset=%d %d %d\n", _p, *offset, d?di[0]:-1, d?di[1]:-1);
-    }
-    *offset += 5;
-}
-static void bbcore_read(double* x, int* d, int* xx, int* offset, _threadargsproto_) {
-    assert(!_p_rng);
-    uint32_t* di = ((uint32_t*)d) + *offset;
-        if (di[0] != 0 || di[1] != 0|| di[2] != 0)
-        {
-      nrnran123_State** pv = (nrnran123_State**)(&_p_rng);
-      *pv = nrnran123_newstream3(di[0], di[1], di[2]);
-      nrnran123_setseq(*pv, di[3], (char)di[4]);
-        }
-      //printf("StochKv3.mod %p: bbcore_read offset=%d %d %d\n", _p, *offset, di[0], di[1]);
-    *offset += 5;
-}
-ENDVERBATIM
-
-FUNCTION bbsavestate() {
-        bbsavestate = 0
-VERBATIM
- #ifndef CORENEURON_BUILD
-        // TODO: since N0,N1 are no longer state variables, they will need to be written using this callback
-        //  provided that it is the version that supports multivalue writing
-        /* first arg is direction (-1 get info, 0 save, 1 restore), second is value*/
-        double *xdir, *xval, *hoc_pgetarg();
-        long nrn_get_random_sequence(void* r);
-        void nrn_set_random_sequence(void* r, int val);
-        xdir = hoc_pgetarg(1);
-        xval = hoc_pgetarg(2);
-        if (_p_rng) {
-                // tell how many items need saving
-                if (*xdir == -1.) {
-                    if( usingR123 ) {
-                        *xdir = 2.0;
-                    } else {
-                        *xdir = 1.0;
-                    }
-                    return 0.0;
-                }
-                else if (*xdir == 0.) {
-                    if( usingR123 ) {
-                        uint32_t seq;
-                        char which;
-                        nrnran123_getseq( (nrnran123_State*)_p_rng, &seq, &which );
-                        xval[0] = (double) seq;
-                        xval[1] = (double) which;
-                    } else {
-                        xval[0] = (double)nrn_get_random_sequence(_p_rng);
-                    }
-                } else{
-                    if( usingR123 ) {
-                        nrnran123_setseq( (nrnran123_State*)_p_rng, (uint32_t)xval[0], (char)xval[1] );
-                    } else {
-                        nrn_set_random_sequence(_p_rng, (long)(xval[0]));
-                    }
-                }
-        }
-
-        // TODO: check for random123 and get the seq values
-#endif
-ENDVERBATIM
-}
 

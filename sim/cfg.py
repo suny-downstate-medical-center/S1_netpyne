@@ -23,7 +23,7 @@ cfg = specs.SimConfig()
 #------------------------------------------------------------------------------
 # Run parameters
 #------------------------------------------------------------------------------
-cfg.duration = 1.1*1e3 ## Duration of the sim, in ms  
+cfg.duration = 1.0*1e2 ## Duration of the sim, in ms  
 cfg.dt = 0.025
 cfg.seeds = {'conn': 4322, 'stim': 4322, 'loc': 4322} 
 cfg.hParams = {'celsius': 34, 'v_init': -69.5}  
@@ -51,7 +51,7 @@ cfg.poptypeNumber = 61 # max 55 + 6
 cfg.celltypeNumber = 213 # max 207 + 6
 
 # TO DEBUG - import and simulate only the Cell soma (to study only the Net)
-cfg.reducedtest = False    
+cfg.reducedtest = True    
 
 #------------------------------------------------------------------------------  
 #------------------------------------------------------------------------------  
@@ -162,7 +162,7 @@ elif cfg.cellsrec == 2: # record one cell of each cellMEtype # need more test!!!
 cfg.recordTraces = {'V_soma': {'sec':'soma', 'loc':0.5, 'var':'v'}}  ## Dict with traces to record
 cfg.recordStim = False			
 cfg.recordTime = False  		
-cfg.recordStep = 0.05            
+cfg.recordStep = 0.01            
 
 # cfg.recordLFP = [[200, 1100, 200], [220, 1100, 200], [200, 1200, 220], [220, 1200, 220]]
 # cfg.saveLFPPops =  cfg.recordCells 
@@ -172,7 +172,7 @@ cfg.recordLFP = [[210, y, 210] for y in [200, 1000, 1200, 1400]] # 1 elec in L1 
 #------------------------------------------------------------------------------
 # Saving
 #------------------------------------------------------------------------------
-cfg.simLabel = 'v8_batch2'
+cfg.simLabel = 'v8_batch3'
 cfg.saveFolder = '../data/'+cfg.simLabel
 # cfg.filename =                	## Set file output name
 cfg.savePickle = True	        	## Save pkl file
@@ -208,8 +208,10 @@ cfg.scale = 1.0 # reduce size
 cfg.sizeY = 2082.0
 cfg.sizeX = 420.0 # r = 210 um and hexagonal side length = 230.9 um
 cfg.sizeZ = 420.0
-cfg.fracmorphoradius = 1.0/4.0
+cfg.fracmorphoradius = 1.0/5.0
 cfg.scaleDensity = 1.0*(cfg.fracmorphoradius*cfg.fracmorphoradius) # Number of cells = 31346
+
+print('%s \t Nmorpho ~ %.1f (%.1f percent) \t 1/fracmorphoradius = %.2f' % (cfg.simLabel,31346*cfg.scaleDensity,100.0*cfg.scaleDensity,1.0/cfg.fracmorphoradius))
 
 #------------------------------------------------------------------------------
 # Spontaneous synapses + background - data from Rat

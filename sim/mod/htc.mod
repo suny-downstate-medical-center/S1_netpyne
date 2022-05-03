@@ -197,10 +197,6 @@ INITIAL {
 UNITSOFF
 PROCEDURE evaluate_fct(v (mV), cai (mM)) {
 
-VERBATIM
-cai = _ion_cai;
-ENDVERBATIM
-
 	h_inf = 1 / ( 1 + exp((v+75-shift)/5.5) )
 
 :	tau_s = (taum + 267/(exp((v+71.5-shift)/14.2)+exp(-(v+89-shift)/11.6))) / tadj
@@ -218,9 +214,6 @@ ENDVERBATIM
 :
 PROCEDURE activation(v (mV), cai (mM)) { LOCAL cc
 
-VERBATIM
-cai = _ion_cai;
-ENDVERBATIM
 	evaluate_fct(v,cai)
 	cc = 1 / (1 + (cac/cai)^nca ) 		: equil conc of CB-protein
 	m = 1 / ( 1 + beta/alpha + (cc/Pc)^nexp )
