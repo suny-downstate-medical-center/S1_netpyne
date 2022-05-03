@@ -20,10 +20,12 @@ cfg = specs.SimConfig()
 #
 #------------------------------------------------------------------------------
 
+cfg.coreneuron = False
+
 #------------------------------------------------------------------------------
 # Run parameters
 #------------------------------------------------------------------------------
-cfg.duration = 1.0*1e2 ## Duration of the sim, in ms  
+cfg.duration = 11.0*1e3 ## Duration of the sim, in ms  
 cfg.dt = 0.025
 cfg.seeds = {'conn': 4322, 'stim': 4322, 'loc': 4322} 
 cfg.hParams = {'celsius': 34, 'v_init': -69.5}  
@@ -51,7 +53,7 @@ cfg.poptypeNumber = 61 # max 55 + 6
 cfg.celltypeNumber = 213 # max 207 + 6
 
 # TO DEBUG - import and simulate only the Cell soma (to study only the Net)
-cfg.reducedtest = True    
+cfg.reducedtest = False    
 
 #------------------------------------------------------------------------------  
 #------------------------------------------------------------------------------  
@@ -138,7 +140,7 @@ cfg.cellParamLabels = cfg.S1cells
 # Recording 
 #--------------------------------------------------------------------------
 cfg.allpops = cfg.cellParamLabels
-cfg.cellsrec = 0
+cfg.cellsrec = 1
 if cfg.cellsrec == 0:  cfg.recordCells = cfg.allpops # record all cells
 elif cfg.cellsrec == 1: cfg.recordCells = [(pop,0) for pop in cfg.allpops] # record one cell of each pop
 elif cfg.cellsrec == 2: # record one cell of each cellMEtype # need more test!!!
@@ -162,7 +164,7 @@ elif cfg.cellsrec == 2: # record one cell of each cellMEtype # need more test!!!
 cfg.recordTraces = {'V_soma': {'sec':'soma', 'loc':0.5, 'var':'v'}}  ## Dict with traces to record
 cfg.recordStim = False			
 cfg.recordTime = False  		
-cfg.recordStep = 0.01            
+cfg.recordStep = 0.1            
 
 # cfg.recordLFP = [[200, 1100, 200], [220, 1100, 200], [200, 1200, 220], [220, 1200, 220]]
 # cfg.saveLFPPops =  cfg.recordCells 
