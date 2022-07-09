@@ -15,6 +15,7 @@ import pandas as pd
 
 netParams = specs.NetParams()   # object of class NetParams to store the network parameters
 
+
 try:
     from __main__ import cfg  # import SimConfig object with params from parent module
 except:
@@ -81,7 +82,8 @@ netParams.scaleConnWeightNetStims = 0.001  # weight conversion factor (from nS t
 #------------------------------------------------------------------------------
 
 ## Load spkTimes and cells positions
-with open('../data/spkTimes_v7_batch1.pkl', 'rb') as fileObj: simData = pickle.load(fileObj)
+with open('../data/spkTimes_v9_batch2.pkl', 'rb') as fileObj: simData = pickle.load(fileObj)
+
 spkTimes = simData['spkTimes']
 cellsTags = simData['cellsTags']
 
@@ -249,6 +251,11 @@ for cellName in cfg.S1cells:
             cellRule['secLists']['apical'] = ['soma']    
             netParams.cellParams[cellMe] = cellRule   # add dict to list of cell params   
         #-----------------------------------------------------------------------------------#
+
+        for section in netParams.cellParams[cellMe]['secLists']['all']:
+            if 'ions' in netParams.cellParams[cellMe]['secs'][section].keys():
+                if 'ca' in netParams.cellParams[cellMe]['secs'][section]['ions'].keys():
+                    netParams.cellParams[cellMe]['secs'][section]['ions']['ca']['o'] = cfg.cao_secs
        
 ## Th cell property rules
 # JSON FILES FROM A1 WITH UPDATED DYNAMICS
@@ -324,7 +331,7 @@ for syntype in syntypes:
     if syntype > 50:  # Exc
         
         netParams.synMechParams['S1_EE_STP_Det_' + str(syntype)] = {'mod': 'DetAMPANMDA',
-                                         'Use': dfS6['use'][syntype], # ± dfS6['useStd'][syntype]
+                                         'Use': dfS6['use'][syntype]*cfg.use_frac['EE'], # ± dfS6['useStd'][syntype]
                                          'Dep': dfS6['dep'][syntype], # ± dfS6['depStd'][syntype] 
                                          'Fac': dfS6['fac'][syntype], # ± dfS6['facStd'][syntype]
                                          'tau_d_AMPA': 1.74, # ± 0.18 ms
@@ -334,8 +341,19 @@ for syntype in syntypes:
                                          'NMDA_ratio': 0.8, # ± 0.1 for EE -- experimentally measured for some path?
                                          'mg':1.0, #    0.5mM where exceptionally specified?                                                                
                                             }
-        netParams.synMechParams['S1_EI_STP_Det_' + str(syntype)] = {'mod': 'DetAMPANMDA',
-                                         'Use': dfS6['use'][syntype], # ± dfS6['useStd'][syntype]
+        netParams.synMechParams['S1_EIproximal_STP_Det_' + str(syntype)] = {'mod': 'DetAMPANMDA',
+                                         'Use': dfS6['use'][syntype]*cfg.use_frac['EIproximal'], # ± dfS6['useStd'][syntype]
+                                         'Dep': dfS6['dep'][syntype], # ± dfS6['depStd'][syntype] 
+                                         'Fac': dfS6['fac'][syntype], # ± dfS6['facStd'][syntype]
+                                         'tau_d_AMPA': 1.74, # ± 0.18 ms
+                                         'tau_r_AMPA': 0.2,
+                                         'tau_r_NMDA': 0.29,
+                                         'tau_d_NMDA': 43,   
+                                         'NMDA_ratio': 0.4, # ± 0.1  for EI -- experimentally measured for some path?
+                                         'mg':1.0, #    0.5mM where exceptionally specified?                                                                
+                                            }
+        netParams.synMechParams['S1_EIdistal_STP_Det_' + str(syntype)] = {'mod': 'DetAMPANMDA',
+                                         'Use': dfS6['use'][syntype]*cfg.use_frac['EIdistal'], # ± dfS6['useStd'][syntype]
                                          'Dep': dfS6['dep'][syntype], # ± dfS6['depStd'][syntype] 
                                          'Fac': dfS6['fac'][syntype], # ± dfS6['facStd'][syntype]
                                          'tau_d_AMPA': 1.74, # ± 0.18 ms
@@ -348,7 +366,7 @@ for syntype in syntypes:
     else: # Inh
         
         netParams.synMechParams['S1_II_STP_Det_' + str(syntype)] = {'mod': 'DetGABAAB',
-                                         'Use': dfS6['use'][syntype], # ± dfS6['useStd'][syntype]
+                                         'Use': dfS6['use'][syntype]*cfg.use_frac['Inh'], # ± dfS6['useStd'][syntype]
                                          'Dep': dfS6['dep'][syntype], # ± dfS6['depStd'][syntype]  
                                          'Fac': dfS6['fac'][syntype], # ± dfS6['facStd'][syntype]
                                          'tau_d_GABAA': dfS6['decay'][syntype], # ± dfS6['decayStd'][syntype]
@@ -359,7 +377,7 @@ for syntype in syntypes:
                                             }
         
         netParams.synMechParams['S1_IE_STP_Det_' + str(syntype)] = {'mod': 'DetGABAAB',
-                                         'Use': dfS6['use'][syntype], # ± dfS6['useStd'][syntype]
+                                         'Use': dfS6['use'][syntype]*cfg.use_frac['Inh'], # ± dfS6['useStd'][syntype]
                                          'Dep': dfS6['dep'][syntype], # ± dfS6['depStd'][syntype]  
                                          'Fac': dfS6['fac'][syntype], # ± dfS6['facStd'][syntype]
                                          'tau_d_GABAA': dfS6['decay'][syntype], # ± dfS6['decayStd'][syntype]
@@ -636,7 +654,13 @@ if cfg.addConn:
                             cellpostList_A = cfg.popLabelEl[post]         
                              
                         connID = ConnTypes[pre][post][0]      
-                        synMechType = 'S1_EI_STP_Det_' + str(connID)  
+
+
+                        if 'DBC' in post or 'BTC' in post or 'MC' in post or 'BP' in post:  # steep Ca2+ dependence for connections between PC-distal targeting cell types (DBC, BTC, MC, BP)
+                            synMechType = 'S1_EIdistal_STP_Det_' + str(connID)
+                        else: # shallow dependence between PC-proximal targeting cell types (LBCs, NBCs, SBCs, ChC) + L1s and NGCs ????
+                            synMechType = 'S1_EIproximal_STP_Det_' + str(connID)  
+
                         contA+= 1                                                              
                         netParams.connParams['EI_'+pre+'_'+post] = { 
                                         'preConds': {'pop': cfg.popLabelEl[pre]}, 
@@ -662,7 +686,13 @@ if cfg.addConn:
 
                         if connID_B >= 0:          
                             connID = connID_B
-                            synMechType = 'S1_EI_STP_Det_' + str(connID)        
+
+                            if 'DBC' in post or 'BTC' in post or 'MC' in post or 'BP' in post:  # steep Ca2+ dependence for connections between PC-distal targeting cell types (DBC, BTC, MC, BP)
+                                synMechType = 'S1_EIdistal_STP_Det_' + str(connID)
+                            else: # shallow dependence between PC-proximal targeting cell types (LBCs, NBCs, SBCs, ChC) + L1s and NGCs ????
+                                synMechType = 'S1_EIproximal_STP_Det_' + str(connID)  
+
+
                             netParams.connParams['EI_'+pre+'_'+post+'_B'] = { 
                                             'preConds': {'pop': cfg.popLabelEl[pre]}, 
                                             'postConds': {'pop': cellpostList_B},
