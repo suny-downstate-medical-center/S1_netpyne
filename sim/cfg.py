@@ -21,13 +21,13 @@ cfg = specs.SimConfig()
 #------------------------------------------------------------------------------
 
 cfg.simType='S1_TH_coreneuron'
-cfg.coreneuron = False
+cfg.coreneuron = True
 cfg.random123 = True
 
 #------------------------------------------------------------------------------
 # Run parameters
 #------------------------------------------------------------------------------
-cfg.duration = 1000
+cfg.duration = 5.0*1e3 ## Duration of the sim, in ms  
 cfg.dt = 0.025
 cfg.seeds = {'conn': 4322, 'stim': 4322, 'loc': 4322} 
 cfg.hParams = {'celsius': 34, 'v_init': -65}  

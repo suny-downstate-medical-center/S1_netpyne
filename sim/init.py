@@ -28,7 +28,7 @@ sim.runSim()                      			# run parallel Neuron simulation
 sim.gatherData()                  			# gather spiking data and cell info from each node
 sim.saveData()                    			# save params, cell info and sim output to file (pickle,mat,txt,etc)#
 sim.analysis.plotData()         			# plot spike raster etc
-#sim.analysis.plotSpikeStats(stats=['rate'], showFig=False, saveFig=True)
+
 #sim.analysis.plotRaster(include=cfg.recordCells, timeRange=[0,cfg.duration], orderBy='gid', orderInverse=True, labels='legend', popRates=True, lw=5, marker='.', markerSize=15, figSize=(18, 12), fontSize=9, dpi=300, saveFig='../data/'+cfg.simLabel[0:9]+'/'+cfg.simLabel + '_Raster_onecellperpop.png', showFig=False)
 #sim.analysis.plotRaster(include=cfg.popParamLabels, timeRange=[0,cfg.duration], orderBy='gid', orderInverse=True, labels='legend', popRates=True, lw=1, marker='.', markerSize=2, figSize=(18, 12), fontSize=9, dpi=300, saveFig=True, showFig=False)
 #sim.analysis.plotTraces(include=cfg.recordCells, overlay=True, oneFigPer='cell', figSize=(12, 4), fontSize=7, saveFig=True)
