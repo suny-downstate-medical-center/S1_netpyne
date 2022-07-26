@@ -220,7 +220,7 @@ FUNCTION strap(x) {
     if (x < 0) {
         strap = 0
 VERBATIM
-        fprintf (stderr,"skv.mod:strap: negative state");
+        printf("skv.mod:strap: negative state");
 ENDVERBATIM
     } else {
         strap = x
