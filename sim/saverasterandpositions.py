@@ -89,7 +89,7 @@ cfg.cellParamLabels = cellParam
 
 #------------------------------------------------------------------------------
 
-with open('/g100/home/userexternal/fborges0/coreneuron/S1_netpyne/data/v9_batch2/v9_batch2_data.pkl', 'rb') as fileObj: spikesData = pickle.load(fileObj)
+with open('/home/fernando/Documents/data_S1_Rat/v9/v9_batch8/v9_batch8_data.pkl', 'rb') as fileObj: spikesData = pickle.load(fileObj)
 
 spkid = spikesData['simData']['spkid']
 spkt = spikesData['simData']['spkt']
@@ -106,21 +106,26 @@ for metype in cfg.cellNumber.keys():
     popID[metype] = N
     N += cfg.cellNumber[metype]
 
-print('N =',N,', Number of spikes =',np.size(spkt),', FR =',np.size(spkt)/(10.0*N))
+totaltime = 25.0 # sec
+print('N =',N,', Number of spikes =',np.size(spkt),', FR =',np.size(spkt)/(totaltime*N))
+transient = 10000 # msec
 
 for mtype in cfg.popNumber.keys():
     if mtype in cfg.popLabelEl.keys():
         for metype in cfg.popLabelEl[mtype]:  
+            print(metype,popID[metype],cfg.cellNumber[metype])
             for i in range(np.size(spkt)):
                 if spkid[i] >= popID[metype] and spkid[i] < popID[metype]+cfg.cellNumber[metype]:
-                    spkTimes[metype+'_'+str(int(spkid[i]))].append(spkt[i])
+                    if spkt[i] > transient:
+                        spkTimes[metype+'_'+str(int(spkid[i]))].append(spkt[i]-transient)
     else:
         metype = mtype
         for i in range(np.size(spkt)):
             if spkid[i] >= popID[metype] and spkid[i] < popID[metype]+cfg.cellNumber[metype]:
-                spkTimes[metype+'_'+str(int(spkid[i]))].append(spkt[i])
+                if spkt[i] > transient:
+                    spkTimes[metype+'_'+str(int(spkid[i]))].append(spkt[i]-transient)
 
-    print(metype,popID[metype],cfg.cellNumber[metype])
+        print(metype,popID[metype],cfg.cellNumber[metype])
 #------------------------------------------------------------------------------
 cellsTags = []
 for i,metype in enumerate(spikesData['net']['cells']):
@@ -129,9 +134,10 @@ for i,metype in enumerate(spikesData['net']['cells']):
         for tp in ['cellType', 'xnorm', 'ynorm', 'znorm', 'x', 'y', 'z']:
             cellsTags2[tp] = metype.tags[tp]            
         cellsTags.append(cellsTags2)
-        print(i,metype)
+#        print(i,metype)
 #------------------------------------------------------------------------------
 # Save data to pkl file
 import pickle
-with open('../data/spkTimes_v9_batch2.pkl', 'wb') as f:
+with open('../data/spkTimes_v9_batch8_highgsynCT.pkl', 'wb') as f:
     pickle.dump({'spkTimes': spkTimes, 'cellsTags': cellsTags}, f)
+

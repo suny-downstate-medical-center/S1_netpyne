@@ -68,7 +68,7 @@ for line in mtype_content.split('\n')[:-1]:
     
 S1pops = popParam[0:55]
 S1cells = cellParam[0:207]
-
+thalamicpops = ['ss_RTN_o', 'ss_RTN_m', 'ss_RTN_i', 'VPL_sTC', 'VPM_sTC', 'POm_sTC_s1']
 ###########################
 ######## MAIN CODE ########
 ###########################
@@ -78,8 +78,8 @@ if __name__ == '__main__':
     dataType = 'spont' #'speech' #'spont'
 
     if dataType == 'spont':
-        filenames = ['../data/v8_batch1/v8_batch1_%d_%d_data.pkl' % (iseed, cseed) for iseed in [0] for cseed in [0]]
-        timeRange = [6000, 11000]
+        filenames = ['/home/fernando/Documents/data_S1_Rat/v9/v9_batch8/v9_batch8_data.pkl']
+        timeRange = [10000, 12000]
 
     layer_bounds= {'1':[0.0, 0.079], '2': [0.079,0.151], '3': [0.151,0.320], '23': [0.079,0.320], '4':[0.320,0.412], '5': [0.412,0.664], '6': [0.664,1.0]}
 
@@ -90,10 +90,13 @@ if __name__ == '__main__':
         sim.load(filename, instantiate=True, instantiateConns = False, instantiateStims = False, instantiateRxD = False, createNEURONObj = False)
 
         # standardd plots
-        sim.analysis.plotRaster(**{'include': ['allCells'], 'saveFig': True, 'showFig': False, 'labels': None, 'popRates': False,'orderInverse': True, 'timeRange': timeRange, 'figSize': (48,36), 'fontSize':4, 'lw': 2, 'markerSize':2, 'marker': '.', 'dpi': 300})
-        # sim.analysis.plotRaster(**{'include': RP_L13, 'saveFig': filename[:-4]+'_RP_L13', 'showFig': False, 'popRates': 'minimal', 'orderInverse': True, 'timeRange': timeRange, 'orderBy':'y', 'fontSize':8, 'figSize': (24,12), 'lw': 4.0, 'markerSize': 4, 'marker': 'o', 'dpi': 300})
-        # sim.analysis.plotRaster(**{'include': RP_L45, 'saveFig': filename[:-4]+'_RP_L45', 'showFig': False, 'popRates': 'minimal', 'orderInverse': True, 'timeRange': timeRange, 'orderBy':'y', 'fontSize':8, 'figSize': (24,18), 'lw': 4.0, 'markerSize': 4, 'marker': 'o', 'dpi': 300})
-        # sim.analysis.plotRaster(**{'include': RP_L6, 'saveFig': filename[:-4]+'_RP_L6', 'showFig': False, 'popRates': 'minimal', 'orderInverse': True, 'timeRange': timeRange, 'orderBy':'y', 'fontSize':8, 'figSize': (24,12), 'lw': 4.0, 'markerSize': 4, 'marker': 'o', 'dpi': 300})
+
+        sim.analysis.plotRaster(**{'include': ['allCells'], 'saveFig': filename[:-8]+'_RP_2sec', 'showFig': False, 'labels': None, 'popRates': False,'orderInverse': True, 'timeRange': timeRange, 'figSize': (36,24), 'fontSize':4, 'lw': 2, 'markerSize':2, 'marker': '.', 'dpi': 200})
+        sim.analysis.plotRaster(**{'include': RP_L13, 'saveFig': filename[:-8]+'_RP_L13', 'showFig': False, 'popRates': 'minimal', 'orderInverse': True, 'timeRange': timeRange, 'orderBy':'y', 'fontSize':8, 'figSize': (24,12), 'lw': 4.0, 'markerSize': 4, 'marker': 'o', 'dpi': 200})
+        sim.analysis.plotRaster(**{'include': RP_L45, 'saveFig': filename[:-8]+'_RP_L45', 'showFig': False, 'popRates': 'minimal', 'orderInverse': True, 'timeRange': timeRange, 'orderBy':'y', 'fontSize':8, 'figSize': (24,18), 'lw': 2.0, 'markerSize': 2, 'marker': 'o', 'dpi': 200})
+        sim.analysis.plotRaster(**{'include': RP_L6, 'saveFig': filename[:-8]+'_RP_L6', 'showFig': False, 'popRates': 'minimal', 'orderInverse': True, 'timeRange': timeRange, 'orderBy':'y', 'fontSize':8, 'figSize': (24,12), 'lw': 2.0, 'markerSize': 2, 'marker': 'o', 'dpi': 200})
+        sim.analysis.plotRaster(**{'include': thalamicpops, 'saveFig': filename[:-8]+'_RP_thalamic', 'showFig': False, 'popRates': 'minimal', 'orderInverse': True, 'timeRange': timeRange, 'orderBy':'y', 'fontSize':8, 'figSize': (24,12), 'lw': 2.0, 'markerSize': 2, 'marker': 'o', 'dpi': 200})
+       
         # sim.analysis.plotSpikeStats(stats=['rate'],figSize = (6,12), timeRange=[1500, 31500], dpi=300, showFig=0, saveFig=filename[:-4]+'_stats_30sec')
         #sim.analysis.plotSpikeStats(stats=['rate'],figSize = (6,12), timeRange=[1500, 6500], dpi=300, showFig=0, saveFig=filename[:-4]+'_stats_5sec')
         #sim.analysis.plotLFP(**{'plots': ['spectrogram'], 'electrodes': ['avg', [0], [1], [2,3,4,5,6,7,8,9], [10, 11, 12], [13], [14, 15], [16,17,18,19]], 'timeRange': timeRange, 'maxFreq': 50, 'figSize': (8,24), 'saveData': False, 'saveFig': filename[:-4]+'_LFP_spec_7s_all_elecs', 'showFig': False})
