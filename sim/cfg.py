@@ -22,6 +22,7 @@ cfg = specs.SimConfig()
 
 cfg.simType='S1_TH_coreneuron'
 cfg.coreneuron = True
+cfg.random123 = True
 
 #------------------------------------------------------------------------------
 # Run parameters

@@ -92,10 +92,15 @@ VERBATIM
 #include<stdlib.h>
 #include<stdio.h>
 #include<math.h>
+#ifndef NRN_VERSION_GTEQ_8_2_0
 #include "nrnran123.h"
 
 double nrn_random_pick(void* r);
 void* nrn_random_arg(int argpos);
+#define RANDCAST
+#else
+#define RANDCAST (Rand*)
+#endif
 
 ENDVERBATIM
 
@@ -325,7 +330,7 @@ VERBATIM
         value = nrnran123_dblpick((nrnran123_State*)_p_rng);
     } else if (_p_rng) {
         #ifndef CORENEURON_BUILD
-        value = nrn_random_pick(_p_rng);
+        value = nrn_random_pick(RANDCAST _p_rng);
         #endif
     } else {
         // Note: prior versions used scop_random(1), but since we never use this model without configuring the rng.  Maybe should throw error?
@@ -342,9 +347,12 @@ VERBATIM
 #ifndef CORENEURON_BUILD
         /* first arg is direction (0 save, 1 restore), second is array*/
         /* if first arg is -1, fill xdir with the size of the array */
-        double *xdir, *xval, *hoc_pgetarg();
+        double *xdir, *xval;
+#ifndef NRN_VERSION_GTEQ_8_2_0
+        double *hoc_pgetarg();
         long nrn_get_random_sequence(void* r);
         void nrn_set_random_sequence(void* r, int val);
+#endif
         xdir = hoc_pgetarg(1);
         xval = hoc_pgetarg(2);
         if (_p_rng) {
@@ -364,13 +372,13 @@ VERBATIM
                     xval[0] = (double) seq;
                     xval[1] = (double) which;
                 } else {
-                    xval[0] = (double)nrn_get_random_sequence(_p_rng);
+                    xval[0] = (double)nrn_get_random_sequence(RANDCAST _p_rng);
                 }
             } else {  // restore
                 if( usingR123 ) {
                     nrnran123_setseq( (nrnran123_State*)_p_rng, (uint32_t)xval[0], (char)xval[1] );
                 } else {
-                    nrn_set_random_sequence(_p_rng, (long)(xval[0]));
+                    nrn_set_random_sequence(RANDCAST _p_rng, (long)(xval[0]));
                 }
             }
         }

@@ -116,14 +116,19 @@ for comparison with Pr to decide whether to activate the synapse or not
 ENDCOMMENT
    
 VERBATIM
-#include "nrnran123.h"
 #include <stdlib.h>
 #include <stdio.h>
 #include <math.h>
+#ifndef NRN_VERSION_GTEQ_8_2_0
+#include "nrnran123.h"
 
 #ifndef CORENEURON_BUILD
 double nrn_random_pick(void* r);
 void* nrn_random_arg(int argpos);
+#endif
+#define RANDCAST
+#else
+#define RANDCAST (Rand*)
 #endif
 
 ENDVERBATIM
@@ -185,9 +190,9 @@ PROCEDURE states() {
 : ----------------------------------------------------------------
 : trates - compute rates, using table if possible
 PROCEDURE trates(v (mV)) {     
-    TABLE ntau, ninf, a, b, tadj
-    DEPEND dt, Ra, Rb, tha, qa, q10, temp, celsius
-    FROM vmin TO vmax WITH 199
+    :TABLE ntau, ninf, a, b, tadj
+    :DEPEND dt, Ra, Rb, tha, qa, q10, temp, celsius
+    :FROM vmin TO vmax WITH 199
     
     tadj = q10 ^ ((celsius - temp)/(10 (K)))
     a = SigmoidRate(v, tha, Ra, qa)
@@ -220,7 +225,7 @@ FUNCTION strap(x) {
     if (x < 0) {
         strap = 0
 VERBATIM
-        fprintf (stderr,"skv.mod:strap: negative state");
+        printf("skv.mod:strap: negative state");
 ENDVERBATIM
     } else {
         strap = x
@@ -283,7 +288,7 @@ VERBATIM
         value = nrnran123_dblpick((nrnran123_State*)_p_rng);
     } else if (_p_rng) {
 #ifndef CORENEURON_BUILD
-        value = nrn_random_pick(_p_rng);
+        value = nrn_random_pick(RANDCAST _p_rng);
 #endif
     } else {
         value = 0.5;
@@ -460,9 +465,12 @@ VERBATIM
         // TODO: since N0,N1 are no longer state variables, they will need to be written using this callback
         //  provided that it is the version that supports multivalue writing
         /* first arg is direction (-1 get info, 0 save, 1 restore), second is value*/
-        double *xdir, *xval, *hoc_pgetarg();
+        double *xdir, *xval;
+#ifndef NRN_VERSION_GTEQ_8_2_0
+        double *hoc_pgetarg();
         long nrn_get_random_sequence(void* r);
         void nrn_set_random_sequence(void* r, int val);
+#endif
         xdir = hoc_pgetarg(1);
         xval = hoc_pgetarg(2);
         if (_p_rng) {
@@ -483,13 +491,13 @@ VERBATIM
                         xval[0] = (double) seq;
                         xval[1] = (double) which;
                     } else {
-                        xval[0] = (double)nrn_get_random_sequence(_p_rng);
+                        xval[0] = (double)nrn_get_random_sequence(RANDCAST _p_rng);
                     }
                 } else{
                     if( usingR123 ) {
                         nrnran123_setseq( (nrnran123_State*)_p_rng, (uint32_t)xval[0], (char)xval[1] );
                     } else {
-                        nrn_set_random_sequence(_p_rng, (long)(xval[0]));
+                        nrn_set_random_sequence(RANDCAST _p_rng, (long)(xval[0]));
                     }
                 }
         }
