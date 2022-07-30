@@ -53,7 +53,6 @@ ASSIGNED {
 	qtau (ms) 
 	qexp
 	myi (mA/cm2)
-    q10
 }
 
 
@@ -77,7 +76,7 @@ PROCEDURE state() {  :Computes state variable q at current v and dt.
 	q = q + (qinf-q) * qexp
 }
 
-:LOCAL q10
+LOCAL q10
 PROCEDURE rate(cai) {  :Computes rate and other constants at current v.
 	LOCAL alpha, beta, tinc
 	q10 = 3^((celsius - 34)/10) : set to 1 for the cutsuridis model?

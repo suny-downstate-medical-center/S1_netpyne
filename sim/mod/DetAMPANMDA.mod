@@ -28,7 +28,6 @@ NEURON {
     RANGE i, i_AMPA, i_NMDA, g_AMPA, g_NMDA, g, e
     NONSPECIFIC_CURRENT i
     RANGE synapseID, verboseLevel
-    RANGE mggate
 }
 
 

@@ -106,12 +106,12 @@ FUNCTION efun(z) {
 }
 
 FUNCTION alp(v(mV)) (1/ms) {
-	:TABLE FROM -150 TO 150 WITH 200
+	TABLE FROM -150 TO 150 WITH 200
 	alp = 15.69*(-1.0*v+81.5)/(exp((-1.0*v+81.5)/10.0)-1.0)
 }
 
 FUNCTION bet(v(mV)) (1/ms) {
-	:TABLE FROM -150 TO 150 WITH 200
+	TABLE FROM -150 TO 150 WITH 200
 	bet = 0.29*exp(-v/10.86)
 }
 
