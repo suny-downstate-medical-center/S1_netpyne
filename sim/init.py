@@ -31,7 +31,6 @@ cellsTags = simData['cellsTags']
 
 # print(sim.rank,sim.net.cells[0].tags)
 
-jj = 0
 for i,metype in enumerate(sim.net.cells):
 
     if 'presyn' in metype.tags['pop']:
@@ -45,23 +44,12 @@ for i,metype in enumerate(sim.net.cells):
         metype.tags['y'] = cellsTags[ii]['y']
         metype.tags['z'] = cellsTags[ii]['z']   
 
-    else:       
-        ii = cfg.listlabels[jj]
-        jj+=1
-        metype.tags['xnorm'] = cellsTags[ii]['xnorm']
-        metype.tags['ynorm'] = cellsTags[ii]['ynorm']
-        metype.tags['znorm'] = cellsTags[ii]['znorm']
-        metype.tags['x'] = cellsTags[ii]['x']
-        metype.tags['y'] = cellsTags[ii]['y']
-        metype.tags['z'] = cellsTags[ii]['z']   
-
 # print(sim.rank,sim.net.cells[0].tags)
 
-
-# sim.net.connectCells()            			# create connections between cells based on params
-# sim.net.addStims() 							# add network stimulation
-# sim.setupRecording()              			# setup variables to record for each cell (spikes, V traces, etc)
-# sim.runSim()                      			# run parallel Neuron simulation  
+sim.net.connectCells()            			# create connections between cells based on params
+sim.net.addStims() 							# add network stimulation
+sim.setupRecording()              			# setup variables to record for each cell (spikes, V traces, etc)
+sim.runSim()                      			# run parallel Neuron simulation  
 sim.gatherData()                  			# gather spiking data and cell info from each node
 sim.saveData()                    			# save params, cell info and sim output to file (pickle,mat,txt,etc)#
 sim.analysis.plotData()         			# plot spike raster etc

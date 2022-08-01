@@ -2,6 +2,1665 @@
     "simConfig": {
         "EEGain": 1.0,
         "EIGain": 1.0,
+        "IClamp": [
+            {
+                "amp": 0.5,
+                "dur": 300,
+                "loc": 0.5,
+                "pop": "L1_DAC_bNA",
+                "sec": "soma",
+                "start": 0
+            },
+            {
+                "amp": 0.5,
+                "dur": 300,
+                "loc": 0.5,
+                "pop": "L1_DAC_cNA",
+                "sec": "soma",
+                "start": 0
+            },
+            {
+                "amp": 0.5,
+                "dur": 300,
+                "loc": 0.5,
+                "pop": "L1_DLAC_cNA",
+                "sec": "soma",
+                "start": 0
+            },
+            {
+                "amp": 0.5,
+                "dur": 300,
+                "loc": 0.5,
+                "pop": "L1_HAC_bNA",
+                "sec": "soma",
+                "start": 0
+            },
+            {
+                "amp": 0.5,
+                "dur": 300,
+                "loc": 0.5,
+                "pop": "L1_HAC_cIR",
+                "sec": "soma",
+                "start": 0
+            },
+            {
+                "amp": 0.5,
+                "dur": 300,
+                "loc": 0.5,
+                "pop": "L1_HAC_cNA",
+                "sec": "soma",
+                "start": 0
+            },
+            {
+                "amp": 0.5,
+                "dur": 300,
+                "loc": 0.5,
+                "pop": "L1_NGC-DA_bNA",
+                "sec": "soma",
+                "start": 0
+            },
+            {
+                "amp": 0.5,
+                "dur": 300,
+                "loc": 0.5,
+                "pop": "L1_NGC-DA_cAC",
+                "sec": "soma",
+                "start": 0
+            },
+            {
+                "amp": 0.5,
+                "dur": 300,
+                "loc": 0.5,
+                "pop": "L1_NGC-DA_cNA",
+                "sec": "soma",
+                "start": 0
+            },
+            {
+                "amp": 0.5,
+                "dur": 300,
+                "loc": 0.5,
+                "pop": "L1_NGC-DA_cST",
+                "sec": "soma",
+                "start": 0
+            },
+            {
+                "amp": 0.5,
+                "dur": 300,
+                "loc": 0.5,
+                "pop": "L1_NGC-SA_cNA",
+                "sec": "soma",
+                "start": 0
+            },
+            {
+                "amp": 0.5,
+                "dur": 300,
+                "loc": 0.5,
+                "pop": "L1_SLAC_bNA",
+                "sec": "soma",
+                "start": 0
+            },
+            {
+                "amp": 0.5,
+                "dur": 300,
+                "loc": 0.5,
+                "pop": "L1_SLAC_cAC",
+                "sec": "soma",
+                "start": 0
+            },
+            {
+                "amp": 0.5,
+                "dur": 300,
+                "loc": 0.5,
+                "pop": "L1_SLAC_cNA",
+                "sec": "soma",
+                "start": 0
+            },
+            {
+                "amp": 0.5,
+                "dur": 300,
+                "loc": 0.5,
+                "pop": "L23_BP_bAC",
+                "sec": "soma",
+                "start": 0
+            },
+            {
+                "amp": 0.5,
+                "dur": 300,
+                "loc": 0.5,
+                "pop": "L23_BP_bIR",
+                "sec": "soma",
+                "start": 0
+            },
+            {
+                "amp": 0.5,
+                "dur": 300,
+                "loc": 0.5,
+                "pop": "L23_BP_bNA",
+                "sec": "soma",
+                "start": 0
+            },
+            {
+                "amp": 0.5,
+                "dur": 300,
+                "loc": 0.5,
+                "pop": "L23_BP_cAC",
+                "sec": "soma",
+                "start": 0
+            },
+            {
+                "amp": 0.5,
+                "dur": 300,
+                "loc": 0.5,
+                "pop": "L23_BP_cNA",
+                "sec": "soma",
+                "start": 0
+            },
+            {
+                "amp": 0.5,
+                "dur": 300,
+                "loc": 0.5,
+                "pop": "L23_BP_dST",
+                "sec": "soma",
+                "start": 0
+            },
+            {
+                "amp": 0.5,
+                "dur": 300,
+                "loc": 0.5,
+                "pop": "L23_BTC_bAC",
+                "sec": "soma",
+                "start": 0
+            },
+            {
+                "amp": 0.5,
+                "dur": 300,
+                "loc": 0.5,
+                "pop": "L23_BTC_bIR",
+                "sec": "soma",
+                "start": 0
+            },
+            {
+                "amp": 0.5,
+                "dur": 300,
+                "loc": 0.5,
+                "pop": "L23_BTC_bNA",
+                "sec": "soma",
+                "start": 0
+            },
+            {
+                "amp": 0.5,
+                "dur": 300,
+                "loc": 0.5,
+                "pop": "L23_BTC_cAC",
+                "sec": "soma",
+                "start": 0
+            },
+            {
+                "amp": 0.5,
+                "dur": 300,
+                "loc": 0.5,
+                "pop": "L23_BTC_cNA",
+                "sec": "soma",
+                "start": 0
+            },
+            {
+                "amp": 0.5,
+                "dur": 300,
+                "loc": 0.5,
+                "pop": "L23_ChC_cAC",
+                "sec": "soma",
+                "start": 0
+            },
+            {
+                "amp": 0.5,
+                "dur": 300,
+                "loc": 0.5,
+                "pop": "L23_ChC_cNA",
+                "sec": "soma",
+                "start": 0
+            },
+            {
+                "amp": 0.5,
+                "dur": 300,
+                "loc": 0.5,
+                "pop": "L23_ChC_dNA",
+                "sec": "soma",
+                "start": 0
+            },
+            {
+                "amp": 0.5,
+                "dur": 300,
+                "loc": 0.5,
+                "pop": "L23_DBC_bAC",
+                "sec": "soma",
+                "start": 0
+            },
+            {
+                "amp": 0.5,
+                "dur": 300,
+                "loc": 0.5,
+                "pop": "L23_DBC_bIR",
+                "sec": "soma",
+                "start": 0
+            },
+            {
+                "amp": 0.5,
+                "dur": 300,
+                "loc": 0.5,
+                "pop": "L23_DBC_bNA",
+                "sec": "soma",
+                "start": 0
+            },
+            {
+                "amp": 0.5,
+                "dur": 300,
+                "loc": 0.5,
+                "pop": "L23_DBC_cAC",
+                "sec": "soma",
+                "start": 0
+            },
+            {
+                "amp": 0.5,
+                "dur": 300,
+                "loc": 0.5,
+                "pop": "L23_LBC_bAC",
+                "sec": "soma",
+                "start": 0
+            },
+            {
+                "amp": 0.5,
+                "dur": 300,
+                "loc": 0.5,
+                "pop": "L23_LBC_bNA",
+                "sec": "soma",
+                "start": 0
+            },
+            {
+                "amp": 0.5,
+                "dur": 300,
+                "loc": 0.5,
+                "pop": "L23_LBC_cAC",
+                "sec": "soma",
+                "start": 0
+            },
+            {
+                "amp": 0.5,
+                "dur": 300,
+                "loc": 0.5,
+                "pop": "L23_LBC_cNA",
+                "sec": "soma",
+                "start": 0
+            },
+            {
+                "amp": 0.5,
+                "dur": 300,
+                "loc": 0.5,
+                "pop": "L23_LBC_cST",
+                "sec": "soma",
+                "start": 0
+            },
+            {
+                "amp": 0.5,
+                "dur": 300,
+                "loc": 0.5,
+                "pop": "L23_LBC_dNA",
+                "sec": "soma",
+                "start": 0
+            },
+            {
+                "amp": 0.5,
+                "dur": 300,
+                "loc": 0.5,
+                "pop": "L23_MC_bAC",
+                "sec": "soma",
+                "start": 0
+            },
+            {
+                "amp": 0.5,
+                "dur": 300,
+                "loc": 0.5,
+                "pop": "L23_MC_bNA",
+                "sec": "soma",
+                "start": 0
+            },
+            {
+                "amp": 0.5,
+                "dur": 300,
+                "loc": 0.5,
+                "pop": "L23_MC_cAC",
+                "sec": "soma",
+                "start": 0
+            },
+            {
+                "amp": 0.5,
+                "dur": 300,
+                "loc": 0.5,
+                "pop": "L23_MC_cNA",
+                "sec": "soma",
+                "start": 0
+            },
+            {
+                "amp": 0.5,
+                "dur": 300,
+                "loc": 0.5,
+                "pop": "L23_MC_dNA",
+                "sec": "soma",
+                "start": 0
+            },
+            {
+                "amp": 0.5,
+                "dur": 300,
+                "loc": 0.5,
+                "pop": "L23_NBC_bAC",
+                "sec": "soma",
+                "start": 0
+            },
+            {
+                "amp": 0.5,
+                "dur": 300,
+                "loc": 0.5,
+                "pop": "L23_NBC_bNA",
+                "sec": "soma",
+                "start": 0
+            },
+            {
+                "amp": 0.5,
+                "dur": 300,
+                "loc": 0.5,
+                "pop": "L23_NBC_cAC",
+                "sec": "soma",
+                "start": 0
+            },
+            {
+                "amp": 0.5,
+                "dur": 300,
+                "loc": 0.5,
+                "pop": "L23_NBC_cIR",
+                "sec": "soma",
+                "start": 0
+            },
+            {
+                "amp": 0.5,
+                "dur": 300,
+                "loc": 0.5,
+                "pop": "L23_NBC_cNA",
+                "sec": "soma",
+                "start": 0
+            },
+            {
+                "amp": 0.5,
+                "dur": 300,
+                "loc": 0.5,
+                "pop": "L23_NBC_dNA",
+                "sec": "soma",
+                "start": 0
+            },
+            {
+                "amp": 0.5,
+                "dur": 300,
+                "loc": 0.5,
+                "pop": "L23_NGC_bNA",
+                "sec": "soma",
+                "start": 0
+            },
+            {
+                "amp": 0.5,
+                "dur": 300,
+                "loc": 0.5,
+                "pop": "L23_NGC_cAC",
+                "sec": "soma",
+                "start": 0
+            },
+            {
+                "amp": 0.5,
+                "dur": 300,
+                "loc": 0.5,
+                "pop": "L23_NGC_cNA",
+                "sec": "soma",
+                "start": 0
+            },
+            {
+                "amp": 0.5,
+                "dur": 300,
+                "loc": 0.5,
+                "pop": "L23_NGC_cST",
+                "sec": "soma",
+                "start": 0
+            },
+            {
+                "amp": 0.5,
+                "dur": 300,
+                "loc": 0.5,
+                "pop": "L23_PC_cAD",
+                "sec": "soma",
+                "start": 0
+            },
+            {
+                "amp": 0.5,
+                "dur": 300,
+                "loc": 0.5,
+                "pop": "L23_SBC_bNA",
+                "sec": "soma",
+                "start": 0
+            },
+            {
+                "amp": 0.5,
+                "dur": 300,
+                "loc": 0.5,
+                "pop": "L23_SBC_cAC",
+                "sec": "soma",
+                "start": 0
+            },
+            {
+                "amp": 0.5,
+                "dur": 300,
+                "loc": 0.5,
+                "pop": "L23_SBC_dNA",
+                "sec": "soma",
+                "start": 0
+            },
+            {
+                "amp": 0.5,
+                "dur": 300,
+                "loc": 0.5,
+                "pop": "L4_BP_bAC",
+                "sec": "soma",
+                "start": 0
+            },
+            {
+                "amp": 0.5,
+                "dur": 300,
+                "loc": 0.5,
+                "pop": "L4_BP_bIR",
+                "sec": "soma",
+                "start": 0
+            },
+            {
+                "amp": 0.5,
+                "dur": 300,
+                "loc": 0.5,
+                "pop": "L4_BP_bNA",
+                "sec": "soma",
+                "start": 0
+            },
+            {
+                "amp": 0.5,
+                "dur": 300,
+                "loc": 0.5,
+                "pop": "L4_BP_cAC",
+                "sec": "soma",
+                "start": 0
+            },
+            {
+                "amp": 0.5,
+                "dur": 300,
+                "loc": 0.5,
+                "pop": "L4_BP_cNA",
+                "sec": "soma",
+                "start": 0
+            },
+            {
+                "amp": 0.5,
+                "dur": 300,
+                "loc": 0.5,
+                "pop": "L4_BP_dST",
+                "sec": "soma",
+                "start": 0
+            },
+            {
+                "amp": 0.5,
+                "dur": 300,
+                "loc": 0.5,
+                "pop": "L4_BTC_bAC",
+                "sec": "soma",
+                "start": 0
+            },
+            {
+                "amp": 0.5,
+                "dur": 300,
+                "loc": 0.5,
+                "pop": "L4_BTC_bIR",
+                "sec": "soma",
+                "start": 0
+            },
+            {
+                "amp": 0.5,
+                "dur": 300,
+                "loc": 0.5,
+                "pop": "L4_BTC_bST",
+                "sec": "soma",
+                "start": 0
+            },
+            {
+                "amp": 0.5,
+                "dur": 300,
+                "loc": 0.5,
+                "pop": "L4_BTC_cAC",
+                "sec": "soma",
+                "start": 0
+            },
+            {
+                "amp": 0.5,
+                "dur": 300,
+                "loc": 0.5,
+                "pop": "L4_BTC_cNA",
+                "sec": "soma",
+                "start": 0
+            },
+            {
+                "amp": 0.5,
+                "dur": 300,
+                "loc": 0.5,
+                "pop": "L4_BTC_dNA",
+                "sec": "soma",
+                "start": 0
+            },
+            {
+                "amp": 0.5,
+                "dur": 300,
+                "loc": 0.5,
+                "pop": "L4_ChC_cAC",
+                "sec": "soma",
+                "start": 0
+            },
+            {
+                "amp": 0.5,
+                "dur": 300,
+                "loc": 0.5,
+                "pop": "L4_ChC_cNA",
+                "sec": "soma",
+                "start": 0
+            },
+            {
+                "amp": 0.5,
+                "dur": 300,
+                "loc": 0.5,
+                "pop": "L4_ChC_dNA",
+                "sec": "soma",
+                "start": 0
+            },
+            {
+                "amp": 0.5,
+                "dur": 300,
+                "loc": 0.5,
+                "pop": "L4_DBC_bAC",
+                "sec": "soma",
+                "start": 0
+            },
+            {
+                "amp": 0.5,
+                "dur": 300,
+                "loc": 0.5,
+                "pop": "L4_DBC_bIR",
+                "sec": "soma",
+                "start": 0
+            },
+            {
+                "amp": 0.5,
+                "dur": 300,
+                "loc": 0.5,
+                "pop": "L4_DBC_bNA",
+                "sec": "soma",
+                "start": 0
+            },
+            {
+                "amp": 0.5,
+                "dur": 300,
+                "loc": 0.5,
+                "pop": "L4_DBC_bST",
+                "sec": "soma",
+                "start": 0
+            },
+            {
+                "amp": 0.5,
+                "dur": 300,
+                "loc": 0.5,
+                "pop": "L4_DBC_cAC",
+                "sec": "soma",
+                "start": 0
+            },
+            {
+                "amp": 0.5,
+                "dur": 300,
+                "loc": 0.5,
+                "pop": "L4_DBC_cIR",
+                "sec": "soma",
+                "start": 0
+            },
+            {
+                "amp": 0.5,
+                "dur": 300,
+                "loc": 0.5,
+                "pop": "L4_DBC_cNA",
+                "sec": "soma",
+                "start": 0
+            },
+            {
+                "amp": 0.5,
+                "dur": 300,
+                "loc": 0.5,
+                "pop": "L4_LBC_cAC",
+                "sec": "soma",
+                "start": 0
+            },
+            {
+                "amp": 0.5,
+                "dur": 300,
+                "loc": 0.5,
+                "pop": "L4_LBC_cNA",
+                "sec": "soma",
+                "start": 0
+            },
+            {
+                "amp": 0.5,
+                "dur": 300,
+                "loc": 0.5,
+                "pop": "L4_LBC_cST",
+                "sec": "soma",
+                "start": 0
+            },
+            {
+                "amp": 0.5,
+                "dur": 300,
+                "loc": 0.5,
+                "pop": "L4_LBC_dNA",
+                "sec": "soma",
+                "start": 0
+            },
+            {
+                "amp": 0.5,
+                "dur": 300,
+                "loc": 0.5,
+                "pop": "L4_LBC_dST",
+                "sec": "soma",
+                "start": 0
+            },
+            {
+                "amp": 0.5,
+                "dur": 300,
+                "loc": 0.5,
+                "pop": "L4_MC_bAC",
+                "sec": "soma",
+                "start": 0
+            },
+            {
+                "amp": 0.5,
+                "dur": 300,
+                "loc": 0.5,
+                "pop": "L4_MC_bNA",
+                "sec": "soma",
+                "start": 0
+            },
+            {
+                "amp": 0.5,
+                "dur": 300,
+                "loc": 0.5,
+                "pop": "L4_MC_cAC",
+                "sec": "soma",
+                "start": 0
+            },
+            {
+                "amp": 0.5,
+                "dur": 300,
+                "loc": 0.5,
+                "pop": "L4_MC_cNA",
+                "sec": "soma",
+                "start": 0
+            },
+            {
+                "amp": 0.5,
+                "dur": 300,
+                "loc": 0.5,
+                "pop": "L4_MC_dNA",
+                "sec": "soma",
+                "start": 0
+            },
+            {
+                "amp": 0.5,
+                "dur": 300,
+                "loc": 0.5,
+                "pop": "L4_NBC_cAC",
+                "sec": "soma",
+                "start": 0
+            },
+            {
+                "amp": 0.5,
+                "dur": 300,
+                "loc": 0.5,
+                "pop": "L4_NBC_cIR",
+                "sec": "soma",
+                "start": 0
+            },
+            {
+                "amp": 0.5,
+                "dur": 300,
+                "loc": 0.5,
+                "pop": "L4_NBC_cNA",
+                "sec": "soma",
+                "start": 0
+            },
+            {
+                "amp": 0.5,
+                "dur": 300,
+                "loc": 0.5,
+                "pop": "L4_NBC_dNA",
+                "sec": "soma",
+                "start": 0
+            },
+            {
+                "amp": 0.5,
+                "dur": 300,
+                "loc": 0.5,
+                "pop": "L4_NGC_bNA",
+                "sec": "soma",
+                "start": 0
+            },
+            {
+                "amp": 0.5,
+                "dur": 300,
+                "loc": 0.5,
+                "pop": "L4_NGC_cAC",
+                "sec": "soma",
+                "start": 0
+            },
+            {
+                "amp": 0.5,
+                "dur": 300,
+                "loc": 0.5,
+                "pop": "L4_NGC_cNA",
+                "sec": "soma",
+                "start": 0
+            },
+            {
+                "amp": 0.5,
+                "dur": 300,
+                "loc": 0.5,
+                "pop": "L4_NGC_cST",
+                "sec": "soma",
+                "start": 0
+            },
+            {
+                "amp": 0.5,
+                "dur": 300,
+                "loc": 0.5,
+                "pop": "L4_PC_cAD",
+                "sec": "soma",
+                "start": 0
+            },
+            {
+                "amp": 0.5,
+                "dur": 300,
+                "loc": 0.5,
+                "pop": "L4_SBC_bNA",
+                "sec": "soma",
+                "start": 0
+            },
+            {
+                "amp": 0.5,
+                "dur": 300,
+                "loc": 0.5,
+                "pop": "L4_SBC_cAC",
+                "sec": "soma",
+                "start": 0
+            },
+            {
+                "amp": 0.5,
+                "dur": 300,
+                "loc": 0.5,
+                "pop": "L4_SBC_dNA",
+                "sec": "soma",
+                "start": 0
+            },
+            {
+                "amp": 0.5,
+                "dur": 300,
+                "loc": 0.5,
+                "pop": "L4_SP_cAD",
+                "sec": "soma",
+                "start": 0
+            },
+            {
+                "amp": 0.5,
+                "dur": 300,
+                "loc": 0.5,
+                "pop": "L4_SS_cAD",
+                "sec": "soma",
+                "start": 0
+            },
+            {
+                "amp": 0.5,
+                "dur": 300,
+                "loc": 0.5,
+                "pop": "L5_BP_bAC",
+                "sec": "soma",
+                "start": 0
+            },
+            {
+                "amp": 0.5,
+                "dur": 300,
+                "loc": 0.5,
+                "pop": "L5_BP_bIR",
+                "sec": "soma",
+                "start": 0
+            },
+            {
+                "amp": 0.5,
+                "dur": 300,
+                "loc": 0.5,
+                "pop": "L5_BP_bNA",
+                "sec": "soma",
+                "start": 0
+            },
+            {
+                "amp": 0.5,
+                "dur": 300,
+                "loc": 0.5,
+                "pop": "L5_BP_cAC",
+                "sec": "soma",
+                "start": 0
+            },
+            {
+                "amp": 0.5,
+                "dur": 300,
+                "loc": 0.5,
+                "pop": "L5_BP_cNA",
+                "sec": "soma",
+                "start": 0
+            },
+            {
+                "amp": 0.5,
+                "dur": 300,
+                "loc": 0.5,
+                "pop": "L5_BP_dST",
+                "sec": "soma",
+                "start": 0
+            },
+            {
+                "amp": 0.5,
+                "dur": 300,
+                "loc": 0.5,
+                "pop": "L5_BTC_bAC",
+                "sec": "soma",
+                "start": 0
+            },
+            {
+                "amp": 0.5,
+                "dur": 300,
+                "loc": 0.5,
+                "pop": "L5_BTC_cAC",
+                "sec": "soma",
+                "start": 0
+            },
+            {
+                "amp": 0.5,
+                "dur": 300,
+                "loc": 0.5,
+                "pop": "L5_BTC_cNA",
+                "sec": "soma",
+                "start": 0
+            },
+            {
+                "amp": 0.5,
+                "dur": 300,
+                "loc": 0.5,
+                "pop": "L5_ChC_cAC",
+                "sec": "soma",
+                "start": 0
+            },
+            {
+                "amp": 0.5,
+                "dur": 300,
+                "loc": 0.5,
+                "pop": "L5_ChC_cNA",
+                "sec": "soma",
+                "start": 0
+            },
+            {
+                "amp": 0.5,
+                "dur": 300,
+                "loc": 0.5,
+                "pop": "L5_ChC_dNA",
+                "sec": "soma",
+                "start": 0
+            },
+            {
+                "amp": 0.5,
+                "dur": 300,
+                "loc": 0.5,
+                "pop": "L5_DBC_bAC",
+                "sec": "soma",
+                "start": 0
+            },
+            {
+                "amp": 0.5,
+                "dur": 300,
+                "loc": 0.5,
+                "pop": "L5_DBC_bIR",
+                "sec": "soma",
+                "start": 0
+            },
+            {
+                "amp": 0.5,
+                "dur": 300,
+                "loc": 0.5,
+                "pop": "L5_DBC_bNA",
+                "sec": "soma",
+                "start": 0
+            },
+            {
+                "amp": 0.5,
+                "dur": 300,
+                "loc": 0.5,
+                "pop": "L5_DBC_bST",
+                "sec": "soma",
+                "start": 0
+            },
+            {
+                "amp": 0.5,
+                "dur": 300,
+                "loc": 0.5,
+                "pop": "L5_DBC_cAC",
+                "sec": "soma",
+                "start": 0
+            },
+            {
+                "amp": 0.5,
+                "dur": 300,
+                "loc": 0.5,
+                "pop": "L5_DBC_cIR",
+                "sec": "soma",
+                "start": 0
+            },
+            {
+                "amp": 0.5,
+                "dur": 300,
+                "loc": 0.5,
+                "pop": "L5_DBC_cNA",
+                "sec": "soma",
+                "start": 0
+            },
+            {
+                "amp": 0.5,
+                "dur": 300,
+                "loc": 0.5,
+                "pop": "L5_LBC_bAC",
+                "sec": "soma",
+                "start": 0
+            },
+            {
+                "amp": 0.5,
+                "dur": 300,
+                "loc": 0.5,
+                "pop": "L5_LBC_cAC",
+                "sec": "soma",
+                "start": 0
+            },
+            {
+                "amp": 0.5,
+                "dur": 300,
+                "loc": 0.5,
+                "pop": "L5_LBC_cIR",
+                "sec": "soma",
+                "start": 0
+            },
+            {
+                "amp": 0.5,
+                "dur": 300,
+                "loc": 0.5,
+                "pop": "L5_LBC_cNA",
+                "sec": "soma",
+                "start": 0
+            },
+            {
+                "amp": 0.5,
+                "dur": 300,
+                "loc": 0.5,
+                "pop": "L5_LBC_cST",
+                "sec": "soma",
+                "start": 0
+            },
+            {
+                "amp": 0.5,
+                "dur": 300,
+                "loc": 0.5,
+                "pop": "L5_LBC_dNA",
+                "sec": "soma",
+                "start": 0
+            },
+            {
+                "amp": 0.5,
+                "dur": 300,
+                "loc": 0.5,
+                "pop": "L5_LBC_dST",
+                "sec": "soma",
+                "start": 0
+            },
+            {
+                "amp": 0.5,
+                "dur": 300,
+                "loc": 0.5,
+                "pop": "L5_MC_bAC",
+                "sec": "soma",
+                "start": 0
+            },
+            {
+                "amp": 0.5,
+                "dur": 300,
+                "loc": 0.5,
+                "pop": "L5_MC_bIR",
+                "sec": "soma",
+                "start": 0
+            },
+            {
+                "amp": 0.5,
+                "dur": 300,
+                "loc": 0.5,
+                "pop": "L5_MC_bST",
+                "sec": "soma",
+                "start": 0
+            },
+            {
+                "amp": 0.5,
+                "dur": 300,
+                "loc": 0.5,
+                "pop": "L5_MC_cAC",
+                "sec": "soma",
+                "start": 0
+            },
+            {
+                "amp": 0.5,
+                "dur": 300,
+                "loc": 0.5,
+                "pop": "L5_MC_cNA",
+                "sec": "soma",
+                "start": 0
+            },
+            {
+                "amp": 0.5,
+                "dur": 300,
+                "loc": 0.5,
+                "pop": "L5_MC_cST",
+                "sec": "soma",
+                "start": 0
+            },
+            {
+                "amp": 0.5,
+                "dur": 300,
+                "loc": 0.5,
+                "pop": "L5_MC_dNA",
+                "sec": "soma",
+                "start": 0
+            },
+            {
+                "amp": 0.5,
+                "dur": 300,
+                "loc": 0.5,
+                "pop": "L5_NBC_bAC",
+                "sec": "soma",
+                "start": 0
+            },
+            {
+                "amp": 0.5,
+                "dur": 300,
+                "loc": 0.5,
+                "pop": "L5_NBC_bIR",
+                "sec": "soma",
+                "start": 0
+            },
+            {
+                "amp": 0.5,
+                "dur": 300,
+                "loc": 0.5,
+                "pop": "L5_NBC_bST",
+                "sec": "soma",
+                "start": 0
+            },
+            {
+                "amp": 0.5,
+                "dur": 300,
+                "loc": 0.5,
+                "pop": "L5_NBC_cAC",
+                "sec": "soma",
+                "start": 0
+            },
+            {
+                "amp": 0.5,
+                "dur": 300,
+                "loc": 0.5,
+                "pop": "L5_NBC_cIR",
+                "sec": "soma",
+                "start": 0
+            },
+            {
+                "amp": 0.5,
+                "dur": 300,
+                "loc": 0.5,
+                "pop": "L5_NBC_cNA",
+                "sec": "soma",
+                "start": 0
+            },
+            {
+                "amp": 0.5,
+                "dur": 300,
+                "loc": 0.5,
+                "pop": "L5_NBC_cST",
+                "sec": "soma",
+                "start": 0
+            },
+            {
+                "amp": 0.5,
+                "dur": 300,
+                "loc": 0.5,
+                "pop": "L5_NBC_dST",
+                "sec": "soma",
+                "start": 0
+            },
+            {
+                "amp": 0.5,
+                "dur": 300,
+                "loc": 0.5,
+                "pop": "L5_NGC_bNA",
+                "sec": "soma",
+                "start": 0
+            },
+            {
+                "amp": 0.5,
+                "dur": 300,
+                "loc": 0.5,
+                "pop": "L5_NGC_cAC",
+                "sec": "soma",
+                "start": 0
+            },
+            {
+                "amp": 0.5,
+                "dur": 300,
+                "loc": 0.5,
+                "pop": "L5_NGC_cNA",
+                "sec": "soma",
+                "start": 0
+            },
+            {
+                "amp": 0.5,
+                "dur": 300,
+                "loc": 0.5,
+                "pop": "L5_NGC_cST",
+                "sec": "soma",
+                "start": 0
+            },
+            {
+                "amp": 0.5,
+                "dur": 300,
+                "loc": 0.5,
+                "pop": "L5_SBC_bNA",
+                "sec": "soma",
+                "start": 0
+            },
+            {
+                "amp": 0.5,
+                "dur": 300,
+                "loc": 0.5,
+                "pop": "L5_SBC_cAC",
+                "sec": "soma",
+                "start": 0
+            },
+            {
+                "amp": 0.5,
+                "dur": 300,
+                "loc": 0.5,
+                "pop": "L5_SBC_dNA",
+                "sec": "soma",
+                "start": 0
+            },
+            {
+                "amp": 0.5,
+                "dur": 300,
+                "loc": 0.5,
+                "pop": "L5_STPC_cAD",
+                "sec": "soma",
+                "start": 0
+            },
+            {
+                "amp": 0.5,
+                "dur": 300,
+                "loc": 0.5,
+                "pop": "L5_TTPC1_cAD",
+                "sec": "soma",
+                "start": 0
+            },
+            {
+                "amp": 0.5,
+                "dur": 300,
+                "loc": 0.5,
+                "pop": "L5_TTPC2_cAD",
+                "sec": "soma",
+                "start": 0
+            },
+            {
+                "amp": 0.5,
+                "dur": 300,
+                "loc": 0.5,
+                "pop": "L5_UTPC_cAD",
+                "sec": "soma",
+                "start": 0
+            },
+            {
+                "amp": 0.5,
+                "dur": 300,
+                "loc": 0.5,
+                "pop": "L6_BPC_cAD",
+                "sec": "soma",
+                "start": 0
+            },
+            {
+                "amp": 0.5,
+                "dur": 300,
+                "loc": 0.5,
+                "pop": "L6_BP_bAC",
+                "sec": "soma",
+                "start": 0
+            },
+            {
+                "amp": 0.5,
+                "dur": 300,
+                "loc": 0.5,
+                "pop": "L6_BP_bIR",
+                "sec": "soma",
+                "start": 0
+            },
+            {
+                "amp": 0.5,
+                "dur": 300,
+                "loc": 0.5,
+                "pop": "L6_BP_bNA",
+                "sec": "soma",
+                "start": 0
+            },
+            {
+                "amp": 0.5,
+                "dur": 300,
+                "loc": 0.5,
+                "pop": "L6_BP_cAC",
+                "sec": "soma",
+                "start": 0
+            },
+            {
+                "amp": 0.5,
+                "dur": 300,
+                "loc": 0.5,
+                "pop": "L6_BP_cNA",
+                "sec": "soma",
+                "start": 0
+            },
+            {
+                "amp": 0.5,
+                "dur": 300,
+                "loc": 0.5,
+                "pop": "L6_BP_dST",
+                "sec": "soma",
+                "start": 0
+            },
+            {
+                "amp": 0.5,
+                "dur": 300,
+                "loc": 0.5,
+                "pop": "L6_BTC_bAC",
+                "sec": "soma",
+                "start": 0
+            },
+            {
+                "amp": 0.5,
+                "dur": 300,
+                "loc": 0.5,
+                "pop": "L6_BTC_cAC",
+                "sec": "soma",
+                "start": 0
+            },
+            {
+                "amp": 0.5,
+                "dur": 300,
+                "loc": 0.5,
+                "pop": "L6_BTC_cNA",
+                "sec": "soma",
+                "start": 0
+            },
+            {
+                "amp": 0.5,
+                "dur": 300,
+                "loc": 0.5,
+                "pop": "L6_ChC_cAC",
+                "sec": "soma",
+                "start": 0
+            },
+            {
+                "amp": 0.5,
+                "dur": 300,
+                "loc": 0.5,
+                "pop": "L6_ChC_cNA",
+                "sec": "soma",
+                "start": 0
+            },
+            {
+                "amp": 0.5,
+                "dur": 300,
+                "loc": 0.5,
+                "pop": "L6_ChC_dNA",
+                "sec": "soma",
+                "start": 0
+            },
+            {
+                "amp": 0.5,
+                "dur": 300,
+                "loc": 0.5,
+                "pop": "L6_DBC_bAC",
+                "sec": "soma",
+                "start": 0
+            },
+            {
+                "amp": 0.5,
+                "dur": 300,
+                "loc": 0.5,
+                "pop": "L6_DBC_bIR",
+                "sec": "soma",
+                "start": 0
+            },
+            {
+                "amp": 0.5,
+                "dur": 300,
+                "loc": 0.5,
+                "pop": "L6_DBC_bNA",
+                "sec": "soma",
+                "start": 0
+            },
+            {
+                "amp": 0.5,
+                "dur": 300,
+                "loc": 0.5,
+                "pop": "L6_DBC_bST",
+                "sec": "soma",
+                "start": 0
+            },
+            {
+                "amp": 0.5,
+                "dur": 300,
+                "loc": 0.5,
+                "pop": "L6_DBC_cAC",
+                "sec": "soma",
+                "start": 0
+            },
+            {
+                "amp": 0.5,
+                "dur": 300,
+                "loc": 0.5,
+                "pop": "L6_DBC_cIR",
+                "sec": "soma",
+                "start": 0
+            },
+            {
+                "amp": 0.5,
+                "dur": 300,
+                "loc": 0.5,
+                "pop": "L6_DBC_cNA",
+                "sec": "soma",
+                "start": 0
+            },
+            {
+                "amp": 0.5,
+                "dur": 300,
+                "loc": 0.5,
+                "pop": "L6_IPC_cAD",
+                "sec": "soma",
+                "start": 0
+            },
+            {
+                "amp": 0.5,
+                "dur": 300,
+                "loc": 0.5,
+                "pop": "L6_LBC_bAC",
+                "sec": "soma",
+                "start": 0
+            },
+            {
+                "amp": 0.5,
+                "dur": 300,
+                "loc": 0.5,
+                "pop": "L6_LBC_bIR",
+                "sec": "soma",
+                "start": 0
+            },
+            {
+                "amp": 0.5,
+                "dur": 300,
+                "loc": 0.5,
+                "pop": "L6_LBC_bNA",
+                "sec": "soma",
+                "start": 0
+            },
+            {
+                "amp": 0.5,
+                "dur": 300,
+                "loc": 0.5,
+                "pop": "L6_LBC_bST",
+                "sec": "soma",
+                "start": 0
+            },
+            {
+                "amp": 0.5,
+                "dur": 300,
+                "loc": 0.5,
+                "pop": "L6_LBC_cNA",
+                "sec": "soma",
+                "start": 0
+            },
+            {
+                "amp": 0.5,
+                "dur": 300,
+                "loc": 0.5,
+                "pop": "L6_LBC_cST",
+                "sec": "soma",
+                "start": 0
+            },
+            {
+                "amp": 0.5,
+                "dur": 300,
+                "loc": 0.5,
+                "pop": "L6_MC_bAC",
+                "sec": "soma",
+                "start": 0
+            },
+            {
+                "amp": 0.5,
+                "dur": 300,
+                "loc": 0.5,
+                "pop": "L6_MC_bIR",
+                "sec": "soma",
+                "start": 0
+            },
+            {
+                "amp": 0.5,
+                "dur": 300,
+                "loc": 0.5,
+                "pop": "L6_MC_bNA",
+                "sec": "soma",
+                "start": 0
+            },
+            {
+                "amp": 0.5,
+                "dur": 300,
+                "loc": 0.5,
+                "pop": "L6_MC_bST",
+                "sec": "soma",
+                "start": 0
+            },
+            {
+                "amp": 0.5,
+                "dur": 300,
+                "loc": 0.5,
+                "pop": "L6_MC_cAC",
+                "sec": "soma",
+                "start": 0
+            },
+            {
+                "amp": 0.5,
+                "dur": 300,
+                "loc": 0.5,
+                "pop": "L6_MC_cIR",
+                "sec": "soma",
+                "start": 0
+            },
+            {
+                "amp": 0.5,
+                "dur": 300,
+                "loc": 0.5,
+                "pop": "L6_MC_cNA",
+                "sec": "soma",
+                "start": 0
+            },
+            {
+                "amp": 0.5,
+                "dur": 300,
+                "loc": 0.5,
+                "pop": "L6_NBC_bAC",
+                "sec": "soma",
+                "start": 0
+            },
+            {
+                "amp": 0.5,
+                "dur": 300,
+                "loc": 0.5,
+                "pop": "L6_NBC_bIR",
+                "sec": "soma",
+                "start": 0
+            },
+            {
+                "amp": 0.5,
+                "dur": 300,
+                "loc": 0.5,
+                "pop": "L6_NBC_bST",
+                "sec": "soma",
+                "start": 0
+            },
+            {
+                "amp": 0.5,
+                "dur": 300,
+                "loc": 0.5,
+                "pop": "L6_NBC_cAC",
+                "sec": "soma",
+                "start": 0
+            },
+            {
+                "amp": 0.5,
+                "dur": 300,
+                "loc": 0.5,
+                "pop": "L6_NBC_cIR",
+                "sec": "soma",
+                "start": 0
+            },
+            {
+                "amp": 0.5,
+                "dur": 300,
+                "loc": 0.5,
+                "pop": "L6_NBC_cNA",
+                "sec": "soma",
+                "start": 0
+            },
+            {
+                "amp": 0.5,
+                "dur": 300,
+                "loc": 0.5,
+                "pop": "L6_NBC_cST",
+                "sec": "soma",
+                "start": 0
+            },
+            {
+                "amp": 0.5,
+                "dur": 300,
+                "loc": 0.5,
+                "pop": "L6_NBC_dST",
+                "sec": "soma",
+                "start": 0
+            },
+            {
+                "amp": 0.5,
+                "dur": 300,
+                "loc": 0.5,
+                "pop": "L6_NGC_bNA",
+                "sec": "soma",
+                "start": 0
+            },
+            {
+                "amp": 0.5,
+                "dur": 300,
+                "loc": 0.5,
+                "pop": "L6_NGC_cAC",
+                "sec": "soma",
+                "start": 0
+            },
+            {
+                "amp": 0.5,
+                "dur": 300,
+                "loc": 0.5,
+                "pop": "L6_NGC_cNA",
+                "sec": "soma",
+                "start": 0
+            },
+            {
+                "amp": 0.5,
+                "dur": 300,
+                "loc": 0.5,
+                "pop": "L6_NGC_cST",
+                "sec": "soma",
+                "start": 0
+            },
+            {
+                "amp": 0.5,
+                "dur": 300,
+                "loc": 0.5,
+                "pop": "L6_SBC_bNA",
+                "sec": "soma",
+                "start": 0
+            },
+            {
+                "amp": 0.5,
+                "dur": 300,
+                "loc": 0.5,
+                "pop": "L6_SBC_cAC",
+                "sec": "soma",
+                "start": 0
+            },
+            {
+                "amp": 0.5,
+                "dur": 300,
+                "loc": 0.5,
+                "pop": "L6_SBC_dNA",
+                "sec": "soma",
+                "start": 0
+            },
+            {
+                "amp": 0.5,
+                "dur": 300,
+                "loc": 0.5,
+                "pop": "L6_TPC_L1_cAD",
+                "sec": "soma",
+                "start": 0
+            },
+            {
+                "amp": 0.5,
+                "dur": 300,
+                "loc": 0.5,
+                "pop": "L6_TPC_L4_cAD",
+                "sec": "soma",
+                "start": 0
+            },
+            {
+                "amp": 0.5,
+                "dur": 300,
+                "loc": 0.5,
+                "pop": "L6_UTPC_cAD",
+                "sec": "soma",
+                "start": 0
+            }
+        ],
+        "IClampnumber": 207,
         "IEGain": 1.0,
         "IIGain": 1.0,
         "S1cells": [
@@ -276,8 +1935,11 @@
             "VPM_sTC": true
         },
         "addConn": true,
+        "addIClamp": false,
+        "addNetStim": false,
         "addStimSynS1": true,
         "addSynMechs": true,
+        "addTargetedNetStim": false,
         "allowConnsWithWeight0": true,
         "allowSelfConns": false,
         "allpops": [
@@ -706,8 +2368,233 @@
                     "L6_UTPC_cAD"
                 ],
                 "saveFig": true,
-                "showConns": false,
-                "view": "xz"
+                "showConns": false
+            },
+            "plotRaster": {
+                "dpi": 300,
+                "figSize": [
+                    24,
+                    12
+                ],
+                "fontSize": 4,
+                "include": [
+                    "L1_DAC_bNA",
+                    "L1_DAC_cNA",
+                    "L1_DLAC_cNA",
+                    "L1_HAC_bNA",
+                    "L1_HAC_cIR",
+                    "L1_HAC_cNA",
+                    "L1_NGC-DA_bNA",
+                    "L1_NGC-DA_cAC",
+                    "L1_NGC-DA_cNA",
+                    "L1_NGC-DA_cST",
+                    "L1_NGC-SA_cNA",
+                    "L1_SLAC_bNA",
+                    "L1_SLAC_cAC",
+                    "L1_SLAC_cNA",
+                    "L23_BP_bAC",
+                    "L23_BP_bIR",
+                    "L23_BP_bNA",
+                    "L23_BP_cAC",
+                    "L23_BP_cNA",
+                    "L23_BP_dST",
+                    "L23_BTC_bAC",
+                    "L23_BTC_bIR",
+                    "L23_BTC_bNA",
+                    "L23_BTC_cAC",
+                    "L23_BTC_cNA",
+                    "L23_ChC_cAC",
+                    "L23_ChC_cNA",
+                    "L23_ChC_dNA",
+                    "L23_DBC_bAC",
+                    "L23_DBC_bIR",
+                    "L23_DBC_bNA",
+                    "L23_DBC_cAC",
+                    "L23_LBC_bAC",
+                    "L23_LBC_bNA",
+                    "L23_LBC_cAC",
+                    "L23_LBC_cNA",
+                    "L23_LBC_cST",
+                    "L23_LBC_dNA",
+                    "L23_MC_bAC",
+                    "L23_MC_bNA",
+                    "L23_MC_cAC",
+                    "L23_MC_cNA",
+                    "L23_MC_dNA",
+                    "L23_NBC_bAC",
+                    "L23_NBC_bNA",
+                    "L23_NBC_cAC",
+                    "L23_NBC_cIR",
+                    "L23_NBC_cNA",
+                    "L23_NBC_dNA",
+                    "L23_NGC_bNA",
+                    "L23_NGC_cAC",
+                    "L23_NGC_cNA",
+                    "L23_NGC_cST",
+                    "L23_PC_cAD",
+                    "L23_SBC_bNA",
+                    "L23_SBC_cAC",
+                    "L23_SBC_dNA",
+                    "L4_BP_bAC",
+                    "L4_BP_bIR",
+                    "L4_BP_bNA",
+                    "L4_BP_cAC",
+                    "L4_BP_cNA",
+                    "L4_BP_dST",
+                    "L4_BTC_bAC",
+                    "L4_BTC_bIR",
+                    "L4_BTC_bST",
+                    "L4_BTC_cAC",
+                    "L4_BTC_cNA",
+                    "L4_BTC_dNA",
+                    "L4_ChC_cAC",
+                    "L4_ChC_cNA",
+                    "L4_ChC_dNA",
+                    "L4_DBC_bAC",
+                    "L4_DBC_bIR",
+                    "L4_DBC_bNA",
+                    "L4_DBC_bST",
+                    "L4_DBC_cAC",
+                    "L4_DBC_cIR",
+                    "L4_DBC_cNA",
+                    "L4_LBC_cAC",
+                    "L4_LBC_cNA",
+                    "L4_LBC_cST",
+                    "L4_LBC_dNA",
+                    "L4_LBC_dST",
+                    "L4_MC_bAC",
+                    "L4_MC_bNA",
+                    "L4_MC_cAC",
+                    "L4_MC_cNA",
+                    "L4_MC_dNA",
+                    "L4_NBC_cAC",
+                    "L4_NBC_cIR",
+                    "L4_NBC_cNA",
+                    "L4_NBC_dNA",
+                    "L4_NGC_bNA",
+                    "L4_NGC_cAC",
+                    "L4_NGC_cNA",
+                    "L4_NGC_cST",
+                    "L4_PC_cAD",
+                    "L4_SBC_bNA",
+                    "L4_SBC_cAC",
+                    "L4_SBC_dNA",
+                    "L4_SP_cAD",
+                    "L4_SS_cAD",
+                    "L5_BP_bAC",
+                    "L5_BP_bIR",
+                    "L5_BP_bNA",
+                    "L5_BP_cAC",
+                    "L5_BP_cNA",
+                    "L5_BP_dST",
+                    "L5_BTC_bAC",
+                    "L5_BTC_cAC",
+                    "L5_BTC_cNA",
+                    "L5_ChC_cAC",
+                    "L5_ChC_cNA",
+                    "L5_ChC_dNA",
+                    "L5_DBC_bAC",
+                    "L5_DBC_bIR",
+                    "L5_DBC_bNA",
+                    "L5_DBC_bST",
+                    "L5_DBC_cAC",
+                    "L5_DBC_cIR",
+                    "L5_DBC_cNA",
+                    "L5_LBC_bAC",
+                    "L5_LBC_cAC",
+                    "L5_LBC_cIR",
+                    "L5_LBC_cNA",
+                    "L5_LBC_cST",
+                    "L5_LBC_dNA",
+                    "L5_LBC_dST",
+                    "L5_MC_bAC",
+                    "L5_MC_bIR",
+                    "L5_MC_bST",
+                    "L5_MC_cAC",
+                    "L5_MC_cNA",
+                    "L5_MC_cST",
+                    "L5_MC_dNA",
+                    "L5_NBC_bAC",
+                    "L5_NBC_bIR",
+                    "L5_NBC_bST",
+                    "L5_NBC_cAC",
+                    "L5_NBC_cIR",
+                    "L5_NBC_cNA",
+                    "L5_NBC_cST",
+                    "L5_NBC_dST",
+                    "L5_NGC_bNA",
+                    "L5_NGC_cAC",
+                    "L5_NGC_cNA",
+                    "L5_NGC_cST",
+                    "L5_SBC_bNA",
+                    "L5_SBC_cAC",
+                    "L5_SBC_dNA",
+                    "L5_STPC_cAD",
+                    "L5_TTPC1_cAD",
+                    "L5_TTPC2_cAD",
+                    "L5_UTPC_cAD",
+                    "L6_BPC_cAD",
+                    "L6_BP_bAC",
+                    "L6_BP_bIR",
+                    "L6_BP_bNA",
+                    "L6_BP_cAC",
+                    "L6_BP_cNA",
+                    "L6_BP_dST",
+                    "L6_BTC_bAC",
+                    "L6_BTC_cAC",
+                    "L6_BTC_cNA",
+                    "L6_ChC_cAC",
+                    "L6_ChC_cNA",
+                    "L6_ChC_dNA",
+                    "L6_DBC_bAC",
+                    "L6_DBC_bIR",
+                    "L6_DBC_bNA",
+                    "L6_DBC_bST",
+                    "L6_DBC_cAC",
+                    "L6_DBC_cIR",
+                    "L6_DBC_cNA",
+                    "L6_IPC_cAD",
+                    "L6_LBC_bAC",
+                    "L6_LBC_bIR",
+                    "L6_LBC_bNA",
+                    "L6_LBC_bST",
+                    "L6_LBC_cNA",
+                    "L6_LBC_cST",
+                    "L6_MC_bAC",
+                    "L6_MC_bIR",
+                    "L6_MC_bNA",
+                    "L6_MC_bST",
+                    "L6_MC_cAC",
+                    "L6_MC_cIR",
+                    "L6_MC_cNA",
+                    "L6_NBC_bAC",
+                    "L6_NBC_bIR",
+                    "L6_NBC_bST",
+                    "L6_NBC_cAC",
+                    "L6_NBC_cIR",
+                    "L6_NBC_cNA",
+                    "L6_NBC_cST",
+                    "L6_NBC_dST",
+                    "L6_NGC_bNA",
+                    "L6_NGC_cAC",
+                    "L6_NGC_cNA",
+                    "L6_NGC_cST",
+                    "L6_SBC_bNA",
+                    "L6_SBC_cAC",
+                    "L6_SBC_dNA",
+                    "L6_TPC_L1_cAD",
+                    "L6_TPC_L4_cAD",
+                    "L6_UTPC_cAD"
+                ],
+                "marker": "o",
+                "markerSize": 4,
+                "orderInverse": true,
+                "saveFig": true,
+                "showFig": false,
+                "timeRange": [
+                    0,
+                    15000.0
+                ]
             }
         },
         "backupCfgFile": null,
@@ -1129,7 +3016,13 @@
             "L6_SBC_dNA": 19,
             "L6_TPC_L1_cAD": 1637,
             "L6_TPC_L4_cAD": 1440,
-            "L6_UTPC_cAD": 1735
+            "L6_UTPC_cAD": 1735,
+            "POm_sTC_s1": 1342,
+            "VPL_sTC": 1285,
+            "VPM_sTC": 1644,
+            "ss_RTN_i": 1499,
+            "ss_RTN_m": 748,
+            "ss_RTN_o": 748
         },
         "cellParamLabels": [
             "L1_DAC_bNA",
@@ -1340,32 +3233,54 @@
             "L6_TPC_L4_cAD",
             "L6_UTPC_cAD"
         ],
+        "cellpopidx": 0,
         "celltypeNumber": 213,
         "checkErrors": false,
+        "checkErrorsVerbose": false,
         "compactConnFormat": false,
+        "connProb_RTN_RTN": 0.5,
+        "connProb_RTN_TC": 1,
+        "connProb_TC_RTN": 1,
         "connRandomSecFromList": true,
+        "connWeight_RTN_RTN": 2.0,
+        "connWeight_RTN_TC": 0.35,
+        "connWeight_S1_RTN": 0.5,
+        "connWeight_S1_TC": 0.25,
+        "connWeight_TC_RTN": 1.5,
+        "connectTh": false,
+        "connect_RTN_RTN": true,
+        "connect_RTN_TC": true,
+        "connect_S1_RTN": true,
+        "connect_S1_TC": true,
+        "connect_S1_Th": false,
+        "connect_TC_RTN": true,
         "connect_ThVecStim_S1": true,
-        "coreneuron": false,
+        "connect_Th_S1": false,
+        "convergence_S1_RTN": 30.0,
+        "convergence_S1_TC": 30.0,
         "createNEURONObj": true,
         "createPyStruct": true,
         "cvode_active": false,
         "cvode_atol": 1e-06,
         "distributeSynsUniformly": true,
+        "divergenceHO": 10,
         "dt": 0.05,
-        "duration": 11000.0,
+        "duration": 15000.0,
         "filename": "model_output",
         "frac_Th_S1": 1.0,
+        "fracmorphoradius": 1.0,
         "gatherOnlySimData": false,
-        "gpu": false,
         "hParams": {
             "celsius": 34,
             "v_init": -69.5
         },
         "includeParamsLabel": false,
+        "intraThalamicGain": 1.0,
         "invertedYCoord": true,
         "loadcellsfromJSON": true,
         "meParamLabels": {},
-        "netxzpart": 16,
+        "mefinal": 207,
+        "meinit": 200,
         "oneSynPerNetcon": true,
         "popLabel": {
             "L1_DAC_bNA": "L1_DAC",
@@ -2027,13 +3942,12 @@
         "printSynsAfterRule": false,
         "pt3dRelativeToCellLocation": true,
         "rand123GlobalIndex": null,
-        "random123": false,
         "rateStimE": 9.0,
         "rateStimI": 9.0,
         "recordCells": [],
         "recordCellsSpikes": -1,
         "recordDipole": true,
-        "recordDipolesHNN": false,
+        "recordDipoles": false,
         "recordLFP": [],
         "recordStep": 1.0,
         "recordStim": false,
@@ -2052,206 +3966,6 @@
             "net"
         ],
         "saveDipoleCells": [
-            "L1_DAC_bNA",
-            "L1_DAC_cNA",
-            "L1_DLAC_cNA",
-            "L1_HAC_bNA",
-            "L1_HAC_cIR",
-            "L1_HAC_cNA",
-            "L1_NGC-DA_bNA",
-            "L1_NGC-DA_cAC",
-            "L1_NGC-DA_cNA",
-            "L1_NGC-DA_cST",
-            "L1_NGC-SA_cNA",
-            "L1_SLAC_bNA",
-            "L1_SLAC_cAC",
-            "L1_SLAC_cNA",
-            "L23_BP_bAC",
-            "L23_BP_bIR",
-            "L23_BP_bNA",
-            "L23_BP_cAC",
-            "L23_BP_cNA",
-            "L23_BP_dST",
-            "L23_BTC_bAC",
-            "L23_BTC_bIR",
-            "L23_BTC_bNA",
-            "L23_BTC_cAC",
-            "L23_BTC_cNA",
-            "L23_ChC_cAC",
-            "L23_ChC_cNA",
-            "L23_ChC_dNA",
-            "L23_DBC_bAC",
-            "L23_DBC_bIR",
-            "L23_DBC_bNA",
-            "L23_DBC_cAC",
-            "L23_LBC_bAC",
-            "L23_LBC_bNA",
-            "L23_LBC_cAC",
-            "L23_LBC_cNA",
-            "L23_LBC_cST",
-            "L23_LBC_dNA",
-            "L23_MC_bAC",
-            "L23_MC_bNA",
-            "L23_MC_cAC",
-            "L23_MC_cNA",
-            "L23_MC_dNA",
-            "L23_NBC_bAC",
-            "L23_NBC_bNA",
-            "L23_NBC_cAC",
-            "L23_NBC_cIR",
-            "L23_NBC_cNA",
-            "L23_NBC_dNA",
-            "L23_NGC_bNA",
-            "L23_NGC_cAC",
-            "L23_NGC_cNA",
-            "L23_NGC_cST",
-            "L23_PC_cAD",
-            "L23_SBC_bNA",
-            "L23_SBC_cAC",
-            "L23_SBC_dNA",
-            "L4_BP_bAC",
-            "L4_BP_bIR",
-            "L4_BP_bNA",
-            "L4_BP_cAC",
-            "L4_BP_cNA",
-            "L4_BP_dST",
-            "L4_BTC_bAC",
-            "L4_BTC_bIR",
-            "L4_BTC_bST",
-            "L4_BTC_cAC",
-            "L4_BTC_cNA",
-            "L4_BTC_dNA",
-            "L4_ChC_cAC",
-            "L4_ChC_cNA",
-            "L4_ChC_dNA",
-            "L4_DBC_bAC",
-            "L4_DBC_bIR",
-            "L4_DBC_bNA",
-            "L4_DBC_bST",
-            "L4_DBC_cAC",
-            "L4_DBC_cIR",
-            "L4_DBC_cNA",
-            "L4_LBC_cAC",
-            "L4_LBC_cNA",
-            "L4_LBC_cST",
-            "L4_LBC_dNA",
-            "L4_LBC_dST",
-            "L4_MC_bAC",
-            "L4_MC_bNA",
-            "L4_MC_cAC",
-            "L4_MC_cNA",
-            "L4_MC_dNA",
-            "L4_NBC_cAC",
-            "L4_NBC_cIR",
-            "L4_NBC_cNA",
-            "L4_NBC_dNA",
-            "L4_NGC_bNA",
-            "L4_NGC_cAC",
-            "L4_NGC_cNA",
-            "L4_NGC_cST",
-            "L4_PC_cAD",
-            "L4_SBC_bNA",
-            "L4_SBC_cAC",
-            "L4_SBC_dNA",
-            "L4_SP_cAD",
-            "L4_SS_cAD",
-            "L5_BP_bAC",
-            "L5_BP_bIR",
-            "L5_BP_bNA",
-            "L5_BP_cAC",
-            "L5_BP_cNA",
-            "L5_BP_dST",
-            "L5_BTC_bAC",
-            "L5_BTC_cAC",
-            "L5_BTC_cNA",
-            "L5_ChC_cAC",
-            "L5_ChC_cNA",
-            "L5_ChC_dNA",
-            "L5_DBC_bAC",
-            "L5_DBC_bIR",
-            "L5_DBC_bNA",
-            "L5_DBC_bST",
-            "L5_DBC_cAC",
-            "L5_DBC_cIR",
-            "L5_DBC_cNA",
-            "L5_LBC_bAC",
-            "L5_LBC_cAC",
-            "L5_LBC_cIR",
-            "L5_LBC_cNA",
-            "L5_LBC_cST",
-            "L5_LBC_dNA",
-            "L5_LBC_dST",
-            "L5_MC_bAC",
-            "L5_MC_bIR",
-            "L5_MC_bST",
-            "L5_MC_cAC",
-            "L5_MC_cNA",
-            "L5_MC_cST",
-            "L5_MC_dNA",
-            "L5_NBC_bAC",
-            "L5_NBC_bIR",
-            "L5_NBC_bST",
-            "L5_NBC_cAC",
-            "L5_NBC_cIR",
-            "L5_NBC_cNA",
-            "L5_NBC_cST",
-            "L5_NBC_dST",
-            "L5_NGC_bNA",
-            "L5_NGC_cAC",
-            "L5_NGC_cNA",
-            "L5_NGC_cST",
-            "L5_SBC_bNA",
-            "L5_SBC_cAC",
-            "L5_SBC_dNA",
-            "L5_STPC_cAD",
-            "L5_TTPC1_cAD",
-            "L5_TTPC2_cAD",
-            "L5_UTPC_cAD",
-            "L6_BPC_cAD",
-            "L6_BP_bAC",
-            "L6_BP_bIR",
-            "L6_BP_bNA",
-            "L6_BP_cAC",
-            "L6_BP_cNA",
-            "L6_BP_dST",
-            "L6_BTC_bAC",
-            "L6_BTC_cAC",
-            "L6_BTC_cNA",
-            "L6_ChC_cAC",
-            "L6_ChC_cNA",
-            "L6_ChC_dNA",
-            "L6_DBC_bAC",
-            "L6_DBC_bIR",
-            "L6_DBC_bNA",
-            "L6_DBC_bST",
-            "L6_DBC_cAC",
-            "L6_DBC_cIR",
-            "L6_DBC_cNA",
-            "L6_IPC_cAD",
-            "L6_LBC_bAC",
-            "L6_LBC_bIR",
-            "L6_LBC_bNA",
-            "L6_LBC_bST",
-            "L6_LBC_cNA",
-            "L6_LBC_cST",
-            "L6_MC_bAC",
-            "L6_MC_bIR",
-            "L6_MC_bNA",
-            "L6_MC_bST",
-            "L6_MC_cAC",
-            "L6_MC_cIR",
-            "L6_MC_cNA",
-            "L6_NBC_bAC",
-            "L6_NBC_bIR",
-            "L6_NBC_bST",
-            "L6_NBC_cAC",
-            "L6_NBC_cIR",
-            "L6_NBC_cNA",
-            "L6_NBC_cST",
-            "L6_NBC_dST",
-            "L6_NGC_bNA",
-            "L6_NGC_cAC",
-            "L6_NGC_cNA",
             "L6_NGC_cST",
             "L6_SBC_bNA",
             "L6_SBC_cAC",
@@ -2260,13 +3974,11 @@
             "L6_TPC_L4_cAD",
             "L6_UTPC_cAD"
         ],
-        "saveDipolePops": false,
         "saveDpk": false,
-        "saveFolder": "../data/v11_batch0",
+        "saveFolder": "../data/v11_batch1",
         "saveHDF5": false,
         "saveJson": false,
         "saveLFPCells": false,
-        "saveLFPPops": false,
         "saveMat": false,
         "savePickle": true,
         "saveTiming": false,
@@ -2277,7 +3989,7 @@
             "loc": 4322,
             "stim": 4322
         },
-        "simLabel": "v11_batch0_15",
+        "simLabel": "v11_batch1_0",
         "sizeX": 420.0,
         "sizeY": 2082.0,
         "sizeZ": 420.0,
@@ -2308,7 +4020,7 @@
             "EIproximal": 0.75,
             "Inh": 0.5
         },
-        "validateNetParams": false,
-        "verbose": false
+        "verbose": false,
+        "yConnFactor": 10
     }
 }

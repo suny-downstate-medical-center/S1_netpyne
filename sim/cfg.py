@@ -23,7 +23,7 @@ cfg = specs.SimConfig()
 #------------------------------------------------------------------------------
 # Run parameters
 #------------------------------------------------------------------------------
-cfg.duration = 1.1*1e4 ## Duration of the sim, in ms  
+cfg.duration = 1.5*1e4 ## Duration of the sim, in ms  
 cfg.dt = 0.05
 cfg.seeds = {'conn': 4322, 'stim': 4322, 'loc': 4322} 
 cfg.hParams = {'celsius': 34, 'v_init': -69.5}  
@@ -106,16 +106,20 @@ cfg.S1cells = cellParam[0:207]
 
 cfg.thalamicpops = ['ss_RTN_o', 'ss_RTN_m', 'ss_RTN_i', 'VPL_sTC', 'VPM_sTC', 'POm_sTC_s1']
 
-cfg.popNumber['ss_RTN_o'] = int(382 * (210**2/150**2)) # from mouse model (d = 150 um)
-cfg.popNumber['ss_RTN_m'] = int(382 * (210**2/150**2))
-cfg.popNumber['ss_RTN_i'] = int(765 * (210**2/150**2))
-cfg.popNumber['VPL_sTC'] = int(656 * (210**2/150**2))
-cfg.popNumber['VPM_sTC'] = int(839 * (210**2/150**2))
-cfg.popNumber['POm_sTC_s1'] = int(685 * (210**2/150**2))
+cfg.cellNumber['ss_RTN_o'] = int(382 * (210**2/150**2)) # from mouse model (d = 150 um)
+cfg.cellNumber['ss_RTN_m'] = int(382 * (210**2/150**2))
+cfg.cellNumber['ss_RTN_i'] = int(765 * (210**2/150**2))
+cfg.cellNumber['VPL_sTC'] = int(656 * (210**2/150**2))
+cfg.cellNumber['VPM_sTC'] = int(839 * (210**2/150**2))
+cfg.cellNumber['POm_sTC_s1'] = int(685 * (210**2/150**2))
 
 for mtype in cfg.thalamicpops: # No diversity
 	metype = mtype
+	popParam.append(mtype)
 	cfg.popLabel[metype] = mtype
+	cellParam.append(metype)
+
+	cfg.popNumber[mtype] = cfg.cellNumber[metype]
 
 #------------------------------------------------------------------------------  
 cfg.popParamLabels = popParam
@@ -156,13 +160,19 @@ cfg.recordStep = 1.0
 
 # cfg.recordLFP = [[0, y, 0] for y in [500, 1000, 1500, 2000]] # 5 elec in L1 and 8 elec in L6
 
+cfg.cellpopidx = 7
+
+cellpoprange = [[0,43], [43,55], [55,99], [99,150], [150, 154], [154, 174], [174, 200], [200,207]]
+
+cfg.meinit , cfg.mefinal = cellpoprange[cfg.cellpopidx]
+
 cfg.recordDipole = True
-if cfg.recordDipole: cfg.saveDipoleCells = cfg.S1cells
+if cfg.recordDipole: cfg.saveDipoleCells = cfg.S1cells[cfg.meinit:cfg.mefinal]
 
 #------------------------------------------------------------------------------
 # Saving
 #------------------------------------------------------------------------------
-cfg.simLabel = 'v11_batch0'
+cfg.simLabel = 'v11_batch1'
 cfg.saveFolder = '../data/'+cfg.simLabel
 # cfg.filename =                	## Set file output name
 cfg.savePickle = True	        	## Save pkl file
@@ -176,8 +186,8 @@ cfg.saveCellConns = False
 #------------------------------------------------------------------------------
 # Analysis and plotting 
 # ------------------------------------------------------------------------------
-# cfg.analysis['plotRaster'] = {'include': cfg.S1cells, 'saveFig': True, 'showFig': False,'orderInverse': True, 'timeRange': [0,cfg.duration], 'figSize': (24,12), 'fontSize':4, 'markerSize':4, 'marker': 'o', 'dpi': 300} 
-cfg.analysis['plot2Dnet']   = {'include': cfg.S1cells, 'view': 'xz', 'saveFig': True, 'showConns': False, 'figSize': (24,24), 'fontSize':16}   # Plot 2D cells xz
+cfg.analysis['plotRaster'] = {'include': cfg.S1cells, 'saveFig': True, 'showFig': False,'orderInverse': True, 'timeRange': [0,cfg.duration], 'figSize': (24,12), 'fontSize':4, 'markerSize':4, 'marker': 'o', 'dpi': 300} 
+cfg.analysis['plot2Dnet']   = {'include': cfg.S1cells,'saveFig': True, 'showConns': False, 'figSize': (24,24), 'fontSize':16}   # Plot 2D cells xy
 # cfg.analysis['plotTraces'] = {'include': cfg.recordCells, 'oneFigPer': 'cell', 'overlay': True, 'timeRange': [0,cfg.duration], 'ylim': [-100,50], 'saveFig': True, 'showFig': False, 'figSize':(12,4)}
 # cfg.analysis['plot2Dfiring']={'saveFig': True, 'figSize': (24,24), 'fontSize':16}
 # cfg.analysis['plotConn'] = {'includePre': cfg.allpops, 'includePost': cfg.allpops, 'feature': 'numConns', 'groupBy': 'pop', 'figSize': (24,24), 'saveFig': True, 'orderBy': 'gid', 'graphType': 'matrix', 'saveData':'../data/v5_batch0/v5_batch0_matrix_numConn.json', 'fontSize': 18}
@@ -198,12 +208,10 @@ cfg.scale = 1.0 # reduce size
 cfg.sizeY = 2082.0
 cfg.sizeX = 420.0 # r = 210 um and hexagonal side length = 230.9 um
 cfg.sizeZ = 420.0
+cfg.fracmorphoradius = 1.0 # /3.75 # 4.2
+cfg.scaleDensity = 1.0*(cfg.fracmorphoradius*cfg.fracmorphoradius) # Number of cells = 31346
 
-cfg.netxzpart = 1 # [1,16]
-
-cfg.scaleDensity = 1.0 # Number of cells = 31346
-
-print('%s \t Nmorpho ~ %.0f (%.1f percent) \t netxzpart = %d (total=16)' % (cfg.simLabel,31346.0/16,100.0/16,cfg.netxzpart))
+print('%s \t Nmorpho ~ %.1f (%.1f percent) \t cellpoppart = %.d' % (cfg.simLabel,31346*cfg.scaleDensity,100.0*cfg.scaleDensity,cfg.cellpopidx))
 
 
 #------------------------------------------------------------------------------
@@ -229,10 +237,126 @@ cfg.IIGain = 1.0
 cfg.IEGain = 1.0
 
 #------------------------------------------------------------------------------
+## Th->Th 
+cfg.connectTh = False
+cfg.connect_RTN_RTN     = True
+cfg.connect_TC_RTN      = True
+cfg.connect_RTN_TC      = True
+
+cfg.yConnFactor             = 10 # y-tolerance form connection distance based on the x and z-plane radial tolerances (1=100%; 2=50%; 5=20%; 10=10%)
+
+cfg.intraThalamicGain = 1.0 
+
+cfg.connWeight_RTN_RTN      = 2.0 # optimized to increase synchrony
+cfg.connWeight_TC_RTN       = 1.5 # optimized to increase synchrony
+cfg.connWeight_RTN_TC       = 0.35 # optimized to increase synchrony
+
+cfg.connProb_RTN_RTN        = 0.5 #2021-06-23 - test
+cfg.connProb_TC_RTN         = 1 #2021-06-23 - test
+cfg.connProb_RTN_TC         = 1 #2021-06-23 - test
+
+cfg.divergenceHO = 10
+
+#------------------------------------------------------------------------------
+# Gentet and Ulrich (2004) corticoreticular EPSPs = 2.4 ± 0.1 mV
+# 						   thalamoreticular EPSPs = 7.4 ± 1.5 mV
+# They are strong compared with EPSPs recorded in relay cells from corticothalamic activation (Golshani et al. 2001; Liu et al. 2008).
+# 						   corticothalamic < 2.4 ± 0.1 mV
+#------------------------------------------------------------------------------
 ## Th->S1
+cfg.connect_Th_S1 = False
 cfg.connect_ThVecStim_S1 = True
+
 cfg.TC_S1 = {}
 cfg.TC_S1['VPL_sTC'] = True
 cfg.TC_S1['VPM_sTC'] = True
 cfg.TC_S1['POm_sTC_s1'] = True
-cfg.frac_Th_S1 = 1.0 # change the convergence Th->S1
+
+cfg.frac_Th_S1 = 1.0
+#------------------------------------------------------------------------------
+## S1->Th 
+cfg.connect_S1_Th = False
+
+cfg.connect_S1_RTN = True
+cfg.convergence_S1_RTN         = 30.0  # dist_2D<R
+cfg.connWeight_S1_RTN       = 0.500
+
+cfg.connect_S1_TC = True
+cfg.convergence_S1_TC         = 30.0  # dist_2D<R
+cfg.connWeight_S1_TC       = 0.250
+
+#------------------------------------------------------------------------------
+# Current inputs 
+#------------------------------------------------------------------------------
+cfg.addIClamp = False  # decrease the transient
+ 
+cfg.IClamp = []
+cfg.IClampnumber = 0
+
+for popName in cfg.allpops:
+    cfg.IClamp.append({'pop': popName, 'sec': 'soma', 'loc': 0.5, 'start': 0, 'dur': 300, 'amp': 0.5}) #pA
+    cfg.IClampnumber=cfg.IClampnumber+1
+
+# cfg.thalamocorticalconnections =  ['VPL_sTC', 'VPM_sTC', 'POm_sTC_s1']
+# for popName in cfg.thalamocorticalconnections:
+#     cfg.IClamp.append({'pop': popName, 'sec': 'soma', 'loc': 0.5, 'start': 0, 'dur': 5, 'amp': 2.0+10.0*cfg.IClampnumber}) #pA
+#     cfg.IClampnumber=cfg.IClampnumber+1
+
+#------------------------------------------------------------------------------
+# NetStim inputs 
+#------------------------------------------------------------------------------
+cfg.addNetStim=False
+if cfg.addNetStim:
+    
+    cfg.numStims    = 100
+    cfg.netWeight   = 0.005
+    cfg.startStimTime = 0
+    cfg.interStimInterval=0.1
+
+    cfg.NetStim1    = { 'pop':              'VPM_sTC', 
+                        'ynorm':            [0,1], 
+                        'sec':              'soma', 
+                        'loc':              0.5, 
+                        'synMech':          ['AMPA_Th'], 
+                        'synMechWeightFactor': [1.0],
+                        'start':            cfg.startStimTime, 
+                        'interval':         cfg.interStimInterval, 
+                        'noise':            1, 
+                        'number':           cfg.numStims, 
+                        'weight':           cfg.netWeight, 
+                        'delay':            0}
+
+#------------------------------------------------------------------------------
+# Targeted NetStim inputs 
+#------------------------------------------------------------------------------
+cfg.addTargetedNetStim=False
+if cfg.addTargetedNetStim:
+    
+    cfg.startStimTime=None
+    cfg.stimPop = None
+    cfg.netWeight           = 20
+    # cfg.startStimTime1      = 2000
+    cfg.numStims            = 15
+    cfg.interStimInterval   = 75 #125#1000/5
+
+    cfg.numOfTargetCells=100
+
+    cfg.TargetedNetStim1= { 
+                        'pop':              'VPL_sTC', 
+                        # 'pop':              cfg.stimPop, 
+                        'ynorm':            [0,1], 
+                        'sec':              'soma', 
+                        'loc':              0.5, 
+                        'synMech':          ['AMPA_Th'], 
+                        'synMechWeightFactor': [1.0],
+                        'start':            1500, 
+                        'interval':         cfg.interStimInterval, 
+                        'noise':            1, 
+                        'number':           cfg.numStims, 
+                        'weight':           cfg.netWeight, 
+                        'delay':            0,
+                        # 'targetCells':      [0]
+                        # 'targetCells':      list(range(0,10,1))
+                        'targetCells':      list(range(0,cfg.numOfTargetCells,1))
+                        # 'targetCells':      [0,50,500,900]
+                        }
