@@ -106,6 +106,9 @@ for cellLabel in spkTimes.keys():
     cellsVSName[metype].append('presyn_'+cellLabel)
     popsVSName[mtype].append('presyn_'+cellLabel)
 
+meinit = 4*(cfg.cellpopidx)
+mefinal = 4*(cfg.cellpopidx + 1)
+
 # create 1 vectstim pop per cell gid
 for popLabel in cellsVSName.keys():
     
@@ -120,7 +123,7 @@ for popLabel in cellsVSName.keys():
         if np.size(spkTimes[metype+'_'+cellLabel.split('_')[-1]]) == 0:
             spkTimes[metype+'_'+cellLabel.split('_')[-1]] = [15000.5]
   
-        if metype in cfg.S1cells[cfg.meinit:cfg.mefinal]:
+        if metype in cfg.S1cells[meinit:mefinal]:
 
             ii = int(cellLabel.split('_')[-1])
             excluderadius2 = (0.5*cfg.fracmorphoradius)**2
@@ -139,33 +142,21 @@ for popLabel in cellsVSName.keys():
 #------------------------------------------------------------------------------
 #------------------------------------------------------------------------------
 ## S1
-for cellName in cfg.S1cells[0:cfg.meinit]:
-    layernumber = cellName[1:2]
-    if layernumber == '2':
-        netParams.popParams[cellName] = {'cellType': cellName, 'cellModel': 'HH_full', 'ynormRange': layer['23'],
-        'numCells': 1, 'diversity': True}
-    else:
-        netParams.popParams[cellName] = {'cellType': cellName, 'cellModel': 'HH_full', 'ynormRange': layer[layernumber],
-        'numCells': 1, 'diversity': True}
+for cellName in cfg.S1cells:
 
-## S1
-for cellName in cfg.S1cells[cfg.meinit:cfg.mefinal]:
     layernumber = cellName[1:2]
+
     if layernumber == '2':
         netParams.popParams[cellName] = {'cellType': cellName, 'cellModel': 'HH_full', 'ynormRange': layer['23'], 
         'numCells': int(np.ceil(cfg.scaleDensity*cfg.cellNumber[cellName])), 'diversity': True}
     else:
         netParams.popParams[cellName] = {'cellType': cellName, 'cellModel': 'HH_full', 'ynormRange': layer[layernumber], 
         'numCells': int(np.ceil(cfg.scaleDensity*cfg.cellNumber[cellName])), 'diversity': True}
-## S1
-for cellName in cfg.S1cells[cfg.mefinal:207]:
-    layernumber = cellName[1:2]
-    if layernumber == '2':
-        netParams.popParams[cellName] = {'cellType': cellName, 'cellModel': 'HH_full', 'ynormRange': layer['23'],
-        'numCells': 1, 'diversity': True}
-    else:
-        netParams.popParams[cellName] = {'cellType': cellName, 'cellModel': 'HH_full', 'ynormRange': layer[layernumber],
-        'numCells': 1, 'diversity': True}
+
+    if cellName not in cfg.S1cells[meinit:mefinal]:
+        netParams.popParams[cellName]['numCells'] =  1
+    
+    print(netParams.popParams[cellName])
 
 
 ## THALAMIC POPULATIONS (from prev model)

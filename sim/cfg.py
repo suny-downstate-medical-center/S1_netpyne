@@ -23,7 +23,7 @@ cfg = specs.SimConfig()
 #------------------------------------------------------------------------------
 # Run parameters
 #------------------------------------------------------------------------------
-cfg.duration = 1.5*1e4 ## Duration of the sim, in ms  
+cfg.duration = 1.5*1e1 ## Duration of the sim, in ms  
 cfg.dt = 0.05
 cfg.seeds = {'conn': 4322, 'stim': 4322, 'loc': 4322} 
 cfg.hParams = {'celsius': 34, 'v_init': -69.5}  
@@ -160,14 +160,13 @@ cfg.recordStep = 1.0
 
 # cfg.recordLFP = [[0, y, 0] for y in [500, 1000, 1500, 2000]] # 5 elec in L1 and 8 elec in L6
 
-cfg.cellpopidx = 7
+cfg.cellpopidx = 266
 
-cellpoprange = [[0,43], [43,55], [55,99], [99,150], [150, 154], [154, 174], [174, 200], [200,207]]
-
-cfg.meinit , cfg.mefinal = cellpoprange[cfg.cellpopidx]
+meinit = 4*(cfg.cellpopidx)
+mefinal = 4*(cfg.cellpopidx + 1)
 
 cfg.recordDipole = True
-if cfg.recordDipole: cfg.saveDipoleCells = cfg.S1cells[cfg.meinit:cfg.mefinal]
+if cfg.recordDipole: cfg.saveDipoleCells = cfg.S1cells[meinit:mefinal]
 
 #------------------------------------------------------------------------------
 # Saving
@@ -177,7 +176,7 @@ cfg.saveFolder = '../data/'+cfg.simLabel
 # cfg.filename =                	## Set file output name
 cfg.savePickle = True	        	## Save pkl file
 cfg.saveJson = False           	## Save json file
-cfg.saveDataInclude = ['simData', 'simConfig', 'netParams', 'net'] ## , 'simConfig', 'netParams'
+cfg.saveDataInclude = ['simData'] #, 'simConfig', 'netParams', 'net'] ## , 'simConfig', 'netParams'
 cfg.backupCfgFile = None 		##  
 cfg.gatherOnlySimData = False	##  
 cfg.saveCellSecs = False			
@@ -186,8 +185,8 @@ cfg.saveCellConns = False
 #------------------------------------------------------------------------------
 # Analysis and plotting 
 # ------------------------------------------------------------------------------
-cfg.analysis['plotRaster'] = {'include': cfg.S1cells, 'saveFig': True, 'showFig': False,'orderInverse': True, 'timeRange': [0,cfg.duration], 'figSize': (24,12), 'fontSize':4, 'markerSize':4, 'marker': 'o', 'dpi': 300} 
-cfg.analysis['plot2Dnet']   = {'include': cfg.S1cells,'saveFig': True, 'showConns': False, 'figSize': (24,24), 'fontSize':16}   # Plot 2D cells xy
+cfg.analysis['plotRaster'] = {'include': cfg.S1cells[meinit:mefinal], 'saveFig': True, 'showFig': False,'orderInverse': True, 'timeRange': [0,cfg.duration], 'figSize': (24,12), 'fontSize':4, 'markerSize':4, 'marker': 'o', 'dpi': 300} 
+cfg.analysis['plot2Dnet']   = {'include': cfg.S1cells[meinit:mefinal],'saveFig': True, 'showConns': False, 'figSize': (24,24), 'fontSize':16}   # Plot 2D cells xy
 # cfg.analysis['plotTraces'] = {'include': cfg.recordCells, 'oneFigPer': 'cell', 'overlay': True, 'timeRange': [0,cfg.duration], 'ylim': [-100,50], 'saveFig': True, 'showFig': False, 'figSize':(12,4)}
 # cfg.analysis['plot2Dfiring']={'saveFig': True, 'figSize': (24,24), 'fontSize':16}
 # cfg.analysis['plotConn'] = {'includePre': cfg.allpops, 'includePost': cfg.allpops, 'feature': 'numConns', 'groupBy': 'pop', 'figSize': (24,24), 'saveFig': True, 'orderBy': 'gid', 'graphType': 'matrix', 'saveData':'../data/v5_batch0/v5_batch0_matrix_numConn.json', 'fontSize': 18}
