@@ -6,5 +6,5 @@
 #SBATCH --qos=g100_qos_dbg
 #SBATCH --account=icei_H_King
 
-srun ./x86_64/special -mpi -python init.py simConfig=../data/v11_batch1/v11_batch1_0_cfg.json netParams=../data/v11_batch1/v11_batch1_netParams.py
-srun ./x86_64/special -mpi -python init.py simConfig=../data/v11_batch1/v11_batch1_1_cfg.json netParams=../data/v11_batch1/v11_batch1_netParams.py
+srun ./x86_64/special -mpi -python init.py
+

@@ -106,6 +106,9 @@ for cellLabel in spkTimes.keys():
     cellsVSName[metype].append('presyn_'+cellLabel)
     popsVSName[mtype].append('presyn_'+cellLabel)
 
+meinit = 4*(cfg.cellpopidx)
+mefinal = 4*(cfg.cellpopidx + 1)
+
 # create 1 vectstim pop per cell gid
 for popLabel in cellsVSName.keys():
     
@@ -119,26 +122,51 @@ for popLabel in cellsVSName.keys():
 
         if np.size(spkTimes[metype+'_'+cellLabel.split('_')[-1]]) == 0:
             spkTimes[metype+'_'+cellLabel.split('_')[-1]] = [15000.5]
+  
+        if metype in cfg.S1cells[meinit:mefinal]:
 
-        cellsList.append({'cellLabel': int(cellLabel.split('_')[-1]), 'spkTimes': spkTimes[metype+'_'+cellLabel.split('_')[-1]]})
-        netParams.popParams['presyn_'+metype] = {'cellModel': 'VecStim', 'cellsList': cellsList}
+            ii = int(cellLabel.split('_')[-1])
+            excluderadius2 = (0.5*cfg.fracmorphoradius)**2
+            distexclude2 = (cellsTags[ii]['xnorm']-0.5)**2 + (cellsTags[ii]['znorm']-0.5)**2
+
+            if distexclude2 > excluderadius2:                
+                cellsList.append({'cellLabel': int(cellLabel.split('_')[-1]), 'spkTimes': spkTimes[metype+'_'+cellLabel.split('_')[-1]]})
+                netParams.popParams['presyn_'+metype] = {'cellModel': 'VecStim', 'cellsList': cellsList}
+
+        else:
+            cellsList.append({'cellLabel': int(cellLabel.split('_')[-1]), 'spkTimes': spkTimes[metype+'_'+cellLabel.split('_')[-1]]})
+            netParams.popParams['presyn_'+metype] = {'cellModel': 'VecStim', 'cellsList': cellsList}
 
 #------------------------------------------------------------------------------
 # Population parameters
 #------------------------------------------------------------------------------
+#------------------------------------------------------------------------------
 ## S1
 for cellName in cfg.S1cells:
+
     layernumber = cellName[1:2]
+
     if layernumber == '2':
         netParams.popParams[cellName] = {'cellType': cellName, 'cellModel': 'HH_full', 'ynormRange': layer['23'], 
         'numCells': int(np.ceil(cfg.scaleDensity*cfg.cellNumber[cellName])), 'diversity': True}
     else:
         netParams.popParams[cellName] = {'cellType': cellName, 'cellModel': 'HH_full', 'ynormRange': layer[layernumber], 
         'numCells': int(np.ceil(cfg.scaleDensity*cfg.cellNumber[cellName])), 'diversity': True}
-    
-    if cellName not in cfg.S1cells[3:4]:
+
+    if cellName not in cfg.S1cells[meinit:mefinal]:
         netParams.popParams[cellName]['numCells'] =  1
-        cfg.cellNumber[cellName] =  1
+    
+    print(netParams.popParams[cellName])
+
+
+## THALAMIC POPULATIONS (from prev model)
+for popName in cfg.thalamicpops:
+    if 'RTN' in popName: # inhibitory - RTN
+        ThcellType = 'sRE_cell'
+    else: # excitatory
+        ThcellType = 'sTC_cell'    
+    netParams.popParams[popName] = {'cellType': ThcellType, 'cellModel': 'HH_full', 'yRange': [ymin[popName], ymax[popName]],
+                                        'numCells':  int(np.ceil(cfg.popNumber[popName])), 'diversity': False}
 
 #------------------------------------------------------------------------------
 # Cell parameters  # L1 70  L23 215  L4 230 L5 260  L6 260  = 1035
@@ -200,7 +228,8 @@ for cellName in cfg.S1cells:
         
         if cfg.loadcellsfromJSON:
             # Load cell rules previously saved using netpyne format
-            netParams.loadCellParamsRule(label = cellMe, fileName = 'cell_data/' + cellMe + '/' + cellMe + '_cellParams.json')          
+            netParams.loadCellParamsRule(label = cellMe, fileName = 'cell_data/' + cellMe + '/' + cellMe + '_cellParams.json')        
+            # netParams.loadCellParamsRule(label = cellMe, fileName = 'cell_data/L5_TTPC1_cADpyr232_5/L5_TTPC1_cADpyr232_5_cellParams.json')       
         else:
             cellRule = {'conds': {'cellType': cellName}, 'diversityFraction': cellFraction, 'secs': {}}  # cell rule dict
             cellRule['secs'] = netParams.cellParams[cellMe]['secs']     
@@ -444,7 +473,17 @@ if cfg.addConn:
                     if post in Ipops:                             
                         connID = ConnTypes[pre][post][0]                        
                         synMechType = 'S1_II_STP_Det_' + str(connID)   
-                        contA+= 1 
+                        contA+= 1
+                        netParams.connParams['II_' + pre + '_' + post] = { 
+                                        'preConds': {'pop': cfg.popLabelEl[pre]}, 
+                                        'postConds': {'pop': cfg.popLabelEl[post]},
+                                        'synMech': synMechType,
+                                        'probability': prob,
+                                        'weight': parameters_syn['gsyn',connID] * cfg.IIGain, 
+                                        'synMechWeightFactor': cfg.synWeightFractionII,
+                                        'delay': 'defaultDelay+dist_3D/propVelocity',
+                                        'synsPerConn': int(synperconnNumber[pre][post]+0.5),
+                                        'sec': 'spiny'}      
                                         
                         netParams.connParams['VS_'+'II_' + pre + '_' + post] = { 
                                         'preConds': {'pop': ['presyn_'+metypeVs for metypeVs in cfg.popLabelEl[pre]]}, 
@@ -488,7 +527,17 @@ if cfg.addConn:
                         connID = ConnTypes[pre][post][0]                            
                         synMechType = 'S1_IE_STP_Det_' + str(connID)
                         
-                        contA+= 1                           
+                        contA+= 1                          
+                        netParams.connParams['IE_'+pre+'_'+post] = { 
+                                    'preConds': {'pop': cellpreList_A}, 
+                                    'postConds': {'pop': cfg.popLabelEl[post]},
+                                    'synMech': synMechType,
+                                    'probability': prob,
+                                    'weight': parameters_syn['gsyn',connID] * cfg.IEGain, 
+                                    'synMechWeightFactor': cfg.synWeightFractionIE,
+                                    'delay': 'defaultDelay+dist_3D/propVelocity',
+                                    'synsPerConn': int(synperconnNumber[pre][post]+0.5),
+                                    'sec': 'spiny'}      
 
                         netParams.connParams['VS_'+'IE_'+pre+'_'+post] = { 
                                     'preConds': {'pop': ['presyn_'+metypeVs for metypeVs in cellpreList_A]}, 
@@ -505,6 +554,16 @@ if cfg.addConn:
                         if connID_B >= 0:          
                             connID = connID_B
                             synMechType = 'S1_IE_STP_Det_' + str(connID)         
+                            netParams.connParams['IE_'+pre+'_'+post+'_B'] = { 
+                                        'preConds': {'pop': cellpreList_B}, 
+                                        'postConds': {'pop': cfg.popLabelEl[post]},
+                                        'synMech': synMechType,
+                                        'probability': prob,
+                                        'weight': parameters_syn['gsyn',connID] * cfg.IEGain, 
+                                        'synMechWeightFactor': cfg.synWeightFractionIE,
+                                        'delay': 'defaultDelay+dist_3D/propVelocity',
+                                        'synsPerConn': int(synperconnNumber[pre][post]+0.5),
+                                        'sec': 'spiny'}   
 
                             netParams.connParams['VS_'+'IE_'+pre+'_'+post+'_B'] = { 
                                         'preConds': {'pop': ['presyn_'+metypeVs for metypeVs in cellpreList_B]}, 
@@ -521,6 +580,16 @@ if cfg.addConn:
                             if connID_C >= 0:          
                                 connID = connID_C
                                 synMechType = 'S1_IE_STP_Det_' + str(connID)         
+                                netParams.connParams['IE_'+pre+'_'+post+'_C'] = { 
+                                            'preConds': {'pop': cellpreList_C}, 
+                                            'postConds': {'pop': cfg.popLabelEl[post]},
+                                            'synMech': synMechType,
+                                            'probability': prob,
+                                            'weight': parameters_syn['gsyn',connID] * cfg.IEGain, 
+                                            'synMechWeightFactor': cfg.synWeightFractionIE,
+                                            'delay': 'defaultDelay+dist_3D/propVelocity',
+                                            'synsPerConn': int(synperconnNumber[pre][post]+0.5),
+                                            'sec': 'spiny'}    
 
                                 netParams.connParams['VS_'+'IE_'+pre+'_'+post+'_C'] = { 
                                             'preConds': {'pop': ['presyn_'+metypeVs for metypeVs in cellpreList_C]}, 
@@ -541,7 +610,17 @@ if cfg.addConn:
                     if post in Epops:    
                         connID = ConnTypes[pre][post][0]                        
                         synMechType = 'S1_EE_STP_Det_' + str(connID)   
-                        contA+= 1    
+                        contA+= 1   
+                        netParams.connParams['EE_'+pre+'_'+post] = { 
+                            'preConds': {'pop': cfg.popLabelEl[pre]}, 
+                            'postConds': {'pop': cfg.popLabelEl[post]},
+                            'synMech': synMechType,
+                            'probability': prob, 
+                            'weight': parameters_syn['gsyn',connID] * cfg.EEGain, 
+                            'synMechWeightFactor': cfg.synWeightFractionEE,
+                            'delay': 'defaultDelay+dist_3D/propVelocity',
+                            'synsPerConn': int(synperconnNumber[pre][post]+0.5),
+                            'sec': 'spinyEE'}    
     
                         netParams.connParams['VS_'+'EE_'+pre+'_'+post] = { 
                             'preConds': {'pop': ['presyn_'+metypeVs for metypeVs in cfg.popLabelEl[pre]]}, 
@@ -591,6 +670,16 @@ if cfg.addConn:
                             synMechType = 'S1_EIproximal_STP_Det_' + str(connID)  
 
                         contA+= 1                                                              
+                        netParams.connParams['EI_'+pre+'_'+post] = { 
+                                        'preConds': {'pop': cfg.popLabelEl[pre]}, 
+                                        'postConds': {'pop': cellpostList_A},
+                                        'synMech': synMechType,
+                                        'probability': prob, 
+                                        'weight': parameters_syn['gsyn',connID] * cfg.EIGain, 
+                                        'synMechWeightFactor': cfg.synWeightFractionEI,
+                                        'delay': 'defaultDelay+dist_3D/propVelocity',
+                                        'synsPerConn': int(synperconnNumber[pre][post]+0.5),
+                                        'sec': 'spiny'}   
                                        
                         netParams.connParams['VS_'+'EI_'+pre+'_'+post] = { 
                                         'preConds': {'pop': ['presyn_'+metypeVs for metypeVs in cfg.popLabelEl[pre]]}, 
@@ -610,6 +699,18 @@ if cfg.addConn:
                                 synMechType = 'S1_EIdistal_STP_Det_' + str(connID)
                             else: # shallow dependence between PC-proximal targeting cell types (LBCs, NBCs, SBCs, ChC) + L1s and NGCs ????
                                 synMechType = 'S1_EIproximal_STP_Det_' + str(connID)  
+
+
+                            netParams.connParams['EI_'+pre+'_'+post+'_B'] = { 
+                                            'preConds': {'pop': cfg.popLabelEl[pre]}, 
+                                            'postConds': {'pop': cellpostList_B},
+                                            'synMech': synMechType,
+                                            'probability': prob, 
+                                            'weight': parameters_syn['gsyn',connID] * cfg.EIGain, 
+                                            'synMechWeightFactor': cfg.synWeightFractionEI,
+                                            'delay': 'defaultDelay+dist_3D/propVelocity',
+                                            'synsPerConn': int(synperconnNumber[pre][post]+0.5),
+                                            'sec': 'spiny'}   
       
                             netParams.connParams['VS_'+'EI_'+pre+'_'+post+'_B'] = { 
                                             'preConds': {'pop': ['presyn_'+metypeVs for metypeVs in cfg.popLabelEl[pre]]}, 
@@ -678,6 +779,177 @@ if cfg.addStimSynS1:
                 'delay': 0.1}
 
 #------------------------------------------------------------------------------
+# Th-Th connectivity parameters
+#------------------------------------------------------------------------------
+if cfg.connectTh:
+
+    ## load data from conn pre-processing file
+    with open('conn/conn_Th.pkl', 'rb') as fileObj: connData = pickle.load(fileObj)
+    pmat = connData['pmat']
+    wmat = connData['wmat']
+    cmat = connData['cmat']
+    
+    pops_TC     = ['VPL_sTC','VPM_sTC', 'POm_sTC_s1']
+    pops_RTN    = ['ss_RTN_o', 'ss_RTN_m', 'ss_RTN_i']
+    pops_FO     = ['VPL_sTC','VPM_sTC']
+    pops_HO     = ['POm_sTC_s1']
+
+    # Intrathalamic 
+    if cfg.connect_RTN_RTN:        
+        for pre in pops_RTN:
+            for post in pops_RTN:
+                if pre in pmat and post in pmat[pre]:
+
+                    pmat[pre][post]=cfg.connProb_RTN_RTN
+                    wmat[pre][post]=cfg.connWeight_RTN_RTN
+
+                    l = cmat[pre][post]/4 
+                    syn = PVSynMech_Th # only GABA A
+                    synWeightFactor = [1.0]
+                    netParams.connParams['thal_'+pre+'_'+post] = { 
+                                    'preConds': {'pop': pre}, 
+                                    'postConds': {'pop': post},
+                                    'synMech': syn,
+                                    'probability':' %f * exp(-dist_3D/%f)\
+                                                    *(dist_2D<%f)\
+                                                    *(dist_y<(%f/%f))\
+                                                    ' % (pmat[pre][post], l, 
+                                                        cmat[pre][post], 
+                                                        cmat[pre][post],cfg.yConnFactor),
+                                    'weight': wmat[pre][post] * cfg.intraThalamicGain, 
+                                    'synMechWeightFactor': synWeightFactor,
+                                    'delay': 'defaultDelay+dist_3D/propVelocity',
+                                    'synsPerConn': 1,
+                                    'sec': 'soma'}
+
+    if cfg.connect_TC_RTN:
+        for pre in pops_TC:
+            for post in pops_RTN:
+                if pre in pmat and post in pmat[pre]:
+
+                    pmat[pre][post]=cfg.connProb_TC_RTN
+                    wmat[pre][post]=cfg.connWeight_TC_RTN
+
+                    l = cmat[pre][post]/4
+                    y_thresh    = cmat[pre][post]/5
+
+                    syn = ['AMPA_Th'] # AMPA
+                    synWeightFactor = [1.0]
+
+                    if pre in pops_HO:
+                        conn_method = 'divergence'
+                        prob_rule = cfg.divergenceHO
+                    else:
+                        # topographycal connectivity
+                        conn_method = 'probability'
+                        prob_rule = '%f * exp(-dist_2D/%f)\
+                                                *(dist_2D<%f)\
+                                                *(abs(((((pre_y-%f)*(%f-%f))/(%f-%f))+%f)-post_y)<%f)\
+                                                \
+                                                ' % (pmat[pre][post], l, 
+                                                    cmat[pre][post],
+                                                    ymin[pre],ymax[post],ymin[post],ymax[pre],ymin[pre],ymin[post],y_thresh
+                                                    )
+
+                    netParams.connParams['thal_'+pre+'_'+post] = { 
+                                'preConds': {'pop': pre}, 
+                                'postConds': {'pop': post},
+                                'synMech': syn,
+                                conn_method:  prob_rule,
+                                'weight': wmat[pre][post] * cfg.intraThalamicGain, 
+                                'synMechWeightFactor': synWeightFactor,
+                                'delay': 'defaultDelay+dist_3D/propVelocity',
+                                'synsPerConn': 1,
+                                'sec': 'soma'}
+
+    if cfg.connect_RTN_TC:
+        for pre in pops_RTN:
+            for post in pops_TC:
+                if pre in pmat and post in pmat[pre]:
+
+                    pmat[pre][post]=cfg.connProb_RTN_TC
+                    wmat[pre][post]=cfg.connWeight_RTN_TC
+
+                    # l = cmat[pre][post]/4
+                    l = cmat[pre][post]/1 ## Fernando changed to increase the FO conn 
+                    y_thresh    = cmat[pre][post]/5
+
+                    syn = NGFSynMech_Th    # GABA A and GABA B
+                    synWeightFactor = [0.6,0.4]
+
+                    if post in pops_HO:
+                        conn_method = 'divergence'
+                        prob_rule = cfg.divergenceHO
+                    else: # topographycal connectivity
+                        conn_method = 'probability'
+                        prob_rule = '%f * exp(-dist_2D/%f)\
+                                                *(dist_2D<%f)\
+                                                *(abs(((((pre_y-%f)*(%f-%f))/(%f-%f))+%f)-post_y)<%f)\
+                                                \
+                                                ' % (pmat[pre][post], l, 
+                                                    cmat[pre][post],
+                                                    ymin[pre],ymax[post],ymin[post],ymax[pre],ymin[pre],ymin[post],y_thresh
+                                                    )
+
+                    netParams.connParams['thal_'+pre+'_'+post] = { 
+                                'preConds': {'pop': pre}, 
+                                'postConds': {'pop': post},
+                                'synMech': syn,
+                                conn_method:  prob_rule,
+                                'weight': wmat[pre][post] * cfg.intraThalamicGain, 
+                                'synMechWeightFactor': synWeightFactor,
+                                'delay': 'defaultDelay+dist_3D/propVelocity',
+                                'synsPerConn': 1,
+                                'sec': 'soma'}
+
+#------------------------------------------------------------------------------
+# Th->S1 connectivity parameters
+#------------------------------------------------------------------------------
+if cfg.connect_Th_S1:
+
+    # mtype VPM_sTC POm_sTC_s1 nameref
+    with open('../info/anatomy/convergence_Th_S1.txt') as mtype_file:
+        mtype_content = mtype_file.read()       
+
+    convergence_Th_S1 = {}
+    convergence_Th_S1['VPM_sTC'] = {}
+    convergence_Th_S1['VPL_sTC'] = {}
+    convergence_Th_S1['POm_sTC_s1'] = {}
+
+    for line in mtype_content.split('\n')[:-1]:
+        mtype, preFO, preHO, nameref  = line.split()
+        convergence_Th_S1['VPL_sTC'][mtype] = int(cfg.frac_Th_S1*int(preFO)) # First Order  
+        convergence_Th_S1['VPM_sTC'][mtype] = int(cfg.frac_Th_S1*int(preFO)) # First Order
+        convergence_Th_S1['POm_sTC_s1'][mtype] = int(cfg.frac_Th_S1*int(preHO)) # High Order 
+
+    ## Connectivity rules
+    radius_cilinder = netParams.sizeX/2.0
+    synapsesperconnection_Th_S1 = 9.0
+    radius2D_Th_S1 = 50.0
+
+    for pre in ['VPL_sTC', 'VPM_sTC', 'POm_sTC_s1']:  #  
+        if cfg.TC_S1[pre]:
+            for post in Epops+Ipops: 
+                
+                conn_convergence = np.ceil(convergence_Th_S1[pre][post]/synapsesperconnection_Th_S1)
+                prob_conv = 1.0*(conn_convergence/cfg.popNumber[pre])*((radius_cilinder**2)/(radius2D_Th_S1**2)) # prob*(AreaS1/Area_Th_syn)  
+                probability_rule = '%f if dist_2D < %f else 0.0' % (prob_conv,radius2D_Th_S1)
+
+                netParams.connParams['thal_'+pre+'_'+post] = { 
+                    'preConds': {'pop': pre}, 
+                    'postConds': {'pop': cfg.popLabelEl[post]},
+                    'weight': 0.19,   # synaptic weight 
+                    'sec': 'spinyEE', # target postsyn section
+                    'delay': 'defaultDelay+dist_3D/propVelocity',
+                    'synsPerConn': int(synapsesperconnection_Th_S1), 
+                    'synMech': 'TC:S1'}  
+
+                if pre=='POm_sTC_s1':
+                    netParams.connParams['thal_'+pre+'_'+post]['convergence'] = conn_convergence # non-topographycal connectivity
+                else:
+                    netParams.connParams['thal_'+pre+'_'+post]['probability'] = probability_rule # FO (First Order)
+
+#------------------------------------------------------------------------------
 # ThVecStim->S1 connectivity parameters
 #------------------------------------------------------------------------------
 if cfg.connect_ThVecStim_S1:
@@ -723,6 +995,180 @@ if cfg.connect_ThVecStim_S1:
                     netParams.connParams['thal_'+pre+'_'+post]['convergence'] = conn_convergence # non-topographycal connectivity
                 else:
                     netParams.connParams['thal_'+pre+'_'+post]['probability'] = probability_rule # FO (First Order)
+
+#------------------------------------------------------------------------------
+# S1-> connectivity parameters Th
+#------------------------------------------------------------------------------
+if cfg.connect_S1_Th:
+
+    ## load data from conn pre-processing file
+    with open('conn/conn_Th.pkl', 'rb') as fileObj: connData = pickle.load(fileObj)
+    wmat = connData['wmat']
+    cmat = connData['cmat']
+    
+    pops_TC     = ['VPL_sTC','VPM_sTC', 'POm_sTC_s1']
+    pops_RTN    = ['ss_RTN_o', 'ss_RTN_m', 'ss_RTN_i']
+    pops_FO     = ['VPL_sTC','VPM_sTC']
+    pops_HO     = ['POm_sTC_s1'],
+
+    pops_CT     = ['L5_TTPC2', 'L6_TPC_L4']
+
+    radius2D_S1_RTN = 50.0
+    radius2D_S1_TC = 50.0
+    radius_cilinder = netParams.sizeX/2.0
+
+    if cfg.connect_S1_RTN:
+        for pre in pops_CT:
+            for post in pops_RTN:
+
+                syn = ['AMPA_Th'] # AMPA
+                synWeightFactor = [1.0]
+
+                conn_method = 'probability'
+
+                conn_convergence = cfg.convergence_S1_RTN
+                prob_conv = 1.0*(conn_convergence/cfg.popNumber[pre])*((radius_cilinder**2)/(radius2D_S1_RTN**2)) # prob*(AreaS1/Area_Th_syn)  
+                prob_rule = '%f if dist_2D < %f else 0.0' % (prob_conv,radius2D_S1_RTN)
+
+                netParams.connParams['thal_'+pre+'_'+post] = { 
+                                'preConds': {'pop': cfg.popLabelEl[pre]}, 
+                                'postConds': {'pop': post},
+                                'synMech': syn,
+                                conn_method:  prob_rule,
+                                'weight': cfg.connWeight_S1_RTN, 
+                                'synMechWeightFactor': synWeightFactor,
+                                'delay': 'defaultDelay+dist_3D/propVelocity',
+                                'synsPerConn': 1,
+                                'sec': 'soma'}
+
+    if cfg.connect_S1_TC:
+        for pre in pops_CT:
+            for post in pops_TC:
+
+                syn = ['AMPA_Th'] # AMPA
+                synWeightFactor = [1.0]
+
+                if post in pops_HO:
+                    conn_method = 'divergence'
+                    prob_rule = cfg.divergenceHO/2.0
+                else: # topographycal connectivity
+                    conn_method = 'probability'
+                    conn_convergence = cfg.convergence_S1_TC
+                    prob_conv = 1.0*(conn_convergence/cfg.popNumber[pre])*((radius_cilinder**2)/(radius2D_S1_TC**2)) # prob*(AreaS1/Area_Th_syn)  
+                    prob_rule = '%f if dist_2D < %f else 0.0' % (prob_conv,radius2D_S1_TC)
+
+                netParams.connParams['thal_'+pre+'_'+post] = { 
+                                'preConds': {'pop': cfg.popLabelEl[pre]}, 
+                                'postConds': {'pop': post},
+                                'synMech': syn,
+                                conn_method:  prob_rule,
+                                'weight': cfg.connWeight_S1_TC, 
+                                'synMechWeightFactor': synWeightFactor,
+                                'delay': 'defaultDelay+dist_3D/propVelocity',
+                                'synsPerConn': 1,
+                                'sec': 'soma'}
+
+
+# print(np.size(list(netParams.connParams.keys())),np.size(list(netParams.popParams.keys())))
+
+# print(netParams.connParams['VS_EE_L23_PC_L23_PC'])
+
+#------------------------------------------------------------------------------    
+# Current inputs (IClamp)
+#------------------------------------------------------------------------------
+if cfg.addIClamp:
+     for j in range(cfg.IClampnumber):
+        key ='IClamp'
+        params = getattr(cfg, key, None)
+        key ='IClamp'+str(j+1)
+        params = params[j]
+        [pop,sec,loc,start,dur,amp] = [params[s] for s in ['pop','sec','loc','start','dur','amp']]
+
+        # add stim source
+        netParams.stimSourceParams[key] = {'type': 'IClamp', 'delay': start, 'dur': dur, 'amp': amp}
+        
+        # connect stim source to target
+        netParams.stimTargetParams[key+'_'+pop] =  {
+            'source': key, 
+            'conds': {'pop': pop},
+            'sec': sec, 
+            'loc': loc}
+
+#------------------------------------------------------------------------------
+# NetStim inputs - FROM CFG.PY
+#------------------------------------------------------------------------------
+if cfg.addNetStim:
+    for key in [k for k in dir(cfg) if k.startswith('NetStim')]:
+        params = getattr(cfg, key, None)
+        [pop, sec, loc, synMech, synMechWeightFactor, start, interval, noise, number, weight, delay] = \
+        [params[s] for s in ['pop', 'sec', 'loc', 'synMech', 'synMechWeightFactor', 'start', 'interval', 'noise', 'number', 'weight', 'delay']] 
+
+        #cfg.analysis['plotTraces']['include'] = [(pop,0)]
+
+        if synMech == ESynMech:
+            wfrac = cfg.synWeightFractionEE
+        else:
+            wfrac = [1.0]
+
+        # add stim source
+        netParams.stimSourceParams[key] = { 'type':     'NetStim', 
+                                            'start':    cfg.startStimTime       if cfg.startStimTime is not None        else start, 
+                                            'interval': cfg.interStimInterval   if cfg.interStimInterval is not None    else interval, 
+                                            'noise':    noise, 
+                                            'number':   cfg.numStims            if cfg.numStims is not None             else number}
+
+        # netParams.stimSourceParams[key] = {'type': 'NetStim', 'start': start, 'interval': interval, 'noise': noise, 'number': number}
+
+        # connect stim source to target
+        # for i, syn in enumerate(synMech):
+        netParams.stimTargetParams[key+'_'+pop] =  {
+            'source': key, 
+            'conds': {'pop': pop},
+            'sec': sec, 
+            'loc': loc,
+            'synMech': synMech,
+            # 'weight': weight,
+            'weight': cfg.netWeight if cfg.netWeight is not None else weight,
+            'synMechWeightFactor': synMechWeightFactor,
+            'delay': delay}
+
+#------------------------------------------------------------------------------
+# Targeted NetStim inputs - FROM CFG.PY
+#------------------------------------------------------------------------------
+if cfg.addTargetedNetStim:
+    for key in [k for k in dir(cfg) if k.startswith('TargetedNetStim')]:
+        params = getattr(cfg, key, None)
+        [pop, sec, loc, synMech, synMechWeightFactor, start, interval, noise, number, weight, delay, targetCells] = \
+        [params[s] for s in ['pop', 'sec', 'loc', 'synMech', 'synMechWeightFactor', 'start', 'interval', 'noise', 'number', 'weight', 'delay', 'targetCells']] 
+
+        #cfg.analysis['plotTraces']['include'] = [(pop,0)]
+
+        if synMech == ESynMech:
+            wfrac = cfg.synWeightFractionEE
+        else:
+            wfrac = [1.0]
+
+        # add stim source
+        netParams.stimSourceParams[key] = { 'type':     'NetStim', 
+                                            'start':    cfg.startStimTime       if cfg.startStimTime is not None        else start, 
+                                            'interval': cfg.interStimInterval   if cfg.interStimInterval is not None    else interval, 
+                                            'noise':    noise, 
+                                            'number':   cfg.numStims            if cfg.numStims is not None             else number}
+
+        # netParams.stimSourceParams[key] = {'type': 'NetStim', 'start': start, 'interval': interval, 'noise': noise, 'number': number}
+
+        # connect stim source to target
+        # for i, syn in enumerate(synMech):
+        netParams.stimTargetParams[key+'_'+pop] =  {
+            'source': key, 
+            'conds': {'pop': cfg.stimPop if cfg.stimPop is not None else pop, 'cellList': targetCells},
+            'sec': sec, 
+            'loc': loc,
+            'synMech': synMech,
+            # 'weight': weight,
+            'weight': cfg.netWeight if cfg.netWeight is not None else weight,
+            'synMechWeightFactor': synMechWeightFactor,
+            'delay': delay}
 
 #------------------------------------------------------------------------------
 # Description
