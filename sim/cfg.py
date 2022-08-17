@@ -127,8 +127,7 @@ cfg.cellParamLabels = cellParam
 #------------------------------------------------------------------------------  
 #------------------------------------------------------------------------------  
 ## Run only selected populations (me-types)
-# subPopLabels = cfg.S1pops[16:41] # from 0 to 55 is full S1 -> L1:6 L23:10 L4:12 L5:13 L6:14
-subPopLabels = cfg.S1pops #['L4_PC','L4_LBC','L5_TTPC1','L5_MC'] #['L5_TTPC1'] # 
+subPopLabels = cfg.S1pops[14:15]
 #------------------------------------------------------------------------------  
 cfg.S1pops = subPopLabels
 cfg.S1cells = []
@@ -160,17 +159,17 @@ cfg.recordStep = 1.0
 # cfg.recordLFP = [[0, y, 0] for y in [500, 1000, 1500, 2000]] # 5 elec in L1 and 8 elec in L6
 
 cfg.recordDipole = True
-if cfg.recordDipole: cfg.saveDipoleCells = cfg.S1cells[3:4]
+if cfg.recordDipole: cfg.saveDipoleCells = cfg.S1cells
 
 #------------------------------------------------------------------------------
 # Saving
 #------------------------------------------------------------------------------
-cfg.simLabel = 'v11_batch3'
+cfg.simLabel = 'v11_batch14_a'
 cfg.saveFolder = '../data/'+cfg.simLabel
 # cfg.filename =                	## Set file output name
 cfg.savePickle = True	        	## Save pkl file
 cfg.saveJson = False           	## Save json file
-cfg.saveDataInclude = ['simData'] # , 'simConfig', 'netParams', 'net'] ## , 'simConfig', 'netParams'
+cfg.saveDataInclude = ['simData', 'simConfig', 'net'] # , 'simConfig', 'netParams', 'net'] ## , 'simConfig', 'netParams'
 cfg.backupCfgFile = None 		##  
 cfg.gatherOnlySimData = False	##  
 cfg.saveCellSecs = False			
@@ -201,12 +200,9 @@ cfg.scale = 1.0 # reduce size
 cfg.sizeY = 2082.0
 cfg.sizeX = 420.0 # r = 210 um and hexagonal side length = 230.9 um
 cfg.sizeZ = 420.0
-cfg.fracmorphoradius = 1.0 # /3.75 # 4.2
-cfg.scaleDensity = 1.0*(cfg.fracmorphoradius*cfg.fracmorphoradius) # Number of cells = 31346
+cfg.scaleDensity = 0.25 # Number of cells = 31346
 
-# print('%s \t Nmorpho ~ %.1f (%.1f percent) \t 1/fracmorphoradius = %.2f' % (cfg.simLabel,31346*cfg.scaleDensity,100.0*cfg.scaleDensity,1.0/cfg.fracmorphoradius))
-print(cfg.simLabel,cfg.S1cells[3:4])
-
+print(cfg.simLabel,cfg.S1cells,cfg.S1pops,cfg.popNumber[cfg.S1pops[0]],int(np.ceil(cfg.scaleDensity*cfg.popNumber[cfg.S1pops[0]])))
 
 #------------------------------------------------------------------------------
 # Spontaneous synapses + background - data from Rat

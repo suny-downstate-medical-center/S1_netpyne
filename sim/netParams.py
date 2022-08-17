@@ -88,6 +88,7 @@ spkTimes = simData['spkTimes']
 cellsTags = simData['cellsTags']
 
 # create custom list of spike times
+preS1cells = []
 cellsVSName = {}
 popsVSName = {}
 for cellLabel in spkTimes.keys():    
@@ -102,6 +103,8 @@ for cellLabel in spkTimes.keys():
     mtype = cfg.popLabel[metype]    
     if mtype not in popsVSName.keys():
         popsVSName[mtype] = []
+        if mtype[0] == 'L':
+            preS1cells.append(mtype)
         
     cellsVSName[metype].append('presyn_'+cellLabel)
     popsVSName[mtype].append('presyn_'+cellLabel)
@@ -135,10 +138,6 @@ for cellName in cfg.S1cells:
     else:
         netParams.popParams[cellName] = {'cellType': cellName, 'cellModel': 'HH_full', 'ynormRange': layer[layernumber], 
         'numCells': int(np.ceil(cfg.scaleDensity*cfg.cellNumber[cellName])), 'diversity': True}
-    
-    if cellName not in cfg.S1cells[3:4]:
-        netParams.popParams[cellName]['numCells'] =  1
-        cfg.cellNumber[cellName] =  1
 
 #------------------------------------------------------------------------------
 # Cell parameters  # L1 70  L23 215  L4 230 L5 260  L6 260  = 1035
@@ -235,16 +234,6 @@ for cellName in cfg.S1cells:
             if 'ions' in netParams.cellParams[cellMe]['secs'][section].keys():
                 if 'ca' in netParams.cellParams[cellMe]['secs'][section]['ions'].keys():
                     netParams.cellParams[cellMe]['secs'][section]['ions']['ca']['o'] = cfg.cao_secs
-       
-## Th cell property rules
-# JSON FILES FROM A1 WITH UPDATED DYNAMICS
-# # --- VL - Exc --- #
-netParams.loadCellParamsRule(label='sTC_cell', fileName='cells/sTC_jv_00.json')  # Load cellParams for each of the above cell subtype
-netParams.cellParams['sTC_cell']['conds']={}
-
-# --- RTN - Inh --- #
-netParams.loadCellParamsRule(label='sRE_cell', fileName='cells/sRE_jv_00.json')  # Load cellParams for each of the above cell subtype
-netParams.cellParams['sRE_cell']['conds']={}
 
 #------------------------------------------------------------------------------
 # load data from S1 conn pre-processing file 
@@ -402,7 +391,7 @@ NGFSynMech_Th  = ['GABAA_Th', 'GABAB_Th']
 contA = 0
 
 if cfg.addConn:    
-    for pre in Ipops+Epops:
+    for pre in preS1cells:
         for post in Ipops+Epops:
             if float(connNumber[pre][post]) > 0:           
                 # ------------------------------------------------------------------------------    
