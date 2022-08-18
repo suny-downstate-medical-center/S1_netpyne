@@ -15,7 +15,6 @@ import pandas as pd
 
 netParams = specs.NetParams()   # object of class NetParams to store the network parameters
 
-
 try:
     from __main__ import cfg  # import SimConfig object with params from parent module
 except:
@@ -83,12 +82,10 @@ netParams.scaleConnWeightNetStims = 0.001  # weight conversion factor (from nS t
 
 ## Load spkTimes and cells positions
 with open('../data/spkTimes_v9_batch8_highgsynCT.pkl', 'rb') as fileObj: simData = pickle.load(fileObj)
-
 spkTimes = simData['spkTimes']
 cellsTags = simData['cellsTags']
 
 # create custom list of spike times
-preS1cells = []
 cellsVSName = {}
 popsVSName = {}
 for cellLabel in spkTimes.keys():    
@@ -103,8 +100,6 @@ for cellLabel in spkTimes.keys():
     mtype = cfg.popLabel[metype]    
     if mtype not in popsVSName.keys():
         popsVSName[mtype] = []
-        if mtype[0] == 'L':
-            preS1cells.append(mtype)
         
     cellsVSName[metype].append('presyn_'+cellLabel)
     popsVSName[mtype].append('presyn_'+cellLabel)
@@ -134,9 +129,13 @@ for cellName in cfg.S1cells:
     layernumber = cellName[1:2]
     if layernumber == '2':
         netParams.popParams[cellName] = {'cellType': cellName, 'cellModel': 'HH_full', 'ynormRange': layer['23'], 
+        'xnormRange': [0.5-0.5*cfg.fracmorphoradius, 0.5+0.5*cfg.fracmorphoradius],
+        'znormRange': [0.5-0.5*cfg.fracmorphoradius, 0.5+0.5*cfg.fracmorphoradius], 
         'numCells': int(np.ceil(cfg.scaleDensity*cfg.cellNumber[cellName])), 'diversity': True}
     else:
         netParams.popParams[cellName] = {'cellType': cellName, 'cellModel': 'HH_full', 'ynormRange': layer[layernumber], 
+        'xnormRange': [0.5-0.5*cfg.fracmorphoradius, 0.5+0.5*cfg.fracmorphoradius],  
+        'znormRange': [0.5-0.5*cfg.fracmorphoradius, 0.5+0.5*cfg.fracmorphoradius], 
         'numCells': int(np.ceil(cfg.scaleDensity*cfg.cellNumber[cellName])), 'diversity': True}
 
 #------------------------------------------------------------------------------
@@ -199,7 +198,8 @@ for cellName in cfg.S1cells:
         
         if cfg.loadcellsfromJSON:
             # Load cell rules previously saved using netpyne format
-            netParams.loadCellParamsRule(label = cellMe, fileName = 'cell_data/' + cellMe + '/' + cellMe + '_cellParams.json')          
+            netParams.loadCellParamsRule(label = cellMe, fileName = 'cell_data/' + cellMe + '/' + cellMe + '_cellParams.json')        
+            # netParams.loadCellParamsRule(label = cellMe, fileName = 'cell_data/L5_TTPC1_cADpyr232_5/L5_TTPC1_cADpyr232_5_cellParams.json')       
         else:
             cellRule = {'conds': {'cellType': cellName}, 'diversityFraction': cellFraction, 'secs': {}}  # cell rule dict
             cellRule['secs'] = netParams.cellParams[cellMe]['secs']     
@@ -391,7 +391,7 @@ NGFSynMech_Th  = ['GABAA_Th', 'GABAB_Th']
 contA = 0
 
 if cfg.addConn:    
-    for pre in preS1cells:
+    for pre in Ipops+Epops:
         for post in Ipops+Epops:
             if float(connNumber[pre][post]) > 0:           
                 # ------------------------------------------------------------------------------    
@@ -433,7 +433,7 @@ if cfg.addConn:
                     if post in Ipops:                             
                         connID = ConnTypes[pre][post][0]                        
                         synMechType = 'S1_II_STP_Det_' + str(connID)   
-                        contA+= 1 
+                        contA+= 1  
                                         
                         netParams.connParams['VS_'+'II_' + pre + '_' + post] = { 
                                         'preConds': {'pop': ['presyn_'+metypeVs for metypeVs in cfg.popLabelEl[pre]]}, 
@@ -477,7 +477,7 @@ if cfg.addConn:
                         connID = ConnTypes[pre][post][0]                            
                         synMechType = 'S1_IE_STP_Det_' + str(connID)
                         
-                        contA+= 1                           
+                        contA+= 1                            
 
                         netParams.connParams['VS_'+'IE_'+pre+'_'+post] = { 
                                     'preConds': {'pop': ['presyn_'+metypeVs for metypeVs in cellpreList_A]}, 
@@ -509,7 +509,7 @@ if cfg.addConn:
                                 
                             if connID_C >= 0:          
                                 connID = connID_C
-                                synMechType = 'S1_IE_STP_Det_' + str(connID)         
+                                synMechType = 'S1_IE_STP_Det_' + str(connID)           
 
                                 netParams.connParams['VS_'+'IE_'+pre+'_'+post+'_C'] = { 
                                             'preConds': {'pop': ['presyn_'+metypeVs for metypeVs in cellpreList_C]}, 
@@ -530,7 +530,7 @@ if cfg.addConn:
                     if post in Epops:    
                         connID = ConnTypes[pre][post][0]                        
                         synMechType = 'S1_EE_STP_Det_' + str(connID)   
-                        contA+= 1    
+                        contA+= 1   
     
                         netParams.connParams['VS_'+'EE_'+pre+'_'+post] = { 
                             'preConds': {'pop': ['presyn_'+metypeVs for metypeVs in cfg.popLabelEl[pre]]}, 
@@ -573,7 +573,6 @@ if cfg.addConn:
                              
                         connID = ConnTypes[pre][post][0]      
 
-
                         if 'DBC' in post or 'BTC' in post or 'MC' in post or 'BP' in post:  # steep Ca2+ dependence for connections between PC-distal targeting cell types (DBC, BTC, MC, BP)
                             synMechType = 'S1_EIdistal_STP_Det_' + str(connID)
                         else: # shallow dependence between PC-proximal targeting cell types (LBCs, NBCs, SBCs, ChC) + L1s and NGCs ????
@@ -593,7 +592,6 @@ if cfg.addConn:
                                         'sec': 'spiny'}  
 
                         if connID_B >= 0:          
-                            connID = connID_B
 
                             if 'DBC' in post or 'BTC' in post or 'MC' in post or 'BP' in post:  # steep Ca2+ dependence for connections between PC-distal targeting cell types (DBC, BTC, MC, BP)
                                 synMechType = 'S1_EIdistal_STP_Det_' + str(connID)
