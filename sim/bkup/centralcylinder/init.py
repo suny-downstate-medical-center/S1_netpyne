@@ -31,7 +31,6 @@ cellsTags = simData['cellsTags']
 
 # print(sim.rank,sim.net.cells[0].tags)
 
-Nmorpho = 0
 for i,metype in enumerate(sim.net.cells):
 
     if 'presyn' in metype.tags['pop']:
@@ -44,21 +43,6 @@ for i,metype in enumerate(sim.net.cells):
         metype.tags['x'] = cellsTags[ii]['x']
         metype.tags['y'] = cellsTags[ii]['y']
         metype.tags['z'] = cellsTags[ii]['z']   
-
-    else:
-
-        if metype.tags['cellModel'] == 'HH_full':
-            
-            ii = cfg.listlabels[Nmorpho]
-
-            metype.tags['xnorm'] = cellsTags[ii]['xnorm']
-            metype.tags['ynorm'] = cellsTags[ii]['ynorm']
-            metype.tags['znorm'] = cellsTags[ii]['znorm']
-            metype.tags['x'] = cellsTags[ii]['x']
-            metype.tags['y'] = cellsTags[ii]['y']
-            metype.tags['z'] = cellsTags[ii]['z']  
-
-            Nmorpho += 1
 
 # print(sim.rank,sim.net.cells[0].tags)
 

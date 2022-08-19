@@ -129,14 +129,14 @@ for cellName in cfg.S1cells:
     layernumber = cellName[1:2]
     if layernumber == '2':
         netParams.popParams[cellName] = {'cellType': cellName, 'cellModel': 'HH_full', 'ynormRange': layer['23'], 
-        'xnormRange': [10.0, 10.5],
-        'znormRange': [10.0, 10.5], 
-        'numCells': cfg.cellNumber[cellName], 'diversity': True}
+        'xnormRange': [0.5-0.5*cfg.fracmorphoradius, 0.5+0.5*cfg.fracmorphoradius],
+        'znormRange': [0.5-0.5*cfg.fracmorphoradius, 0.5+0.5*cfg.fracmorphoradius], 
+        'numCells': int(np.ceil(cfg.scaleDensity*cfg.cellNumber[cellName])), 'diversity': True}
     else:
         netParams.popParams[cellName] = {'cellType': cellName, 'cellModel': 'HH_full', 'ynormRange': layer[layernumber], 
-        'xnormRange': [10.5, 11.0],  
-        'znormRange': [10.5, 11.0], 
-        'numCells': cfg.cellNumber[cellName], 'diversity': True}
+        'xnormRange': [0.5-0.5*cfg.fracmorphoradius, 0.5+0.5*cfg.fracmorphoradius],  
+        'znormRange': [0.5-0.5*cfg.fracmorphoradius, 0.5+0.5*cfg.fracmorphoradius], 
+        'numCells': int(np.ceil(cfg.scaleDensity*cfg.cellNumber[cellName])), 'diversity': True}
 
 #------------------------------------------------------------------------------
 # Cell parameters  # L1 70  L23 215  L4 230 L5 260  L6 260  = 1035
