@@ -114,8 +114,8 @@ cfg.S1cells = []
 cfg.popNumber = {}
 cfg.cellNumber = {} 
 
-cfg.cynradNumber = 16
-cfg.fracmorphoradius = 1.0/4.0
+cfg.cynradNumber = 100
+cfg.fracmorphoradius = 1.0/10.0
 Nmorpho = 0
 
 for cellLabel in spkTimes.keys():    

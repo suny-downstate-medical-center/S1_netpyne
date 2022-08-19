@@ -129,13 +129,13 @@ for cellName in cfg.S1cells:
     layernumber = cellName[1:2]
     if layernumber == '2':
         netParams.popParams[cellName] = {'cellType': cellName, 'cellModel': 'HH_full', 'ynormRange': layer['23'], 
-        'xnormRange': [10.0, 10.5],
-        'znormRange': [10.0, 10.5], 
+        'xnormRange': [0.0, 10.5],
+        'znormRange': [0.0, 10.5], 
         'numCells': cfg.cellNumber[cellName], 'diversity': True}
     else:
         netParams.popParams[cellName] = {'cellType': cellName, 'cellModel': 'HH_full', 'ynormRange': layer[layernumber], 
-        'xnormRange': [10.5, 11.0],  
-        'znormRange': [10.5, 11.0], 
+        'xnormRange': [0.5, 11.0],  
+        'znormRange': [0.5, 11.0], 
         'numCells': cfg.cellNumber[cellName], 'diversity': True}
 
 #------------------------------------------------------------------------------
