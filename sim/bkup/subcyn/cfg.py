@@ -25,7 +25,7 @@ cfg.coreneuron = False
 #------------------------------------------------------------------------------
 # Run parameters
 #------------------------------------------------------------------------------
-cfg.duration = 15.0*1e2 ## Duration of the sim, in ms  
+cfg.duration = 15.0*1e1 ## Duration of the sim, in ms  
 cfg.dt = 0.05
 cfg.seeds = {'conn': 4322, 'stim': 4322, 'loc': 4322} 
 cfg.hParams = {'celsius': 34, 'v_init': -69.5}  
@@ -64,7 +64,7 @@ cfg.use_frac['EIdistal'] = 0.25
 
 
 # TO DEBUG - import and simulate only the Cell soma (to study only the Net)
-cfg.reducedtest = True    
+cfg.reducedtest = False    
 
 #------------------------------------------------------------------------------  
 #------------------------------------------------------------------------------  
@@ -76,8 +76,6 @@ cfg.reducedtest = True
 with open('../info/anatomy/S1-cells-distributions-Rat.txt') as mtype_file:
     mtype_content = mtype_file.read()       
 
-cfg.popNumber = {}
-cfg.cellNumber = {} 
 cfg.popLabel = {} 
 popParam = []
 cellParam = []
@@ -88,9 +86,7 @@ cfg.cellLabel = {}
 for line in mtype_content.split('\n')[:-1]:
     cellname, mtype, etype, n, m = line.split()
     metype = mtype + '_' + etype[0:3]
-    cfg.cellNumber[metype] = int(n)
     cfg.popLabel[metype] = mtype
-    cfg.popNumber[mtype] = int(m)
     cfg.cellLabel[metype] = cellname
 
     if mtype not in popParam:
@@ -101,20 +97,70 @@ for line in mtype_content.split('\n')[:-1]:
     
     cellParam.append(mtype + '_' + etype[0:3])
     
-cfg.S1pops = popParam[0:55]
-cfg.S1cells = cellParam[0:207]
+#------------------------------------------------------------------------------
+# load data from S1 Raster
+#------------------------------------------------------------------------------
+
+## Load spkTimes and cells positions
+with open('../data/spkTimes_v9_batch8_highgsynCT.pkl', 'rb') as fileObj: simData = pickle.load(fileObj)
+spkTimes = simData['spkTimes']
+cellsTags = simData['cellsTags']
+
+cfg.listlabels = []
+
+cfg.S1pops = []
+cfg.S1cells = []
+
+cfg.popNumber = {}
+cfg.cellNumber = {} 
+
+cfg.cynradNumber = 100
+cfg.fracmorphoradius = 1.0/10.0
+Nmorpho = 0
+
+for cellLabel in spkTimes.keys():    
+    cellme = cellLabel.split('_')[0:-1]    
+    metype = cellme[0]
+    for i in range(1,np.size(cellme)):
+        metype += '_' + cellme[i]                   
+        
+    if metype[0] == 'L':
+
+        mtype = cfg.popLabel[metype]    
+
+        ii = int(cellLabel.split('_')[-1])
+
+        excluderadius2a = (cfg.cynradNumber-1)*(0.5*cfg.fracmorphoradius)**2
+        excluderadius2b = (cfg.cynradNumber)*(0.5*cfg.fracmorphoradius)**2
+
+        radiuscCell2 = (cellsTags[ii]['xnorm']-0.5)**2 + (cellsTags[ii]['znorm']-0.5)**2
+
+        if radiuscCell2 >= excluderadius2a and radiuscCell2 < excluderadius2b:   
+                            
+            cfg.listlabels.append(ii)
+
+            if metype not in cfg.S1cells:
+                cfg.S1cells.append(metype)
+                cfg.cellNumber[metype] = 0
+                if mtype not in cfg.S1pops:
+                    cfg.S1pops.append(mtype)
+                    cfg.popNumber[mtype] = 0
+
+            cfg.cellNumber[metype] += 1
+            cfg.popNumber[mtype] += 1
+            Nmorpho += 1
 
 #------------------------------------------------------------------------------  
 # Thalamic Cells
 
 cfg.thalamicpops = ['ss_RTN_o', 'ss_RTN_m', 'ss_RTN_i', 'VPL_sTC', 'VPM_sTC', 'POm_sTC_s1']
 
-cfg.cellNumber['ss_RTN_o'] = int(382 * (210**2/150**2)) # from mouse model (d = 150 um)
-cfg.cellNumber['ss_RTN_m'] = int(382 * (210**2/150**2))
-cfg.cellNumber['ss_RTN_i'] = int(765 * (210**2/150**2))
-cfg.cellNumber['VPL_sTC'] = int(656 * (210**2/150**2))
-cfg.cellNumber['VPM_sTC'] = int(839 * (210**2/150**2))
-cfg.cellNumber['POm_sTC_s1'] = int(685 * (210**2/150**2))
+cfg.cellNumber['ss_RTN_o'] = 1 # int(382 * (210**2/150**2)) # from mouse model (d = 150 um)
+cfg.cellNumber['ss_RTN_m'] = 1 # int(382 * (210**2/150**2))
+cfg.cellNumber['ss_RTN_i'] = 1 # int(765 * (210**2/150**2))
+cfg.cellNumber['VPL_sTC'] = 1 # int(656 * (210**2/150**2))
+cfg.cellNumber['VPM_sTC'] = 1 # int(839 * (210**2/150**2))
+cfg.cellNumber['POm_sTC_s1'] = 1 # int(685 * (210**2/150**2))
 
 for mtype in cfg.thalamicpops: # No diversity
 	metype = mtype
@@ -124,33 +170,15 @@ for mtype in cfg.thalamicpops: # No diversity
 
 	cfg.popNumber[mtype] = cfg.cellNumber[metype]
 
-#------------------------------------------------------------------------------  
-cfg.popParamLabels = popParam
-cfg.cellParamLabels = cellParam
-
-#------------------------------------------------------------------------------  
-#------------------------------------------------------------------------------  
-## Run only selected populations (me-types)
-# subPopLabels = cfg.S1pops[16:41] # from 0 to 55 is full S1 -> L1:6 L23:10 L4:12 L5:13 L6:14
-subPopLabels = cfg.S1pops #['L4_PC','L4_LBC','L5_TTPC1','L5_MC'] #['L5_TTPC1'] # 
-#------------------------------------------------------------------------------  
-cfg.S1pops = subPopLabels
-cfg.S1cells = []
-for metype in cfg.cellParamLabels:
-    if cfg.popLabel[metype] in subPopLabels:        
-        cfg.S1cells.append(metype)
-        
-cfg.thalamicpops = []
 
 cfg.popParamLabels = cfg.S1pops
 cfg.cellParamLabels = cfg.S1cells
-#------------------------------------------------------------------------------  
-#------------------------------------------------------------------------------  
 
 #--------------------------------------------------------------------------
 # Recording 
 #--------------------------------------------------------------------------
 cfg.allpops = cfg.cellParamLabels
+
 # cfg.cellsrec = 1
 # if cfg.cellsrec == 0:  cfg.recordCells = cfg.allpops # record all cells
 # elif cfg.cellsrec == 1: cfg.recordCells = [(pop,0) for pop in cfg.allpops] # record one cell of each pop
@@ -173,6 +201,7 @@ cfg.allpops = cfg.cellParamLabels
 #                     numberME+=int(cfg.cellNumber[metype]/5.0)
 
 # cfg.recordTraces = {'V_soma': {'sec':'soma', 'loc':0.5, 'var':'v'}}  ## Dict with traces to record
+
 cfg.recordStim = False			
 cfg.recordTime = False  		
 cfg.recordStep = 1.0            
@@ -188,12 +217,12 @@ if cfg.recordDipole: cfg.saveDipoleCells = cfg.S1cells
 #------------------------------------------------------------------------------
 # Saving
 #------------------------------------------------------------------------------
-cfg.simLabel = 'v11_batch0'
+cfg.simLabel = 'v11_batch16'
 cfg.saveFolder = '../data/'+cfg.simLabel
 # cfg.filename =                	## Set file output name
 cfg.savePickle = True	        	## Save pkl file
 cfg.saveJson = False           	## Save json file
-cfg.saveDataInclude = ['simData', 'simConfig', 'netParams', 'net'] ## , 'simConfig', 'netParams'
+cfg.saveDataInclude = ['simData', 'simConfig', 'netParams', 'net'] 
 cfg.backupCfgFile = None 		##  
 cfg.gatherOnlySimData = False	##  
 cfg.saveCellSecs = False			
@@ -226,12 +255,9 @@ cfg.scale = 1.0 # reduce size
 cfg.sizeY = 2082.0
 cfg.sizeX = 420.0 # r = 210 um and hexagonal side length = 230.9 um
 cfg.sizeZ = 420.0
-cfg.fracmorphoradius = 1.0/4.0
-cfg.scaleDensity = (4.0/np.pi)*(cfg.fracmorphoradius*cfg.fracmorphoradius) # Number of cells = 31346
-cfg.xNumPart = 1
-cfg.zNumPart = 1
+cfg.scaleDensity = 1.0 # Number of cells = 31346
 
-print('%s \t Nmorpho ~ %.1f (%.1f percent) \t 1/fracmorphoradius = %.2f' % (cfg.simLabel,31346*cfg.scaleDensity,100.0*cfg.scaleDensity,1.0/cfg.fracmorphoradius))
+print('%s \t Nmorpho = %d (=%d) (%.1f percent) \t cynradNumber %d from %.0f ' % (cfg.simLabel,Nmorpho,np.size(cfg.listlabels),(100.0*Nmorpho/31346),(cfg.cynradNumber),(1.0/cfg.fracmorphoradius)**2))
 
 #------------------------------------------------------------------------------
 # Spontaneous synapses + background - data from Rat

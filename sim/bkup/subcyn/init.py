@@ -16,7 +16,7 @@ import matplotlib; matplotlib.use('Agg')  # to avoid graphics error in servers
 from netpyne import sim
 import pickle, json
 
-cfg, netParams = sim.readCmdLineArgs()
+cfg, netParams = sim.readCmdLineArgs(simConfigDefault='cfg.py', netParamsDefault='netParams.py')
 
 sim.initialize(
     simConfig = cfg, 	
@@ -31,6 +31,7 @@ cellsTags = simData['cellsTags']
 
 # print(sim.rank,sim.net.cells[0].tags)
 
+Nmorpho = 0
 for i,metype in enumerate(sim.net.cells):
 
     if 'presyn' in metype.tags['pop']:
@@ -44,9 +45,24 @@ for i,metype in enumerate(sim.net.cells):
         metype.tags['y'] = cellsTags[ii]['y']
         metype.tags['z'] = cellsTags[ii]['z']   
 
+    else:
+
+        if metype.tags['cellModel'] == 'HH_full':
+            
+            ii = cfg.listlabels[Nmorpho]
+
+            metype.tags['xnorm'] = cellsTags[ii]['xnorm']
+            metype.tags['ynorm'] = cellsTags[ii]['ynorm']
+            metype.tags['znorm'] = cellsTags[ii]['znorm']
+            metype.tags['x'] = cellsTags[ii]['x']
+            metype.tags['y'] = cellsTags[ii]['y']
+            metype.tags['z'] = cellsTags[ii]['z']  
+
+            Nmorpho += 1
+
 # print(sim.rank,sim.net.cells[0].tags)
 
-sim.net.connectCells()            			# create connections between cells based on params
+# sim.net.connectCells()            			# create connections between cells based on params
 sim.net.addStims() 							# add network stimulation
 sim.setupRecording()              			# setup variables to record for each cell (spikes, V traces, etc)
 sim.runSim()                      			# run parallel Neuron simulation  

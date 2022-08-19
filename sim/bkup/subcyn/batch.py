@@ -17,8 +17,8 @@ def custom():
     
     # params[('seeds', 'conn')] =  [1234]
 
-    params[('xNumPart')] = [1, 2, 3, 4]
-    params[('zNumPart')] = [1, 2, 3, 4]
+    params[('rateStimI')] = [9.0]
+    params[('rateStimE')] = [9.0]
 
     b = Batch(params=params, netParamsFile='netParams.py', cfgFile='cfg.py')
 
@@ -35,7 +35,7 @@ def setRunCfg(b, type='mpi_bulletin'):
 
     elif type=='mpi_direct':
         b.runCfg = {'type': 'mpi_direct',
-            'cores': 12,
+            'cores': 6,
             'script': 'init.py',
             'mpiCommand': 'mpiexec', # --use-hwthread-cpus
             'skip': True}

@@ -33,7 +33,7 @@ netParams.scale = cfg.scale # Scale factor for number of cells
 netParams.sizeX = cfg.sizeX # x-dimension (horizontal length) size in um
 netParams.sizeY = cfg.sizeY # y-dimension (vertical height or cortical depth) size in um
 netParams.sizeZ = cfg.sizeZ # z-dimension (horizontal depth) size in um
-netParams.shape = 'cuboid' # cylindrical (column-like) volume
+netParams.shape = 'cylinder' # cylindrical (column-like) volume
    
 # Layer	height (um)	height (norma)	from	to
 # L1	165		    0.079		    0.000	0.079
@@ -129,14 +129,14 @@ for cellName in cfg.S1cells:
     layernumber = cellName[1:2]
     if layernumber == '2':
         netParams.popParams[cellName] = {'cellType': cellName, 'cellModel': 'HH_full', 'ynormRange': layer['23'], 
-        'xnormRange': [(cfg.xNumPart-1)*cfg.fracmorphoradius, (cfg.xNumPart)*cfg.fracmorphoradius],
-        'znormRange': [(cfg.zNumPart-1)*cfg.fracmorphoradius, (cfg.zNumPart)*cfg.fracmorphoradius],
-        'numCells': int(np.ceil(cfg.scaleDensity*cfg.cellNumber[cellName])), 'diversity': True}
+        'xnormRange': [0.0, 10.5],
+        'znormRange': [0.0, 10.5], 
+        'numCells': cfg.cellNumber[cellName], 'diversity': True}
     else:
         netParams.popParams[cellName] = {'cellType': cellName, 'cellModel': 'HH_full', 'ynormRange': layer[layernumber], 
-        'xnormRange': [(cfg.xNumPart-1)*cfg.fracmorphoradius, (cfg.xNumPart)*cfg.fracmorphoradius],
-        'znormRange': [(cfg.zNumPart-1)*cfg.fracmorphoradius, (cfg.zNumPart)*cfg.fracmorphoradius],
-        'numCells': int(np.ceil(cfg.scaleDensity*cfg.cellNumber[cellName])), 'diversity': True}
+        'xnormRange': [0.5, 11.0],  
+        'znormRange': [0.5, 11.0], 
+        'numCells': cfg.cellNumber[cellName], 'diversity': True}
 
 #------------------------------------------------------------------------------
 # Cell parameters  # L1 70  L23 215  L4 230 L5 260  L6 260  = 1035
