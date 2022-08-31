@@ -16,7 +16,7 @@ import matplotlib; matplotlib.use('Agg')  # to avoid graphics error in servers
 from netpyne import sim
 import pickle, json
 
-cfg, netParams = sim.readCmdLineArgs(simConfigDefault='cfg.py', netParamsDefault='netParams.py')
+cfg, netParams = sim.readCmdLineArgs()
 
 sim.initialize(
     simConfig = cfg, 	
@@ -25,7 +25,7 @@ sim.net.createPops()               			# instantiate network populations
 sim.net.createCells()              			# instantiate network cells based on defined populations
 
 ## Load cells positions
-with open('../data/spkTimes_v9_batch6_lowgsynCT.pkl', 'rb') as fileObj: simData = pickle.load(fileObj)
+with open('../data/spkTimes_v9_batch8_highgsynCT.pkl', 'rb') as fileObj: simData = pickle.load(fileObj)
 
 cellsTags = simData['cellsTags']
 

@@ -25,7 +25,7 @@ cfg.coreneuron = False
 #------------------------------------------------------------------------------
 # Run parameters
 #------------------------------------------------------------------------------
-cfg.duration = 15.0*1e1 ## Duration of the sim, in ms  
+cfg.duration = 15.0*1e3 ## Duration of the sim, in ms  
 cfg.dt = 0.05
 cfg.seeds = {'conn': 4322, 'stim': 4322, 'loc': 4322} 
 cfg.hParams = {'celsius': 34, 'v_init': -69.5}  
@@ -64,7 +64,7 @@ cfg.use_frac['EIdistal'] = 0.25
 
 
 # TO DEBUG - import and simulate only the Cell soma (to study only the Net)
-cfg.reducedtest = False    
+cfg.reducedtest = True    
 
 #------------------------------------------------------------------------------  
 #------------------------------------------------------------------------------  
@@ -151,28 +151,28 @@ cfg.cellParamLabels = cfg.S1cells
 # Recording 
 #--------------------------------------------------------------------------
 cfg.allpops = cfg.cellParamLabels
-cfg.cellsrec = 0
-if cfg.cellsrec == 0:  cfg.recordCells = cfg.allpops # record all cells
-elif cfg.cellsrec == 1: cfg.recordCells = [(pop,0) for pop in cfg.allpops] # record one cell of each pop
-elif cfg.cellsrec == 2: # record one cell of each cellMEtype # need more test!!!
-    cfg.recordCells = []
-    for metype in cfg.cellParamLabels:
-        if cfg.cellNumber[metype] < 5:
-            for numberME in range(cfg.cellNumber[metype]):
-                cfg.recordCells.append((metype,numberME))
-        else:
-            numberME = 0
-            diference = cfg.cellNumber[metype] - 5.0*int(cfg.cellNumber[metype]/5.0)
+# cfg.cellsrec = 1
+# if cfg.cellsrec == 0:  cfg.recordCells = cfg.allpops # record all cells
+# elif cfg.cellsrec == 1: cfg.recordCells = [(pop,0) for pop in cfg.allpops] # record one cell of each pop
+# elif cfg.cellsrec == 2: # record one cell of each cellMEtype # need more test!!!
+#     cfg.recordCells = []
+#     for metype in cfg.cellParamLabels:
+#         if cfg.cellNumber[metype] < 5:
+#             for numberME in range(cfg.cellNumber[metype]):
+#                 cfg.recordCells.append((metype,numberME))
+#         else:
+#             numberME = 0
+#             diference = cfg.cellNumber[metype] - 5.0*int(cfg.cellNumber[metype]/5.0)
             
-            for number in range(5):            
-                cfg.recordCells.append((metype,numberME))
+#             for number in range(5):            
+#                 cfg.recordCells.append((metype,numberME))
                 
-                if number < diference:              
-                    numberME+=int(np.ceil(cfg.cellNumber[metype]/5.0))  
-                else:
-                    numberME+=int(cfg.cellNumber[metype]/5.0)
+#                 if number < diference:              
+#                     numberME+=int(np.ceil(cfg.cellNumber[metype]/5.0))  
+#                 else:
+#                     numberME+=int(cfg.cellNumber[metype]/5.0)
 
-cfg.recordTraces = {'V_soma': {'sec':'soma', 'loc':0.5, 'var':'v'}}  ## Dict with traces to record
+# cfg.recordTraces = {'V_soma': {'sec':'soma', 'loc':0.5, 'var':'v'}}  ## Dict with traces to record
 cfg.recordStim = False			
 cfg.recordTime = False  		
 cfg.recordStep = 1.0            
@@ -182,20 +182,18 @@ cfg.recordStep = 1.0
 
 # cfg.recordLFP = [[210, y, 210] for y in [200, 1000, 1200, 1400]] # 1 elec in L1 and 3 elec in L5  
 
-cfg.saveDipolePops = cfg.S1cells
-
 cfg.recordDipole = True
 if cfg.recordDipole: cfg.saveDipoleCells = cfg.S1cells
 
 #------------------------------------------------------------------------------
 # Saving
 #------------------------------------------------------------------------------
-cfg.simLabel = 'v12_batch0'
+cfg.simLabel = 'v11_batch0'
 cfg.saveFolder = '../data/'+cfg.simLabel
 # cfg.filename =                	## Set file output name
 cfg.savePickle = True	        	## Save pkl file
 cfg.saveJson = False           	## Save json file
-cfg.saveDataInclude = ['simData', 'simConfig', 'net', 'netParams'] ## , 'simConfig', 'netParams'
+cfg.saveDataInclude = ['simData', 'simConfig', 'netParams', 'net'] ## , 'simConfig', 'netParams'
 cfg.backupCfgFile = None 		##  
 cfg.gatherOnlySimData = False	##  
 cfg.saveCellSecs = False			
@@ -204,7 +202,7 @@ cfg.saveCellConns = False
 #------------------------------------------------------------------------------
 # Analysis and plotting 
 # ------------------------------------------------------------------------------
-cfg.analysis['plotRaster'] = {'include': cfg.S1cells, 'saveFig': True, 'showFig': False,'orderInverse': True, 'timeRange': [0,cfg.duration], 'figSize': (24,12), 'fontSize':4, 'markerSize':4, 'marker': 'o', 'dpi': 300} 
+# cfg.analysis['plotRaster'] = {'include': cfg.S1cells, 'saveFig': True, 'showFig': False,'orderInverse': True, 'timeRange': [0,cfg.duration], 'figSize': (24,12), 'fontSize':4, 'markerSize':4, 'marker': 'o', 'dpi': 300} 
 # cfg.analysis['plot2Dnet']   = {'include': ['presyn_L23_PC_cAD','presyn_L5_TTPC2_cAD', 'presyn_VPM_sTC','L23_PC_cAD','L5_TTPC2_cAD'],'saveFig': True, 'showConns': False, 'figSize': (24,24), 'view': 'xz', 'fontSize':16}   # Plot 2D cells xy
 # cfg.analysis['plotTraces'] = {'include': cfg.recordCells, 'oneFigPer': 'cell', 'overlay': True, 'timeRange': [0,cfg.duration], 'ylim': [-100,50], 'saveFig': True, 'showFig': False, 'figSize':(12,4)}
 # cfg.analysis['plot2Dfiring']={'saveFig': True, 'figSize': (24,24), 'fontSize':16}
@@ -218,8 +216,8 @@ cfg.analysis['plotRaster'] = {'include': cfg.S1cells, 'saveFig': True, 'showFig'
 # cfg.analysis['plotLFP'] = {'plots': ['timeSeries','PSD', 'spectrogram'], 'electrodes': [[0,1,2,3],[4,5,6,7,8,9,10,11]], 'timeRange': [1000, cfg.duration], 'maxFreq': 400, 'figSize': (8,4), 'saveData': False, 'saveFig': True, 'showFig': False} # 
 
 # cfg.analysis['plotLFP'] = {'separation': 1.0, 'plots': ['timeSeries', 'spectrogram','PSD'], 'timeRange': [0,cfg.duration], 'saveFig': True, 'showFig': False}
-                     
-cfg.analysis['plotDipole'] = {'saveFig': True} 
+
+cfg.analysis['plot2Dnet']   = {'include': cfg.S1cells,'saveFig': True, 'showConns': False, 'figSize': (24,24), 'view': 'xz', 'fontSize':7}   # Plot 2D cells xy
 
 #------------------------------------------------------------------------------
 # Network 
@@ -229,7 +227,9 @@ cfg.sizeY = 2082.0
 cfg.sizeX = 420.0 # r = 210 um and hexagonal side length = 230.9 um
 cfg.sizeZ = 420.0
 cfg.fracmorphoradius = 1.0/4.0
-cfg.scaleDensity = 1.0*(cfg.fracmorphoradius*cfg.fracmorphoradius) # Number of cells = 31346
+cfg.scaleDensity = (4.0/np.pi)*(cfg.fracmorphoradius*cfg.fracmorphoradius) # Number of cells = 31346
+cfg.xNumPart = 1
+cfg.zNumPart = 1
 
 print('%s \t Nmorpho ~ %.1f (%.1f percent) \t 1/fracmorphoradius = %.2f' % (cfg.simLabel,31346*cfg.scaleDensity,100.0*cfg.scaleDensity,1.0/cfg.fracmorphoradius))
 
