@@ -49,10 +49,6 @@ cfg.rootFolder = os.getcwd()
 # Load cells info from previously saved using netpyne (False: load from HOC BBP files, slower)
 cfg.loadcellsfromJSON = True
 
-cfg.poptypeNumber = 61 # max 55 + 6
-cfg.celltypeNumber = 213 # max 207 + 6
-
-
 cfg.cao_secs = 1.2
 
 cfg.use_frac = {} # use[invivo] = cfg.use_frac * use[invitro]
@@ -62,11 +58,9 @@ cfg.use_frac['Inh'] = 0.50 # Pathways that had not been studied experimentally w
 cfg.use_frac['EE'] = 0.25 # steep Ca2+ dependence for connections between PC-PC and PC-distal targeting cell types (DBC, BTC, MC, BP)
 cfg.use_frac['EIdistal'] = 0.25 
 
-
 # TO DEBUG - import and simulate only the Cell soma (to study only the Net)
 cfg.reducedtest = False    
 
-#------------------------------------------------------------------------------  
 #------------------------------------------------------------------------------  
 # S1 Cells
 # Load 55 Morphological Names and Cell pop numbers -> L1:6 L23:10 L4:12 L5:13 L6:14
@@ -79,10 +73,6 @@ with open('../info/anatomy/S1-cells-distributions-Rat.txt') as mtype_file:
 cfg.popNumber = {}
 cfg.cellNumber = {} 
 cfg.popLabel = {} 
-popParam = []
-cellParam = []
-cfg.meParamLabels = {} 
-cfg.popLabelEl = {} 
 cfg.cellLabel = {}
 
 for line in mtype_content.split('\n')[:-1]:
@@ -92,17 +82,6 @@ for line in mtype_content.split('\n')[:-1]:
     cfg.popLabel[metype] = mtype
     cfg.popNumber[mtype] = int(m)
     cfg.cellLabel[metype] = cellname
-
-    if mtype not in popParam:
-        popParam.append(mtype)
-        cfg.popLabelEl[mtype] = [] 
-               
-    cfg.popLabelEl[mtype].append(metype)
-    
-    cellParam.append(mtype + '_' + etype[0:3])
-    
-cfg.S1pops = popParam[0:55]
-cfg.S1cells = cellParam[0:207]
 
 #------------------------------------------------------------------------------  
 # Thalamic Cells
@@ -118,34 +97,102 @@ cfg.cellNumber['POm_sTC_s1'] = int(685 * (210**2/150**2))
 
 for mtype in cfg.thalamicpops: # No diversity
 	metype = mtype
-	popParam.append(mtype)
 	cfg.popLabel[metype] = mtype
-	cellParam.append(metype)
-
 	cfg.popNumber[mtype] = cfg.cellNumber[metype]
 
-#------------------------------------------------------------------------------  
-cfg.popParamLabels = popParam
-cfg.cellParamLabels = cellParam
 
-#------------------------------------------------------------------------------  
-#------------------------------------------------------------------------------  
-## Run only selected populations (me-types)
-# subPopLabels = cfg.S1pops[16:41] # from 0 to 55 is full S1 -> L1:6 L23:10 L4:12 L5:13 L6:14
-subPopLabels = cfg.S1pops #['L4_PC','L4_LBC','L5_TTPC1','L5_MC'] #['L5_TTPC1'] # 
-#------------------------------------------------------------------------------  
-cfg.S1pops = subPopLabels
-cfg.S1cells = []
-for metype in cfg.cellParamLabels:
-    if cfg.popLabel[metype] in subPopLabels:        
-        cfg.S1cells.append(metype)
+#------------------------------------------------------------------------------
+# load data from S1 Raster
+#------------------------------------------------------------------------------
+
+## Load spkTimes and cells positions
+with open('../data/spkTimes_v9_batch6_lowgsynCT.pkl', 'rb') as fileObj: simData = pickle.load(fileObj)
+spkTimes = simData['spkTimes']
+cellsTags = simData['cellsTags']
+
+# create custom list of spike times
+cellsVSName = {}
+for cellLabel in spkTimes.keys():    
+    cellme = cellLabel.split('_')[0:-1]    
+    metype = cellme[0]
+    for i in range(1,np.size(cellme)):
+        metype += '_' + cellme[i]
+                   
+    if metype not in cellsVSName.keys():
+        cellsVSName[metype] = []
         
-cfg.thalamicpops = []
+    mtype = cfg.popLabel[metype]            
+    cellsVSName[metype].append('presyn_'+cellLabel)
 
+#------------------------------------------------------------------------------
+cfg.cynradNumber = 1
+cfg.fracmorphoradius = 1.0/35.0
+
+excluderadius2a = (cfg.cynradNumber-1)*(0.5*cfg.fracmorphoradius)**2
+excluderadius2b = (cfg.cynradNumber)*(0.5*cfg.fracmorphoradius)**2
+
+cfg.Nmorpho = {}
+    
+print('radius',420*np.sqrt(excluderadius2a),420*np.sqrt(excluderadius2b))
+
+#------------------------------------------------------------------------------
+# create 1 vectstim pop per cell gid
+for metype in cellsVSName.keys(): # metype
+       
+    for cellLabel in cellsVSName[metype]: # all cells in metype
+
+        mtype = cfg.popLabel[metype]    
+        ii = int(cellLabel.split('_')[-1])
+        radiuscCell2 = (cellsTags[ii]['xnorm']-0.5)**2 + (cellsTags[ii]['znorm']-0.5)**2
+
+        if metype[0] == 'L' and radiuscCell2 >= excluderadius2a and radiuscCell2 < excluderadius2b:   
+
+            if metype not in cfg.Nmorpho.keys():
+                cfg.Nmorpho[metype] = 0
+
+            cfg.Nmorpho[metype] += 1
+        
+#------------------------------------------------------------------------------
+cfg.Epopsall = ['L23_PC', 'L4_PC', 'L4_SS', 'L4_SP', 
+             'L5_TTPC1', 'L5_TTPC2', 'L5_STPC', 'L5_UTPC',
+             'L6_TPC_L1', 'L6_TPC_L4', 'L6_BPC', 'L6_IPC', 'L6_UTPC']
+cfg.Ipops = []
+cfg.Epops = [] 
+cfg.S1pops = []
+cfg.S1cells = []
+cfg.popLabelEl = {}
+
+for metype in  cfg.Nmorpho.keys(): # metype  
+    
+    if  cfg.Nmorpho[metype] > 0:  
+
+        cfg.S1cells.append(metype)
+
+        mtype = cfg.popLabel[metype]    
+        
+        if mtype in cfg.Epopsall:
+            
+            if mtype not in cfg.Epops:
+                cfg.Epops.append(mtype)
+                cfg.S1pops.append(mtype)
+                cfg.popLabelEl[mtype] = [] 
+
+            cfg.popLabelEl[mtype].append(metype)
+            
+        else:
+            
+            if mtype not in cfg.Ipops:                
+                cfg.Ipops.append(mtype)  
+                cfg.S1pops.append(mtype)  
+                cfg.popLabelEl[mtype] = [] 
+
+            cfg.popLabelEl[mtype].append(metype)      
+
+#------------------------------------------------------------------------------  
+#
+#------------------------------------------------------------------------------  
 cfg.popParamLabels = cfg.S1pops
 cfg.cellParamLabels = cfg.S1cells
-#------------------------------------------------------------------------------  
-#------------------------------------------------------------------------------  
 
 #--------------------------------------------------------------------------
 # Recording 
@@ -175,7 +222,7 @@ elif cfg.cellsrec == 2: # record one cell of each cellMEtype # need more test!!!
 cfg.recordTraces = {'V_soma': {'sec':'soma', 'loc':0.5, 'var':'v'}}  ## Dict with traces to record
 cfg.recordStim = False			
 cfg.recordTime = False  		
-cfg.recordStep = 1.0            
+cfg.recordStep = 0.25            
 
 # cfg.recordLFP = [[200, 1100, 200], [220, 1100, 200], [200, 1200, 220], [220, 1200, 220]]
 # cfg.saveLFPPops =  cfg.recordCells 
@@ -193,9 +240,9 @@ if cfg.recordDipole: cfg.saveDipoleCells = cfg.S1cells
 cfg.simLabel = 'v12_batch0'
 cfg.saveFolder = '../data/'+cfg.simLabel
 # cfg.filename =                	## Set file output name
-cfg.savePickle = True	        	## Save pkl file
-cfg.saveJson = False           	## Save json file
-cfg.saveDataInclude = ['simData', 'simConfig', 'net', 'netParams'] ## , 'simConfig', 'netParams'
+cfg.savePickle = False	        	## Save pkl file
+cfg.saveJson = True           	## Save json file
+cfg.saveDataInclude = ['simData'] ##, 'simConfig', 'net', 'netParams'] ## , 'simConfig', 'netParams'
 cfg.backupCfgFile = None 		##  
 cfg.gatherOnlySimData = False	##  
 cfg.saveCellSecs = False			
@@ -206,7 +253,7 @@ cfg.saveCellConns = False
 # ------------------------------------------------------------------------------
 cfg.analysis['plotRaster'] = {'include': cfg.S1cells, 'saveFig': True, 'showFig': False,'orderInverse': True, 'timeRange': [0,cfg.duration], 'figSize': (24,12), 'fontSize':4, 'markerSize':4, 'marker': 'o', 'dpi': 300} 
 # cfg.analysis['plot2Dnet']   = {'include': ['presyn_L23_PC_cAD','presyn_L5_TTPC2_cAD', 'presyn_VPM_sTC','L23_PC_cAD','L5_TTPC2_cAD'],'saveFig': True, 'showConns': False, 'figSize': (24,24), 'view': 'xz', 'fontSize':16}   # Plot 2D cells xy
-# cfg.analysis['plotTraces'] = {'include': cfg.recordCells, 'oneFigPer': 'cell', 'overlay': True, 'timeRange': [0,cfg.duration], 'ylim': [-100,50], 'saveFig': True, 'showFig': False, 'figSize':(12,4)}
+cfg.analysis['plotTraces'] = {'include': cfg.recordCells, 'oneFigPer': 'cell', 'overlay': True, 'timeRange': [0,cfg.duration], 'ylim': [-100,50], 'saveFig': True, 'showFig': False, 'figSize':(12,4)}
 # cfg.analysis['plot2Dfiring']={'saveFig': True, 'figSize': (24,24), 'fontSize':16}
 # cfg.analysis['plotConn'] = {'includePre': cfg.allpops, 'includePost': cfg.allpops, 'feature': 'numConns', 'groupBy': 'pop', 'figSize': (24,24), 'saveFig': True, 'orderBy': 'gid', 'graphType': 'matrix', 'saveData':'../data/v5_batch0/v5_batch0_matrix_numConn.json', 'fontSize': 18}
 # cfg.analysis['plotConn'] = {'includePre': ['L1_DAC_cNA','L23_PC_cAD','L4_SS_cAD','L4_NBC_cNA','L5_TTPC2_cAD', 'L5_LBC_cNA', 'L6_TPC_L4_cAD', 'L6_LBC_cNA', 'presyn_'+'VPM_sTC', 'presyn_'+'VPL_sTC', 'presyn_'+'POm_sTC_s1'], 
@@ -218,7 +265,9 @@ cfg.analysis['plotRaster'] = {'include': cfg.S1cells, 'saveFig': True, 'showFig'
 # cfg.analysis['plotLFP'] = {'plots': ['timeSeries','PSD', 'spectrogram'], 'electrodes': [[0,1,2,3],[4,5,6,7,8,9,10,11]], 'timeRange': [1000, cfg.duration], 'maxFreq': 400, 'figSize': (8,4), 'saveData': False, 'saveFig': True, 'showFig': False} # 
 
 # cfg.analysis['plotLFP'] = {'separation': 1.0, 'plots': ['timeSeries', 'spectrogram','PSD'], 'timeRange': [0,cfg.duration], 'saveFig': True, 'showFig': False}
-                     
+
+cfg.analysis['plot2Dnet']   = {'include': ['presyn_L23_PC_cAD', 'L23_PC_cAD'], 'saveFig': True, 'showConns': False, 'figSize': (24,24), 'view': 'xz', 'fontSize':16}   # Plot 2D cells xz
+                 
 cfg.analysis['plotDipole'] = {'saveFig': True} 
 
 #------------------------------------------------------------------------------
@@ -228,10 +277,6 @@ cfg.scale = 1.0 # reduce size
 cfg.sizeY = 2082.0
 cfg.sizeX = 420.0 # r = 210 um and hexagonal side length = 230.9 um
 cfg.sizeZ = 420.0
-cfg.fracmorphoradius = 1.0/4.0
-cfg.scaleDensity = 1.0*(cfg.fracmorphoradius*cfg.fracmorphoradius) # Number of cells = 31346
-
-print('%s \t Nmorpho ~ %.1f (%.1f percent) \t 1/fracmorphoradius = %.2f' % (cfg.simLabel,31346*cfg.scaleDensity,100.0*cfg.scaleDensity,1.0/cfg.fracmorphoradius))
 
 #------------------------------------------------------------------------------
 # Spontaneous synapses + background - data from Rat

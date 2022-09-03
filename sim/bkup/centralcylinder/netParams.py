@@ -81,7 +81,7 @@ netParams.scaleConnWeightNetStims = 0.001  # weight conversion factor (from nS t
 #------------------------------------------------------------------------------
 
 ## Load spkTimes and cells positions
-with open('../data/spkTimes_v9_batch8_highgsynCT.pkl', 'rb') as fileObj: simData = pickle.load(fileObj)
+with open('../data/spkTimes_v9_batch6_lowgsynCT.pkl', 'rb') as fileObj: simData = pickle.load(fileObj)
 spkTimes = simData['spkTimes']
 cellsTags = simData['cellsTags']
 

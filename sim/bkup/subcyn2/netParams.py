@@ -47,6 +47,19 @@ netParams.shape = 'cylinder' # cylindrical (column-like) volume
 
 
 cellModels = ['HH_full']
+Epops = ['L23_PC', 'L4_PC', 'L4_SS', 'L4_SP', 
+             'L5_TTPC1', 'L5_TTPC2', 'L5_STPC', 'L5_UTPC',
+             'L6_TPC_L1', 'L6_TPC_L4', 'L6_BPC', 'L6_IPC', 'L6_UTPC']
+
+Ipops = []
+for popName in cfg.S1pops:
+    if popName not in Epops:
+        Ipops.append(popName)
+
+Epops = []
+for popName in cfg.S1pops:
+    if popName not in Ipops:
+        Epops.append(popName)   
 
 layer = {'1':[0.0, 0.079], '2': [0.079,0.151], '3': [0.151,0.320], '23': [0.079,0.320], '4':[0.320,0.412], '5': [0.412,0.664], '6': [0.664,1.0], 
 'longS1': [2.2,2.3], 'longS2': [2.3,2.4]}  # normalized layer boundaries
@@ -72,13 +85,9 @@ with open('../data/spkTimes_v9_batch6_lowgsynCT.pkl', 'rb') as fileObj: simData 
 spkTimes = simData['spkTimes']
 cellsTags = simData['cellsTags']
 
-excluderadius2a = (cfg.cynradNumber-1)*(0.5*cfg.fracmorphoradius)**2
-excluderadius2b = (cfg.cynradNumber)*(0.5*cfg.fracmorphoradius)**2
-
-cfg.listmorphonumber = {}
-
 # create custom list of spike times
 cellsVSName = {}
+popsVSName = {}
 for cellLabel in spkTimes.keys():    
     cellme = cellLabel.split('_')[0:-1]    
     metype = cellme[0]
@@ -88,46 +97,47 @@ for cellLabel in spkTimes.keys():
     if metype not in cellsVSName.keys():
         cellsVSName[metype] = []
         
-    mtype = cfg.popLabel[metype]           
+    mtype = cfg.popLabel[metype]    
+    if mtype not in popsVSName.keys():
+        popsVSName[mtype] = []
+        
     cellsVSName[metype].append('presyn_'+cellLabel)
+    popsVSName[mtype].append('presyn_'+cellLabel)
 
 # create 1 vectstim pop per cell gid
-for metype in cellsVSName.keys(): # metype
+for popLabel in cellsVSName.keys():
     
     cellsList = []            
-    for cellLabel in cellsVSName[metype]: # all cells in metype
+    for cellLabel in cellsVSName[popLabel]:
+            
+        cellme = cellLabel.split('_')[0:-1]
+        metype = cellme[1]
+        for i in range(2,np.size(cellme)):
+            metype += '_' + cellme[i]         
 
         if np.size(spkTimes[metype+'_'+cellLabel.split('_')[-1]]) == 0:
             spkTimes[metype+'_'+cellLabel.split('_')[-1]] = [15000.5]
 
-        mtype = cfg.popLabel[metype]    
-
-        ii = int(cellLabel.split('_')[-1])
-
-        radiuscCell2 = (cellsTags[ii]['xnorm']-0.5)**2 + (cellsTags[ii]['znorm']-0.5)**2
-
-        if metype[0] == 'L' and radiuscCell2 >= excluderadius2a and radiuscCell2 < excluderadius2b:   
-            if metype not in cfg.listmorphonumber.keys():
-                cfg.listmorphonumber[metype] = []
-            cfg.listmorphonumber[metype].append(ii)                
-        else:
-            cellsList.append({'cellLabel': int(cellLabel.split('_')[-1]), 'spkTimes': spkTimes[metype+'_'+cellLabel.split('_')[-1]]})
-            
-    # Population parameters
-    if  metype in cfg.Nmorpho.keys() and metype[0] == 'L':        
-        layernumber = metype[1:2]
-        if layernumber == '2':
-            netParams.popParams[metype] = {'cellType': metype, 'cellModel': 'HH_full', 'ynormRange': layer['23'], 
-                                                'numCells': int(cfg.Nmorpho[metype]), 'diversity': True}
-        else:
-            netParams.popParams[metype] = {'cellType': metype, 'cellModel': 'HH_full', 'ynormRange': layer[layernumber], 
-                                                'numCells': int(cfg.Nmorpho[metype]), 'diversity': True}
-            
-    if np.size(cellsList) > 0:
+        cellsList.append({'cellLabel': int(cellLabel.split('_')[-1]), 'spkTimes': spkTimes[metype+'_'+cellLabel.split('_')[-1]]})
         netParams.popParams['presyn_'+metype] = {'cellModel': 'VecStim', 'cellsList': cellsList}
-        
-    # print(metype,np.size(cellsList),cfg.Nmorpho[metype],cfg.cellNumber[metype])
-# print(netParams.popParams.keys())
+
+#------------------------------------------------------------------------------
+# Population parameters
+#------------------------------------------------------------------------------
+## S1
+for cellName in cfg.S1cells:
+    layernumber = cellName[1:2]
+    if layernumber == '2':
+        netParams.popParams[cellName] = {'cellType': cellName, 'cellModel': 'HH_full', 'ynormRange': layer['23'], 
+        'xnormRange': [0.0, 0.5],
+        'znormRange': [0.0, 0.5], 
+        'numCells': int(cfg.cellNumber[cellName]), 'diversity': True}
+    else:
+        netParams.popParams[cellName] = {'cellType': cellName, 'cellModel': 'HH_full', 'ynormRange': layer[layernumber], 
+        'xnormRange': [0.5, 1.0],  
+        'znormRange': [0.5, 1.0], 
+        'numCells': int(cfg.cellNumber[cellName]), 'diversity': True}
+
 #------------------------------------------------------------------------------
 # Cell parameters  # L1 70  L23 215  L4 230 L5 260  L6 260  = 1035
 #------------------------------------------------------------------------------
@@ -147,8 +157,8 @@ if not cfg.loadcellsfromJSON:     ## Load cell rules using BBP template
     cellnumber = 0    
     for cellName in cfg.S1cells:
 
-        if cfg.Nmorpho[cellName] < 5:
-            morphoNumbers = cfg.Nmorpho[cellName]
+        if cfg.cellNumber[cellName] < 5:
+            morphoNumbers = cfg.cellNumber[cellName]
         else:
             morphoNumbers = 5
 
@@ -176,22 +186,19 @@ if not cfg.loadcellsfromJSON:     ## Load cell rules using BBP template
 ## S1 cell property rules
 for cellName in cfg.S1cells:
     
-    if cfg.Nmorpho[cellName] < 5:
-        morphoNumbers = cfg.Nmorpho[cellName]
+    if cfg.cellNumber[cellName] < 5:
+        morphoNumbers = cfg.cellNumber[cellName]
     else:
         morphoNumbers = 5
     
+    cellFraction = 1.0/morphoNumbers
     
     for morphoNumber in range(morphoNumbers):
-
-        cellFraction = 1.0/morphoNumbers
-
         cellMe = cfg.cellLabel[cellName] + '_' + str(morphoNumber+1)
         
         if cfg.loadcellsfromJSON:
             # Load cell rules previously saved using netpyne format
             netParams.loadCellParamsRule(label = cellMe, fileName = 'cell_data/' + cellMe + '/' + cellMe + '_cellParams.json')        
-            netParams.cellParams[cellMe]['diversityFraction'] = cellFraction
             # netParams.loadCellParamsRule(label = cellMe, fileName = 'cell_data/L5_TTPC1_cADpyr232_5/L5_TTPC1_cADpyr232_5_cellParams.json')       
         else:
             cellRule = {'conds': {'cellType': cellName}, 'diversityFraction': cellFraction, 'secs': {}}  # cell rule dict
@@ -384,8 +391,8 @@ NGFSynMech_Th  = ['GABAA_Th', 'GABAB_Th']
 contA = 0
 
 if cfg.addConn:    
-    for pre in cfg.Ipops+cfg.Epops:
-        for post in cfg.Ipops+cfg.Epops:
+    for pre in Ipops+Epops:
+        for post in Ipops+Epops:
             if float(connNumber[pre][post]) > 0:           
                 # ------------------------------------------------------------------------------    
                 #  2D distance prob rules
@@ -422,8 +429,8 @@ if cfg.addConn:
                 # ------------------------------------------------------------------------------    
                 # I -> I
                 # ------------------------------------------------------------------------------
-                if pre in cfg.Ipops:
-                    if post in cfg.Ipops:                             
+                if pre in Ipops:
+                    if post in Ipops:                             
                         connID = ConnTypes[pre][post][0]                        
                         synMechType = 'S1_II_STP_Det_' + str(connID)   
                         contA+= 1  
@@ -441,8 +448,8 @@ if cfg.addConn:
                 # ------------------------------------------------------------------------------
                 #  I -> E  # with ME conn diversity
                 # ------------------------------------------------------------------------------
-                if pre in cfg.Ipops:
-                    if post in cfg.Epops:                                                       
+                if pre in Ipops:
+                    if post in Epops:                                                       
                         cellpreList_A = []
                         cellpreList_B = []
                         cellpreList_C = []
@@ -519,8 +526,8 @@ if cfg.addConn:
                 #------------------------------------------------------------------------------   
                 # E -> E
                 #------------------------------------------------------------------------------
-                if pre in cfg.Epops:
-                    if post in cfg.Epops:    
+                if pre in Epops:
+                    if post in Epops:    
                         connID = ConnTypes[pre][post][0]                        
                         synMechType = 'S1_EE_STP_Det_' + str(connID)   
                         contA+= 1   
@@ -539,8 +546,8 @@ if cfg.addConn:
                 #------------------------------------------------------------------------------               
                 #  E -> I  with ME conn diversity
                 #------------------------------------------------------------------------------   
-                if pre in cfg.Epops:
-                    if post in cfg.Ipops:                        
+                if pre in Epops:
+                    if post in Ipops:                        
                         cellpostList_A = []
                         cellpostList_B = []
                         connID_B = -1                          
@@ -612,7 +619,7 @@ GsynStimI = connData['GsynStimI']
 GsynStimE = connData['GsynStimE']
    
 if cfg.addStimSynS1:      
-    for post in cfg.Ipops + cfg.Epops:
+    for post in Ipops + Epops:
 
         synperNeuron = synperNeuronStimI[post]
         ratespontaneous = cfg.rateStimI
@@ -627,7 +634,7 @@ if cfg.addStimSynS1:
             netParams.stimSourceParams['StimSynS1_S_all_EXC->' + post + '_' + str(qSnum)] = {'type': 'NetStim', 'rate': ratesdifferentiation, 'noise': 1.0}
             
     #------------------------------------------------------------------------------
-    for post in cfg.Epops:
+    for post in Epops:
         for qSnum in range(SourcesNumber):
             netParams.stimTargetParams['StimSynS1_T_all_EXC->' + post + '_' + str(qSnum)] = {
                 'source': 'StimSynS1_S_all_EXC->' + post + '_' + str(qSnum), 
@@ -637,7 +644,7 @@ if cfg.addStimSynS1:
                 'weight': GsynStimE[post],
                 'delay': 0.1}
 
-    for post in cfg.Ipops:
+    for post in Ipops:
         for qSnum in range(SourcesNumber):
             netParams.stimTargetParams['StimSynS1_T_all_EXC->' + post + '_' + str(qSnum)] = {
                 'source': 'StimSynS1_S_all_EXC->' + post + '_' + str(qSnum), 
@@ -647,7 +654,7 @@ if cfg.addStimSynS1:
                 'weight': GsynStimE[post],
                 'delay': 0.1}
 
-    for post in cfg.Epops+cfg.Ipops:
+    for post in Epops+Ipops:
         for qSnum in range(SourcesNumber):
             netParams.stimTargetParams['StimSynS1_T_all_INH->' + post + '_' + str(qSnum)] = {
                 'source': 'StimSynS1_S_all_INH->' + post + '_' + str(qSnum), 
@@ -684,7 +691,7 @@ if cfg.connect_ThVecStim_S1:
 
     for pre in ['VPL_sTC', 'VPM_sTC', 'POm_sTC_s1']:  #  
         if cfg.TC_S1[pre]:
-            for post in cfg.Epops+cfg.Ipops: 
+            for post in Epops+Ipops: 
                 
                 conn_convergence = np.ceil(convergence_Th_S1[pre][post]/synapsesperconnection_Th_S1)
                 prob_conv = 1.0*(conn_convergence/cfg.popNumber[pre])*((radius_cilinder**2)/(radius2D_Th_S1**2)) # prob*(AreaS1/Area_Th_syn)  

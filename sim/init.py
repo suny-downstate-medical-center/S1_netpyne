@@ -15,6 +15,7 @@ Contributors: salvadordura@gmail.com, fernandodasilvaborges@gmail.com
 import matplotlib; matplotlib.use('Agg')  # to avoid graphics error in servers
 from netpyne import sim
 import pickle, json
+import numpy as np
 
 cfg, netParams = sim.readCmdLineArgs(simConfigDefault='cfg.py', netParamsDefault='netParams.py')
 
@@ -34,9 +35,7 @@ cellsTags = simData['cellsTags']
 for i,metype in enumerate(sim.net.cells):
 
     if 'presyn' in metype.tags['pop']:
-
-        ii = int(metype.tags['cellLabel'])
-        
+        ii = int(metype.tags['cellLabel'])        
         metype.tags['xnorm'] = cellsTags[ii]['xnorm']
         metype.tags['ynorm'] = cellsTags[ii]['ynorm']
         metype.tags['znorm'] = cellsTags[ii]['znorm']
@@ -44,7 +43,42 @@ for i,metype in enumerate(sim.net.cells):
         metype.tags['y'] = cellsTags[ii]['y']
         metype.tags['z'] = cellsTags[ii]['z']   
 
+    else:
+        ii2 = int(0.000001+(metype.tags['fraction']/(1/cfg.Nmorpho[metype.tags['pop']])))  
+
+        ii = cfg.listmorphonumber[metype.tags['pop']][ii2]
+
+        metype.tags['xnorm'] = cellsTags[ii]['xnorm']
+        metype.tags['ynorm'] = cellsTags[ii]['ynorm']
+        metype.tags['znorm'] = cellsTags[ii]['znorm']
+        metype.tags['x'] = cellsTags[ii]['x']
+        metype.tags['y'] = cellsTags[ii]['y']
+        metype.tags['z'] = cellsTags[ii]['z']   
+
+    # if 'L23_PC' in metype.tags['pop']:
+    #     print(sim.rank,i,metype.tags['pop'],ii)
+
 # print(sim.rank,sim.net.cells[0].tags)
+
+
+# try:
+    # sim.setupRecording()              	
+# except:
+#     try:
+#         for cell in sim.net.compartCells:
+#             x=np.array([[p0,p1] for p0,p1 in zip(cell._segCoords['p0'][0], cell._segCoords['p1'][0])])
+#             y=np.array([[p0,p1] for p0,p1 in zip(cell._segCoords['p0'][1], cell._segCoords['p1'][1])])
+#             z=np.array([[p0,p1] for p0,p1 in zip(cell._segCoords['p0'][2], cell._segCoords['p1'][2])])
+#             d=np.array([[d0,d1] for d0,d1 in zip(cell._segCoords['d0'], cell._segCoords['d1'])])
+#             print(sim.rank,cell.gid,cfg.Nmorpho[cell.tags['cellType']],cell.tags['cellType'],np.shape(x), np.shape(y), np.shape(z), np.shape(d))
+#             assert x.ndim == y.ndim == z.ndim == 2,  'x, y and z must be of shape (n_seg x 2)'	
+#     except:
+#         sim.net.createCells()              			# instantiate network cells based on defined populations
+#         sim.setupRecording()              			# setup variables to record for each cell (spikes, V traces, etc)
+
+
+# print(cfg.S1cells)
+print(cfg.Nmorpho)
 
 sim.net.connectCells()            			# create connections between cells based on params
 sim.net.addStims() 							# add network stimulation

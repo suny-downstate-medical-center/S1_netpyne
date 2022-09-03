@@ -29,8 +29,9 @@ with open('../data/spkTimes_v9_batch6_lowgsynCT.pkl', 'rb') as fileObj: simData 
 
 cellsTags = simData['cellsTags']
 
-# print(sim.rank,sim.net.cells[0].tags)
+print(sim.rank,sim.net.cells[0].tags)
 
+Nmorpho = 0
 for i,metype in enumerate(sim.net.cells):
 
     if 'presyn' in metype.tags['pop']:
@@ -44,9 +45,31 @@ for i,metype in enumerate(sim.net.cells):
         metype.tags['y'] = cellsTags[ii]['y']
         metype.tags['z'] = cellsTags[ii]['z']   
 
-# print(sim.rank,sim.net.cells[0].tags)
+    else:
 
-sim.net.connectCells()            			# create connections between cells based on params
+        if metype.tags['cellModel'] == 'HH_full':
+            
+            ii = cfg.listlabels[Nmorpho]
+
+            if sim.rank == 0:
+                print(sim.rank,i,ii,metype.gid-38611,Nmorpho)
+            else:
+                print('  ',sim.rank,i,ii,metype.gid-38611,Nmorpho)
+
+            metype.tags['xnorm'] = cellsTags[ii]['xnorm']
+            metype.tags['ynorm'] = cellsTags[ii]['ynorm']
+            metype.tags['znorm'] = cellsTags[ii]['znorm']
+            metype.tags['x'] = cellsTags[ii]['x']
+            metype.tags['y'] = cellsTags[ii]['y']
+            metype.tags['z'] = cellsTags[ii]['z']  
+
+            Nmorpho += 1
+
+print(sim.rank,sim.net.cells[38610].tags)
+print(sim.rank,sim.net.cells[38611].tags)
+
+
+# sim.net.connectCells()            			# create connections between cells based on params
 sim.net.addStims() 							# add network stimulation
 sim.setupRecording()              			# setup variables to record for each cell (spikes, V traces, etc)
 sim.runSim()                      			# run parallel Neuron simulation  
