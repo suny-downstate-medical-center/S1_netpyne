@@ -18,6 +18,7 @@ import pickle, json
 import numpy as np
 
 cfg, netParams = sim.readCmdLineArgs(simConfigDefault='cfg.py', netParamsDefault='netParams.py')
+# cfg, netParams = sim.readCmdLineArgs()
 
 sim.initialize(
     simConfig = cfg, 	
@@ -78,7 +79,7 @@ for i,metype in enumerate(sim.net.cells):
 
 
 # print(cfg.S1cells)
-print(cfg.Nmorpho)
+# print(cfg.Nmorpho)
 
 sim.net.connectCells()            			# create connections between cells based on params
 sim.net.addStims() 							# add network stimulation

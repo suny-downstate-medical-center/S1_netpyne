@@ -5,7 +5,6 @@ script to load sim and plot
 from netpyne import sim
 from matplotlib import pyplot as plt
 import os
-import IPython as ipy
 import pickle as pkl
 
 
@@ -78,8 +77,8 @@ if __name__ == '__main__':
     dataType = 'spont' #'speech' #'spont'
 
     if dataType == 'spont':
-        filenames = ['/home/fernando/Documents/data_S1_Rat/v9/v9_batch8/v9_batch8_data.pkl']
-        timeRange = [10000, 12000]
+        filenames = ['../data/v11_batch0/v11_batch0_data.pkl']
+        timeRange = [0, 15000]
 
     layer_bounds= {'1':[0.0, 0.079], '2': [0.079,0.151], '3': [0.151,0.320], '23': [0.079,0.320], '4':[0.320,0.412], '5': [0.412,0.664], '6': [0.664,1.0]}
 
@@ -91,11 +90,13 @@ if __name__ == '__main__':
 
         # standardd plots
 
-        sim.analysis.plotRaster(**{'include': ['allCells'], 'saveFig': filename[:-8]+'_RP_2sec', 'showFig': False, 'labels': None, 'popRates': False,'orderInverse': True, 'timeRange': timeRange, 'figSize': (36,24), 'fontSize':4, 'lw': 2, 'markerSize':2, 'marker': '.', 'dpi': 200})
-        sim.analysis.plotRaster(**{'include': RP_L13, 'saveFig': filename[:-8]+'_RP_L13', 'showFig': False, 'popRates': 'minimal', 'orderInverse': True, 'timeRange': timeRange, 'orderBy':'y', 'fontSize':8, 'figSize': (24,12), 'lw': 4.0, 'markerSize': 4, 'marker': 'o', 'dpi': 200})
-        sim.analysis.plotRaster(**{'include': RP_L45, 'saveFig': filename[:-8]+'_RP_L45', 'showFig': False, 'popRates': 'minimal', 'orderInverse': True, 'timeRange': timeRange, 'orderBy':'y', 'fontSize':8, 'figSize': (24,18), 'lw': 2.0, 'markerSize': 2, 'marker': 'o', 'dpi': 200})
-        sim.analysis.plotRaster(**{'include': RP_L6, 'saveFig': filename[:-8]+'_RP_L6', 'showFig': False, 'popRates': 'minimal', 'orderInverse': True, 'timeRange': timeRange, 'orderBy':'y', 'fontSize':8, 'figSize': (24,12), 'lw': 2.0, 'markerSize': 2, 'marker': 'o', 'dpi': 200})
-        sim.analysis.plotRaster(**{'include': thalamicpops, 'saveFig': filename[:-8]+'_RP_thalamic', 'showFig': False, 'popRates': 'minimal', 'orderInverse': True, 'timeRange': timeRange, 'orderBy':'y', 'fontSize':8, 'figSize': (24,12), 'lw': 2.0, 'markerSize': 2, 'marker': 'o', 'dpi': 200})
+        sim.analysis.plotRaster(**{'include': S1pops, 'saveFig': True, 'showFig': False, 'popRates': 'minimal', 'orderInverse': True, 'timeRange': timeRange, 'orderBy':'y', 'fontSize':8, 'figSize': (48,12), 'lw': 4.0, 'markerSize': 4, 'marker': 'o', 'dpi': 200})
+       
+        # sim.analysis.plotRaster(**{'include': ['allCells'], 'saveFig': filename[:-8]+'_RP_2sec', 'showFig': False, 'labels': None, 'popRates': False,'orderInverse': True, 'timeRange': timeRange, 'figSize': (36,24), 'fontSize':4, 'lw': 2, 'markerSize':2, 'marker': '.', 'dpi': 200})
+        # sim.analysis.plotRaster(**{'include': RP_L13, 'saveFig': filename[:-8]+'_RP_L13', 'showFig': False, 'popRates': 'minimal', 'orderInverse': True, 'timeRange': timeRange, 'orderBy':'y', 'fontSize':8, 'figSize': (24,12), 'lw': 4.0, 'markerSize': 4, 'marker': 'o', 'dpi': 200})
+        # sim.analysis.plotRaster(**{'include': RP_L45, 'saveFig': filename[:-8]+'_RP_L45', 'showFig': False, 'popRates': 'minimal', 'orderInverse': True, 'timeRange': timeRange, 'orderBy':'y', 'fontSize':8, 'figSize': (24,18), 'lw': 2.0, 'markerSize': 2, 'marker': 'o', 'dpi': 200})
+        # sim.analysis.plotRaster(**{'include': RP_L6, 'saveFig': filename[:-8]+'_RP_L6', 'showFig': False, 'popRates': 'minimal', 'orderInverse': True, 'timeRange': timeRange, 'orderBy':'y', 'fontSize':8, 'figSize': (24,12), 'lw': 2.0, 'markerSize': 2, 'marker': 'o', 'dpi': 200})
+        # sim.analysis.plotRaster(**{'include': thalamicpops, 'saveFig': filename[:-8]+'_RP_thalamic', 'showFig': False, 'popRates': 'minimal', 'orderInverse': True, 'timeRange': timeRange, 'orderBy':'y', 'fontSize':8, 'figSize': (24,12), 'lw': 2.0, 'markerSize': 2, 'marker': 'o', 'dpi': 200})
        
         # sim.analysis.plotSpikeStats(stats=['rate'],figSize = (6,12), timeRange=[1500, 31500], dpi=300, showFig=0, saveFig=filename[:-4]+'_stats_30sec')
         #sim.analysis.plotSpikeStats(stats=['rate'],figSize = (6,12), timeRange=[1500, 6500], dpi=300, showFig=0, saveFig=filename[:-4]+'_stats_5sec')

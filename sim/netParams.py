@@ -426,7 +426,17 @@ if cfg.addConn:
                     if post in cfg.Ipops:                             
                         connID = ConnTypes[pre][post][0]                        
                         synMechType = 'S1_II_STP_Det_' + str(connID)   
-                        contA+= 1  
+                        contA+= 1
+                        netParams.connParams['II_' + pre + '_' + post] = { 
+                                        'preConds': {'pop': cfg.popLabelEl[pre]}, 
+                                        'postConds': {'pop': cfg.popLabelEl[post]},
+                                        'synMech': synMechType,
+                                        'probability': prob,
+                                        'weight': parameters_syn['gsyn',connID] * cfg.IIGain, 
+                                        'synMechWeightFactor': cfg.synWeightFractionII,
+                                        'delay': 'defaultDelay+dist_3D/propVelocity',
+                                        'synsPerConn': int(synperconnNumber[pre][post]+0.5),
+                                        'sec': 'spiny'}      
                                         
                         netParams.connParams['VS_'+'II_' + pre + '_' + post] = { 
                                         'preConds': {'pop': ['presyn_'+metypeVs for metypeVs in cfg.popLabelEl[pre]]}, 
@@ -470,7 +480,17 @@ if cfg.addConn:
                         connID = ConnTypes[pre][post][0]                            
                         synMechType = 'S1_IE_STP_Det_' + str(connID)
                         
-                        contA+= 1                            
+                        contA+= 1                          
+                        netParams.connParams['IE_'+pre+'_'+post] = { 
+                                    'preConds': {'pop': cellpreList_A}, 
+                                    'postConds': {'pop': cfg.popLabelEl[post]},
+                                    'synMech': synMechType,
+                                    'probability': prob,
+                                    'weight': parameters_syn['gsyn',connID] * cfg.IEGain, 
+                                    'synMechWeightFactor': cfg.synWeightFractionIE,
+                                    'delay': 'defaultDelay+dist_3D/propVelocity',
+                                    'synsPerConn': int(synperconnNumber[pre][post]+0.5),
+                                    'sec': 'spiny'}      
 
                         netParams.connParams['VS_'+'IE_'+pre+'_'+post] = { 
                                     'preConds': {'pop': ['presyn_'+metypeVs for metypeVs in cellpreList_A]}, 
@@ -487,6 +507,16 @@ if cfg.addConn:
                         if connID_B >= 0:          
                             connID = connID_B
                             synMechType = 'S1_IE_STP_Det_' + str(connID)         
+                            netParams.connParams['IE_'+pre+'_'+post+'_B'] = { 
+                                        'preConds': {'pop': cellpreList_B}, 
+                                        'postConds': {'pop': cfg.popLabelEl[post]},
+                                        'synMech': synMechType,
+                                        'probability': prob,
+                                        'weight': parameters_syn['gsyn',connID] * cfg.IEGain, 
+                                        'synMechWeightFactor': cfg.synWeightFractionIE,
+                                        'delay': 'defaultDelay+dist_3D/propVelocity',
+                                        'synsPerConn': int(synperconnNumber[pre][post]+0.5),
+                                        'sec': 'spiny'}   
 
                             netParams.connParams['VS_'+'IE_'+pre+'_'+post+'_B'] = { 
                                         'preConds': {'pop': ['presyn_'+metypeVs for metypeVs in cellpreList_B]}, 
@@ -502,7 +532,17 @@ if cfg.addConn:
                                 
                             if connID_C >= 0:          
                                 connID = connID_C
-                                synMechType = 'S1_IE_STP_Det_' + str(connID)           
+                                synMechType = 'S1_IE_STP_Det_' + str(connID)         
+                                netParams.connParams['IE_'+pre+'_'+post+'_C'] = { 
+                                            'preConds': {'pop': cellpreList_C}, 
+                                            'postConds': {'pop': cfg.popLabelEl[post]},
+                                            'synMech': synMechType,
+                                            'probability': prob,
+                                            'weight': parameters_syn['gsyn',connID] * cfg.IEGain, 
+                                            'synMechWeightFactor': cfg.synWeightFractionIE,
+                                            'delay': 'defaultDelay+dist_3D/propVelocity',
+                                            'synsPerConn': int(synperconnNumber[pre][post]+0.5),
+                                            'sec': 'spiny'}    
 
                                 netParams.connParams['VS_'+'IE_'+pre+'_'+post+'_C'] = { 
                                             'preConds': {'pop': ['presyn_'+metypeVs for metypeVs in cellpreList_C]}, 
@@ -524,6 +564,16 @@ if cfg.addConn:
                         connID = ConnTypes[pre][post][0]                        
                         synMechType = 'S1_EE_STP_Det_' + str(connID)   
                         contA+= 1   
+                        netParams.connParams['EE_'+pre+'_'+post] = { 
+                            'preConds': {'pop': cfg.popLabelEl[pre]}, 
+                            'postConds': {'pop': cfg.popLabelEl[post]},
+                            'synMech': synMechType,
+                            'probability': prob, 
+                            'weight': parameters_syn['gsyn',connID] * cfg.EEGain, 
+                            'synMechWeightFactor': cfg.synWeightFractionEE,
+                            'delay': 'defaultDelay+dist_3D/propVelocity',
+                            'synsPerConn': int(synperconnNumber[pre][post]+0.5),
+                            'sec': 'spinyEE'}    
     
                         netParams.connParams['VS_'+'EE_'+pre+'_'+post] = { 
                             'preConds': {'pop': ['presyn_'+metypeVs for metypeVs in cfg.popLabelEl[pre]]}, 
@@ -565,13 +615,18 @@ if cfg.addConn:
                             cellpostList_A = cfg.popLabelEl[post]         
                              
                         connID = ConnTypes[pre][post][0]      
-
-                        if 'DBC' in post or 'BTC' in post or 'MC' in post or 'BP' in post:  # steep Ca2+ dependence for connections between PC-distal targeting cell types (DBC, BTC, MC, BP)
-                            synMechType = 'S1_EIdistal_STP_Det_' + str(connID)
-                        else: # shallow dependence between PC-proximal targeting cell types (LBCs, NBCs, SBCs, ChC) + L1s and NGCs ????
-                            synMechType = 'S1_EIproximal_STP_Det_' + str(connID)  
-
+                        synMechType = 'S1_EI_STP_Det_' + str(connID)  
                         contA+= 1                                                              
+                        netParams.connParams['EI_'+pre+'_'+post] = { 
+                                        'preConds': {'pop': cfg.popLabelEl[pre]}, 
+                                        'postConds': {'pop': cellpostList_A},
+                                        'synMech': synMechType,
+                                        'probability': prob, 
+                                        'weight': parameters_syn['gsyn',connID] * cfg.EIGain, 
+                                        'synMechWeightFactor': cfg.synWeightFractionEI,
+                                        'delay': 'defaultDelay+dist_3D/propVelocity',
+                                        'synsPerConn': int(synperconnNumber[pre][post]+0.5),
+                                        'sec': 'spiny'}   
                                        
                         netParams.connParams['VS_'+'EI_'+pre+'_'+post] = { 
                                         'preConds': {'pop': ['presyn_'+metypeVs for metypeVs in cfg.popLabelEl[pre]]}, 
@@ -585,11 +640,18 @@ if cfg.addConn:
                                         'sec': 'spiny'}  
 
                         if connID_B >= 0:          
-
-                            if 'DBC' in post or 'BTC' in post or 'MC' in post or 'BP' in post:  # steep Ca2+ dependence for connections between PC-distal targeting cell types (DBC, BTC, MC, BP)
-                                synMechType = 'S1_EIdistal_STP_Det_' + str(connID)
-                            else: # shallow dependence between PC-proximal targeting cell types (LBCs, NBCs, SBCs, ChC) + L1s and NGCs ????
-                                synMechType = 'S1_EIproximal_STP_Det_' + str(connID)  
+                            connID = connID_B
+                            synMechType = 'S1_EI_STP_Det_' + str(connID)        
+                            netParams.connParams['EI_'+pre+'_'+post+'_B'] = { 
+                                            'preConds': {'pop': cfg.popLabelEl[pre]}, 
+                                            'postConds': {'pop': cellpostList_B},
+                                            'synMech': synMechType,
+                                            'probability': prob, 
+                                            'weight': parameters_syn['gsyn',connID] * cfg.EIGain, 
+                                            'synMechWeightFactor': cfg.synWeightFractionEI,
+                                            'delay': 'defaultDelay+dist_3D/propVelocity',
+                                            'synsPerConn': int(synperconnNumber[pre][post]+0.5),
+                                            'sec': 'spiny'}   
       
                             netParams.connParams['VS_'+'EI_'+pre+'_'+post+'_B'] = { 
                                             'preConds': {'pop': ['presyn_'+metypeVs for metypeVs in cfg.popLabelEl[pre]]}, 
