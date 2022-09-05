@@ -75,8 +75,6 @@ cellsTags = simData['cellsTags']
 excluderadius2a = (cfg.cynradNumber-1)*(0.5*cfg.fracmorphoradius)**2
 excluderadius2b = (cfg.cynradNumber)*(0.5*cfg.fracmorphoradius)**2
 
-cfg.listmorphonumber = {}
-
 # create custom list of spike times
 cellsVSName = {}
 for cellLabel in spkTimes.keys():    
@@ -107,9 +105,7 @@ for metype in cellsVSName.keys(): # metype
         radiuscCell2 = (cellsTags[ii]['xnorm']-0.5)**2 + (cellsTags[ii]['znorm']-0.5)**2
 
         if metype[0] == 'L' and radiuscCell2 >= excluderadius2a and radiuscCell2 < excluderadius2b:   
-            if metype not in cfg.listmorphonumber.keys():
-                cfg.listmorphonumber[metype] = []
-            cfg.listmorphonumber[metype].append(ii)                
+            morphocellgid = True                
         else:
             cellsList.append({'cellLabel': int(cellLabel.split('_')[-1]), 'spkTimes': spkTimes[metype+'_'+cellLabel.split('_')[-1]]})
             

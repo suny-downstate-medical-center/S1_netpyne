@@ -25,7 +25,7 @@ cfg.coreneuron = False
 #------------------------------------------------------------------------------
 # Run parameters
 #------------------------------------------------------------------------------
-cfg.duration = 1.5*1e3 ## Duration of the sim, in ms  
+cfg.duration = 1.5*1e2 ## Duration of the sim, in ms  
 cfg.dt = 0.05
 cfg.seeds = {'conn': 4322, 'stim': 4322, 'loc': 4322} 
 cfg.hParams = {'celsius': 34, 'v_init': -69.5}  
@@ -126,13 +126,14 @@ for cellLabel in spkTimes.keys():
 
 #------------------------------------------------------------------------------
 cfg.cynradNumber = 1
-cfg.fracmorphoradius = 1.0/10.0
+cfg.fracmorphoradius = 1.0/50.0
 
 excluderadius2a = (cfg.cynradNumber-1)*(0.5*cfg.fracmorphoradius)**2
 excluderadius2b = (cfg.cynradNumber)*(0.5*cfg.fracmorphoradius)**2
 
-cfg.Nmorpho = {}
-    
+cfg.Nmorpho = {}    
+cfg.listmorphonumber = {}
+
 print('radius',420*np.sqrt(excluderadius2a),420*np.sqrt(excluderadius2b))
 
 #------------------------------------------------------------------------------
@@ -147,11 +148,16 @@ for metype in cellsVSName.keys(): # metype
 
         if metype[0] == 'L' and radiuscCell2 >= excluderadius2a and radiuscCell2 < excluderadius2b:   
 
+            if metype not in cfg.listmorphonumber.keys():
+                cfg.listmorphonumber[metype] = []
+
+            cfg.listmorphonumber[metype].append(ii)     
+
             if metype not in cfg.Nmorpho.keys():
                 cfg.Nmorpho[metype] = 0
 
             cfg.Nmorpho[metype] += 1
-        
+
 #------------------------------------------------------------------------------
 cfg.Epopsall = ['L23_PC', 'L4_PC', 'L4_SS', 'L4_SP', 
              'L5_TTPC1', 'L5_TTPC2', 'L5_STPC', 'L5_UTPC',
@@ -198,31 +204,31 @@ cfg.cellParamLabels = cfg.S1cells
 # Recording 
 #--------------------------------------------------------------------------
 cfg.allpops = cfg.cellParamLabels
-cfg.cellsrec = 0
-if cfg.cellsrec == 0:  cfg.recordCells = cfg.allpops # record all cells
-elif cfg.cellsrec == 1: cfg.recordCells = [(pop,0) for pop in cfg.allpops] # record one cell of each pop
-elif cfg.cellsrec == 2: # record one cell of each cellMEtype # need more test!!!
-    cfg.recordCells = []
-    for metype in cfg.cellParamLabels:
-        if cfg.cellNumber[metype] < 5:
-            for numberME in range(cfg.cellNumber[metype]):
-                cfg.recordCells.append((metype,numberME))
-        else:
-            numberME = 0
-            diference = cfg.cellNumber[metype] - 5.0*int(cfg.cellNumber[metype]/5.0)
+# cfg.cellsrec = 0
+# if cfg.cellsrec == 0:  cfg.recordCells = cfg.allpops # record all cells
+# elif cfg.cellsrec == 1: cfg.recordCells = [(pop,0) for pop in cfg.allpops] # record one cell of each pop
+# elif cfg.cellsrec == 2: # record one cell of each cellMEtype # need more test!!!
+#     cfg.recordCells = []
+#     for metype in cfg.cellParamLabels:
+#         if cfg.cellNumber[metype] < 5:
+#             for numberME in range(cfg.cellNumber[metype]):
+#                 cfg.recordCells.append((metype,numberME))
+#         else:
+#             numberME = 0
+#             diference = cfg.cellNumber[metype] - 5.0*int(cfg.cellNumber[metype]/5.0)
             
-            for number in range(5):            
-                cfg.recordCells.append((metype,numberME))
+#             for number in range(5):            
+#                 cfg.recordCells.append((metype,numberME))
                 
-                if number < diference:              
-                    numberME+=int(np.ceil(cfg.cellNumber[metype]/5.0))  
-                else:
-                    numberME+=int(cfg.cellNumber[metype]/5.0)
+#                 if number < diference:              
+#                     numberME+=int(np.ceil(cfg.cellNumber[metype]/5.0))  
+#                 else:
+#                     numberME+=int(cfg.cellNumber[metype]/5.0)
 
-cfg.recordTraces = {'V_soma': {'sec':'soma', 'loc':0.5, 'var':'v'}}  ## Dict with traces to record
+# cfg.recordTraces = {'V_soma': {'sec':'soma', 'loc':0.5, 'var':'v'}}  ## Dict with traces to record
 cfg.recordStim = False			
 cfg.recordTime = False  		
-cfg.recordStep = 0.25            
+cfg.recordStep = 1.0            
 
 # cfg.recordLFP = [[200, 1100, 200], [220, 1100, 200], [200, 1200, 220], [220, 1200, 220]]
 # cfg.saveLFPPops =  cfg.recordCells 
@@ -253,7 +259,7 @@ cfg.saveCellConns = False
 # ------------------------------------------------------------------------------
 cfg.analysis['plotRaster'] = {'include': cfg.S1cells, 'saveFig': True, 'showFig': False,'orderInverse': True, 'timeRange': [0,cfg.duration], 'figSize': (24,12), 'fontSize':4, 'markerSize':4, 'marker': 'o', 'dpi': 300} 
 # cfg.analysis['plot2Dnet']   = {'include': ['presyn_L23_PC_cAD','presyn_L5_TTPC2_cAD', 'presyn_VPM_sTC','L23_PC_cAD','L5_TTPC2_cAD'],'saveFig': True, 'showConns': False, 'figSize': (24,24), 'view': 'xz', 'fontSize':16}   # Plot 2D cells xy
-cfg.analysis['plotTraces'] = {'include': cfg.recordCells, 'oneFigPer': 'cell', 'overlay': True, 'timeRange': [0,cfg.duration], 'ylim': [-100,50], 'saveFig': True, 'showFig': False, 'figSize':(12,4)}
+# cfg.analysis['plotTraces'] = {'include': cfg.recordCells, 'oneFigPer': 'cell', 'overlay': True, 'timeRange': [0,cfg.duration], 'ylim': [-100,50], 'saveFig': True, 'showFig': False, 'figSize':(12,4)}
 # cfg.analysis['plot2Dfiring']={'saveFig': True, 'figSize': (24,24), 'fontSize':16}
 # cfg.analysis['plotConn'] = {'includePre': cfg.allpops, 'includePost': cfg.allpops, 'feature': 'numConns', 'groupBy': 'pop', 'figSize': (24,24), 'saveFig': True, 'orderBy': 'gid', 'graphType': 'matrix', 'saveData':'../data/v5_batch0/v5_batch0_matrix_numConn.json', 'fontSize': 18}
 # cfg.analysis['plotConn'] = {'includePre': ['L1_DAC_cNA','L23_PC_cAD','L4_SS_cAD','L4_NBC_cNA','L5_TTPC2_cAD', 'L5_LBC_cNA', 'L6_TPC_L4_cAD', 'L6_LBC_cNA', 'presyn_'+'VPM_sTC', 'presyn_'+'VPL_sTC', 'presyn_'+'POm_sTC_s1'], 

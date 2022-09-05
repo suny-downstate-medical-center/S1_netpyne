@@ -17,8 +17,8 @@ from netpyne import sim
 import pickle, json
 import numpy as np
 
-cfg, netParams = sim.readCmdLineArgs(simConfigDefault='cfg.py', netParamsDefault='netParams.py')
-# cfg, netParams = sim.readCmdLineArgs()
+# cfg, netParams = sim.readCmdLineArgs(simConfigDefault='cfg.py', netParamsDefault='netParams.py')
+cfg, netParams = sim.readCmdLineArgs()
 
 sim.initialize(
     simConfig = cfg, 	
