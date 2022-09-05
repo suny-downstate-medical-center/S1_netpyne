@@ -292,7 +292,7 @@ for syntype in syntypes:
     if syntype > 50:  # Exc
         
         netParams.synMechParams['S1_EE_STP_Det_' + str(syntype)] = {'mod': 'DetAMPANMDA',
-                                         'Use': dfS6['use'][syntype]*cfg.use_frac['EE'], # ± dfS6['useStd'][syntype]
+                                         'Use': dfS6['use'][syntype], # ± dfS6['useStd'][syntype]
                                          'Dep': dfS6['dep'][syntype], # ± dfS6['depStd'][syntype] 
                                          'Fac': dfS6['fac'][syntype], # ± dfS6['facStd'][syntype]
                                          'tau_d_AMPA': 1.74, # ± 0.18 ms
@@ -302,19 +302,8 @@ for syntype in syntypes:
                                          'NMDA_ratio': 0.8, # ± 0.1 for EE -- experimentally measured for some path?
                                          'mg':1.0, #    0.5mM where exceptionally specified?                                                                
                                             }
-        netParams.synMechParams['S1_EIproximal_STP_Det_' + str(syntype)] = {'mod': 'DetAMPANMDA',
-                                         'Use': dfS6['use'][syntype]*cfg.use_frac['EIproximal'], # ± dfS6['useStd'][syntype]
-                                         'Dep': dfS6['dep'][syntype], # ± dfS6['depStd'][syntype] 
-                                         'Fac': dfS6['fac'][syntype], # ± dfS6['facStd'][syntype]
-                                         'tau_d_AMPA': 1.74, # ± 0.18 ms
-                                         'tau_r_AMPA': 0.2,
-                                         'tau_r_NMDA': 0.29,
-                                         'tau_d_NMDA': 43,   
-                                         'NMDA_ratio': 0.4, # ± 0.1  for EI -- experimentally measured for some path?
-                                         'mg':1.0, #    0.5mM where exceptionally specified?                                                                
-                                            }
-        netParams.synMechParams['S1_EIdistal_STP_Det_' + str(syntype)] = {'mod': 'DetAMPANMDA',
-                                         'Use': dfS6['use'][syntype]*cfg.use_frac['EIdistal'], # ± dfS6['useStd'][syntype]
+        netParams.synMechParams['S1_EI_STP_Det_' + str(syntype)] = {'mod': 'DetAMPANMDA',
+                                         'Use': dfS6['use'][syntype], # ± dfS6['useStd'][syntype]
                                          'Dep': dfS6['dep'][syntype], # ± dfS6['depStd'][syntype] 
                                          'Fac': dfS6['fac'][syntype], # ± dfS6['facStd'][syntype]
                                          'tau_d_AMPA': 1.74, # ± 0.18 ms
@@ -327,7 +316,7 @@ for syntype in syntypes:
     else: # Inh
         
         netParams.synMechParams['S1_II_STP_Det_' + str(syntype)] = {'mod': 'DetGABAAB',
-                                         'Use': dfS6['use'][syntype]*cfg.use_frac['Inh'], # ± dfS6['useStd'][syntype]
+                                         'Use': dfS6['use'][syntype], # ± dfS6['useStd'][syntype]
                                          'Dep': dfS6['dep'][syntype], # ± dfS6['depStd'][syntype]  
                                          'Fac': dfS6['fac'][syntype], # ± dfS6['facStd'][syntype]
                                          'tau_d_GABAA': dfS6['decay'][syntype], # ± dfS6['decayStd'][syntype]
@@ -338,7 +327,7 @@ for syntype in syntypes:
                                             }
         
         netParams.synMechParams['S1_IE_STP_Det_' + str(syntype)] = {'mod': 'DetGABAAB',
-                                         'Use': dfS6['use'][syntype]*cfg.use_frac['Inh'], # ± dfS6['useStd'][syntype]
+                                         'Use': dfS6['use'][syntype], # ± dfS6['useStd'][syntype]
                                          'Dep': dfS6['dep'][syntype], # ± dfS6['depStd'][syntype]  
                                          'Fac': dfS6['fac'][syntype], # ± dfS6['facStd'][syntype]
                                          'tau_d_GABAA': dfS6['decay'][syntype], # ± dfS6['decayStd'][syntype]
