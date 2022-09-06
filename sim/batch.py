@@ -9,7 +9,7 @@ from netpyne.batch import Batch
 from netpyne import specs
 import numpy as np
 
-cynnumber = 100
+cynnumber = 16
 
 # ----------------------------------------------------------------------------------------------
 # Custom

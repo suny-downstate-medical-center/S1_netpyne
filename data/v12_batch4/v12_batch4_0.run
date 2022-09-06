@@ -1,0 +1,13 @@
+numprocs=2
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v12_batch4/v12_batch4_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v12_batch4/v12_batch4_netParams.py
+
+Start time:  2022-09-05 22:19:23.539294
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v12_batch4/v12_batch4_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v12_batch4/v12_batch4_netParams.py
