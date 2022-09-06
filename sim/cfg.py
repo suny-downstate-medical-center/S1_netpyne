@@ -25,7 +25,7 @@ cfg.coreneuron = False
 #------------------------------------------------------------------------------
 # Run parameters
 #------------------------------------------------------------------------------
-cfg.duration = 1.5*1e2 ## Duration of the sim, in ms  
+cfg.duration = 1.5*1e4 ## Duration of the sim, in ms  
 cfg.dt = 0.05
 cfg.seeds = {'conn': 4322, 'stim': 4322, 'loc': 4322} 
 cfg.hParams = {'celsius': 34, 'v_init': -69.5}  
@@ -100,7 +100,6 @@ for mtype in cfg.thalamicpops: # No diversity
 	cfg.popLabel[metype] = mtype
 	cfg.popNumber[mtype] = cfg.cellNumber[metype]
 
-
 #------------------------------------------------------------------------------
 # load data from S1 Raster
 #------------------------------------------------------------------------------
@@ -125,8 +124,8 @@ for cellLabel in spkTimes.keys():
     cellsVSName[metype].append('presyn_'+cellLabel)
 
 #------------------------------------------------------------------------------
-cfg.cynradNumber = 1
-cfg.fracmorphoradius = 1.0/50.0
+cfg.cynradNumber = 100
+cfg.fracmorphoradius = 1.0/8.0
 
 excluderadius2a = (cfg.cynradNumber-1)*(0.5*cfg.fracmorphoradius)**2
 excluderadius2b = (cfg.cynradNumber)*(0.5*cfg.fracmorphoradius)**2
@@ -243,12 +242,12 @@ if cfg.recordDipole: cfg.saveDipoleCells = cfg.S1cells
 #------------------------------------------------------------------------------
 # Saving
 #------------------------------------------------------------------------------
-cfg.simLabel = 'v12_batch1'
+cfg.simLabel = 'v12_batch' + str(cfg.cynradNumber)
 cfg.saveFolder = '../data/'+cfg.simLabel
 # cfg.filename =                	## Set file output name
 cfg.savePickle = True	        	## Save pkl file
 cfg.saveJson = False           	## Save json file
-cfg.saveDataInclude = ['simData', 'simConfig', 'net', 'netParams'] ## ['simData'] ##, , 'simConfig', 'netParams'
+cfg.saveDataInclude = ['simData'] ## , 'simConfig', 'net', 'netParams' ['simData'] ##, , 'simConfig', 'netParams'
 cfg.backupCfgFile = None 		##  
 cfg.gatherOnlySimData = False	##  
 cfg.saveCellSecs = False			
