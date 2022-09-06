@@ -10,4 +10,5 @@ srun ./x86_64/special -mpi -python init.py simConfig=../data/v12_batch1/v12_batc
 srun ./x86_64/special -mpi -python init.py simConfig=../data/v12_batch2/v12_batch2_0_cfg.json netParams=../data/v12_batch2/v12_batch2_netParams.py
 srun ./x86_64/special -mpi -python init.py simConfig=../data/v12_batch3/v12_batch3_0_cfg.json netParams=../data/v12_batch3/v12_batch3_netParams.py
 srun ./x86_64/special -mpi -python init.py simConfig=../data/v12_batch64/v12_batch64_0_cfg.json netParams=../data/v12_batch64/v12_batch64_netParams.py
+srun ./x86_64/special -mpi -python init.py simConfig=../data/v12_batch100/v12_batch100_0_cfg.json netParams=../data/v12_batch100/v12_batch100_netParams.py
 
