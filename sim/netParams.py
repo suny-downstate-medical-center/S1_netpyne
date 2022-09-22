@@ -175,8 +175,7 @@ for cellName in cfg.S1cells:
     if cfg.Nmorpho[cellName] < 5:
         morphoNumbers = cfg.Nmorpho[cellName]
     else:
-        morphoNumbers = 5
-    
+        morphoNumbers = 5    
     
     for morphoNumber in range(morphoNumbers):
 
@@ -187,8 +186,7 @@ for cellName in cfg.S1cells:
         if cfg.loadcellsfromJSON:
             # Load cell rules previously saved using netpyne format
             netParams.loadCellParamsRule(label = cellMe, fileName = 'cell_data/' + cellMe + '/' + cellMe + '_cellParams.json')        
-            netParams.cellParams[cellMe]['diversityFraction'] = cellFraction
-            # netParams.loadCellParamsRule(label = cellMe, fileName = 'cell_data/L5_TTPC1_cADpyr232_5/L5_TTPC1_cADpyr232_5_cellParams.json')       
+            netParams.cellParams[cellMe]['diversityFraction'] = cellFraction   
         else:
             cellRule = {'conds': {'cellType': cellName}, 'diversityFraction': cellFraction, 'secs': {}}  # cell rule dict
             cellRule['secs'] = netParams.cellParams[cellMe]['secs']     
@@ -217,12 +215,42 @@ for cellName in cfg.S1cells:
             cellRule['secLists']['basal'] = ['soma']   
             cellRule['secLists']['apical'] = ['soma']    
             netParams.cellParams[cellMe] = cellRule   # add dict to list of cell params   
-        #-----------------------------------------------------------------------------------#
 
+        #-----------------------------------------------------------------------------------#
+        axon_pt3d_x, axon_pt3d_y, axon_pt3d_z, soma_pt3d_diam =  netParams.cellParams[cellMe]['secs']['soma']['geom']['pt3d'][-1]
+        axon_pt3d_diam =  netParams.cellParams[cellMe]['secs']['axon_0']['geom']['diam']
+        axon_pt3d_L =  netParams.cellParams[cellMe]['secs']['axon_0']['geom']['L']
+
+        netParams.cellParams[cellMe]['secs']['axon_0']['geom']['pt3d'] = [(axon_pt3d_x, axon_pt3d_y, axon_pt3d_z, axon_pt3d_diam),
+                                                                          (axon_pt3d_x, axon_pt3d_y+axon_pt3d_L/2.0, axon_pt3d_z, axon_pt3d_diam),
+                                                                          (axon_pt3d_x, axon_pt3d_y+axon_pt3d_L, axon_pt3d_z, axon_pt3d_diam)]
+
+        axon1_pt3d_x, axon1_pt3d_y, axon1_pt3d_z, soma_pt3d_diam =  netParams.cellParams[cellMe]['secs']['axon_0']['geom']['pt3d'][-1]
+        axon1_pt3d_diam =  netParams.cellParams[cellMe]['secs']['axon_1']['geom']['diam']
+        axon1_pt3d_L =  netParams.cellParams[cellMe]['secs']['axon_1']['geom']['L']
+
+        netParams.cellParams[cellMe]['secs']['axon_1']['geom']['pt3d'] = [(axon1_pt3d_x, axon1_pt3d_y, axon1_pt3d_z, axon1_pt3d_diam),
+                                                                          (axon1_pt3d_x, axon1_pt3d_y+axon1_pt3d_L/2.0, axon1_pt3d_z, axon1_pt3d_diam),
+                                                                          (axon1_pt3d_x, axon1_pt3d_y+axon1_pt3d_L, axon1_pt3d_z, axon1_pt3d_diam)] 
+        
+        #-----------------------------------------------------------------------------------#        
         for section in netParams.cellParams[cellMe]['secLists']['all']:
             if 'ions' in netParams.cellParams[cellMe]['secs'][section].keys():
                 if 'ca' in netParams.cellParams[cellMe]['secs'][section]['ions'].keys():
-                    netParams.cellParams[cellMe]['secs'][section]['ions']['ca']['o'] = cfg.cao_secs
+                    netParams.cellParams[cellMe]['secs'][section]['ions']['ca']['o'] = cfg.cao_secs      
+                    
+            randRotationAngle = 2.0*np.pi*np.random.rand() # np.pi/2.0  # rand.uniform(0, 6.2832)  #    
+        
+            #  Rotate the cell about the Z axis
+            for ipt, pt3d in enumerate(netParams.cellParams[cellMe]['secs'][section]['geom']['pt3d']):                
+                x = pt3d[0]             
+                y = pt3d[1]
+                z = pt3d[2]
+                d = pt3d[3]
+                c = np.cos(randRotationAngle)
+                s = np.sin(randRotationAngle)        
+
+                netParams.cellParams[cellMe]['secs'][section]['geom']['pt3d'][ipt] = (x * c - z * s, y, x * s + z * c, d)
 
 #------------------------------------------------------------------------------
 # load data from S1 conn pre-processing file 
@@ -763,4 +791,10 @@ netParams.description = """
 - v4 - NetStim inputs to simulate Spontaneous synapses + background in S1 neurons - data from Rat
 - v5 - insert thalamic pops
 - v6 - insert Short Term synaptic plasticity between S1 cells and projections S1->Th
+- v7 - insert projections Th->S1
+- v8 - calculate LFPs -> only in branch "LFP"
+- v9 - STP stoch
+- v10 - in vivo like conditions
+- v11 - calculate dipoles -> only in branch "dipole"
+- v12 - calculate dipoles -> only in branch "dipole" - with axon pt3d positions fixed
 """

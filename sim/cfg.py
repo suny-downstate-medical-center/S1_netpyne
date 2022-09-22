@@ -133,7 +133,7 @@ excluderadius2b = (cfg.cynradNumber)*(0.5*cfg.fracmorphoradius)**2
 cfg.Nmorpho = {}    
 cfg.listmorphonumber = {}
 
-print('radius',420*np.sqrt(excluderadius2a),420*np.sqrt(excluderadius2b))
+print('radius from',420*np.sqrt(excluderadius2a),'to',420*np.sqrt(excluderadius2b),'micrometers')
 
 #------------------------------------------------------------------------------
 # create 1 vectstim pop per cell gid
@@ -167,30 +167,21 @@ cfg.S1pops = []
 cfg.S1cells = []
 cfg.popLabelEl = {}
 
-for metype in  cfg.Nmorpho.keys(): # metype  
-    
+for metype in  cfg.Nmorpho.keys(): # metype      
     if  cfg.Nmorpho[metype] > 0:  
-
         cfg.S1cells.append(metype)
-
-        mtype = cfg.popLabel[metype]    
-        
-        if mtype in cfg.Epopsall:
-            
+        mtype = cfg.popLabel[metype]            
+        if mtype in cfg.Epopsall:            
             if mtype not in cfg.Epops:
                 cfg.Epops.append(mtype)
                 cfg.S1pops.append(mtype)
                 cfg.popLabelEl[mtype] = [] 
-
-            cfg.popLabelEl[mtype].append(metype)
-            
-        else:
-            
+            cfg.popLabelEl[mtype].append(metype)            
+        else:            
             if mtype not in cfg.Ipops:                
                 cfg.Ipops.append(mtype)  
                 cfg.S1pops.append(mtype)  
                 cfg.popLabelEl[mtype] = [] 
-
             cfg.popLabelEl[mtype].append(metype)      
 
 #------------------------------------------------------------------------------  
