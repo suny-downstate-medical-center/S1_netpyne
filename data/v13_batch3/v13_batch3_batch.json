@@ -1,0 +1,29 @@
+{
+    "batch": {
+        "batchLabel": "v13_batch3",
+        "cfgFile": "cfg.py",
+        "evolCfg": {
+            "fitnessFunc": "removed"
+        },
+        "initCfg": {},
+        "method": "grid",
+        "netParamsFile": "netParams.py",
+        "params": [
+            {
+                "label": "cynradNumber",
+                "values": [
+                    3
+                ]
+            }
+        ],
+        "runCfg": {
+            "cores": 2,
+            "mpiCommand": "mpiexec",
+            "script": "init.py",
+            "skip": true,
+            "type": "mpi_direct"
+        },
+        "saveFolder": "../data/v13_batch3",
+        "seed": null
+    }
+}
