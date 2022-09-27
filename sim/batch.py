@@ -9,7 +9,7 @@ from netpyne.batch import Batch
 from netpyne import specs
 import numpy as np
 
-cynnumber = 1
+cynnumber = 166
 
 # ----------------------------------------------------------------------------------------------
 # Custom
@@ -39,9 +39,9 @@ def setRunCfg(b, type='mpi_bulletin'):
 
     elif type=='mpi_direct':
         b.runCfg = {'type': 'mpi_direct',
-            'cores': 15,
+            'cores': 2,
             'script': 'init.py',
-            'mpiCommand': 'mpiexec --oversubscribe', # --use-hwthread-cpus  #  --oversubscribe
+            'mpiCommand': 'mpiexec', # --use-hwthread-cpus  #  --oversubscribe
             'skip': True}
 
     elif type=='mpi_direct2':

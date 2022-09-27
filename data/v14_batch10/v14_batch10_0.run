@@ -1,0 +1,36 @@
+numprocs=2
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v14_batch10/v14_batch10_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v14_batch10/v14_batch10_netParams.py
+  Number of cells on node 1: 19306 
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v14_batch10/v14_batch10_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v14_batch10/v14_batch10_netParams.py
+
+Start time:  2022-09-27 00:04:09.349571
+
+Creating network of 326 cell populations on 2 hosts...
+  Number of cells on node 0: 19306 
+  Done; cell creation time = 57.48 s.
+
+Gathering data...
+  Done; gather time = 15.90 s.
+
+Analyzing...
+  Cells: 38612
+  Connections: 0 (0.00 per cell)
+Plotting 2D representation of network cell locations and connections...
+Unable to run plotDipole from sim.plotting and sim.analysis. Reason: unsupported operand type(s) for /: 'Dict' and 'float'
+Preparing spike data...
+No spikes available to plot raster
+Plotting raster...
+  There was an exception in plotRaster(): 
+    local variable 'spkInds' referenced before assignment 
+    (<class 'UnboundLocalError'>, UnboundLocalError("local variable 'spkInds' referenced before assignment"), <traceback object at 0x7f40c53d9e60>)
+  Done; plotting time = 19.11 s
+
+Total time = 96.84 s

@@ -25,7 +25,7 @@ cfg.coreneuron = False
 #------------------------------------------------------------------------------
 # Run parameters
 #------------------------------------------------------------------------------
-cfg.duration = 1.5*1e3 ## Duration of the sim, in ms  
+cfg.duration = 1.5*1e4 ## Duration of the sim, in ms  
 cfg.dt = 0.05
 cfg.seeds = {'conn': 4322, 'stim': 4322, 'loc': 4322} 
 cfg.hParams = {'celsius': 34, 'v_init': -69.5}  
@@ -124,8 +124,8 @@ for cellLabel in spkTimes.keys():
     cellsVSName[metype].append('presyn_'+cellLabel)
 
 #------------------------------------------------------------------------------
-cfg.cynradNumber = 1
-cfg.fracmorphoradius = 1.0/6.0
+cfg.cynradNumber = 166
+cfg.fracmorphoradius = 1.0/4.0
 
 excluderadius2a = (cfg.cynradNumber-1)*(0.5*cfg.fracmorphoradius)**2
 excluderadius2b = (cfg.cynradNumber)*(0.5*cfg.fracmorphoradius)**2
@@ -233,7 +233,7 @@ if cfg.recordDipole: cfg.saveDipoleCells = cfg.S1cells
 #------------------------------------------------------------------------------
 # Saving
 #------------------------------------------------------------------------------
-cfg.simLabel = 'v13_batch' + str(cfg.cynradNumber)
+cfg.simLabel = 'v14_batch' + str(cfg.cynradNumber)
 cfg.saveFolder = '../data/'+cfg.simLabel
 # cfg.filename =                	## Set file output name
 cfg.savePickle = True	        	## Save pkl file
