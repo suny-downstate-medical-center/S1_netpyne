@@ -66,9 +66,8 @@ netParams.scaleConnWeightNetStims = 0.001  # weight conversion factor (from nS t
 #------------------------------------------------------------------------------
 # load data from S1 Raster
 #------------------------------------------------------------------------------
-
 ## Load spkTimes and cells positions
-with open('../data/spkTimes_v9_batch8_highgsynCT.pkl', 'rb') as fileObj: simData = pickle.load(fileObj)
+with open('../data/spkTimes_v9_batch6_lowgsynCT.pkl', 'rb') as fileObj: simData = pickle.load(fileObj)
 spkTimes = simData['spkTimes']
 cellsTags = simData['cellsTags']
 
@@ -89,6 +88,21 @@ for cellLabel in spkTimes.keys():
     mtype = cfg.popLabel[metype]           
     cellsVSName[metype].append('presyn_'+cellLabel)
 
+## Load spkTimes from inhomogeneous_poisson at 3Hz sin wave and FR~6Hz
+tmax = 15000
+max_rate = 0.006
+f_osc = 0.003
+bin_size = 1
+time = np.arange(0, tmax, 1)
+rate = max_rate * (np.sin(2*np.pi*f_osc*time)+1)/2
+
+def inhomogeneous_poisson(rate, bin_size):
+    n_bins = len(rate)
+    spikes = np.random.rand(n_bins) < rate * bin_size
+    spike_times = np.nonzero(spikes)[0] * bin_size
+#     print(np.size(spike_times))
+    return spike_times
+    
 # create 1 vectstim pop per cell gid
 for metype in cellsVSName.keys(): # metype
     
@@ -107,16 +121,20 @@ for metype in cellsVSName.keys(): # metype
         if metype[0] == 'L' and radiuscCell2 >= excluderadius2a and radiuscCell2 < excluderadius2b:   
             morphocellgid = True                
         else:
-            cellsList.append({'cellLabel': int(cellLabel.split('_')[-1]), 'spkTimes': spkTimes[metype+'_'+cellLabel.split('_')[-1]]})
+            if  metype[0] == 'L':
+                cellsList.append({'cellLabel': int(cellLabel.split('_')[-1]), 'spkTimes': spkTimes[metype+'_'+cellLabel.split('_')[-1]]})
+            else:
+                spike_times = inhomogeneous_poisson(rate, bin_size)
+                cellsList.append({'cellLabel': int(cellLabel.split('_')[-1]), 'spkTimes': list(spike_times)})
             
     # Population parameters
     if  metype in cfg.Nmorpho.keys() and metype[0] == 'L':        
         layernumber = metype[1:2]
         if layernumber == '2':
-            netParams.popParams[metype] = {'cellType': metype, 'cellModel': 'HH_full', 'ynormRange': layer['23'], 
+            netParams.popParams[metype] = {'cellType': metype, 'cellModel': 'HH_full', 'ynormRange': layer['23'], # 'rotateCellsRandomly': [0,2.0*np.pi],
                                                 'numCells': int(cfg.Nmorpho[metype]), 'diversity': True}
         else:
-            netParams.popParams[metype] = {'cellType': metype, 'cellModel': 'HH_full', 'ynormRange': layer[layernumber], 
+            netParams.popParams[metype] = {'cellType': metype, 'cellModel': 'HH_full', 'ynormRange': layer[layernumber], # 'rotateCellsRandomly': [0,2.0*np.pi],
                                                 'numCells': int(cfg.Nmorpho[metype]), 'diversity': True}
             
     if np.size(cellsList) > 0:
