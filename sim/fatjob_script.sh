@@ -6,6 +6,7 @@
 #SBATCH --account=icei_H_King
 
 srun ./x86_64/special -mpi -python init.py simConfig=../data/v14_batch1/v14_batch1_0_cfg.json netParams=../data/v14_batch1/v14_batch1_netParams.py
+srun ./x86_64/special -mpi -python init.py simConfig=../data/v14_batch1/v14_batch1_0_cfg.json netParams=../data/v14_batch1/v14_batch1_netParams.py
 srun ./x86_64/special -mpi -python init.py simConfig=../data/v14_batch2/v14_batch2_0_cfg.json netParams=../data/v14_batch2/v14_batch2_netParams.py
 srun ./x86_64/special -mpi -python init.py simConfig=../data/v14_batch3/v14_batch3_0_cfg.json netParams=../data/v14_batch3/v14_batch3_netParams.py
 srun ./x86_64/special -mpi -python init.py simConfig=../data/v14_batch4/v14_batch4_0_cfg.json netParams=../data/v14_batch4/v14_batch4_netParams.py

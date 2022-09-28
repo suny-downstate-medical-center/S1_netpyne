@@ -645,6 +645,7 @@
                 "marker": "o",
                 "markerSize": 4,
                 "orderInverse": true,
+                "saveData": true,
                 "saveFig": true,
                 "showFig": false,
                 "timeRange": [

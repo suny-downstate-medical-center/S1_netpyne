@@ -3,22 +3,22 @@ numprocs=2
 Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
 Loading file ../data/v14_batch7/v14_batch7_0_cfg.json ... 
 Loading simConfig...
-Importing netParams from ../data/v14_batch7/v14_batch7_netParams.py
-  Number of cells on node 1: 19306 
 
 Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
 Loading file ../data/v14_batch7/v14_batch7_0_cfg.json ... 
 Loading simConfig...
 Importing netParams from ../data/v14_batch7/v14_batch7_netParams.py
+Importing netParams from ../data/v14_batch7/v14_batch7_netParams.py
 
-Start time:  2022-09-27 00:01:25.862541
+Start time:  2022-09-28 14:00:14.429111
 
 Creating network of 323 cell populations on 2 hosts...
   Number of cells on node 0: 19306 
-  Done; cell creation time = 79.04 s.
+  Number of cells on node 1: 19306 
+  Done; cell creation time = 42.75 s.
 
 Gathering data...
-  Done; gather time = 16.48 s.
+  Done; gather time = 9.62 s.
 
 Analyzing...
   Cells: 38612
@@ -30,7 +30,7 @@ No spikes available to plot raster
 Plotting raster...
   There was an exception in plotRaster(): 
     local variable 'spkInds' referenced before assignment 
-    (<class 'UnboundLocalError'>, UnboundLocalError("local variable 'spkInds' referenced before assignment"), <traceback object at 0x7efda4944410>)
-  Done; plotting time = 13.19 s
+    (<class 'UnboundLocalError'>, UnboundLocalError("local variable 'spkInds' referenced before assignment"), <traceback object at 0x7fbec5071940>)
+  Done; plotting time = 10.60 s
 
-Total time = 114.30 s
+Total time = 64.55 s
