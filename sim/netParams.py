@@ -76,7 +76,6 @@ netParams.scaleConnWeightNetStims = 0.001  # weight conversion factor (from nS t
 # Population parameters
 #------------------------------------------------------------------------------
 ## S1
-
 for cellName in cfg.S1cells:
 	layernumber = cellName[1:2]
 	if layernumber == '2':
@@ -143,8 +142,8 @@ if not cfg.loadcellsfromJSON:     ## Load cell rules using BBP template
 ## S1 cell property rules
 for cellName in cfg.S1cells:
     
-    if cfg.cellNumber[cellName] < 5:
-        morphoNumbers = cfg.cellNumber[cellName]
+    if int(np.ceil(cfg.scaleDensity*cfg.cellNumber[cellName])) < 5:
+        morphoNumbers = int(np.ceil(cfg.scaleDensity*cfg.cellNumber[cellName]))
     else:
         morphoNumbers = 5
     
@@ -155,7 +154,8 @@ for cellName in cfg.S1cells:
         
         if cfg.loadcellsfromJSON:
             # Load cell rules previously saved using netpyne format
-            netParams.loadCellParamsRule(label = cellMe, fileName = 'cell_data/' + cellMe + '/' + cellMe + '_cellParams.json')           
+            netParams.loadCellParamsRule(label = cellMe, fileName = 'cell_data/' + cellMe + '/' + cellMe + '_cellParams.json')       
+            netParams.cellParams[cellMe]['diversityFraction'] = cellFraction   
         else:
             cellRule = {'conds': {'cellType': cellName}, 'diversityFraction': cellFraction, 'secs': {}}  # cell rule dict
             cellRule['secs'] = netParams.cellParams[cellMe]['secs']     
@@ -172,25 +172,42 @@ for cellName in cfg.S1cells:
             netParams.cellParams[cellMe] = cellRule   # add dict to list of cell params  
 
         #-----------------------------------------------------------------------------------#
-        if cfg.reducedtest:
-            cellRule = {'conds': {'cellType': cellName}, 'diversityFraction': cellFraction, 'secs': {}}  # cell rule dict
-            cellRule['conds'] = netParams.cellParams[cellMe]['conds']    
-            cellRule['secs'] = {}
-            cellRule['secs']['soma'] = netParams.cellParams[cellMe]['secs']['soma']
-            cellRule['secLists'] = {}
-            cellRule['secLists']['spiny'] = ['soma']
-            cellRule['secLists']['spinyEE'] = ['soma']
-            cellRule['secLists']['all'] = ['soma']
-            cellRule['secLists']['basal'] = ['soma']   
-            cellRule['secLists']['apical'] = ['soma']    
-            netParams.cellParams[cellMe] = cellRule   # add dict to list of cell params   
-        #-----------------------------------------------------------------------------------#     
+        axon_pt3d_x, axon_pt3d_y, axon_pt3d_z, soma_pt3d_diam =  netParams.cellParams[cellMe]['secs']['soma']['geom']['pt3d'][-1]
+        axon_pt3d_diam =  netParams.cellParams[cellMe]['secs']['axon_0']['geom']['diam']
+        axon_pt3d_L =  netParams.cellParams[cellMe]['secs']['axon_0']['geom']['L']
+
+        netParams.cellParams[cellMe]['secs']['axon_0']['geom']['pt3d'] = [(axon_pt3d_x, axon_pt3d_y, axon_pt3d_z, axon_pt3d_diam),
+                                                                          (axon_pt3d_x, axon_pt3d_y+axon_pt3d_L/2.0, axon_pt3d_z, axon_pt3d_diam),
+                                                                          (axon_pt3d_x, axon_pt3d_y+axon_pt3d_L, axon_pt3d_z, axon_pt3d_diam)]
+
+        axon1_pt3d_x, axon1_pt3d_y, axon1_pt3d_z, soma_pt3d_diam =  netParams.cellParams[cellMe]['secs']['axon_0']['geom']['pt3d'][-1]
+        axon1_pt3d_diam =  netParams.cellParams[cellMe]['secs']['axon_1']['geom']['diam']
+        axon1_pt3d_L =  netParams.cellParams[cellMe]['secs']['axon_1']['geom']['L']
+
+        netParams.cellParams[cellMe]['secs']['axon_1']['geom']['pt3d'] = [(axon1_pt3d_x, axon1_pt3d_y, axon1_pt3d_z, axon1_pt3d_diam),
+                                                                          (axon1_pt3d_x, axon1_pt3d_y+axon1_pt3d_L/2.0, axon1_pt3d_z, axon1_pt3d_diam),
+                                                                          (axon1_pt3d_x, axon1_pt3d_y+axon1_pt3d_L, axon1_pt3d_z, axon1_pt3d_diam)] 
+        
+        #-----------------------------------------------------------------------------------#        
         for section in netParams.cellParams[cellMe]['secLists']['all']:
             if 'ions' in netParams.cellParams[cellMe]['secs'][section].keys():
                 if 'ca' in netParams.cellParams[cellMe]['secs'][section]['ions'].keys():
-                    netParams.cellParams[cellMe]['secs'][section]['ions']['ca']['o'] = cfg.cao_secs
+                    netParams.cellParams[cellMe]['secs'][section]['ions']['ca']['o'] = cfg.cao_secs      
+                    
+            randRotationAngle = 2.0*np.pi*np.random.rand() # np.pi/2.0  # rand.uniform(0, 6.2832)  #    
+        
+            #  Rotate the cell about the Z axis
+            for ipt, pt3d in enumerate(netParams.cellParams[cellMe]['secs'][section]['geom']['pt3d']):                
+                x = pt3d[0]             
+                y = pt3d[1]
+                z = pt3d[2]
+                d = pt3d[3]
+                c = np.cos(randRotationAngle)
+                s = np.sin(randRotationAngle)        
 
+                netParams.cellParams[cellMe]['secs'][section]['geom']['pt3d'][ipt] = (x * c - z * s, y, x * s + z * c, d)
         #-----------------------------------------------------------------------------------#
+
 ## Th cell property rules
 # JSON FILES FROM A1 WITH UPDATED DYNAMICS
 # # --- VL - Exc --- #
@@ -594,7 +611,7 @@ if cfg.addConn:
 #------------------------------------------------------------------------------
 # NetStim inputs to simulate Spontaneous synapses + background in S1 neurons - data from Rat
 #------------------------------------------------------------------------------
-SourcesNumber = 5 # for each post Mtype - sec distribution
+SourcesNumber = 25 # for each post Mtype - sec distribution
 synperNeuronStimI = connData['synperNeuronStimI']
 synperNeuronStimE = connData['synperNeuronStimE']
 GsynStimI = connData['GsynStimI']
@@ -892,7 +909,7 @@ if cfg.connect_S1_Th:
                     prob_conv = 1.0*(conn_convergence/cfg.popNumber[pre])*((radius_cilinder**2)/(radius2D_S1_TC**2)) # prob*(AreaS1/Area_Th_syn)  
                     prob_rule = '%f if dist_2D < %f else 0.0' % (prob_conv,radius2D_S1_TC)
 
-                    netParams.connParams['thal_'+pre+'_'+post] = { 
+                netParams.connParams['thal_'+pre+'_'+post] = { 
                                 'preConds': {'pop': cfg.popLabelEl[pre]}, 
                                 'postConds': {'pop': post},
                                 'synMech': syn,
