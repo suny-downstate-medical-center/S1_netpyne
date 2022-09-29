@@ -219,6 +219,14 @@ netParams.loadCellParamsRule(label='sRE_cell', fileName='cells/sRE_jv_00.json') 
 netParams.cellParams['sRE_cell']['conds']={}
 
 #------------------------------------------------------------------------------
+#  extracellular mechs
+#------------------------------------------------------------------------------
+for celltyp in netParams.cellParams.keys():
+    label = []
+    for secname in netParams.cellParams[celltyp]['secs'].keys():
+        netParams.cellParams[celltyp]['secs'][secname]['mechs']['extracellular'] = {}
+
+#------------------------------------------------------------------------------
 # load data from S1 conn pre-processing file 
 #------------------------------------------------------------------------------
 with open('conn/conn.pkl', 'rb') as fileObj: connData = pickle.load(fileObj)
@@ -343,7 +351,7 @@ for syntype in syntypes:
 netParams.synMechParams['TC:S1'] = {'mod': 'ProbAMPANMDA_EMS',
                                           'Dep': 227.0,
                                           'Fac': 13.0,
-                                          'Use': 0.72,
+                                          'Use': 0.72*cfg.use_frac['EE'],
                                           'tau_r_AMPA': 0.2,
                                           'tau_d_AMPA': 1.74,
                                           'NMDA_ratio': 0.4,
