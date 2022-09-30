@@ -81,6 +81,7 @@ for i,metype in enumerate(sim.net.cells):
 # print(cfg.S1cells)
 # print(cfg.Nmorpho)
 
+
 sim.net.connectCells()            			# create connections between cells based on params
 sim.net.addStims() 							# add network stimulation
 sim.setupRecording()              			# setup variables to record for each cell (spikes, V traces, etc)
@@ -88,6 +89,7 @@ sim.runSim()                      			# run parallel Neuron simulation
 sim.gatherData()                  			# gather spiking data and cell info from each node
 sim.saveData()                    			# save params, cell info and sim output to file (pickle,mat,txt,etc)#
 sim.analysis.plotData()         			# plot spike raster etc
+
 
 # sim.analysis.plotRaster(include=cfg.recordCells, timeRange=[0,cfg.duration], orderBy='gid', orderInverse=True, labels=None, popRates=False, lw=5, marker='.', markerSize=15, figSize=(18, 12), fontSize=9, dpi=300, saveFig='../data/'+cfg.simLabel[0:9]+'/'+cfg.simLabel + '_Raster_onecellperpop.png', showFig=False)
 # sim.analysis.plotRaster(timeRange=[0,cfg.duration], orderBy='gid', orderInverse=True, labels=None, popRates=False, lw=1, marker='.', markerSize=2, figSize=(18, 12), fontSize=9, dpi=300, saveFig=True, showFig=False)

@@ -124,8 +124,8 @@ for cellLabel in spkTimes.keys():
     cellsVSName[metype].append('presyn_'+cellLabel)
 
 #------------------------------------------------------------------------------
-cfg.cynradNumber = 1
-cfg.fracmorphoradius = 1.0/14.0
+cfg.cynradNumber = 166
+cfg.fracmorphoradius = 1.0/4.0
 
 excluderadius2a = (cfg.cynradNumber-1)*(0.5*cfg.fracmorphoradius)**2
 excluderadius2b = (cfg.cynradNumber)*(0.5*cfg.fracmorphoradius)**2
