@@ -141,7 +141,7 @@ for metype in cellsVSName.keys(): # metype
         netParams.popParams['presyn_'+metype] = {'cellModel': 'VecStim', 'cellsList': cellsList}
         
     # print(metype,np.size(cellsList),cfg.Nmorpho[metype],cfg.cellNumber[metype])
-# print(netParams.popParams.keys())
+
 #------------------------------------------------------------------------------
 # Cell parameters  # L1 70  L23 215  L4 230 L5 260  L6 260  = 1035
 #------------------------------------------------------------------------------
