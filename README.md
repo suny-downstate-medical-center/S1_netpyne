@@ -3,7 +3,7 @@
 ## Description
 This code reproduces the simulations for the following paper:
 
-Fernando da Silva Borges,  Joao V.S. Moreira,  Lavinia M. Takarabe,  William W. Lytton,  Salvador Dura-Bernal. **Large-scale biophysically detailed model of somatosensory thalamocortical circuits in NetPyNE**. https://doi.org/10.1101/2022.02.03.479029
+Fernando da Silva Borges,  Joao V.S. Moreira,  Lavinia M. Takarabe,  William W. Lytton,  Salvador Dura-Bernal. **Large-scale biophysically detailed model of somatosensory thalamocortical circuits in NetPyNE**. Frontiers in Neuroinformatics. https://doi.org/10.3389/fninf.2022.884245
 
 We have implemented this highly-detailed and complex model S1 model in NetPyNE, using the data available in the Neocortical Microcircuit Collaboration Portal. We also extended the model by adding thalamic circuits, including 6 distinct thalamic populations with intrathalamic, thalamocortical and corticothalamic connectivity derived from experimental data. Our work provides a widely accessible, data-driven and biophysically-detailed model of the somatosensory thalamocortical circuits that can be utilized as a community tool for researchers to study neural dynamics, function and disease.
 
@@ -25,7 +25,7 @@ Requires NEURON with Python and MPI support.
 2. In cfg.py make sure cfg.coreneuron = True
 3. To run type: `python batch.py` or `mpirun -n [num_proc] ./x86_64/special -mpi -python init.py`
 
-The code reproduce the Fig. 7.
+The resumed code to reproduce the Fig. 7: https://github.com/suny-downstate-medical-center/S1_Thal_NetPyNE_Frontiers_2022.
 
 
 ## Overview of file structure:
