@@ -22,7 +22,7 @@ cfg, netParams = sim.readCmdLineArgs()
 sim.initialize(
     simConfig = cfg, 	
     netParams = netParams)  				# create network object and set cfg and net params
-        
+
 sim.net.createPops()               			# instantiate network populations
 sim.net.createCells()              			# instantiate network cells based on defined populations
 sim.net.connectCells()            			# create connections between cells based on params
@@ -35,7 +35,7 @@ sim.net.defineCellShapes()
 acs_params = {'position': [210.0, 0.0, 210.0],  # um
               'amp': 20.,  # uA,
               'stimstart': 0,  # ms
-              'stimend': 300,  # ms
+              'stimend': 1000,  # ms
               'frequency': 10,  # Hz
               'sigma': 0.57  # decay constant S/m
               }

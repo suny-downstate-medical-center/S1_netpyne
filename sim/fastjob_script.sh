@@ -7,3 +7,5 @@
 #SBATCH --account=icei_H_King
 
 srun ./x86_64/special -mpi -python init.py
+srun ./x86_64/special -mpi -python init.py
+

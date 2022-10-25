@@ -1,0 +1,284 @@
+numprocs=4
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v100_batch1/v100_batch1_0_0_cfg.json ... 
+Loading simConfig...
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v100_batch1/v100_batch1_0_0_cfg.json ... 
+Loading simConfig...
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v100_batch1/v100_batch1_0_0_cfg.json ... 
+Loading simConfig...
+
+Reading command line arguments using syntax: python file.py [simConfig=filepath] [netParams=filepath]
+Loading file ../data/v100_batch1/v100_batch1_0_0_cfg.json ... 
+Loading simConfig...
+Importing netParams from ../data/v100_batch1/v100_batch1_netParams.py
+
+Start time:  2022-10-24 17:13:42.796378
+Importing netParams from ../data/v100_batch1/v100_batch1_netParams.py
+Importing netParams from ../data/v100_batch1/v100_batch1_netParams.py
+Importing netParams from ../data/v100_batch1/v100_batch1_netParams.py
+
+Creating network of 213 cell populations on 4 hosts...
+  Number of cells on node 2: 1935 
+  Number of cells on node 3: 1935 
+  Number of cells on node 0: 1936 
+  Number of cells on node 1: 1936 
+  Done; cell creation time = 12.58 s.
+Making connections...
+  Number of connections on node 1: 0 
+  Number of connections on node 3: 0 
+  Number of connections on node 0: 0 
+  Number of connections on node 2: 0 
+  Done; cell connection time = 0.24 s.
+  Number of stims on node 0: 0 
+  Number of stims on node 3: 0 
+  Number of stims on node 2: 0 
+  Number of stims on node 1: 0 
+  Done; cell stims creation time = 0.00 s.
+Recording 56 traces of 1 types on node 1
+Recording 63 traces of 1 types on node 0
+Recording 56 traces of 1 types on node 3
+Recording 62 traces of 1 types on node 2
+0.0s
+
+Running simulation using NEURON for 300.0 ms...
+0.1s
+0.2s
+0.3s
+  Done; run time = 1505.86 s; real-time ratio: 0.00.
+
+Gathering data...
+  Done; gather time = 3.10 s.
+
+Analyzing...
+  Cells: 7742
+  Connections: 0 (0.00 per cell)
+  Spikes: 4278 (1.84 Hz)
+  Simulated time: 0.3 s; 4 workers
+  Run time: 1505.86 s
+   L1_DAC_bNA : 0.000 Hz
+   L1_DAC_cNA : 0.000 Hz
+   L1_DLAC_cNA : 0.000 Hz
+   L1_HAC_bNA : 0.000 Hz
+   L1_HAC_cIR : 0.000 Hz
+   L1_HAC_cNA : 0.000 Hz
+   L1_NGC-DA_bNA : 6.667 Hz
+   L1_NGC-DA_cAC : 3.333 Hz
+   L1_NGC-DA_cNA : 3.333 Hz
+   L1_NGC-DA_cST : 10.000 Hz
+   L1_NGC-SA_cNA : 0.000 Hz
+   L1_SLAC_bNA : 0.000 Hz
+   L1_SLAC_cAC : 0.000 Hz
+   L1_SLAC_cNA : 0.000 Hz
+   L23_BP_bAC : 0.000 Hz
+   L23_BP_bIR : 0.000 Hz
+   L23_BP_bNA : 0.000 Hz
+   L23_BP_cAC : 0.000 Hz
+   L23_BP_cNA : 0.000 Hz
+   L23_BP_dST : 0.000 Hz
+   L23_BTC_bAC : 0.000 Hz
+   L23_BTC_bIR : 0.000 Hz
+   L23_BTC_bNA : 0.000 Hz
+   L23_BTC_cAC : 0.000 Hz
+   L23_BTC_cNA : 0.000 Hz
+   L23_ChC_cAC : 0.000 Hz
+   L23_ChC_cNA : 0.000 Hz
+   L23_ChC_dNA : 0.000 Hz
+   L23_DBC_bAC : 0.000 Hz
+   L23_DBC_bIR : 0.000 Hz
+   L23_DBC_bNA : 0.000 Hz
+   L23_DBC_cAC : 0.000 Hz
+   L23_LBC_bAC : 0.000 Hz
+   L23_LBC_bNA : 0.000 Hz
+   L23_LBC_cAC : 0.000 Hz
+   L23_LBC_cNA : 0.000 Hz
+   L23_LBC_cST : 0.000 Hz
+   L23_LBC_dNA : 0.000 Hz
+   L23_MC_bAC : 0.000 Hz
+   L23_MC_bNA : 0.000 Hz
+   L23_MC_cAC : 0.000 Hz
+   L23_MC_cNA : 0.000 Hz
+   L23_MC_dNA : 0.000 Hz
+   L23_NBC_bAC : 0.000 Hz
+   L23_NBC_bNA : 0.000 Hz
+   L23_NBC_cAC : 0.000 Hz
+   L23_NBC_cIR : 0.000 Hz
+   L23_NBC_cNA : 0.000 Hz
+   L23_NBC_dNA : 0.000 Hz
+   L23_NGC_bNA : 0.000 Hz
+   L23_NGC_cAC : 0.000 Hz
+   L23_NGC_cNA : 0.000 Hz
+   L23_NGC_cST : 0.000 Hz
+   L23_PC_cAD : 0.000 Hz
+   L23_SBC_bNA : 0.000 Hz
+   L23_SBC_cAC : 0.000 Hz
+   L23_SBC_dNA : 0.000 Hz
+   L4_BP_bAC : 0.000 Hz
+   L4_BP_bIR : 0.000 Hz
+   L4_BP_bNA : 0.000 Hz
+   L4_BP_cAC : 0.000 Hz
+   L4_BP_cNA : 0.000 Hz
+   L4_BP_dST : 0.000 Hz
+   L4_BTC_bAC : 0.000 Hz
+   L4_BTC_bIR : 0.000 Hz
+   L4_BTC_bST : 0.000 Hz
+   L4_BTC_cAC : 0.000 Hz
+   L4_BTC_cNA : 0.000 Hz
+   L4_BTC_dNA : 0.000 Hz
+   L4_ChC_cAC : 0.000 Hz
+   L4_ChC_cNA : 0.000 Hz
+   L4_ChC_dNA : 0.000 Hz
+   L4_DBC_bAC : 0.000 Hz
+   L4_DBC_bIR : 0.000 Hz
+   L4_DBC_bNA : 0.000 Hz
+   L4_DBC_bST : 0.000 Hz
+   L4_DBC_cAC : 0.000 Hz
+   L4_DBC_cIR : 0.000 Hz
+   L4_DBC_cNA : 0.000 Hz
+   L4_LBC_cAC : 0.000 Hz
+   L4_LBC_cNA : 0.000 Hz
+   L4_LBC_cST : 0.000 Hz
+   L4_LBC_dNA : 0.000 Hz
+   L4_LBC_dST : 0.000 Hz
+   L4_MC_bAC : 0.000 Hz
+   L4_MC_bNA : 0.000 Hz
+   L4_MC_cAC : 0.000 Hz
+   L4_MC_cNA : 0.000 Hz
+   L4_MC_dNA : 0.000 Hz
+   L4_NBC_cAC : 0.000 Hz
+   L4_NBC_cIR : 0.000 Hz
+   L4_NBC_cNA : 0.000 Hz
+   L4_NBC_dNA : 0.000 Hz
+   L4_NGC_bNA : 0.000 Hz
+   L4_NGC_cAC : 0.000 Hz
+   L4_NGC_cNA : 0.000 Hz
+   L4_NGC_cST : 0.000 Hz
+   L4_PC_cAD : 0.000 Hz
+   L4_SBC_bNA : 0.000 Hz
+   L4_SBC_cAC : 0.000 Hz
+   L4_SBC_dNA : 0.000 Hz
+   L4_SP_cAD : 0.000 Hz
+   L4_SS_cAD : 0.000 Hz
+   L5_BP_bAC : 0.000 Hz
+   L5_BP_bIR : 0.000 Hz
+   L5_BP_bNA : 0.000 Hz
+   L5_BP_cAC : 0.000 Hz
+   L5_BP_cNA : 0.000 Hz
+   L5_BP_dST : 0.000 Hz
+   L5_BTC_bAC : 0.000 Hz
+   L5_BTC_cAC : 0.000 Hz
+   L5_BTC_cNA : 0.000 Hz
+   L5_ChC_cAC : 0.000 Hz
+   L5_ChC_cNA : 0.000 Hz
+   L5_ChC_dNA : 0.000 Hz
+   L5_DBC_bAC : 0.000 Hz
+   L5_DBC_bIR : 0.000 Hz
+   L5_DBC_bNA : 0.000 Hz
+   L5_DBC_bST : 0.000 Hz
+   L5_DBC_cAC : 0.000 Hz
+   L5_DBC_cIR : 0.000 Hz
+   L5_DBC_cNA : 0.000 Hz
+   L5_LBC_bAC : 0.000 Hz
+   L5_LBC_cAC : 0.000 Hz
+   L5_LBC_cIR : 0.000 Hz
+   L5_LBC_cNA : 0.000 Hz
+   L5_LBC_cST : 0.000 Hz
+   L5_LBC_dNA : 0.000 Hz
+   L5_LBC_dST : 0.000 Hz
+   L5_MC_bAC : 0.000 Hz
+   L5_MC_bIR : 0.000 Hz
+   L5_MC_bST : 0.000 Hz
+   L5_MC_cAC : 0.000 Hz
+   L5_MC_cNA : 0.000 Hz
+   L5_MC_cST : 0.000 Hz
+   L5_MC_dNA : 0.000 Hz
+   L5_NBC_bAC : 0.000 Hz
+   L5_NBC_bIR : 0.000 Hz
+   L5_NBC_bST : 0.000 Hz
+   L5_NBC_cAC : 0.000 Hz
+   L5_NBC_cIR : 0.000 Hz
+   L5_NBC_cNA : 0.000 Hz
+   L5_NBC_cST : 0.000 Hz
+   L5_NBC_dST : 0.000 Hz
+   L5_NGC_bNA : 0.000 Hz
+   L5_NGC_cAC : 0.000 Hz
+   L5_NGC_cNA : 0.000 Hz
+   L5_NGC_cST : 0.000 Hz
+   L5_SBC_bNA : 0.000 Hz
+   L5_SBC_cAC : 0.000 Hz
+   L5_SBC_dNA : 0.000 Hz
+   L5_STPC_cAD : 0.000 Hz
+   L5_TTPC1_cAD : 0.000 Hz
+   L5_TTPC2_cAD : 0.000 Hz
+   L5_UTPC_cAD : 0.000 Hz
+   L6_BPC_cAD : 0.000 Hz
+   L6_BP_bAC : 0.000 Hz
+   L6_BP_bIR : 0.000 Hz
+   L6_BP_bNA : 0.000 Hz
+   L6_BP_cAC : 0.000 Hz
+   L6_BP_cNA : 0.000 Hz
+   L6_BP_dST : 0.000 Hz
+   L6_BTC_bAC : 0.000 Hz
+   L6_BTC_cAC : 0.000 Hz
+   L6_BTC_cNA : 0.000 Hz
+   L6_ChC_cAC : 0.000 Hz
+   L6_ChC_cNA : 0.000 Hz
+   L6_ChC_dNA : 0.000 Hz
+   L6_DBC_bAC : 0.000 Hz
+   L6_DBC_bIR : 0.000 Hz
+   L6_DBC_bNA : 0.000 Hz
+   L6_DBC_bST : 0.000 Hz
+   L6_DBC_cAC : 0.000 Hz
+   L6_DBC_cIR : 0.000 Hz
+   L6_DBC_cNA : 0.000 Hz
+   L6_IPC_cAD : 0.000 Hz
+   L6_LBC_bAC : 0.000 Hz
+   L6_LBC_bIR : 0.000 Hz
+   L6_LBC_bNA : 0.000 Hz
+   L6_LBC_bST : 0.000 Hz
+   L6_LBC_cNA : 0.000 Hz
+   L6_LBC_cST : 0.000 Hz
+   L6_MC_bAC : 0.000 Hz
+   L6_MC_bIR : 0.000 Hz
+   L6_MC_bNA : 0.000 Hz
+   L6_MC_bST : 0.000 Hz
+   L6_MC_cAC : 0.000 Hz
+   L6_MC_cIR : 0.000 Hz
+   L6_MC_cNA : 0.000 Hz
+   L6_NBC_bAC : 0.000 Hz
+   L6_NBC_bIR : 0.000 Hz
+   L6_NBC_bST : 0.000 Hz
+   L6_NBC_cAC : 0.000 Hz
+   L6_NBC_cIR : 0.000 Hz
+   L6_NBC_cNA : 0.000 Hz
+   L6_NBC_cST : 0.000 Hz
+   L6_NBC_dST : 0.000 Hz
+   L6_NGC_bNA : 0.000 Hz
+   L6_NGC_cAC : 0.000 Hz
+   L6_NGC_cNA : 0.000 Hz
+   L6_NGC_cST : 0.000 Hz
+   L6_SBC_bNA : 0.000 Hz
+   L6_SBC_cAC : 0.000 Hz
+   L6_SBC_dNA : 0.000 Hz
+   L6_TPC_L1_cAD : 0.000 Hz
+   L6_TPC_L4_cAD : 0.000 Hz
+   L6_UTPC_cAD : 0.000 Hz
+   ss_RTN_o : 0.000 Hz
+   ss_RTN_m : 0.000 Hz
+   ss_RTN_i : 0.000 Hz
+   VPL_sTC : 3.333 Hz
+   VPM_sTC : 3.333 Hz
+   POm_sTC_s1 : 3.333 Hz
+Saving output as ../data/v100_batch1/v100_batch1_0_0_data.pkl ... 
+Finished saving!
+  Done; saving time = 5.49 s.
+Preparing spike data...
+Plotting raster...
+Plotting recorded cell traces ... cell
+  Done; plotting time = 38.95 s
+
+Total time = 1578.19 s

@@ -157,7 +157,7 @@ cfg.recordStep = 0.1
 #------------------------------------------------------------------------------
 # Saving
 #------------------------------------------------------------------------------
-cfg.simLabel = 'v100_batch1'
+cfg.simLabel = 'v10_batch3'
 cfg.saveFolder = '../data/'+cfg.simLabel
 # cfg.filename =                	## Set file output name
 cfg.savePickle = True         	## Save pkl file
@@ -188,7 +188,7 @@ cfg.scale = 1.0 # reduce size
 cfg.sizeY = 2082.0
 cfg.sizeX = 420.0 # r = 210 um and hexagonal side length = 230.9 um
 cfg.sizeZ = 420.0
-cfg.scaleDensity = 0.1 # Number of cells = 31346
+cfg.scaleDensity = 0.00005 # Number of cells = 31346
 
 #------------------------------------------------------------------------------
 # Spontaneous synapses + background - data from Rat
@@ -219,7 +219,7 @@ cfg.connect_RTN_RTN     = True
 cfg.connect_TC_RTN      = True
 cfg.connect_RTN_TC      = True
 
-cfg.yConnFactor = 10 # y-tolerance form connection distance based on the x and z-plane radial tolerances (1=100%; 2=50%; 5=20%; 10=10%)
+cfg.yConnFactor             = 10 # y-tolerance form connection distance based on the x and z-plane radial tolerances (1=100%; 2=50%; 5=20%; 10=10%)
 
 cfg.intraThalamicGain = 1.0 
 

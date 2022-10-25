@@ -22,7 +22,14 @@ cfg, netParams = sim.readCmdLineArgs()
 sim.initialize(
     simConfig = cfg, 	
     netParams = netParams)  				# create network object and set cfg and net params
-        
+    
+for celltyp in netParams.cellParams:
+    label = []
+    for secname in netParams.cellParams[celltyp]['secs']:
+        label.append(secname)
+    for segment in label:
+        netParams.cellParams[celltyp]['secs'][segment]['mechs']['extracellular'] = {}
+
 sim.net.createPops()               			# instantiate network populations
 sim.net.createCells()              			# instantiate network cells based on defined populations
 sim.net.connectCells()            			# create connections between cells based on params
@@ -33,10 +40,10 @@ sim.net.defineCellShapes()
 
 # The parameters of the extracellular point current source
 acs_params = {'position': [210.0, 0.0, 210.0],  # um
-              'amp': 20.,  # uA,
-              'stimstart': 0,  # ms
-              'stimend': 300,  # ms
-              'frequency': 10,  # Hz
+              'amp': 400.0,  # uA,
+              'stimstart': 0.0,  # ms
+              'stimend': 1000.0,  # ms
+              'frequency': 10.0,  # Hz
               'sigma': 0.57  # decay constant S/m
               }
 
@@ -74,13 +81,16 @@ def make_extracellular_stimuli(acs_params, cell):
     pulse = acs_params['amp'] * 1000. * \
         np.sin(2 * np.pi * acs_params['frequency'] * t / 1000)
         
-        
+    #v_cell_ext = np.zeros((cell.secs['soma']['hObj'].nseg, n_tsteps))
     v_cell_ext = np.zeros((1, n_tsteps))
-    
-    v_cell_ext[:, :] = ext_field(cell.getSomaPos()[0], abs(cell.getSomaPos()[1]), cell.getSomaPos()[2]).reshape(1, 1) * pulse.reshape(1, n_tsteps)
-    insert_v_ext(cell, v_cell_ext, t)
-
+    #v_cell_ext[:, :] = ext_field(cell.getSomaPos()[0], cell.getSomaPos()[1], cell.getSomaPos()[2]).reshape(cell.secs['soma']['hObj'].nseg, 1) * pulse.reshape(1, n_tsteps)
+    v_cell_ext[:, :] = ext_field(cell.getSomaPos()[0], abs(cell.getSomaPos(
+    )[1]), cell.getSomaPos()[2]).reshape(1, 1) * pulse.reshape(1, n_tsteps)
+    if max(v_cell_ext[0])/1000. > 5:
+        insert_v_ext(cell, v_cell_ext, t)
+        
     return ext_field, pulse
+
 
 #Add extracellular stim
 for c in range(len(sim.net.cells)):
@@ -94,7 +104,7 @@ sim.analysis.plotData()         			# plot spike raster etc
 
 cell_list = []
 for i in range(len(sim.net.cells)):
-    cell_list.append([str(sim.net.cells[i].tags['cellType']), sim.net.cells[i].gid])
+    cell_list.append([str(sim.net.cells[i].tags.cellType), sim.net.cells[i].gid])
 pickle.dump(cell_list,open('cell_list.pickle','wb'))
 
 

@@ -188,12 +188,12 @@ cfg.scale = 1.0 # reduce size
 cfg.sizeY = 2082.0
 cfg.sizeX = 420.0 # r = 210 um and hexagonal side length = 230.9 um
 cfg.sizeZ = 420.0
-cfg.scaleDensity = 0.1 # Number of cells = 31346
+cfg.scaleDensity = 0.01 # Number of cells = 31346
 
 #------------------------------------------------------------------------------
 # Spontaneous synapses + background - data from Rat
 #------------------------------------------------------------------------------
-cfg.addStimSynS1 = True
+cfg.addStimSynS1 = False
 cfg.rateStimE = 9.0
 cfg.rateStimI = 9.0
 
@@ -201,7 +201,7 @@ cfg.rateStimI = 9.0
 # Connectivity
 #------------------------------------------------------------------------------
 ## S1->S1
-cfg.addConn = True
+cfg.addConn = False
 
 cfg.synWeightFractionEE = [1.0, 1.0] # E -> E AMPA to NMDA ratio
 cfg.synWeightFractionEI = [1.0, 1.0] # E -> I AMPA to NMDA ratio
@@ -214,7 +214,7 @@ cfg.IEGain = 1.0
 
 #------------------------------------------------------------------------------
 ## Th->Th 
-cfg.connectTh = True
+cfg.connectTh = False
 cfg.connect_RTN_RTN     = True
 cfg.connect_TC_RTN      = True
 cfg.connect_RTN_TC      = True
@@ -240,7 +240,7 @@ cfg.divergenceHO = 10
 # 						   corticothalamic < 2.4 ± 0.1 mV
 #------------------------------------------------------------------------------
 ## Th->S1
-cfg.connect_Th_S1 = True
+cfg.connect_Th_S1 = False
 cfg.TC_S1 = {}
 cfg.TC_S1['VPL_sTC'] = True
 cfg.TC_S1['VPM_sTC'] = True
@@ -249,7 +249,7 @@ cfg.TC_S1['POm_sTC_s1'] = True
 cfg.frac_Th_S1 = 1.0
 #------------------------------------------------------------------------------
 ## S1->Th 
-cfg.connect_S1_Th = True
+cfg.connect_S1_Th = False
 
 cfg.connect_S1_RTN = True
 cfg.convergence_S1_RTN         = 30.0  # dist_2D<R
@@ -262,7 +262,7 @@ cfg.connWeight_S1_TC       = 0.250
 #------------------------------------------------------------------------------
 # Current inputs 
 #------------------------------------------------------------------------------
-cfg.addIClamp = True  # decrease the transient
+cfg.addIClamp = False  # decrease the transient
  
 cfg.IClamp = []
 cfg.IClampnumber = 0
