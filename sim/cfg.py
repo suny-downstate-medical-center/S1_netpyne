@@ -25,7 +25,7 @@ cfg.coreneuron = False
 #------------------------------------------------------------------------------
 # Run parameters
 #------------------------------------------------------------------------------
-cfg.duration = 1.5*1e4 ## Duration of the sim, in ms  
+cfg.duration = 3.5*1e3 ## Duration of the sim, in ms  
 cfg.dt = 0.05
 cfg.seeds = {'conn': 4322, 'stim': 4322, 'loc': 4322} 
 cfg.hParams = {'celsius': 34, 'v_init': -69.5}  
@@ -125,7 +125,7 @@ for cellLabel in spkTimes.keys():
 
 #------------------------------------------------------------------------------
 cfg.cynradNumber = 1
-cfg.fracmorphoradius = 1.0/4.0
+cfg.fracmorphoradius = 1.0/2.0
 
 excluderadius2a = (cfg.cynradNumber-1)*(0.5*cfg.fracmorphoradius)**2
 excluderadius2b = (cfg.cynradNumber)*(0.5*cfg.fracmorphoradius)**2
@@ -223,7 +223,7 @@ cfg.recordStep = 0.5
 # cfg.recordLFP = [[200, 1100, 200], [220, 1100, 200], [200, 1200, 220], [220, 1200, 220]]
 # cfg.saveLFPPops =  cfg.recordCells 
 
-cfg.recordLFP = [[210, y, 210] for y in [500, 1000, 1500, 2000]] # 1 elec in L1 and 3 elec in L5  
+cfg.recordLFP = [[zx, y, zx] for zx in [0, 210] for y in [500, 1000, 1500, 2000]] # 1 elec in L1 and 3 elec in L5  
 
 # cfg.saveDipolePops = cfg.S1cells
 
