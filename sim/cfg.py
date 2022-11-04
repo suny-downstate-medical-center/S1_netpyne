@@ -27,9 +27,9 @@ cfg.random123 = True
 #------------------------------------------------------------------------------
 # Run parameters
 #------------------------------------------------------------------------------
-cfg.duration = 1.5*1e4 ## Duration of the sim, in ms  
+cfg.duration = 6.0*1e4 ## Duration of the sim, in ms  
 cfg.dt = 0.025
-cfg.seeds = {'conn': 4322, 'stim': 4322, 'loc': 4322} 
+cfg.seeds = {'conn': 4321, 'stim': 4321, 'loc': 4321} 
 cfg.hParams = {'celsius': 34, 'v_init': -65}  
 cfg.verbose = False
 cfg.createNEURONObj = True
@@ -161,7 +161,7 @@ cfg.recordStep = 0.1
 #------------------------------------------------------------------------------
 # Saving
 #------------------------------------------------------------------------------
-cfg.simLabel = 'v10_batch6'
+cfg.simLabel = 'v100_batch1'
 cfg.saveFolder = '../data/'+cfg.simLabel
 # cfg.filename =                	## Set file output name
 cfg.savePickle = True         	## Save pkl file
