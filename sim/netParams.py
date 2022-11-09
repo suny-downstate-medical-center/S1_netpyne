@@ -67,7 +67,7 @@ netParams.scaleConnWeightNetStims = 0.001  # weight conversion factor (from nS t
 # load data from S1 Raster
 #------------------------------------------------------------------------------
 ## Load spkTimes and cells positions
-with open('../data/spkTimes_v9_batch8_highgsynCT.pkl', 'rb') as fileObj: simData = pickle.load(fileObj)
+with open(cfg.prespikesfile, 'rb') as fileObj: simData = pickle.load(fileObj)
 spkTimes = simData['spkTimes']
 cellsTags = simData['cellsTags']
 
@@ -95,7 +95,7 @@ for metype in cellsVSName.keys(): # metype
     for cellLabel in cellsVSName[metype]: # all cells in metype
 
         if np.size(spkTimes[metype+'_'+cellLabel.split('_')[-1]]) == 0:
-            spkTimes[metype+'_'+cellLabel.split('_')[-1]] = [15000.5]
+            spkTimes[metype+'_'+cellLabel.split('_')[-1]] = [60000.5]
 
         mtype = cfg.popLabel[metype]    
 
@@ -121,7 +121,11 @@ for metype in cellsVSName.keys(): # metype
     if np.size(cellsList) > 0:
         netParams.popParams['presyn_'+metype] = {'cellModel': 'VecStim', 'cellsList': cellsList}
         
-    # print(metype,np.size(cellsList),cfg.Nmorpho[metype],cfg.cellNumber[metype])
+    # if  metype in cfg.Nmorpho.keys() and metype[0] == 'L':      
+    #     print(metype,np.size(cellsList),cfg.Nmorpho[metype],cfg.cellNumber[metype])
+    # else:
+    #     print(metype,np.size(cellsList),0,cfg.cellNumber[metype])
+
 # print(netParams.popParams.keys())
 
 #------------------------------------------------------------------------------

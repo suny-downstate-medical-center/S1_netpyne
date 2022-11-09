@@ -25,7 +25,7 @@ cfg.coreneuron = False
 #------------------------------------------------------------------------------
 # Run parameters
 #------------------------------------------------------------------------------
-cfg.duration = 3.5*1e3 ## Duration of the sim, in ms  
+cfg.duration = 6.0*1e4 ## Duration of the sim, in ms  
 cfg.dt = 0.05
 cfg.seeds = {'conn': 4322, 'stim': 4322, 'loc': 4322} 
 cfg.hParams = {'celsius': 34, 'v_init': -69.5}  
@@ -105,7 +105,11 @@ for mtype in cfg.thalamicpops: # No diversity
 #------------------------------------------------------------------------------
 
 ## Load spkTimes and cells positions
-with open('../data/spkTimes_v9_batch8_highgsynCT.pkl', 'rb') as fileObj: simData = pickle.load(fileObj)
+
+cfg.prespikesfile = '../data/spkTimes_v100_batch1.pkl'
+
+with open(cfg.prespikesfile, 'rb') as fileObj: simData = pickle.load(fileObj)
+
 spkTimes = simData['spkTimes']
 cellsTags = simData['cellsTags']
 
@@ -157,6 +161,7 @@ for metype in cellsVSName.keys(): # metype
 
             cfg.Nmorpho[metype] += 1
 
+print(np.size(list(cfg.Nmorpho.keys())))
 #------------------------------------------------------------------------------
 cfg.Epopsall = ['L23_PC', 'L4_PC', 'L4_SS', 'L4_SP', 
              'L5_TTPC1', 'L5_TTPC2', 'L5_STPC', 'L5_UTPC',
@@ -223,7 +228,7 @@ cfg.recordStep = 0.5
 # cfg.recordLFP = [[200, 1100, 200], [220, 1100, 200], [200, 1200, 220], [220, 1200, 220]]
 # cfg.saveLFPPops =  cfg.recordCells 
 
-cfg.recordLFP = [[zx, y, zx] for zx in [0, 210] for y in [500, 1000, 1500, 2000]] # 1 elec in L1 and 3 elec in L5  
+cfg.recordLFP = [[0, y, 0] for y in [500, 1000, 1500, 2000]] # 1 elec in L1 and 3 elec in L5  
 
 # cfg.saveDipolePops = cfg.S1cells
 
@@ -233,7 +238,7 @@ if cfg.recordDipole: cfg.saveDipoleCells = cfg.S1cells
 #------------------------------------------------------------------------------
 # Saving
 #------------------------------------------------------------------------------
-cfg.simLabel = 'v10_batch1'       #   + str(cfg.cynradNumber)
+cfg.simLabel = 'v10_batch2'       #   + str(cfg.cynradNumber)
 cfg.saveFolder = '../data/'+cfg.simLabel
 # cfg.filename =                	## Set file output name
 cfg.savePickle = True	        	## Save pkl file
