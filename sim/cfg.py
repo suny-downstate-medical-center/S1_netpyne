@@ -35,7 +35,7 @@ cfg.createPyStruct = True
 cfg.cvode_active = False
 cfg.cvode_atol = 1e-6
 cfg.cache_efficient = True
-cfg.printRunTime = 0.1
+cfg.printRunTime = 0.5
 
 cfg.includeParamsLabel = False
 cfg.printPopAvgRates = True
@@ -194,51 +194,44 @@ cfg.cellParamLabels = cfg.S1cells
 # Recording 
 #--------------------------------------------------------------------------
 cfg.allpops = cfg.cellParamLabels
-# cfg.cellsrec = 0
-# if cfg.cellsrec == 0:  cfg.recordCells = cfg.allpops # record all cells
-# elif cfg.cellsrec == 1: cfg.recordCells = [(pop,0) for pop in cfg.allpops] # record one cell of each pop
-# elif cfg.cellsrec == 2: # record one cell of each cellMEtype # need more test!!!
-#     cfg.recordCells = []
-#     for metype in cfg.cellParamLabels:
-#         if cfg.cellNumber[metype] < 5:
-#             for numberME in range(cfg.cellNumber[metype]):
-#                 cfg.recordCells.append((metype,numberME))
-#         else:
-#             numberME = 0
-#             diference = cfg.cellNumber[metype] - 5.0*int(cfg.cellNumber[metype]/5.0)
+cfg.cellsrec = 2
+if cfg.cellsrec == 0:  cfg.recordCells = cfg.allpops # record all cells
+elif cfg.cellsrec == 1: cfg.recordCells = [(pop,0) for pop in cfg.allpops] # record one cell of each pop
+elif cfg.cellsrec == 2: # record one cell of each cellMEtype # need more test!!!
+    cfg.recordCells = []
+    for metype in cfg.cellParamLabels:
+        if cfg.cellNumber[metype] < 5:
+            for numberME in range(cfg.cellNumber[metype]):
+                cfg.recordCells.append((metype,numberME))
+        else:
+            numberME = 0
+            diference = cfg.cellNumber[metype] - 5.0*int(cfg.cellNumber[metype]/5.0)
             
-#             for number in range(5):            
-#                 cfg.recordCells.append((metype,numberME))
+            for number in range(5):            
+                cfg.recordCells.append((metype,numberME))
                 
-#                 if number < diference:              
-#                     numberME+=int(np.ceil(cfg.cellNumber[metype]/5.0))  
-#                 else:
-#                     numberME+=int(cfg.cellNumber[metype]/5.0)
+                if number < diference:              
+                    numberME+=int(np.ceil(cfg.cellNumber[metype]/5.0))  
+                else:
+                    numberME+=int(cfg.cellNumber[metype]/5.0)
 
-# cfg.recordTraces = {'V_soma': {'sec':'soma', 'loc':0.5, 'var':'v'}}  ## Dict with traces to record
+cfg.recordTraces = {'V_soma': {'sec':'soma', 'loc':0.5, 'var':'v'}}  ## Dict with traces to record
 cfg.recordStim = False			
 cfg.recordTime = False  		
-cfg.recordStep = 1.0            
+cfg.recordStep = 0.5            
 
-# cfg.recordLFP = [[200, 1100, 200], [220, 1100, 200], [200, 1200, 220], [220, 1200, 220]]
-# cfg.saveLFPPops =  cfg.recordCells 
+cfg.recordLFP = [[0, 500, 0], [0, 1000, 0], [0, 1500, 0], [0, 2000, 0]] 
 
-cfg.recordLFP = [[0, y, 0] for y in [500, 1500, 2000, 2500]] # 4 elec in S1 
-
-# cfg.saveDipolePops = cfg.S1cells
-
-# cfg.recordDipole = True
-# if cfg.recordDipole: cfg.saveDipoleCells = cfg.S1cells
 
 #------------------------------------------------------------------------------
 # Saving
 #------------------------------------------------------------------------------
-cfg.simLabel = 'v1000_batch' + str(cfg.cynradNumber)
+cfg.simLabel = 'v10_batch2'
 cfg.saveFolder = '../data/'+cfg.simLabel
 # cfg.filename =                	## Set file output name
 cfg.savePickle = True	        	## Save pkl file
 cfg.saveJson = False           	## Save json file
-cfg.saveDataInclude = ['simData'] ## , 'simConfig', 'net', 'netParams' ['simData'] ##, , 'simConfig', 'netParams'
+cfg.saveDataInclude = ['simData', 'simConfig', 'net', 'netParams'] ## ['simData'] ##, , 'simConfig', 'netParams'
 cfg.backupCfgFile = None 		##  
 cfg.gatherOnlySimData = False	##  
 cfg.saveCellSecs = False			
@@ -249,7 +242,7 @@ cfg.saveCellConns = False
 # ------------------------------------------------------------------------------
 cfg.analysis['plotRaster'] = {'include': cfg.S1cells, 'saveFig': True, 'showFig': False,'orderInverse': True, 'timeRange': [0,cfg.duration], 'figSize': (24,12), 'fontSize':4, 'markerSize':4, 'marker': 'o', 'dpi': 300} 
 # cfg.analysis['plot2Dnet']   = {'include': ['presyn_L23_PC_cAD','presyn_L5_TTPC2_cAD', 'presyn_VPM_sTC','L23_PC_cAD','L5_TTPC2_cAD'],'saveFig': True, 'showConns': False, 'figSize': (24,24), 'view': 'xz', 'fontSize':16}   # Plot 2D cells xy
-# cfg.analysis['plotTraces'] = {'include': cfg.recordCells, 'oneFigPer': 'cell', 'overlay': True, 'timeRange': [0,cfg.duration], 'ylim': [-100,50], 'saveFig': True, 'showFig': False, 'figSize':(12,4)}
+cfg.analysis['plotTraces'] = {'include': cfg.recordCells, 'oneFigPer': 'cell', 'overlay': True, 'timeRange': [0,cfg.duration], 'ylim': [-100,50], 'saveFig': True, 'showFig': False, 'figSize':(12,4)}
 # cfg.analysis['plot2Dfiring']={'saveFig': True, 'figSize': (24,24), 'fontSize':16}
 # cfg.analysis['plotConn'] = {'includePre': cfg.allpops, 'includePost': cfg.allpops, 'feature': 'numConns', 'groupBy': 'pop', 'figSize': (24,24), 'saveFig': True, 'orderBy': 'gid', 'graphType': 'matrix', 'saveData':'../data/v5_batch0/v5_batch0_matrix_numConn.json', 'fontSize': 18}
 # cfg.analysis['plotConn'] = {'includePre': ['L1_DAC_cNA','L23_PC_cAD','L4_SS_cAD','L4_NBC_cNA','L5_TTPC2_cAD', 'L5_LBC_cNA', 'L6_TPC_L4_cAD', 'L6_LBC_cNA', 'presyn_'+'VPM_sTC', 'presyn_'+'VPL_sTC', 'presyn_'+'POm_sTC_s1'], 
