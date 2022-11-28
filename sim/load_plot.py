@@ -80,8 +80,8 @@ if __name__ == '__main__':
     dataType = 'spont' #'speech' #'spont'
 
     if dataType == 'spont':
-        filenames = ['../data/v7_batch1/v7_batch1_%d_%d_data.pkl' % (iseed, cseed) for iseed in [0] for cseed in [0]]
-        timeRange = [0, 15000]
+        filenames = ['../data/v100_batch1/v100_batch1_data.pkl']
+        timeRange = [58000, 60000]
 
     layer_bounds= {'L1': 100, 'L2': 160, 'L3': 950, 'L4': 1250, 'L5A': 1334, 'L5B': 1550}#, 'L6': 2000}
     layer_bounds= {'S': 950, 'G': 1250, 'I': 1900}#, 'L6': 2000}
@@ -97,7 +97,7 @@ if __name__ == '__main__':
         # sim.analysis.plotRaster(**{'include': ['allCells'], 'saveFig': True, 'showFig': False, 'labels': None, 'popRates': False,'orderInverse': True, 'timeRange': timeRange, 'figSize': (36,24), 'fontSize':4, 'lw': 5, 'markerSize':10, 'marker': '.', 'dpi': 300})
         # sim.analysis.plotRaster(**{'include': RP_L13, 'saveFig': True, 'showFig': False, 'popRates': 'minimal', 'orderInverse': True, 'timeRange': timeRange, 'orderBy':'y', 'fontSize':8, 'figSize': (24,12), 'lw': 4.0, 'markerSize': 4, 'marker': 'o', 'dpi': 300})
         # timeRange = [10000, 15000]
-        sim.analysis.plotRaster(**{'saveFig': True, 'showFig': False, 'labels': None, 'popRates': False, 'orderInverse': True, 'timeRange': timeRange, 'orderBy':'y', 'fontSize':4, 'figSize': (60,30), 'lw': 1.0, 'markerSize': 1, 'marker': 'o', 'dpi': 300})
+        sim.analysis.plotRaster(**{'saveFig': True, 'showFig': False, 'labels': None, 'popRates': False, 'orderInverse': True, 'timeRange': timeRange, 'orderBy':'y', 'fontSize':4, 'figSize': (48,24), 'lw': 1.0, 'markerSize': 1, 'marker': 'o', 'dpi': 100})
         # timeRange = [0, 5000]
         # sim.analysis.plotRaster(**{'include': RP_L6, 'saveFig': True, 'showFig': False, 'popRates': 'minimal', 'orderInverse': True, 'timeRange': timeRange, 'orderBy':'y', 'fontSize':8, 'figSize': (48,24), 'lw': 2.0, 'markerSize': 2, 'marker': 'o', 'dpi': 300})
         # sim.analysis.plotRaster(**{'include': RP_L6, 'saveFig': filename[:-4]+'_RP_L6', 'showFig': False, 'popRates': 'minimal', 'orderInverse': True, 'timeRange': timeRange, 'orderBy':'y', 'fontSize':8, 'figSize': (24,12), 'lw': 4.0, 'markerSize': 4, 'marker': 'o', 'dpi': 300})

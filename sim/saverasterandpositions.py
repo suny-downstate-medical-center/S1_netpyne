@@ -89,7 +89,11 @@ cfg.cellParamLabels = cellParam
 
 #------------------------------------------------------------------------------
 
-with open('/home/fernando/Documents/data_S1_Rat/v7_batch1/v7_batch1_0_0_data.pkl', 'rb') as fileObj: spikesData = pickle.load(fileObj)
+with open('/home/fernando/Documents/S1_netpyne/data/v100_batch1/v100_batch1_data.pkl', 'rb') as fileObj: spikesData = pickle.load(fileObj)
+
+print(spikesData.keys())
+
+print(spikesData['simData'].keys())
 
 spkid = spikesData['simData']['spkid']
 spkt = spikesData['simData']['spkt']
@@ -106,7 +110,7 @@ for metype in cfg.cellNumber.keys():
     popID[metype] = N
     N += cfg.cellNumber[metype]
 
-print('N =',N,', Number of spikes =',np.size(spkt),', FR =',np.size(spkt)/(10.0*N))
+print('N =',N,', Number of spikes =',np.size(spkt),', FR =',np.size(spkt)/(60.0*N))
 
 for mtype in cfg.popNumber.keys():
     if mtype in cfg.popLabelEl.keys():
@@ -133,5 +137,5 @@ for i,metype in enumerate(spikesData['net']['cells']):
 #------------------------------------------------------------------------------
 # Save data to pkl file
 import pickle
-with open('../data/spkTimes_v7_batch1.pkl', 'wb') as f:
+with open('../data/spkTimes_v100_batch1.pkl', 'wb') as f:
     pickle.dump({'spkTimes': spkTimes, 'cellsTags': cellsTags}, f)
