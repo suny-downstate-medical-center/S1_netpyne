@@ -9,8 +9,6 @@ from netpyne.batch import Batch
 from netpyne import specs
 import numpy as np
 
-cynnumber = 1
-
 # ----------------------------------------------------------------------------------------------
 # Custom
 # ----------------------------------------------------------------------------------------------
@@ -19,10 +17,8 @@ def custom():
     
     # params[('seeds', 'conn')] =  [1234]
 
-    # params[('rateStimE')] = [9.0]
-    # params[('rateStimI')] = [9.0]
-
-    params[('cynradNumber')] = [cynnumber]
+    params[('rateStimI')] = [9.0]
+    params[('rateStimE')] = [9.0]
 
     b = Batch(params=params, netParamsFile='netParams.py', cfgFile='cfg.py')
 
@@ -41,7 +37,7 @@ def setRunCfg(b, type='mpi_bulletin'):
         b.runCfg = {'type': 'mpi_direct',
             'cores': 12,
             'script': 'init.py',
-            'mpiCommand': 'mpiexec --oversubscribe', # --use-hwthread-cpus  #  --oversubscribe
+            'mpiCommand': 'mpiexec', # --use-hwthread-cpus
             'skip': True}
 
     elif type=='mpi_direct2':
@@ -67,7 +63,7 @@ def setRunCfg(b, type='mpi_bulletin'):
 if __name__ == '__main__': 
     b = custom() #
 
-    b.batchLabel = 'v10_batch2'  # +str(cynnumber)
+    b.batchLabel = 'v100_batch1'  
     b.saveFolder = '../data/'+b.batchLabel
     b.method = 'grid'
     setRunCfg(b, 'mpi_direct')

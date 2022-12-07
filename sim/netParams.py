@@ -67,7 +67,7 @@ netParams.scaleConnWeightNetStims = 0.001  # weight conversion factor (from nS t
 # load data from S1 Raster
 #------------------------------------------------------------------------------
 ## Load spkTimes and cells positions
-with open('../data/spkTimes_v9_batch8_highgsynCT.pkl', 'rb') as fileObj: simData = pickle.load(fileObj)
+with open('../data/spkTimes_v100_batch1.pkl', 'rb') as fileObj: simData = pickle.load(fileObj)
 spkTimes = simData['spkTimes']
 cellsTags = simData['cellsTags']
 
@@ -88,21 +88,6 @@ for cellLabel in spkTimes.keys():
     mtype = cfg.popLabel[metype]           
     cellsVSName[metype].append('presyn_'+cellLabel)
 
-## Load spkTimes from inhomogeneous_poisson at 3Hz sin wave and FR~6Hz
-tmax = 15000
-max_rate = 0.006
-f_osc = 0.003
-bin_size = 1
-time = np.arange(0, tmax, 1)
-rate = max_rate * (np.sin(2*np.pi*f_osc*time)+1)/2
-
-def inhomogeneous_poisson(rate, bin_size):
-    n_bins = len(rate)
-    spikes = np.random.rand(n_bins) < rate * bin_size
-    spike_times = np.nonzero(spikes)[0] * bin_size
-#     print(np.size(spike_times))
-    return spike_times
-    
 # create 1 vectstim pop per cell gid
 for metype in cellsVSName.keys(): # metype
     
@@ -110,7 +95,7 @@ for metype in cellsVSName.keys(): # metype
     for cellLabel in cellsVSName[metype]: # all cells in metype
 
         if np.size(spkTimes[metype+'_'+cellLabel.split('_')[-1]]) == 0:
-            spkTimes[metype+'_'+cellLabel.split('_')[-1]] = [15000.5]
+            spkTimes[metype+'_'+cellLabel.split('_')[-1]] = [150000.5]
 
         mtype = cfg.popLabel[metype]    
 
@@ -121,26 +106,23 @@ for metype in cellsVSName.keys(): # metype
         if metype[0] == 'L' and radiuscCell2 >= excluderadius2a and radiuscCell2 < excluderadius2b:   
             morphocellgid = True                
         else:
-            if  metype[0] == 'L':
-                cellsList.append({'cellLabel': int(cellLabel.split('_')[-1]), 'spkTimes': spkTimes[metype+'_'+cellLabel.split('_')[-1]]})
-            else:
-                spike_times = inhomogeneous_poisson(rate, bin_size)
-                cellsList.append({'cellLabel': int(cellLabel.split('_')[-1]), 'spkTimes': list(spike_times)})
+            cellsList.append({'cellLabel': int(cellLabel.split('_')[-1]), 'spkTimes': spkTimes[metype+'_'+cellLabel.split('_')[-1]]})
             
     # Population parameters
     if  metype in cfg.Nmorpho.keys() and metype[0] == 'L':        
         layernumber = metype[1:2]
         if layernumber == '2':
-            netParams.popParams[metype] = {'cellType': metype, 'cellModel': 'HH_full', 'ynormRange': layer['23'], # 'rotateCellsRandomly': [0,2.0*np.pi],
+            netParams.popParams[metype] = {'cellType': metype, 'cellModel': 'HH_full', 'ynormRange': layer['23'], 
                                                 'numCells': int(cfg.Nmorpho[metype]), 'diversity': True}
         else:
-            netParams.popParams[metype] = {'cellType': metype, 'cellModel': 'HH_full', 'ynormRange': layer[layernumber], # 'rotateCellsRandomly': [0,2.0*np.pi],
+            netParams.popParams[metype] = {'cellType': metype, 'cellModel': 'HH_full', 'ynormRange': layer[layernumber], 
                                                 'numCells': int(cfg.Nmorpho[metype]), 'diversity': True}
             
     if np.size(cellsList) > 0:
         netParams.popParams['presyn_'+metype] = {'cellModel': 'VecStim', 'cellsList': cellsList}
         
     # print(metype,np.size(cellsList),cfg.Nmorpho[metype],cfg.cellNumber[metype])
+# print(netParams.popParams.keys())
 
 #------------------------------------------------------------------------------
 # Cell parameters  # L1 70  L23 215  L4 230 L5 260  L6 260  = 1035
@@ -812,7 +794,5 @@ netParams.description = """
 - v7 - insert projections Th->S1
 - v8 - calculate LFPs -> only in branch "LFP"
 - v9 - STP stoch
-- v10 - in vivo like conditions
-- v11 - calculate dipoles -> only in branch "dipole"
-- v12 - calculate dipoles -> only in branch "dipole" - with axon pt3d positions fixed
+- v10 - in vivo like conditions with axon pt3d positions fixed
 """

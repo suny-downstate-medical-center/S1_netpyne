@@ -27,7 +27,7 @@ sim.net.createPops()               			# instantiate network populations
 sim.net.createCells()              			# instantiate network cells based on defined populations
 
 ## Load cells positions
-with open('../data/spkTimes_v9_batch8_highgsynCT.pkl', 'rb') as fileObj: simData = pickle.load(fileObj)
+with open('../data/spkTimes_v100_batch1.pkl', 'rb') as fileObj: simData = pickle.load(fileObj)
 
 cellsTags = simData['cellsTags']
 
@@ -56,34 +56,8 @@ for i,metype in enumerate(sim.net.cells):
         metype.tags['y'] = cellsTags[ii]['y']
         metype.tags['z'] = cellsTags[ii]['z']   
 
-    # if 'L23_PC' in metype.tags['pop']:
-    #     print(sim.rank,i,metype.tags['pop'],ii)
-
-# print(sim.rank,sim.net.cells[0].tags)
-
-
-# try:
-    # sim.setupRecording()              	
-# except:
-#     try:
-#         for cell in sim.net.compartCells:
-#             x=np.array([[p0,p1] for p0,p1 in zip(cell._segCoords['p0'][0], cell._segCoords['p1'][0])])
-#             y=np.array([[p0,p1] for p0,p1 in zip(cell._segCoords['p0'][1], cell._segCoords['p1'][1])])
-#             z=np.array([[p0,p1] for p0,p1 in zip(cell._segCoords['p0'][2], cell._segCoords['p1'][2])])
-#             d=np.array([[d0,d1] for d0,d1 in zip(cell._segCoords['d0'], cell._segCoords['d1'])])
-#             print(sim.rank,cell.gid,cfg.Nmorpho[cell.tags['cellType']],cell.tags['cellType'],np.shape(x), np.shape(y), np.shape(z), np.shape(d))
-#             assert x.ndim == y.ndim == z.ndim == 2,  'x, y and z must be of shape (n_seg x 2)'	
-#     except:
-#         sim.net.createCells()              			# instantiate network cells based on defined populations
-#         sim.setupRecording()              			# setup variables to record for each cell (spikes, V traces, etc)
-
-
-# print(cfg.S1cells)
-# print(cfg.Nmorpho)
-
-
-# sim.net.connectCells()            			# create connections between cells based on params
-# sim.net.addStims() 							# add network stimulation
+sim.net.connectCells()            			# create connections between cells based on params
+sim.net.addStims() 							# add network stimulation
 sim.setupRecording()              			# setup variables to record for each cell (spikes, V traces, etc)
 sim.runSim()                      			# run parallel Neuron simulation  
 sim.gatherData()                  			# gather spiking data and cell info from each node
