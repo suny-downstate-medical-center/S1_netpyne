@@ -95,7 +95,7 @@ for metype in cellsVSName.keys(): # metype
     for cellLabel in cellsVSName[metype]: # all cells in metype
 
         if np.size(spkTimes[metype+'_'+cellLabel.split('_')[-1]]) == 0:
-            spkTimes[metype+'_'+cellLabel.split('_')[-1]] = [150000.5]
+            spkTimes[metype+'_'+cellLabel.split('_')[-1]] = [15000.5]
 
         mtype = cfg.popLabel[metype]    
 
