@@ -223,7 +223,7 @@ cfg.recordStep = 0.5
 # cfg.recordLFP = [[200, 1100, 200], [220, 1100, 200], [200, 1200, 220], [220, 1200, 220]]
 # cfg.saveLFPPops =  cfg.recordCells 
 
-cfg.recordLFP = [[0, y, 0] for y in [500, 1000, 1500, 2000]] # 1 elec in L1 and 3 elec in L5  
+cfg.recordLFP = [[0, y, 0] for y in [1000, 2000]] # 1 elec in L1 and 3 elec in L5  
 
 # cfg.saveDipolePops = cfg.S1cells
 
